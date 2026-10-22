@@ -8,13 +8,13 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_bp_oil_press_screw",
         "LocalizationKey": "herbsfungibpoilpressscrew_CardDescription",
-        "DefaultText": "A wooden screw mechanism for an oil press. Carved from a log in four stages: rough-shaping with axe and knife, chiseling the thread, boring the center with a spoon auger, then fitting the press plate."
+        "DefaultText": "A wooden screw mechanism for an oil press. Carved from a log in four stages: rough-shape with axe and knife, chisel the thread, bore the center with a spoon auger, then fit the press plate."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
         "ParentObjectID": "herbs_fungi_bp_oil_press_screw",
         "LocalizationKey": "herbsfungibpoilpressscrew_UnlockConditionsDesc",
-        "DefaultText": "Unlocked after obtaining a plank"
+        "DefaultText": "Unlocked after obtaining a Wooden Plank"
     },
     "BlueprintUnlockTicksCost": 32.0,
     "BuildingStatConditions": [],

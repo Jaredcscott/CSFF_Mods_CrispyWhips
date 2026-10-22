@@ -55,7 +55,7 @@ internal static class ApothecaryQuestGatePatch
         }
         catch (Exception ex)
         {
-            Plugin.Logger.LogWarning($"[ApothecaryQuestGate] Failed to apply: {ex}");
+            Plugin.Logger.LogWarning($"[ApothecaryQuestGate] Failed to apply: {ex.InnerException?.ToString() ?? ex.ToString()}");
         }
     }
 
@@ -77,7 +77,7 @@ internal static class ApothecaryQuestGatePatch
         }
         catch (Exception ex)
         {
-            Plugin.Logger.LogWarning($"[ApothecaryQuestGate] OnCardSpawned failed: {ex}");
+            Plugin.Logger.LogWarning($"[ApothecaryQuestGate] OnCardSpawned failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
         }
     }
 
@@ -150,7 +150,10 @@ internal static class ApothecaryQuestGatePatch
             // do nothing (this replaces the old cross-save static booleans).
             if (StatAccess.GetCurrentValue(inGameStat) >= value) return;
 
-            StatAccess.SetCurrentValue(inGameStat, value);
+            // SetCurrentValue returns false (no throw, no log) when the live stat exposes neither
+            // CurrentValue nor CurrentBaseValue; say so, or the tea blueprints stay locked silently.
+            if (!StatAccess.SetCurrentValue(inGameStat, value))
+                WarnOnce($"write-failed:{statUid}", $"writing the quest flag '{statUid}' failed; the tea gate will not advance.");
         }
         catch (Exception ex)
         {

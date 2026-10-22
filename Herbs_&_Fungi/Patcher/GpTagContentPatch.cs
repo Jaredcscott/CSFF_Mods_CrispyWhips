@@ -137,18 +137,19 @@ namespace Herbs_And_Fungi.Patcher
                     }
 
                     // Set friendly TabName.DefaultText so the blueprint slot doesn't show "GpTag_..."
-                    if (tabNameField != null)
+                    var tabName = tabNameField?.GetValue(group);
+                    var dtField = tabName?.GetType().GetField("DefaultText", All);
+                    if (dtField != null)
                     {
-                        var tabName = tabNameField.GetValue(group);
-                        if (tabName != null)
-                        {
-                            var dtField = tabName.GetType().GetField("DefaultText", All);
-                            if (dtField != null)
-                            {
-                                dtField.SetValue(tabName, label);
-                                tabNameField.SetValue(group, tabName);
-                            }
-                        }
+                        dtField.SetValue(tabName, label);
+                        tabNameField.SetValue(group, tabName);
+                    }
+                    else
+                    {
+                        string missing = tabNameField == null ? "CardTabGroup.TabName field not found"
+                            : tabName == null ? "TabName is null"
+                            : $"{tabName.GetType().Name}.DefaultText not found";
+                        Logger?.LogWarning($"[GpTag] {name}: {missing}; the blueprint slot will show the raw '{name}' name instead of '{label}'.");
                     }
 
                     populated++;

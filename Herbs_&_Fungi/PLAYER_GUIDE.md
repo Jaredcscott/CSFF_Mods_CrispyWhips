@@ -393,7 +393,7 @@ Brew ground medicinal powder in hot water.
 
 **Needle Ale** - Make a Needle Bundle from the Cooking tab (2 Dry Needles and Twine; it unlocks once you hold Dry Needles), then drag it onto a bowl of FINISHED rye ale. The ale becomes Needle Ale, a resinous spruce-beer style drink that drinks like rye ale and does not freeze or age in a barrel. The bundle shares the Gruit Bundle picture and the ale is the clay bowl in its own colour; it has not been checked in game.
 
-**Forager's Seasoning** - Make it from the Cooking tab (one Ground Black Trumpet, one Ground Shiitake, one Ground King Oyster and one Salt; it unlocks once you hold all three powders). Drag the pouch onto a plateable food such as cooked meat, fish or eggs: the food takes on all three mushrooms' flavours at once, lightly. Each drag uses one of the pouch's 3 pinches, then the empty pouch is gone. It does not spoil.
+**Forager's Seasoning** - Make it from the Cooking tab (one Black Trumpet Powder, one Shiitake Powder, one King Oyster Powder and one Salt; it unlocks once you hold all three powders). Drag the pouch onto a plateable food such as cooked meat, fish or eggs: the food takes on all three mushrooms' flavours at once, lightly. Each drag uses one of the pouch's 3 pinches, then the empty pouch is gone. It does not spoil.
 
 **Fish Sauce** - Make Salted Fish Mash from the Cooking tab (two raw fish, lean or fatty, and one Salt; it unlocks once you hold the raw fish). Drag the mash onto a pot or bowl of water (at least 100): the water becomes Young Fish Sauce, and after about 5 days Fish Sauce. Drag the finished sauce onto a plateable food to season it (each splash uses a little), or drink a mouthful. Placeholder values and art.
 

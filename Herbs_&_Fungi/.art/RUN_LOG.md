@@ -173,3 +173,6 @@
 | 2026-10-12 | YarrowPlantGrowing (owner gallery rework: regenerated toward vanilla, score 75) | nano-banana-2 image2image | 1K | 20 | 3aMnc9qvPp9qi2BFblnq | OK |
 | 2026-10-12 | YarrowPlantMature (owner gallery rework: regenerated toward vanilla, score 78) | nano-banana-2 image2image | 1K | 20 | k1vC3kt9jKSGv7MZRiQC | OK |
 | 2026-10-12 | WildFlowersFresh (owner gallery round 3: regenerate, new content; score 48) | nano-banana-2 image2image | 1K | 20 | MKjDGap30apqhlKz1nrK | OK |
+| 2026-10-21 | HF_PeanutButter (new: Peanut Butter borrowed RoastedPeanuts art) | nano-banana-2 image2image | 1K | 20 | PwVTFTniPCLz5zYeJ1iO | OK |
+| 2026-10-21 | HF_PeanutButter (owner rework: smoother, in a clay bowl; vanilla Bowl_Clay_Water recolour #b9833e, smooth 12) | liquid_bowl.py make_bowl | - | 0 | - | OK |
+| 2026-10-21 | HF_PeanutButter (owner rework: more creamy; bowl recolour #d1a66a, smooth 16, flatten 0.6) | liquid_bowl.py make_bowl | - | 0 | - | OK |

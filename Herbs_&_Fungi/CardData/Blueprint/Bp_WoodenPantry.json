@@ -14,7 +14,7 @@
     "UnlockConditionsDesc": {
         "ParentObjectID": "herbs_fungi_bp_wooden_pantry",
         "LocalizationKey": "Herbs_And_Fungi_Bp_WoodenPantry_UnlockConditionsDesc",
-        "DefaultText": "Plank Needed"
+        "DefaultText": "Unlocked after obtaining a Wooden Plank"
     },
     "BlueprintUnlockTicksCost": 96.0,
     "BuildingStatConditions": [],

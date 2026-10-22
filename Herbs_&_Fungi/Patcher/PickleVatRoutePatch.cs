@@ -188,7 +188,10 @@ namespace Herbs_And_Fungi.Patcher
             }
 
             var future = CardUtil.FindField(vat.GetType(), "FutureLiquidContained");
-            future?.SetValue(vat, brineData);
+            if (future == null)
+                WarnOnce("no-future-liquid", $"{vat.GetType().Name}.FutureLiquidContained not found (a game update may have renamed it); the brine swap may not persist across the next vat tick.");
+            else
+                future.SetValue(vat, brineData);
 
             RefreshCardVisuals(liquidCard);
             RefreshCardVisuals(vat);
@@ -200,13 +203,24 @@ namespace Herbs_And_Fungi.Patcher
             try
             {
                 var visualsField = CardUtil.FindField(card.GetType(), "CardVisuals");
-                var visuals = visualsField?.GetValue(card);
+                if (visualsField == null)
+                {
+                    WarnOnce("no-card-visuals", $"{card.GetType().Name}.CardVisuals not found (a game update may have renamed it); the vat will show its old liquid until it is redrawn.");
+                    return;
+                }
+                // Null for a card that is not on screen: nothing to redraw, so this stays silent.
+                var visuals = visualsField.GetValue(card);
                 if (visuals == null) return;
 
                 var setup = visuals.GetType().GetMethods(All)
                     .FirstOrDefault(m => m.Name == "Setup" && m.GetParameters().Length == 1
                         && m.GetParameters()[0].ParameterType.IsInstanceOfType(card));
-                setup?.Invoke(visuals, new[] { card });
+                if (setup == null)
+                {
+                    WarnOnce("no-visuals-setup", $"{visuals.GetType().Name}.Setup({card.GetType().Name}) not found (a game update may have changed it); the vat will show its old liquid until it is redrawn.");
+                    return;
+                }
+                setup.Invoke(visuals, new[] { card });
             }
             catch (Exception ex) { Logger?.LogError($"[MakeBrine] RefreshCardVisuals: {ex.InnerException?.ToString() ?? ex.ToString()}"); }
         }

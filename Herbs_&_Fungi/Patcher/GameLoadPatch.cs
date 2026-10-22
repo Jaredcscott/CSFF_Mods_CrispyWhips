@@ -219,11 +219,13 @@ namespace Herbs_And_Fungi.Patcher
 
         /// <summary>
         /// Appends one drop (Quantity 1-1, year-round) to the first collection of a ProducedCards list.
-        /// Used only for the fresh "Dig for Truffles" collection.
+        /// Used only for the fresh "Dig for Truffles" collection. Returns false (after one Warn per
+        /// cause) when the drop could not be built, so the caller does not append an action that
+        /// digs up nothing.
         /// </summary>
-        static void AddDropToFirstCollection(IList producedCards, object card, float dropChance)
+        static bool AddDropToFirstCollection(IList producedCards, object card, float dropChance)
         {
-            if (card == null || producedCards == null || producedCards.Count == 0) return;
+            if (card == null || producedCards == null || producedCards.Count == 0) return false;
 
             try
             {
@@ -231,36 +233,55 @@ namespace Herbs_And_Fungi.Patcher
                 var dropsField = CachedField(collection.GetType(), "DroppedCards");
                 if (!(dropsField?.GetValue(collection) is Array dropsArray))
                 {
-                    Logger?.LogWarning("[Truffle] CardsDropCollection.DroppedCards is missing or not an array; no truffle drop added.");
-                    return;
+                    WarnTruffleOnce("no-droppedcards", "CardsDropCollection.DroppedCards is missing or not an array; no truffle drop added.");
+                    return false;
                 }
 
                 var dropType = dropsArray.GetType().GetElementType();
                 var dropChanceField = CachedField(dropType, "DropChance");
                 if (dropChanceField == null)
                 {
-                    Logger?.LogWarning("[Truffle] CardDrop.DropChance is missing; no truffle drop added (an unset chance drops every time).");
-                    return;
+                    WarnTruffleOnce("no-dropchance", "CardDrop.DropChance is missing; no truffle drop added (an unset chance drops every time).");
+                    return false;
+                }
+
+                // Resolve every field the drop needs BEFORE building it: a renamed one would
+                // otherwise leave a null-card drop or an unset chance on every location.
+                var droppedCardField = CachedField(dropType, "DroppedCard");
+                var quantityField = CachedField(dropType, "Quantity");
+                var activeField = CachedField(dropChanceField.FieldType, "Active");
+                var baseChanceField = CachedField(dropChanceField.FieldType, "BaseDropChance");
+                if (droppedCardField == null || quantityField == null || activeField == null || baseChanceField == null)
+                {
+                    var missing = new List<string>();
+                    if (droppedCardField == null) missing.Add("CardDrop.DroppedCard");
+                    if (quantityField == null) missing.Add("CardDrop.Quantity");
+                    if (activeField == null) missing.Add($"{dropChanceField.FieldType.Name}.Active");
+                    if (baseChanceField == null) missing.Add($"{dropChanceField.FieldType.Name}.BaseDropChance");
+                    WarnTruffleOnce("carddrop-fields", $"{string.Join(", ", missing)} not found; no truffle drop added and Dig for Truffles skipped (a game update may have renamed it).");
+                    return false;
                 }
 
                 var newDrop = Activator.CreateInstance(dropType);
-                CachedField(dropType, "DroppedCard")?.SetValue(newDrop, card);
+                droppedCardField.SetValue(newDrop, card);
                 // Set Quantity to {1, 1} so the item actually drops
-                CachedField(dropType, "Quantity")?.SetValue(newDrop, new UnityEngine.Vector2Int(1, 1));
+                quantityField.SetValue(newDrop, new UnityEngine.Vector2Int(1, 1));
 
                 var dropChanceObj = Activator.CreateInstance(dropChanceField.FieldType);
-                CachedField(dropChanceObj.GetType(), "Active")?.SetValue(dropChanceObj, true);
-                CachedField(dropChanceObj.GetType(), "BaseDropChance")?.SetValue(dropChanceObj, dropChance);
+                activeField.SetValue(dropChanceObj, true);
+                baseChanceField.SetValue(dropChanceObj, dropChance);
                 dropChanceField.SetValue(newDrop, dropChanceObj);
 
                 var newDropsArray = Array.CreateInstance(dropType, dropsArray.Length + 1);
                 Array.Copy(dropsArray, newDropsArray, dropsArray.Length);
                 newDropsArray.SetValue(newDrop, dropsArray.Length);
                 dropsField.SetValue(collection, newDropsArray);
+                return true;
             }
             catch (Exception ex)
             {
                 Logger?.LogError($"[Truffle] Error adding truffle drop: {ex}");
+                return false;
             }
         }
 
@@ -454,20 +475,29 @@ namespace Herbs_And_Fungi.Patcher
                 }
 
                 // Replace ActionName with a fresh LocalizedString so we don't mutate the template.
+                // Every write is checked: a renamed member would leave the clone named "Forage",
+                // which also defeats the "already added?" DefaultText check above.
                 var templateNameObj = GetMember(template, "ActionName");
-                if (templateNameObj != null)
+                if (templateNameObj == null)
                 {
-                    var nameType = templateNameObj.GetType();
-                    var newName = Activator.CreateInstance(nameType);
-                    SetMember(newName, "ParentObjectID", "");
-                    SetMember(newName, "LocalizationKey", "Herbs_And_Fungi_Action_DigForTruffles");
-                    SetMember(newName, "DefaultText", "Dig for Truffles");
-                    SetMember(newAction, "ActionName", newName);
+                    WarnTruffleOnce("no-actionname", "the Forage action has no ActionName; Dig for Truffles skipped (a game update may have renamed it).");
+                    return false;
+                }
+                var nameType = templateNameObj.GetType();
+                var newName = Activator.CreateInstance(nameType);
+                bool nameOk = SetMember(newName, "ParentObjectID", "")
+                    & SetMember(newName, "LocalizationKey", "Herbs_And_Fungi_Action_DigForTruffles")
+                    & SetMember(newName, "DefaultText", "Dig for Truffles");
+                if (!nameOk || !SetMember(newAction, "ActionName", newName))
+                {
+                    WarnTruffleOnce("actionname-members", $"could not write the Dig for Truffles name onto {nameType.Name} / {actionType.Name}.ActionName; Dig for Truffles skipped (a game update may have renamed a member).");
+                    return false;
                 }
 
                 // Digging is harder than foraging; give it a longer daytime cost.
                 var daytimeCostField = CachedField(actionType, "DaytimeCost");
-                daytimeCostField?.SetValue(newAction, 3);
+                if (daytimeCostField != null) daytimeCostField.SetValue(newAction, 3);
+                else WarnTruffleOnce("no-daytimecost", $"{actionType.Name}.DaytimeCost not found; Dig for Truffles keeps the Forage action's time cost.");
 
                 // Build a fresh ProducedCards collection by cloning the template's first entry
                 // (inherits CollectionUses, modifiers, messages, etc.) and emptying DroppedCards.
@@ -500,16 +530,21 @@ namespace Herbs_And_Fungi.Patcher
                 }
 
                 // Rename and reset drops so only truffle appears.
-                CachedField(collectionType, "CollectionName")?.SetValue(freshCollection, "Truffle");
+                var collectionNameField = CachedField(collectionType, "CollectionName");
+                if (collectionNameField != null) collectionNameField.SetValue(freshCollection, "Truffle");
+                else WarnTruffleOnce("no-collectionname", $"{collectionType.Name}.CollectionName not found; the truffle collection keeps the Forage collection's name.");
                 var droppedCardsField = CachedField(collectionType, "DroppedCards");
-                if (droppedCardsField != null)
+                if (droppedCardsField == null)
                 {
-                    var dcType = droppedCardsField.FieldType;
-                    if (dcType.IsArray)
-                        droppedCardsField.SetValue(freshCollection, Array.CreateInstance(dcType.GetElementType(), 0));
-                    else
-                        droppedCardsField.SetValue(freshCollection, Activator.CreateInstance(dcType));
+                    // Without a reset the clone would keep every Forage drop alongside the truffle.
+                    WarnTruffleOnce("no-collection-droppedcards", $"{collectionType.Name}.DroppedCards not found; Dig for Truffles skipped (a game update may have renamed it).");
+                    return false;
                 }
+                var dcType = droppedCardsField.FieldType;
+                if (dcType.IsArray)
+                    droppedCardsField.SetValue(freshCollection, Array.CreateInstance(dcType.GetElementType(), 0));
+                else
+                    droppedCardsField.SetValue(freshCollection, Activator.CreateInstance(dcType));
 
                 var producedCardsType = producedCardsField.FieldType;
                 object freshProducedCards;
@@ -529,7 +564,7 @@ namespace Herbs_And_Fungi.Patcher
                 producedCardsField.SetValue(newAction, freshProducedCards);
 
                 // Now add the truffle drop (25% chance — player chose to dig here)
-                AddDropToFirstCollection(freshProducedCards as IList, truffle, 25.0f);
+                if (!AddDropToFirstCollection(freshProducedCards as IList, truffle, 25.0f)) return false;
 
                 // Append newAction to DismantleActions (handle both Array and List<T>)
                 if (dismantleActionsField.FieldType.IsArray)
@@ -672,7 +707,7 @@ namespace Herbs_And_Fungi.Patcher
 
         private static object GetMember(object target, string name) => Reflect.GetMember(target, name);
 
-        private static void SetMember(object target, string name, object value) => Reflect.SetMember(target, name, value);
+        private static bool SetMember(object target, string name, object value) => Reflect.SetMember(target, name, value);
 
         // Cached (Type, fieldName) -> FieldInfo lookups for the load-time per-item loops below
         // (AddDigForTrufflesActions, ApplyForageDropDensityScale, AddFermentableTagToVanillaRoots,
@@ -765,13 +800,18 @@ namespace Herbs_And_Fungi.Patcher
                 }
                 if (tagFilterType == null) { Logger?.LogError("[PouchPatch] Cannot resolve TagFilter element type."); return; }
 
+                // Resolve TagFilter.Tag once: a renamed field would otherwise append tagless entries
+                // (a null CardTag in vanilla data) while still logging the patch as applied.
+                var tagField = tagFilterType.GetField("Tag", Flags);
+                if (tagField == null) { Logger?.LogError($"[PouchPatch] {tagFilterType.Name}.Tag field not found; powder filter not added."); return; }
+
                 // Build the new TagFilter entries for tag_Powder and (optionally) tag_PowderLiquid
                 var newFilters = new List<object>();
                 foreach (var tag in new[] { tagPowder, tagPowderLiquid })
                 {
                     if (tag == null) continue;
                     var tf = Activator.CreateInstance(tagFilterType);
-                    tagFilterType.GetField("Tag", Flags)?.SetValue(tf, tag);
+                    tagField.SetValue(tf, tag);
                     // NOT = false, OnlyWithLiquid = false  (value-type defaults are already correct)
                     newFilters.Add(tf);
                 }

@@ -1,0 +1,22 @@
+{
+ "target": "HF_PeanutButter.png",
+ "sourceCards": [
+  "PeanutButter"
+ ],
+ "kind": "bowl_item",
+ "method": "Development_Tools/CardArt/liquid_bowl.py make_bowl(Bowl_Clay_Water, '#d1a66a', smooth=16, flatten=0.6), shifted onto the shipped H&F bowl-item box (41, 346, 471, 630); no generation, no credits",
+ "colour": "#d1a66a",
+ "smooth": 16,
+ "flatten": 0.6,
+ "generated": "2026-10-21",
+ "review": "owner 2026-10-21: 'Needs to be smoother also place into a clay bowl following the vanilla style' (generated heap), then 'the peanut butter should be more creamy' (bowl #b9833e smooth 12); this paler, evened bowl awaits owner gallery review",
+ "superseded": {
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "historyId": "PwVTFTniPCLz5zYeJ1iO",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792591909269_2211138b_1792591909335_d86c70dd.png",
+  "credits": 20,
+  "generated": "2026-10-21",
+  "subject": "a lumpy heap of peanut butter paste drawn bare (rejected: not smooth, not in a bowl)"
+ }
+}

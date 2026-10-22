@@ -14,7 +14,7 @@
     "UnlockConditionsDesc": {
         "ParentObjectID": "herbs_fungi_bp_forager_seasoning",
         "LocalizationKey": "Herbs_And_Fungi_Bp_ForagerSeasoning_UnlockConditionsDesc",
-        "DefaultText": "Unlocked after obtaining Ground Black Trumpet, Ground Shiitake and Ground King Oyster"
+        "DefaultText": "Unlocked after obtaining Black Trumpet Powder, Shiitake Powder and King Oyster Powder"
     },
     "BlueprintUnlockTicksCost": 8.0,
     "BuildingStatConditions": [],

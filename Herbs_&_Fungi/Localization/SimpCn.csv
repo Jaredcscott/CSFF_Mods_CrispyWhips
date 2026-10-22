@@ -611,7 +611,7 @@ herbsfungioilpresslegs_CardName,Oil Press Legs,油压机腿
 herbsfungioilpresslegs_CardDescription,Sturdy wooden legs for an oil press. Part of a larger assembly.,油压机的坚固木腿。是较大装配的一部分。
 herbsfungibpoilpresslegs_CardName,Oil Press Legs,油压机腿
 herbsfungibpoilpresslegs_CardDescription,"Sturdy wooden legs for an oil press. Requires 4 planks, a spoon auger, and a sharp knife.",油压机的坚固木腿。需要4块木板。
-herbsfungibpoilpresslegs_UnlockConditionsDesc,Unlocked after obtaining a plank,获得木板后解锁
+herbsfungibpoilpresslegs_UnlockConditionsDesc,Unlocked after obtaining a Wooden Plank,获得木板后解锁
 herbsfungioilpressframe_CardName,Oil Press Frame,油压机框架
 herbsfungioilpressframe_CardDescription,A wooden frame that holds the press mechanism. Part of a larger assembly.,固定压制机构的木框架。是较大装配的一部分。
 herbsfungibpoilpressframe_CardName,Oil Press Frame,油压机框架
@@ -621,12 +621,12 @@ herbsfungipressbedframe_CardName,Press Bed Frame,压床框架
 herbsfungipressbedframe_CardDescription,A flat stone-reinforced bed frame for the oil press. Part of a larger assembly.,油压机的平石加固床架。是较大装配的一部分。
 herbsfungibppressbedframe_CardName,Press Bed Frame,压床框架
 herbsfungibppressbedframe_CardDescription,"A stone-reinforced press bed for an oil press. Requires 2 planks, 1 stone, a sharp knife, and a chisel.",油压机的石头加固压床。需要2块木板和1块石头。
-herbsfungibppressbedframe_UnlockConditionsDesc,Unlocked after obtaining a plank,获得木板后解锁
+herbsfungibppressbedframe_UnlockConditionsDesc,Unlocked after obtaining a Wooden Plank,获得木板后解锁
 herbsfungioilpressscrew_CardName,Pressing Screw,压紧螺杆
 herbsfungioilpressscrew_CardDescription,A wooden screw mechanism for applying pressure in an oil press. Part of a larger assembly.,用于在油压机中施加压力的木质螺杆机构。是较大装配的一部分。
 herbsfungibpoilpressscrew_CardName,Pressing Screw,压紧螺杆
 herbsfungibpoilpressscrew_CardDescription,"A wooden screw mechanism for an oil press. Carved from a log in four stages: rough-shape with axe and knife, chisel the thread, bore the center with a spoon auger, then fit the press plate.",油压机的木质螺杆机构。从原木上分四个阶段雕刻而成：用斧和刀粗略成形，用凿子凿出螺纹，用勺钻钻出中心孔，最后装上压板。
-herbsfungibpoilpressscrew_UnlockConditionsDesc,Unlocked after obtaining a plank,获得木板后解锁
+herbsfungibpoilpressscrew_UnlockConditionsDesc,Unlocked after obtaining a Wooden Plank,获得木板后解锁
 herbsfungioilpressbag_CardName,Pressing Bag,压榨袋
 herbsfungioilpressbag_CardDescription,A woven rope bag for holding seeds or herbs during oil pressing. Combine with a press plate to make a prepared press bag.,用于在榨油过程中盛放种子或草本的编织绳袋。与压板组合制作已备压榨袋。
 herbsfungibpoilpressbag_CardName,Pressing Bag,压榨袋
@@ -636,7 +636,7 @@ herbsfungioilpressbagplate_CardName,Press Plate,压板
 herbsfungioilpressbagplate_CardDescription,A flat wooden plate that distributes pressure evenly across the pressing bag in an oil press.,在油压机中均匀分配压力的平木板。
 herbsfungibpoilpressbagplate_CardName,Press Plate,压板
 herbsfungibpoilpressbagplate_CardDescription,A flat wooden pressing plate for even pressure distribution. Requires 1 plank and a sharp axe.,均匀分配压力的平木压板。需要2块木板。
-herbsfungibpoilpressbagplate_UnlockConditionsDesc,Unlocked after obtaining a plank,获得木板后解锁
+herbsfungibpoilpressbagplate_UnlockConditionsDesc,Unlocked after obtaining a Wooden Plank,获得木板后解锁
 herbsfungioilpressbagprepared_CardName,Prepared Press Bag,已备压榨袋
 herbsfungioilpressbagprepared_CardDescription,A pressing bag assembled with its pressure plate. Place it in the oil press and load it with seeds to extract oil.,装有压板的压榨袋组件。将其放入油压机并加入种子以提取油脂。
 herbsfungibpoilpressbagprepared_CardName,Prepared Press Bag,已备压榨袋
@@ -695,7 +695,7 @@ Herbs_And_Fungi_WoodenPantryPlaced_DismantleActions_PickUp_ActionDescription,Pic
 Herbs_And_Fungi_WoodenPantryPlaced_DismantleActions_PickUp_FailMessage,Empty the pantry before picking it up.,请先清空储藏柜再拾起。
 Herbs_And_Fungi_Bp_WoodenPantry_CardName,Wooden Pantry,木制储藏柜
 Herbs_And_Fungi_Bp_WoodenPantry_CardDescription,"A simple plank pantry with woven shelves. Slows food spoilage, but animals can raid it. Requires 6 planks, 3 rope, and a hammer.",一个用木板搭建的简易储藏柜，带有编织搭架。能减缓食物腐败，但会被动物闯入。需要6块木板、3根绳子和一把锤子。
-Herbs_And_Fungi_Bp_WoodenPantry_UnlockConditionsDesc,Plank Needed,需要木板
+Herbs_And_Fungi_Bp_WoodenPantry_UnlockConditionsDesc,Unlocked after obtaining a Wooden Plank,获得木板后解锁
 Herbs_And_Fungi_Bp_SleepTea_CardName,Sleep Tea,安眠茶
 Herbs_And_Fungi_Bp_SleepTea_CardDescription,Grind 2 reishi into a clay bowl to brew a soothing tea. Reduces stress.,将2个灵芝研磨入陶碗以酿制舒缓的茶。减少压力。
 Herbs_And_Fungi_Bp_SleepTea_UnlockConditionsDesc,Unlocked after obtaining Ground Reishi,获得磨碎的灵芝后解锁
@@ -811,16 +811,16 @@ Herbs_And_Fungi_WoodenPantry_Placed_CardHelpSection,"<b>Spoilage:</b> Slows to 7
 <b>Animal-safe:</b> No. Passing wildlife (foxes, hares, badgers, and larger beasts) can raid this pantry.",<b>腐败：</b>减缓至正常速率的75%。
 Herbs_And_Fungi_Bp_PickleVegetables_CardName,Pickle Vegetables,腌制蔬菜
 Herbs_And_Fungi_Bp_PickleVegetables_CardDescription,Pack 5 raw vegetables and a clay bowl into a brine-filled vat to begin pickling. Consumes 500 units of brine and seals the vat into 'Pickle Vegetables' (closed). Then add water to seal and wait ~7 days.,将5个生蔬菜和一个陶碗放入装有卤水的缸中开始腌制。消耗500单位卤水并将缸密封成『腌制蔬菜（已盖盖）』。然后加水密封并等待约7天。
-Herbs_And_Fungi_Bp_PickleVegetables_UnlockConditionsDesc,Closed Pickle Vat Needed,需要已盖盖腌菜缸
+Herbs_And_Fungi_Bp_PickleVegetables_UnlockConditionsDesc,Pickle Vat Needed,需要腌菜缸
 Herbs_And_Fungi_Bp_PickleMushrooms_CardName,Pickle Mushrooms,腌制蘑菇
 Herbs_And_Fungi_Bp_PickleMushrooms_CardDescription,Pack 5 raw mushrooms and a clay bowl into a brine-filled vat to begin pickling. Consumes 500 units of brine and seals the vat into 'Pickle Mushrooms' (closed). Then add water to seal and wait ~7 days.,将5个生蘑菇和一个陶碗放入装有卤水的缸中开始腌制。消耗500单位卤水并将缸密封成『腌制蘑菇（已盖盖）』。然后加水密封并等待约7天。
-Herbs_And_Fungi_Bp_PickleMushrooms_UnlockConditionsDesc,Closed Pickle Vat Needed,需要已盖盖腌菜缸
+Herbs_And_Fungi_Bp_PickleMushrooms_UnlockConditionsDesc,Pickle Vat Needed,需要腌菜缸
 Herbs_And_Fungi_Bp_PickleMeat_CardName,Pickle Meat,腌制肉类
 Herbs_And_Fungi_Bp_PickleMeat_CardDescription,Pack 5 raw meat and a clay bowl into a brine-filled vat to begin pickling. Consumes 500 units of brine and seals the vat into 'Pickle Meat' (closed). Then add water to seal and wait ~7 days.,将5块生肉和一个陶碗放入装有卤水的缸中开始腌制。消耗500单位卤水并将缸密封成『腌制肉类（已盖盖）』。然后加水密封并等待约7天。
-Herbs_And_Fungi_Bp_PickleMeat_UnlockConditionsDesc,Closed Pickle Vat Needed,需要已盖盖腌菜缸
+Herbs_And_Fungi_Bp_PickleMeat_UnlockConditionsDesc,Pickle Vat Needed,需要腌菜缸
 Herbs_And_Fungi_Bp_PickleFrogs_CardName,Pickle Frogs,腌制青蛙
 Herbs_And_Fungi_Bp_PickleFrogs_CardDescription,Pack 5 raw frogs and a clay bowl into a brine-filled vat to begin pickling. Consumes 500 units of brine and seals the vat into 'Pickle Frogs' (closed). Then add water to seal and wait ~7 days.,将5只生青蛙和一个陶碗放入装有卤水的缸中开始腌制。消耗500单位卤水并将缸密封成『腌制青蛙（已盖盖）』。然后加水密封并等待约7天。
-Herbs_And_Fungi_Bp_PickleFrogs_UnlockConditionsDesc,Closed Pickle Vat Needed,需要已盖盖腌菜缸
+Herbs_And_Fungi_Bp_PickleFrogs_UnlockConditionsDesc,Pickle Vat Needed,需要腌菜缸
 Herbs_And_Fungi_PickleVatClosedFrogs_CardName,Pickled Frogs (Closed),腌制青蛙（已盖盖）
 Herbs_And_Fungi_PickleVatClosedFrogs_CardDescription,"A pickle vat capped with a clay bowl, packed with frogs for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle.",一个用陶碗盖住、装满青蛙进行发酵的腌菜缸。将水倒在盖子上以水封并开始7天周期。
 Herbs_And_Fungi_PickleVatClosedFrogs_SpecialDurability2_CardStatName,Quality,质量
@@ -952,7 +952,7 @@ Herbs_And_Fungi_MushroomLogShiitakeMature_CardHelpSection,"<b>Harvest:</b> Pick 
 Herbs_And_Fungi_MushroomLogShiitakeMature_Harvest_ActionName,Harvest,采收
 Herbs_And_Fungi_MushroomLogShiitakeMature_Harvest_ActionDescription,"Pick 8 fresh shiitake mushrooms, maybe lift a spore print, and break down the spent log.",采摘8个新鲜香菇，有机会取下1份孢子印，并拆解耗尽的木头。
 Herbs_And_Fungi_Bp_MushroomLogShiitake_CardName,Inoculate Shiitake Log,接种香菇木
-Herbs_And_Fungi_Bp_MushroomLogShiitake_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 shiitake mushrooms and wood shavings.,",用挖孔钻在香草木上钻出接种孔，然后填入10个香菇和木屑。
+Herbs_And_Fungi_Bp_MushroomLogShiitake_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 shiitake mushrooms and wood shavings.",用挖孔钻在香草木上钻出接种孔，然后填入10个香菇和木屑。
 Herbs_And_Fungi_Bp_MushroomLogShiitake_UnlockConditionsDesc,Unlocked after obtaining a shiitake mushroom,获得香菇后解锁
 Herbs_And_Fungi_MushroomLogLionsManeGrowing_CardName,Growing Fungal Log,生长中的菌菇木
 Herbs_And_Fungi_MushroomLogLionsManeGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.,一根刚接种的菌菇木。在室内或遮蔽处保存，让菌丝穿透枯木生长。
@@ -971,7 +971,7 @@ Herbs_And_Fungi_MushroomLogLionsManeMature_CardHelpSection,"<b>Harvest:</b> Pick
 Herbs_And_Fungi_MushroomLogLionsManeMature_Harvest_ActionName,Harvest,采收
 Herbs_And_Fungi_MushroomLogLionsManeMature_Harvest_ActionDescription,"Pick 8 fresh lion's mane mushrooms, maybe lift a spore print, and break down the spent log.",采摘8个新鲜狮鬃菇，有机会取下1份孢子印，并拆解耗尽的木头。
 Herbs_And_Fungi_Bp_MushroomLogLionsMane_CardName,Inoculate Lion's Mane Log,接种狮鬃菇木
-Herbs_And_Fungi_Bp_MushroomLogLionsMane_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 lion's mane mushrooms and wood shavings.,",用挖孔钻在香草木上钻出接种孔，然后填入10个狮鬃菇和木屑。
+Herbs_And_Fungi_Bp_MushroomLogLionsMane_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 lion's mane mushrooms and wood shavings.",用挖孔钻在香草木上钻出接种孔，然后填入10个狮鬃菇和木屑。
 Herbs_And_Fungi_Bp_MushroomLogLionsMane_UnlockConditionsDesc,Unlocked after obtaining a lion's mane mushroom,获得狮鬃菇后解锁
 Herbs_And_Fungi_MushroomLogReishiGrowing_CardName,Growing Fungal Log,生长中的菌菇木
 Herbs_And_Fungi_MushroomLogReishiGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.,一根刚接种的菌菇木。在室内或遮蔽处保存，让菌丝穿透枯木生长。
@@ -990,7 +990,7 @@ Herbs_And_Fungi_MushroomLogReishiMature_CardHelpSection,"<b>Harvest:</b> Pick th
 Herbs_And_Fungi_MushroomLogReishiMature_Harvest_ActionName,Harvest,采收
 Herbs_And_Fungi_MushroomLogReishiMature_Harvest_ActionDescription,"Pick 8 fresh reishi mushrooms, maybe lift a spore print, and break down the spent log.",采摘8个新鲜灵芝，有机会取下1份孢子印，并拆解耗尽的木头。
 Herbs_And_Fungi_Bp_MushroomLogReishi_CardName,Inoculate Reishi Log,接种灵芝木
-Herbs_And_Fungi_Bp_MushroomLogReishi_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 reishi mushrooms and wood shavings.,",用挖孔钻在香草木上钻出接种孔，然后填入10个灵芝和木屑。
+Herbs_And_Fungi_Bp_MushroomLogReishi_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 reishi mushrooms and wood shavings.",用挖孔钻在香草木上钻出接种孔，然后填入10个灵芝和木屑。
 Herbs_And_Fungi_Bp_MushroomLogReishi_UnlockConditionsDesc,Unlocked after obtaining a reishi mushroom,获得灵芝后解锁
 Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_CardName,Growing Fungal Log,生长中的菌菇木
 Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.,一根刚接种的菌菇木。在室内或遮蔽处保存，让菌丝穿透枯木生长。
@@ -1009,7 +1009,7 @@ Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_CardHelpSection,"<b>Harvest:</b>
 Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_Harvest_ActionName,Harvest,采收
 Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_Harvest_ActionDescription,"Pick 8 fresh chicken of the woods mushrooms, maybe lift a spore print, and break down the spent log.",采摘8个新鲜木鸡菌，有机会取下1份孢子印，并拆解耗尽的木头。
 Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_CardName,Inoculate Chicken Log,接种木鸡菌木
-Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 chicken of the woods mushrooms and wood shavings.,",用挖孔钻在香草木上钻出接种孔，然后填入10个木鸡菌和木屑。
+Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 chicken of the woods mushrooms and wood shavings.",用挖孔钻在香草木上钻出接种孔，然后填入10个木鸡菌和木屑。
 Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_UnlockConditionsDesc,Unlocked after obtaining chicken of the woods,获得木鸡菌后解锁
 Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardName,Growing Fungal Log,生长中的菌菇木
 Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.,一根刚接种的菌菇木。在室内或遮蔽处保存，让菌丝穿透枯木生长。
@@ -1028,7 +1028,7 @@ Herbs_And_Fungi_MushroomLogGoldenOysterMature_CardHelpSection,"<b>Harvest:</b> P
 Herbs_And_Fungi_MushroomLogGoldenOysterMature_Harvest_ActionName,Harvest,采收
 Herbs_And_Fungi_MushroomLogGoldenOysterMature_Harvest_ActionDescription,"Pick 8 fresh golden oyster mushrooms, maybe lift a spore print, and break down the spent log.",采摘8个新鲜金顶侧耳，有机会取下1份孢子印，并拆解耗尽的木头。
 Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_CardName,Inoculate Golden Oyster Log,接种金顶侧耳木
-Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 golden oyster mushrooms and wood shavings.,",用挖孔钻在香草木上钻出接种孔，然后填入10个金顶侧耳和木屑。
+Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 golden oyster mushrooms and wood shavings.",用挖孔钻在香草木上钻出接种孔，然后填入10个金顶侧耳和木屑。
 Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_UnlockConditionsDesc,Unlocked after obtaining a golden oyster mushroom,获得金顶侧耳后解锁
 Herbs_And_Fungi_MushroomLogKingOysterGrowing_CardName,Growing Fungal Log,生长中的菌菇木
 Herbs_And_Fungi_MushroomLogKingOysterGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.,一根刚接种的菌菇木。在室内或遮蔽处保存，让菌丝穿透枯木生长。
@@ -1047,7 +1047,7 @@ Herbs_And_Fungi_MushroomLogKingOysterMature_CardHelpSection,"<b>Harvest:</b> Pic
 Herbs_And_Fungi_MushroomLogKingOysterMature_Harvest_ActionName,Harvest,采收
 Herbs_And_Fungi_MushroomLogKingOysterMature_Harvest_ActionDescription,"Pick 8 fresh king oyster mushrooms, maybe lift a spore print, and break down the spent log.",采摘8个新鲜杏鲍菇，有机会取下1份孢子印，并拆解耗尽的木头。
 Herbs_And_Fungi_Bp_MushroomLogKingOyster_CardName,Inoculate King Oyster Log,接种杏鲍菇木
-Herbs_And_Fungi_Bp_MushroomLogKingOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 king oyster mushrooms and wood shavings.,",用挖孔钻在香草木上钻出接种孔，然后填入10个杏鲍菇和木屑。
+Herbs_And_Fungi_Bp_MushroomLogKingOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 king oyster mushrooms and wood shavings.",用挖孔钻在香草木上钻出接种孔，然后填入10个杏鲍菇和木屑。
 Herbs_And_Fungi_Bp_MushroomLogKingOyster_UnlockConditionsDesc,Unlocked after obtaining a king oyster mushroom,获得杏鲍菇后解锁
 Herbs_And_Fungi_Bp_DryingStack_CardName,Drying Stack,晾干架
 Herbs_And_Fungi_Bp_DryingStack_CardDescription,A vertical wooden rack for storing multiple drying trays. Requires 4 planks and a hammer.,一个用于存放多个晾干托盘的竖向木架。需要4块木板和一把锤子。
@@ -2120,7 +2120,7 @@ Herbs_And_Fungi_GruitBundle_Steep_ActionName,Steep in Ale,浸入麦酒
 Herbs_And_Fungi_GruitBundle_Steep_ActionDescription,Steep the herbs in finished rye ale to make gruit ale.,把草药浸入发酵完成的黑麦酒，做成草药麦酒。
 Herbs_And_Fungi_Bp_GruitBundle_CardName,Gruit Bundle,草药酿酒束
 Herbs_And_Fungi_Bp_GruitBundle_CardDescription,"Tie dried bog myrtle, heather flowers and yarrow together with twine into a bundle of brewing herbs, to steep in finished rye ale in place of hops.",用麻线把干沼泽杨梅、石楠花和蓍草扎成一束酿酒草药，浸入发酵完成的黑麦酒，代替啤酒花。
-Herbs_And_Fungi_Bp_GruitBundle_UnlockConditionsDesc,Unlocked after obtaining Dried Bog Myrtle and Dried Yarrow,获得干沼泽杨梅和干蓍草后解锁
+Herbs_And_Fungi_Bp_GruitBundle_UnlockConditionsDesc,Unlocked after obtaining Dry Bog Myrtle Leaves and Dried Yarrow,获得干沼泽香木叶和干蓍草后解锁
 Herbs_And_Fungi_Spice_Gruit_SpiceName,Gruit Herbs,酿酒草药
 Herbs_And_Fungi_HempPulp_CardName,Hemp Pulp,大麻纸浆
 Herbs_And_Fungi_HempPulp_CardDescription,Chopped hemp stalks left to soak and soften. Give it a day and it can be pressed into paper.,切碎的大麻茎，需浸泡软化。放置一天后即可压制成纸。
@@ -2302,9 +2302,9 @@ Herbs_And_Fungi_Bp_BotanicalFieldGuide_UnlockConditionsDesc,Unlocked after obtai
 Herbs_And_Fungi_Spice_ForagerSeasoning_SpiceName,Forager's Seasoning,采集者调料
 Herbs_And_Fungi_ForagerSeasoning_CardName,Forager's Seasoning,采集者调料
 Herbs_And_Fungi_ForagerSeasoning_CardDescription,"Three ground mushrooms and salt, blended into a pouch of savoury seasoning. Drag it onto a plateable food to season it; each pouch seasons three plates.",三种磨粉的蘑菇加盐调成的一小袋鲜味调料。拖到可装盘的食物上即可调味，每袋可调三盘。
-Herbs_And_Fungi_ForagerSeasoning_CardHelpSection,"<b>Made from:</b> One Ground Black Trumpet, one Ground Shiitake, one Ground King Oyster and one Salt, from the Cooking tab.
+Herbs_And_Fungi_ForagerSeasoning_CardHelpSection,"<b>Made from:</b> One Black Trumpet Powder, one Shiitake Powder, one King Oyster Powder and one Salt, from the Cooking tab.
 
-<b>Uses:</b> Drag it onto a plateable food (cooked meat, fish, eggs and the like) to season it with all three mushrooms' flavours at once. Each drag uses up one of its three pinches.","<b>制作：</b>烹饪页的图纸，需要一份黑喇叭蘑粉、一份香菇粉、一份杨树菇粉和一份盐。
+<b>Uses:</b> Drag it onto a plateable food (cooked meat, fish, eggs and the like) to season it with all three mushrooms' flavours at once. Each drag uses up one of its three pinches.","<b>制作：</b>烹饪页的图纸，需要一份黑喇叭菇粉、一份香菇粉、一份杏鲍菇粉和一份盐。
 
 <b>用途：</b>拖到可装盘的食物（熏肉、熏鱼、蛋等）上，一次性赋予三种蘑菇的风味。每次拖动用掉三撇中的一撇。"
 Herbs_And_Fungi_ForagerSeasoning_UsageDurability_CardStatName,Pinches,撇
@@ -2312,7 +2312,7 @@ Herbs_And_Fungi_ForagerSeasoning_OnZero_ActionDescription,The pouch is empty.,�
 Herbs_And_Fungi_ForagerSeasoning_CardInteractions_Add_ActionName,Add,添加
 Herbs_And_Fungi_Bp_ForagerSeasoning_CardName,Forager's Seasoning,采集者调料
 Herbs_And_Fungi_Bp_ForagerSeasoning_CardDescription,Grind the three culinary mushroom powders together with a measure of salt into a pouch of seasoning for plated food.,把三种食用蘑菇粉和一份盐磨在一起，制成一袋用于装盘食物的调料。
-Herbs_And_Fungi_Bp_ForagerSeasoning_UnlockConditionsDesc,"Unlocked after obtaining Ground Black Trumpet, Ground Shiitake and Ground King Oyster",获得黑喇叭蘑粉、香菇粉和杨树菇粉后解锁
+Herbs_And_Fungi_Bp_ForagerSeasoning_UnlockConditionsDesc,"Unlocked after obtaining Black Trumpet Powder, Shiitake Powder and King Oyster Powder",获得黑喇叭菇粉、香菇粉和杏鲍菇粉后解锁
 Herbs_And_Fungi_BathSoak_CardName,Herbal Bath Soak,草药浴包
 Herbs_And_Fungi_BathSoak_CardDescription,"Dried chamomile and yarrow tied in twine. Drop it into a filled Copper Bathtub for a long, calming herbal bath, or into a pot of hot water to breathe its steam for a shorter calm.",用麻线扎起的干洋甘菊和蓍草。放进装满水的铜浴缸，泡一个漫长而舒缓的草药浴；或放进一锅热水，吸入蒸汽，获得较短的平静。
 Herbs_And_Fungi_BathSoak_CardHelpSection,"<b>Made from:</b> 2 Dried Chamomile, 1 Dried Yarrow and 1 Twine, from the Medical tab.
@@ -2528,7 +2528,7 @@ Herbs_And_Fungi_MossbedMature_DismantleActions_ActionName,Harvest,采收
 Herbs_And_Fungi_MossbedMature_DismantleActions_ActionDescription,Gather the healing moss.,采集治愈苔藓。
 Herbs_And_Fungi_Bp_SpicedPickleFrogs_CardName,Spiced Pickle Frogs,香料腌制青蛙
 Herbs_And_Fungi_Bp_SpicedPickleFrogs_CardDescription,Pack 5 raw frogs and a clay bowl into a spiced-brine-filled vat to begin pickling. Consumes 500 units of spiced brine and seals the vat into 'Spiced Pickle Frogs' (closed). Then add water to seal and wait ~7 days.,将5只生青蛙和一个陶碗放入装有香料卤水的缸中开始香料腌制。消耗500单位香料卤水并将缸密封成『香料腌制青蛙（已盖盖）』。然后加水密封并等待约7天。
-Herbs_And_Fungi_Bp_SpicedPickleFrogs_UnlockConditionsDesc,Closed Pickle Vat Needed,需要已盖盖腌菜缸
+Herbs_And_Fungi_Bp_SpicedPickleFrogs_UnlockConditionsDesc,Pickle Vat Needed,需要腌菜缸
 Herbs_And_Fungi_SpicedPickleVatClosedFrogs_CardName,Spiced Pickled Frogs (Closed),香料腌制青蛙（已盖盖）
 Herbs_And_Fungi_SpicedPickleVatClosedFrogs_CardDescription,"A pickle vat capped with a clay bowl, packed with frogs for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle.",一个用陶碗盖住、装满青蛙进行发酵的腌菜缸。将水倒在盖子上以水封并开始7天周期。
 Herbs_And_Fungi_SpicedPickleVatClosedFrogs_SpecialDurability2_CardStatName,Quality,质量
@@ -2552,7 +2552,7 @@ Herbs_And_Fungi_SpicedPickleVatReadyFrogs_Eat_ActionName,Eat,食用
 Herbs_And_Fungi_SpicedPickleVatReadyFrogs_Eat_ActionDescription,Eat a serving of spiced pickled frogs straight from the vat.,直接从缸中食用一份香料腌制青蛙。
 Herbs_And_Fungi_Bp_SpicedPickleMeat_CardName,Spiced Pickle Meat,香料腌制肉类
 Herbs_And_Fungi_Bp_SpicedPickleMeat_CardDescription,Pack 5 raw meat and a clay bowl into a spiced-brine-filled vat to begin pickling. Consumes 500 units of spiced brine and seals the vat into 'Spiced Pickle Meat' (closed). Then add water to seal and wait ~7 days.,将5块生肉和一个陶碗放入装有香料卤水的缸中开始香料腌制。消耗500单位香料卤水并将缸密封成『香料腌制肉类（已盖盖）』。然后加水密封并等待约7天。
-Herbs_And_Fungi_Bp_SpicedPickleMeat_UnlockConditionsDesc,Closed Pickle Vat Needed,需要已盖盖腌菜缸
+Herbs_And_Fungi_Bp_SpicedPickleMeat_UnlockConditionsDesc,Pickle Vat Needed,需要腌菜缸
 Herbs_And_Fungi_SpicedPickleVatClosedMeat_CardName,Spiced Pickled Meat (Closed),香料腌制肉类（已盖盖）
 Herbs_And_Fungi_SpicedPickleVatClosedMeat_CardDescription,"A pickle vat capped with a clay bowl, packed with meat for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle.",一个用陶碗盖住、装满肉类进行发酵的腌菜缸。将水倒在盖子上以水封并开始7天周期。
 Herbs_And_Fungi_SpicedPickleVatClosedMeat_SpecialDurability2_CardStatName,Quality,质量
@@ -2576,7 +2576,7 @@ Herbs_And_Fungi_SpicedPickleVatReadyMeat_Eat_ActionName,Eat,食用
 Herbs_And_Fungi_SpicedPickleVatReadyMeat_Eat_ActionDescription,Eat a serving of spiced pickled meat straight from the vat.,直接从缸中食用一份香料腌制肉类。
 Herbs_And_Fungi_Bp_SpicedPickleMushrooms_CardName,Spiced Pickle Mushrooms,香料腌制蘑菇
 Herbs_And_Fungi_Bp_SpicedPickleMushrooms_CardDescription,Pack 5 raw mushrooms and a clay bowl into a spiced-brine-filled vat to begin pickling. Consumes 500 units of spiced brine and seals the vat into 'Spiced Pickle Mushrooms' (closed). Then add water to seal and wait ~7 days.,将5个生蘑菇和一个陶碗放入装有香料卤水的缸中开始香料腌制。消耗500单位香料卤水并将缸密封成『香料腌制蘑菇（已盖盖）』。然后加水密封并等待约7天。
-Herbs_And_Fungi_Bp_SpicedPickleMushrooms_UnlockConditionsDesc,Closed Pickle Vat Needed,需要已盖盖腌菜缸
+Herbs_And_Fungi_Bp_SpicedPickleMushrooms_UnlockConditionsDesc,Pickle Vat Needed,需要腌菜缸
 Herbs_And_Fungi_SpicedPickleVatClosedMushrooms_CardName,Spiced Pickled Mushrooms (Closed),香料腌制蘑菇（已盖盖）
 Herbs_And_Fungi_SpicedPickleVatClosedMushrooms_CardDescription,"A pickle vat capped with a clay bowl, packed with mushrooms for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle.",一个用陶碗盖住、装满蘑菇进行发酵的腌菜缸。将水倒在盖子上以水封并开始7天周期。
 Herbs_And_Fungi_SpicedPickleVatClosedMushrooms_SpecialDurability2_CardStatName,Quality,质量
@@ -2600,7 +2600,7 @@ Herbs_And_Fungi_SpicedPickleVatReadyMushrooms_Eat_ActionName,Eat,食用
 Herbs_And_Fungi_SpicedPickleVatReadyMushrooms_Eat_ActionDescription,Eat a serving of spiced pickled mushrooms straight from the vat.,直接从缸中食用一份香料腌制蘑菇。
 Herbs_And_Fungi_Bp_SpicedPickleVegetables_CardName,Spiced Pickle Vegetables,香料腌制蔬菜
 Herbs_And_Fungi_Bp_SpicedPickleVegetables_CardDescription,Pack 5 raw vegetables and a clay bowl into a spiced-brine-filled vat to begin pickling. Consumes 500 units of spiced brine and seals the vat into 'Spiced Pickle Vegetables' (closed). Then add water to seal and wait ~7 days.,将5个生蔬菜和一个陶碗放入装有香料卤水的缸中开始香料腌制。消耗500单位香料卤水并将缸密封成『香料腌制蔬菜（已盖盖）』。然后加水密封并等待约7天。
-Herbs_And_Fungi_Bp_SpicedPickleVegetables_UnlockConditionsDesc,Closed Pickle Vat Needed,需要已盖盖腌菜缸
+Herbs_And_Fungi_Bp_SpicedPickleVegetables_UnlockConditionsDesc,Pickle Vat Needed,需要腌菜缸
 Herbs_And_Fungi_SpicedPickleVatClosedVegetables_CardName,Spiced Pickled Vegetables (Closed),香料腌制蔬菜（已盖盖）
 Herbs_And_Fungi_SpicedPickleVatClosedVegetables_CardDescription,"A pickle vat capped with a clay bowl, packed with vegetables for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle.",一个用陶碗盖住、装满蔬菜进行发酵的腌菜缸。将水倒在盖子上以水封并开始7天周期。
 Herbs_And_Fungi_SpicedPickleVatClosedVegetables_SpecialDurability2_CardStatName,Quality,质量
@@ -3324,7 +3324,7 @@ Herbs_And_Fungi_Haggis_DismantleActions_Eat_ActionName,Eat,吃
 Herbs_And_Fungi_Haggis_DismantleActions_Eat_ActionDescription,Eat the haggis.,吃下肚包杂碎。
 Herbs_And_Fungi_Bp_Haggis_CardName,Haggis,肚包杂碎
 Herbs_And_Fungi_Bp_Haggis_CardDescription,"Stuff a cleaned stomach with liver, heart, rye grain and dried plantain to make a raw haggis.",往洗净的胃里塞入肝、心、黑麦粒和干车前草，做成生肚包杂碎。
-Herbs_And_Fungi_Bp_Haggis_UnlockConditionsDesc,Unlocked after obtaining a Clean Stomach,获得干净的胃后解锁
+Herbs_And_Fungi_Bp_Haggis_UnlockConditionsDesc,Unlocked after obtaining a Cleaned Stomach,获得干净的胃后解锁
 Herbs_And_Fungi_SproutBreadRaw_CardName,Raw Sprouted Rye Bread,生发芽黑麦面包
 Herbs_And_Fungi_SproutBreadRaw_CardDescription,Rye dough worked with ground malted rye. Bake it near a fire.,黑麦面团拌入磨碎的黑麦麦芽粉揉成。需在火旁烤熟。
 Herbs_And_Fungi_SproutBreadRaw_CardHelpSection,"<b>Made from:</b> Blueprint: Sprouted Rye Bread (Rye Grist and Rye Dough).

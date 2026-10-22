@@ -587,7 +587,7 @@ herbsfungioilpresslegs_CardName,Oil Press Legs
 herbsfungioilpresslegs_CardDescription,Sturdy wooden legs for an oil press. Part of a larger assembly.
 herbsfungibpoilpresslegs_CardName,Oil Press Legs
 herbsfungibpoilpresslegs_CardDescription,"Sturdy wooden legs for an oil press. Requires 4 planks, a spoon auger, and a sharp knife."
-herbsfungibpoilpresslegs_UnlockConditionsDesc,Unlocked after obtaining a plank
+herbsfungibpoilpresslegs_UnlockConditionsDesc,Unlocked after obtaining a Wooden Plank
 herbsfungioilpressframe_CardName,Oil Press Frame
 herbsfungioilpressframe_CardDescription,A wooden frame that holds the press mechanism. Part of a larger assembly.
 herbsfungibpoilpressframe_CardName,Oil Press Frame
@@ -597,12 +597,12 @@ herbsfungipressbedframe_CardName,Press Bed Frame
 herbsfungipressbedframe_CardDescription,A flat stone-reinforced bed frame for the oil press. Part of a larger assembly.
 herbsfungibppressbedframe_CardName,Press Bed Frame
 herbsfungibppressbedframe_CardDescription,"A stone-reinforced press bed for an oil press. Requires 2 planks, 1 stone, a sharp knife, and a chisel."
-herbsfungibppressbedframe_UnlockConditionsDesc,Unlocked after obtaining a plank
+herbsfungibppressbedframe_UnlockConditionsDesc,Unlocked after obtaining a Wooden Plank
 herbsfungioilpressscrew_CardName,Pressing Screw
 herbsfungioilpressscrew_CardDescription,A wooden screw mechanism for applying pressure in an oil press. Part of a larger assembly.
 herbsfungibpoilpressscrew_CardName,Pressing Screw
 herbsfungibpoilpressscrew_CardDescription,"A wooden screw mechanism for an oil press. Carved from a log in four stages: rough-shape with axe and knife, chisel the thread, bore the center with a spoon auger, then fit the press plate."
-herbsfungibpoilpressscrew_UnlockConditionsDesc,Unlocked after obtaining a plank
+herbsfungibpoilpressscrew_UnlockConditionsDesc,Unlocked after obtaining a Wooden Plank
 herbsfungioilpressbag_CardName,Pressing Bag
 herbsfungioilpressbag_CardDescription,A woven rope bag for holding seeds or herbs during oil pressing. Combine with a press plate to make a prepared press bag.
 herbsfungibpoilpressbag_CardName,Pressing Bag
@@ -612,7 +612,7 @@ herbsfungioilpressbagplate_CardName,Press Plate
 herbsfungioilpressbagplate_CardDescription,A flat wooden plate that distributes pressure evenly across the pressing bag in an oil press.
 herbsfungibpoilpressbagplate_CardName,Press Plate
 herbsfungibpoilpressbagplate_CardDescription,A flat wooden pressing plate for even pressure distribution. Requires 1 plank and a sharp axe.
-herbsfungibpoilpressbagplate_UnlockConditionsDesc,Unlocked after obtaining a plank
+herbsfungibpoilpressbagplate_UnlockConditionsDesc,Unlocked after obtaining a Wooden Plank
 herbsfungioilpressbagprepared_CardName,Prepared Press Bag
 herbsfungioilpressbagprepared_CardDescription,A pressing bag assembled with its pressure plate. Place it in the oil press and load it with seeds to extract oil.
 herbsfungibpoilpressbagprepared_CardName,Prepared Press Bag
@@ -669,7 +669,7 @@ Herbs_And_Fungi_WoodenPantryPlaced_DismantleActions_PickUp_ActionDescription,Pic
 Herbs_And_Fungi_WoodenPantryPlaced_DismantleActions_PickUp_FailMessage,Empty the pantry before picking it up.
 Herbs_And_Fungi_Bp_WoodenPantry_CardName,Wooden Pantry
 Herbs_And_Fungi_Bp_WoodenPantry_CardDescription,"A simple plank pantry with woven shelves. Slows food spoilage, but animals can raid it. Requires 6 planks, 3 rope, and a hammer."
-Herbs_And_Fungi_Bp_WoodenPantry_UnlockConditionsDesc,Plank Needed
+Herbs_And_Fungi_Bp_WoodenPantry_UnlockConditionsDesc,Unlocked after obtaining a Wooden Plank
 Herbs_And_Fungi_Bp_SleepTea_CardName,Sleep Tea
 Herbs_And_Fungi_Bp_SleepTea_CardDescription,Grind 2 reishi into a clay bowl to brew a soothing tea. Reduces stress.
 Herbs_And_Fungi_Bp_SleepTea_UnlockConditionsDesc,Unlocked after obtaining Ground Reishi
@@ -775,16 +775,16 @@ Herbs_And_Fungi_WoodenPantry_Placed_CardHelpSection,"<b>Spoilage:</b> Slows to 7
 <b>Animal-safe:</b> No. Passing wildlife (foxes, hares, badgers, and larger beasts) can raid this pantry.",<b>腐败：</b>减缓至正常速率的75%。
 Herbs_And_Fungi_Bp_PickleVegetables_CardName,Pickle Vegetables
 Herbs_And_Fungi_Bp_PickleVegetables_CardDescription,Pack 5 raw vegetables and a clay bowl into a brine-filled vat to begin pickling. Consumes 500 units of brine and seals the vat into 'Pickle Vegetables' (closed). Then add water to seal and wait ~7 days.
-Herbs_And_Fungi_Bp_PickleVegetables_UnlockConditionsDesc,Closed Pickle Vat Needed
+Herbs_And_Fungi_Bp_PickleVegetables_UnlockConditionsDesc,Pickle Vat Needed
 Herbs_And_Fungi_Bp_PickleMushrooms_CardName,Pickle Mushrooms
 Herbs_And_Fungi_Bp_PickleMushrooms_CardDescription,Pack 5 raw mushrooms and a clay bowl into a brine-filled vat to begin pickling. Consumes 500 units of brine and seals the vat into 'Pickle Mushrooms' (closed). Then add water to seal and wait ~7 days.
-Herbs_And_Fungi_Bp_PickleMushrooms_UnlockConditionsDesc,Closed Pickle Vat Needed
+Herbs_And_Fungi_Bp_PickleMushrooms_UnlockConditionsDesc,Pickle Vat Needed
 Herbs_And_Fungi_Bp_PickleMeat_CardName,Pickle Meat
 Herbs_And_Fungi_Bp_PickleMeat_CardDescription,Pack 5 raw meat and a clay bowl into a brine-filled vat to begin pickling. Consumes 500 units of brine and seals the vat into 'Pickle Meat' (closed). Then add water to seal and wait ~7 days.
-Herbs_And_Fungi_Bp_PickleMeat_UnlockConditionsDesc,Closed Pickle Vat Needed
+Herbs_And_Fungi_Bp_PickleMeat_UnlockConditionsDesc,Pickle Vat Needed
 Herbs_And_Fungi_Bp_PickleFrogs_CardName,Pickle Frogs
 Herbs_And_Fungi_Bp_PickleFrogs_CardDescription,Pack 5 raw frogs and a clay bowl into a brine-filled vat to begin pickling. Consumes 500 units of brine and seals the vat into 'Pickle Frogs' (closed). Then add water to seal and wait ~7 days.
-Herbs_And_Fungi_Bp_PickleFrogs_UnlockConditionsDesc,Closed Pickle Vat Needed
+Herbs_And_Fungi_Bp_PickleFrogs_UnlockConditionsDesc,Pickle Vat Needed
 Herbs_And_Fungi_PickleVatClosedFrogs_CardName,Pickled Frogs (Closed)
 Herbs_And_Fungi_PickleVatClosedFrogs_CardDescription,"A pickle vat capped with a clay bowl, packed with frogs for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle."
 Herbs_And_Fungi_PickleVatClosedFrogs_SpecialDurability2_CardStatName,Quality
@@ -914,7 +914,7 @@ Herbs_And_Fungi_MushroomLogShiitakeMature_CardHelpSection,"<b>Harvest:</b> Pick 
 Herbs_And_Fungi_MushroomLogShiitakeMature_Harvest_ActionName,Harvest
 Herbs_And_Fungi_MushroomLogShiitakeMature_Harvest_ActionDescription,"Pick 8 fresh shiitake mushrooms, maybe lift a spore print, and break down the spent log."
 Herbs_And_Fungi_Bp_MushroomLogShiitake_CardName,Inoculate Shiitake Log
-Herbs_And_Fungi_Bp_MushroomLogShiitake_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 shiitake mushrooms and wood shavings.,"
+Herbs_And_Fungi_Bp_MushroomLogShiitake_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 shiitake mushrooms and wood shavings."
 Herbs_And_Fungi_Bp_MushroomLogShiitake_UnlockConditionsDesc,Unlocked after obtaining a shiitake mushroom
 Herbs_And_Fungi_MushroomLogLionsManeGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogLionsManeGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
@@ -931,7 +931,7 @@ Herbs_And_Fungi_MushroomLogLionsManeMature_CardHelpSection,"<b>Harvest:</b> Pick
 Herbs_And_Fungi_MushroomLogLionsManeMature_Harvest_ActionName,Harvest
 Herbs_And_Fungi_MushroomLogLionsManeMature_Harvest_ActionDescription,"Pick 8 fresh lion's mane mushrooms, maybe lift a spore print, and break down the spent log."
 Herbs_And_Fungi_Bp_MushroomLogLionsMane_CardName,Inoculate Lion's Mane Log
-Herbs_And_Fungi_Bp_MushroomLogLionsMane_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 lion's mane mushrooms and wood shavings.,"
+Herbs_And_Fungi_Bp_MushroomLogLionsMane_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 lion's mane mushrooms and wood shavings."
 Herbs_And_Fungi_Bp_MushroomLogLionsMane_UnlockConditionsDesc,Unlocked after obtaining a lion's mane mushroom
 Herbs_And_Fungi_MushroomLogReishiGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogReishiGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
@@ -948,7 +948,7 @@ Herbs_And_Fungi_MushroomLogReishiMature_CardHelpSection,"<b>Harvest:</b> Pick th
 Herbs_And_Fungi_MushroomLogReishiMature_Harvest_ActionName,Harvest
 Herbs_And_Fungi_MushroomLogReishiMature_Harvest_ActionDescription,"Pick 8 fresh reishi mushrooms, maybe lift a spore print, and break down the spent log."
 Herbs_And_Fungi_Bp_MushroomLogReishi_CardName,Inoculate Reishi Log
-Herbs_And_Fungi_Bp_MushroomLogReishi_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 reishi mushrooms and wood shavings.,"
+Herbs_And_Fungi_Bp_MushroomLogReishi_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 reishi mushrooms and wood shavings."
 Herbs_And_Fungi_Bp_MushroomLogReishi_UnlockConditionsDesc,Unlocked after obtaining a reishi mushroom
 Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
@@ -965,7 +965,7 @@ Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_CardHelpSection,"<b>Harvest:</b>
 Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_Harvest_ActionName,Harvest
 Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_Harvest_ActionDescription,"Pick 8 fresh chicken of the woods mushrooms, maybe lift a spore print, and break down the spent log."
 Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_CardName,Inoculate Chicken Log
-Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 chicken of the woods mushrooms and wood shavings.,"
+Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 chicken of the woods mushrooms and wood shavings."
 Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_UnlockConditionsDesc,Unlocked after obtaining chicken of the woods
 Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
@@ -982,7 +982,7 @@ Herbs_And_Fungi_MushroomLogGoldenOysterMature_CardHelpSection,"<b>Harvest:</b> P
 Herbs_And_Fungi_MushroomLogGoldenOysterMature_Harvest_ActionName,Harvest
 Herbs_And_Fungi_MushroomLogGoldenOysterMature_Harvest_ActionDescription,"Pick 8 fresh golden oyster mushrooms, maybe lift a spore print, and break down the spent log."
 Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_CardName,Inoculate Golden Oyster Log
-Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 golden oyster mushrooms and wood shavings.,"
+Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 golden oyster mushrooms and wood shavings."
 Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_UnlockConditionsDesc,Unlocked after obtaining a golden oyster mushroom
 Herbs_And_Fungi_MushroomLogKingOysterGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogKingOysterGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
@@ -999,7 +999,7 @@ Herbs_And_Fungi_MushroomLogKingOysterMature_CardHelpSection,"<b>Harvest:</b> Pic
 Herbs_And_Fungi_MushroomLogKingOysterMature_Harvest_ActionName,Harvest
 Herbs_And_Fungi_MushroomLogKingOysterMature_Harvest_ActionDescription,"Pick 8 fresh king oyster mushrooms, maybe lift a spore print, and break down the spent log."
 Herbs_And_Fungi_Bp_MushroomLogKingOyster_CardName,Inoculate King Oyster Log
-Herbs_And_Fungi_Bp_MushroomLogKingOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 king oyster mushrooms and wood shavings.,"
+Herbs_And_Fungi_Bp_MushroomLogKingOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 king oyster mushrooms and wood shavings."
 Herbs_And_Fungi_Bp_MushroomLogKingOyster_UnlockConditionsDesc,Unlocked after obtaining a king oyster mushroom
 Herbs_And_Fungi_Bp_DryingStack_CardName,Drying Stack
 Herbs_And_Fungi_Bp_DryingStack_CardDescription,A vertical wooden rack for storing multiple drying trays. Requires 4 planks and a hammer.
@@ -1927,7 +1927,7 @@ Herbs_And_Fungi_GruitBundle_Steep_ActionName,Steep in Ale
 Herbs_And_Fungi_GruitBundle_Steep_ActionDescription,Steep the herbs in finished rye ale to make gruit ale.
 Herbs_And_Fungi_Bp_GruitBundle_CardName,Gruit Bundle
 Herbs_And_Fungi_Bp_GruitBundle_CardDescription,"Tie dried bog myrtle, heather flowers and yarrow together with twine into a bundle of brewing herbs, to steep in finished rye ale in place of hops."
-Herbs_And_Fungi_Bp_GruitBundle_UnlockConditionsDesc,Unlocked after obtaining Dried Bog Myrtle and Dried Yarrow
+Herbs_And_Fungi_Bp_GruitBundle_UnlockConditionsDesc,Unlocked after obtaining Dry Bog Myrtle Leaves and Dried Yarrow
 Herbs_And_Fungi_Spice_Gruit_SpiceName,Gruit Herbs
 Herbs_And_Fungi_HempPulp_CardName,Hemp Pulp
 Herbs_And_Fungi_HempPulp_CardDescription,Chopped hemp stalks left to soak and soften. Give it a day and it can be pressed into paper.
@@ -2033,7 +2033,7 @@ Herbs_And_Fungi_Bp_BotanicalFieldGuide_UnlockConditionsDesc,Unlocked after obtai
 Herbs_And_Fungi_Spice_ForagerSeasoning_SpiceName,Forager's Seasoning
 Herbs_And_Fungi_ForagerSeasoning_CardName,Forager's Seasoning
 Herbs_And_Fungi_ForagerSeasoning_CardDescription,"Three ground mushrooms and salt, blended into a pouch of savoury seasoning. Drag it onto a plateable food to season it; each pouch seasons three plates."
-Herbs_And_Fungi_ForagerSeasoning_CardHelpSection,"<b>Made from:</b> One Ground Black Trumpet, one Ground Shiitake, one Ground King Oyster and one Salt, from the Cooking tab.
+Herbs_And_Fungi_ForagerSeasoning_CardHelpSection,"<b>Made from:</b> One Black Trumpet Powder, one Shiitake Powder, one King Oyster Powder and one Salt, from the Cooking tab.
 
 <b>Uses:</b> Drag it onto a plateable food (cooked meat, fish, eggs and the like) to season it with all three mushrooms' flavours at once. Each drag uses up one of its three pinches."
 Herbs_And_Fungi_ForagerSeasoning_UsageDurability_CardStatName,Pinches
@@ -2041,7 +2041,7 @@ Herbs_And_Fungi_ForagerSeasoning_OnZero_ActionDescription,The pouch is empty.
 Herbs_And_Fungi_ForagerSeasoning_CardInteractions_Add_ActionName,Add
 Herbs_And_Fungi_Bp_ForagerSeasoning_CardName,Forager's Seasoning
 Herbs_And_Fungi_Bp_ForagerSeasoning_CardDescription,Grind the three culinary mushroom powders together with a measure of salt into a pouch of seasoning for plated food.
-Herbs_And_Fungi_Bp_ForagerSeasoning_UnlockConditionsDesc,"Unlocked after obtaining Ground Black Trumpet, Ground Shiitake and Ground King Oyster"
+Herbs_And_Fungi_Bp_ForagerSeasoning_UnlockConditionsDesc,"Unlocked after obtaining Black Trumpet Powder, Shiitake Powder and King Oyster Powder"
 Herbs_And_Fungi_BathSoak_CardName,Herbal Bath Soak
 Herbs_And_Fungi_BathSoak_CardDescription,"Dried chamomile and yarrow tied in twine. Drop it into a filled Copper Bathtub for a long, calming herbal bath, or into a pot of hot water to breathe its steam for a shorter calm."
 Herbs_And_Fungi_BathSoak_CardHelpSection,"<b>Made from:</b> 2 Dried Chamomile, 1 Dried Yarrow and 1 Twine, from the Medical tab.
@@ -2219,7 +2219,7 @@ Herbs_And_Fungi_MossbedMature_DismantleActions_ActionName,Harvest
 Herbs_And_Fungi_MossbedMature_DismantleActions_ActionDescription,Gather the healing moss.
 Herbs_And_Fungi_Bp_SpicedPickleFrogs_CardName,Spiced Pickle Frogs
 Herbs_And_Fungi_Bp_SpicedPickleFrogs_CardDescription,Pack 5 raw frogs and a clay bowl into a spiced-brine-filled vat to begin pickling. Consumes 500 units of spiced brine and seals the vat into 'Spiced Pickle Frogs' (closed). Then add water to seal and wait ~7 days.
-Herbs_And_Fungi_Bp_SpicedPickleFrogs_UnlockConditionsDesc,Closed Pickle Vat Needed
+Herbs_And_Fungi_Bp_SpicedPickleFrogs_UnlockConditionsDesc,Pickle Vat Needed
 Herbs_And_Fungi_SpicedPickleVatClosedFrogs_CardName,Spiced Pickled Frogs (Closed)
 Herbs_And_Fungi_SpicedPickleVatClosedFrogs_CardDescription,"A pickle vat capped with a clay bowl, packed with frogs for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle."
 Herbs_And_Fungi_SpicedPickleVatClosedFrogs_SpecialDurability2_CardStatName,Quality
@@ -2243,7 +2243,7 @@ Herbs_And_Fungi_SpicedPickleVatReadyFrogs_Eat_ActionName,Eat
 Herbs_And_Fungi_SpicedPickleVatReadyFrogs_Eat_ActionDescription,Eat a serving of spiced pickled frogs straight from the vat.
 Herbs_And_Fungi_Bp_SpicedPickleMeat_CardName,Spiced Pickle Meat
 Herbs_And_Fungi_Bp_SpicedPickleMeat_CardDescription,Pack 5 raw meat and a clay bowl into a spiced-brine-filled vat to begin pickling. Consumes 500 units of spiced brine and seals the vat into 'Spiced Pickle Meat' (closed). Then add water to seal and wait ~7 days.
-Herbs_And_Fungi_Bp_SpicedPickleMeat_UnlockConditionsDesc,Closed Pickle Vat Needed
+Herbs_And_Fungi_Bp_SpicedPickleMeat_UnlockConditionsDesc,Pickle Vat Needed
 Herbs_And_Fungi_SpicedPickleVatClosedMeat_CardName,Spiced Pickled Meat (Closed)
 Herbs_And_Fungi_SpicedPickleVatClosedMeat_CardDescription,"A pickle vat capped with a clay bowl, packed with meat for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle."
 Herbs_And_Fungi_SpicedPickleVatClosedMeat_SpecialDurability2_CardStatName,Quality
@@ -2267,7 +2267,7 @@ Herbs_And_Fungi_SpicedPickleVatReadyMeat_Eat_ActionName,Eat
 Herbs_And_Fungi_SpicedPickleVatReadyMeat_Eat_ActionDescription,Eat a serving of spiced pickled meat straight from the vat.
 Herbs_And_Fungi_Bp_SpicedPickleMushrooms_CardName,Spiced Pickle Mushrooms
 Herbs_And_Fungi_Bp_SpicedPickleMushrooms_CardDescription,Pack 5 raw mushrooms and a clay bowl into a spiced-brine-filled vat to begin pickling. Consumes 500 units of spiced brine and seals the vat into 'Spiced Pickle Mushrooms' (closed). Then add water to seal and wait ~7 days.
-Herbs_And_Fungi_Bp_SpicedPickleMushrooms_UnlockConditionsDesc,Closed Pickle Vat Needed
+Herbs_And_Fungi_Bp_SpicedPickleMushrooms_UnlockConditionsDesc,Pickle Vat Needed
 Herbs_And_Fungi_SpicedPickleVatClosedMushrooms_CardName,Spiced Pickled Mushrooms (Closed)
 Herbs_And_Fungi_SpicedPickleVatClosedMushrooms_CardDescription,"A pickle vat capped with a clay bowl, packed with mushrooms for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle."
 Herbs_And_Fungi_SpicedPickleVatClosedMushrooms_SpecialDurability2_CardStatName,Quality
@@ -2291,7 +2291,7 @@ Herbs_And_Fungi_SpicedPickleVatReadyMushrooms_Eat_ActionName,Eat
 Herbs_And_Fungi_SpicedPickleVatReadyMushrooms_Eat_ActionDescription,Eat a serving of spiced pickled mushrooms straight from the vat.
 Herbs_And_Fungi_Bp_SpicedPickleVegetables_CardName,Spiced Pickle Vegetables
 Herbs_And_Fungi_Bp_SpicedPickleVegetables_CardDescription,Pack 5 raw vegetables and a clay bowl into a spiced-brine-filled vat to begin pickling. Consumes 500 units of spiced brine and seals the vat into 'Spiced Pickle Vegetables' (closed). Then add water to seal and wait ~7 days.
-Herbs_And_Fungi_Bp_SpicedPickleVegetables_UnlockConditionsDesc,Closed Pickle Vat Needed
+Herbs_And_Fungi_Bp_SpicedPickleVegetables_UnlockConditionsDesc,Pickle Vat Needed
 Herbs_And_Fungi_SpicedPickleVatClosedVegetables_CardName,Spiced Pickled Vegetables (Closed)
 Herbs_And_Fungi_SpicedPickleVatClosedVegetables_CardDescription,"A pickle vat capped with a clay bowl, packed with vegetables for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle."
 Herbs_And_Fungi_SpicedPickleVatClosedVegetables_SpecialDurability2_CardStatName,Quality
@@ -2903,7 +2903,7 @@ Herbs_And_Fungi_Haggis_DismantleActions_Eat_ActionName,Eat
 Herbs_And_Fungi_Haggis_DismantleActions_Eat_ActionDescription,Eat the haggis.
 Herbs_And_Fungi_Bp_Haggis_CardName,Haggis
 Herbs_And_Fungi_Bp_Haggis_CardDescription,"Stuff a cleaned stomach with liver, heart, rye grain and dried plantain to make a raw haggis."
-Herbs_And_Fungi_Bp_Haggis_UnlockConditionsDesc,Unlocked after obtaining a Clean Stomach
+Herbs_And_Fungi_Bp_Haggis_UnlockConditionsDesc,Unlocked after obtaining a Cleaned Stomach
 Herbs_And_Fungi_SproutBreadRaw_CardName,Raw Sprouted Rye Bread
 Herbs_And_Fungi_SproutBreadRaw_CardDescription,Rye dough worked with ground malted rye. Bake it near a fire.
 Herbs_And_Fungi_SproutBreadRaw_CardHelpSection,"<b>Made from:</b> Blueprint: Sprouted Rye Bread (Rye Grist and Rye Dough).

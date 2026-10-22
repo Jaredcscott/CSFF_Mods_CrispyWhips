@@ -14,7 +14,7 @@
     "UnlockConditionsDesc": {
         "ParentObjectID": "herbs_fungi_bp_press_bed_frame",
         "LocalizationKey": "herbsfungibppressbedframe_UnlockConditionsDesc",
-        "DefaultText": "Unlocked after obtaining a plank"
+        "DefaultText": "Unlocked after obtaining a Wooden Plank"
     },
     "BlueprintUnlockTicksCost": 8.0,
     "BuildingStatConditions": [],

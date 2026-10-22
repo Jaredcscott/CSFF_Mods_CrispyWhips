@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_forager_seasoning",
         "LocalizationKey": "Herbs_And_Fungi_ForagerSeasoning_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> One Ground Black Trumpet, one Ground Shiitake, one Ground King Oyster and one Salt, from the Cooking tab.\n\n<b>Uses:</b> Drag it onto a plateable food (cooked meat, fish, eggs and the like) to season it with all three mushrooms' flavours at once. Each drag uses up one of its three pinches."
+        "DefaultText": "<b>Made from:</b> One Black Trumpet Powder, one Shiitake Powder, one King Oyster Powder and one Salt, from the Cooking tab.\n\n<b>Uses:</b> Drag it onto a plateable food (cooked meat, fish, eggs and the like) to season it with all three mushrooms' flavours at once. Each drag uses up one of its three pinches."
     },
     "CardType": 0,
     "ObjectWeight": 15,

@@ -5,6 +5,18 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [Unreleased]
+
+### Fixed
+
+- **Peanut Butter has its own picture.** It was showing the Roasted Peanuts art; it now shows a clay bowl of creamy peanut butter, like the other bowl items. Thanks to Banana Monk for the report.
+- **The pickling recipes no longer say they need a closed Pickle Vat.** All eight (plain and spiced vegetables, mushrooms, meat and frogs) are done in the open Pickle Vat and close it, so they now read "Pickle Vat Needed".
+- **Forager's Seasoning names its powders by their real names.** Its recipe and help text asked for "Ground" Black Trumpet, Shiitake and King Oyster; they now say Black Trumpet Powder, Shiitake Powder and King Oyster Powder, as the cards are called. The Chinese text named a different mushroom for the King Oyster Powder and now matches the cards too.
+- **The six Mushroom Log recipes lost a stray comma** at the end of their description.
+- **Seven recipes name the exact card that unlocks them.** The four Oil Press parts, the Press Bed Frame and the Wooden Pantry now say "Unlocked after obtaining a Wooden Plank", the Haggis says "a Cleaned Stomach" and the Gruit Bundle says "Dry Bog Myrtle Leaves", as those cards are called. The Chinese Gruit Bundle text now uses the card's Chinese name too.
+- **Clearer log warnings if a game update breaks one of the mod's patches.** The Apothecary tea unlocks, Dig for Truffles, the Pouch's powder storage, the brine colour change on a Pickle Vat and the pickle recipe slot names now write a warning to the log instead of failing silently. Dig for Truffles is now left out, rather than added without its truffle, if its drop cannot be built. Nothing changes in normal play.
+
+
 ## [1.14.12] - 2026-10-19
 
 Needs CSFF Mod Framework 2.28.6 or later.

@@ -14,7 +14,7 @@
     "UnlockConditionsDesc": {
         "ParentObjectID": "herbs_fungi_bp_stimulant_tea",
         "LocalizationKey": "Herbs_And_Fungi_Bp_StimulantTea_UnlockConditionsDesc",
-        "DefaultText": "Unlocked after completing the Apothecary's Ginseng collection"
+        "DefaultText": "Unlocked after obtaining Ground Ginseng"
     },
     "BlueprintUnlockTicksCost": 8.0,
     "BuildingStatConditions": [],

@@ -1,17 +1,17 @@
 # Roadmap: Herbs and Fungi
-Version at time of writing: 1.14.11
-Date: 2026-10-18
-Audit score: 9/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 5 WARNINGS, 4 MINOR) - see [.audit/summary.md](.audit/summary.md)
+Version at time of writing: 1.14.12
+Date: 2026-10-21
+Audit score: 9/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 6 open WARNING, 1 open MINOR) - see [.audit/summary.md](.audit/summary.md)
 
 ## Current State
 
 **Theme**: The repo's gold-standard DATA mod - a deep foraging, herbalism and preservation system: 14 mushrooms, 9 berries/wild fruits, 7 medicinal herbs, teas and a mushroom broth, drying/pickling/fermentation chains, an Oil Press, an Apothecary Shelf, a Death Cap Ward, and 16 character-creation perks. Pairs with Community Mod Chest (Academy Herbalism course identifies Unknown Chanterelles).
 
-**Content**: 249 item JSONs / 133 blueprints / 80 structures / 16 perks / 234 custom images / 45 liquid JSONs / 11 GameStats / 0 SelfTriggeredActions (folder counts, 2026-10-18). By CardType the mod ships 507 cards (267 items CT0, 27 liquids CT9, 80 structures CT2, 133 blueprints CT7 - the README-verified total, corrected up from a stale "494" this pass). No map locations: all forage is injected into vanilla locations.
+**Content**: 249 item JSONs / 133 blueprints / 80 structures / 16 perks / 235 custom images / 45 liquid JSONs / 11 GameStats / 0 SelfTriggeredActions (folder counts, 2026-10-20). By CardType the mod ships 507 cards (267 items CT0, 27 liquids CT9, 80 structures CT2, 133 blueprints CT7), matching README.md. No map locations: all forage is injected into vanilla locations.
 
-**Stability**: 9/10 - release-ready. 0 CRITICAL, 0 DESIGN GAP. Clean Release build (0 errors / 0 warnings); versions synced 1.14.11 across ModInfo.json, Plugin.cs and README.md; localization EN/CN parity complete (3185/3185, 0 CJK-in-English, 0 stale). The adversarial critical-analysis (2026-10-18) returns SOLID with 0 failures. Two hygiene items were fixed in this consolidation pass: the stale `<Content Include="MapMod.json">` in the .csproj (S11) and the README card-count under-claim (494 -> 507). Open items are maintainability hardening, not defects: 5 code-quality warnings (silent-exit WarnOnce guards + one FieldInfo cache) plus a player-facing ModInfo under-claim and a bin/ tracking-hygiene item.
+**Stability**: 9/10 - minor issues only, still PASS. 0 CRITICAL, 0 DESIGN GAP, 6 open WARNINGs: W5 (perk starting-kit weight, a human check under T4.41) plus W6-W10, five G5 silent-exit breadcrumb gaps found by the 2026-10-21 code-quality re-run, all on game-update-only reflection paths and none live today (Phase 1). Six crosses the rubric's 5+ warning threshold, which costs the one point. The older code-quality warnings (W1-W4) and the uncached-reflection minor (M1) were fixed in `61d1b7e62` (1.14.4) and stay resolved. Versions synced 1.14.12 across ModInfo.json, Plugin.cs and README.md; localization EN/CN parity clean at the 2026-10-18 audit; `bin/` is not tracked. The critical-analysis was re-run 2026-10-21 (SOLID, 0 failures) at the current source HEAD, so it is current. Its one new note is a runtime-verification item (DeathCapWardWildlife.json, an inert-but-harmless second ward guard), not a defect.
 
-**Open work**: No open retrospectives name this mod (`sealablegates-portal-hardening-2026-07-02` is Graduated). The round-2 MASTER_PLAN was drained and archived 2026-10-12 to `Documentation/Design/HerbsAndFungi_Content_Update_1_14_1_As_Built.md`; the vanilla-balance and niche-content MASTER_PLAN that followed was drained and archived 2026-10-18 to `Documentation/Design/HerbsAndFungi_Vanilla_Balance_As_Built.md` (Plan Reconciliation Log, last entry), so `Documentation/Plans/HerbsAndFungi/` no longer exists. A large awaiting-human-verification set (the T2.1xxx and T2.13xx rows, plus T4.41) remains open in `.claude/playthrough-test-status.json` - code work is done; those need a human at a running build. The mod sits at the repo root pending full human testing before any `Stable/` move (owner rule, 2026-10-12).
+**Open work**: No open retrospectives name this mod (`sealablegates-portal-hardening-2026-07-02` is Graduated). The round-2 MASTER_PLAN was drained and archived 2026-10-12 to `Documentation/Design/HerbsAndFungi_Content_Update_1_14_1_As_Built.md`; the vanilla-balance and niche-content MASTER_PLAN that followed was drained and archived 2026-10-18 to `Documentation/Design/HerbsAndFungi_Vanilla_Balance_As_Built.md` (Plan Reconciliation Log, last entry), so `Documentation/Plans/HerbsAndFungi/` no longer exists. 8 H&F rows are still `pending` in `.claude/playthrough-test-status.json` (T2.1034, T2.1094, T2.1359, T2.1360, T2.1363, T2.1365, T2.1755, T2.1764 on 2026-10-20) - code work is done; those need a human at a running build. T4.41 sits in `confirmedItems` (harness PASS, 2026-10-14). The mod sits at the repo root pending full human testing before any `Stable/` move (owner rule, 2026-10-12).
 
 **Framework compliance**: Tier 2 - `ContentModPlugin` base, `Api.ActionRouter` for action dispatch (owns dedup), `Api.SpawnService.CardSpawned` for the Apothecary quest gate, `Api.TickEvents` for the mirror poll, `FindObjectsOfTypeAll` load-time one-shots cached and type-guarded. All event registration is once-per-process from `RegisterPatches` (not `OnGMInitialized`), so a save reload cannot stack handlers. Soft dependency on `crispywhips.CSFFModFramework`. No deprecated patterns (no `DropCollectionGuardPatch`, no hot-path prefixes, no manual perk/blueprint injection, no `ModLoaderVerison`/`ModEditorVersion`).
 
@@ -23,27 +23,22 @@ Audit score: 9/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 5 WARNINGS, 4 MINOR) - see [
 
 ## Phase 1: Foundation
 
-> Maintainability hardening and hygiene. None changes behaviour in the normal case; each closes a silent-failure or drift gap that would only bite on a future game-version rename. All are from the 2026-10-11 code-quality review, re-confirmed present in current source by the 2026-10-18 mod-report.
+> Hygiene and audit freshness. The 2026-10-11 code-quality hardening items (W1-W4, M1) all shipped in 1.14.4 (`61d1b7e62`) and are no longer work; `bin/Release/` is already untracked (0 tracked files). The full blueprint audit ran 2026-10-20 over all 133 blueprints and its 36 warnings were cleared the same day (`dce6b94b7`: 19 text fixes, 17 crop action-tag false positives closed by an audit-rule fix); 7 INFO loose gate names remain (summary M5, Phase 4).
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Pickle gate: `WarnOnce` when `ContainedLiquid` field is null (`PickleVatRoutePatch.cs:136-142`); cache the `FieldInfo` per vat type. A rename would silently disable every pickle blueprint + Spice Brine, logged only at Debug. | Reliability (W1) | P1 | Quick |
-| Forager's Notebook: resolve `CustomDesc` explicitly, `WarnOnce` and skip instead of `?? ""` (`ForagersNotebookPatch.cs:116-117`). A rename would overwrite saved player entries with one species. | Reliability (W3) | P1 | Quick |
-| "Dig for Truffles": count the three shape-drift exits and `LogWarning` once when `added == 0` and locations resolved (`GameLoadPatch.cs:451,454,457`). | Reliability (W2) | P1 | Quick |
-| Both `MakeBrine` catches: log `ex.InnerException?.ToString() ?? ex.ToString()` (`PickleVatRoutePatch.cs:159,192`), matching the rest of the mod. | Diagnostics (W4) | P2 | Quick |
-| Hoist the four `AccessTools.Field` lookups out of the 51-location loop and use `CachedField` (`GameLoadPatch.cs:445,450,467,468`). | Performance/noise (M1/F1) | P2 | Quick |
-| Add one sentence to `ModInfo.json` Description naming the 1.14.x wild finds (Watercress/Cress Bed, Water Lily Rhizome, Horseradish/Chicory/Goosefoot, Mandrake, Rhubarb, Mustard, Iced Teas/Shaved Ice, fire-roasted Peanuts) at the next Description edit. The README card-count was already corrected to 507 this pass; the ModInfo under-claim remains. | Feature honesty (W6) | P2 | Quick |
-| Untrack `bin/Release/` if still tracked (the folder's own .gitignore ignores it; source + BinSync are clean). | Repo hygiene (W7) | P3 | Quick |
+| G5 breadcrumb hardening (summary W6-W10), one commit: W6 check the discarded `StatAccess.SetCurrentValue` result at `Patcher/ApothecaryQuestGatePatch.cs:153` and warn once (the only row with gameplay reach: the Anti-Nausea / Stimulant Tea gate would never open, silently); W7 resolve the four `CardDrop` / `CardDropChance` fields once in `AddDropToFirstCollection` (`Patcher/GameLoadPatch.cs:247-253`) and check the `ActionName` `SetMember` results (`:462-465`); W8 resolve `TagFilter.Tag` once and `LogError` + return before building Pouch entries (`GameLoadPatch.cs:774`); W9 warn once on a missing `CardVisuals` field or `Setup` method (`Patcher/PickleVatRoutePatch.cs:205-212`); W10 warn when `TabName` / `DefaultText` is missing (`Patcher/GpTagContentPatch.cs:93,140-151`). Clearing any two restores 10/10. Fix text for each is in `.audit/code-quality.md`. | Reliability (G5) | P1 | Quick |
+| Name the remaining shipped wild finds in `ModInfo.json` Description (Water Lily Rhizome, Chicory, Goosefoot, Mustard); 1.14.4 already added Watercress, Rhubarb, Horseradish, Mandrake, the iced teas, Shaved Ice and Raw Peanuts. ModInfo, README and CHANGELOG in one commit. | Feature honesty | P2 | Quick |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> No active plan. Both round-2 and the later vanilla-balance MASTER_PLANs were drained and archived (2026-10-12 and 2026-10-18). Every feature is either built (shipped across 1.14.0-1.14.11, awaiting human verification) or closed into an archive's "Considered, not selected" table with its reason. **Do not re-promote a Considered row** - each carries why it was ruled out (vanilla already ships it, dead mechanism, design call). New content for this mod starts from a fresh `/generate-ideas` + plan, not from an archive's Considered table.
+> No active plan. Both round-2 and the later vanilla-balance MASTER_PLANs were drained and archived (2026-10-12 and 2026-10-18). Every feature is either built (shipped across 1.14.0-1.14.12, some awaiting human verification) or closed into an archive's "Considered, not selected" table with its reason. **Do not re-promote a Considered row** - each carries why it was ruled out (vanilla already ships it, dead mechanism, design call). New content for this mod starts from a fresh `/generate-ideas` + plan, not from an archive's Considered table.
 
-- **Shipped, awaiting human verification** (code done; the only "expansion" left is confirming it plays): the T2.1xxx / T2.13xx rows in `.claude/playthrough-test-status.json` - Add-to-Stew absorption, honey syrup, gruit/needle/mulled ales, Forager's Seasoning, Bath Soak, Unknown Chanterelles, and the rest. Source of truth: `Documentation/Design/HerbsAndFungi_Content_Update_1_14_1_As_Built.md` and `HerbsAndFungi_Vanilla_Balance_As_Built.md`.
+- **Shipped, awaiting human verification** (code done; the only "expansion" left is confirming it plays): the 8 pending H&F rows in `.claude/playthrough-test-status.json`. Source of truth: `Documentation/Design/HerbsAndFungi_Content_Update_1_14_1_As_Built.md` and `HerbsAndFungi_Vanilla_Balance_As_Built.md`.
 - **2026-10-14 (1.14.9): the Foraging Forest is retired.** Owner decision once Far Territory took over mod-made locations: the 7 forest nodes, the Wild Bees' Nest, the three forage hotspots, the Fungal Bloom, the Overgrown Forest Trail and the Old-Growth Grove unlock are removed, and every forest forage rule moved to the vanilla location its node cloned (see CHANGELOG 1.14.9). Any roadmap, audit or tracker row about those features (for example T2.1007, the Wild Bees' Nest) no longer applies and is not work to do.
-- **No new content is scheduled.** The mod is feature-complete for round 2 and for the vanilla-balance pass; the next build phase would be a new planning pass, not continuation of a drained plan.
+- **No new content is scheduled.** The mod is feature-complete for round 2 and for the vanilla-balance pass (1.14.12 added herb winter grow bags and longer-keeping vats from that pass); the next build phase would be a new planning pass, not continuation of a drained plan.
 
 ---
 
@@ -67,18 +62,18 @@ Audit score: 9/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 5 WARNINGS, 4 MINOR) - see [
 
 ## Phase 4: Polish
 
-> Art is effectively complete - 234 custom PNGs, 292 image references all resolve, 0 orphans, 0 GUID-in-sprite, bin/Release fully synced.
+> Art is effectively complete - 235 custom PNGs, 292 image references all resolve, 0 orphans, 0 GUID-in-sprite.
 
 | Item | What | Complexity |
 |------|------|------------|
-| Perk starting-item weight balance | 10 perks exceed the 8-entry weight-bomb heuristic (all WarpData resolves; counts match descriptions). In-game feel check only, filed as tracker row T4.41. Not a bug. | Quick (human check) |
-| Description-accuracy pass | Fold the ModInfo under-claim fix (Phase 1 W6) into the next player-facing text sweep; confirm README/CHANGELOG/ModInfo stay in sync (README card-count already corrected to 507 this pass). | Quick |
+| Perk starting-item weight balance (W5) | 10 perks exceed the 8-entry heuristic. Since 1.14.4 every grant is an AddedCard that lands on the board, and T4.41 recorded a harness PASS 2026-10-14; what remains is a human feel check before W5 is struck. Not a bug. | Quick (human check) |
+| Description-accuracy pass | Fold the ModInfo wild-finds sentence (Phase 1) and the 7 loose blueprint gate names (summary M5: "a plank" for Wooden Plank on 5 blueprints, "a Clean Stomach" on Bp_Haggis, "Dried Bog Myrtle" on Bp_GruitBundle; SimpEn and SimpCn together) into the next player-facing text sweep; confirm README/CHANGELOG/ModInfo stay in sync. | Quick |
 
 ---
 
 ## Long-term Vision
 
-> Herbs and Fungi is feature-complete for its current scope. Its natural endpoint is maintenance mode: it already occupies the full early-to-mid-game foraging, herbalism and preservation niche, and the round-2 plan deliberately drained the backlog ("reach an end with the mod development and then shift into maintenance mode"). The next milestone is not more content but a full human playthrough of the large awaiting-verification set, after which the mod moves into `Stable/` and only updates to track game versions and player reports.
+> Herbs and Fungi is feature-complete for its current scope. Its natural endpoint is maintenance mode: it already occupies the full early-to-mid-game foraging, herbalism and preservation niche, and the round-2 plan deliberately drained the backlog ("reach an end with the mod development and then shift into maintenance mode"). The next milestone is not more content but a full human playthrough of the awaiting-verification set, after which the mod moves into `Stable/` and only updates to track game versions and player reports.
 
 **Potential major additions** (not justified by current scope - revisit only after the awaiting-verification set clears and only via a fresh planning pass):
 - A dedicated Herbalism progression arc tying the skill, the Botanical Field Guide and the Academy course into a longer identification/mastery loop - fits the mod's herbalism theme but adds a system, not just cards.
@@ -94,7 +89,7 @@ Any of these worth building belongs in a fresh plan under `Documentation/Plans/H
 |---------|--------|
 | After any new content phase | Run `/audit-mod HerbsAndFungi` and update this roadmap |
 | Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, re-run `/diagnose-log` |
-| After fixing a Phase 1 item | Run `/code-quality HerbsAndFungi` to confirm the warning cleared |
+| After any source change | Run `/critical-analysis HerbsAndFungi` so the adversarial report does not go stale again |
 | Before the `Stable/` move | Complete the full awaiting-verification playthrough set; the mod moves only after full human testing (owner rule) |
 
 ---
@@ -104,8 +99,8 @@ Any of these worth building belongs in a fresh plan under `Documentation/Plans/H
 ```
 /audit-mod HerbsAndFungi          - full health check, updates .audit/
 /critical-analysis HerbsAndFungi  - adversarial review
-/code-quality HerbsAndFungi       - C# reliability/maintainability scan (Phase 1 source)
-/repair-items HerbsAndFungi       - auto-fix item JSON issues
+/audit-blueprints HerbsAndFungi   - blueprint JSON audit (all 133, 2026-10-20)
+/code-quality HerbsAndFungi       - C# reliability/maintainability scan
 /build-mod HerbsAndFungi          - build Release DLL
 /deploy-mods HerbsAndFungi        - build + deploy to game
 /playthrough-test-plan status     - the awaiting-verification set

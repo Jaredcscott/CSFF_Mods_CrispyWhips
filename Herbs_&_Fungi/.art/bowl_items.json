@@ -220,6 +220,17 @@
    ],
    "colour": "#d2911e",
    "looks": "golden amber honey"
+  },
+  {
+   "image": "HF_PeanutButter",
+   "cards": [
+    "CardData/Item/PeanutButter.json"
+   ],
+   "colour": "#d1a66a",
+   "looks": "creamy pale peanut tan",
+   "smooth": 16,
+   "flatten": 0.6,
+   "note": "a paste, not a liquid: make_bowl(..., smooth=16, flatten=0.6) tints the water glints, evens the shading and blurs the surface (owner 2026-10-21: needs to be smoother, place into a clay bowl following the vanilla style; then: should be more creamy); shifted onto the shipped bowl-item box (41, 346, 471, 630)"
   }
  ]
 }
