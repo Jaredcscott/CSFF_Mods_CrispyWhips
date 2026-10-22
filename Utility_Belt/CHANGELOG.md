@@ -2,6 +2,15 @@
 
 All notable changes to this mod are documented here.
 
+## [0.1.7] - 2026-10-22
+
+### Fixed
+Utility Belt now carries Quick Transfer 1.9.2, Repeat Action 2.2.3 and Skill Speed Boost 1.11.2.
+
+- **Quick Transfer: a card you locked stays put when it is the card you click.** A modifier+click (or the Transfer Hotkey) on a locked card used to move that card along with the batch. Now the locked card stays and the rest of the batch moves as usual.
+- **Repeat Action: a repeat no longer pours from a container you locked.** When a repeated pour's source ran dry, the next pick could be the water inside a waterskin you had locked, because the lock is on the waterskin, not the water. The water in a locked container is now left alone.
+- **Skill Speed Boost (for modders):** when clearing the EA 0.69 skill cache fails, the log now names the real error instead of the reflection wrapper's.
+
 ## [0.1.6] - 2026-10-20
 
 ### Added
