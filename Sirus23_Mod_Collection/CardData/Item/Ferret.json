@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sir_ferret",
         "LocalizationKey": "SIR_Ferret_CardDescription",
-        "DefaultText": "A tame ferret, small, quick and fond of burrows. Carry it and your Snares and Log Traps are more likely to catch a hare, as long as it is fed. Feed it scraps of raw meat; a hungry ferret helps less."
+        "DefaultText": "A tame ferret, small, quick and fond of burrows. Carry it and your Snares and Log Traps are more likely to catch a hare, as long as it is fed. Feed it Meat or Bird Meat, raw, cooked, boiled or dried; a hungry ferret helps less."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
@@ -128,7 +128,7 @@
             "ActionDescription": {
                 "ParentObjectID": "sir_ferret",
                 "LocalizationKey": "SIR_Ferret_CI0_ActionDescription",
-                "DefaultText": "Feed the ferret a scrap of raw meat to fill its Hunger bar."
+                "DefaultText": "Feed the ferret Meat or Bird Meat (raw, cooked, boiled or dried) to fill its Hunger bar."
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 1,

@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.22.10] - 2026-10-22
+
+### Fixed
+
+- **The Ferret says what it eats.** Its card and the Feed Ferret action said raw meat; it eats Meat or Bird Meat, raw, cooked, boiled or dried, and now says so in English and Chinese.
+
 ## [1.22.9] - 2026-10-20
 
 ### Fixed

@@ -1,6 +1,6 @@
 # Sirus23 Mod Collection
 
-**Version:** 1.22.9
+**Version:** 1.22.10
 **Author:** Sirus, Jared
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFF Mod Framework 2.28.0 or later. Older frameworks back to 2.14.1 still load the mod, but the Wild Owl, the Hawk and the features marked "needs 2.28.0" below do not work fully.
@@ -24,7 +24,7 @@ Animal companions, a working sheep farm and felt clothing, by Sirus and Jared.
 
 **Card motion:** the companions, young animals, wild owl and hawk, ferret, truffle hog and sheep breathe softly on their cards. This needs CSFF Mod Framework 2.28.3.
 
-**Status notes:** a number called a first guess may change after playtesting. "Not yet confirmed in the game" means no one has checked that feature in a running game.
+**Status notes:** a number called a first guess may change after playtesting. "Not yet confirmed in the game" means no one has checked that feature in a running game. "Confirmed in a scripted run" means an automated run of the game checked it.
 
 ## Character-creation perks
 
@@ -59,7 +59,7 @@ The wolf, fox, owl and hawk each have a Health bar. The wolf's falls while its H
 
 The fox's, owl's and hawk's falls only while a bar is empty, by 2 points every 15 minutes per empty bar. A full 480 lasts about two and a half days with one bar empty, half that with both. At zero the wolf and fox die and leave a body, and the owl and hawk fly away.
 
-**Treat Wounds** restores 192 Health. Drag Healer's Moss, Boiled Moss, Healing Ointment, Healing Salve, Pine Salve, Soothing Ointment, Soothing Salve, River Poultice or Lanolin Salve onto the companion. The Lanolin Salve is not yet confirmed in the game.
+**Treat Wounds** restores 192 Health. Drag Healer's Moss, Boiled Moss, Healing Ointment, Healing Salve, Pine Salve, Soothing Ointment, Soothing Salve, River Poultice or Lanolin Salve onto the companion. The Lanolin Salve is confirmed in a scripted run.
 
 A fox or owl from an older save loads with full Health. The 480, the drain and the 192 are the wolf's numbers and a first guess.
 
@@ -103,7 +103,7 @@ The Owl Friend perk starts you with an owl. It eats meat and bird meat, takes dr
 
 The owl keeps night hours, 20:00 to 06:00. At dawn it flies to the nearest natural cave to roost. At dusk, if you are outdoors, it returns with its stats as they were. By day it does not travel with you, and it never follows you into a cave or building. An owl told to Stay Here is left alone.
 
-**Pest control:** while the owl is on the board you are standing on (following you at night, or told to Stay Here at the camp you are in), base-game mouse raids on your food come about half as often. The hidden raid timer climbs at half speed, so raids still come, just rarer. An owl on another map or roosting in a cave by day does nothing for you. The half is a first guess. Not yet confirmed in the game.
+**Pest control:** while the owl is on the board you are standing on (following you at night, or told to Stay Here at the camp you are in), base-game mouse raids on your food come about half as often. The hidden raid timer climbs at half speed, so raids still come, just rarer. An owl on another map or roosting in a cave by day does nothing for you. The half is a first guess. Confirmed in a scripted run.
 
 If its Health runs out, the owl flies away and leaves no body.
 
@@ -135,7 +135,7 @@ In spring a successful Climb at a bird's nest can also find an Eyas, at the owle
 
 The Hawk Companion follows you, with Stay Here and Follow Me as for the fox. **Send Hawk Hunting** (1 hour) brings back a Hare Carcass or Partridge Carcass about 45 times in 100, half the wolf's rate.
 
-That rate is a first guess until Sirus reviews it. The Eyas uses the Owlet's picture for now. Not yet confirmed in the game.
+That rate is a first guess until Sirus reviews it. The Eyas uses the Owlet's picture for now. The hunt is confirmed in a scripted run.
 
 ### The Recall Whistle
 
@@ -143,7 +143,7 @@ A companion told to Stay Here, or left where it could not follow, waits where it
 
 **Blow the Whistle** (15 minutes) works anywhere. Every Wolf, Fox, Owl or Hawk Companion in another location comes to you with its stats as they were and follows you again.
 
-The owl answers only at night and only when you are outdoors. At night the whistle also brings an owl told to Stay Here. If nothing answers, the card says so, and a companion that fails to appear is put back where it was. Not yet confirmed in the game.
+The owl answers only at night and only when you are outdoors. At night the whistle also brings an owl told to Stay Here. If nothing answers, the card says so, and a companion that fails to appear is put back where it was. Recalling the wolf is confirmed in a scripted run; the owl's night rule is not yet confirmed in the game.
 
 ### Wolf Den and Owl Perch
 
@@ -174,11 +174,11 @@ A crafted treat builds twice the bond a raw treat does, gives you a small Morale
 
 ### The Ferret
 
-The Ferret rides in your pack. Carried in the same location as a trap, it adds 20 points to a Snare's chance of catching a hare and 10 to a Log Trap's. Deadfalls and Pit Traps cannot catch hares.
+The Ferret rides in your pack. Carried or set down in the same location as a trap, it adds 20 points to a Snare's chance of catching a hare and 10 to a Log Trap's. Deadfalls and Pit Traps cannot catch hares.
 
 Its Hunger bar empties over about ten days. Drag Meat or Bird Meat onto it (raw, cooked, boiled or dried) to **Feed Ferret**. A hungry ferret helps less, and a starving one not at all.
 
-You cannot find one in the wild. The animal trader sometimes stocks one on spring and autumn visits (a 25% chance). The bonuses and the 25% are first guesses. Not yet confirmed in the game.
+You cannot find one in the wild. The animal trader sometimes stocks one on spring and autumn visits (a 25% chance). The bonuses and the 25% are first guesses. The trap bonus is confirmed in a scripted run.
 
 ### The Truffle Hog (needs Herbs and Fungi)
 
@@ -186,7 +186,7 @@ With Herbs and Fungi installed, drag Edible Acorns onto a Piglet whose Trust is 
 
 The hog rides in your pack and its Hunger bar empties over about ten days. Refill it with an acorn or a root: Pine Roots, Cattail Root, Turnroot or Fireroot.
 
-Carried and fed, it adds 2 points to the rare truffle find of Dig up Mud and Dig up Dirt (still nothing out of season) and 15 points to Dig for Truffles on oak and alder ground. A hungry hog helps less. Both bonuses are first guesses. Not yet confirmed in the game.
+Carried and fed, it adds 2 points to the rare truffle find of Dig up Mud and Dig up Dirt (still nothing out of season) and 15 points to Dig for Truffles on oak and alder ground. A hungry hog helps less. Both bonuses are first guesses. Training the hog is confirmed in a scripted run.
 
 ## Sheep Husbandry
 
@@ -208,7 +208,7 @@ Each shearing has a 25% chance to give **Lanolin**. Blend it with Frostleaf Powd
 
 The Sheep Feeder's **Tend Flock** shears every ready tame sheep, lactating sheep and ram in your location in one click, each for the same 2 Wool and 25% Lanolin chance.
 
-First it feeds the flock. Any sheep below two thirds Nourishment eats one feed card from the feeder (grass, hay or any herbivore feed) and gains 144. When the feeder is empty it uses a base-game Dry Fodder pile in the same location, one unit per sheep. A pile below one unit is left for cattle.
+First it feeds the flock. Any sheep below two thirds Nourishment eats one feed card from the feeder (grass, hay or any herbivore feed) and gains 144. When the feeder is empty it uses a base-game Dry Fodder pile in the same location, one unit per sheep. A pile below one unit is left for cattle. Picking up the feeder spills its feed onto the board.
 
 With your Wolf Companion in the same location the button reads **Tend Flock with the Wolf** and costs 1 time unit instead of 2; it does exactly the same work. Only one of the two buttons shows at a time.
 
@@ -290,7 +290,7 @@ The **Sheep Pen** (Farming > Animal Husbandry, 24 hours to research, built in tw
 
 **A flock you leave behind is still at risk.** Only sheep in your hands travel with you. Sheep left loose roll every night to wander off or be taken, as if you were there. A Wolf Companion told to Stay Here with them guards and herds them (1% predator chance, 1% wandering), and a Sheep Bell left with them halves the wandering.
 
-A loss while you are away leaves no remains, tracks or lamb, since the game can only place cards where you stand. You come back to a smaller flock, and the log names each loss. Reloading neither rolls a night again nor brings a sheep back. The bell and Enclosure parts are not yet confirmed in the game.
+A loss while you are away leaves no remains, tracks or lamb, since the game can only place cards where you stand. You come back to a smaller flock, and the log names each loss. Reloading neither rolls a night again nor brings a sheep back. The Sheep Bell, the Enclosure and the nightly rolls for a flock left behind are confirmed in a scripted run.
 
 ## Dairy
 
@@ -308,7 +308,7 @@ Drag a dairy product onto the base-game food below. Both are used up and you get
 | Ricotta | Rye Roundbread | Ricotta Rye Round |
 | Buttermilk | Wheat Hardtack | Buttermilk Hardtack |
 
-Each dish is worth a little more than its two parts eaten apart (Cheese-Stuffed Flatbread 77 Satiation). Dishes spoil: the flatbread keeps about five days, Buttered Roots and Creamy Mash about two. Clarified Butter and Aged Sheep Cheese keep about a month. The nutrition values and pairings are first guesses.
+Each dish is worth a little more than its two parts eaten apart (Cheese-Stuffed Flatbread 77 Satiation). Dishes spoil: the flatbread keeps about five days, Buttered Roots and Creamy Mash about two. Clarified Butter and Aged Sheep Cheese keep about a month. Spoiled dairy, dishes and treats leave Rotten Remains for the compost bin. The nutrition values and pairings are first guesses.
 
 ### Dairy Preservation
 
@@ -318,7 +318,7 @@ Drag **Salt** onto Butter to **Salt the Butter**: Salted Butter keeps three time
 
 Sheep Butter, Salted Butter and Clarified Butter all take the base-game butter's three **Add** actions. With Wheat Dough or Rye Dough they make Wheat or Rye Grease Dough. Dragged onto Raw Minced Meat, Blood Curd, Raw Fatty Fish Meat or Raw Lean Fish Meat, they make the Raw Meat, Raw Blood or Raw Fish Filling.
 
-They also melt like base-game butter in a Clay Bowl, Clay Cauldron or Cooking Pot that already holds some melted butter, becoming fresh liquid Butter at half Quality. Melting is not yet confirmed in the game.
+They also melt like base-game butter in a Clay Bowl, Clay Cauldron or Cooking Pot that already holds some melted butter, becoming fresh liquid Butter at half Quality. Melting is confirmed in a scripted run.
 
 ### Dairy Flavours
 
@@ -328,7 +328,7 @@ A dairy dish keeps the flavours of the food it was made from: Cheese-Stuffed Fla
 
 ### Herbs in Dairy
 
-Drag wild garlic, wood sorrel, clover, nettle leaf, frostleaf or juniper berries onto **Sheep Cheese** or **Butter** to stir them in. The herb is used up and the dairy takes on its flavours. Strong herbs add up, as on the base game's pie. Herbs and Fungi is not needed. Not yet confirmed in the game.
+Drag wild garlic, wood sorrel, clover, nettle leaf, frostleaf or juniper berries onto **Sheep Cheese** or **Butter** to stir them in. The herb is used up and the dairy takes on its flavours. Strong herbs add up, as on the base game's pie. Herbs and Fungi is not needed. Confirmed in a scripted run.
 
 ### Straining Curds by Hand
 
@@ -348,9 +348,9 @@ Felt is the alternative to spinning and weaving. Press 4 raw Wool into a sheet o
 
 Warmth is the base game's Perceived Temperature, the same stat its cloth, leather and fur clothing raise. Before 1.22.6 these pieces raised Cold Resistance instead, which warmed nothing and could cost you the Frost Blessed status.
 
-**Lanolin waterproofing.** Drag **Lanolin** onto any of the six pieces above (Hat, Mittens, Vest, Boots, Socks, Tunic) and choose **Work in Lanolin** (15 minutes; the Lanolin is used up). The piece gets a Waterproofing bar that starts full and empties over about three days. While you wear it, it adds +0.28 Rain Protection at full strength until the bar is down to its last fifth, then fades to nothing as the bar empties. The game counts Rain Protection in whole steps: one treated piece alone does nothing, two or more worn together give Minor Protection (like a coat), and a full treated set never beats a coat (with a coat on top it reaches Medium). Treat a piece again to refill its bar. Base-game clothing cannot be treated, and the Lanolin Salve is not used for this. The 0.28, the three days and the fade point are first guesses and are tunable; they have not been played yet.
+**Lanolin waterproofing.** Drag **Lanolin** onto any of the six pieces above (Hat, Mittens, Vest, Boots, Socks, Tunic) and choose **Work in Lanolin** (15 minutes; the Lanolin is used up). The piece gets a Waterproofing bar that starts full and empties over about three days. While you wear it, it adds +0.28 Rain Protection at full strength until the bar is down to its last fifth, then fades to nothing as the bar empties. The game counts Rain Protection in whole steps: one treated piece alone does nothing, two or more worn together give Minor Protection (like a coat), and a full treated set never beats a coat. The Felt Vest is worn in the coat slot, so it cannot go under a coat, but the other treated pieces with a coat reach Medium. Treat a piece again to refill its bar. Base-game clothing cannot be treated, and the Lanolin Salve is not used for this. The 0.28, the three days and the fade point are first guesses and are tunable. Not yet confirmed in the game.
 
-The **Felt Bedroll** (3 Felted Wool) has the base-game Bedroll's Nap and Sleep actions. It warms you only while you nap or sleep on it (+3 warmth, like a base-game bed). Sleeping on it is not yet confirmed in the game. A **Wool Blanket** in your pack keeps your Body Temperature 10 points higher; more blankets do not add more. A blanket, pillow or rug left on another map does nothing for you there.
+The **Felt Bedroll** (3 Felted Wool) has the base-game Bedroll's Nap and Sleep actions. It warms you only while you nap or sleep on it (+3 warmth, like a base-game bed). Napping on it is confirmed in a scripted run; that sleep effects treat it like a base-game bedroll is not yet confirmed in the game. A **Wool Blanket** in your pack keeps your Body Temperature 10 points higher; more blankets do not add more. A blanket, pillow or rug left on another map does nothing for you there.
 
 The **Felt Rug** (3 Felted Wool, shown once you have Felted Wool) is a flat rug with a darker border. Carried, it gives +10 Sanctuary and weighs 1000 g. A rug and a Feather Pillow, or several of either, still give +10 once.
 

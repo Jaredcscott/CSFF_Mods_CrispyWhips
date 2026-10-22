@@ -632,10 +632,10 @@ FC_Eyas_CI1_ActionDescription,Offer the eyas a drink from a water container.,让
 FC_Hawk_AgentName,Hawk,鹰
 FC_Hawk_Tame_ActionName,Attempt to Tame,尝试驯服
 SIR_Ferret_CardName,Ferret,雪貂
-SIR_Ferret_CardDescription,"A tame ferret, small, quick and fond of burrows. Carry it and your Snares and Log Traps are more likely to catch a hare, as long as it is fed. Feed it scraps of raw meat; a hungry ferret helps less.",一只驯服的雪貂，身形小巧、动作敏捷，喜欢钻洞。带着它，只要喂饱了，你的陷阱和圆木陷阱更容易捕到野兔。用生肉碎块喂它；饥饿的雪貂帮不上多少忙。
+SIR_Ferret_CardDescription,"A tame ferret, small, quick and fond of burrows. Carry it and your Snares and Log Traps are more likely to catch a hare, as long as it is fed. Feed it Meat or Bird Meat, raw, cooked, boiled or dried; a hungry ferret helps less.",一只驯服的雪貂，身形小巧、动作敏捷，喜欢钻洞。带着它，只要喂饱了，你的陷阱和圆木陷阱更容易捕到野兔。用肉或鸟肉喂它，生的、烤的、煮的或风干的都行；饥饿的雪貂帮不上多少忙。
 SIR_Ferret_SpecialDurability1_CardStatName,Hunger,饥饿
 SIR_Ferret_CI0_ActionName,Feed Ferret,喂雪貂
-SIR_Ferret_CI0_ActionDescription,Feed the ferret a scrap of raw meat to fill its Hunger bar.,给雪貂喂一块生肉碎，填满它的饥饿条。
+SIR_Ferret_CI0_ActionDescription,"Feed the ferret Meat or Bird Meat (raw, cooked, boiled or dried) to fill its Hunger bar.",给雪貂喂肉或鸟肉（生的、烤的、煮的或风干的都行），填满它的饥饿条。
 sh_recall_whistle_CardName,Recall Whistle,召回哨
 sh_recall_whistle_CardDescription,"A short whistle cut from a bone splinter, with one shrill note. Blow it and every companion you left behind in another place (told to Stay Here, or left where it could not follow) comes back to you, as hungry and as hurt as it was. The owl answers only at night and never comes into a cave or building.",一支用骨片削成的短哨，只有一个尖利的音。吹响它，你留在别处的每一个伙伴（被命令“留在这里”的，或留在它无法跟随之处的）都会回到你身边，饥饿和伤势都和离开时一样。猫头鹰只在夜里回应，而且从不进入洞穴或建筑。
 sh_recall_whistle_DA0_ActionName,Blow the Whistle,吹响哨子
