@@ -92,8 +92,8 @@
                 "DefaultText": "Churn Butter"
             },
             "ActionDescription": {
-                "ParentObjectID": "",
-                "LocalizationKey": "",
+                "ParentObjectID": "sh_butter_churn",
+                "LocalizationKey": "sh_butter_churn_CardInteractions[0].ActionDescription",
                 "DefaultText": "Churn fresh sheep milk into butter and buttermilk."
             },
             "NoveltyShared": false,

@@ -520,7 +520,7 @@
             "RoomDirection": 0,
             "ExitDirection": 0
         },
-        "HasActionOnFull": true,
+        "HasActionOnFull": false,
         "RepeatActionOnFull": false,
         "ShowPopupOnFull": false,
         "OnFullNotification": 1,

@@ -18,8 +18,8 @@
     "CardImageWarpType": 3,
     "CardType": 7,
     "UnlockConditionsDesc": {
-        "ParentObjectID": "",
-        "LocalizationKey": "",
+        "ParentObjectID": "sh_bp_wool_socks",
+        "LocalizationKey": "sh_bp_wool_socks_UnlockConditionsDesc",
         "DefaultText": "Requires: Wool Yarn"
     },
     "StartUnlocked": false,

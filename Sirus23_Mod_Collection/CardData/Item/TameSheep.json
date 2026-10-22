@@ -1413,7 +1413,7 @@
                 },
                 "HideActionIfNotMet": true,
                 "FailMessage": {
-                    "ParentObjectID": "sh_sheep",
+                    "ParentObjectID": "sh_tame_sheep",
                     "LocalizationKey": "sh_sheep_Shear_FailMessage",
                     "DefaultText": "Not enough wool to shear"
                 },
@@ -3467,7 +3467,7 @@
                 },
                 "HideActionIfNotMet": true,
                 "FailMessage": {
-                    "ParentObjectID": "sh_sheep",
+                    "ParentObjectID": "sh_tame_sheep",
                     "LocalizationKey": "sh_sheep_Feed_FailMessage",
                     "DefaultText": "This sheep is not hungry"
                 },

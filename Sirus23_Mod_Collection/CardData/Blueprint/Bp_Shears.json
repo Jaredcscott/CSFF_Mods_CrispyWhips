@@ -18,9 +18,9 @@
     "CardImageWarpType": 3,
     "CardType": 7,
     "UnlockConditionsDesc": {
-        "ParentObjectID": "",
-        "LocalizationKey": "",
-        "DefaultText": "Requires: Iron Metal Nugget"
+        "ParentObjectID": "sh_bp_shears",
+        "LocalizationKey": "sh_bp_shears_UnlockConditionsDesc",
+        "DefaultText": "Requires: Metal Nugget"
     },
     "StartUnlocked": false,
     "BuildingStatConditions": [],

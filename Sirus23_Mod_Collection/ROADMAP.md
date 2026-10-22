@@ -1,7 +1,7 @@
 # Roadmap: Sirus23 Mod Collection
-Version at time of writing: 1.22.8
-Date: 2026-10-19
-Audit score: 9/10 - PASS (0 CRITICAL)
+Version at time of writing: 1.22.9
+Date: 2026-10-21
+Audit score: 10/10 - PASS (0 CRITICAL)
 
 ## Current State
 
@@ -9,9 +9,9 @@ Audit score: 9/10 - PASS (0 CRITICAL)
 
 **Content**: 71 items / 29 blueprints / 7 structures / 9 perks / 78 custom images / 2 triggers / 2 Animals manifests (Owl, Hawk) / 4 GameSourceModify patches / 3 EncounterGuards / 1 liquid.
 
-**Stability**: 9/10 - 0 CRITICAL, 0 design gaps, 3 warnings (two terminal-carcass detector blind-spots + one low-severity code-quality reliability gap, G5). critical-analysis (2026-10-19) is SOLID; code-quality (2026-10-19) is 10/10.
+**Stability**: 10/10 - 0 CRITICAL, 0 design gaps, 2 warnings (code-quality G2: Debug-only catches in Tend Flock and the owl cave rule). The 2026-10-20 per-type CRITICALs (Sheep Feeder spill, Felt Bedroll and Ox Plough export tag names) and their warnings are fixed in 8e0a8b7de, the Pack Bond framework guard and Shears text in da5ee9b33. critical-analysis (2026-10-21) is SOLID; code-quality (2026-10-21) is 10/10.
 
-**Open work**: No open or pending retrospectives name this mod. No open plan: the vanilla-balance-and-niche plan was built and archived as `Documentation/Design/Sirus23_Vanilla_Balance_And_Niche_As_Built.md` (1.22.6-1.22.8). What remains is in-game verification on tracker rows and the suite-batch release of 1.22.8.
+**Open work**: No open or pending retrospectives name this mod. No open plan: the vanilla-balance-and-niche plan was built and archived as `Documentation/Design/Sirus23_Vanilla_Balance_And_Niche_As_Built.md` (1.22.6-1.22.8). What remains is the two logging warnings, in-game verification on tracker rows and the release of 1.22.9 (Nexus holds 1.22.8, published 2026-10-19).
 
 **Framework compliance**: Tier 2, fully adopted. `Plugin.cs` extends `ContentModPlugin`; patchers use `ActionRouter`, `SpawnService`, `TickEvents`, `CompanionService` and declarative `EncounterGuards`. Declarative content (BlueprintTabs, GameSourceModify, Animals manifests, EncounterGuards) used throughout. No deprecated patterns (`DropCollectionGuardPatch`, unfiltered hot-path prefixes, `ModLoaderVerison`) present.
 
@@ -19,11 +19,12 @@ Audit score: 9/10 - PASS (0 CRITICAL)
 
 ## Phase 0: Stabilize
 
-> Audit score is 9/10 with 0 CRITICAL and no open retrospectives. One low-severity reliability fix is worth landing before the next release; otherwise skip.
+> Audit score is 10/10 with 0 CRITICAL and no open retrospectives. Two low-severity reliability fixes are worth landing before the 1.22.9 upload (G5 landed in d60305366).
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| G5 - add a warn-once when `GameManager.NextEnvironment` field lookup fails in `CompanionStayPatch.cs:136-139`, distinct from the benign-null path, so a future field rename does not silently stop the owl's "leave me behind in a cave" rule | Reliability fix | P0 | Quick |
+| W2 - Tend Flock: reset the Wool stat before spawning wool and abort if the reset fails, then warn once per cause at LogWarning (`SheepFeederPatch.cs:161-162`, `:230-231`); the only path that could mint resources | Reliability fix | P0 | Quick |
+| W1 - owl cave-rule catches: per-cause warn-once at LogWarning, latched (`CompanionStayPatch.cs:183`, `IndoorOrCaveEnv.cs:137`, `:115`) | Reliability fix | P1 | Quick |
 
 ---
 
@@ -33,11 +34,11 @@ Audit score: 9/10 - PASS (0 CRITICAL)
 
 | Item | Type | State |
 |------|------|-------|
-| Versions synced across ModInfo/Plugin.cs/README (1.22.8 x3) | Version hygiene | DONE |
+| Versions synced across ModInfo/Plugin.cs/README (1.22.9 x3) | Version hygiene | DONE |
 | Tier 2 framework adoption (ActionRouter/SpawnService/TickEvents/CompanionService) | Framework | DONE |
-| SimpCn.csv Chinese parity (662/662 CLEAN) | Localization | DONE |
+| SimpCn.csv Chinese parity (679/679 CLEAN, 2026-10-21) | Localization | DONE |
 | bin/Release sync clean | Build hygiene | DONE |
-| Publish 1.22.8 to Nexus (last known live: 1.21.6, 2026-10-13) - re-verify with `/nexus-publish status`; ships in a framework batch (build needs framework newer than Nexus 2.26.12) | Release | TODO |
+| Publish 1.22.9 to Nexus (1.22.8 live since 2026-10-19 per `.claude/nexus-publish-status.json`) - re-verify with `/nexus-publish status`; Pack Bond needs framework 2.28.0 | Release | TODO |
 
 ---
 
@@ -45,8 +46,8 @@ Audit score: 9/10 - PASS (0 CRITICAL)
 
 > The mod's core loops are complete and recently extended (1.22.8 niche content). No new core content is justified until the pending in-game verification confirms what is already built. The next "expansion" work is closing verification debt, not writing features.
 
-### Close 1.22.8 verification debt
-**What**: Run the pending tracker rows in-game and record results: T2.582 (felt wet-weather), T2.583 (fox forager's-aid), T2.585 (owl pest-control cadence), T2.586 (lanolin waterproofing), plus the older pending companion/sheep rows (T2.561-T2.574, tame rows T2.551/T2.552 await `record`).
+### Close 1.22.8 and 1.22.9 verification debt
+**What**: Run the pending tracker rows in-game and record results: T2.587-T2.591 (the 1.22.9 audit fix set: feeder spill, Rotten Remains, bedroll sleep tag and plough, Pack Bond, EN/CN text), T2.582 (felt wet-weather), T2.583 (fox forager's-aid), T2.585 (owl pest-control cadence), T2.586 (lanolin waterproofing), plus the older pending companion/sheep rows (T2.561-T2.574, tame rows T2.551/T2.552 await `record`).
 **Why**: The code is built; these are open questions on `.claude/playthrough-test-status.json`, not findings. A failed row returns as a fix. Code work is not blocked on them (CLAUDE.md: code never waits on a playthrough).
 **Requires**: a running build; the Transfer-TestingState sync if verified on the testbox.
 **Complexity**: Medium (human playthrough, not code).

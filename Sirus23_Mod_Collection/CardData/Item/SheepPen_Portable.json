@@ -61,7 +61,7 @@
         "Active": true,
         "FloatValue": 1920.0,
         "CardStatName": {
-            "ParentObjectID": "sh_sheep_pen",
+            "ParentObjectID": "sh_sheep_pen_portable",
             "LocalizationKey": "sh_sheep_pen_SpoilageTime_CardStatName",
             "DefaultText": "Fence Condition"
         },

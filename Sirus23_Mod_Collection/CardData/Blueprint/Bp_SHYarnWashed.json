@@ -18,8 +18,8 @@
     "CardImageWarpType": 3,
     "CardType": 7,
     "UnlockConditionsDesc": {
-        "ParentObjectID": "",
-        "LocalizationKey": "",
+        "ParentObjectID": "sh_bp_yarn_washed",
+        "LocalizationKey": "sh_bp_yarn_washed_UnlockConditionsDesc",
         "DefaultText": "Requires: Washed Wool"
     },
     "StartUnlocked": false,

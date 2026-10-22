@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_bp_sheep_feeder",
         "LocalizationKey": "sh_bp_sheep_feeder_CardDescription",
-        "DefaultText": "Build a feeder to store grass for your sheep."
+        "DefaultText": "Build a feeder to store feed for your sheep."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -18,8 +18,8 @@
     "CardImageWarpType": 3,
     "CardType": 7,
     "UnlockConditionsDesc": {
-        "ParentObjectID": "",
-        "LocalizationKey": "",
+        "ParentObjectID": "sh_bp_sheep_feeder",
+        "LocalizationKey": "sh_bp_sheep_feeder_UnlockConditionsDesc",
         "DefaultText": "Requires: Wool"
     },
     "StartUnlocked": false,

@@ -1,6 +1,6 @@
 # Sirus23 Mod Collection
 
-**Version:** 1.22.8
+**Version:** 1.22.9
 **Author:** Sirus, Jared
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFF Mod Framework 2.28.0 or later. Older frameworks back to 2.14.1 still load the mod, but the Wild Owl, the Hawk and the features marked "needs 2.28.0" below do not work fully.
@@ -75,7 +75,7 @@ While the wolf shares your location, a wild bear, wolf, wolf pack, primeval wolf
 
 The Wolf Friend perk starts you with a wolf. Feed, water, treat, pet and play with it, send it hunting, have it Track Scents (+1 Tracking), Flush Prey, or set it to Guard Camp. Guard Camp no longer puts you to sleep. With your sheep it herds as well as guards: see Tend Flock and Sheep Pen below.
 
-**Bond with Wolf** is a one-time, two-hour action. It grants the hidden Pack Bond perk: +5 Tracking.
+**Bond with Wolf** is a one-time, two-hour action. It grants the hidden Pack Bond perk: +5 Tracking (needs 2.28.0).
 
 **Taming a wild wolf.** Use Attempt to Tame on the lone wild wolf with Meat, Bird Meat, Lean or Fatty Fish Meat, Dried Meat or Dried Bird Meat. It becomes a Wolf Companion with full Hunger, Thirst and Morale, and the wild wolf leaves. A wolf pack or the primeval wolf cannot be tamed this way.
 

@@ -107,6 +107,9 @@ internal static class IndoorOrCaveEnv
 
     private static HashSet<string> _envUidSet;
 
+    // Matches runs on every owl transition and every wild-owl duty check: warn once per cause, not per call.
+    private static readonly HashSet<string> _warned = new(StringComparer.Ordinal);
+
     /// <summary>
     /// True if <paramref name="envCard"/> is a known cave/mine/tunnel or man-made structure
     /// (checked primarily by UID, with a CardTags scan as a secondary signal). Returns false
@@ -134,7 +137,8 @@ internal static class IndoorOrCaveEnv
         }
         catch (Exception ex)
         {
-            Plugin.Logger?.LogDebug($"[IndoorOrCaveEnv] Matches check failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            if (_warned.Add("matches:" + ex.GetType().Name))
+                Plugin.Logger?.LogWarning($"[IndoorOrCaveEnv] the cave/structure check threw {ex.GetType().Name}, so no destination reads as a cave or building (the companion owl follows inside and the wild owl can reach the player indoors): {ex.InnerException?.ToString() ?? ex.ToString()} Logged once per cause.");
             return false;
         }
     }

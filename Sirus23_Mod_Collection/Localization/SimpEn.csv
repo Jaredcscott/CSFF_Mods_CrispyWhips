@@ -68,6 +68,7 @@ sh_wool_blanket_CardName,Wool Blanket,Wool Blanket
 sh_wool_blanket_CardDescription,A thick woollen blanket. Carried in your pack it keeps your body temperature 10 points higher in the cold. A second blanket adds nothing.,A thick woollen blanket. Carried in your pack it keeps your body temperature 10 points higher in the cold. A second blanket adds nothing.
 sh_bp_wool_blanket_CardName,Wool Blanket Blueprint,Wool Blanket Blueprint
 sh_bp_wool_blanket_CardDescription,Weave 4 woven cloths together into a thick woollen blanket.,Weave 4 woven cloths together into a thick woollen blanket.
+sh_bp_wool_blanket_UnlockConditionsDesc,Requires: Woven Cloth,需要：织布
 sh_shears_CardName,Shears,Shears
 sh_shears_CardDescription,"Metal shears for shearing sheep. Lasts 50 uses, then the blades are worn out and the shears are gone.","Metal shears for shearing sheep. Lasts 50 uses, then the blades are worn out and the shears are gone."
 sh_butter_churn_CardName,Butter Churn,Butter Churn
@@ -82,14 +83,18 @@ sh_cheese_cloth_CardName,Cheese Cloth,Cheese Cloth
 sh_cheese_cloth_CardDescription,A fine cloth used to curdle milk into cheese.,A fine cloth used to curdle milk into cheese.
 sh_sheep_feeder_CardName,Sheep Feeder,Sheep Feeder
 sh_sheep_feeder_CardDescription,"A wooden trough for storing herbivore feed (grasses, hay, and other forage) for your sheep.","A wooden trough for storing herbivore feed (grasses, hay, and other forage) for your sheep."
-sh_bp_shears_CardName,Shears,Shears
+sh_bp_shears_CardName,Shears Blueprint,Shears Blueprint
 sh_bp_shears_CardDescription,Craft metal shears for shearing sheep.,Craft metal shears for shearing sheep.
-sh_bp_butter_churn_CardName,Butter Churn,Butter Churn
+sh_bp_shears_UnlockConditionsDesc,Requires: Metal Nugget,需要：金属块
+sh_bp_butter_churn_CardName,Butter Churn Blueprint,Butter Churn Blueprint
 sh_bp_butter_churn_CardDescription,Build a butter churn to make butter from milk.,Build a butter churn to make butter from milk.
-sh_bp_cheese_cloth_CardName,Cheese Cloth,Cheese Cloth
+sh_bp_butter_churn_UnlockConditionsDesc,Requires: Sheep Milk,需要：羊奶
+sh_bp_cheese_cloth_CardName,Cheese Cloth Blueprint,Cheese Cloth Blueprint
 sh_bp_cheese_cloth_CardDescription,Cut woven cloth into a cheese cloth.,Cut woven cloth into a cheese cloth.
-sh_bp_sheep_feeder_CardName,Sheep Feeder,Sheep Feeder
+sh_bp_cheese_cloth_UnlockConditionsDesc,Requires: Woven Cloth,需要：织布
+sh_bp_sheep_feeder_CardName,Sheep Feeder Blueprint,Sheep Feeder Blueprint
 sh_bp_sheep_feeder_CardDescription,Build a feeder to store feed for your sheep.,Build a feeder to store feed for your sheep.
+sh_bp_sheep_feeder_UnlockConditionsDesc,Requires: Wool,需要：羊毛
 sh_tgr_wild_sheep_spawn_CardName,Wild Sheep Spawn,Wild Sheep Spawn
 sh_tgr_wild_sheep_spawn_CardDescription,Occasionally spawns a wild sheep on the board.,Occasionally spawns a wild sheep on the board.
 sh_cheese_cloth_UsageDurability_CardStatName,Durability,Durability
@@ -124,6 +129,7 @@ sh_perk_start_shears_PerkDescription,Begin your run with sheep shears. Pairs wel
 sh_perk_husbandry_kit_PerkName,Sheep Husbandry Kit,Sheep Husbandry Kit
 sh_perk_husbandry_kit_PerkDescription,"Begin your run with a full breeding flock: a ram, a lactating ewe, and a lamb. Everything you need to build a flock from day one.","Begin your run with a full breeding flock: a ram, a lactating ewe, and a lamb. Everything you need to build a flock from day one."
 sh_butter_churn_CardInteractions[0].ActionName,Churn Butter,Churn Butter
+sh_butter_churn_CardInteractions[0].ActionDescription,Churn fresh sheep milk into butter and buttermilk.,将新鲜羊奶搅拌成黄油和白脱牛奶。
 sh_whey_CardInteractions[0].ActionName,Heat Whey,Heat Whey
 sh_tgr_wild_male_sheep_spawn_CardName,Wild Ram Spawn,Wild Ram Spawn
 sh_tgr_wild_male_sheep_spawn_CardDescription,Occasionally spawns a wild ram on the board.,Occasionally spawns a wild ram on the board.
@@ -138,10 +144,12 @@ sh_tame_sheep_CardInteractions[1].ActionName,Slaughter,Slaughter
 sh_bp_yarn_CardName,Wool Yarn,Wool Yarn
 sh_bp_yarn_CardDescription,Spin raw wool into yarn by hand.,Spin raw wool into yarn by hand.
 sh_bp_yarn_UnlockConditionsDesc,Requires: Wool,Requires: Wool
-sh_bp_woven_cloth_CardName,Woven Cloth,Woven Cloth
+sh_bp_woven_cloth_CardName,Woven Cloth Blueprint,Woven Cloth Blueprint
 sh_bp_woven_cloth_CardDescription,Weave two skeins of Wool Yarn into woven woollen cloth at a Weighted Loom.,Weave two skeins of Wool Yarn into woven woollen cloth at a Weighted Loom.
+sh_bp_woven_cloth_UnlockConditionsDesc,Requires: Wool Yarn,需要：羊毛纱线
 sh_bp_wool_tunic_CardName,Wool Tunic Blueprint,Wool Tunic Blueprint
-sh_bp_wool_tunic_CardDescription,Sew a wool blanket into a warm woollen tunic.,Sew a wool blanket into a warm woollen tunic.
+sh_bp_wool_tunic_CardDescription,Weave cloth and twine into a warm woollen tunic.,Weave cloth and twine into a warm woollen tunic.
+sh_bp_wool_tunic_UnlockConditionsDesc,Requires: Woven Cloth,需要：织布
 sh_cream_CardName,Cream,Cream
 sh_cream_CardDescription,Rich cream skimmed from fresh sheep milk. Fatty and filling.,Rich cream skimmed from fresh sheep milk. Fatty and filling.
 sh_cream_DismantleActions[0].ActionName,Eat,Eat
@@ -173,7 +181,7 @@ sh_sheep_feeder_portable_DismantleActions[0].ActionDescription,Set up the sheep 
 sh_sheep_feeder_DismantleActions[0].ActionName,Pick Up,Pick Up
 sh_sheep_feeder_DismantleActions[0].ActionDescription,Pack up the feeder to carry it.,Pack up the feeder to carry it.
 sh_sheep_feeder_DismantleActions[1].ActionName,Tend Flock,Tend Flock
-sh_sheep_feeder_DismantleActions[1].ActionDescription,Shear every ready tame sheep and ram nearby in one go.,Shear every ready tame sheep and ram nearby in one go.
+sh_sheep_feeder_DismantleActions[1].ActionDescription,Feeds and shears every ready tame sheep and ram nearby in one go.,Feeds and shears every ready tame sheep and ram nearby in one go.
 sh_sheep_feeder_DismantleActions[2].ActionName,Tend Flock with the Wolf,Tend Flock with the Wolf
 sh_sheep_feeder_DismantleActions[2].ActionDescription,"Your wolf companion herds the flock, so tending it takes half the time. Feeds and shears every ready tame sheep and ram nearby, the same as Tend Flock.","Your wolf companion herds the flock, so tending it takes half the time. Feeds and shears every ready tame sheep and ram nearby, the same as Tend Flock."
 FC_FoxCompanion_CardName,Fox Companion,Fox Companion
@@ -230,10 +238,13 @@ sh_felt_boots_CardName,Felt Boots,Felt Boots
 sh_felt_boots_CardDescription,Dense felt boots that insulate the feet against cold ground. Traditional footwear for harsh winters.,Dense felt boots that insulate the feet against cold ground. Traditional footwear for harsh winters.
 sh_bp_felted_wool_CardName,Felted Wool Blueprint,Felted Wool Blueprint
 sh_bp_felted_wool_CardDescription,Wet and agitate raw wool to compress the fibres into a dense felt sheet.,Wet and agitate raw wool to compress the fibres into a dense felt sheet.
+sh_bp_felted_wool_UnlockConditionsDesc,Requires: Wool,需要：羊毛
 sh_bp_felt_hat_CardName,Felt Hat Blueprint,Felt Hat Blueprint
 sh_bp_felt_hat_CardDescription,Cut and shape felted wool into a warm winter hat.,Cut and shape felted wool into a warm winter hat.
+sh_bp_felt_hat_UnlockConditionsDesc,Requires: Felted Wool,需要：毛毡
 sh_bp_felt_boots_CardName,Felt Boots Blueprint,Felt Boots Blueprint
 sh_bp_felt_boots_CardDescription,Form thick felt sheets into boot soles and uppers then bind them with twine.,Form thick felt sheets into boot soles and uppers then bind them with twine.
+sh_bp_felt_boots_UnlockConditionsDesc,Requires: Felted Wool,需要：毛毡
 FC_WolfCompanion_CI3_ActionName,Give Treat,Give Treat
 FC_WolfCompanion_CI3_ActionDescription,Slip the wolf a bone. It wags its tail furiously.,Slip the wolf a bone. It wags its tail furiously.
 FC_FoxCompanion_CI1_ActionName,Give Treat,Give Treat
@@ -256,6 +267,7 @@ sh_wool_socks_CardName,Wool Socks,Wool Socks
 sh_wool_socks_CardDescription,Knitted wool socks. Worn beneath boots to keep the feet dry and warm.,Knitted wool socks. Worn beneath boots to keep the feet dry and warm.
 sh_bp_wool_socks_CardName,Wool Socks Blueprint,Wool Socks Blueprint
 sh_bp_wool_socks_CardDescription,Knit yarn into a pair of warm wool socks.,Knit yarn into a pair of warm wool socks.
+sh_bp_wool_socks_UnlockConditionsDesc,Requires: Wool Yarn,需要：羊毛纱线
 sh_lanolin_salve_CardName,Lanolin Salve,Lanolin Salve
 sh_lanolin_salve_CardDescription,"A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for Comfort +15 that lasts about a day. It does not spoil.","A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for Comfort +15 that lasts about a day. It does not spoil."
 sh_lanolin_salve_DismantleActions[0].ActionName,Apply to Skin,Apply to Skin
@@ -287,12 +299,15 @@ sh_felt_vest_CardName,Felt Vest,Felt Vest
 sh_felt_vest_CardDescription,A sleeveless felt vest that adds an extra layer of warmth over the torso.,A sleeveless felt vest that adds an extra layer of warmth over the torso.
 sh_bp_felt_mittens_CardName,Felt Mittens Blueprint,Felt Mittens Blueprint
 sh_bp_felt_mittens_CardDescription,Cut and stitch felted wool into a pair of warm mittens.,Cut and stitch felted wool into a pair of warm mittens.
+sh_bp_felt_mittens_UnlockConditionsDesc,Requires: Felted Wool,需要：毛毡
 sh_bp_felt_vest_CardName,Felt Vest Blueprint,Felt Vest Blueprint
 sh_bp_felt_vest_CardDescription,Cut and shape felted wool into a sleeveless vest.,Cut and shape felted wool into a sleeveless vest.
+sh_bp_felt_vest_UnlockConditionsDesc,Requires: Felted Wool,需要：毛毡
 sh_felt_bedroll_CardName,Felt Bedroll,Felt Bedroll
 sh_felt_bedroll_CardDescription,"A dense felt bedroll, light to carry. Nap or sleep on it as on any bedroll; while you rest on it, it keeps the cold off a little better than a log bed (Perceived Temperature +3).","A dense felt bedroll, light to carry. Nap or sleep on it as on any bedroll; while you rest on it, it keeps the cold off a little better than a log bed (Perceived Temperature +3)."
 sh_bp_felt_bedroll_CardName,Felt Bedroll Blueprint,Felt Bedroll Blueprint
 sh_bp_felt_bedroll_CardDescription,"Felt a thick layer of wool into a warm, portable bedroll.","Felt a thick layer of wool into a warm, portable bedroll."
+sh_bp_felt_bedroll_UnlockConditionsDesc,Requires: Felted Wool,需要：毛毡
 sh_sheep_pen_CardName,Sheep Pen,Sheep Pen
 sh_sheep_pen_CardDescription,A fenced enclosure for your tame sheep and rams. Sheep and rams left outside a pen overnight risk wandering off or falling to predators - a penned flock is safe while its fence holds. The fence wears down over about twenty days; once its Fence Condition reaches zero the pen protects nothing until you drag a Plank onto it to mend it.,A fenced enclosure for your tame sheep and rams. Sheep and rams left outside a pen overnight risk wandering off or falling to predators - a penned flock is safe while its fence holds. The fence wears down over about twenty days; once its Fence Condition reaches zero the pen protects nothing until you drag a Plank onto it to mend it.
 sh_sheep_pen_DismantleActions[0].ActionName,Pick Up,Pick Up
@@ -306,6 +321,7 @@ sh_sheep_pen_portable_DismantleActions[0].ActionName,Place,Place
 sh_sheep_pen_portable_DismantleActions[0].ActionDescription,Set up the sheep pen in your environment.,Set up the sheep pen in your environment.
 sh_bp_sheep_pen_CardName,Sheep Pen Blueprint,Sheep Pen Blueprint
 sh_bp_sheep_pen_CardDescription,Build a fenced pen to shelter your sheep and rams overnight.,Build a fenced pen to shelter your sheep and rams overnight.
+sh_bp_sheep_pen_UnlockConditionsDesc,Requires: Rope,需要：绳子
 sh_sheep_bell_CardName,Sheep Bell,Sheep Bell
 sh_sheep_bell_CardDescription,"A small hammered bell on a rope collar. Hung where the flock beds down, its clank keeps loose sheep and rams from straying: with a Sheep Bell in the same place, unpenned sheep are half as likely to wander off overnight. It does nothing against predators.","A small hammered bell on a rope collar. Hung where the flock beds down, its clank keeps loose sheep and rams from straying: with a Sheep Bell in the same place, unpenned sheep are half as likely to wander off overnight. It does nothing against predators."
 sh_bp_sheep_bell_CardName,Sheep Bell Blueprint,Sheep Bell Blueprint
@@ -535,6 +551,7 @@ sh_wool_CardInteractions[0].ActionName,Wash,Wash
 sh_wool_CardInteractions[0].ActionDescription,Rinse the wool with water from a container. Washed wool spins into twice the yarn.,Rinse the wool with water from a container. Washed wool spins into twice the yarn.
 sh_bp_yarn_washed_CardName,Wool Yarn from Washed Wool,Wool Yarn from Washed Wool
 sh_bp_yarn_washed_CardDescription,Spin washed wool into yarn by hand: one washed wool makes two yarn.,Spin washed wool into yarn by hand: one washed wool makes two yarn.
+sh_bp_yarn_washed_UnlockConditionsDesc,Requires: Washed Wool,需要：洗净的羊毛
 sh_fox_scout_pace_GameName,Fox Scouting,Fox Scouting
 sh_fox_scout_pace_Description,"Always on and never shown: while the Fox Companion shares your board, each leg of a journey takes one tick less (a leg that cost one tick becomes a moment). It does nothing without the fox.","Always on and never shown: while the Fox Companion shares your board, each leg of a journey takes one tick less (a leg that cost one tick becomes a moment). It does nothing without the fox."
 sh_fox_scout_pace_Status_Name,Fox Scouting,Fox Scouting

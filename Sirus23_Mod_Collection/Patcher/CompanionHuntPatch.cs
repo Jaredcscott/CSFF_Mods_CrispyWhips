@@ -594,68 +594,23 @@ internal static class CompanionHuntPatch
 
     private static void GrantPackBondPerk()
     {
+        // The framework grant joins InRunAddedPerks and applies the perk's starting modifiers in one
+        // step, rolls the list back if ApplyPerk fails (so a later Bond can retry), is idempotent,
+        // and warns once per failing cause. A hand-rolled add-then-apply left Pack Bond recorded but
+        // never applied when the apply missed: a reload does not re-apply starting modifiers.
         try
         {
-            // Resolve types from Assembly-CSharp to avoid shadowing by ModCore etc.
-            var asm = AppDomain.CurrentDomain.GetAssemblies()
-                .FirstOrDefault(a => a.GetName().Name == "Assembly-CSharp");
-            if (asm == null) { Plugin.Logger.LogError("[BondWithWolf] Assembly-CSharp not found"); return; }
-
-            var gmType = asm.GetType("GameManager");
-            var perkType = asm.GetType("CharacterPerk");
-            var uidType = asm.GetType("UniqueIDScriptable");
-            if (gmType == null || perkType == null || uidType == null)
-            {
-                Plugin.Logger.LogError("[BondWithWolf] Required game types not found");
-                return;
-            }
-
-            var gmInstance = CardUtil.GetGameManagerInstance();
-            if (gmInstance == null) { Plugin.Logger.LogError("[BondWithWolf] GameManager instance not found"); return; }
-
-            // GetFromID<CharacterPerk>(PackBondPerkUid)
-            var getFromId = uidType.GetMethods()
-                .FirstOrDefault(m => m.Name == "GetFromID" && m.IsGenericMethodDefinition);
-            if (getFromId == null) { Plugin.Logger.LogError("[BondWithWolf] GetFromID not found"); return; }
-
-            var perkSO = getFromId.MakeGenericMethod(perkType).Invoke(null, new object[] { PackBondPerkUid });
-            if (perkSO == null) { Plugin.Logger.LogError($"[BondWithWolf] Perk '{PackBondPerkUid}' not found in AllData"); return; }
-
-            // Check InRunAddedPerks — skip if already granted
-            var inRunField = gmType.GetField("InRunAddedPerks",
-                BindingFlags.Public | BindingFlags.Instance);
-            if (inRunField == null) { Plugin.Logger.LogError("[BondWithWolf] InRunAddedPerks field not found"); return; }
-
-            var inRunList = inRunField.GetValue(gmInstance) as IList;
-            if (inRunList == null) { Plugin.Logger.LogError("[BondWithWolf] InRunAddedPerks is null"); return; }
-
-            foreach (var existing in inRunList)
-                if (existing == perkSO) { Plugin.Logger.LogDebug("[BondWithWolf] Pack Bond already granted — bond is deep, nothing more to prove."); return; }
-
-            inRunList.Add(perkSO);
-
-            // ApplyPerk(perk, applyStartingStatMods: true, character: null). It is private: a
-            // public-only lookup finds nothing, and the perk then waits for a reload to apply.
-            var applyMethod = gmType.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
-                .FirstOrDefault(m => m.Name == "ApplyPerk");
-            if (applyMethod != null)
-            {
-                var applyParams = applyMethod.GetParameters();
-                object[] callArgs = applyParams.Length == 3
-                    ? new object[] { perkSO, true, null }
-                    : new object[] { perkSO };
-                applyMethod.Invoke(gmInstance, callArgs);
-            }
-            else
-            {
-                Plugin.Logger.LogWarning("[BondWithWolf] GameManager.ApplyPerk not found - Pack Bond recorded in InRunAddedPerks but not applied until a reload.");
-            }
-
-            Plugin.Logger.LogDebug("[BondWithWolf] Pack Bond perk granted — tracking sharpened.");
+            if (GrantPackBondThroughFramework())
+                Plugin.Logger.LogDebug("[BondWithWolf] Pack Bond perk held - tracking sharpened.");
         }
-        catch (Exception ex)
+        catch (MissingMemberException ex)
         {
-            Plugin.Logger.LogError($"[BondWithWolf] Error granting perk: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            Plugin.Logger.LogWarning($"[BondWithWolf] Pack Bond needs CSFF Mod Framework 2.28.0 or later (CardUtil.GrantInRunPerk); the perk was not granted: {ex.Message}");
         }
     }
+
+    // NoInlining is load-bearing: it keeps the JIT from folding this method, and its typed framework
+    // call, into the wrapper above, which would move a missing-member failure out of the try/catch.
+    [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+    private static bool GrantPackBondThroughFramework() => CardUtil.GrantInRunPerk(PackBondPerkUid);
 }

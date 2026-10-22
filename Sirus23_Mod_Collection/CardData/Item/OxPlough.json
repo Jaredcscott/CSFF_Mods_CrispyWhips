@@ -143,10 +143,7 @@
             "DisablePitchVariation": false,
             "CompatibleNPCDuties": [],
             "ActionTags": [],
-            "ActionTagsWarpData": [
-                "InteractionImage",
-                "NewIcon"
-            ],
+            "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
                 {

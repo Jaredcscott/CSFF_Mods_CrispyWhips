@@ -216,7 +216,7 @@ internal static class RecallWhistlePatch
     private static void RecalculateWeight(EnvironmentSaveDataByReference env)
     {
         try { env.CalculateWeight(); }
-        catch (Exception ex) { Logger?.LogDebug($"[RecallWhistle] the room's saved weight was not recalculated: {ex.Message}"); }
+        catch (Exception ex) { WarnOnce("weight:" + ex.GetType().Name, $"the room's saved weight was not recalculated after a recall: {ex.InnerException?.ToString() ?? ex.ToString()}"); }
     }
 
     // All four companions carry the same five stats: Hunger (Spoilage), Thirst (Usage), Morale (Progress), Health

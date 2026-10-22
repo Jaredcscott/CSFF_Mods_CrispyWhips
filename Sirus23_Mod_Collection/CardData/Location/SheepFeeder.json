@@ -121,7 +121,7 @@
             "ActionDescription": {
                 "ParentObjectID": "sh_sheep_feeder",
                 "LocalizationKey": "sh_sheep_feeder_DismantleActions[1].ActionDescription",
-                "DefaultText": "Shear every ready tame sheep and ram nearby in one go."
+                "DefaultText": "Feeds and shears every ready tame sheep and ram nearby in one go."
             },
             "DaytimeCost": 2,
             "UseMiniTicks": 0,
@@ -190,6 +190,7 @@
     "PassiveStatEffects": [],
     "PassiveEffects": [],
     "MaxLiquidCapacity": 0.0,
+    "SpillsInventoryOnDestroy": true,
     "InventorySlots": [
         { "SlotWeight": 500.0 },
         { "SlotWeight": 500.0 },

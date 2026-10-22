@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using CSFFModFramework.Util;
 using HarmonyLib;
@@ -44,6 +45,15 @@ internal static class CompanionStayPatch
     private static FieldInfo _nextEnvironmentField;
     private static bool _nextEnvironmentMissing;
     private static PropertyInfo _envCardProperty;
+
+    // The getter postfix runs on every IndependentFromEnv read, so a catch that starts firing after a game
+    // update must warn once per cause, not per card read.
+    private static readonly HashSet<string> _warned = new(StringComparer.Ordinal);
+
+    private static void WarnOnce(string cause, string message)
+    {
+        if (_warned.Add(cause)) Plugin.Logger?.LogWarning($"[CompanionStay] {message} Logged once per cause.");
+    }
 
     public static void ApplyPatch(Harmony harmony)
     {
@@ -112,7 +122,7 @@ internal static class CompanionStayPatch
         }
         catch (Exception ex)
         {
-            Plugin.Logger?.LogDebug($"[CompanionStay] night check failed, treating it as night: {ex.Message}");
+            WarnOnce("night:" + ex.GetType().Name, $"the night check threw {ex.GetType().Name}, so the owl is treated as if it were always night (it follows by day too): {ex.Message}");
             return true;
         }
     }
@@ -180,7 +190,7 @@ internal static class CompanionStayPatch
         }
         catch (Exception ex)
         {
-            Plugin.Logger?.LogDebug($"[CompanionStay] DestinationIsIndoorOrCave check failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            WarnOnce("destination:" + ex.GetType().Name, $"the owl's cave/structure destination check threw {ex.GetType().Name}, so the owl follows into caves and buildings: {ex.InnerException?.ToString() ?? ex.ToString()}");
             return false;
         }
     }

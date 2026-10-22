@@ -5,6 +5,23 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.22.9] - 2026-10-20
+
+### Fixed
+
+- **Mouse raids no longer stop completely while the owl is on your board.** Near the top of the hidden raid timer the owl's half-speed cut kept halving the last small gap, so the timer crept toward its trigger point without ever reaching it and no raid could roll while the owl stayed (measured in the game). The owl now lets the timer reach the top, so raids still come with the owl present, about half as often, as 1.22.8 intended.
+- **Picking up a stocked Sheep Feeder no longer deletes the feed inside it.** The grass, hay and other feed now spill onto the board when you pack the feeder up, the same as the Sheep Pen already did with its sheep.
+- **Spoiled dairy, dishes, treats and carcasses now turn into Rotten Remains instead of vanishing.** When the spoilage bar fills, 25 Sirus23 foods (butter, cream, buttermilk, yogurt, whey, ricotta, smoked and aged cheese, the dairy dishes, Warm Milk, Bone Treat, Owl Treat, Berry Mix, and the Hawk and Owl carcasses) leave Rotten Remains for the compost bin, like base-game food.
+- **Napping and sleeping on the Felt Bedroll now count as sleep.** Both actions carried a broken tag, so effects and objectives that look for a sleep action skipped them. They carry the base-game sleep tag now.
+- **Plough the Field no longer adds two empty action tags to the game.** The Ox Plough action carried two invalid tag names; they are removed and the action works as before.
+- **Pack Bond retries if granting it fails.** Bonding with the wolf now grants Pack Bond through the framework, which undoes a half-finished grant so the next Bond tries again, instead of leaving the perk listed without its +5 Tracking. Pack Bond now needs CSFF Mod Framework 2.28.0; on an older framework the Bond logs a warning saying so and grants nothing.
+- **Tend Flock can no longer make wool twice from one fleece.** It now empties a sheep's Wool bar before handing over the wool, and if the bar cannot be emptied that sheep is left unsheared (no wool) instead of being sheared again on every press. That failure, and a feed card spent without filling a sheep's Nourishment, now show as a warning in the log, once each per session. The owl's cave and building checks also warn once in the log if they ever start failing after a game update (the owl would then follow into caves), where before they logged nothing a player could see.
+- **Tend Flock says it feeds the flock too.** The plain Tend Flock button now reads "Feeds and shears", as the wolf version and the README already did.
+- **Wool Tunic Blueprint names the real recipe** (woven cloth and twine, not a wool blanket), and the Shears, Butter Churn, Cheese Cloth, Sheep Feeder and Woven Cloth blueprints carry "Blueprint" in their names like the rest. The Shears Blueprint's requirement now reads "Metal Nugget": any metal nugget unlocks and builds it, not only iron.
+- **Chinese:** the unlock requirement on 16 sheep, felt and wool blueprints and the Churn Butter action description are now translated; they showed in English before. The five renamed blueprints have Chinese names that say blueprint (图纸).
+
+---
+
 ## [1.22.8] - 2026-10-19
 
 ### Added

@@ -89,7 +89,7 @@
     "DismantleActions": [
         {
             "ActionName": {
-                "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                "ParentObjectID": "sh_felt_bedroll",
                 "LocalizationKey": "BedRoll_DismantleActions[0].ActionName",
                 "DefaultText": "Nap"
             },
@@ -134,7 +134,7 @@
             "CompatibleNPCDuties": [],
             "ActionTags": [],
             "ActionTagsWarpData": [
-                "Frame"
+                "SleepAction"
             ],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
@@ -386,7 +386,7 @@
                         "y": 30.0
                     },
                     "Notification": {
-                        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                        "ParentObjectID": "sh_felt_bedroll",
                         "LocalizationKey": "BedRoll_DismantleActions[0].StatInterruptions[1].Notification",
                         "DefaultText": "I'm too thirsty to sleep..."
                     }
@@ -403,7 +403,7 @@
                         "y": 200.0
                     },
                     "Notification": {
-                        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                        "ParentObjectID": "sh_felt_bedroll",
                         "LocalizationKey": "BedRoll_DismantleActions[0].StatInterruptions[2].Notification",
                         "DefaultText": "I'm too hot to sleep..."
                     }
@@ -420,7 +420,7 @@
                         "y": 50.0
                     },
                     "Notification": {
-                        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                        "ParentObjectID": "sh_felt_bedroll",
                         "LocalizationKey": "BedRoll_DismantleActions[0].StatInterruptions[3].Notification",
                         "DefaultText": "I'm too cold to sleep..."
                     }
@@ -437,7 +437,7 @@
                         "y": 30.0
                     },
                     "Notification": {
-                        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                        "ParentObjectID": "sh_felt_bedroll",
                         "LocalizationKey": "BedRoll_DismantleActions[0].StatInterruptions[4].Notification",
                         "DefaultText": "I'm losing too much blood..."
                     }
@@ -454,7 +454,7 @@
                         "y": 24.0
                     },
                     "Notification": {
-                        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                        "ParentObjectID": "sh_felt_bedroll",
                         "LocalizationKey": "BedRoll_DismantleActions[0].StatInterruptions[5].Notification",
                         "DefaultText": "I'm not feeling well..."
                     }
@@ -471,7 +471,7 @@
                         "y": 74.0
                     },
                     "Notification": {
-                        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                        "ParentObjectID": "sh_felt_bedroll",
                         "LocalizationKey": "BedRoll_DismantleActions[0].StatInterruptions[6].Notification",
                         "DefaultText": "I'm not feeling well..."
                     }
@@ -488,7 +488,7 @@
                         "y": 24.0
                     },
                     "Notification": {
-                        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                        "ParentObjectID": "sh_felt_bedroll",
                         "LocalizationKey": "BedRoll_DismantleActions[0].StatInterruptions[7].Notification",
                         "DefaultText": "I can't sleep in the middle of a storm!"
                     }
@@ -1069,7 +1069,7 @@
             "EditDescription": false,
             "FadeToBlack": 2,
             "FadeMessage": {
-                "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                "ParentObjectID": "sh_felt_bedroll",
                 "LocalizationKey": "BedRoll_DismantleActions[0].FadeMessage",
                 "DefaultText": "Taking a nap..."
             },
@@ -1099,7 +1099,7 @@
         },
         {
             "ActionName": {
-                "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                "ParentObjectID": "sh_felt_bedroll",
                 "LocalizationKey": "BedRoll_DismantleActions[1].ActionName",
                 "DefaultText": "Sleep"
             },
@@ -1144,7 +1144,7 @@
             "CompatibleNPCDuties": [],
             "ActionTags": [],
             "ActionTagsWarpData": [
-                "Frame"
+                "SleepAction"
             ],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
@@ -1396,7 +1396,7 @@
                         "y": 30.0
                     },
                     "Notification": {
-                        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                        "ParentObjectID": "sh_felt_bedroll",
                         "LocalizationKey": "BedRoll_DismantleActions[1].StatInterruptions[1].Notification",
                         "DefaultText": "I'm too thirsty to sleep..."
                     }
@@ -1413,7 +1413,7 @@
                         "y": 200.0
                     },
                     "Notification": {
-                        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                        "ParentObjectID": "sh_felt_bedroll",
                         "LocalizationKey": "BedRoll_DismantleActions[1].StatInterruptions[2].Notification",
                         "DefaultText": "I'm too hot to sleep..."
                     }
@@ -1430,7 +1430,7 @@
                         "y": 50.0
                     },
                     "Notification": {
-                        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                        "ParentObjectID": "sh_felt_bedroll",
                         "LocalizationKey": "BedRoll_DismantleActions[1].StatInterruptions[3].Notification",
                         "DefaultText": "I'm too cold to sleep..."
                     }
@@ -1447,7 +1447,7 @@
                         "y": 30.0
                     },
                     "Notification": {
-                        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                        "ParentObjectID": "sh_felt_bedroll",
                         "LocalizationKey": "BedRoll_DismantleActions[1].StatInterruptions[4].Notification",
                         "DefaultText": "I'm losing too much blood..."
                     }
@@ -1464,7 +1464,7 @@
                         "y": 24.0
                     },
                     "Notification": {
-                        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                        "ParentObjectID": "sh_felt_bedroll",
                         "LocalizationKey": "BedRoll_DismantleActions[1].StatInterruptions[5].Notification",
                         "DefaultText": "I'm not feeling well..."
                     }
@@ -1481,7 +1481,7 @@
                         "y": 74.0
                     },
                     "Notification": {
-                        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                        "ParentObjectID": "sh_felt_bedroll",
                         "LocalizationKey": "BedRoll_DismantleActions[1].StatInterruptions[6].Notification",
                         "DefaultText": "I'm not feeling well..."
                     }
@@ -1498,7 +1498,7 @@
                         "y": 24.0
                     },
                     "Notification": {
-                        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                        "ParentObjectID": "sh_felt_bedroll",
                         "LocalizationKey": "BedRoll_DismantleActions[1].StatInterruptions[7].Notification",
                         "DefaultText": "I can't sleep in the middle of a storm!"
                     }
@@ -2079,7 +2079,7 @@
             "EditDescription": false,
             "FadeToBlack": 2,
             "FadeMessage": {
-                "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+                "ParentObjectID": "sh_felt_bedroll",
                 "LocalizationKey": "BedRoll_DismantleActions[1].FadeMessage",
                 "DefaultText": "Sleeping..."
             },

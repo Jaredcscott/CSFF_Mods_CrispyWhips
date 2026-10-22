@@ -57,6 +57,8 @@ internal static class SheepFeederPatch
     private const string FodderAmountStat = "UsageDurability";                  // the pile's "Amount"
     private const float FodderAmountPerSheep = 1.0f;                            // W0-22: whole units, a pile under 1.0 is left to the cattle
     private static readonly HashSet<string> _fodderWarned = new(StringComparer.Ordinal);
+    // Write failures on the sheep themselves (Nourishment top-up, Wool reset): one warning per cause per session.
+    private static readonly HashSet<string> _warned = new(StringComparer.Ordinal);
     private const string NourishmentStat = "SpoilageTime";
     private const float FeedRefillBelowPercent = 0.67f;  // top up a sheep below two thirds of the bar
     private const float FeedNourishment = 144f;          // keep equal to the Feed CI's SpoilageChange
@@ -89,7 +91,7 @@ internal static class SheepFeederPatch
     {
         try
         {
-            int sheared = 0, skipped = 0, lanolinDrops = 0, fed = 0;
+            int sheared = 0, skipped = 0, lanolinDrops = 0, fed = 0, resetFailed = 0;
             bool feederEmpty = false;
             int fodderDrawn = 0;
 
@@ -116,12 +118,14 @@ internal static class SheepFeederPatch
                 // Feed first, so a sheep topped up this pass already earns its well-fed bonus.
                 fed += FeedFlock(feeder, card, ref feederEmpty, piles, amounts, ref fodderDrawn);
 
-                if (TryShear(card, uid, ref lanolinDrops)) sheared++;
-                else skipped++;
+                int failedBefore = resetFailed;
+                if (TryShear(card, uid, ref lanolinDrops, ref resetFailed)) sheared++;
+                else if (resetFailed == failedBefore) skipped++;
             }
 
             Logger?.LogInfo($"[SheepFeeder] Tend Flock: fed {fed}{(feederEmpty ? " (feeder empty)" : "")}{(fodderDrawn > 0 ? $" ({fodderDrawn} from Dry Fodder)" : "")}, sheared {sheared} sheep"
                 + (lanolinDrops > 0 ? $" (+{lanolinDrops} lanolin)" : "")
+                + (resetFailed > 0 ? $", {resetFailed} not sheared (Wool reset failed)" : "")
                 + (skipped > 0 ? $", {skipped} not ready yet." : "."));
         }
         catch (Exception ex)
@@ -159,7 +163,7 @@ internal static class SheepFeederPatch
         if (!fed) return 0;
 
         if (!CardUtil.SetDurability(sheep, NourishmentStat, Math.Min(max, cur + FeedNourishment)))
-            Logger?.LogDebug("[SheepFeeder] SetDurability(Nourishment) failed after spending a feed card.");
+            WarnOnce("nourishment-write", "a sheep's Nourishment (SpoilageTime) could not be written after a feed card was spent, so that feed was used up without feeding it.");
         return 1;
     }
 
@@ -200,22 +204,37 @@ internal static class SheepFeederPatch
             Logger?.LogWarning($"[SheepFeeder] Dry Fodder: {message} Logged once per cause.");
     }
 
+    private static void WarnOnce(string cause, string message)
+    {
+        if (_warned.Add(cause))
+            Logger?.LogWarning($"[SheepFeeder] Tend Flock: {message} Logged once per cause.");
+    }
+
     /// <summary>Shears one sheep if its Wool stat is at/above the ready threshold. Mirrors
     /// TameSheep.json/LactatingSheep.json/MaleSheep.json's "Shear" CardInteraction: 2x Wool, 25% chance of
     /// 1x Lanolin, Wool stat reset to 0. Returns false (no log spam) for a not-ready sheep —
-    /// this is the expected common case, not an error.</summary>
-    private static bool TryShear(object sheep, string uid, ref int lanolinDrops)
+    /// this is the expected common case, not an error. The Wool reset runs BEFORE any wool is
+    /// spawned: if it fails the shear is aborted (counted in <paramref name="resetFailed"/>, warned
+    /// once), since spawning first would let every later press mint wool from the same full bar.</summary>
+    private static bool TryShear(object sheep, string uid, ref int lanolinDrops, ref int resetFailed)
     {
         float current = CardUtil.GetDurability(sheep, WoolStat);
         float max = CardUtil.GetDurabilityMax(sheep, WoolStat);
         if (float.IsNaN(current) || float.IsNaN(max) || max <= 0f)
         {
-            Logger?.LogDebug($"[SheepFeeder] {uid}: could not read Wool stat — skipped.");
+            WarnOnce("wool-read", $"the Wool stat ({WoolStat}) could not be read on {uid}, so that sheep was skipped (it counts as not ready).");
             return false;
         }
         if (current / max < ShearReadyPercent)
         {
             Logger?.LogDebug($"[SheepFeeder] {uid} not ready to shear ({current}/{max}).");
+            return false;
+        }
+
+        if (!CardUtil.SetDurability(sheep, WoolStat, 0f))
+        {
+            resetFailed++;
+            WarnOnce("wool-reset", $"the Wool stat ({WoolStat}) could not be reset on {uid}, so that sheep was not sheared and no wool was made.");
             return false;
         }
 
@@ -226,9 +245,6 @@ internal static class SheepFeederPatch
             SpawnService.Spawn(LanolinUid);
             lanolinDrops++;
         }
-
-        if (!CardUtil.SetDurability(sheep, WoolStat, 0f))
-            Logger?.LogDebug($"[SheepFeeder] SetDurability(Wool, 0) failed on {uid} after shearing.");
 
         Logger?.LogDebug($"[SheepFeeder] sheared {uid}.");
         return true;

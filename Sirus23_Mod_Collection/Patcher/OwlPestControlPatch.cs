@@ -120,6 +120,11 @@ internal static class OwlPestControlPatch
                 return;
             }
             if (climb == 0f || !owlHere) return;   // silent-ok: no climb this tick, or no owl to hold it back
+            // silent-ok: the counter has reached the top, so let the roll fire. The stat clamps at 192, so near the top
+            // each tick's climb is cut short by the clamp; giving back half of that short climb every tick only ever
+            // halves the gap and the counter never reaches 192 (measured 2026-10-20, T2.585 rig 8: 189.57, 190.79,
+            // 191.39 ... 191.98), which stopped raids entirely while the owl stayed. The cut only slows the climb below it.
+            if (value >= RaidCounterTop - 0.001f) return;
 
             float cut = climb * OwlCounterCut;
             float after = StatAccess.Modify(MouseRaidCounterUid, -cut);

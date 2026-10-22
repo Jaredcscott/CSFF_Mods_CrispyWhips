@@ -773,12 +773,12 @@
                 "DefaultText": ""
             },
             "ReceivingCardChanges": {
-                "ModType": 3,
+                "ModType": 2,
                 "TransformInto": {
                     "m_FileID": 0,
                     "m_PathID": 0
                 },
-                "TransformIntoWarpData": "",
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
                 "TransformIntoWarpType": 3,
                 "TransformToLiquidQuantity": 0.0,
                 "TransferSpoilage": false,

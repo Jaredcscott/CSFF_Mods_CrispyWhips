@@ -18,8 +18,8 @@
     "CardImageWarpType": 3,
     "CardType": 7,
     "UnlockConditionsDesc": {
-        "ParentObjectID": "",
-        "LocalizationKey": "",
+        "ParentObjectID": "sh_bp_sheep_pen",
+        "LocalizationKey": "sh_bp_sheep_pen_UnlockConditionsDesc",
         "DefaultText": "Requires: Rope"
     },
     "StartUnlocked": false,

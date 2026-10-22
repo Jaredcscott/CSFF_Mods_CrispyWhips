@@ -18,8 +18,8 @@
     "CardImageWarpType": 3,
     "CardType": 7,
     "UnlockConditionsDesc": {
-        "ParentObjectID": "",
-        "LocalizationKey": "",
+        "ParentObjectID": "sh_bp_cheese_cloth",
+        "LocalizationKey": "sh_bp_cheese_cloth_UnlockConditionsDesc",
         "DefaultText": "Requires: Woven Cloth"
     },
     "StartUnlocked": false,
