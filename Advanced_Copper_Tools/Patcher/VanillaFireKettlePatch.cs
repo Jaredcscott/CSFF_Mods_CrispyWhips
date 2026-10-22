@@ -132,9 +132,10 @@ namespace Advanced_Copper_Tools.Patcher
             try
             {
                 var filterField = fireCard.GetType().GetField(filterMemberName, Flags);
+                var filterProp = filterField == null ? fireCard.GetType().GetProperty(filterMemberName, Flags) : null;
                 var filter = filterField != null
                     ? filterField.GetValue(fireCard)
-                    : fireCard.GetType().GetProperty(filterMemberName, Flags)?.GetValue(fireCard, null);
+                    : filterProp?.GetValue(fireCard, null);
                 if (filter == null)
                 {
                     Logger?.LogWarning($"[KettleFire] {label}: {filterMemberName} not found; cannot set {arrayFieldName} for ACT containers on this fire.");
@@ -173,7 +174,15 @@ namespace Advanced_Copper_Tools.Patcher
                 cardsField.SetValue(filter, newArr);
 
                 // Write filter back: CardFilter is a struct, so the change lives only in this box until then.
-                filterField?.SetValue(fireCard, filter);
+                if (filterField != null)
+                    filterField.SetValue(fireCard, filter);
+                else if (filterProp != null && filterProp.CanWrite)
+                    filterProp.SetValue(fireCard, filter, null);
+                else
+                {
+                    Logger?.LogWarning($"[KettleFire] {label}: {filterMemberName} is a read-only property; cannot write {arrayFieldName} back for ACT containers on this fire.");
+                    return false;
+                }
 
                 Logger?.LogDebug($"[KettleFire] {label}: added {cards.Count} ACT container(s) to {filterMemberName}.{arrayFieldName}.");
                 return true;

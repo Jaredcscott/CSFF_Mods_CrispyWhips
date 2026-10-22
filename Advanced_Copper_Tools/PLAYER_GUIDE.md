@@ -152,7 +152,7 @@ Three wooden shields faced with metal, all in **Construction → Metal Tools**. 
 | Iron Shield | 3 iron sheets + 1 plank + 4 nails of any metal + 1 medium leather, once you have an Iron Sheet | 95 (145) | 6500 | 30 iron nuggets |
 | Ghost Bronze Shield | 3 Ghost Bronze sheets + 1 plank + 4 copper nails + 1 medium leather + 1 Tin Solder, once you have a Ghost Bronze sheet | 85 (165) | 5500 | 25 Ghost Bronze nuggets |
 
-The Iron Shield blocks the most against any blow. The Ghost Bronze Shield blocks a little less in general but is the best ward against spiritual attacks, which is how most animals strike. With Community Mod Chest, the Iron and Ghost Bronze Shields are not yet taught by the Armorer course and use normal research.
+The Iron Shield blocks the most against any blow. The Ghost Bronze Shield blocks a little less in general but is the best ward against spiritual attacks. No vanilla animal strikes with those, so against wildlife it is simply the middle shield. With Community Mod Chest, the Iron and Ghost Bronze Shields are not yet taught by the Armorer course and use normal research.
 
 ### Alloy Armor Sets
 
@@ -167,7 +167,7 @@ Tin, Ghost Bronze, Tin Bronze and White Bronze each make their own four-piece su
 | White Bronze (140) | 42.5 | 19 | 46080 | +3 Courage per piece |
 | Iron (200) | 45 | 20 | 46080 | the best raw protection |
 
-**Which one?** Ghost Bronze is for animal fights: wolves, bears, foxes, badgers and beavers attack with purely spiritual blows, and against those a Ghost Bronze piece blocks more than iron. White Bronze is the best armor short of iron and steadies your nerve. Tin is the step up when you have tin but no crucible. Tin Bronze (the old "Bronze" set) sits between copper and White Bronze. Every suit lasts as long as vanilla leather armor: about 185 hits on each piece. Dismantle a piece for sheets of its own metal, or melt it for nuggets of that metal.
+**Which one?** Ghost Bronze is for a frightened survivor: each piece makes Fear fall faster, and against a purely spiritual attack it blocks more than iron. No vanilla animal strikes that way (wolves, bears and boars bite and bash; foxes, badgers and beavers bite and claw), so in a wildlife fight it is plain bronze armor. White Bronze is the best armor short of iron and steadies your nerve. Tin is the step up when you have tin but no crucible. Tin Bronze (the old "Bronze" set) sits between copper and White Bronze. Every suit lasts as long as vanilla leather armor and wears the same way: a hit costs 250 for every 15 minutes of the action the fight broke into, so a piece takes about 185 hits from fights that break into a quarter-hour action and fewer from fights that break into longer ones. Dismantle a piece for sheets of its own metal, or melt it for nuggets of that metal.
 
 ---
 

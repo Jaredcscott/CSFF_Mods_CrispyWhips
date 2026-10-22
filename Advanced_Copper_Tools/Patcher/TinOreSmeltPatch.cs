@@ -65,7 +65,11 @@ namespace Advanced_Copper_Tools.Patcher
         {
             if (ApplyOreProperties(snapshot, metalType) != 0) return;
             var host = Plugin.Instance;
-            if (host == null) return;
+            if (host == null)
+            {
+                WarnOnce("no-host", "no plugin instance to retry on; the smelted tin nugget keeps Metal Type 0");
+                return;
+            }
             host.StartCoroutine(RetryNextFrame(snapshot, metalType));
         }
 
@@ -74,7 +78,15 @@ namespace Advanced_Copper_Tools.Patcher
         private static IEnumerator RetryNextFrame(SmeltSnapshot snapshot, float metalType)
         {
             yield return null;
-            ApplyOreProperties(snapshot, metalType);
+            if (ApplyOreProperties(snapshot, metalType) == 0)
+                WarnOnce("no-nugget", "tin ore finished smelting but no new Metal Nugget was found after one frame; it keeps Metal Type 0 and fails tin gates");
+        }
+
+        private static readonly HashSet<string> _warned = new HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string msg)
+        {
+            if (_warned.Add(cause)) Logger?.LogWarning($"[ACT] NuggetSmelt: {msg} (logged once)");
         }
 
         private static int ApplyOreProperties(SmeltSnapshot snapshot, float metalType)

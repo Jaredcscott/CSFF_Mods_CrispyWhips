@@ -23,6 +23,7 @@ namespace Advanced_Copper_Tools.Patcher
 
         private static bool _disabled;
         private static bool _liquidFuelMissingLogged;
+        private static bool _liquidQtyMissingLogged;
         private static int _logCount;
 
         public static void ApplyPatch(Harmony harmony)
@@ -74,7 +75,16 @@ namespace Advanced_Copper_Tools.Patcher
         {
             try
             {
-                float qty = Reflect.GetFloat(card, "CurrentLiquidQuantity");
+                if (!Reflect.TryGetMember(card, "CurrentLiquidQuantity", out var rawQty))
+                {
+                    if (!_liquidQtyMissingLogged)
+                    {
+                        Logger?.LogWarning("[HeatHeldLiquid] CurrentLiquidQuantity not found on InGameCardBase; held liquid is not heated");
+                        _liquidQtyMissingLogged = true;
+                    }
+                    return false;
+                }
+                float qty = CardUtil.ToFloat(rawQty);
                 if (qty <= 0f) return false; // no liquid held
 
                 if (!Reflect.TryGetMember(card, "LiquidFuelValue", out var raw))

@@ -99,7 +99,7 @@
     }
   ],
   "BlueprintStatModifications": [],
-  "WhenCreatedSoundsWarpData": [],
+  "WhenCreatedSoundsWarpData": [ "Clay" ],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTagsWarpData": [
     "HandAction",

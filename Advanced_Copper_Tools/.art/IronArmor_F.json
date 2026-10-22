@@ -1,0 +1,63 @@
+{
+  "target": "IronArmor_F.png",
+  "sourceCard": [
+    "CardData/Item/IronBreastplate_F.json",
+    "CardData/Blueprint/Bp_IronBreastplate_F.json"
+  ],
+  "subject": "a woman's iron breastplate with IronArmor_M's materials and parts (dull matte grey iron, centre ridge, rolled openings, two leather shoulder straps, two leather side buckles) but not its boxy outline: two gently rounded cups formed into the plate with no marks on them, waist 70 percent of the chest width with both sides curving in, flaring back out over the hips to chest width; plain matte iron, no engraving, no emblem, no decoration, nothing exaggerated or sexualised",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "see historyId (the full prompt is stored on the OpenArt job); built from the subject above plus the plain-vanilla style sentence: Plain vanilla Card Survival game item art: a single object drawn with a thin, loose black ink outline and flat posterized fills in a few muted tonal steps per material, muted natural colours, simple and matter-of-fact, no cartoon, no comic shading, no decorative patterns, no glossy highlights. Single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.",
+  "historyId": "FnA6kVFHHWhUr09B0lyy",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792610315715_11db8561_1792610316007_78b81e07.png",
+  "credits": 40,
+  "generated": "2026-10-21",
+  "references": [
+    {
+      "role": "style",
+      "fragment": "vanilla Cuirass_Leather",
+      "image": "vanilla sprite Cuirass_Leather (extract_vanilla_sprites.py export)",
+      "sha256": "497eae2c49d93dc9bbeb74a90193817444da3a8604ffa214e2e41940ff6950f6",
+      "id": "CWaYsQkJJnTndQSmA9AI",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Cuirass_Leather_1792608370315_16f80e7c.png"
+    },
+    {
+      "role": "material (materials and parts only, outline explicitly not copied)",
+      "fragment": "IronArmor_M (owner-approved sibling)",
+      "image": "AdvancedCopperTools/Resource/Picture/IronArmor_M.png",
+      "sha256": "5e7e813f14365dc43b2eac25babea0c396f59ea189e9bb3a8993fb29e05a7ffa",
+      "id": "zkTbnZmKVpPMhXKSycKX",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/IronArmor_M_1792608369310_85c202d8.png"
+    }
+  ],
+  "candidates": [
+    {
+      "n": 1,
+      "historyId": "IC6RaFhtSuz8NhsLe1bR",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792610264234_6c42de3e_1792610264344_dd7d97e1.png",
+      "verdict": "not shipped: cups present but waist only about 90 percent of chest, no hip flare, and a dent mark at one cup's apex that could read as a nipple"
+    },
+    {
+      "n": 2,
+      "historyId": "FnA6kVFHHWhUr09B0lyy",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792610315715_11db8561_1792610316007_78b81e07.png",
+      "verdict": "shipped, awaiting the owner's /review-art look: clear unmarked cups, pinched waist, flared lower edge; no separate tasset plates; lighter flatter grey than IronArmor_M"
+    }
+  ],
+  "finish": "keyed; reframed into IronArmor_M's subject box (44,41,476,751) so the pair match; two enclosed paper pockets under the straps keyed on the framed image (key_enclosed.py misaligns on framed art)",
+  "note": "Owner gallery rework round 2, 2026-10-21 (regenerate | should make accommodations for a woman). Round 1 used IronArmor_M as the subject reference and came back nearly identical to it; this round puts the vanilla style reference first and IronArmor_M second as a materials-only reference, with the female fit stated as numbers. The rejected picture was not used as a reference.",
+  "previous": [
+    {
+      "historyId": "UIM7Nwz6BluHgL9Gl9hT",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608497519_fbb1c763_1792608497560_87c8e6f2.png",
+      "generated": "2026-10-21",
+      "owner_verdict": "regenerate 2026-10-21: should make accommodations for a woman (came out nearly identical to IronArmor_M)"
+    }
+  ]
+}

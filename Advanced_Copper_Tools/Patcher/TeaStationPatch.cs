@@ -475,9 +475,7 @@ namespace Advanced_Copper_Tools.Patcher
 
         private static float InvokeFloat(object stat, string methodName, object[] args, float fallback)
         {
-            var types = new Type[args.Length];
-            for (int i = 0; i < types.Length; i++) types[i] = typeof(float);
-            var method = stat?.GetType().GetMethod(methodName, Flags, null, types, null);
+            var method = CachedFloatMethod(stat?.GetType(), methodName, args.Length);
             if (method == null)
             {
                 WarnOnce("method-missing:" + methodName, $"Transfer: DurabilityStat.{methodName} not found; values are clamped but not snapped to the stat's valid values");
@@ -499,6 +497,45 @@ namespace Advanced_Copper_Tools.Patcher
             if (opt == null) return null; // a null optional is inactive in vanilla too
             if (!IsDurabilityActive(opt)) return null;
             return GetFloatMember(opt, "FloatValue");
+        }
+
+        // Reflection cache for the Grind All loops (code-quality F1): one lookup per (type, member)
+        // instead of one per held card, CI and stat. A miss is cached as null too, so every caller
+        // still takes its own null exit (and its WarnOnce) on every call, exactly as before.
+        private static readonly Dictionary<(Type, string), FieldInfo> _fieldCache = new Dictionary<(Type, string), FieldInfo>();
+        private static readonly Dictionary<(Type, string, int), MethodInfo> _floatMethodCache = new Dictionary<(Type, string, int), MethodInfo>();
+
+        private static FieldInfo CachedField(Type type, string name)
+        {
+            if (type == null) return null;
+            var key = (type, name);
+            lock (_fieldCache)
+            {
+                if (!_fieldCache.TryGetValue(key, out var field))
+                {
+                    field = type.GetField(name, Flags);
+                    _fieldCache[key] = field;
+                }
+                return field;
+            }
+        }
+
+        // A method taking floatArgs float parameters (SnapToNearestValidValue, ApproveValue).
+        private static MethodInfo CachedFloatMethod(Type type, string name, int floatArgs)
+        {
+            if (type == null) return null;
+            var key = (type, name, floatArgs);
+            lock (_floatMethodCache)
+            {
+                if (!_floatMethodCache.TryGetValue(key, out var method))
+                {
+                    var types = new Type[floatArgs];
+                    for (int i = 0; i < types.Length; i++) types[i] = typeof(float);
+                    method = type.GetMethod(name, Flags, null, types, null);
+                    _floatMethodCache[key] = method;
+                }
+                return method;
+            }
         }
 
         // Warn-once breadcrumbs, one per cause (CLAUDE.md "Silent Catch Blocks").
@@ -683,7 +720,9 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.Log(LogLevel.Debug, $"[TeaStation] InitialLiquidQuantityFor failed: {FullException(ex)}");
+                // Same player-visible result as the non-throwing exits above (the powder pours as
+                // 0 and vanishes), so it warns like them instead of hiding at Debug.
+                WarnOnce("liquidquantity-threw", $"InitialLiquidQuantityFor threw, so a ground powder would pour as 0 and vanish: {FullException(ex)}");
                 return 0f;
             }
         }
@@ -725,7 +764,7 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.Log(LogLevel.Debug, $"[TeaStation] GenerateStartingValue failed: {FullException(ex)}");
+                WarnOnce("generatestartingvalue-threw", $"DurabilityStat.GenerateStartingValue threw; using FloatValue as the starting value (no random offset): {FullException(ex)}");
             }
             return GetFloatMember(stat, "FloatValue");
         }
@@ -780,7 +819,7 @@ namespace Advanced_Copper_Tools.Patcher
                     return null;
                 }
 
-                var ciField = cardData.GetType().GetField("CardInteractions", Flags);
+                var ciField = CachedField(cardData.GetType(), "CardInteractions");
                 if (ciField == null)
                 {
                     WarnOnce("ci-field-missing", "ResolveGrind: CardData.CardInteractions not found (reflection miss); Grind All grinds nothing");
@@ -797,7 +836,7 @@ namespace Advanced_Copper_Tools.Patcher
                 {
                     if (ci == null) continue;
 
-                    var compatField = ci.GetType().GetField("CompatibleCards", Flags);
+                    var compatField = CachedField(ci.GetType(), "CompatibleCards");
                     if (compatField == null)
                     {
                         WarnOnce("compat-field-missing", "ResolveGrind: CardInteraction.CompatibleCards not found (reflection miss); Grind All grinds nothing");
@@ -807,7 +846,7 @@ namespace Advanced_Copper_Tools.Patcher
                     if (compat == null) continue;
 
                     // Read resolved TriggerTags (populated by WarpResolver from TriggerTagsWarpData)
-                    var tagsField = compat.GetType().GetField("TriggerTags", Flags);
+                    var tagsField = CachedField(compat.GetType(), "TriggerTags");
                     if (tagsField == null)
                         WarnOnce("triggertags-field-missing", "ResolveGrind: CardsDropCollection.TriggerTags not found (reflection miss); only CIs named \"Grind\" are matched");
                     var tags = tagsField?.GetValue(compat) as IList;
@@ -835,7 +874,7 @@ namespace Advanced_Copper_Tools.Patcher
                     // The FIRST matching CI wins, in the card's own order. For vanilla dried
                     // herbs that is the stone mortar's "Grind" (a TriggerCards CI, matched by
                     // name) ahead of the hammer-tag one, so the station grinds as the mortar does.
-                    var rccField = ci.GetType().GetField("ReceivingCardChanges", Flags);
+                    var rccField = CachedField(ci.GetType(), "ReceivingCardChanges");
                     if (rccField == null)
                     {
                         WarnOnce("rcc-field-missing", "ResolveGrind: CardInteraction.ReceivingCardChanges not found (reflection miss); Grind All grinds nothing");
@@ -858,13 +897,13 @@ namespace Advanced_Copper_Tools.Patcher
         {
             if (rcc == null) return null;
 
-            var transformField = rcc.GetType().GetField("TransformInto", Flags);
+            var transformField = CachedField(rcc.GetType(), "TransformInto");
             if (transformField == null)
                 WarnOnce("transforminto-field-missing", "ResolveGrind: CardStateChange.TransformInto not found (reflection miss); falling back to TransformIntoWarpData");
             var transformCard  = transformField?.GetValue(rcc);
             if (transformCard is UnityEngine.Object uo && uo != null)
             {
-                var uidField = transformCard.GetType().GetField("UniqueID", Flags);
+                var uidField = CachedField(transformCard.GetType(), "UniqueID");
                 var uid = uidField?.GetValue(transformCard) as string;
                 if (!string.IsNullOrEmpty(uid)) return uid;
                 WarnOnce("transforminto-uid-unreadable", "ResolveGrind: the grind result's UniqueID could not be read; falling back to TransformIntoWarpData");
@@ -872,7 +911,7 @@ namespace Advanced_Copper_Tools.Patcher
 
             // A "Grind" CI with no transform target (a CI that produces cards instead) is not
             // an in-place grind: the caller moves on to the card's next CI.
-            var warpField = rcc.GetType().GetField("TransformIntoWarpData", Flags);
+            var warpField = CachedField(rcc.GetType(), "TransformIntoWarpData");
             return warpField?.GetValue(rcc) as string;
         }
 

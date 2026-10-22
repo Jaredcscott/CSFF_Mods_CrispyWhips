@@ -516,7 +516,7 @@
       "RequiredReceivingDurabilities": {
         "RequiredFuelPercent": {
           "Active": true,
-          "FloatValue": 50.0,
+          "FloatValue": 0.5,
           "MaxValue": 100.0
         },
         "HideActionIfNotMet": true,

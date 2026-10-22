@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_bp_lantern_oilwell",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_LanternOilwell_CardDescription",
-    "DefaultText": "Hammer a metal sheet into a small cup-shaped oil reservoir, wrapped with twine for a wick and sealed with 1 tin solder. The oilwell takes the sheet's metal. Takes copper, tin or bronze sheets, not iron."
+    "DefaultText": "Hammer a metal sheet into a small cup-shaped oil reservoir, wrapped with twine for a wick and sealed with 1 tin solder. The oilwell takes the sheet's metal. Takes any sheet, iron included."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {

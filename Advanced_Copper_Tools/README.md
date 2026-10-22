@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.18.10
+**Version:** 1.18.11
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -156,7 +156,7 @@ The same saw with a forged iron blade.
 
 ### Copper Armor Set
 
-Copper armor protects specific body zones when worn, and each piece dismantles back into its materials. Armor value stays the same at any durability. Every helmet, armor, bracer and greave (all six metals) has 46080 durability, the same as vanilla leather armor: each enemy hit on its body zone wears 250, so a piece takes about 185 hits. Pieces from before 1.18.9 are raised to 46080 when the save loads.
+Copper armor protects specific body zones when worn, and each piece dismantles back into its materials. Armor value stays the same at any durability. Every helmet, armor, bracer and greave (all six metals) has 46080 durability, the same as vanilla leather armor, and it wears the same way: each enemy hit on its body zone wears 250 for every 15 minutes of the action the fight broke into (250 out of a Rest, 1000 out of a Relax). So a piece takes about 185 hits from fights that break into a quarter-hour action, and fewer from fights that break into longer ones. Pieces from before 1.18.9 are raised to 46080 when the save loads.
 
 | Piece | Protection | Recipe | Build | Research |
 |-------|------------|--------|------:|-------:|
@@ -182,7 +182,7 @@ The bronzes come from the vanilla crucible recipes: Tin Bronze is 5 copper + 1 t
 | White Bronze | 42.5 | 19 | 46080 | +3 Courage per piece |
 | Iron | 45 | 20 | 46080 | the best raw protection |
 
-Many animal attacks (wolves, bears, foxes, badgers, beavers and others) are purely spiritual. Against those, Ghost Bronze out-blocks iron: 47.5 on the head and torso, 24 on each limb.
+Against an attack that is purely spiritual, Ghost Bronze out-blocks iron: 47.5 on the head and torso, 24 on each limb. No vanilla animal strikes that way (wolves, bears and boars bite and bash; foxes, badgers and beavers bite and claw), so against wildlife Ghost Bronze is plain bronze armor, and its Fear relief is what sets it apart.
 
 | Piece | Recipe (any alloy suit) | Build | Research |
 |-------|--------|------:|------:|
@@ -621,7 +621,7 @@ For modders. Each hook is scoped to this mod's own cards unless noted.
 1. Install BepInEx if you have not already.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Put this mod's folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.10 loaded.`
+4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.11 loaded.`
 
 ### Configuration
 
@@ -630,6 +630,8 @@ One BepInEx option, in `BepInEx/config/` under the section `Compatibility`:
 | Option | Default | Effect |
 |--------|---------|--------|
 | `EnableLegacyStationLiquidHeater` | `false` | Heats liquid stored directly on a lit Tea Station card, for old beta layouts. Leave it off for the current reservoir. |
+
+The optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.ConfigurationManager/releases) (BepInEx 5 build) shows it in game: press F1 and find "Advanced_Copper_Tools". The option is read once at startup, so relaunch the game after changing it there too.
 
 ---
 
@@ -652,7 +654,7 @@ One BepInEx option, in `BepInEx/config/` under the section `Compatibility`:
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.10 loaded.`
+**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.11 loaded.`
 
 **Pan or kettle won't boil?** It must sit on a lit fire with fuel left, and hold a liquid the game can heat.
 

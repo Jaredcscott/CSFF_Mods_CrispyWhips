@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_metal_lantern_placed_lit",
     "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardDescription",
-    "DefaultText": "A lit copper lantern burning oil to illuminate the area. Extinguish before refueling."
+    "DefaultText": "A lit lantern burning oil to illuminate the area. Extinguish before refueling."
   },
   "AlternateNames": [
     {

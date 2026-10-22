@@ -1,4 +1,9 @@
 {
   "CardUniqueId": "advanced_copper_tools_metal_lantern_placed_lit",
-  "CardGif": { "GifName": "ACT_MetalLantern_On_Copper", "Loop": true }
+  "ConditionSets": [
+    {
+      "Gif": { "GifName": "ACT_MetalLantern_On_Copper", "Loop": true },
+      "DurabilityConditions": [ { "DurabilityType": 8, "MinNormalized": 0.095, "MaxNormalized": 0.105 } ]
+    }
+  ]
 }

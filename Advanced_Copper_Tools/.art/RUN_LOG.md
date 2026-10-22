@@ -65,3 +65,6 @@
 | 2026-10-12 | ToolBelt (owner gallery rework: regenerated toward vanilla, score 83) | nano-banana-2 image2image | 1K | 20 | jqBFmVtk23iUVDn08UvY | OK |
 | 2026-10-12 | ToolBelt (owner gallery round 3: regenerate, new content; score 84) | nano-banana-2 image2image | 1K | 20 | WauAido9hQpCkRykZoRY | OK |
 | 2026-10-12 | ToolBelt (owner gallery round 4: closed circle, buckle fastened (previous generation as content reference); score 84) | nano-banana-2 image2image | 1K | 20 | dKQ9dv7CpNfgSNrKb259 | OK |
+| 2026-10-21 | IronArmor_F (owner gallery rework: IronArmor_M as subject reference, plain women's cut, no engraving; vanilla Cuirass_Leather style) | nano-banana-2 image2image | 1K | 20 | UIM7Nwz6BluHgL9Gl9hT | OK |
+| 2026-10-21 | IronArmor_F (owner gallery regenerate round 2: should make accommodations for a woman; sample 1, refs: vanilla Cuirass_Leather style, IronArmor_M materials only; not shipped: waist about 90 percent, no hip flare, dent at a cup apex) | nano-banana-2 image2image | 1K | 20 | IC6RaFhtSuz8NhsLe1bR | CANDIDATE |
+| 2026-10-21 | IronArmor_F (owner gallery regenerate round 2: sample 2, same refs, waist 70 percent and unmarked cups stated as numbers; shipped, reframed into IronArmor_M's box, two strap pockets keyed) | nano-banana-2 image2image | 1K | 20 | FnA6kVFHHWhUr09B0lyy | OK |

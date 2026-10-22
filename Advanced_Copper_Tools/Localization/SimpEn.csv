@@ -16,7 +16,7 @@ Advanced_Copper_Tools_MetalLantern_Light_ActionDescription,Light the lantern wit
 Advanced_Copper_Tools_MetalLantern_NeedsFuel,The lantern needs oil first.,提灯需要先加油。
 Advanced_Copper_Tools_MetalLantern_FuelCapacity_CardStatName,Oil,灯油
 Advanced_Copper_Tools_MetalLantern_Lit_CardName,Lit Metal Lantern,已点燃的金属提灯
-Advanced_Copper_Tools_MetalLantern_Lit_CardDescription,A lit copper lantern burning oil for portable light. Extinguish it before refueling.,一盏正在燃烧油脂提供便携照明的铜提灯。补充燃料前需先熄灭。
+Advanced_Copper_Tools_MetalLantern_Lit_CardDescription,A lit lantern burning oil for portable light. Extinguish it before refueling.,一盏正在燃烧油脂提供便携照明的提灯。补充燃料前需先熄灭。
 Advanced_Copper_Tools_MetalLantern_Lit_FuelCapacity_CardStatName,Oil,油量
 Advanced_Copper_Tools_MetalLantern_Lit_FuelOut_ActionName,Lantern Burns Out,提灯燃尽
 Advanced_Copper_Tools_MetalLantern_Lit_FuelOut_ActionDescription,The lantern runs out of oil.,提灯的油脂耗尽了。
@@ -30,7 +30,7 @@ Advanced_Copper_Tools_MetalLantern_PickUp_ActionName,Pick Up,拾起
 Advanced_Copper_Tools_MetalLantern_PickUp_ActionDescription,Pick up the lantern and carry it.,拾起提灯并携带。
 Advanced_Copper_Tools_MetalLantern_PickUpLit_ActionDescription,Pick up the lit lantern and carry it.,拾起已点燃的提灯并携带。
 Advanced_Copper_Tools_MetalLantern_CardHelpSection,"<b>Usage:</b> Add any lamp oil, then light from any fire source to illuminate the area. Each clay bowl of oil adds 55 fuel (the lantern turns oil into fuel 15% better than a ceramic lamp) and you get the bowl back; two bowls fill the lantern for 48 hours of light.",<b>用法：</b>加入任意灯油，然后用任何火源点燃以照亮周围。每碗油增加55点燃料（金属提灯的油转燃料效率比陶灯高15%），陶碗会退还；两碗即可装满提灯，持续照明48小时。
-Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardDescription,A lit copper lantern burning oil to illuminate the area. Extinguish before refueling.,一盏正在燃烧油脂以照亮区域的铜提灯。补充燃料前需先熄灭。
+Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardDescription,A lit lantern burning oil to illuminate the area. Extinguish before refueling.,一盏正在燃烧油脂以照亮区域的提灯。补充燃料前需先熄灭。
 Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardHelpSection,<b>Usage:</b> Provides light to the surrounding area while lit. Extinguish to refuel.,<b>用途：</b> 点燃时为周围区域提供照明。熄灭后补充燃料。
 Advanced_Copper_Tools_Bucket_CardName,Wheelbarrow Bucket,手推车桶
 Advanced_Copper_Tools_Bucket_CardDescription,A sturdy metal bucket hammered from metal sheets. The main cargo area of a wheelbarrow.,由金属片锤打成的坚固金属桶。手推车的主要货仓部分。
@@ -146,7 +146,7 @@ Advanced_Copper_Tools_CopperStove_TakeCharcoalAsh_ActionName,Take Charcoal and A
 Advanced_Copper_Tools_CopperStove_TakeCharcoalAsh_ActionDescription,Collect charcoal and ash from the stove.,从炉子中收集木炭和灰烬。
 Advanced_Copper_Tools_CopperStove_TakeCharcoalAsh_FailMessage,Charcoal not ready yet.,木炭尚未就绪。
 Advanced_Copper_Tools_CopperStove_HasItems,Remove items from the stove first.,先将炉内物品移除。
-Advanced_Copper_Tools_Bp_Handles_UnlockConditionsDesc,Plank Needed,需要铜片
+Advanced_Copper_Tools_Bp_Handles_UnlockConditionsDesc,Plank Needed,需要木板
 Advanced_Copper_Tools_Bp_PanBlank_CardDescription,"Hammer a metal sheet into a pan blank. Takes copper, tin or bronze sheets, not iron.",将一块金属片锤打成锅坯。只接受铜、锡或青铜片，不接受铁片。
 Advanced_Copper_Tools_Bp_PanBlank_CardName,Forged Pan Blank,锻造锅坯
 Advanced_Copper_Tools_Bp_PanBlank_UnlockConditionsDesc,Copper Sheet Needed,需要铜片

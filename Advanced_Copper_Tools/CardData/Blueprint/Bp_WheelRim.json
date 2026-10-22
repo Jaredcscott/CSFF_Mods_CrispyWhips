@@ -3,7 +3,7 @@
     "CardName": {
         "ParentObjectID": "advanced_copper_tools_bp_wheel_rim",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_WheelRim_CardName",
-        "DefaultText": "Forge Wheel Rim"
+        "DefaultText": "Forged Wheel Rim"
     },
     "CardDescription": {
         "ParentObjectID": "advanced_copper_tools_bp_wheel_rim",

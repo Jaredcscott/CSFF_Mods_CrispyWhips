@@ -12,7 +12,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.advanced_copper_tools";
     public const string PluginName = "Advanced_Copper_Tools";
-    public const string PluginVersion = "1.18.10";
+    public const string PluginVersion = "1.18.11";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }

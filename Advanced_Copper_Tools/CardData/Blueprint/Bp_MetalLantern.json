@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_bp_metal_lantern",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_MetalLantern_CardDescription",
-    "DefaultText": "Assemble a lantern from 1 metal sheet and an oilwell, with a copper wire frame, an oiled parchment shade (a parchment and a fat) and a hammer. The lantern takes the sheet's metal. Takes copper, tin or bronze sheets, not iron."
+    "DefaultText": "Assemble a lantern from 1 metal sheet and an oilwell, with a copper wire frame, an oiled parchment shade (a parchment and a fat) and a hammer. The lantern takes the sheet's metal. Takes any sheet, iron included."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {

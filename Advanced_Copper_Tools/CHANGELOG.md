@@ -2,6 +2,20 @@
 
 All notable changes to this mod are documented here.
 
+## [1.18.11] - 2026-10-21
+
+### Changed
+
+- **New picture for the women's Iron Armor.** It is now the plain iron breastplate of the men's version, cut for a woman, with no engraving, and drawn closer to the base game's style.
+
+### Fixed
+
+- **Building a Tinned Storage Pot now makes a sound.** It was the only recipe in the mod that finished in silence; it now plays the clay sound the Copper-Rim Chamberpot uses.
+- **Melt Fat on the Wearable Metal Pan now shows.** Its heat check asked for a temperature of 50 to 100 on a scale the game reads from 0 to 1, so the action was always hidden. It now shows once the pan is at least half hot, the 50% heat it was written for.
+- **A tin smelt that cannot mark its nugget now says so.** If tin ore finishes smelting and the new Metal Nugget cannot be found a frame later, the log gets one warning instead of nothing; until now such a nugget kept no metal type and failed every tin recipe with no clue why.
+- **A lit lantern, lit oilwell or lit stove of any metal now shows that metal's picture.** The copper flame animation played over every metal, so a Lit Tin or Lit White Bronze Lantern (carried or placed), a lit Tin Lantern Oilwell and a lit tin stove all looked copper. The animation now plays only on copper, and the other metals show their own lit art. The lit lantern's description no longer calls every lantern copper.
+- **The Lantern Oilwell and Metal Lantern recipes no longer say "not iron".** Both take any metal sheet, iron included, as the recipe and its translation table already said; only the card's built-in fallback text was out of date.
+
 ## [1.18.10] - 2026-10-17
 
 ### Added
