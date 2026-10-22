@@ -1,6 +1,6 @@
 # Herbs and Fungi: Player Guide
 
-**Version:** 1.14.13
+**Version:** 1.14.14
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -129,7 +129,7 @@ Everything above goes into a stew.
   - It never stops people, a fight you start, or other mods' animals.
   - Its death caps rot in about ten days, placed or carried, and the ward rots with them.
 - **Forager's Notebook**: 3 Hemp Paper and Twine (Support tab). Carried in your inventory, it records each wild plant or mushroom from this mod the first time one turns up, under the place you found it.
-  - Open the card to read the list. Not yet confirmed in game.
+  - Open the card to read the list. Confirmed in a scripted run.
 - **Hemp Paper and the Botanical Field Guide**: Hemp Stalks make Hemp Pulp, which soaks for about a day and presses into Hemp Paper. 6 paper and Twine bind the Field Guide, whose **Read** action lists every plant this mod adds with its seasons and places.
 - **Oil Press**: a multi-stage workstation that presses oils from seeds, truffles and herbs.
 - **Pickle Vat**: a clay vessel for long preservation.
@@ -160,7 +160,7 @@ Blueprints are in the Cooking tab unless noted. No vanilla card changes.
 - **Berry Leather and honeyed sweets**: four **Mash** blueprints turn 3 berries of one kind into **Berry Pulp** (spoils in about 6 days). Dried on a Drying Tray it becomes **Berry Leather**, which keeps about 75 days.
   - With Honeycomb, **Honeyed Nuts** (3 Roasted Peanuts or Roasted Pine Nuts) and **Honeyed Berries** (one of each dried berry) each make 2 sweets that keep about 90 days.
 - **Wax Leather Dressing**: drag Linseed Oil onto Beeswax (you keep the clay bowl), then drag the dressing onto a leather garment such as a tunic, trousers, coat, gloves, shoes or helmet.
-  - Its Quality rises by 5, up to the maximum, and the dressing is used up. Beeswax comes from honeycomb. Not yet confirmed in game.
+  - Its Quality rises by 5, up to the maximum, and the dressing is used up. Beeswax comes from honeycomb. Confirmed in a scripted run.
 - **Maggots**: Rotten Remains give 1 to 2 Maggots with **Collect Maggots**, except in winter. **Apply Maggots** on an infected open wound lowers its Infection by 180 and raises Stress by 15.
 
 ### Medicines and Teas
@@ -342,7 +342,7 @@ It regrows about every 3 days, faster in spring and not in winter, and Harvest b
   - Its flavour, no-spoilage and stew use are not yet confirmed in game.
 - **Herb Butter and Herb Cheese**: drag Butter or a Butter Chunk onto Black Trumpet Powder, Shiitake Powder, King Oyster Powder or Dried Ginger for Herb Butter.
   - Drag Soft, Firm, Hard or Aged Cheese or Cheese Curds onto the same four for Herb Cheese. The dairy is used up.
-  - It is plain food, keeps far longer than plain dairy, and with Sirus23's Mod Collection its fats and Sheep Cheese also work. Not yet confirmed in game.
+  - It is plain food, keeps far longer than plain dairy, and with Sirus23's Mod Collection its fats and Sheep Cheese also work. Confirmed in a scripted run.
 
 ---
 
@@ -408,9 +408,9 @@ Berries follow their biomes: Blackcurrants and Redcurrants in oak and birch area
 
 "Birch areas" are the 17 vanilla forest spots with a large birch tree, where Chaga also turns up. There Blackcurrants and Chanterelle drop at all 17, Chamomile at 16, Common Plantain at 13 and Redcurrants at 12, each in its own seasons.
 
-At a few vanilla places, some cards are twice as likely in their best season: Wild Flowers and Common Plantain in spring at the Secret Grove and Alder Grove, and Chanterelle and Black Trumpet in autumn at Pine Meadows.
+At a few vanilla places, some cards are four times as likely in their best season: Wild Flowers and Common Plantain in spring at the Secret Grove and Alder Grove, and Black Trumpet in autumn at Pine Meadows.
 
-This needs CSFFModFramework 2.28.0. It and the seasonal forage at those places are not yet confirmed in game.
+This needs CSFFModFramework 2.28.0 or later. The birch-area finds and the seasonal forage at those places are confirmed in a scripted run.
 
 ---
 
@@ -467,6 +467,8 @@ Patch classes in `Patcher/`:
 
 Full notes are in `CHANGELOG.md`.
 
+- **1.14.14**: the mod list description names the six herb grow bags as well as Kale's.
+- **1.14.13**: Peanut Butter has its own picture; the pickling recipes say they need the open Pickle Vat; Forager's Seasoning and seven other recipes name their ingredients and unlocks by the cards' real names; clearer log warnings if a game update breaks one of the mod's patches.
 - **1.14.12**: Chamomile, Dandelion, Plantain, Yarrow, Rhubarb and Healer's Moss get a Grow Bag that keeps growing through winter while a lit fire is on its board; rinsing Peanut Pods works in both drag directions and uses 100 water; ready pickle vats keep about a month.
 - **1.14.11**: washing at a river no longer drains the fuel from wood and candles (the fix is in CSFF Mod Framework 2.28.6, which this version needs); the lit Incense Bundle's animation sits where its still picture does; four mushroom Cook bars show their icon.
 - **1.14.10**: a Kale Grow Bag keeps growing through winter while a lit fire is on its board; Cut and Dried Ginger give the vanilla Ginger status; burning hemp flowers or powder lifts Morale only as much as smoking hemp in the Herb Pipe; raw breads no longer bake into spoiled bread.

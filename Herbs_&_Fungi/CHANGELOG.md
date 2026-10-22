@@ -5,6 +5,12 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [1.14.14] - 2026-10-22
+
+### Fixed
+
+- **The mod list description names every grow bag that keeps growing through winter beside a lit fire:** Kale and the six herb grow bags (Chamomile, Dandelion, Plantain, Yarrow, Rhubarb and Healer's Moss), not just Kale.
+
 ## [1.14.13] - 2026-10-22
 
 ### Fixed
