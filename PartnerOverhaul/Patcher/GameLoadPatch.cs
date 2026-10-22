@@ -117,11 +117,13 @@ namespace PartnerOverhaul.Patcher
         // runs again on every return to the main menu.
         private static int _dutyRefsAdded;
         private static int _poolEntriesAdded;
+        private static int _drinkTargetsAdded;
 
         private static void LoadMainGameData_Postfix()
         {
             _dutyRefsAdded = 0;
             _poolEntriesAdded = 0;
+            _drinkTargetsAdded = 0;
             try { FixStewBrothEating(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixStewBrothEating failed: {ex}"); }
             try { FixCleaningGap(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixCleaningGap failed: {ex}"); }
             try { FixGardenOverwatering(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixGardenOverwatering failed: {ex}"); }
@@ -685,6 +687,7 @@ namespace PartnerOverhaul.Patcher
             var riverDrink = river?.DismantleActions?.FirstOrDefault(a => a?.ActionName != null && a.ActionName.DefaultText == "Drink");
             if (riverDrink == null) { Logger.LogWarning("[GameLoadPatch] River 'Drink' not found - skipping lake drinking."); return; }
 
+            var wired = new List<(CardData Card, string Label)>();
             foreach (var (uid, label) in LakeAndStreamCards)
             {
                 var l = label;
@@ -695,8 +698,60 @@ namespace PartnerOverhaul.Patcher
                     AppendDutyRefIfMissing(drink, drinkFree, "PartnerDuty_DrinkFree", $"{l}.Drink");
                     AppendDutyRefIfMissing(drink, seekDrink, "PartnerDuty_SeekDrink", $"{l}.Drink");
                     MirrorActionTags(drink, riverDrink, $"{l}.Drink");
+                    wired.Add((card, l));
                 });
             }
+
+            // The refs above are necessary but not sufficient, the same lesson as FixStewBrothEating:
+            // DrinkFree's Drink step selects its card from an item pool, and SeekDrink's Move step walks
+            // to a card from its MoveToItems list, and both list only a water tag that River carries and
+            // these six cards do not (T3.81 2026-10-19: at a Stream with no other water the Partner never
+            // drank). So each card is added to those lists as a card entry, never given the tag.
+            foreach (var (card, l) in wired)
+            {
+                AddCardToDrinkTargets(drinkFree, "PartnerDuty_DrinkFree", river, card, l);
+                AddCardToDrinkTargets(seekDrink, "PartnerDuty_SeekDrink", river, card, l);
+            }
+            if (_drinkTargetsAdded > 0)
+                Logger.LogInfo($"[GameLoadPatch] lake drinking: added {_drinkTargetsAdded} card entr(ies) to the Drink and Seek Drink duties' target lists.");
+        }
+
+        // Adds the card to every target list of the duty that names a tag the vanilla River carries:
+        // an AffectItemsDutyAction's item pool and a MoveDutyAction's MoveToItems. Identified by River's
+        // own tags, not a tag name, because the export's tag tokens renumber between game versions.
+        // Idempotent: LoadMainGameData runs again on every return to the main menu.
+        private static void AddCardToDrinkTargets(NPCDuty duty, string dutyLabel, CardData river, CardData card, string cardLabel)
+        {
+            if (duty == null) { Logger.LogWarning($"[GameLoadPatch] {cardLabel}: duty '{dutyLabel}' not resolvable - drink targets unchanged."); return; }
+            var riverTags = river?.CardTags ?? Array.Empty<CardTag>();
+            bool IsRiverTag(CardTag t) => t != null && riverTags.Contains(t);
+            var waterListsSeen = 0;
+            foreach (var step in duty.ActionSequence ?? Array.Empty<NPCDutyAction>())
+            {
+                if (step is AffectItemsDutyAction affect && affect.ItemSelection?.ItemPool is List<CardOrTagQuantity> pool)
+                {
+                    if (!pool.Any(e => IsRiverTag(e.Target.Tag))) continue;
+                    waterListsSeen++;
+                    if (pool.Any(e => e.Target.Card == card)) continue;
+                    pool.Add(new CardOrTagQuantity(card));
+                    _drinkTargetsAdded++;
+                    Logger.LogDebug($"[GameLoadPatch] {cardLabel}: added to {dutyLabel}'s item pool.");
+                }
+                else if (step is MoveDutyAction move && move.MoveToItems != null)
+                {
+                    if (!move.MoveToItems.Any(e => IsRiverTag(e.Tag))) continue;
+                    waterListsSeen++;
+                    if (move.MoveToItems.Any(e => e.Card == card)) continue;
+                    var grown = new CardOrTagRefWithDurabilities[move.MoveToItems.Length + 1];
+                    Array.Copy(move.MoveToItems, grown, move.MoveToItems.Length);
+                    grown[move.MoveToItems.Length] = new CardOrTagRefWithDurabilities { Target = card };
+                    move.MoveToItems = grown;
+                    _drinkTargetsAdded++;
+                    Logger.LogDebug($"[GameLoadPatch] {cardLabel}: added to {dutyLabel}'s move targets.");
+                }
+            }
+            if (waterListsSeen == 0)
+                Logger.LogWarning($"[GameLoadPatch] {cardLabel}: no River-tagged target list found on {dutyLabel} - the Partner cannot pick this card.");
         }
 
         // ── shared helpers ──────────────────────────────────────────────────────────────

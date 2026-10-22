@@ -1,0 +1,17 @@
+{
+  "about": "Owner art review verdicts, written by Development_Tools/CardArt/art_review.py. Keyed by path under Resource/; sha1 is the file that was judged.",
+  "images": {
+    "Picture/PartnerOverhaul_EmberPot.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "70c158bcc95271d22e8990abc0a19e8c687b051e",
+      "at": "2026-10-21T18:39:52+00:00"
+    },
+    "Picture/PartnerOverhaul_EmberPotLit.png": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2d7800369ef396732b637135172bf388fa0322d9",
+      "at": "2026-10-21T18:39:50+00:00"
+    }
+  }
+}

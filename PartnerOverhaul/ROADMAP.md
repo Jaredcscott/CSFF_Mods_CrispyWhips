@@ -1,110 +1,85 @@
 # Roadmap: Partner Overhaul
 Version at time of writing: 1.1.5
-Date: 2026-10-18
-Audit score: 9/10 (−1 for the exempt NO-CN localization warning; 0 CRITICAL)
+Date: 2026-10-20
+Audit score: 10/10 (PASS, 0 CRITICAL; the one preflight CRITICAL is the exempt NO-CN localization case)
 
 ## Current State
 
-**Theme**: Bug-fix and quality-of-life mod for the base game's Partner companions - fixing stuck duties
-(eating broth/stew, cleaning finished homes, over-watering, charcoal feeding, seasonal duty marks),
-polishing dialog (name-in-dialog, a "Talk with" conversation surface), and adding one small opt-in content
-item, the Ember Pot.
+**Theme**: Repairs a batch of base-game Partner-companion bugs and gives the Partner a spoken "Talk with" conversation surface; its only shipped content is the opt-in Ember Pot. A Harmony-fix mod for players who use companions.
 
-**Content**: 2 items / 1 blueprint (Ember Pot) / 0 structures / 0 perks / 2 custom images. The mod is
-primarily 19 Harmony patch classes (24 `.cs` files), not shipped CardData.
+**Content**: 2 items (Ember Pot, Ember Pot Lit) / 1 blueprint (Bp_EmberPot) / 0 structures / 0 perks / 2 custom images. 22 C# patch classes under `Patcher/` (19 `ApplyPatch` calls plus the Ember Pot content).
 
-**Stability**: 9/10 - 0 CRITICAL, 0 design gaps, 2 warnings (NO-CN localization, exempt; one bounded
-boot-time `FindObjectsOfTypeAll<DialogLine>` rescan), 1 minor. Build pass (0/0). Feature-honest: every
-advertised class has a live call site; no dead code. Code quality 10/10.
+**Stability**: 10/10 - released (1.1.5), 0 CRITICAL, 1 warning (W1 exempt NO-CN localization; W3 docs under-claim resolved 2026-10-20 in `ee0e34a9e`), 1 minor (V4 DialogLine scans). 38 PartnerOverhaul rows sit in `confirmedItems`, 23 recorded 2026-10-18 to 2026-10-20.
 
-**Open work**: No open retrospective names PartnerOverhaul, "PO", or `crispywhips.partner_overhaul`. No open
-plan: the round-2 plan is built and archived as `Documentation/Design/PartnerOverhaul_As_Built.md`. What
-remains is verification and release, not code.
+**Open work**: No open retrospectives (no row in `Documentation/Retrospectives/INDEX.md` names PartnerOverhaul, PO or `crispywhips.partner_overhaul`). No open plan: both feature plans are built and archived (`Documentation/Design/PartnerOverhaul_As_Built.md`, `Documentation/Design/PartnerOverhaul_Balance_And_Conversations_As_Built.md`). What remains is verification of the six pending rows and the 1.1.6 release.
 
-**Framework compliance**: Depends on `crispywhips.CSFFModFramework` (SoftDependency). The Ember Pot is wired
-declaratively (`BlueprintTabs.json`); the rest is Harmony fixes using compile-time `typeof(GameManager)` and
-`TypeByName("GameLoad")` targets, the established repo pattern for a fix mod. No deprecated patterns
-(`DropCollectionGuardPatch`, unfiltered hot-path prefixes, `ModLoaderVerison`/`ModEditorVersion`) present.
+**Framework compliance**: Harmony/reflection only - no framework Tier 2 service calls (`ActionRouter`/`SpawnService`/`TickEvents`/`ContentModPlugin`) and no `CardUtil.`/`Api.` references anywhere in `Patcher/*.cs`. This is correct for the mod's needs (the fixes patch vanilla directly) and means the framework-version-floor hazard does not apply. Reflection is fully guarded (null-checked, cached behind a `_reflectionResolved` latch, warn-and-return on a miss). CSFFModFramework is a soft dependency that loads only the Talk conversation and sets load order.
 
 ---
 
-## Phase 0: Stabilize  *(skipped - audit score ≥ 8 and no open retrospectives)*
+## Phase 0: Stabilize
 
-Nothing to stabilize. 0 CRITICAL, 0 design gaps, build and version sync clean.
+> Skipped - audit score is 10/10 and there are no open retrospectives. Nothing breaks a loop, corrupts vanilla data, or crashes.
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes housekeeping. Only two real items; the rest are already satisfied.
+> The remaining table-stakes work before the next release.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Version sync across ModInfo.json / Plugin.cs / README.md | Version hygiene | P1 | DONE (all 1.1.5) |
-| Cache `DialogLine` lookups in `PartnerCmcTopicPatch.FindLine` (per-boot dict + `scanned` latch, cleared in `InitStats_Postfix`) - copy the sibling pattern in `PartnerExpeditionStoryPatch`/`PartnerTalkAnswerPatch` | Code polish (W2/F4) | P2 | Quick |
-| Add `Localization/SimpCn.csv` with all 218 keys (first Chinese pass) - also covers the T3.82 cold-warning config text | Localization | P2 | Medium (deferred; exempt until started) |
+| Release the `[Unreleased]` stream-drinking fix and the W3 docs reword (done 2026-10-20, `ee0e34a9e`) as 1.1.6 (1.1.5 is released); bump ModInfo/Plugin.cs/README together via `Update-ModVersion.ps1` | Version + release | P1 | Quick |
+| SimpCn.csv first Chinese pass (218 keys) - deferred; after the first pass the parity gate becomes blocking, so EN+CN rows must move in the same commit thereafter | Localization | P2 | Medium |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> The mod is a fix pack; its content surface is intentionally small. No new content is justified until the
-> existing conversation and opt-in systems are confirmed in a running game.
+> This is a bug-fix mod with almost no shipped CardData, so the content surface is intentionally small. Only grounded extensions are listed; none is currently justified as new feature work.
 
-### Confirm, do not extend
-**What**: route the Talk-with conversation surface, express voice, expedition stories, lake drinking, hearth
-firekeeping/Warm Up, cold-warmth warning and Ember Pot cold-night survival through the playthrough tracker.
-**Why**: this is the bulk of the mod's advertised value and has only ever been checked structurally or in
-scripted harness runs. Extensions (a second Ember Pot fuel tier, more topic hooks) are not justified until the
-single-item/single-surface patterns are seen working.
-**Requires**: none (code is shipped and wired).
-**Complexity**: Medium (human playthrough, not code).
+### Ember Pot warmth tuning (owner call, not new content)
+**What**: Resolve the open T2.526 question - keep the Ember Pot at +8 perceived temperature or raise it to >=9.5 (band rounding makes +8 add about 5 h on a -10 night; >=9.5 is effectively a Campfire's warmth). Field: `CardData/Item/EmberPotLit.json` `PassiveEffects[0].StatModifiers[0].ValueModifier`.
+**Why**: The only shipped content item; its strength is the one open design question. The README already frames the pot as slowing the cold rather than replacing a fire, so +8 is defensible as-is.
+**Requires**: Owner decision (recorded in T2.526's row note, 2026-10-20).
+**Complexity**: Quick (one field) - but gated on the owner, not scheduled.
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> The soft cross-mod integrations already exist; depth here means more of the same pattern, not new dependencies.
+> Already-wired soft integrations; extend only opportunistically.
 
-### More soft landmark topics
-**What**: additional "Talk about..." topics gated on other installed mods' landmarks via `RequiredCardsOnBoard`,
-the same way CMC Village/Inn (`cmcEnvVillage`/`cmcInnInterior`) and WDI mills
-(`water_sawmill_grinding_mill_placed`/`water_sawmill_placed`) are wired today.
-**Why**: adds flavor for players running other repo mods without ever creating a hard dependency (topics are
-simply absent when the mod is not installed).
-**Requires**: coordination only on UIDs; no version coupling.
-**Complexity**: Quick-Medium per topic.
+### More soft "Talk about..." topic hooks
+**What**: The Talk-with surface already gates optional topics on CMC (Village/Inn: `cmcEnvVillage`, `cmcInnInterior`) and WDI (mills: `water_sawmill_grinding_mill_placed`, `water_sawmill_placed`) landmarks via `RequiredCardsOnBoard`. More soft topic hooks for other installed mods' landmarks could be added the same way - absent without the mod, no hard dependency.
+**Why**: Deepens the conversation surface (the bulk of the mod's value) without adding dependencies.
+**Requires**: Coordination with the target mod's landmark UIDs; the soft-gate pattern already proven in `PartnerCmcTopicPatch` / WDI topics.
+**Complexity**: Medium (per integrated mod).
 
 ---
 
 ## Phase 4: Polish
 
+> Art and code polish; all optional.
+
 | Item | What | Complexity |
 |------|------|------------|
-| Ember Pot art review | Confirm the 2 shipped images read correctly on the lit/unlit pot cards | Quick |
-| Description accuracy re-read | When any T3.8x / T2.50x item passes in game, remove its "Not yet confirmed in a running game" caveat from README/config in the same commit (under-claim drift) | Quick |
+| Shared single-pass DialogLine index (V4) | Several patch classes each run their own `FindObjectsOfTypeAll<DialogLine>` scan at boot (`PartnerTalkAnswerPatch.cs:116,179`, `PartnerCmcTopicPatch.cs:111,162`, `PartnerExpeditionStoryPatch.cs:178`, `PartnerExpressVoicePatch.cs:204`). Bounded one-time startup cost, no correctness effect; build one shared index (populated once per boot, cleared at run boot) if more topic subsystems land | Medium |
+| Ember Pot art review | The 2 shipped PNGs (EmberPot, EmberPotLit) are the mod's only custom art; run them through `/review-art` if not already in a verdict pass | Quick |
 
 ---
 
 ## Long-term Vision
 
-> Where this mod should be at v1.2.
+> Where this mod should be at v1.2.0.
 
-Partner Overhaul's natural endpoint is a fully human-verified fix pack that a player installs and forgets: every
-duty fix, the whole Talk-with surface, and the opt-in Ember Pot confirmed in a running game, with a first Chinese
-translation pass so it is not English-only. The biggest honest addition is not more content but closing the
-verification gap - the mod ships correct-looking code whose player-visible behavior is largely unwitnessed. Owed
-and none of it code: the skeptic review of T2.502/T2.503/T3.39; the person's checks of T3.81 (lake drinking) and
-T3.82 (cold warning + its Chinese config text); a real-install redeploy of the 2026-10-10 README/ModInfo
-corrections; the owner's push of the public export and a first Nexus upload once the page exists; and, once the
-owner says it is fully human-tested, the still-pending move to `Stable/PartnerOverhaul/`.
+Partner Overhaul's natural endpoint is a complete, verified set of base-game Partner fixes plus a conversation system that makes a companion feel present without adding dependencies or large content. It is already close: the fixes are shipped and mostly harness-confirmed, and the Talk-with surface works. The remaining arc is finishing in-game verification of the pending conversation rows (T2.507, T2.513, T2.517, T2.519, T2.523), a first Chinese pass so non-English players get the conversation too, and keeping the soft topic hooks growing as the fleet's other mods add landmarks. No large content addition is justified at current scope; the mod's value is reliability and voice, not new cards.
 
-**Potential major additions** (not yet justified - revisit after the verification gap closes):
-- A second Ember Pot fuel/warmth tier - fits the single warmth-item theme, but only after the base pot is proven.
-- More personality-driven Talk-with openers - fits the conversation surface, but the current set is unwitnessed.
+**Potential major additions** (not yet justified - revisit after the pending rows close):
+- A second fuel tier or brighter Ember Pot variant - only after the owner settles the T2.526 +8-vs-9.5 warmth call; otherwise it duplicates an undecided item.
+- Soft topic hooks for more fleet mods' landmarks (ACT, HarshWilds, FarTerritory) - fits the proven CMC/WDI soft-gate pattern, absent without the mod.
 
-Any of these worth building belongs in a plan under `Documentation/Plans/PartnerOverhaul/` (or its Considered
-table, with the reason), never a stub under `Documentation/Ideas/`.
+Any of these worth building belongs in a plan under `Documentation/Plans/PartnerOverhaul/` (or its Considered table, with the reason, if not); never a stub under `Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
 
 ---
 
@@ -113,9 +88,10 @@ table, with the reason), never a stub under `Documentation/Ideas/`.
 | Trigger | Action |
 |---------|--------|
 | After any new content phase | Run `/audit-mod PartnerOverhaul` and update this roadmap |
-| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
-| After fixing a critical issue | Run `/critical-analysis PartnerOverhaul` to verify the fix |
-| After a verification pass passes a tracker row | Re-read README caveats for that feature (under-claim drift) |
+| Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, re-run `/diagnose-log` |
+| After fixing an issue | Run `/critical-analysis PartnerOverhaul` to verify the fix |
+| When pending conversation rows close | Re-read `.claude/playthrough-test-status.json` and reword any now-stale README caveats (W3 recurs each time a row flips) |
+| Before 1.1.6 release | Run `/export-to-repo PartnerOverhaul` and `/nexus-publish upload PartnerOverhaul` |
 
 ---
 
@@ -126,10 +102,9 @@ table, with the reason), never a stub under `Documentation/Ideas/`.
 /critical-analysis PartnerOverhaul - adversarial review
 /build-mod PartnerOverhaul         - build Release DLL
 /deploy-mods PartnerOverhaul       - build + deploy to game
-/playthrough-test-plan             - sequence the open runtime-verification rows
 /update-mod-version PartnerOverhaul <ver> - bump version in all 3 files
 /export-to-repo PartnerOverhaul    - push to public repo
-/nexus-publish upload PartnerOverhaul - upload release zip to Nexus (once the page exists)
+/nexus-publish upload PartnerOverhaul - publish the release zip to Nexus
 ```
 
 ---

@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.6 (2026-10-22)
+
+### Fixed
+- **With `Partners Drink From Lakes And Streams` on, your Partner now drinks from a Stream.** Since 1.1.0 the option gave the Stream's and the lakes' Drink to the Partner's Drink and Seek Drink tasks, but those tasks only look for water the game tags like a River, and the Stream and lakes carry no such tag, so the Partner never chose them and stayed thirsty beside a Stream. The mod now adds the six cards to the list of water those two tasks look for. The Lake, Bog, Marsh, Mire and Swamp already turn into a plain River as soon as the game updates them, so in play this mostly matters at a Stream. With the option off nothing changes. Confirmed in a scripted run at a Stream.
+
+### Changed
+- **The README now says which features scripted runs have confirmed.** It still said "not yet confirmed in a running game" for sixteen features that have since passed a scripted run: broth and stew for a starving Partner, the garden plot's water limit, Hearth tending, drinking at a Stream, the cold Partner's ask for warmth, the Ember Pot, Partner-started conversations, the Partner voicing its hungry request, expedition stories, Easy Mode wound merging, mood openers, personality wordings read from traits, memories of a fight and a building, remarks on how you are, the keepsake and first visits to the pine groves. Each caveat now says what the run showed and what it did not. The Talk with answer, topics, relationship milestones, personality perks and the mill topic keep their caveats. The Description no longer says lake and stream drinking has never been seen working.
+
 ## 1.1.5 (2026-10-19)
 
 ### Added
