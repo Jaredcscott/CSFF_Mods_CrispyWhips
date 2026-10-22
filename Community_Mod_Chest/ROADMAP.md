@@ -1,38 +1,38 @@
 # Roadmap: Community Mod Chest
 Version at time of writing: 1.69.19
-Date: 2026-10-19
-Audit score: 9/10 - PASS (0 real CRITICAL)
+Date: 2026-10-20
+Audit score: 10/10 - PASS (0 CRITICAL)
 
 ## Current State
 
-**Theme**: A broad community-suggested content collection for Card Survival: Fantasy Forest - apparel/armor, character traits, pottery and sculpting, camp decor, fishing gear, and a full east-of-the-river village simulation (Inn with a 13-14 achievement board, Academy with seven courses, residents with errands and schedules, guards, clay digging, a market stall) plus disciplined optional cross-mod interop.
+**Theme**: A broad community-suggested content collection for Card Survival: Fantasy Forest - apparel/armor, character traits, pottery and sculpting, camp decor, fishing gear, and a full east-of-the-river village simulation (Inn with an achievement board, Academy with seven courses, residents with errands and schedules, guards, clay digging, a market stall) plus disciplined optional cross-mod interop.
 
-**Content**: 117 items / 108 blueprints / 97 locations / 9 CT4 environments / 60 perks / 256 custom images / 363 GameStats / 95 C# patcher files.
+**Content**: 117 items / 108 blueprints / 97 locations / 9 CT4 environments / 7 CT10 improvements / 60 perks / 256 custom images / 363 GameStats / 95 C# patcher files.
 
-**Stability**: 9/10 - 0 real CRITICAL (3 X1 cross-mod refs are HIDE/STRIP-covered), 0 open Design Gap (DG2 Stone Tile Floor shipped; env C1/DG1 superseded by a resolved framework retro), a handful of WARNING/MINOR polish items. Code quality a re-verified 10/10.
+**Stability**: 10/10 - 0 CRITICAL (3 X1 cross-mod refs are HIDE/STRIP-covered), 0 open Design Gap, 0 counted WARNING (K33 x4 and D17 adjudicated not findings 2026-10-20; A10 diagnostics by design), 1 open MINOR (S-M2, a documentation scope line). Code quality a re-verified 10/10.
 
-**Open work**: No red retrospectives. 4 CMC-scoped yellow Pending Verification rows (each needs a live in-game confirmation, not code): `cmc-guard-combat-no-damage`, `cmc-village-hearth-fuel-not-refilling`, `guard-kill-despawn`, `CMC-HSP-compat`.
+**Open work**: No red retrospectives. 3 CMC-scoped yellow Pending Verification rows, each needing a live in-game confirmation rather than code: `cmc-guard-combat-no-damage`, `cmc-village-hearth-fuel-not-refilling`, `guard-kill-despawn`. (`CMC-HSP-compat` was resolved and graduated 2026-10-19.)
 
-**Framework compliance**: Tier 2. 72 of 95 C# files use `ActionRouter` / `SpawnService` / `TickEvents` / `ContentModPlugin`. `ContentModPlugin` base with `SoftDependency` and per-patch `TryApply` (no `PatchAll`), no ModCore/ModLoader/Pikachu dependency, no deprecated `DropCollectionGuardPatch`, no unfiltered hot-path prefixes. Already on the proven H&F architecture.
+**Framework compliance**: Tier 2. 72 C# files use `ActionRouter` / `SpawnService` / `TickEvents` / `ContentModPlugin`. `ContentModPlugin` base with `SoftDependency` and per-patch `TryApply` (no `PatchAll`), no ModCore/ModLoader/Pikachu dependency, no deprecated `DropCollectionGuardPatch`, no unfiltered hot-path prefixes. Already on the proven H&F architecture.
 
 ---
 
-## Phase 0: Stabilize  *(skipped - audit score 9/10, no red retrospectives)*
+## Phase 0: Stabilize  *(skipped - audit score 10/10, no red retrospectives)*
 
-No blocking work. The 4 yellow retros are human-verification debt, not code defects; they belong in the playthrough tracker, not a code phase.
+No blocking work. The 3 yellow retros are human-verification debt, not code defects; they live in the playthrough tracker, not a code phase.
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes maintenance. Most are already satisfied; listed for the maintenance record.
+> Table-stakes maintenance. All satisfied; listed for the maintenance record.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
 | Versions synced across ModInfo/Plugin.cs/README (1.69.19 x3) | Version hygiene | - | Done |
 | Chinese localization parity (CLEAN 3442/3442) | Localization | - | Done |
-| Framework Tier 2 adoption (72/95 files) | Framework | - | Done |
-| Localization unquoted-internal-comma sweep + an E-series parity check | Localization hardening | P2 | Quick |
+| Framework Tier 2 adoption (72 C# files) | Framework | - | Done |
+| Unquoted-internal-comma detection | Localization hardening | - | Done: `Check-LocalizationParity.ps1` row E24 |
 
 ---
 
@@ -40,15 +40,13 @@ No blocking work. The 4 yellow retros are human-verification debt, not code defe
 
 > CMC is already very broad; there is no obvious core-loop gap. Expansion should be demand-driven (new community suggestions), not invented here.
 
-### Address the carried WARNING polish
-**What**: fix the two blank-card-risk sprite names (`MudPile`->`Mud_Pile`, `TreeLog`) on `CMC_ClayShoalFlood.json` / `CMC_DeadfallSouth.json`; correct the two blueprints whose unlock text names a gate they lack (B-N1); add the missing `ActionTagsWarpData` on `CMC_JailRationFood`'s Eat action (I1).
-**Why**: these are the only player-visible defects left; each is a one-to-two-line edit.
-**Requires**: none. Re-verify sprite names against `Documentation/GameData/<ver>/VanillaSprites.txt` first.
-**Complexity**: Quick.
+### ~~Address the carried WARNING polish~~ DONE
+**What**: the blank-card sprite names on `CMC_ClayShoalFlood.json` / `CMC_DeadfallSouth.json`, the two blueprints whose unlock text named a missing gate (B-N1), and `CMC_JailRationFood`'s Eat action tags (I1).
+**Status**: all three resolved in CMC 1.68.24 (`c6a1fd9a1`) and re-checked 2026-10-20; the minor polish batch (I2-I7, MINOR-1, perks F2/F4) closed 2026-10-20 with no code change (`.audit/summary.md` Resolution log).
 
-### Re-run the stale domain sub-audits
-**What**: the items/blueprints/structures/perks/environments/images sub-reports date to 2026-10-11 or earlier and predate v1.69.19. Re-run `/full-mod-audit-chain Community_Mod_Chest` to refresh them.
-**Why**: several MINOR items (I2-I7, perks F2/F4, DG2 which was already shipped) may already be closed; the stale reports over-report.
+### Refresh the remaining domain sub-audits
+**What**: `items-report` and `perks-report` were FULLY RE-RUN 2026-10-20 (both 0 CRITICAL / 0 WARNING / 0 Design Gaps). The blueprints, structures, environments and images reports still date 2026-09-05 to 2026-09-12 and the feature map to v1.68.16; all predate the latest source commit. Re-run `/audit-blueprints`, `/audit-structures`, `/audit-environments`, `/audit-images` and `/feature-map Community_Mod_Chest`, then `/consolidate-audit Community_Mod_Chest`.
+**Why**: every finding they carry was re-checked by hand on 2026-10-20 and none is open but S-M2, so the reports over-report; `/audit-structures` also replaces S-M2's out-of-date tag table.
 **Requires**: none.
 **Complexity**: Medium.
 
@@ -59,8 +57,8 @@ No blocking work. The 4 yellow retros are human-verification debt, not code defe
 > Cross-mod interop is already wired and HIDE-gated; depth here is maintenance, not new build.
 
 ### Keep the four interop partners healthy
-**What**: HerbsAndFungi (hemp, Inn foods), Sirus23 (wool apparel, Inn cheese), AdvancedCopperTools (Inn teas), DurosCoinage (Market Stall coins). Each foreign UID is HIDE/STRIP-gated per `Interop_Registry.md` and re-arms if the partner installs later.
-**Why**: a partner-mod data rename silently breaks the gated content; the X1 preflight pins catch structural drift.
+**What**: HerbsAndFungi (hemp, Inn foods), Sirus23 (wool apparel, Inn cheese), AdvancedCopperTools (Inn teas), DurosCoinage (Market Stall coins). Each foreign UID is HIDE/STRIP-gated per `Interop_Registry.md` (`Patcher/AcademyCourseService.cs:442-443`) and re-arms if the partner installs later.
+**Why**: a partner-mod data rename silently breaks the gated content; the X1 preflight pins (`Preflight-CrossModRefs.Tests.ps1:51-53`) catch structural drift.
 **Requires**: coordination with each partner mod's release.
 **Complexity**: Medium (only when a partner changes).
 
@@ -68,14 +66,15 @@ No blocking work. The 4 yellow retros are human-verification debt, not code defe
 
 ## Phase 4: Polish
 
-> Art, text, and the human-verification backlog.
+> Text and the human-verification backlog.
 
 | Item | What | Complexity |
 |------|------|------------|
-| Verify the 4 yellow retros in-game | Guard-combat damage, village-hearth refuel, guard-kill-despawn, HSP compat - each needs a live run, file results via `/playthrough-test-plan` | Medium (human) |
-| Perk description CSV/JSON alignment | 9 perks' runtime CSV diverges from JSON `DefaultText` (all accurate to grants) - cosmetic consistency pass | Quick |
-| README "six Academy graduate perks" | Correct the count (perks-report F4) | Quick |
-| Item authoring consistency | Re-verify then backfill weight/CardTags on the handful of items flagged I2/I4/I6 | Quick |
+| Verify the 3 yellow retros in-game | Guard-combat damage (T4.35), village-hearth refuel (Academy visit), guard-kill despawn; results recorded via `/playthrough-test-plan record` | Medium (human) |
+| S-M2 tag-vocabulary scope line | Next `/audit-structures` pass writes the measured non-vanilla tag counts (2026-10-20: `tag_Structure` 65, `tag_Furniture` 17, `tag_Wood` 2, `tag_x_WaterSource` 2 across CT2/CT10). Documentation only; the tags stay | Quick |
+| ~~Perk description CSV/JSON alignment~~ | Resolved (P-F1, 1.68.35 onward) | Done |
+| ~~README "six Academy graduate perks"~~ | Resolved (`38d8b2656`: `README.md:28,72` say seven) | Done |
+| ~~Item authoring consistency~~ | I2/I4/I6 adjudicated 2026-10-20 (inert or resolved) | Done |
 
 ---
 
@@ -83,7 +82,7 @@ No blocking work. The 4 yellow retros are human-verification debt, not code defe
 
 > Where CMC should be at v1.70+.
 
-CMC is effectively a stable, mature content-and-simulation anchor for the fleet - it is in active-workspace maintenance, not feature expansion. Its natural endpoint is a rock-solid village simulation whose every advertised loop is confirmed in-game, with the retro backlog fully closed and the stale domain sub-audits refreshed. The biggest justified future work is not new content but retiring the diagnostic logging (`GuardCombatDiagnosticPatch`, `CompanionFollowDiagnostics`) once their open retros confirm, and the framework-side `AlwaysUpdateService` opt-in rescope that env C1/DG1 point at.
+CMC is a stable, mature content-and-simulation anchor for the fleet - in active-workspace maintenance, not feature expansion. Its natural endpoint is a village simulation whose every advertised loop is confirmed in-game, with the retro backlog closed and the domain sub-audits refreshed. The biggest justified future work is retiring the diagnostic logging (`GuardCombatDiagnosticPatch`, `CompanionFollowDiagnostics`) once their open retros confirm.
 
 **Potential major additions** (not yet justified - revisit after the retro backlog closes):
 - A declarative `Modifiers.json` / `FlavourMatrix` pass if community suggestions call for food-synergy depth - fits the Inn/cooking theme.
@@ -97,7 +96,7 @@ Anything worth building belongs in a `Documentation/Plans/Community_Mod_Chest/MA
 
 | Trigger | Action |
 |---------|--------|
-| After any new content | Run `/full-mod-audit-chain Community_Mod_Chest` and update this roadmap |
+| After any new content | Run `/audit-mod Community_Mod_Chest`, the domain audits it names, then `/consolidate-audit Community_Mod_Chest` |
 | Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, re-run `/diagnose-log` |
 | After fixing a defect | Run `/critical-analysis Community_Mod_Chest` to verify |
 | Partner-mod release | Re-check the X1 HIDE/STRIP pins in `Preflight-CrossModRefs.Tests.ps1` |
@@ -108,14 +107,15 @@ Anything worth building belongs in a `Documentation/Plans/Community_Mod_Chest/MA
 ## Skill Cheatsheet for This Mod
 
 ```
-/full-mod-audit-chain Community_Mod_Chest  - preflight + domain audits + consolidate
-/critical-analysis Community_Mod_Chest     - adversarial review
-/repair-items Community_Mod_Chest          - auto-fix item JSON issues
-/repair-blueprints Community_Mod_Chest     - auto-fix blueprint JSON issues
-/build-mod Community_Mod_Chest             - build Release DLL
-/deploy-mods Community_Mod_Chest           - build + deploy to game
-/playthrough-test-plan                     - file/record the 4 yellow-retro checks
-/export-to-repo Community_Mod_Chest        - push to public repo
+/audit-mod Community_Mod_Chest          - preflight + mod health check, updates .audit/
+/consolidate-audit Community_Mod_Chest  - merge .audit/ reports into summary, ideas, ROADMAP
+/critical-analysis Community_Mod_Chest  - adversarial review
+/repair-items Community_Mod_Chest       - auto-fix item JSON issues
+/repair-blueprints Community_Mod_Chest  - auto-fix blueprint JSON issues
+/build-mod Community_Mod_Chest          - build Release DLL
+/deploy-mods Community_Mod_Chest        - build + deploy to game
+/playthrough-test-plan                  - file/record the 3 yellow-retro checks
+/export-to-repo Community_Mod_Chest     - push to public repo
 ```
 
 ## Plan Reconciliation Log

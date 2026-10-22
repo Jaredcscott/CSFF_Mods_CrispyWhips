@@ -134,3 +134,5 @@ prompt and the explicit note on this convention choice.
 | 2026-10-12 | CMC_Club (owner gallery round 4: slender stick club, text-only redraw (old image as reference kept the fat head); score 66) | nano-banana-2 image2image | 1K | 20 | CeeRVXLBIKOQZEUz0sDI | OK |
 | 2026-10-12 | PaintedClayBowl (owner gallery round 4: vanilla Bowl_Clay as content reference, painted rust-red and black zigzag band; score 81) | nano-banana-2 image2image | 1K | 20 | UtC0WIVX4Y0WwygxfjFF | OK |
 | 2026-10-18 | CMC_SkylitCave (Skylit Cave location, replaces borrowed vanilla Cave sketch; full-bleed, Woods1 style ref) | nano-banana-2 image2image | 2K | 30 | m7VEJ9W9BSH22z0r7j97 | OK |
+| 2026-10-21 | CMC_SkylitCave (owner gallery rework: natural pool, more trees; full-bleed, Woods1 + Lake1 style refs, words-only composition) | nano-banana-2 image2image | 1K | 20 | 99GwF3e1WOdUv6mps9pV | OK |
+| 2026-10-21 | CMC_JailRationFood (owner gallery alter: a bit high in the card; local reframe to the vanilla position, no generation) | local trim_card_art.frame | - | 0 | - | OK |

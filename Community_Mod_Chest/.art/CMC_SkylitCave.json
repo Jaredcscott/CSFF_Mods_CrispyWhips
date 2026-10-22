@@ -1,20 +1,42 @@
 {
   "target": "CMC_SkylitCave.png",
   "sourceCard": "CardData/Location/CMC_JailCaveLocation.json",
-  "subject": "inside of a dim rocky cave chamber: a shaft of pale daylight from a gap in the roof lands on a small crooked tree growing out of a rubble heap, loose branches, a small drip pool",
+  "subject": "inside a cave chamber: a wide ragged skylight showing forest treetops; under it a mound of earth and rock with three or four young trees (birch and small pines, tallest about a third of the picture) and ferns; a natural irregular pool about a third of the picture wide in the foreground with mossy stones and reeds; dark blue-grey rock walls",
   "model": "nano-banana-2",
   "mode": "image2image",
   "params": {
     "imageCount": 1,
     "aspectRatio": "2:3",
-    "resolution": "2K",
-    "autoEnhancePrompt": false,
-    "visualReferences": ["vanilla Woods1 (style), reference_library.py refs scene"]
+    "resolution": "1K",
+    "autoEnhancePrompt": false
   },
-  "prompt": "Hand-painted illustration of the inside of a dim rocky cave chamber seen from the cave floor: high above, a ragged gap in the stone roof lets a single shaft of pale daylight fall straight down, landing on a small crooked tree growing out of a heap of fallen rubble in the middle of the chamber; loose broken branches on the rubble, a small still drip pool in a hollow of the floor catching the light, cool damp grey-brown stone walls fading into deep shadow at the edges, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, the reference image sets the style only (palette, ink weight, flat painterly fills), not the content, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface, people, ladder, footprints, tracks, prints in the ground, forest outside the cave.",
-  "historyId": "m7VEJ9W9BSH22z0r7j97",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792364052553_130817b6_1792364053062_79729fce.png",
-  "credits": 30,
-  "generated": "2026-10-18",
-  "note": "Replaces the borrowed vanilla Cave sketch on the Skylit Cave location card (owner, 2026-10-18: \"this needs new art haha\"). Finished by /process-card-art --full-bleed."
+  "prompt": "see historyId (the full prompt is stored on the OpenArt job); built from the subject above plus the plain-vanilla style sentence: Plain vanilla Card Survival game item art: a single object drawn with a thin, loose black ink outline and flat posterized fills in a few muted tonal steps per material, muted natural colours, simple and matter-of-fact, no cartoon, no comic shading, no decorative patterns, no glossy highlights. Single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.",
+  "historyId": "99GwF3e1WOdUv6mps9pV",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792608515946_4e19e39d_1792608517347_c8a68079.png",
+  "credits": 20,
+  "generated": "2026-10-21",
+  "references": [
+    {
+      "role": "style",
+      "fragment": "vanilla Woods1 (reference library, scene)",
+      "image": "vanilla sprite Woods1",
+      "id": "n38NaCcG4ZPaZkUwqNWh",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Woods1_1791745308283_a2624cc3.png"
+    },
+    {
+      "role": "style",
+      "fragment": "vanilla Lake1 (reference library, scene)",
+      "image": "vanilla sprite Lake1",
+      "id": "B4MANqvKWzgDhnjUm5F0",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Lake1_1791745028417_e3f605e2.png"
+    }
+  ],
+  "finish": "full-bleed",
+  "note": "Owner gallery rework 2026-10-21 (regenerate | more natural pool, more trees). One sample at 1K; the rejected picture was not used as a reference.",
+  "previous": {
+    "historyId": "m7VEJ9W9BSH22z0r7j97",
+    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792364052553_130817b6_1792364053062_79729fce.png",
+    "generated": "2026-10-18",
+    "subject": "inside of a dim rocky cave chamber: a shaft of pale daylight from a gap in the roof lands on a small crooked tree growing out of a rubble heap, loose branches, a small drip pool"
+  }
 }

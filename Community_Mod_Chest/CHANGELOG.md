@@ -5,6 +5,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.69.20] - 2026-10-21
+
+### Changed
+
+- **New picture for the Skylit Cave:** a natural pool and young trees growing under the skylight.
+- **The Meager Prison Ration sits lower on its card,** where the base game puts its items, instead of up under the name.
+
 ## [1.69.19] - 2026-10-18
 
 A way out of the jail that takes real work, and a pass of village content. Most of it applies the next time you load a save. Numbers marked placeholder are first estimates.

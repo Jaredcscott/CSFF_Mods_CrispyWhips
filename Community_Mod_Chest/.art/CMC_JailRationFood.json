@@ -32,5 +32,6 @@
       "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791088575963_234e9370_1791088576946_1d31ce5e.png"
     }
   ],
-  "picked": "C"
+  "picked": "C",
+  "reframed": "2026-10-21 owner gallery alter (a bit high in the card): subject cropped from the shipped file and placed by the vanilla rule (trim_card_art.frame, fit 0.84 x 0.70, centre (0.50, 0.60)); box rows 217-551 to 287-634 of 768. No generation."
 }
