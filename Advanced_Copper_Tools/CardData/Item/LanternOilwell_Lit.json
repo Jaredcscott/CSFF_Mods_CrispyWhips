@@ -326,7 +326,7 @@
   ],
   "CanBeRenamed": false,
   "LiquidSuffixName": {
-    "ParentObjectID": "advanced_copper_tools_lantern_oilwell",
+    "ParentObjectID": "advanced_copper_tools_lantern_oilwell_lit",
     "LocalizationKey": "",
     "DefaultText": ""
   },

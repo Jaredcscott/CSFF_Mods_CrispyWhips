@@ -3,18 +3,18 @@
   "CardName": {
     "ParentObjectID": "act_bp_copper_shield",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperShield_CardName",
-    "DefaultText": "Copper Shield"
+    "DefaultText": "Metal Shield"
   },
   "CardDescription": {
     "ParentObjectID": "act_bp_copper_shield",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperShield_CardDescription",
-    "DefaultText": "Face a plank shield with 3 hammered copper sheets, nail them down with 4 copper nails, seal the edges with a tin solder and fit a leather grip. Requires a hammer."
+    "DefaultText": "Face a plank shield with 3 hammered metal sheets of one metal, nail them down with 4 metal nails and fit a medium leather grip. Requires a hammer. Copper, tin, ghost bronze, tin bronze, white bronze or iron: the shield takes the metal of its sheets, and with it that metal's protection, weight and look."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
     "ParentObjectID": "act_bp_copper_shield",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperShield_UnlockConditionsDesc",
-    "DefaultText": "Copper Sheet Needed"
+    "DefaultText": "Metal Sheet Needed"
   },
   "BuildingStatConditions": [],
   "StartUnlocked": false,
@@ -22,12 +22,23 @@
     {
       "ObjectiveName": "HasMetalSheet",
       "CompletionWeight": 1,
-      "Card": { "m_FileID": 0, "m_PathID": 0 },
+      "Card": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
       "Quantity": 1,
       "ConstantlyChecking": false,
-      "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+      "OnlyInEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
       "OnlyIfEquipped": false,
-      "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+      "OnlyInContainer": {
+        "Target": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        }
+      },
       "CardWarpData": "advanced_copper_tools_metal_sheet",
       "CardWarpType": 3
     }
@@ -39,53 +50,80 @@
       "CannotRevertToThisStage": false,
       "RequiredElements": [
         {
-          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
           "RequiredQuantity": 3,
           "DontSpend": false,
           "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
           "RequiredCardWarpType": 3,
-          "Special4": { "Active": true, "FloatValue": 0.0, "MaxValue": 100.0 }
+          "Special4": {
+            "Active": true,
+            "FloatValue": 100.0,
+            "MaxValue": 200.0
+          },
+          "AffectResultDurabilities": {
+            "MaskValue": 256
+          },
+          "FilterStackWithDurability": {
+            "MaskValue": 256
+          }
         },
         {
-          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
           "RequiredQuantity": 1,
           "DontSpend": false,
           "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
           "RequiredCardWarpType": 3
         },
         {
-          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
           "RequiredQuantity": 4,
           "DontSpend": false,
           "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
           "RequiredCardWarpType": 3
         },
         {
-          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
           "RequiredQuantity": 1,
           "DontSpend": false,
-          "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
           "RequiredTabGroupWarpData": "GpTag_LeatherMedium",
           "RequiredTabGroupWarpType": 3
         },
         {
-          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
           "RequiredQuantity": 1,
           "DontSpend": true,
           "EffectOnIngredient": {
             "ModType": 1,
-            "UsageChange": { "x": -10.0, "y": -10.0 }
+            "UsageChange": {
+              "x": -10.0,
+              "y": -10.0
+            }
           },
-          "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
           "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
           "RequiredTabGroupWarpType": 3
-        },
-        {
-          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredQuantity": 1,
-          "DontSpend": false,
-          "RequiredCardWarpData": "act_tin_solder",
-          "RequiredCardWarpType": 3
         }
       ],
       "StepActionTags": [],
@@ -95,20 +133,35 @@
   ],
   "BuildingDaytimeCost": 4,
   "DeconstructDaytimeCost": 2,
+  "IngredientDurabilityAveragesReplaceResultDurabilities": true,
   "BlueprintResult": [
     {
-      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      },
       "DroppedCardWarpData": "act_copper_shield",
       "DroppedCardWarpType": 3
     }
   ],
   "BlueprintStatModifications": [],
-  "WhenCreatedSoundsWarpData": [ "Metal" ],
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
   "WhenCreatedSoundsWarpType": 3,
-  "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
+  "BlueprintActionTagsWarpData": [
+    "HandAction",
+    "CraftAction"
+  ],
   "BlueprintActionTagsWarpType": 3,
-  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
   "CardImageWarpData": "CopperShield",
   "CardImageWarpType": 3,
   "BlueprintUnlockTicksCost": 24.0,

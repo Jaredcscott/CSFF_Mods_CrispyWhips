@@ -13,7 +13,7 @@
   "CanBeRenamed": true,
   "AlternateNames": [],
   "LiquidSuffixName": {
-    "ParentObjectID": "advanced_copper_tools_copper_pantry_placed",
+    "ParentObjectID": "advanced_copper_tools_tinned_pot_placed",
     "LocalizationKey": "",
     "DefaultText": ""
   },

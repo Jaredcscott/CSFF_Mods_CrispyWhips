@@ -46,7 +46,7 @@
             <Private>False</Private>
         </Reference>
         <Reference Include="Assembly-CSharp">
-            <HintPath>lib\Assembly-CSharp-nstrip.dll</HintPath>
+            <HintPath>lib\Assembly-CSharp.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="BepInEx">

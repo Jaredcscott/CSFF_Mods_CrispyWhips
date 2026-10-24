@@ -3,21 +3,447 @@
   "CardName": {
     "ParentObjectID": "act_copper_shield",
     "LocalizationKey": "Advanced_Copper_Tools_CopperShield_CardName",
-    "DefaultText": "Copper Shield"
+    "DefaultText": "Metal Shield"
   },
   "CardDescription": {
     "ParentObjectID": "act_copper_shield",
     "LocalizationKey": "Advanced_Copper_Tools_CopperShield_CardDescription",
-    "DefaultText": "A wooden shield faced with hammered copper sheet. Held in hand like the wooden Shield, it guards the shield arm with 80 armor, 130 against spiritual attacks, and lasts as long as the wooden Shield. Can be recycled in a furnace."
+    "DefaultText": "A wooden shield faced with metal sheet. Its protection, weight and look follow the metal it was made from. Can be recycled in a furnace."
   },
   "CardHelpSection": {
     "ParentObjectID": "act_copper_shield",
     "LocalizationKey": "Advanced_Copper_Tools_CopperShield_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From 3 copper sheets, 1 plank, 4 copper nails, 1 medium leather and 1 tin solder using a hammer.\n\n<b>Uses:</b> Equip it to hold it in hand. It draws blows toward your shield arm and covers that arm with 80 armor, 130 against spiritual attacks. It wears down slowly while equipped."
+    "DefaultText": "<b>Crafted:</b> From 3 metal sheets of one metal, 1 plank, 4 metal nails and 1 medium leather using a hammer. The shield takes the metal of its sheets.\n\n<b>Uses:</b> Equip it to hold it in hand. It draws blows toward your shield arm and covers that arm with armor that follows its metal: copper 80 (130 against spiritual attacks), tin 82.5 (132.5), ghost bronze 85 (165), tin bronze 87.5 (137.5), white bronze 92.5 (142.5), iron 95 (145). It wears down slowly while equipped, and an iron shield rusts while you are wet unless it has an Oil Coat."
   },
+  "AlternateNames": [
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_AlternateNames[0].Name",
+        "DefaultText": "Copper Shield"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_AlternateNames[0].Description",
+        "DefaultText": "A wooden shield faced with hammered copper sheet. Held in hand like the wooden Shield, it guards the shield arm with 80 armor, 130 against spiritual attacks, and lasts a little longer than the wooden Shield. Can be recycled in a furnace."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CopperShield",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_AlternateNames[1].Name",
+        "DefaultText": "Ghost Bronze Shield"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_AlternateNames[1].Description",
+        "DefaultText": "A wooden shield faced with pale Ghost Bronze sheet, cold to the touch. Held in hand like the wooden Shield, it guards the shield arm with 85 armor, 165 against spiritual attacks, a better ward against them than any other shield. Can be recycled in a furnace."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "GhostBronzeShield",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_AlternateNames[2].Name",
+        "DefaultText": "Tin Shield"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_AlternateNames[2].Description",
+        "DefaultText": "A wooden shield faced with matte grey tin sheet, light and cheap. Held in hand like the wooden Shield, it guards the shield arm with 82.5 armor, 132.5 against spiritual attacks, and lasts a little longer than the wooden Shield. Can be recycled in a furnace."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "TinShield",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_AlternateNames[3].Name",
+        "DefaultText": "Tin Bronze Shield"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_AlternateNames[3].Description",
+        "DefaultText": "A wooden shield faced with sturdy tin bronze sheet. Held in hand like the wooden Shield, it guards the shield arm with 87.5 armor, 137.5 against spiritual attacks, and lasts a little longer than the wooden Shield. Can be recycled in a furnace."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "BronzeShield",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_AlternateNames[4].Name",
+        "DefaultText": "White Bronze Shield"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_AlternateNames[4].Description",
+        "DefaultText": "A wooden shield faced with bright, mirror-polished white bronze sheet. Held in hand like the wooden Shield, it guards the shield arm with 92.5 armor, 142.5 against spiritual attacks, and lasts a little longer than the wooden Shield. Can be recycled in a furnace."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "WhiteBronzeShield",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_AlternateNames[5].Name",
+        "DefaultText": "Iron Shield"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_AlternateNames[5].Description",
+        "DefaultText": "A wooden shield faced with forged iron sheet and a raised iron boss. Held in hand like the wooden Shield, it guards the shield arm with 95 armor, 145 against spiritual attacks, the best block of any shield. Can be recycled in a furnace."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "IronShield",
+        "CardImageWarpType": 3
+      }
+    }
+  ],
   "CardType": 0,
+  "ToggleablePiling": true,
   "ObjectWeight": 800.0,
-  "WeightReductionWhenEquipped": -400.0,
+  "WeightReductionWhenEquipped": -425.0,
+  "AddedWeightFromDurabilities": [
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "OutputValueRange": {
+          "x": 50.0,
+          "y": 50.0
+        },
+        "WhenOutOfRange": 0,
+        "OutOfRangeCustomValue": 0.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "OutputValueRange": {
+          "x": 25.0,
+          "y": 25.0
+        },
+        "WhenOutOfRange": 0,
+        "OutOfRangeCustomValue": 0.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "OutputValueRange": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "WhenOutOfRange": 0,
+        "OutOfRangeCustomValue": 0.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "OutputValueRange": {
+          "x": 150.0,
+          "y": 150.0
+        },
+        "WhenOutOfRange": 0,
+        "OutOfRangeCustomValue": 0.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "OutputValueRange": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "WhenOutOfRange": 0,
+        "OutOfRangeCustomValue": 0.0
+      }
+    }
+  ],
   "TradingValue": 200.0,
   "CardImage": {
     "m_FileID": 0,
@@ -47,17 +473,7 @@
     "TorsoArmorModifiers": [],
     "TorsoHitProbabilityModifier": 0.0,
     "LArmArmor": 80.0,
-    "LArmArmorModifiers": [
-      {
-        "DmgType": {
-          "m_FileID": 0,
-          "m_PathID": 0
-        },
-        "DmgTypeWarpData": "DMG_Spiritual",
-        "DmgTypeWarpType": 3,
-        "Modifier": 50.0
-      }
-    ],
+    "LArmArmorModifiers": [],
     "LArmHitProbabilityModifier": 1.0,
     "RArmArmor": 0.0,
     "RArmArmorModifiers": [],
@@ -69,7 +485,93 @@
     "RLegArmorModifiers": [],
     "RLegHitProbabilityModifier": 0.0
   },
-  "ArmorValueDurabilitiesMultiplier": [],
+  "ArmorValueDurabilitiesMultiplier": [
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "OutputValueRange": {
+          "x": 1.0625,
+          "y": 1.0625
+        },
+        "WhenOutOfRange": 2,
+        "OutOfRangeCustomValue": 1.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "OutputValueRange": {
+          "x": 1.03125,
+          "y": 1.03125
+        },
+        "WhenOutOfRange": 2,
+        "OutOfRangeCustomValue": 1.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "OutputValueRange": {
+          "x": 1.09375,
+          "y": 1.09375
+        },
+        "WhenOutOfRange": 2,
+        "OutOfRangeCustomValue": 1.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "OutputValueRange": {
+          "x": 1.15625,
+          "y": 1.15625
+        },
+        "WhenOutOfRange": 2,
+        "OutOfRangeCustomValue": 1.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "OutputValueRange": {
+          "x": 1.1875,
+          "y": 1.1875
+        },
+        "WhenOutOfRange": 2,
+        "OutOfRangeCustomValue": 1.0
+      }
+    }
+  ],
   "AlwaysUpdate": true,
   "WhenCreatedSoundsWarpData": [
     "Metal"
@@ -80,13 +582,13 @@
   },
   "UsageDurability": {
     "Active": true,
-    "FloatValue": 5000.0,
+    "FloatValue": 5500.0,
     "CardStatName": {
       "ParentObjectID": "act_copper_shield",
       "LocalizationKey": "Advanced_Copper_Tools_CopperShield_UsageDurability.CardStatName",
       "DefaultText": "Durability"
     },
-    "MaxValue": 5000.0,
+    "MaxValue": 5500.0,
     "RatePerDaytimePoint": 0.0,
     "ExtraRateWhenEquipped": -1.0,
     "HidingOptions": 1,
@@ -130,7 +632,20 @@
     "Active": false
   },
   "SpecialDurability1": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "act_copper_shield",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperShield_SpecialDurability1.CardStatName",
+      "DefaultText": "Oil Coat"
+    },
+    "MaxValue": 288.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 3,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": false
   },
   "SpecialDurability2": {
     "Active": false
@@ -139,12 +654,195 @@
     "Active": false
   },
   "SpecialDurability4": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 100.0,
+    "CardStatName": {
+      "ParentObjectID": "act_copper_shield",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperShield_SpecialDurability4.CardStatName",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [
+      100.0,
+      110.0,
+      120.0,
+      130.0,
+      140.0,
+      200.0
+    ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": true,
+    "TradingValueCustomRanges": [
+      {
+        "Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "Value": 0.0
+      },
+      {
+        "Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "Value": 80.0
+      },
+      {
+        "Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "Value": 40.0
+      },
+      {
+        "Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "Value": 70.0
+      },
+      {
+        "Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "Value": 70.0
+      },
+      {
+        "Range": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "Value": 60.0
+      }
+    ]
   },
   "DurabilitySorting": {
     "SortingList": []
   },
-  "CardInteractions": [],
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_copper_shield",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_Grease_ActionName",
+        "DefaultText": "Grease with Fat"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_copper_shield",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_Grease_ActionDescription",
+        "DefaultText": "Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.2,
+          "MaxValue": 0.2
+        },
+        "HideActionIfNotMet": true
+      },
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "0eb3634f696991b4d97b91626270e035"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 288.0,
+          "y": 288.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "act_copper_shield",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_Oil_ActionName",
+        "DefaultText": "Oil"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_copper_shield",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperShield_Oil_ActionDescription",
+        "DefaultText": "Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.2,
+          "MaxValue": 0.2
+        },
+        "HideActionIfNotMet": true
+      },
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_Oil"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 288.0,
+          "y": 288.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "FinishUnlocking": false,
+              "DropChance": {
+                "Active": false,
+                "BaseDropChance": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "DismantleActions": [
     {
       "ActionName": {
@@ -163,22 +861,239 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [ "Metal" ],
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
       "ActionSoundsWarpType": 3,
       "ProducedCards": [
         {
           "CollectionName": "",
           "DroppedCards": [
-            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "advanced_copper_tools_metal_sheet", "DroppedCardWarpType": 3, "Quantity": { "x": 3, "y": 3 }, "TransferRules": {"Spoilage":0,"Usage":0,"Fuel":0,"Progress":0,"Special1":0,"Special2":3,"Special3":0,"Special4":3,"SpoilageValue":0.0,"UsageValue":0.0,"FuelValue":0.0,"ProgressValue":0.0,"Special1Value":0.0,"Special2Value":50.0,"Special3Value":0.0,"Special4Value":100.0,"SpoilageFrom":0,"UsageFrom":0,"FuelFrom":0,"ProgressFrom":0,"Special1From":0,"Special2From":0,"Special3From":0,"Special4From":0} },
-            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 }, "TransferRules": { "Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0, "Special1": 0, "Special2": 0, "Special3": 0, "Special4": 3, "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0, "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 1.0, "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0, "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0 } },
-            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "advanced_copper_tools_copper_nails", "DroppedCardWarpType": 3, "Quantity": { "x": 4, "y": 4 } },
-            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "f362a7ba3ad932244b1e9c18569ac98e", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 }, "TransferRules": { "Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0, "Special1": 0, "Special2": 3, "Special3": 0, "Special4": 3, "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0, "Special1Value": 0.0, "Special2Value": 50.0, "Special3Value": 0.0, "Special4Value": 300.0, "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0, "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0 } }
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_metal_sheet",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 3,
+                "y": 3
+              },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 3,
+                "Special3": 0,
+                "Special4": 1,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 50.0,
+                "Special3Value": 0.0,
+                "Special4Value": 0.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 0,
+                "Special3": 0,
+                "Special4": 3,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 0.0,
+                "Special3Value": 0.0,
+                "Special4Value": 1.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_copper_nails",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 4,
+                "y": 4
+              },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 0,
+                "Special3": 0,
+                "Special4": 1,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 0.0,
+                "Special3Value": 0.0,
+                "Special4Value": 0.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "f362a7ba3ad932244b1e9c18569ac98e",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 3,
+                "Special3": 0,
+                "Special4": 3,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 50.0,
+                "Special3Value": 0.0,
+                "Special4Value": 300.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+              }
+            }
           ]
         }
       ],
-      "ReceivingCardChanges": { "ModType": 3 }
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
     }
   ],
   "PassiveStatEffects": [],
-  "PassiveEffects": []
+  "PassiveEffects": [
+    {
+      "EffectName": "Rust (wet, uncoated)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.9
+          },
+          "Special4Range": {
+            "x": 200.0,
+            "y": 200.0
+          }
+        },
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 51.0,
+              "y": 100.0
+            }
+          }
+        ]
+      },
+      "StatModifiers": [],
+      "UsageRateModifier": {
+        "Active": true,
+        "FloatValue": -0.68
+      }
+    },
+    {
+      "EffectName": "Oil coat wear (wet)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special1Range": {
+            "x": 1.0,
+            "y": 288.0
+          },
+          "Special4Range": {
+            "x": 200.0,
+            "y": 200.0
+          }
+        },
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 51.0,
+              "y": 100.0
+            }
+          }
+        ]
+      },
+      "StatModifiers": [],
+      "Special1RateModifier": {
+        "Active": true,
+        "FloatValue": -1.0
+      }
+    }
+  ]
 }

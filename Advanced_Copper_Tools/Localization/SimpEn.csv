@@ -362,18 +362,18 @@ Advanced_Copper_Tools_IronLargeSaw_FuelCapacity.CardStatName,Temperature,温度
 Advanced_Copper_Tools_Bp_IronLargeSaw_CardName,Iron Large Saw,大型铁锯
 Advanced_Copper_Tools_Bp_IronLargeSaw_CardDescription,"Forge a large saw from 2 iron sheets, 4 metal nails and 2 wood. Requires a hammer.",用2块铁板、4枚金属钉和2块木材锻造一把大型锯。需要锤子。
 Advanced_Copper_Tools_Bp_IronLargeSaw_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
-Advanced_Copper_Tools_CopperShield_CardName,Copper Shield,铜盾
-Advanced_Copper_Tools_CopperShield_CardDescription,"A wooden shield faced with hammered copper sheet. Held in hand like the wooden Shield, it guards the shield arm with 80 armor, 130 against spiritual attacks, and lasts as long as the wooden Shield. Can be recycled in a furnace.",一面包覆锤制铜片的木盾。像木盾一样持在手中，为持盾的手臂提供80点护甲，抵挡精神伤时为130点，耐用度与木盾相当。可在熔炉中回收。
-Advanced_Copper_Tools_CopperShield_CardHelpSection,"<b>Crafted:</b> From 3 copper sheets, 1 plank, 4 copper nails, 1 medium leather and 1 tin solder using a hammer.
+Advanced_Copper_Tools_CopperShield_CardName,Metal Shield,金属盾
+Advanced_Copper_Tools_CopperShield_CardDescription,"A wooden shield faced with metal sheet. Its protection, weight and look follow the metal it was made from. Can be recycled in a furnace.",用金属片包覆的木盾。它的防护、重量和外观取决于制作所用的金属。可在熔炉中回收。
+Advanced_Copper_Tools_CopperShield_CardHelpSection,"<b>Crafted:</b> From 3 metal sheets of one metal, 1 plank, 4 metal nails and 1 medium leather using a hammer. The shield takes the metal of its sheets.
 
-<b>Uses:</b> Equip it to hold it in hand. It draws blows toward your shield arm and covers that arm with 80 armor, 130 against spiritual attacks. It wears down slowly while equipped.","<b>制作：</b> 由3块铜片、1块木板、4枚铜钉、1块中型皮革和1块锡焊料使用锤子制成。
+<b>Uses:</b> Equip it to hold it in hand. It draws blows toward your shield arm and covers that arm with armor that follows its metal: copper 80 (130 against spiritual attacks), tin 82.5 (132.5), ghost bronze 85 (165), tin bronze 87.5 (137.5), white bronze 92.5 (142.5), iron 95 (145). It wears down slowly while equipped, and an iron shield rusts while you are wet unless it has an Oil Coat.","<b>制作：</b>使用锤子，用3块同种金属的金属片、1块木板、4枚金属钉和1块中块皮革制成。盾牌取其金属片的金属。
 
-<b>用途：</b> 装备后持在手中。它会把攻击引向持盾的手臂，并为该手臂提供80点护甲，抵挡精神伤时为130点。装备期间会缓慢磨损。"
+<b>用途：</b>装备后持在手中。它把攻击引向持盾手臂，并按金属为该手臂提供护甲：铜80（对灵体攻击130）、锡82.5（132.5）、幽灵青铜85（165）、锡青铜87.5（137.5）、白青铜92.5（142.5）、铁95（145）。装备时缓慢磨损；铁盾在你潮湿时会生锈，除非涂有油膜。"
 Advanced_Copper_Tools_CopperShield_UsageDurability.CardStatName,Durability,耐久度
 Advanced_Copper_Tools_CopperShield_UsageDurability.OnZero.ActionDescription,Shield Broken!,盾牌破损！
-Advanced_Copper_Tools_Bp_CopperShield_CardName,Copper Shield,铜盾
-Advanced_Copper_Tools_Bp_CopperShield_CardDescription,"Face a plank shield with 3 hammered copper sheets, nail them down with 4 copper nails, seal the edges with a tin solder and fit a leather grip. Requires a hammer.",用3块锤制铜片包覆木板盾面，以4颗铜钉钉牢，用1块焊锡封边后装上皮革握把。需要锤子。
-Advanced_Copper_Tools_Bp_CopperShield_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_Bp_CopperShield_CardName,Metal Shield,金属盾
+Advanced_Copper_Tools_Bp_CopperShield_CardDescription,"Face a plank shield with 3 hammered metal sheets of one metal, nail them down with 4 metal nails and fit a medium leather grip. Requires a hammer. Copper, tin, ghost bronze, tin bronze, white bronze or iron: the shield takes the metal of its sheets, and with it that metal's protection, weight and look.",用3块同种金属的锤制金属片包覆木板盾面，以4枚金属钉钉牢，再装上中块皮革握把。需要锤子。铜、锡、幽灵青铜、锡青铜、白青铜或铁皆可：盾牌取其金属片的金属，并随之获得该金属的防护、重量和外观。
+Advanced_Copper_Tools_Bp_CopperShield_UnlockConditionsDesc,Metal Sheet Needed,需要金属片
 Advanced_Copper_Tools_Perk_LargeSaw_PerkName,Large Saw,大型锯
 Advanced_Copper_Tools_Perk_LargeSaw_PerkDescription,Start with a worn large copper saw (half its durability left) for cutting trees quickly.,初始携带一把磨损的大型铜锯（剩余一半耐久度），用于快速砍伐树木。
 Advanced_Copper_Tools_MetalLantern_CardName,Metal Lantern,金属提灯
@@ -486,9 +486,6 @@ Advanced_Copper_Tools_CopperPantryPlaced_DismantleActions_PickUp_FailMessage,Emp
 Advanced_Copper_Tools_Bp_CopperPantry_CardName,Copper Chest,铜制箱子
 Advanced_Copper_Tools_Bp_CopperPantry_CardDescription,"Build a sealed copper chest with thick insulated walls. Slows food spoilage and keeps vanilla wildlife out. Requires 4 metal sheets, 4 planks, 6 copper nails, 1 Tin Solder and a hammer.",建造一个带有厚实隔热墙的密封铜制箱子。减缓食物腐败并阻止原版野生动物入侵。需要4块金属片、4块木板、6颗铜钉、1块锡焊料和一把锤子。
 Advanced_Copper_Tools_Bp_CopperPantry_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
-Advanced_Copper_Tools_Bp_RenderHempOil_CardName,Render Hemp Seed Oil,熬制麻籽油
-Advanced_Copper_Tools_Bp_RenderHempOil_CardDescription,Cook down hemp seed oil into clean lamp oil.,熬煮麻籽油以制作清洁的灯油。
-Advanced_Copper_Tools_Bp_RenderHempOil_UnlockConditionsDesc,Hemp Seed Oil Needed,需要麻籽油
 Advanced_Copper_Tools_CopperOilFlask_CardName,Copper Oil Flask,铜制油瓶
 Advanced_Copper_Tools_CopperOilFlask_CardDescription,"A hammered copper flask for storing lamp oil. Holds 4 bowls of oil (192 fuel), enough to fully refuel a lantern twice. Drag onto a lantern, oilwell or brazier to pour in one bowl's worth (48).",一个用于储存灯油的锤制铜瓶。可储存4碗油（192点燃料），足以为提灯完全补充两次燃料。拖到提灯、提灯油井或火盆上，可倒入一碗油的量（48点）。
 Advanced_Copper_Tools_CopperOilFlask_CardHelpSection,"<b>Fill:</b> Drag any lamp oil served in a clay bowl onto the flask (4 bowls = full). You get the bowl back.
@@ -511,38 +508,38 @@ Advanced_Copper_Tools_CopperCauldron_FuelCapacity,Container Temperature,容器�
 Advanced_Copper_Tools_CopperCauldron_Burn_ActionName,Slowly Overcook (Burn) and Reduce Quality,慢速过火（烧焦）并降低质量
 Advanced_Copper_Tools_CopperCauldron_CookBatch_CannotCookText,Not hot enough,温度不够高
 Advanced_Copper_Tools_CopperCauldron_CookInLiquid_ActionName,Cook in Cookable Liquid,在可烹饪液体中烹饪
-Advanced_Copper_Tools_CopperHelmet_CardName,Copper Helmet,铜制头盔
-Advanced_Copper_Tools_CopperHelmet_CardDescription,A hammered copper helmet offering solid head protection. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,一顶锤制铜头盔，提供坚实的头部防护。可在熔炉中回收。必须装备在装备槽上才能生效。
+Advanced_Copper_Tools_CopperHelmet_CardName,Metal Helmet,金属头盔
+Advanced_Copper_Tools_CopperHelmet_CardDescription,"A helmet hammered from metal sheets. Its protection, weight and look follow the metal it was made from. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",用金属片锤制的头盔。它的防护、重量和外观取决于制作所用的金属。可在熔炉中回收。必须装备在装备槽上才能生效。
 Advanced_Copper_Tools_CopperHelmet_UsageDurability.CardStatName,Durability,耐久度
 Advanced_Copper_Tools_CopperHelmet_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_CopperHelmet_Dismantle_ActionDescription,Break apart the helmet to recover materials.,拆解头盔以回收材料。
-Advanced_Copper_Tools_Bp_CopperHelmet_CardName,Copper Helmet,铜制头盔
-Advanced_Copper_Tools_Bp_CopperHelmet_CardDescription,"Craft a hammered copper helmet for head protection. Requires 2 copper sheets, 4 copper nails, 1 small leather, 2 sinew, 1 tin solder, and a hammer.",制作一顶锤制铜头盔用于头部防护。需要2块铜片、4颗铜钉、1块小皮革、2根肌腱、1块焊锡和一把锤子。
-Advanced_Copper_Tools_Bp_CopperHelmet_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
-Advanced_Copper_Tools_CopperGauntlets_CardName,Copper Bracers,铜制护臂
-Advanced_Copper_Tools_CopperGauntlets_CardDescription,Hammered copper bracers protecting both arms. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,锤制铜护臂，保护双臂。可在熔炉中回收。必须装备在装备槽上才能生效。
+Advanced_Copper_Tools_Bp_CopperHelmet_CardName,Metal Helmet,金属头盔
+Advanced_Copper_Tools_Bp_CopperHelmet_CardDescription,"Hammer a helmet from 2 metal sheets of one metal, 4 metal nails, 1 small leather and 2 sinew. Requires a hammer. Copper, tin, ghost bronze, tin bronze, white bronze or iron: the helmet takes the metal of its sheets, and with it that metal's protection, weight and look.",用锤子，以2块同种金属的金属片、4枚金属钉、1块小皮革和2根肌腱打造头盔。铜、锡、幽灵青铜、锡青铜、白青铜或铁皆可：头盔取其金属片的金属，并随之获得该金属的防护、重量和外观。
+Advanced_Copper_Tools_Bp_CopperHelmet_UnlockConditionsDesc,Metal Sheet Needed,需要金属片
+Advanced_Copper_Tools_CopperGauntlets_CardName,Metal Bracers,金属护腕
+Advanced_Copper_Tools_CopperGauntlets_CardDescription,"Bracers hammered from metal sheets. Its protection, weight and look follow the metal it was made from. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",用金属片锤制的护腕。它的防护、重量和外观取决于制作所用的金属。可在熔炉中回收。必须装备在装备槽上才能生效。
 Advanced_Copper_Tools_CopperGauntlets_UsageDurability.CardStatName,Durability,耐久度
 Advanced_Copper_Tools_CopperGauntlets_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_CopperGauntlets_Dismantle_ActionDescription,Break apart the bracers to recover materials.,拆解护臂以回收材料。
-Advanced_Copper_Tools_Bp_CopperGauntlets_CardName,Copper Bracers,铜制护臂
-Advanced_Copper_Tools_Bp_CopperGauntlets_CardDescription,"Craft hammered copper bracers for arm protection. Requires 2 copper bars, 4 copper nails, 1 small leather, 2 sinew, 1 tin solder, and a hammer.",制作锤制铜护臂用于手臂防护。需要2块铜锭、4颗铜钉、1块小皮革、2根肌腱、1块焊锡和一把锤子。
-Advanced_Copper_Tools_Bp_CopperGauntlets_UnlockConditionsDesc,Copper Bar Needed,需要铜锭
-Advanced_Copper_Tools_CopperGreaves_CardName,Copper Greaves,铜制护腿
-Advanced_Copper_Tools_CopperGreaves_CardDescription,Hammered copper greaves protecting both legs. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,锤制铜护腿，保护双腿。可在熔炉中回收。必须装备在装备槽上才能生效。
+Advanced_Copper_Tools_Bp_CopperGauntlets_CardName,Metal Bracers,金属护腕
+Advanced_Copper_Tools_Bp_CopperGauntlets_CardDescription,"Hammer a pair of bracers from 2 metal sheets of one metal, 4 metal nails, 1 small leather and 2 sinew. Requires a hammer. Copper, tin, ghost bronze, tin bronze, white bronze or iron: the bracers takes the metal of its sheets, and with it that metal's protection, weight and look.",用锤子，以2块同种金属的金属片、4枚金属钉、1块小皮革和2根肌腱打造护腕。铜、锡、幽灵青铜、锡青铜、白青铜或铁皆可：护腕取其金属片的金属，并随之获得该金属的防护、重量和外观。
+Advanced_Copper_Tools_Bp_CopperGauntlets_UnlockConditionsDesc,Metal Sheet Needed,需要金属片
+Advanced_Copper_Tools_CopperGreaves_CardName,Metal Greaves,金属护胫
+Advanced_Copper_Tools_CopperGreaves_CardDescription,"Greaves hammered from metal sheets. Its protection, weight and look follow the metal it was made from. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",用金属片锤制的护胫。它的防护、重量和外观取决于制作所用的金属。可在熔炉中回收。必须装备在装备槽上才能生效。
 Advanced_Copper_Tools_CopperGreaves_UsageDurability.CardStatName,Durability,耐久度
 Advanced_Copper_Tools_CopperGreaves_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_CopperGreaves_Dismantle_ActionDescription,Break apart the greaves to recover materials.,拆解护腿以回收材料。
-Advanced_Copper_Tools_Bp_CopperGreaves_CardName,Copper Greaves,铜制护腿
-Advanced_Copper_Tools_Bp_CopperGreaves_CardDescription,"Craft hammered copper greaves for leg protection. Requires 2 copper bars, 4 copper nails, 1 small leather, 2 sinew, 1 tin solder, and a hammer.",制作锤制铜护腿用于腿部防护。需要2块铜锭、4颗铜钉、1块小皮革、2根肌腱、1块焊锡和一把锤子。
-Advanced_Copper_Tools_Bp_CopperGreaves_UnlockConditionsDesc,Copper Bar Needed,需要铜锭
-Advanced_Copper_Tools_CopperBreastplate_CardName,Copper Armor,铜制铠甲
-Advanced_Copper_Tools_CopperBreastplate_CardDescription,A sturdy suit of copper armor offering strong torso protection. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,一套坚固的铜制铠甲，提供强力躯干防护。可在熔炉中回收。必须装备在装备槽上才能生效。
+Advanced_Copper_Tools_Bp_CopperGreaves_CardName,Metal Greaves,金属护胫
+Advanced_Copper_Tools_Bp_CopperGreaves_CardDescription,"Hammer a pair of greaves from 2 metal sheets of one metal, 4 metal nails, 1 small leather and 2 sinew. Requires a hammer. Copper, tin, ghost bronze, tin bronze, white bronze or iron: the greaves takes the metal of its sheets, and with it that metal's protection, weight and look.",用锤子，以2块同种金属的金属片、4枚金属钉、1块小皮革和2根肌腱打造护胫。铜、锡、幽灵青铜、锡青铜、白青铜或铁皆可：护胫取其金属片的金属，并随之获得该金属的防护、重量和外观。
+Advanced_Copper_Tools_Bp_CopperGreaves_UnlockConditionsDesc,Metal Sheet Needed,需要金属片
+Advanced_Copper_Tools_CopperBreastplate_CardName,Metal Armor,金属铠甲
+Advanced_Copper_Tools_CopperBreastplate_CardDescription,"A suit of armor hammered from metal sheets. Its protection, weight and look follow the metal it was made from. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",用金属片锤制的铠甲。它的防护、重量和外观取决于制作所用的金属。可在熔炉中回收。必须装备在装备槽上才能生效。
 Advanced_Copper_Tools_CopperBreastplate_UsageDurability.CardStatName,Durability,耐久度
 Advanced_Copper_Tools_CopperBreastplate_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_CopperBreastplate_Dismantle_ActionDescription,Break apart the armor to recover materials.,拆解铠甲以回收材料。
-Advanced_Copper_Tools_Bp_CopperBreastplate_CardName,Copper Armor,铜制铠甲
-Advanced_Copper_Tools_Bp_CopperBreastplate_CardDescription,"Craft sturdy copper armor for torso protection. Requires 4 copper sheets, 4 copper nails, 1 medium leather, 4 sinew, 1 tin solder, and a hammer.",制作坚固的铜制铠甲用于躯干防护。需要4块铜片、4颗铜钉、1块中型皮革、4根肌腱、1块焊锡和一把锤子。
-Advanced_Copper_Tools_Bp_CopperBreastplate_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_Bp_CopperBreastplate_CardName,Metal Armor,金属铠甲
+Advanced_Copper_Tools_Bp_CopperBreastplate_CardDescription,"Hammer a suit of armor from 4 metal sheets of one metal, 4 metal nails, 1 medium leather and 4 sinew. Requires a hammer. Copper, tin, ghost bronze, tin bronze, white bronze or iron: the armor takes the metal of its sheets, and with it that metal's protection, weight and look.",用锤子，以4块同种金属的金属片、4枚金属钉、1块中块皮革和4根肌腱打造铠甲。铜、锡、幽灵青铜、锡青铜、白青铜或铁皆可：铠甲取其金属片的金属，并随之获得该金属的防护、重量和外观。
+Advanced_Copper_Tools_Bp_CopperBreastplate_UnlockConditionsDesc,Metal Sheet Needed,需要金属片
 Advanced_Copper_Tools_CopperBrazierKit_CardName,Copper Brazier Kit,铜制火盆套件
 Advanced_Copper_Tools_CopperBrazierKit_CardDescription,A portable copper brazier on a stick tripod. Set it up in your environment and fill with oil for a bright long-burning light source.,一个架在三脚架上的便携铜制火盆。在环境中安置并注入油脂，以获得明亮持久的光源。
 Advanced_Copper_Tools_CopperBrazierKit_Place_ActionName,Place,放置
@@ -1156,3 +1153,128 @@ Advanced_Copper_Tools_TinnedPot_DismantleActions_PickUp_ActionDescription,Pick u
 Advanced_Copper_Tools_Bp_TinnedPot_CardName,Tinned Storage Pot,镀锡储物罐
 Advanced_Copper_Tools_Bp_TinnedPot_CardDescription,"Line a clay storage pot with tin. Slows food spoilage a little more than plain clay, and the lining wears away over about a season. Requires 1 clay storage pot and 1 tin nugget.",为陶制储物罐内衬锡层。比普通陶罐更能延缓食物腐坏，锡层约一个季节后磨损。需要1个陶制储物罐和1块锡块。
 Advanced_Copper_Tools_Bp_TinnedPot_UnlockConditionsDesc,Clay Storage Pot Needed,需要陶制储物罐
+Advanced_Copper_Tools_MetalLantern_RefuelLiquid_ActionName,Pour Oil from Container,从容器倒入油
+Advanced_Copper_Tools_MetalLantern_RefuelLiquid_ActionDescription,Poured oil from the container into the lantern.,把容器里的油倒进提灯。
+Advanced_Copper_Tools_LanternOilwell_RefuelLiquid_ActionName,Pour Oil from Container,从容器倒入油
+Advanced_Copper_Tools_LanternOilwell_RefuelLiquid_ActionDescription,Poured oil from the container into the oilwell.,把容器里的油倒进提灯油井。
+Advanced_Copper_Tools_CopperBrazier_RefuelLiquid_ActionName,Pour Oil from Container,从容器倒入油
+Advanced_Copper_Tools_CopperBrazier_RefuelLiquid_ActionDescription,Poured oil from the container into the brazier.,把容器里的油倒进火盆。
+Advanced_Copper_Tools_CopperOilFlask_FillLiquid_ActionName,Fill from Container,从容器注油
+Advanced_Copper_Tools_CopperOilFlask_FillLiquid_ActionDescription,Poured oil from the container into the flask.,把容器里的油倒进油瓶。
+Advanced_Copper_Tools_CopperHelmet_AlternateNames[0].Name,Copper Helmet
+Advanced_Copper_Tools_CopperHelmet_AlternateNames[0].Description,A hammered copper helmet offering solid head protection. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperHelmet_AlternateNames[1].Name,Ghost Bronze Helmet
+Advanced_Copper_Tools_CopperHelmet_AlternateNames[1].Description,"Bronze alloyed with witchstone, pale and cold to the touch. Wards the head against spiritual attacks (+12.5) and helps fear fade faster. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperHelmet_AlternateNames[2].Name,Tin Helmet
+Advanced_Copper_Tools_CopperHelmet_AlternateNames[2].Description,Hammered from soft tin: a little tougher than copper and the lightest metal helmet to carry. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperHelmet_AlternateNames[3].Name,Tin Bronze Helmet
+Advanced_Copper_Tools_CopperHelmet_AlternateNames[3].Description,"A hammered tin bronze helmet, tougher than copper and lighter than iron; the sturdiest of the bronzes. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperHelmet_AlternateNames[4].Name,White Bronze Helmet
+Advanced_Copper_Tools_CopperHelmet_AlternateNames[4].Description,High-tin bronze polished to a mirror shine. Nearly as protective as iron and it bolsters your courage (+3). Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperHelmet_AlternateNames[5].Name,Iron Helmet
+Advanced_Copper_Tools_CopperHelmet_AlternateNames[5].Description,A forged iron helmet offering superior head protection to its copper counterpart. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperHelmet_SpecialDurability1.CardStatName,Oil Coat
+Advanced_Copper_Tools_CopperHelmet_SpecialDurability4.CardStatName,Metal Type
+Advanced_Copper_Tools_CopperHelmet_Grease_ActionName,Grease with Fat
+Advanced_Copper_Tools_CopperHelmet_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.
+Advanced_Copper_Tools_CopperHelmet_Oil_ActionName,Oil
+Advanced_Copper_Tools_CopperHelmet_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.
+Advanced_Copper_Tools_CopperBreastplate_AlternateNames[0].Name,Copper Armor
+Advanced_Copper_Tools_CopperBreastplate_AlternateNames[0].Description,A sturdy suit of copper armor offering strong torso protection. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperBreastplate_AlternateNames[1].Name,Ghost Bronze Armor
+Advanced_Copper_Tools_CopperBreastplate_AlternateNames[1].Description,"Bronze alloyed with witchstone, pale and cold to the touch. Wards the torso against spiritual attacks (+12.5) and helps fear fade faster. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperBreastplate_AlternateNames[2].Name,Tin Armor
+Advanced_Copper_Tools_CopperBreastplate_AlternateNames[2].Description,Hammered from soft tin: a little tougher than copper and the lightest metal armor to carry. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperBreastplate_AlternateNames[3].Name,Tin Bronze Armor
+Advanced_Copper_Tools_CopperBreastplate_AlternateNames[3].Description,"A sturdy suit of tin bronze armor, offering torso protection between copper and iron; the sturdiest of the bronzes. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperBreastplate_AlternateNames[4].Name,White Bronze Armor
+Advanced_Copper_Tools_CopperBreastplate_AlternateNames[4].Description,High-tin bronze polished to a mirror shine. Nearly as protective as iron and it bolsters your courage (+3). Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperBreastplate_AlternateNames[5].Name,Iron Armor (Female)
+Advanced_Copper_Tools_CopperBreastplate_AlternateNames[5].Description,A sturdy suit of iron armor offering superior torso protection to its copper counterpart. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperBreastplate_AlternateNames[6].Name,Iron Armor (Male)
+Advanced_Copper_Tools_CopperBreastplate_AlternateNames[6].Description,A sturdy suit of iron armor offering superior torso protection to its copper counterpart. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperBreastplate_SpecialDurability1.CardStatName,Oil Coat
+Advanced_Copper_Tools_CopperBreastplate_SpecialDurability3.CardStatName,Fit
+Advanced_Copper_Tools_CopperBreastplate_SpecialDurability4.CardStatName,Metal Type
+Advanced_Copper_Tools_CopperBreastplate_Grease_ActionName,Grease with Fat
+Advanced_Copper_Tools_CopperBreastplate_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.
+Advanced_Copper_Tools_CopperBreastplate_Oil_ActionName,Oil
+Advanced_Copper_Tools_CopperBreastplate_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.
+Advanced_Copper_Tools_CopperBreastplate_RefitFemale_ActionName,Refit for a woman
+Advanced_Copper_Tools_CopperBreastplate_RefitFemale_ActionDescription,Reshape the iron armor to a woman's fit. Takes no time and changes nothing but the fit and the look.
+Advanced_Copper_Tools_CopperBreastplate_RefitMale_ActionName,Refit for a man
+Advanced_Copper_Tools_CopperBreastplate_RefitMale_ActionDescription,Reshape the iron armor to a man's fit. Takes no time and changes nothing but the fit and the look.
+Advanced_Copper_Tools_CopperGauntlets_AlternateNames[0].Name,Copper Bracers
+Advanced_Copper_Tools_CopperGauntlets_AlternateNames[0].Description,Hammered copper bracers protecting both arms. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperGauntlets_AlternateNames[1].Name,Ghost Bronze Bracers
+Advanced_Copper_Tools_CopperGauntlets_AlternateNames[1].Description,"Bronze alloyed with witchstone, pale and cold to the touch. Wards both arms against spiritual attacks (+7.5 each) and helps fear fade faster. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperGauntlets_AlternateNames[2].Name,Tin Bracers
+Advanced_Copper_Tools_CopperGauntlets_AlternateNames[2].Description,Hammered from soft tin: a little tougher than copper and the lightest metal bracers to carry. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperGauntlets_AlternateNames[3].Name,Tin Bronze Bracers
+Advanced_Copper_Tools_CopperGauntlets_AlternateNames[3].Description,"Hammered tin bronze bracers protecting both arms, tougher than copper; the sturdiest of the bronzes. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperGauntlets_AlternateNames[4].Name,White Bronze Bracers
+Advanced_Copper_Tools_CopperGauntlets_AlternateNames[4].Description,High-tin bronze polished to a mirror shine. Nearly as protective as iron and it bolsters your courage (+3). Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperGauntlets_AlternateNames[5].Name,Iron Bracers
+Advanced_Copper_Tools_CopperGauntlets_AlternateNames[5].Description,"Forged iron bracers protecting both arms, tougher than copper. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperGauntlets_SpecialDurability1.CardStatName,Oil Coat
+Advanced_Copper_Tools_CopperGauntlets_SpecialDurability4.CardStatName,Metal Type
+Advanced_Copper_Tools_CopperGauntlets_Grease_ActionName,Grease with Fat
+Advanced_Copper_Tools_CopperGauntlets_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.
+Advanced_Copper_Tools_CopperGauntlets_Oil_ActionName,Oil
+Advanced_Copper_Tools_CopperGauntlets_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.
+Advanced_Copper_Tools_CopperGreaves_AlternateNames[0].Name,Copper Greaves
+Advanced_Copper_Tools_CopperGreaves_AlternateNames[0].Description,Hammered copper greaves protecting both legs. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperGreaves_AlternateNames[1].Name,Ghost Bronze Greaves
+Advanced_Copper_Tools_CopperGreaves_AlternateNames[1].Description,"Bronze alloyed with witchstone, pale and cold to the touch. Wards both legs against spiritual attacks (+7.5 each) and helps fear fade faster. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperGreaves_AlternateNames[2].Name,Tin Greaves
+Advanced_Copper_Tools_CopperGreaves_AlternateNames[2].Description,Hammered from soft tin: a little tougher than copper and the lightest metal greaves to carry. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperGreaves_AlternateNames[3].Name,Tin Bronze Greaves
+Advanced_Copper_Tools_CopperGreaves_AlternateNames[3].Description,"Hammered tin bronze greaves protecting both legs, tougher than copper; the sturdiest of the bronzes. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperGreaves_AlternateNames[4].Name,White Bronze Greaves
+Advanced_Copper_Tools_CopperGreaves_AlternateNames[4].Description,High-tin bronze polished to a mirror shine. Nearly as protective as iron and it bolsters your courage (+3). Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperGreaves_AlternateNames[5].Name,Iron Greaves
+Advanced_Copper_Tools_CopperGreaves_AlternateNames[5].Description,"Forged iron greaves protecting both legs, tougher than copper. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperGreaves_SpecialDurability1.CardStatName,Oil Coat
+Advanced_Copper_Tools_CopperGreaves_SpecialDurability4.CardStatName,Metal Type
+Advanced_Copper_Tools_CopperGreaves_Grease_ActionName,Grease with Fat
+Advanced_Copper_Tools_CopperGreaves_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.
+Advanced_Copper_Tools_CopperGreaves_Oil_ActionName,Oil
+Advanced_Copper_Tools_CopperGreaves_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.
+Advanced_Copper_Tools_CopperShield_AlternateNames[0].Name,Copper Shield
+Advanced_Copper_Tools_CopperShield_AlternateNames[0].Description,"A wooden shield faced with hammered copper sheet. Held in hand like the wooden Shield, it guards the shield arm with 80 armor, 130 against spiritual attacks, and lasts a little longer than the wooden Shield. Can be recycled in a furnace."
+Advanced_Copper_Tools_CopperShield_AlternateNames[1].Name,Ghost Bronze Shield
+Advanced_Copper_Tools_CopperShield_AlternateNames[1].Description,"A wooden shield faced with pale Ghost Bronze sheet, cold to the touch. Held in hand like the wooden Shield, it guards the shield arm with 85 armor, 165 against spiritual attacks, a better ward against them than any other shield. Can be recycled in a furnace."
+Advanced_Copper_Tools_CopperShield_AlternateNames[2].Name,Tin Shield
+Advanced_Copper_Tools_CopperShield_AlternateNames[2].Description,"A wooden shield faced with matte grey tin sheet, light and cheap. Held in hand like the wooden Shield, it guards the shield arm with 82.5 armor, 132.5 against spiritual attacks, and lasts a little longer than the wooden Shield. Can be recycled in a furnace."
+Advanced_Copper_Tools_CopperShield_AlternateNames[3].Name,Tin Bronze Shield
+Advanced_Copper_Tools_CopperShield_AlternateNames[3].Description,"A wooden shield faced with sturdy tin bronze sheet. Held in hand like the wooden Shield, it guards the shield arm with 87.5 armor, 137.5 against spiritual attacks, and lasts a little longer than the wooden Shield. Can be recycled in a furnace."
+Advanced_Copper_Tools_CopperShield_AlternateNames[4].Name,White Bronze Shield
+Advanced_Copper_Tools_CopperShield_AlternateNames[4].Description,"A wooden shield faced with bright, mirror-polished white bronze sheet. Held in hand like the wooden Shield, it guards the shield arm with 92.5 armor, 142.5 against spiritual attacks, and lasts a little longer than the wooden Shield. Can be recycled in a furnace."
+Advanced_Copper_Tools_CopperShield_AlternateNames[5].Name,Iron Shield
+Advanced_Copper_Tools_CopperShield_AlternateNames[5].Description,"A wooden shield faced with forged iron sheet and a raised iron boss. Held in hand like the wooden Shield, it guards the shield arm with 95 armor, 145 against spiritual attacks, the best block of any shield. Can be recycled in a furnace."
+Advanced_Copper_Tools_CopperShield_SpecialDurability1.CardStatName,Oil Coat
+Advanced_Copper_Tools_CopperShield_SpecialDurability4.CardStatName,Metal Type
+Advanced_Copper_Tools_CopperShield_Grease_ActionName,Grease with Fat
+Advanced_Copper_Tools_CopperShield_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.
+Advanced_Copper_Tools_CopperShield_Oil_ActionName,Oil
+Advanced_Copper_Tools_CopperShield_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.
+Advanced_Copper_Tools_RetiredHelmet_Reforge_ActionName,Reforge as Metal Helmet
+Advanced_Copper_Tools_RetiredHelmet_Reforge_ActionDescription,"Turn this old helmet into a Metal Helmet of the same metal, the one helmet card every metal now uses. It keeps its wear and its warmth."
+Advanced_Copper_Tools_RetiredHelmet_OnFull_ActionName,Becomes a Metal Helmet
+Advanced_Copper_Tools_RetiredHelmet_OnFull_ActionDescription,An old card becomes the merged card of the same metal.
+Advanced_Copper_Tools_RetiredBreastplate_Reforge_ActionName,Reforge as Metal Armor
+Advanced_Copper_Tools_RetiredBreastplate_Reforge_ActionDescription,"Turn this old armor into Metal Armor of the same metal, the one armor card every metal now uses. It keeps its wear, its warmth and, for iron, its fit."
+Advanced_Copper_Tools_RetiredBreastplate_OnFull_ActionName,Becomes Metal Armor
+Advanced_Copper_Tools_RetiredBreastplate_OnFull_ActionDescription,An old card becomes the merged card of the same metal.
+Advanced_Copper_Tools_RetiredGauntlets_Reforge_ActionName,Reforge as Metal Bracers
+Advanced_Copper_Tools_RetiredGauntlets_Reforge_ActionDescription,"Turn these old bracers into Metal Bracers of the same metal, the one bracers card every metal now uses. They keep their wear and their warmth."
+Advanced_Copper_Tools_RetiredGauntlets_OnFull_ActionName,Becomes Metal Bracers
+Advanced_Copper_Tools_RetiredGauntlets_OnFull_ActionDescription,An old card becomes the merged card of the same metal.
+Advanced_Copper_Tools_RetiredGreaves_Reforge_ActionName,Reforge as Metal Greaves
+Advanced_Copper_Tools_RetiredGreaves_Reforge_ActionDescription,"Turn these old greaves into Metal Greaves of the same metal, the one greaves card every metal now uses. They keep their wear and their warmth."
+Advanced_Copper_Tools_RetiredGreaves_OnFull_ActionName,Becomes Metal Greaves
+Advanced_Copper_Tools_RetiredGreaves_OnFull_ActionDescription,An old card becomes the merged card of the same metal.
+Advanced_Copper_Tools_RetiredShield_Reforge_ActionName,Reforge as Metal Shield
+Advanced_Copper_Tools_RetiredShield_Reforge_ActionDescription,"Turn this old shield into a Metal Shield of the same metal, the one shield card every metal now uses. It keeps its wear and its warmth."
+Advanced_Copper_Tools_RetiredShield_OnFull_ActionName,Becomes a Metal Shield
+Advanced_Copper_Tools_RetiredShield_OnFull_ActionDescription,An old card becomes the merged card of the same metal.

@@ -86,7 +86,57 @@
     "OverrideIconWarpData": "Hot",
     "OverrideIconWarpType": 3
   },
-  "Progress": { "Active": false },
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "act_iron_breastplate_m",
+      "LocalizationKey": "",
+      "DefaultText": "Reforging"
+    },
+    "MaxValue": 1.0,
+    "RatePerDaytimePoint": 1.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": true,
+    "CountsForTradingValue": false,
+    "OnFull": {
+      "ActionName": {
+        "ParentObjectID": "act_iron_breastplate_m",
+        "LocalizationKey": "Advanced_Copper_Tools_RetiredBreastplate_OnFull_ActionName",
+        "DefaultText": "Becomes Metal Armor"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_iron_breastplate_m",
+        "LocalizationKey": "Advanced_Copper_Tools_RetiredBreastplate_OnFull_ActionDescription",
+        "DefaultText": "An old card becomes the merged card of the same metal."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "RequiredStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_copper_breastplate",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true
+      },
+      "ProducedCards": []
+    }
+  },
   "SpecialDurability1": { "Active": false },
   "SpecialDurability2": {
     "Active": true,
@@ -104,8 +154,43 @@
     "HasActionOnZero": false,
     "CountsForTradingValue": false
   },
-  "SpecialDurability3": { "Active": false },
-  "SpecialDurability4": { "Active": false },
+  "SpecialDurability3": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "act_iron_breastplate_m",
+      "LocalizationKey": "",
+      "DefaultText": "Fit"
+    },
+    "MaxValue": 1.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": false
+  },
+  "SpecialDurability4": {
+    "Active": true,
+    "FloatValue": 200.0,
+    "CardStatName": {
+      "ParentObjectID": "act_iron_breastplate_m",
+      "LocalizationKey": "",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [
+      200.0
+    ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false
+  },
   "DurabilitySorting": { "SortingList": [] },
   "CardInteractions": [
     {
@@ -166,10 +251,10 @@
       "CompatibleCards": {
         "TriggerCards": [],
         "TriggerTags": [],
-        "TriggerCardsWarpData": [
-          "advanced_copper_tools_oil"
+        "TriggerTagsWarpData": [
+          "tag_Oil"
         ],
-        "TriggerCardsWarpType": 3
+        "TriggerTagsWarpType": 3
       },
       "ReceivingCardChanges": {
         "ModType": 1,
@@ -200,6 +285,43 @@
     }
   ],
   "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_iron_breastplate_m",
+        "LocalizationKey": "Advanced_Copper_Tools_RetiredBreastplate_Reforge_ActionName",
+        "DefaultText": "Reforge as Metal Armor"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_iron_breastplate_m",
+        "LocalizationKey": "Advanced_Copper_Tools_RetiredBreastplate_Reforge_ActionDescription",
+        "DefaultText": "Turn this old armor into Metal Armor of the same metal, the one armor card every metal now uses. It keeps its wear, its warmth and, for iron, its fit."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_copper_breastplate",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true
+      },
+      "ProducedCards": []
+    },
     {
       "ActionName": {
         "ParentObjectID": "act_iron_breastplate_m",

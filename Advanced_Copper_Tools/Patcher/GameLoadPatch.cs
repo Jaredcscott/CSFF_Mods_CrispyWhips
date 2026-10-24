@@ -84,15 +84,17 @@ namespace Advanced_Copper_Tools.Patcher
                 allData, MetalNailUid, RetiredIronNailUid, "ACT Metal Nail / retired Iron Nail");
         }
 
-        // The iron recipes, the only blueprints whose sheet slot gates the Metal Sheet to Metal Type 200.
+        // The blueprints whose sheet slot admits Metal Type 200: the Iron Large Saw (gated to 200 exactly) and,
+        // since the armor merge, the five metal armor blueprints (any rung 100-200, the piece takes the sheets'
+        // metal). The six retired iron armor blueprints left this list with the merge: they are out of every
+        // tab and only hand their research on to the merged blueprint (AlsoUnlocks).
         private static readonly string[] IronSheetBlueprintUids = {
-            "act_bp_iron_helmet",
-            "act_bp_iron_gauntlets",
-            "act_bp_iron_greaves",
-            "act_bp_iron_breastplate_m",
-            "act_bp_iron_breastplate_f",
-            "act_bp_iron_shield",
             "act_bp_iron_large_saw",
+            "advanced_copper_tools_bp_copper_helmet",
+            "advanced_copper_tools_bp_copper_breastplate",
+            "advanced_copper_tools_bp_copper_gauntlets",
+            "advanced_copper_tools_bp_copper_greaves",
+            "act_bp_copper_shield",
         };
 
         // Sheets stay tier-locked, unlike nails: every sheet slot requires the one Metal Sheet card and
@@ -149,7 +151,6 @@ namespace Advanced_Copper_Tools.Patcher
         private static readonly System.Collections.Generic.HashSet<string> ArmorUidSet =
             new System.Collections.Generic.HashSet<string>(ArmorUids, StringComparer.OrdinalIgnoreCase);
 
-        private static bool _loggedEncounterArmorRepairError;
         private static bool _subscribedToGmInitialized;
         private static Action _gmInitializedHandler;
 
@@ -179,6 +180,7 @@ namespace Advanced_Copper_Tools.Patcher
                 }
 
                 harmony.Patch(method, prefix: new HarmonyMethod(typeof(GameLoadPatch), nameof(EncounterArmorRepair_Prefix)));
+                ArmorWardPatch.Apply(harmony, method);
             }
             catch (Exception ex)
             {
@@ -188,6 +190,8 @@ namespace Advanced_Copper_Tools.Patcher
 
         private static void EncounterArmorRepair_Prefix(object __instance)
         {
+            // Arms the merged armor's spiritual ward for this blow (ArmorWardPatch; it catches and warns itself).
+            ArmorWardPatch.BeginWound(__instance);
             try
             {
                 var gameManager = Reflect.GetMember(__instance, "GM") ?? CardUtil.GetGameManagerInstance();
@@ -197,9 +201,7 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                if (_loggedEncounterArmorRepairError) return;
-                Logger.LogError($"[ACT] Armor combat repair failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-                _loggedEncounterArmorRepairError = true;
+                WarnArmorRepairOnce("encounter-prefix-threw", $"Armor combat repair failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -319,36 +321,44 @@ namespace Advanced_Copper_Tools.Patcher
         }
 
         // ACT 1.18.9 (ACT-B7): every helmet, armor, bracer and greave had Usage 90..140 while each
-        // enemy hit on its slot costs 250 (EncounterPopup.ArmorDefaultDurabilityDamage), so the first
-        // hit destroyed it. The JSON now carries leather parity, 46080 (185 hits). A piece saved before
+        // enemy hit on its slot costs 250 (EncounterPopup.ArmorDefaultDurabilityDamage) x
+        // GameManager.CancelledAtTick (an int: the cost of the action the fight broke into; root
+        // CLAUDE.md "Armor wear and enemy damage types"), so the first hit destroyed it. The JSON now
+        // carries leather parity, 46080 (about 185 hits during a 1-point action, fewer during a longer
+        // one; every hit is still a whole multiple of 250, which the argument below relies on). A piece saved before
         // the change keeps its old CURRENT Usage, so raise it once here. Idempotent across every
         // OnGMInitialized re-fire and every encounter: only a piece sitting EXACTLY on its own old
-        // maximum is raised. A new piece worn by k hits reads 46080 - 250k, which is 80 mod 250, and
+        // maximum is raised. A new piece worn by hits totalling k quarter-hour ticks (k = the sum of each
+        // hit's CancelledAtTick) reads 46080 - 250k, which is 80 mod 250, and
         // none of 90, 100, 120, 140 is, so a raised piece can never be raised twice. Any old piece
         // that was hit even once was destroyed, so every surviving old piece is at its old maximum.
         // Shields are not in this table (their Usage was already in the thousands).
+        // Since the armor merge an old piece of any metal reforges into the merged card (the copper UID) and
+        // carries its Usage across (TransferUsage), so a pre-1.18.9 tin helmet can arrive on the merged UID at
+        // 90, a tin bronze one at 120, an iron one at 140. The merged UIDs therefore accept every old maximum;
+        // 46080 - 250k is still 80 mod 250, so none of 90, 100, 120, 140 can be a worn new piece.
         private const float LeatherParityUsage = 46080f;
 
-        private static readonly System.Collections.Generic.Dictionary<string, float> PreParityArmorUsageMax =
+        private static readonly System.Collections.Generic.Dictionary<string, float[]> PreParityArmorUsageMax =
             BuildPreParityArmorUsageMax();
 
-        private static System.Collections.Generic.Dictionary<string, float> BuildPreParityArmorUsageMax()
+        private static System.Collections.Generic.Dictionary<string, float[]> BuildPreParityArmorUsageMax()
         {
-            var map = new System.Collections.Generic.Dictionary<string, float>(StringComparer.OrdinalIgnoreCase);
+            var map = new System.Collections.Generic.Dictionary<string, float[]>(StringComparer.OrdinalIgnoreCase);
             string[] pieces = { "helmet", "breastplate", "gauntlets", "greaves" };
             foreach (var p in pieces)
             {
-                map["act_tin_" + p] = 90f;
-                map["advanced_copper_tools_copper_" + p] = 100f;
-                map["act_whitebronze_" + p] = 100f;
-                map["act_bronze_" + p] = 120f;
-                map["act_ghostbronze_" + p] = 120f;
+                map["act_tin_" + p] = new[] { 90f };
+                map["advanced_copper_tools_copper_" + p] = new[] { 90f, 100f, 120f, 140f };
+                map["act_whitebronze_" + p] = new[] { 100f };
+                map["act_bronze_" + p] = new[] { 120f };
+                map["act_ghostbronze_" + p] = new[] { 120f };
             }
-            map["act_iron_helmet"] = 140f;
-            map["act_iron_breastplate_f"] = 140f;
-            map["act_iron_breastplate_m"] = 140f;
-            map["act_iron_gauntlets"] = 140f;
-            map["act_iron_greaves"] = 140f;
+            map["act_iron_helmet"] = new[] { 140f };
+            map["act_iron_breastplate_f"] = new[] { 140f };
+            map["act_iron_breastplate_m"] = new[] { 140f };
+            map["act_iron_gauntlets"] = new[] { 140f };
+            map["act_iron_greaves"] = new[] { 140f };
             return map;
         }
 
@@ -358,7 +368,7 @@ namespace Advanced_Copper_Tools.Patcher
             foreach (var card in modArmorCards)
             {
                 var uid = GetCardUid(card);
-                if (uid == null || !PreParityArmorUsageMax.TryGetValue(uid, out float oldMax)) continue;
+                if (uid == null || !PreParityArmorUsageMax.TryGetValue(uid, out float[] oldMaxes)) continue;
 
                 float current = CardUtil.GetDurability(card, "UsageDurability");
                 if (float.IsNaN(current))
@@ -366,7 +376,10 @@ namespace Advanced_Copper_Tools.Patcher
                     WarnArmorRepairOnce("ArmorUsage-NaN", "RaisePreLeatherParityUsage: UsageDurability not readable (reflection miss) - pre-1.18.9 armor keeps its old one-hit durability. Possible field rename after a game update.");
                     continue;
                 }
-                if (Math.Abs(current - oldMax) > 0.01f) continue;
+                bool atOldMax = false;
+                foreach (var oldMax in oldMaxes)
+                    if (Math.Abs(current - oldMax) <= 0.01f) { atOldMax = true; break; }
+                if (!atOldMax) continue;
 
                 if (CardUtil.SetDurability(card, "UsageDurability", LeatherParityUsage)) raised++;
                 else WarnArmorRepairOnce("ArmorUsage-write", "RaisePreLeatherParityUsage: UsageDurability write failed - pre-1.18.9 armor keeps its old one-hit durability.");

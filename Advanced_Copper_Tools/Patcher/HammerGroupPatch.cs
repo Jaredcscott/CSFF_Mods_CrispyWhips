@@ -19,8 +19,9 @@ namespace Advanced_Copper_Tools.Patcher
     /// creates an EMPTY CardTabGroup for a GpTag name nothing defines, and without this pass the
     /// slot shows the raw name and accepts nothing. Same idea as HerbsAndFungi's GpTagContentPatch,
     /// but the group is found through the blueprints that name it, so no FindObjectsOfTypeAll.
-    /// Reflection only: ACT's DLL carries no typed game references (root CLAUDE.md, Game-Update
-    /// Reference Refresh), and this keeps it that way.
+    /// Reflection only in this patch. ACT's DLL as a whole does carry typed game references since
+    /// 1.18.13 (ArmorWardPatch), so its lib/ game references follow the root CLAUDE.md
+    /// Game-Update Reference Refresh.
     /// </summary>
     internal static class HammerGroupPatch
     {

@@ -86,6 +86,7 @@
               "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
               "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
               "DroppedCardWarpType": 3,
+              "TransferRules": { "Special2": 4, "Special2From": 32, "Special4": 3, "Special4Value": 120.0 },
               "Quantity": { "x": 1, "y": 1 },
               "FinishUnlocking": false
             }

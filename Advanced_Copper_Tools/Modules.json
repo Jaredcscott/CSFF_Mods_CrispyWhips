@@ -1,0 +1,70 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). Every tracked file belongs to exactly one module, is a sharedTable (rows attributed by the UID or LocalizationKey they name), or is a picture/.art file owned by the module whose card names it. `module_map.py check AdvancedCopperTools` must exit 0.",
+  "sharedTables": [
+    "Localization/*.csv",
+    "BlueprintTabs.json",
+    "SmeltingRecipes.json",
+    "UidAliases.json"
+  ],
+  "modules": [
+    {
+      "id": "armor",
+      "name": "Armor and Shields",
+      "summary": "Helmet, Armor, Bracers, Greaves and Shield in every metal (merged cards, Metal Type in SpecialDurability4), the 23 retired per-metal cards that reforge into them, and the spiritual ward patch.",
+      "paths": ["**/*Helmet*", "**/*Gauntlets*", "**/*Greaves*", "**/*Breastplate*", "**/*Bracers*", "**/*Shield*", "**/*Armor*"]
+    },
+    {
+      "id": "lighting",
+      "name": "Lighting and Oil",
+      "summary": "Metal Lantern (carried and placed), Lantern Oilwell, Copper Brazier, Copper Oil Flask, rendered and fish oil, and liquid-oil refuelling.",
+      "paths": ["**/*Lantern*", "**/*Brazier*", "**/*OilFlask*", "CardData/**/Oil.json", "CardData/**/Bp_Oil.json", "CardData/**/Bp_RenderFishOil.json"]
+    },
+    {
+      "id": "cookware",
+      "name": "Cookware, Heating and Preserved Food",
+      "summary": "Copper Stove and stove top mold, Cauldron, Tea Kettle, Wearable Metal Pan, Tinned Storage Pot, Bedwarming Pan, salt-cured meat and fish, and the heat/melt-fat/kettle/hammer-slot patches.",
+      "paths": ["**/*Stove*", "**/*Cauldron*", "**/*TeaKettle*", "**/*Tea_Kettle*", "**/*MetalPan*", "**/*WearableCopperPan*", "**/*PanBlank*", "**/*TinnedPot*", "**/*TinnedStoragePot*", "**/*Bedwarming*", "**/*SaltCured*",
+                "Patcher/HeatHeldLiquidPatch.cs", "Patcher/PanMeltFatPatch.cs", "Patcher/VanillaFireKettlePatch.cs", "Patcher/HammerGroupPatch.cs"]
+    },
+    {
+      "id": "tea",
+      "name": "Tea Blending",
+      "summary": "Tea Blending Station (kit, placed, lit), the calming, focus and warming teas, and its perk.",
+      "paths": ["**/*TeaBlending*", "**/*Tea_Station*", "**/*TeaStation*", "**/*CalmingTea*", "**/*FocusTea*", "**/*WarmingTea*"]
+    },
+    {
+      "id": "bathing",
+      "name": "Copper Bathtub",
+      "summary": "Copper Bathtub (kit, empty, full, warm; carried and placed) and its two perks.",
+      "paths": ["**/*Bathtub*"]
+    },
+    {
+      "id": "hauling",
+      "name": "Wheelbarrow and Storage",
+      "summary": "Wheelbarrow and its parts (bucket, handles, wheel hub, rim, assembly), Copper Pantry, Ore Bin, and the wheelbarrow perks.",
+      "paths": ["**/*Wheel*", "**/*Pantry*", "**/*OreChest*"]
+    },
+    {
+      "id": "tools",
+      "name": "Tools and Utility",
+      "summary": "Large Copper and Iron Saws, Grappling Hook, Tool Belt and its equipment slot, Cautery Iron and its burn stat, Copper Shears, Watering Can, Spigots and sap bucket, Copper-Rim Chamberpot.",
+      "paths": ["**/*LargeSaw*", "**/*Large_Saw*", "**/*SawEffect*", "**/*Grappling*", "**/*ToolBelt*", "ScriptableObject/EquipmentTag/**", "**/*Cautery*", "GameStat/**",
+                "**/*Shears*", "**/*WateringCan*", "**/*Spigot*", "**/*SapBucket*", "**/*Chamberpot*"]
+    },
+    {
+      "id": "materials",
+      "name": "Metals and Materials",
+      "summary": "Iron Sheet, Iron Nail, Tin Ore and the Building Materials perk (the copper Metal Sheet, nails and solder live in the framework).",
+      "paths": ["**/*IronSheet*", "**/*IronNail*", "**/*TinOre*", "**/*BuildingMaterials*"]
+    },
+    {
+      "id": "modwide",
+      "name": "Mod-wide",
+      "modWide": true,
+      "summary": "Plugin entry, the shared loader (GameLoadPatch: armor repair host, UID lists), the partner blueprint gate, project files, player docs, card motion, and art tooling state.",
+      "paths": ["Plugin.cs", "GlobalUsing.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "PLAYER_GUIDE.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore",
+                "Features.json", "Modules.json", "Patcher/GameLoadPatch.cs", "Patcher/PartnerBlueprintGatePatch.cs", "CardData/Motion/**",
+                ".art/compositions.json", ".art/liquid_bowls.json", ".art/RUN_LOG.md", ".art/reference-uploads.json", ".art/review/**"]
+    }
+  ]
+}

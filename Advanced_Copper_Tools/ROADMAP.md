@@ -1,94 +1,104 @@
 # Roadmap: Advanced Copper Tools
-Version at time of writing: 1.18.10 (`CHANGELOG.md` `[Unreleased]` holds two 2026-10-19 fixes)
-Date: 2026-10-20
-Audit score: 10/10 - PASS (0 CRITICAL, 0 Design Gap, 0 open Warning; consolidated 2026-10-20)
-
-> **Rewritten 2026-10-20 after the consolidation.** Score 9 -> 10: the 2026-10-18 file deducted a point no
-> `/audit-mod` rubric line supports (`.audit/summary.md` "Score derivation"). Both Phase 1 rows of 2026-10-18
-> are done (`cbde015d3`, 2026-10-19), and W3 closed when harness row T2.1547 passed both branches
-> (2026-10-18, `8cab38b30`). The Phase 2 and Phase 3 content rows are removed: each is a Considered, not-selected
-> row in an archived plan (`.audit/ideas.md` "Already Planned" names where and why). ACT has no open feature
-> scope and no `Documentation/Plans/` folder; what remains is in-game verification.
+Version at time of writing: 1.18.13
+Date: 2026-10-23
+Audit score: 8/10 - PASS (0 CRITICAL, 0 Design Gap, 5 open Warning - all doc-honesty / version-consistency / cosmetic; consolidated 2026-10-23)
 
 ## Current State
 
-**Theme**: Mid-game copper-and-bronze metalworking - a comfort/throughput/light tier layered on vanilla
-metallurgy, fully multi-metal (copper -> ghost/tin/tin-bronze/white bronze -> iron) with SD4 metal-type gating
-end to end, fed by vanilla ore sources plus Stream Tin panning.
+**Theme**: Mid-to-late-game copper-and-bronze metalworking - metal sheets/nails/solder, multi-metal armor (six metals), heat/light/cooking stations, storage, a tool belt, and a tea-blending line. For players past the stone/early-copper tier who want a full metal crafting economy.
 
-**Content**: 76 items / 66 blueprints / 16 structures (CT2) / 7 perks / 132 custom images (135 sprite
-references: 132 mod PNGs, 3 vanilla sprites `Bowl_Clay`, `CastingMold`, `Fat`; 0 unresolved). No WorldMap,
-no SelfTriggeredAction, no Trigger JSON (the cave and WorldMap cards left in 1.18.9).
+**Content**: 76 item cards / 65 blueprints / 16 structures / 7 perks / 135 custom images
 
-**Stability**: 10/10 PASS - 0 CRITICAL, 0 Design Gap, 0 open Warning, 2 open Minor (M3 two blueprints at the
-12-DTP cap, by design; M4 four Debug-level catches in `TeaStationPatch.cs`, a note). Code-quality 10/10.
+**Stability**: Release-functional. Build is 0 errors / 0 warnings; EN/CN localization parity 1160/1160; bin/Release in sync; 0 cross-mod collisions (17 mods / 2622 UIDs indexed). The 5 open warnings are documentation and build-metadata cleanup, not gameplay defects.
 
-**Open work**: no open ACT retrospectives. The framework-wide `wikimod-old-save-load-crash` row is Pending
-Verification and is not ACT code. Two 2026-10-19 fixes are unreleased: the Wearable Metal Pan's Melt Fat
-action could never show (`3de186b1a`) and lit lanterns, oilwell and stove now show their own metal
-(`385c8eb16`, T2.1315).
+**Open work**: 5 docs/metadata warnings (W1-W5, see Phase 0), surfaced by the newest module run (modwide, `a3e7e9e4c`). No open or pending retrospective names this mod (the ACT-tagged retros are all Graduated/Archived).
 
-**Framework compliance**: Tier 2. `Api.ActionRouter` in `PanMeltFatPatch`, `SawEffectPatch`,
-`TeaStationPatch` and `TinOreSmeltPatch`; patchers registered one by one through `TryApply` in
-`Plugin.cs:36-44` (no `PatchAll()`), with `HeatHeldLiquidPatch` config-gated and `HammerGroupPatch` /
-`VanillaFireKettlePatch` invoked from `GameLoadPatch`. No deprecated patterns. Versions synced 1.18.10 x3.
-Chinese localization present (`SimpCn.csv`, parity clean 1038/1038 at the 2026-10-18 audit).
+**Framework compliance**: Tier 2. Five patchers registered via `TryApply`; uses `ActionRouter`/`SpawnService`-style idioms plus the compile-time `ArmorWardPatch`. No deprecated patterns (`DropCollectionGuardPatch` absent; no unfiltered hot-path prefixes; no `ModLoaderVerison`/`ModEditorVersion` in ModInfo). Since `ArmorWardPatch` (2026-10-22) ACT's DLL carries typed game references, so its `lib/Assembly-CSharp.dll` must be refreshed on every game update alongside the framework. The 1.18.13 liquid-oil refuel CIs require framework 2.28.9 (`GpTag_FW_Oil`); Nexus currently serves 2.28.8, so ACT 1.18.13 must ship batched with the framework.
 
 ---
 
-## Phase 0: Stabilize  *(skip - audit score 10/10, no open retrospectives)*
+## Phase 0: Docs & metadata cleanup
 
-Nothing open.
+> Nothing is broken in-game, but these 5 warnings keep the docs honest and gate the release ordering.
+> All are low-risk; W2 is first because it decides when ACT 1.18.13 can go to Nexus.
+
+| Item | Type | Priority | Complexity |
+|------|------|----------|------------|
+| W2: unify framework minimum to 2.28.9 across README:611 and ModInfo Description (CHANGELOG already says 2.28.9); ship ACT 1.18.13 batched with framework 2.28.9 | Version consistency / release gate | P0 | Quick |
+| W1: delete the retired Render Hemp Seed Oil rows from PLAYER_GUIDE.md:274,280 and fix ROADMAP/other stale wording; optionally note hemp seed oil now burns in the lamps directly | Docs-honesty (over-claim) | P0 | Quick |
+| W3: add the README:388 Pour/Fill-from-Container paragraph to PLAYER_GUIDE.md lantern/flask section | Docs-honesty (under-claim) | P1 | Quick |
+| W4: fix the stale "(185 hits)" comment at GameLoadPatch.cs:325 (wear is 250 x CancelledAtTick) | Code comment | P2 | Quick |
+| W5: point csproj HintPath at `lib\Assembly-CSharp.dll` instead of the April nstrip dll, rebuild, confirm resolution log unchanged | Build metadata | P2 | Quick |
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes rows are all met; one release step is owed.
+> Table-stakes health. All currently satisfied; listed as the standing maintenance baseline.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Release the `[Unreleased]` fixes (Melt Fat on the Wearable Metal Pan, per-metal lit art). Nexus serves ACT 1.18.10 (published 2026-10-18T03:39Z, `.claude/nexus-publish-status.json`), so the next version is 1.18.11: bump with `Development_Tools/Update-ModVersion.ps1`, then `/export-to-repo AdvancedCopperTools` and `/nexus-publish`. Both fixes are JSON, CSV and GIF data only. | Release hygiene | P1 | Quick |
+| Keep ModInfo / Plugin.cs / README versions in lockstep | Version hygiene | P1 | Quick (done - all 1.18.13) |
+| Keep EN/CN CSV parity on every text change | Localization | P1 | Quick (done - 1160/1160) |
+| Keep ACT `lib/Assembly-CSharp.dll` on the game-update refresh list (typed refs exist) | Framework compliance | P1 | Quick |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> No row. Every candidate on file is ruled out with a reason: the Copper Ore Crusher (owner gave the
-> stamp mill to WDI, 2026-10-01) and the Metal Alloying step (vanilla ships it), both in
-> `Documentation/Design/ACT_Content_Update_As_Built.md`'s Considered table. New scope starts as a plan under
-> `Documentation/Plans/AdvancedCopperTools/`.
+> No new core content is scheduled. Every forward idea that was ever on the backlog is now a drained
+> plan feature or a ruled-out "Considered, not selected" row (see `.audit/ideas.md`). The mod is
+> feature-complete for its current scope; do not re-propose a Considered row:
+>
+> - Copper Ore Crusher - vanilla already crushes ore; owner chose a WDI stamp mill (2026-10-01).
+> - Metal Alloying step - vanilla ships the bronze alloy crucible blueprints.
+> - Proximity warmth passive - vanilla fires have none to copy; the Warm Up / Wait by Fire slice shipped (1.17.0).
+> - Cave-lantern utility - the cave system was removed in 1.18.9 (owner decision).
+> - Copper Forge / Copper Still - vanilla Forge/Bloomery and `AlembicOn` already cover these.
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> No row. Proximity warmth shipped as far as a vanilla pattern exists (`ACT_Content_Update_As_Built.md`
-> feature 1, 1.17.0); the rest is a Considered row. The cave-lantern utility was retired on 2026-10-14 with
-> the cave system. Cross-mod hooks with H&F, Sirus23, WDI, CMC and the framework are all wired
-> (`.audit/ideas.md` Cross-Mod Opportunities).
+> All natural cross-mod hooks are already wired. Maintain them as partner mods version.
+
+| Integration | State | Coordination |
+|-------------|-------|--------------|
+| CSFFModFramework 2.28.9+ | Metal Sheet/Nail/Tin Solder + 7 blueprints ship in the framework under shared UIDs since ACT 1.18.0; liquid-oil refuel CIs need `GpTag_FW_Oil` (2.28.9) | Keep ACT's minimum framework in step with Nexus-served version before upload |
+| WaterDrivenInfrastructure | Tin Solder <-> Alloy Solder, Copper Nail <-> Rivets, Sheet <-> Cast Sheet; WDI owns the ore stamp mill | Bidirectional - watch for UID drift |
+| Community Mod Chest | River Bridge, Market Stall (consumes Copper Chest), Academy Armorer course gates the armor, Metallurgy grants Bronze Sheet | CMC consumes ACT content |
+| HerbsAndFungi | H&F herbs -> Tea Station teas; shared brew tag on Copper Cauldron; H&F oils and hemp seed oil burn directly in ACT's lamps (the standalone Render Hemp Seed Oil recipe was retired in 1.18.13) | Soft dep (recipes HIDE without H&F) |
+| Sirus23 Mod Collection | ACT-forged Copper Shears shear Sirus23 sheep | Recipe hidden without Sirus23 |
 
 ---
 
 ## Phase 4: Polish
 
+> No open art gaps. 135 custom PNGs; items/structures resolve to mod art or genuine vanilla sprites.
+> The open docs warnings W1/W3 (Phase 0) are the only description-accuracy items. Standing polish triggers:
+
 | Item | What | Complexity |
 |------|------|------------|
-| Verification-debt burn-down | Five ACT rows are `pending` in `.claude/playthrough-test-status.json` (read 2026-10-20): T2.1386 (Ore Bin ore-only filter) and the person-only art/feel rows T2.1309, T2.1310, T2.1314, T2.1315. Human-gated, not code work; they live in the tracker. | Medium (human) |
-| Refresh the stale sub-audits | items, blueprints, structures, images and perks reports (2026-06-22 to 2026-08-14) and critical-analysis (2026-10-18) predate the 2026-10-15 to 2026-10-19 content commits; a re-run puts their per-card rows on current content (no verdict change expected). | Quick |
+| Re-review any regenerated card art | If art is re-keyed/re-encoded, its sha1 changes and the review gallery reads it as changed | Quick |
+| Description pass on any behavior change | Keep ModInfo Description / README / CHANGELOG / PLAYER_GUIDE honest in the same commit (both directions - W1 over-claim and W3 under-claim were the current miss) | Quick |
 
 ---
 
 ## Long-term Vision
 
-At v1.18+, ACT is the complete mid-game metallurgy layer: graded sheets, a full copper/bronze/iron gear tree,
-heat sources that behave as vanilla fires, and parts shared with WDI and the framework. Its content scope is
-closed; its remaining value comes from verification, release cadence and game-update upkeep.
+Advanced Copper Tools has reached its intended scope: a complete copper-through-iron metalworking
+economy (parts, tools, armor in six metals, heat/light/cooking/storage stations, and a tea line) that
+dovetails with the framework's shared parts and with WDI, CMC, H&F and Sirus23. At the next major
+version the mod's role is stewardship, not growth - keep it building green against each new EA release,
+hold localization parity, keep the docs honest, and absorb partner-mod UID changes. A larger content
+addition would need a new design justification that does not duplicate vanilla or a partner mod; none
+currently qualifies.
 
-**Potential major additions** (not yet justified): none that is not already ruled out. The Copper Forge and
-the Copper Still are Considered rows in `Documentation/Design/ACT_Content_Update_As_Built.md` (vanilla and
-sibling-mod forges exist; vanilla `AlembicOn` already distils). Anything worth reviving belongs in a plan
-under `Documentation/Plans/AdvancedCopperTools/`, never a stub under `Documentation/Ideas/`.
+**Potential major additions** (not yet justified - revisit only if the metal economy's scope changes):
+- None open. Every prior candidate is a Considered-and-ruled-out row with its reason on disk.
+
+Anything that later clears that bar belongs in a new `Documentation/Plans/AdvancedCopperTools/` plan (or
+its Considered table, with the reason), never a stub under `Documentation/Ideas/`.
 
 ---
 
@@ -97,9 +107,9 @@ under `Documentation/Plans/AdvancedCopperTools/`, never a stub under `Documentat
 | Trigger | Action |
 |---------|--------|
 | After any new content phase | Run `/audit-mod AdvancedCopperTools` and update this roadmap |
-| Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, check CLAUDE.md EA notes, `/diagnose-log` |
+| Game version update | Run `/update-mod-version`, refresh ACT `lib/Assembly-CSharp.dll`, check CLAUDE.md EA notes, `/diagnose-log` |
 | After fixing a critical issue | Run `/critical-analysis AdvancedCopperTools` to verify the fix |
-| Before a release | Run `/export-to-repo AdvancedCopperTools` and bump the version |
+| Before a Nexus upload | Confirm ACT's minimum framework is <= the Nexus-served framework, or batch with the framework |
 
 ---
 
@@ -108,12 +118,10 @@ under `Documentation/Plans/AdvancedCopperTools/`, never a stub under `Documentat
 ```
 /audit-mod AdvancedCopperTools         - full health check, updates .audit/
 /critical-analysis AdvancedCopperTools - adversarial review
-/repair-items AdvancedCopperTools      - auto-fix item JSON issues
-/repair-blueprints AdvancedCopperTools - auto-fix blueprint JSON issues
+/code-quality AdvancedCopperTools      - C# reliability scan
 /build-mod AdvancedCopperTools         - build Release DLL
 /deploy-mods AdvancedCopperTools       - build + deploy to game
-/update-mod-version AdvancedCopperTools <ver> - bump version in all 3 files
-/export-to-repo AdvancedCopperTools    - push to public repo
+/nexus-publish upload AdvancedCopperTools - publish release + changelog
 ```
 
 ---

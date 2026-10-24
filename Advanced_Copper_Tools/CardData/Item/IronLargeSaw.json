@@ -353,10 +353,10 @@
       "CompatibleCards": {
         "TriggerCards": [],
         "TriggerTags": [],
-        "TriggerCardsWarpData": [
-          "advanced_copper_tools_oil"
+        "TriggerTagsWarpData": [
+          "tag_Oil"
         ],
-        "TriggerCardsWarpType": 3
+        "TriggerTagsWarpType": 3
       },
       "ReceivingCardChanges": {
         "ModType": 1,

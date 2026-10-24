@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.18.12
+**Version:** 1.18.13
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -11,14 +11,14 @@
 
 Advanced Copper Tools turns copper, and the other metals where it makes sense, into crafted gear for comfort, throughput and light. It runs on [CSFFModFramework](https://github.com/jscott3/CSFF_Mods), so blueprints appear in the right crafting tabs and perks appear on the Situational tab by themselves.
 
-The mod ships 66 blueprints, 76 items, 16 location and structure cards, 7 character perks, 1 effect stat, 1 equipment slot.
+The mod ships 65 blueprints, 76 items, 16 location and structure cards, 7 character perks, 1 effect stat, 1 equipment slot.
 
 | Area | What it covers | Section |
 |------|----------------|---------|
 | Base materials | Metal Sheet, Metal Nail and Tin Solder in every metal (shipped by the framework), Bronze Sheet, Iron Sheet, cast nails | Base Materials |
 | Fire and cooking | Small Copper Stove, Copper Brazier, Copper Tea Kettle, Copper Cauldron, Wearable Metal Pan | Small Copper Stove and following |
 | Tools | Large Saw (every metal), Iron Large Saw, Tool Belt, Cautery Iron, Copper Spigot, Copper Sap Bucket, Grappling Hook, Copper Shears, Copper Watering Can | Large Copper Saw and following |
-| Armor | Copper, Tin, Ghost Bronze, Tin Bronze, White Bronze and Iron suits (four pieces each) and three shields | Armor, Shields |
+| Armor | Helmet, Armor, Bracers, Greaves and Shield, each one card in copper, tin, ghost bronze, tin bronze, white bronze or iron | Armor, Shields |
 | Comfort | Copper Bathtub, Bedwarming Pan, Copper-Rim Chamberpot, Metal Lantern, Wheelbarrow | Copper Bathtub and following |
 | Food and drink | Salt-Cured Meat and Fish, rendered Oil, Tea Station and its three teas | Salt-Cured Meat, Tea Station, Teas |
 | Storage | Copper Chest (slow spoilage), Tinned Storage Pot, Ore Bin | Copper Chest, Tinned Storage Pot, Ore Bin |
@@ -33,7 +33,7 @@ Nearly every finished recipe needs 1 Tin Solder. Tin Ore, the only source of tin
 
 | Tab | Blueprints |
 |-----|-----------|
-| **Survival → Support** | Rendered Oil, Rendered Fish Oil, Render Hemp Seed Oil (with H&F), Salt-Cured Meat, Salt-Cured Fish |
+| **Survival → Support** | Rendered Oil, Rendered Fish Oil, Salt-Cured Meat, Salt-Cured Fish |
 | **Survival → Fire** | Copper Brazier |
 | **Metal & Clay → Metal Crafts** | Forged Pan Blank, Forged Wheel Rim, Forged Wheel Hub, Cast Wheel Hub; from the framework (2.28.0+): Metal Sheet, Forged Copper Nail, Cast Copper Nails, Forge Iron Nails, Forge Tin Solder, Iron Sheet, Bronze Sheet |
 | **Construction → Metal Tools** | Wearable Metal Pan, Large Copper Saw, Iron Large Saw, Lantern Oilwell, Copper Tea Kettle, Copper Oil Flask, Copper Cauldron, all armor pieces and shields, Bedwarming Pan, Tool Belt, Cautery Iron, Copper Spigot, Copper Sap Bucket, Grappling Hook, Copper Shears (with Sirus23), Copper Watering Can |
@@ -69,7 +69,7 @@ These blueprints and the Metal Sheet, Metal Nail and Tin Solder cards ship in CS
 - The Metal Lantern and Lantern Oilwell take any sheet, iron included, and become an Iron Lantern or Iron Lantern Oilwell from an Iron Sheet.
 - The Copper Brazier, Copper Watering Can, Copper Tea Kettle, Copper Chest, Ore Bin, Copper-Rim Chamberpot, Copper Spigot and Copper Sap Bucket take any sheet, iron included.
 - A nail of any metal fits every nail slot.
-- Each alloy armor suit takes only sheets of its own metal.
+- Each armor piece takes sheets of any one metal, iron included, and comes out in that metal.
 
 **What carries a metal.** The Metal Sheet, Shaped Metal Pan Head, Wearable Metal Pan, Stove Top, Copper Cauldron, Copper Oil Flask, Metal Lantern (all four forms), Lantern Oilwell, Large Saw, nails and Small Copper Stove take their metal's name and picture. Art by Chiwei.
 
@@ -154,46 +154,37 @@ The same saw with a forged iron blade.
 
 ## Armor
 
-### Copper Armor Set
+### One armor card per piece, in every metal
 
-Copper armor protects specific body zones when worn, and each piece dismantles back into its materials. Armor value stays the same at any durability. Every helmet, armor, bracer and greave (all six metals) has 46080 durability, the same as vanilla leather armor, and it wears the same way: each enemy hit on its body zone wears 250 for every 15 minutes of the action the fight broke into (250 out of a Rest, 1000 out of a Relax). So a piece takes about 185 hits from fights that break into a quarter-hour action, and fewer from fights that break into longer ones. Pieces from before 1.18.9 are raised to 46080 when the save loads.
+There are five armor recipes: **Metal Helmet**, **Metal Armor**, **Metal Bracers**, **Metal Greaves** and **Metal Shield**. Build one from Metal Sheets of a single metal, copper, tin, ghost bronze, tin bronze, white bronze or iron, and the piece comes out in that metal: it is named and drawn for it (Tin Helmet, Iron Armor, White Bronze Shield) and has that metal's protection, weight, price and extras. Armor value stays the same at any durability. Every helmet, armor, bracer and greave has 46080 durability, the same as vanilla leather armor, and it wears the same way: each enemy hit on its body zone wears 250 for every 15 minutes of the action the fight broke into (250 out of a Rest, 1000 out of a Relax). So a piece takes about 185 hits from fights that break into a quarter-hour action, and fewer from fights that break into longer ones. Pieces from before 1.18.9 are raised to 46080 when the save loads.
 
-| Piece | Protection | Recipe | Build | Research |
+| Piece | Protection (copper) | Recipe | Build | Research |
 |-------|------------|--------|------:|-------:|
-| **Copper Helmet** | Head +30 | 2 metal sheets + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 24 h |
-| **Copper Bracers** | Arms +15 each | 2 heated metal lumps + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 24 h |
-| **Copper Greaves** | Legs +15 each | 2 heated metal lumps + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 24 h |
-| **Copper Armor** | Torso +30 | 4 metal sheets + 4 copper nails + 1 medium leather + 4 sinew + 1 Tin Solder + hammer | 1 h 30 min | 24 h |
+| **Metal Helmet** | Head 30 | 2 metal sheets of one metal + 4 metal nails + 1 small leather + 2 sinew + hammer | 1 h | 24 h |
+| **Metal Bracers** | Arms 15 each | 2 metal sheets of one metal + 4 metal nails + 1 small leather + 2 sinew + hammer | 1 h | 24 h |
+| **Metal Greaves** | Legs 15 each | 2 metal sheets of one metal + 4 metal nails + 1 small leather + 2 sinew + hammer | 1 h | 24 h |
+| **Metal Armor** | Torso 30 | 4 metal sheets of one metal + 4 metal nails + 1 medium leather + 4 sinew + hammer | 1 h 30 min | 24 h |
 
-The hammer is not used up. Holding a Metal Sheet makes the Helmet and Armor researchable; a Heated Metal Lump does the same for the Bracers and Greaves. Copper armor takes copper only.
+The hammer is not used up, and no piece needs Tin Solder. Holding any Metal Sheet makes the recipes researchable. Alloy sheets come from the **Bronze Sheet** blueprint: hammer a heated bar of that metal and the sheet keeps its metal. The bronzes come from the vanilla crucible recipes: Tin Bronze is 5 copper + 1 tin, White Bronze 4 copper + 2 tin, and Ghost Bronze 6 copper + 1 Witchstone (its fumes poison you while it smelts).
 
-### Alloy Armor Sets
-
-Four suits sit between Copper and Iron, one for each alloy the game can smelt. Hammer a heated bar of that metal on the **Bronze Sheet** blueprint and the sheet keeps its metal. A suit's recipes take only that metal, and its blueprints appear once you hold a sheet of it.
-
-The bronzes come from the vanilla crucible recipes: Tin Bronze is 5 copper + 1 tin, White Bronze 4 copper + 2 tin, and Ghost Bronze 6 copper + 1 Witchstone (its fumes poison you while it smelts).
-
-| Suit | Head / Torso | Arms / Legs (each) | Durability | Special |
+| Metal | Head / Torso | Arms / Legs (each) | Durability | Special |
 |---|---:|---:|---:|---|
 | Copper | 30 | 15 | 46080 | the cheap first suit |
-| Tin | 32.5 | 16 | 46080 | the lightest metal suit; no Tin Solder and 2 copper nails a piece |
-| Ghost Bronze | 35 | 16.5 | 46080 | +12.5 head and torso, +7.5 each arm and leg against spiritual attacks; each piece makes Fear fall 0.25 faster every 15 minutes |
+| Tin | 32.5 | 16 | 46080 | the lightest metal suit |
+| Ghost Bronze | 35 | 16.5 | 46080 | wards against spiritual attacks (47.5 head and torso, 24 each arm and leg); each piece makes Fear fall 0.25 faster every 15 minutes |
 | Tin Bronze | 37.5 | 17.5 | 46080 | the middle bronze |
 | White Bronze | 42.5 | 19 | 46080 | +3 Courage per piece |
-| Iron | 45 | 20 | 46080 | the best raw protection |
+| Iron | 45 | 20 | 46080 | the best raw protection; rusts when wet (below) |
 
-Against an attack that is purely spiritual, Ghost Bronze out-blocks iron: 47.5 on the head and torso, 24 on each limb. No vanilla animal strikes that way (wolves, bears and boars bite and bash; foxes, badgers and beavers bite and claw), so against wildlife Ghost Bronze is plain bronze armor, and its Fear relief is what sets it apart.
+Against an attack that is purely spiritual, Ghost Bronze out-blocks iron. No vanilla animal strikes that way (wolves, bears and boars bite and bash; foxes, badgers and beavers bite and claw), so against wildlife Ghost Bronze is plain bronze armor, and its Fear relief is what sets it apart. Worn armor weighs nothing; carried, the copper pieces weigh 250 / 400 / 200 / 300 (helmet / armor / bracers / greaves), and the other metals as they did before the merge.
 
-| Piece | Recipe (any alloy suit) | Build | Research |
-|-------|--------|------:|------:|
-| **Helmet** | 2 sheets + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 24 h |
-| **Bracers** | 2 sheets + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 24 h |
-| **Greaves** | 2 sheets + 4 copper nails + 1 small leather + 2 sinew + 1 Tin Solder + hammer | 1 h | 24 h |
-| **Armor** | 4 sheets + 4 copper nails + 1 medium leather + 4 sinew + 1 Tin Solder + hammer | 1 h 30 min | 24 h |
+Iron Armor comes out cut for a man. **Refit for a woman** and **Refit for a man** switch the cut for free, picture included.
 
-Tin pieces use 2 copper nails and no Tin Solder. Dismantling a piece returns sheets of its own metal, and a furnace melts it back into nuggets of that metal. The suit called "Bronze" before 1.18.0 is now Tin Bronze, and pieces you already have keep working.
+Dismantling a piece returns its sheets and 4 nails, all of its own metal, plus its leather and sinew; a furnace melts it back into nuggets of that metal (see Smelting Recovery).
 
-With Community Mod Chest installed, the Village Academy's Armorer course teaches every armor recipe and all three shields instead of normal research.
+**Armor from before 1.18.13.** Until 1.18.12 every metal had its own card and recipe (twenty-eight of them). A piece you already have becomes the new card of the same metal by itself within a quarter of an hour of game time, keeping its wear, and stays on you if you were wearing it; its **Reforge** button does it at once. Old Iron Armor keeps its cut. An old iron piece's Oil Coat does not carry over, so oil it again. A recipe you had learned for any metal counts for the new recipe of that piece.
+
+With Community Mod Chest installed, the Village Academy's Armorer course hands over the five armor recipes early; without it they are researched normally.
 
 ### Rust and the oil coat (iron gear)
 
@@ -206,17 +197,20 @@ Iron armor (Helmet, Armor, Bracers, Greaves), the Iron Shield and the Iron Large
 
 ## Shields
 
-Three wooden shields faced with metal, held in hand like the vanilla wooden Shield. They draw blows toward the shield arm, and each dismantles (30 minutes) into its own sheets, a plank, nails and a medium leather, all in usable form. Each recipe takes only its own metal's sheets.
+The **Metal Shield** is a wooden shield faced with metal, held in hand like the vanilla wooden Shield. It draws blows toward the shield arm. Build it from 3 metal sheets of one metal + 1 plank + 4 metal nails + 1 medium leather + hammer (build 1 h, research 6 h, researchable once you hold any Metal Sheet); it comes out in that metal. It dismantles (30 minutes) into its own sheets and nails, a plank and a medium leather, all in usable form.
 
-| Shield | Recipe | Left arm armor (spiritual) | Durability | Weight (carried) | Smelts to |
-|--------|--------|:--:|:--:|:--:|:--:|
-| **Copper Shield** | 3 copper sheets + 1 plank + 4 copper nails + 1 medium leather + 1 Tin Solder + hammer; build 1 h, research 6 h; researchable once you hold a Metal Sheet | 80 (130) | 5000 | 800 (400) | 22 copper nuggets |
-| **Iron Shield** | 3 Iron Sheets + 1 plank + 4 metal nails of any metal + 1 medium leather + hammer, no Tin Solder; build 1 h, research 8 h; researchable once you hold an Iron Sheet | 95 (145) | 6500 | 1000 (500) | 30 iron nuggets |
-| **Ghost Bronze Shield** | 3 Ghost Bronze sheets + 1 plank + 4 copper nails + 1 medium leather + 1 Tin Solder + hammer; build 1 h, research 10 h; researchable once you hold a Ghost Bronze sheet | 85 (165) | 5500 | 850 (425) | 25 Ghost Bronze nuggets |
+| Shield | Left arm armor (spiritual) | Durability | Weight carried (held) | Smelts to |
+|--------|:--:|:--:|:--:|:--:|
+| **Copper Shield** | 80 (130) | 5500 | 800 (375) | 25 copper nuggets |
+| **Tin Shield** | 82.5 (132.5) | 5500 | 825 (400) | 25 tin nuggets |
+| **Ghost Bronze Shield** | 85 (165) | 5500 | 850 (425) | 25 Ghost Bronze nuggets |
+| **Tin Bronze Shield** | 87.5 (137.5) | 5500 | 900 (475) | 25 Tin Bronze nuggets |
+| **White Bronze Shield** | 92.5 (142.5) | 5500 | 950 (525) | 25 White Bronze nuggets |
+| **Iron Shield** | 95 (145) | 5500 | 1000 (575) | 25 iron nuggets |
 
 - The vanilla wooden Shield blocks 75 (125 against spiritual attacks) with 5000 durability. The Iron Shield blocks the most against any blow. The Ghost Bronze Shield blocks a little less overall but wards off spiritual attacks better than any other shield.
 - Shields stay in your combat armor after a save loads, like the rest of ACT's armor.
-- The Iron and Ghost Bronze Shield numbers are placeholders for tuning.
+- The Tin, Tin Bronze and White Bronze Shields are new in 1.18.13; their numbers are first picks between the copper, ghost bronze and iron shields and, like the rest of the shield numbers, placeholders for tuning.
 
 ---
 
@@ -391,11 +385,12 @@ The **Oil** card is rendered animal fat or fish. It is both food and lamp fuel.
 
 **Any lamp oil burns** in the lantern, the brazier and the oil flask, not only ACT's. With Herbs and Fungi installed, its hemp seed, linseed, peanut and truffle oils and its seven herbal oils all work. Each clay bowl adds 48 fuel (55.2 in the Metal Lantern) and gives the bowl back.
 
+**Liquid oil from a container** works too: drag a clay bowl, pot or other water container holding melted fat (the base game's rendered fat) or another mod's liquid oil onto the lantern, oilwell, brazier or flask (**Pour Oil from Container**, **Fill from Container** on the flask). Each pour takes up to 300 units, a full clay bowl, and adds the same fuel as a bowl of oil; less liquid adds less fuel. The container stays with you.
+
 | Blueprint | Recipe | Build | Research |
 |-----------|--------|------:|------:|
 | **Rendered Oil** | 2 animal fat + 1 clay bowl | 1 h | 12 h |
 | **Rendered Fish Oil** | 2 fatty fish meat + 1 clay bowl | 1 h | 4 h |
-| **Render Hemp Seed Oil** | 1 Herbs and Fungi Hemp Seed Oil makes 1 Oil (hidden without Herbs and Fungi; a save that already learned it keeps it) | 1 h | 4 h |
 | **Lantern Oilwell** | 1 metal sheet + 1 twine + 1 Tin Solder + hammer (not used up) | 30 min | 12 h |
 | **Metal Lantern** | 1 metal sheet + 1 Lantern Oilwell + 1 copper wire + 1 parchment + 1 fat + hammer (not used up) | 30 min | 12 h |
 | **Copper Oil Flask** | 2 metal sheets + 1 medium leather + 1 Tin Solder + hammer (not used up) | 45 min | 4 h |
@@ -549,24 +544,21 @@ Every crafted metal item melts back into nuggets in the furnace, in 2 hours each
 | Wearable Metal Pan | 5 |
 | Metal Sheet (any metal, iron included) / Wheel Hub / Wheel Rim / Stove Top Mold / Stove Top / Lantern Oilwell / Copper-Rim Chamberpot | 6 |
 | Copper Watering Can | 10 |
-| Copper Bracers | 11 |
 | Wheel Assembly | 12 |
-| Tin, Ghost Bronze, Tin Bronze or White Bronze Bracers | 13 |
-| Copper Helmet / Copper Greaves / Iron Bracers | 15 |
+| Metal Bracers (any metal) | 13 |
 | Large Copper Saw | 16 |
-| Tin, Ghost Bronze, Tin Bronze or White Bronze Helmet / Greaves | 17 |
+| Metal Helmet / Metal Greaves (any metal) | 17 |
 | Metal Lantern / Copper Tea Kettle | 18 |
-| Iron Helmet / Iron Greaves / Iron Large Saw | 20 |
-| Copper Brazier / Copper Shield | 22 |
-| Copper Armor | 23 |
-| Ghost Bronze Shield (Ghost Bronze nuggets) | 25 |
-| Tin, Ghost Bronze, Tin Bronze or White Bronze Armor | 26 |
-| Small Copper Stove / Copper Chest / Iron Armor (Male) / Iron Armor (Female) / Iron Shield | 30 |
+| Iron Large Saw | 20 |
+| Copper Brazier | 22 |
+| Metal Shield (any metal) | 25 |
+| Metal Armor (any metal) | 26 |
+| Small Copper Stove / Copper Chest | 30 |
 | Copper Cauldron | 34 |
 | Tea Station Kit / Wheelbarrow Bucket | 48 |
 | Copper Bathtub | 78 |
 
-Alloy and iron armor, the Iron Large Saw, the Iron and Ghost Bronze Shields, and a Metal Sheet, Large Saw, nail, Small Copper Stove, Stove Top Mold, Stove Top, Copper Cauldron, Wheelbarrow Bucket, Metal Lantern or Lantern Oilwell of any metal return nuggets of their own metal. Everything else returns copper nuggets unless the table says otherwise.
+Armor and shields of every metal, the Iron Large Saw, and a Metal Sheet, Large Saw, nail, Small Copper Stove, Stove Top Mold, Stove Top, Copper Cauldron, Wheelbarrow Bucket, Metal Lantern or Lantern Oilwell of any metal return nuggets of their own metal. Everything else returns copper nuggets unless the table says otherwise.
 
 ---
 
@@ -574,7 +566,7 @@ Alloy and iron armor, the Iron Large Saw, the Iron and Ghost Bronze Shields, and
 
 Tin Ore comes only from panning. Wherever a river is on the board, the Wearable Metal Pan offers **Pan for Stream Tin**: an hour of work with a 35% chance of one Tin Ore. Each try wears the pan by 1 of its 100 uses. The Shaped Metal Pan Head cannot pan until it is made into the wearable pan.
 
-Smelt Tin Ore in a forge or furnace at 900°C for tin nuggets, then forge them into Tin Solder with **Forge Tin Solder**.
+Smelt Tin Ore in a forge or furnace at 900°C for tin nuggets (Metal Type 120, Metal Quality taken from the ore's Quality), then forge them into Tin Solder with **Forge Tin Solder**. Up to 1.18.12 a tin ore smelted inside a forge or furnace came out as a copper nugget; since 1.18.13 the ore's own drop sets the metal, with no code involved.
 
 Greenstone, bog iron, salt and stone come from their usual places in the base game.
 
@@ -604,11 +596,11 @@ For modders. Each hook is scoped to this mod's own cards unless noted.
 
 - **`SawEffectPatch`**: an ActionRouter `AfterWrapped` handler. Adds the per-metal extra Progress (Large Saw) or -50 (Iron Large Saw) when a saw is dragged onto one of the four large-tree GUIDs.
 - **`TeaStationPatch`**: two ActionRouter handlers. Resolves Grind All for both station forms once the action's time is spent, and fixes Draw Boiled Water after JSON fills the bowl.
-- **`GameLoadPatch`**: a `LoadMainGameData` postfix. Every Metal Nail slot also accepts an old Iron Nail, and only the seven iron recipes accept an old Iron Sheet.
-- **`GameLoadPatch` (armor)**: prefixes `EncounterPopup.GenerateAndApplyPlayerWound` and subscribes to `GameManager.OnGMInitialized`, keeping equipped and carried ACT armor and shields in the game's combat armor list, including after a save loads.
-- **`TinOreSmeltPatch`**: an ActionRouter hook on Tin Ore smelting. Sets the nugget's Metal Type (SpecialDurability4) to tin and carries the ore's Quality to the nugget's Metal Quality (SpecialDurability2).
+- **`GameLoadPatch`**: a `LoadMainGameData` postfix. Every Metal Nail slot also accepts an old Iron Nail, and only the Iron Large Saw and the five armor recipes accept an old Iron Sheet.
+- **`GameLoadPatch` (armor)**: prefixes `EncounterPopup.GenerateAndApplyPlayerWound` and subscribes to `GameManager.OnGMInitialized`, keeping equipped and carried ACT armor and shields in the game's combat armor list, including after a save loads. It also raises a piece saved before 1.18.9 to leather-parity durability once, on the old card or the merged one.
+- **`ArmorWardPatch`**: a postfix on `CardData.ArmorValueMultiplier`, active only while `GenerateAndApplyPlayerWound` is rolling a blow whose every damage type is spiritual. For the five merged armor cards it returns the multiplier that gives each metal its spiritual armor (table in `ArmorWardTable.cs`); any other blow, card or caller is left alone.
 - **`HammerGroupPatch`**: fills `GpTag_ACT_ShapingHammer`, the hammer slot of the pan blank, wearable pan and stove blueprints, with the forge hammer, mallet, stone, antler and shovel.
-- **`PartnerBlueprintGatePatch`**: a `GameManager.InitializeStatsAndActions` postfix over (blueprint, partner card) rows. Copper Shears needs Sirus23's `sh_shears`; Render Hemp Seed Oil needs H&F's `herbs_fungi_hemp_seed_oil`. A missing partner hides that blueprint unless it is already researched.
+- **`PartnerBlueprintGatePatch`**: a `GameManager.InitializeStatsAndActions` postfix over (blueprint, partner card) rows. Copper Shears needs Sirus23's `sh_shears`. A missing partner hides that blueprint unless it is already researched.
 - **`HeatHeldLiquidPatch`**: off by default. Enable `Compatibility.EnableLegacyStationLiquidHeater` only for old beta layouts where a lit Tea Station stores liquid on the station card itself.
 - **`VanillaFireKettlePatch`**: the one hook that edits vanilla cards, described under Compatibility.
 
@@ -616,12 +608,12 @@ For modders. Each hook is scoped to this mod's own cards unless noted.
 
 ## Installation
 
-**Requirements:** BepInEx 5.x, CSFFModFramework 2.28.5 or later (it ships the Metal Sheet, Metal Nail and Tin Solder this mod builds with, and moves a save made inside one of the caves removed in 1.18.9 to the Waterfall Caves), and Card Survival: Fantasy Forest (EA 0.69c).
+**Requirements:** BepInEx 5.x, CSFFModFramework 2.28.9 or later (it ships the Metal Sheet, Metal Nail and Tin Solder this mod builds with, moves a save made inside one of the caves removed in 1.18.9 to the Waterfall Caves, and carries the oil tag group that lets the lamps take liquid oil from a container), and Card Survival: Fantasy Forest (EA 0.69c).
 
 1. Install BepInEx if you have not already.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Put this mod's folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.12 loaded.`
+4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.13 loaded.`
 
 ### Configuration
 
@@ -640,7 +632,6 @@ The optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.C
 - Works alongside Herbs and Fungi, Water-Driven Infrastructure, RepeatAction and other framework-based mods. Load order does not matter.
 - Needs CSFFModFramework and no other content mod.
 - With Sirus23 Mod Collection installed, the Copper Shears shear its tame sheep. Without it their recipe is hidden. ACT changes no Sirus23 file.
-- Render Hemp Seed Oil uses a Herbs and Fungi card. Without Herbs and Fungi its recipe is hidden.
 - **Vanilla fires:** ACT adds the Copper Tea Kettle and Copper Cauldron to the cards that the Campfire, Fireplace, Fire Pit, their put-out forms, the Hearth, the Awakened Hearth and the lit Oven accept, plus a heating recipe for those two cards. The lit Oven takes the kettle only.
 - ACT never changes a fire's weight capacity, never touches the Sauna Stove, and never lets a fire accept or heat other vanilla items.
 - Safe to add to an existing save. Safe to remove: the mod's items disappear without corrupting the save.
@@ -648,13 +639,13 @@ The optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.C
 ### Depended on by
 
 - **Water-Driven Infrastructure** (optional): fully playable without ACT, and both mods build with the framework's shared Metal Nail, Tin Solder and Metal Sheet. With ACT installed, WDI's Blast melts ACT's metal items, a lit Copper Brazier counts as winter heat for its stations, its two bronze gears appear, and a running outlet fills an empty placed Copper Bathtub.
-- **Community Mod Chest** (optional): loads without ACT. With ACT, the Copper Chest can stand in for the Storage Chest in the Market Stall kit, and the Village Academy's Armorer course teaches every ACT armor and shield recipe.
+- **Community Mod Chest** (optional): loads without ACT. With ACT, the Copper Chest can stand in for the Storage Chest in the Market Stall kit, and the Village Academy's Armorer course hands over ACT's five armor recipes early.
 
 ---
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.12 loaded.`
+**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.13 loaded.`
 
 **Pan or kettle won't boil?** It must sit on a lit fire with fuel left, and hold a liquid the game can heat.
 
@@ -670,6 +661,7 @@ The optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.C
 
 Full detail for every version is in `CHANGELOG.md`.
 
+- **1.18.13:** each armor piece is one card and one recipe in every metal (Metal Helmet, Armor, Bracers, Greaves, Shield), with the old numbers per metal; new Tin, Tin Bronze and White Bronze Shields; one recipe list for every metal, no Tin Solder; every shield 5500 durability; Iron Armor's cut switches with Refit; old armor turns into the new cards by itself and learned recipes carry over. Lamps take liquid oil from a container, any oil coats iron, and smelted Tin Ore makes a tin nugget again.
 - **1.18.12:** the Tea Station recipe names its 15 Heavy Stones; the mod list description is up to date (Partner refuelling, Tinned Storage Pot, Iron Lantern and Oilwell, rust and the Oil Coat).
 - **1.18.11:** Melt Fat on the Wearable Metal Pan shows once the pan is half hot (it never showed before); a lit lantern, oilwell or stove of any metal shows that metal's picture instead of copper's; the women's Iron Armor has a new, plain picture; building a Tinned Storage Pot makes a sound.
 - **1.18.10:** the Metal Lantern and Lantern Oilwell come in iron and melt back to their own metal; iron gear rusts while you are wet unless you give it an Oil Coat of Fat or Oil; the new Tinned Storage Pot slows spoilage to 50%; Salt-Cured Meat and Fish give Proteins. The animated copper pictures sit where their still pictures do, and a wandering hare on your board no longer logs a false error.

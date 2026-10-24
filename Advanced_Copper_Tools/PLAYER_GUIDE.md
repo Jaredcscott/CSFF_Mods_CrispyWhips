@@ -13,7 +13,7 @@ Before anything else, smelt copper and get a hammer. Every recipe in this mod fl
 3. **Wearable Metal Pan** (portable cooking + water purification)
 4. **Copper Tea Kettle** (boiling water on a fire or stove)
 5. **Large Copper Saw** (faster wood supply)
-6. **Copper Armor Set** (helmet, bracers, greaves, torso armor), then the alloy suits
+6. **Metal Armor** (helmet, bracers, greaves, torso armor and shield), copper first, then the other metals
 7. **Metal Lantern + Oil Chain** (portable night light)
 8. **Wheelbarrow** (haul more weight)
 9. **Copper Cauldron** (batch cooking)
@@ -38,9 +38,9 @@ The building blocks of everything else in the mod.
 | **Iron Sheet** | 6 iron nuggets + hammer (not consumed); a Metal Sheet of iron | 4 ticks |
 | **Forge Iron Nails** | 4 iron nuggets + hammer (not consumed); 4 Metal Nails of iron | 4 ticks |
 
-**One sheet card, one nail card:** every sheet is the one Metal Sheet card and every nail the one Metal Nail card, iron included: an Iron Sheet is a Metal Sheet of iron and an Iron Nail a Metal Nail of iron, each with its own name and picture. Iron recipes (iron armor, the Iron Shield, the Iron Large Saw) take only Iron Sheets. The recipes whose product takes the sheet's metal but has no iron form (Small Copper Stove, Large Saw, Copper Cauldron, Copper Oil Flask, Forged Pan Blank, Lantern Oilwell, Metal Lantern, Wheelbarrow Bucket) refuse Iron Sheets. An Iron Sheet or Iron Nail from an older save turns into the new card by itself within a quarter of an hour, or at once with its **Reforge** button.
+**One sheet card, one nail card:** every sheet is the one Metal Sheet card and every nail the one Metal Nail card, iron included: an Iron Sheet is a Metal Sheet of iron and an Iron Nail a Metal Nail of iron, each with its own name and picture. Iron recipes (iron armor, the Iron Shield, the Iron Large Saw) take only Iron Sheets. The recipes whose product takes the sheet's metal but has no iron form (Small Copper Stove, Large Saw, Copper Cauldron, Copper Oil Flask, Forged Pan Blank, Wheelbarrow Bucket) refuse Iron Sheets. The Lantern Oilwell and Metal Lantern take any sheet, iron included, and an Iron Sheet makes an Iron Lantern Oilwell or Iron Lantern. An Iron Sheet or Iron Nail from an older save turns into the new card by itself within a quarter of an hour, or at once with its **Reforge** button.
 
-**Sheet metal types:** all three sheet recipes make the same Metal Sheet card, named for the metal it was hammered from (Copper Sheet, Ghost Bronze Sheet and so on). Each alloy armor suit needs sheets of its own metal, so it matters which one you pick up. Sheets of different metals pile together; use the pile's expand toggle to spread them out and drag the one you want. Nails take the metal of their nugget (Tin Nail, White Bronze Nail and so on), but a nail of any metal works the same in every recipe. Sheets, pan heads, pans, stove tops, cauldrons, nails, Large Saws and Small Stoves each show their own metal's picture (art by Chiwei), except that a pan head heated above 150 Temperature shows one glowing picture for every metal; the Stove Top Mold and the Oil Flask still show one picture for every metal.
+**Sheet metal types:** all three sheet recipes make the same Metal Sheet card, named for the metal it was hammered from (Copper Sheet, Ghost Bronze Sheet and so on). An armor piece takes the metal of its sheets, so it matters which one you pick up. Sheets of different metals pile together; use the pile's expand toggle to spread them out and drag the one you want. Nails take the metal of their nugget (Tin Nail, White Bronze Nail and so on), but a nail of any metal works the same in every recipe. Sheets, pan heads, pans, stove tops, cauldrons, nails, Large Saws and Small Stoves each show their own metal's picture (art by Chiwei), except that a pan head heated above 150 Temperature shows one glowing picture for every metal; the Stove Top Mold and the Oil Flask still show one picture for every metal.
 
 **Smelting back:** Most metal items melt back down to nuggets in a hot forge; see Smelting Recovery below.
 
@@ -129,45 +129,48 @@ It adds **−25 Progress** while sharp, so −50 per swing: a large pine or will
 
 ---
 
-## Copper Armor Set
+## Metal Armor
 
-Four copper armor pieces can be equipped for body-zone protection. They are crafted in **Construction → Metal Tools**; the Helmet and Armor unlock once you have a Metal Sheet, the Bracers and Greaves once you have a Heated Metal Bar. They take copper only: a tin, bronze or iron sheet or bar does not fit.
+Five armor recipes in **Construction → Metal Tools**: **Metal Helmet**, **Metal Armor**, **Metal Bracers**, **Metal Greaves** and **Metal Shield**. They unlock once you hold any Metal Sheet. Build one from sheets of a single metal and it comes out in that metal, with that metal's name, picture, protection, weight and extras: copper, tin, ghost bronze, tin bronze, white bronze or iron. Alloy sheets come from the **Bronze Sheet** blueprint (hammer a heated bar of that metal).
 
-| Piece | Protects | Requirements |
+| Piece | Protects (copper) | Requirements |
 |-------|----------|--------------|
-| **Copper Helmet** | Head +30 | 2 metal sheets + 4 copper nails + 1 small leather + 2 sinew + hammer + 1 Tin Solder |
-| **Copper Bracers** | Arms +15 each | 2 heated metal bars + 4 copper nails + 1 small leather + 2 sinew + hammer + 1 Tin Solder |
-| **Copper Greaves** | Legs +15 each | 2 heated metal bars + 4 copper nails + 1 small leather + 2 sinew + hammer + 1 Tin Solder |
-| **Copper Armor** | Torso +30 | 4 metal sheets + 4 copper nails + 1 medium leather + 4 sinew + hammer + 1 Tin Solder |
+| **Metal Helmet** | Head 30 | 2 metal sheets of one metal + 4 metal nails + 1 small leather + 2 sinew + hammer |
+| **Metal Bracers** | Arms 15 each | 2 metal sheets of one metal + 4 metal nails + 1 small leather + 2 sinew + hammer |
+| **Metal Greaves** | Legs 15 each | 2 metal sheets of one metal + 4 metal nails + 1 small leather + 2 sinew + hammer |
+| **Metal Armor** | Torso 30 | 4 metal sheets of one metal + 4 metal nails + 1 medium leather + 4 sinew + hammer |
 
-The hammer is used as a tool and is not consumed. Each piece melts back down to nuggets in a forge (see Smelting Recovery). At full durability, the complete copper set fills the Armor stat when worn over the usual leather gloves, shoes, tunic, and trousers.
+The hammer is used as a tool and is not consumed, and no piece needs Tin Solder. Each piece melts back down to nuggets of its own metal in a forge (see Smelting Recovery), and dismantles into sheets and 4 nails of its own metal plus its leather and sinew. At full durability, a complete copper set fills the Armor stat when worn over the usual leather gloves, shoes, tunic, and trousers.
+
+| Metal (Metal Type) | Head / Torso | Arms / Legs (each) | Durability | Special |
+|---|---:|---:|---:|---|
+| Copper (100) | 30 | 15 | 46080 | the cheap first suit |
+| Tin (120) | 32.5 | 16 | 46080 | the lightest metal suit |
+| Ghost Bronze (110) | 35 | 16.5 | 46080 | wards against spiritual attacks (47.5 head and torso, 24 each arm and leg); each piece makes Fear fall 0.25 faster per tick |
+| Tin Bronze (130) | 37.5 | 17.5 | 46080 | the middle bronze |
+| White Bronze (140) | 42.5 | 19 | 46080 | +3 Courage per piece |
+| Iron (200) | 45 | 20 | 46080 | the best raw protection; rusts when you are wet unless oiled |
+
+**Which one?** Ghost Bronze is for a frightened survivor: each piece makes Fear fall faster, and against a purely spiritual attack it blocks more than iron. No vanilla animal strikes that way (wolves, bears and boars bite and bash; foxes, badgers and beavers bite and claw), so in a wildlife fight it is plain bronze armor. White Bronze is the best armor short of iron and steadies your nerve. Tin is the step up when you have tin but no crucible. Tin Bronze sits between copper and White Bronze. Every piece lasts as long as vanilla leather armor and wears the same way: a hit costs 250 for every 15 minutes of the action the fight broke into, so a piece takes about 185 hits from fights that break into a quarter-hour action and fewer from fights that break into longer ones.
+
+Iron Armor comes out cut for a man; **Refit for a woman** and **Refit for a man** switch the cut for free.
+
+**Armor from before 1.18.13.** Each metal used to have its own card and recipe. A piece you already have becomes the new card of the same metal by itself within a quarter of an hour of game time, keeps its wear, and stays on you if you were wearing it (its **Reforge** button does it at once). An old iron piece loses its Oil Coat in the change, so oil it again. A recipe you had learned for any metal counts for the new recipe.
 
 ### Shields
 
-Three wooden shields faced with metal, all in **Construction → Metal Tools**. Equip one to hold it in hand, like the wooden Shield. It draws blows toward your shield arm. The wooden Shield gives 75 armor, or 125 against spiritual attacks, and lasts 5000. Dismantle any of them for sheets of their own metal, a plank, nails and a medium leather you can use. The numbers for the Iron and Ghost Bronze Shields are placeholders that may change.
+The **Metal Shield** is a wooden shield faced with metal: 3 metal sheets of one metal + 1 plank + 4 metal nails + 1 medium leather, hammer not consumed. Equip it to hold it in hand, like the wooden Shield; it draws blows toward your shield arm. The wooden Shield gives 75 armor, or 125 against spiritual attacks, and lasts 5000; every metal shield lasts 5500. Dismantle it for sheets and nails of its own metal, a plank and a medium leather you can use. The shield numbers are placeholders that may change; the Tin, Tin Bronze and White Bronze Shields are new in 1.18.13.
 
-| Shield | Recipe (hammer is not consumed) | Arm armor (vs spiritual) | Durability | Melts to |
-|---|---|:--:|:--:|:--:|
-| Copper Shield | 3 copper sheets + 1 plank + 4 copper nails + 1 medium leather + 1 Tin Solder, once you have a Metal Sheet | 80 (130) | 5000 | 22 copper nuggets |
-| Iron Shield | 3 iron sheets + 1 plank + 4 nails of any metal + 1 medium leather, once you have an Iron Sheet | 95 (145) | 6500 | 30 iron nuggets |
-| Ghost Bronze Shield | 3 Ghost Bronze sheets + 1 plank + 4 copper nails + 1 medium leather + 1 Tin Solder, once you have a Ghost Bronze sheet | 85 (165) | 5500 | 25 Ghost Bronze nuggets |
+| Shield | Arm armor (vs spiritual) | Durability | Melts to |
+|---|:--:|:--:|:--:|
+| Copper Shield | 80 (130) | 5500 | 25 copper nuggets |
+| Tin Shield | 82.5 (132.5) | 5500 | 25 tin nuggets |
+| Ghost Bronze Shield | 85 (165) | 5500 | 25 Ghost Bronze nuggets |
+| Tin Bronze Shield | 87.5 (137.5) | 5500 | 25 Tin Bronze nuggets |
+| White Bronze Shield | 92.5 (142.5) | 5500 | 25 White Bronze nuggets |
+| Iron Shield | 95 (145) | 5500 | 25 iron nuggets |
 
-The Iron Shield blocks the most against any blow. The Ghost Bronze Shield blocks a little less in general but is the best ward against spiritual attacks. No vanilla animal strikes with those, so against wildlife it is simply the middle shield. With Community Mod Chest, the Iron and Ghost Bronze Shields are not yet taught by the Armorer course and use normal research.
-
-### Alloy Armor Sets
-
-Tin, Ghost Bronze, Tin Bronze and White Bronze each make their own four-piece suit, from sheets of that metal only. Hammer a heated bar of the metal on the **Bronze Sheet** blueprint; the suit's recipes appear once you hold one of its sheets. Every piece needs the same things as its copper counterpart (2 sheets, or 4 for the Armor), except that Tin pieces use 2 copper nails and no Tin Solder.
-
-| Suit (Metal Type) | Head / Torso | Arms / Legs (each) | Durability | Special |
-|---|---:|---:|---:|---|
-| Copper (100) | 30 | 15 | 46080 | the cheap first suit |
-| Tin (120) | 32.5 | 16 | 46080 | the lightest metal suit; no Tin Solder and 2 copper nails a piece |
-| Ghost Bronze (110) | 35 | 16.5 | 46080 | +12.5 head and torso, +7.5 each arm and leg against spiritual attacks; each piece makes Fear fall 0.25 faster per tick |
-| Tin Bronze (130) | 37.5 | 17.5 | 46080 | the middle bronze |
-| White Bronze (140) | 42.5 | 19 | 46080 | +3 Courage per piece |
-| Iron (200) | 45 | 20 | 46080 | the best raw protection |
-
-**Which one?** Ghost Bronze is for a frightened survivor: each piece makes Fear fall faster, and against a purely spiritual attack it blocks more than iron. No vanilla animal strikes that way (wolves, bears and boars bite and bash; foxes, badgers and beavers bite and claw), so in a wildlife fight it is plain bronze armor. White Bronze is the best armor short of iron and steadies your nerve. Tin is the step up when you have tin but no crucible. Tin Bronze (the old "Bronze" set) sits between copper and White Bronze. Every suit lasts as long as vanilla leather armor and wears the same way: a hit costs 250 for every 15 minutes of the action the fight broke into, so a piece takes about 185 hits from fights that break into a quarter-hour action and fewer from fights that break into longer ones. Dismantle a piece for sheets of its own metal, or melt it for nuggets of that metal.
+The Iron Shield blocks the most against any blow. The Ghost Bronze Shield blocks a little less in general but is the best ward against spiritual attacks; against wildlife it is simply a middle shield. With Community Mod Chest, the Armorer course hands over all five armor recipes early.
 
 ---
 
@@ -241,7 +244,9 @@ A portable oil-burning light source that exists in four states: item/placed × l
 
 ### Fueling the Lantern
 
-Pour any lamp oil in a clay bowl (ACT's **Oil**, or with Herbs and Fungi installed its hemp seed, linseed, peanut, truffle and herbal oils) directly onto the unlit lantern and you get the bowl back, or drag a **Copper Oil Flask** onto it to pour in one bowl's worth per drag. Each bowl of oil is worth 48 fuel and the lantern holds 96, so two bowls fill it and it burns about 48 hours.
+Pour any lamp oil in a clay bowl (ACT's **Oil**, or with Herbs and Fungi installed its hemp seed, linseed, peanut, truffle and herbal oils) directly onto the unlit lantern and you get the bowl back, or drag a **Copper Oil Flask** onto it to pour in one bowl's worth per drag. Each bowl of oil adds 55.2 fuel to the lantern (48 to the oilwell, the brazier or the flask) and the lantern holds 96, so two bowls fill it and it burns about 48 hours.
+
+Liquid oil in a container works too: drag a clay bowl, pot or other water container holding melted fat (the base game's rendered fat) or another mod's liquid oil onto the unlit lantern, the Lantern Oilwell or the Copper Brazier (**Pour Oil from Container**), or onto the Copper Oil Flask (**Fill from Container**). Each pour takes up to 300 units of liquid, a full clay bowl, and adds the same fuel as a bowl of oil; less liquid adds less fuel. You keep the container.
 
 The **Lantern Oilwell** can be fuelled and lit on its own too: two bowls fill it for 24 hours of a smaller light. These numbers are tunable placeholders.
 
@@ -267,16 +272,13 @@ Rendered animal fat produces **Oil**, a lamp fuel that also provides nutrition i
 | Blueprint | Recipe | Where |
 |-----------|--------|-------|
 | **Rendered Oil** | 2 animal fat + 1 clay bowl | Support tab |
-| **Render Fish Oil** | 2 fatty raw fish meat + 1 clay bowl | Support tab |
-| **Render Hemp Seed Oil** | 1 hemp seed oil → 1 oil | Support tab (requires H&F installed) |
+| **Rendered Fish Oil** | 2 fatty raw fish meat + 1 clay bowl | Support tab |
 | **Lantern Oilwell** | 1 metal sheet + 1 twine + hammer + 1 Tin Solder | Metal Tools tab |
 | **Copper Oil Flask** | 2 metal sheets + 1 medium leather + hammer + 1 Tin Solder | Metal Tools tab |
 
-**Copper Oil Flask:** Holds 4 bowls of oil (192 fuel). Drag the flask onto an unlit lantern, oilwell or brazier to pour in one bowl's worth (48). A full flask refuels the lantern from empty to full twice over.
+**Copper Oil Flask:** Holds 4 bowls of oil (192 fuel). Drag the flask onto an unlit lantern, oilwell or brazier to pour in one bowl's worth: 48 out of the flask, and 55.2 into the Metal Lantern or 48 into the oilwell or brazier. A full flask refuels the lantern from empty to full twice over.
 
-**Render Hemp Seed Oil:** Requires the Herbs and Fungi mod to be installed (the hemp seed oil ingredient comes from H&F's oil press chain).
-
-**Any lamp oil works:** the lantern, the Copper Brazier and the oil flask take any lamp oil served in a clay bowl, not only rendered Oil, so you can burn Herbs and Fungi oils directly without converting them first.
+**Any lamp oil works:** the lantern, the Copper Brazier and the oil flask take any lamp oil served in a clay bowl, not only rendered Oil, so you can burn Herbs and Fungi oils, Hemp Seed Oil included, directly without converting them first. They also take liquid oil poured from a container (see Fueling the Lantern).
 
 ---
 
@@ -325,7 +327,7 @@ The pain, the stress and the hour of heat are tunable placeholders.
 
 A short forged copper spout. Set into a sap tap or a resin tap, it makes the tap run about three days instead of one.
 
-- **Craft it** in Construction → Metal Tools: 1 copper sheet + 1 tin solder. The recipe appears once you hold a Metal Sheet.
+- **Craft it** in Construction → Metal Tools: 1 metal sheet of any metal, iron included + 1 tin solder. The recipe appears once you hold a Metal Sheet.
 - **Fit it:** drag the spigot onto a placed Sap Tap or Resin Tap and choose Fit Spigot. The tap keeps its bowl and the sap in it.
 - **Remove it:** choose Remove Spigot on the fitted tap to get the plain tap, its bowl and the spigot back.
 - A fitted tap still needs a Refresh with a knife when its flow bar is empty, only about a third as often.
@@ -349,7 +351,7 @@ A small copper bucket that hangs in a tapped tree.
 Three copper prongs on a coil of rope. Carry it and every climb is more likely to succeed.
 
 - **Craft it** in Construction → Metal Tools: 3 copper nuggets + 1 rope, with a hammer. The recipe appears once you hold a metal nugget.
-- **Use it:** just carry it. It raises your Climbing Aid by 72 while it is anywhere on you, including inside a bag or basket you carry.
+- **Use it:** keep it in your item row. While it sits there it raises your Climbing Aid by 72; on the ground, or packed inside a bag or basket, it does nothing.
 - It never wears out, and it works on every climb because it raises the stat the game already uses for climbing.
 
 The +72 is a tunable placeholder.
@@ -370,7 +372,7 @@ The 30 uses are a tunable placeholder.
 
 ## Copper Brazier
 
-A copper fire-bowl on a stick tripod that burns lamp oil. Place the kit, pour in any lamp oil (24 per clay bowl, bowl returned) and light it with a fire source. While lit it lights a wide area and works like an open fire: it dries you out, keeps bugs and mosquitoes away, and makes you easier to spot. Use **Warm Up** or **Wait by Fire** on it to warm yourself. Extinguish it before refueling or packing it up; the oil left in it goes back into the kit.
+A copper fire-bowl on a stick tripod that burns lamp oil. Place the kit, pour in any lamp oil (48 per clay bowl, bowl returned, or liquid oil from a container with **Pour Oil from Container**) and light it with a fire source. While lit it lights a wide area and works like an open fire: it dries you out, keeps bugs and mosquitoes away, and makes you easier to spot. Use **Warm Up** or **Wait by Fire** on it to warm yourself. Extinguish it before refueling or packing it up; the oil left in it goes back into the kit.
 
 ---
 
@@ -489,15 +491,13 @@ Most metal items in this mod melt back down to nuggets. Put the item in a heated
 | Metal Nail (nuggets of its own metal, iron included) | 1 |
 | Metal Sheet (nuggets of its own metal, iron included) / Wheel Hub / Wheel Rim / Lantern Oilwell / Stove Top Mold / Copper-Rim Chamberpot | 6 |
 | Copper Watering Can | 10 |
-| Copper Bracers / Helmet / Greaves / Armor | 11 / 15 / 15 / 23 |
-| Tin, Ghost Bronze, Tin Bronze or White Bronze Bracers / Helmet / Greaves / Armor (nuggets of that metal) | 13 / 17 / 17 / 26 |
+| Metal Bracers / Helmet / Greaves / Armor / Shield (nuggets of its own metal) | 13 / 17 / 17 / 26 / 25 |
 | Wheel Assembly | 12 |
 | Large Copper Saw | 16 |
 | Metal Lantern | 18 |
 | Iron Large Saw | 20 |
-| Copper Brazier Kit / Copper Shield | 22 |
-| Ghost Bronze Shield (Ghost Bronze nuggets) | 25 |
-| Copper Chest / Small Copper Stove / Iron Shield (iron nuggets) | 30 |
+| Copper Brazier Kit | 22 |
+| Copper Chest / Small Copper Stove | 30 |
 | Copper Cauldron | 34 |
 | Tea Station Kit | 48 |
 | Copper Bathtub | 78 |

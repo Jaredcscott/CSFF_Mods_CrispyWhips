@@ -54,11 +54,10 @@
       "name": "Oil",
       "status": "Implemented",
       "confidence": "LOW",
-      "evidence": "Rendered Fish Oil art bug fixed 1.16.1 (2026-08-16); re-verification PENDING per playtest T2.114 (2026-08-17). 1.18.0 (Fleet plan feature 6): Render Hemp Seed Oil is hidden at run start when herbs_fungi_hemp_seed_oil does not resolve (Patcher/PartnerBlueprintGatePatch.cs, the Copper Shears gate widened to a table), not yet run in-game",
+      "evidence": "Rendered Fish Oil art bug fixed 1.16.1 (2026-08-16); re-verification PENDING per playtest T2.114 (2026-08-17). 1.18.13: Render Hemp Seed Oil retired (every tag_Oil card, Hemp Seed Oil included, already fuels the lamps and coats iron)",
       "cards": [
         "advanced_copper_tools_oil",
         "advanced_copper_tools_bp_oil",
-        "advanced_copper_tools_bp_render_hemp_oil",
         "advanced_copper_tools_bp_render_fish_oil"
       ]
     },
@@ -66,7 +65,7 @@
       "name": "Copper Oil Flask",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T2.8 (2026-07-21) batch spot-check. 1.17.0 fill CI widened from ACT Oil to any tag_Oil card, not yet run in-game (tracker T2.321)",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check. 1.17.0 fill CI widened from ACT Oil to any tag_Oil card, not yet run in-game (tracker T2.321). 1.18.13: Fill from Container (liquid oil in GpTag_FW_Oil, framework 2.28.9, poured from a tag_WaterContainer / tag_ContainerOpenLarge / tag_WaterContainerLarge container, up to 300 for 48 fuel), not yet run (harness T2.1992, pending)",
       "cards": [
         "advanced_copper_tools_copper_oil_flask",
         "advanced_copper_tools_bp_copper_oil_flask"
@@ -76,7 +75,7 @@
       "name": "Metal Lantern",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T2.8 (2026-07-21) base + T2.85 (2026-08-15) Firekeeping duty compat. 1.17.0 refuel CIs widened to any tag_Oil card, not yet run in-game (tracker T2.321). 1.18.0: oil 48 fuel, lantern 96 at -0.5, lightable Lantern Oilwell (96 at -1) and the 1 sheet + oilwell + wire + parchment + fat recipe, not yet run in-game (tracker T2.779)",
+      "evidence": "playtest T2.8 (2026-07-21) base + T2.85 (2026-08-15) Firekeeping duty compat. 1.17.0 refuel CIs widened to any tag_Oil card, not yet run in-game (tracker T2.321). 1.18.0: oil 48 fuel, lantern 96 at -0.5, lightable Lantern Oilwell (96 at -1) and the 1 sheet + oilwell + wire + parchment + fat recipe, not yet run in-game (tracker T2.779). 1.18.13: Pour Oil from Container on the unlit lantern (carried and placed, 55.2 fuel) and the Lantern Oilwell (48) for liquid oil in GpTag_FW_Oil (framework 2.28.9), up to 300 a pour, not yet run (harness T2.1992, pending)",
       "cards": [
         "advanced_copper_tools_metal_lantern",
         "advanced_copper_tools_metal_lantern_lit",
@@ -92,7 +91,7 @@
       "name": "Copper Brazier",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T2.8 (2026-07-21) base + T2.85 (2026-08-15) Firekeeping duty compat. 1.17.0 added fire passives, Warm Up / Wait by Fire and any-tag_Oil refuel, not yet run in-game (tracker T2.320, T2.321). NOTE: blueprint double-registered in 2 BlueprintTabs.json subtabs (see feature-map Notes)",
+      "evidence": "playtest T2.8 (2026-07-21) base + T2.85 (2026-08-15) Firekeeping duty compat. 1.17.0 added fire passives, Warm Up / Wait by Fire and any-tag_Oil refuel, not yet run in-game (tracker T2.320, T2.321). 1.18.13: Pour Oil from Container on the placed unlit brazier (liquid oil in GpTag_FW_Oil, framework 2.28.9, up to 300 for 48 fuel), not yet run (harness T2.1992, pending). NOTE: blueprint double-registered in 2 BlueprintTabs.json subtabs (see feature-map Notes)",
       "cards": [
         "advanced_copper_tools_copper_brazier_kit",
         "advanced_copper_tools_copper_brazier_placed",
@@ -205,10 +204,10 @@
       ]
     },
     {
-      "name": "Copper Armor Set",
+      "name": "Metal Armor (one card per piece, every metal)",
       "status": "Implemented",
       "confidence": "MEDIUM",
-      "evidence": "VERIFIED via T2.6 (2026-07-21), but GameLoadPatch.cs perf-refactored 2026-08-25 (1.16.3, self-reported no-behavior-change, not independently re-tested). Combat-repair covers only these 4 Copper UIDs, not Iron/Bronze",
+      "evidence": "ACT 1.18.13 armor merge (owner decisions D4, A1-A5, 2026-10-22): the four copper UIDs are the one helmet, armor, bracers and greaves card and blueprint for every metal; Metal Type (SpecialDurability4) picks name, art, location armor (ArmorValueDurabilitiesMultiplier), weight, trade value and passive effects, each equal to the old per-metal card (Development_Tools/Tests/ACT-ArmorMerge.Tests.ps1 reads the pre-merge blobs at 713533229); spiritual ward by Patcher/ArmorWardPatch.cs (ACT-ArmorWard.Tests.ps1). Not yet run in game: harness T2.2000-T2.2003, T2.2005, T2.2006, person T2.2007. Before the merge: VERIFIED via T2.6 (2026-07-21) for the copper set.",
       "cards": [
         "advanced_copper_tools_copper_helmet",
         "advanced_copper_tools_copper_gauntlets",
@@ -224,7 +223,7 @@
       "name": "Iron Armor Set",
       "status": "Implemented",
       "confidence": "MEDIUM",
-      "evidence": "Breastplate M/F gendered split VERIFIED via T2.32 (2026-07-21); Helmet/Gauntlets/Greaves share the mechanic but have no dedicated test citation. 1.18.0 (Chiwei 1004 row 4): every iron recipe takes Metal Sheets of Metal Type 200 (element gate, FilterStackWithDurability 256 and the CardsOnBoard gate) and Metal Nails of any metal; dismantles return Metal Sheets and Nails stamped 200; not yet run in-game (tracker T2.781)",
+      "evidence": "RETIRED 2026-10-22 by the ACT 1.18.13 armor merge (owner decision D4; Documentation/Design/AdvancedCopperTools_Armor_Merge_As_Built.md): these cards and blueprints stay loadable for old saves only. Each card reforges into the merged card of its piece at its own Metal Type (hidden Progress OnFull Transform plus a Reforge button); each blueprint is out of BlueprintTabs.json with empty conditions and AlsoUnlocks the merged blueprint. Gated by Development_Tools/Tests/ACT-ArmorMerge.Tests.ps1; old-save reforge and research carry-over are harness T2.2002 and T2.2003. Before the merge: Breastplate M/F gendered split VERIFIED via T2.32 (2026-07-21); Helmet/Gauntlets/Greaves share the mechanic but have no dedicated test citation. 1.18.0 (Chiwei 1004 row 4): every iron recipe takes Metal Sheets of Metal Type 200 (element gate, FilterStackWithDurability 256 and the CardsOnBoard gate) and Metal Nails of any metal; dismantles return Metal Sheets and Nails stamped 200; not yet run in-game (tracker T2.781)",
       "cards": [
         "act_bp_iron_sheet",
         "act_iron_sheet",
@@ -244,7 +243,7 @@
       "name": "Alloy Armor Sets",
       "status": "Implemented",
       "confidence": "LOW",
-      "evidence": "Tin Bronze (the old Bronze set, 1.16.0, own art in 1.17.0, tracker T2.325) plus Tin, Ghost Bronze and White Bronze new in 1.18.0 (2026-09-29); metal gates, dismantle stamps and smelting MetalType enforced by Development_Tools/Tests/ACT-AlloyArmor-MetalConsistency.Tests.ps1; in-game checks in the tracker from T2.439",
+      "evidence": "RETIRED 2026-10-22 by the ACT 1.18.13 armor merge (owner decision D4; Documentation/Design/AdvancedCopperTools_Armor_Merge_As_Built.md): these cards and blueprints stay loadable for old saves only. Each card reforges into the merged card of its piece at its own Metal Type (hidden Progress OnFull Transform plus a Reforge button); each blueprint is out of BlueprintTabs.json with empty conditions and AlsoUnlocks the merged blueprint. Gated by Development_Tools/Tests/ACT-ArmorMerge.Tests.ps1; old-save reforge and research carry-over are harness T2.2002 and T2.2003. Before the merge: Tin Bronze (the old Bronze set, 1.16.0, own art in 1.17.0, tracker T2.325) plus Tin, Ghost Bronze and White Bronze new in 1.18.0 (2026-09-29); metal gates, dismantle stamps and smelting MetalType enforced by Development_Tools/Tests/ACT-AlloyArmor-MetalConsistency.Tests.ps1; in-game checks in the tracker from T2.439",
       "cards": [
         "act_bp_bronze_helmet",
         "act_bronze_helmet",
@@ -349,10 +348,10 @@
       ]
     },
     {
-      "name": "Copper Shield",
+      "name": "Metal Shield (every metal)",
       "status": "Implemented",
       "confidence": "LOW",
-      "evidence": "new in 1.17.0 (2026-09-26): shape cloned from the vanilla Shield, LArmArmor 90; runtime read 2026-09-27 (EA 0.68b): eTag_Shield resolves to the vanilla Shield's own tag instance, and the vanilla Shield's LArmArmorModifiers is DMG_Spiritual +50, copied onto the copper shield in 1.17.2; in GameLoadPatch.ArmorUids, gated by ACT-ArmorRepairCoverage.Tests.ps1 (tracker T2.324)",
+      "evidence": "ACT 1.18.13 armor merge: act_copper_shield is the one shield card and blueprint for every metal (tin, tin bronze and white bronze shields new, 82.5/87.5/92.5 base, the builder's choices), Usage 5500 and WeightReductionWhenEquipped -425 for all (owner A3), no JSON DMG_Spiritual modifier (the ward is ArmorWardPatch). Gated by ACT-ArmorMerge.Tests.ps1 and ACT-ArmorWard.Tests.ps1; harness T2.2000, T2.2001, T2.2005. Before the merge: new in 1.17.0, tracker T2.324.",
       "cards": [
         "act_copper_shield",
         "act_bp_copper_shield"
@@ -362,7 +361,7 @@
       "name": "Iron Shield and Ghost Bronze Shield",
       "status": "Implemented",
       "confidence": "LOW",
-      "evidence": "new in 1.18.0 (2026-10-02, plan B1): cloned from the Copper Shield at tunable placeholder numbers (Iron 110/+50, Ghost Bronze 95/+80); each blueprint gates its own sheet (iron, Metal Type 110 exact on both the element and CardsOnBoard); all three shields dismantle into their own metal; both in GameLoadPatch.ArmorUids; gated by ACT-ArmorRepairCoverage.Tests.ps1, ACT-AlloyArmor-MetalConsistency.Tests.ps1 and Perk-StartingItemStats.Tests.ps1; not yet run in game (see the tracker rows for the shields)",
+      "evidence": "RETIRED 2026-10-22 by the ACT 1.18.13 armor merge (owner decision D4; Documentation/Design/AdvancedCopperTools_Armor_Merge_As_Built.md): these cards and blueprints stay loadable for old saves only. Each card reforges into the merged card of its piece at its own Metal Type (hidden Progress OnFull Transform plus a Reforge button); each blueprint is out of BlueprintTabs.json with empty conditions and AlsoUnlocks the merged blueprint. Gated by Development_Tools/Tests/ACT-ArmorMerge.Tests.ps1; old-save reforge and research carry-over are harness T2.2002 and T2.2003. Before the merge: new in 1.18.0 (2026-10-02, plan B1): cloned from the Copper Shield at tunable placeholder numbers (Iron 110/+50, Ghost Bronze 95/+80); each blueprint gates its own sheet (iron, Metal Type 110 exact on both the element and CardsOnBoard); all three shields dismantle into their own metal; both in GameLoadPatch.ArmorUids; gated by ACT-ArmorRepairCoverage.Tests.ps1, ACT-AlloyArmor-MetalConsistency.Tests.ps1 and Perk-StartingItemStats.Tests.ps1; not yet run in game (see the tracker rows for the shields)",
       "cards": [
         "act_iron_shield",
         "act_bp_iron_shield",

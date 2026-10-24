@@ -79,22 +79,26 @@
   },
   {
     "Item": "advanced_copper_tools_copper_helmet",
-    "NuggetReturn": 15,
+    "InheritMetal": true,
+    "NuggetReturn": 17,
     "Duration": 8
   },
   {
     "Item": "advanced_copper_tools_copper_gauntlets",
-    "NuggetReturn": 11,
+    "InheritMetal": true,
+    "NuggetReturn": 13,
     "Duration": 8
   },
   {
     "Item": "advanced_copper_tools_copper_greaves",
-    "NuggetReturn": 15,
+    "InheritMetal": true,
+    "NuggetReturn": 17,
     "Duration": 8
   },
   {
     "Item": "advanced_copper_tools_copper_breastplate",
-    "NuggetReturn": 23,
+    "InheritMetal": true,
+    "NuggetReturn": 26,
     "Duration": 8
   },
   {
@@ -180,7 +184,8 @@
   },
   {
     "Item": "act_copper_shield",
-    "NuggetReturn": 22,
+    "InheritMetal": true,
+    "NuggetReturn": 25,
     "Duration": 8
   },
   {

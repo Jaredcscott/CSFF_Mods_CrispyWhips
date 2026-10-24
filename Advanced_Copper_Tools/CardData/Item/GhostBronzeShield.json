@@ -127,7 +127,54 @@
     "OverrideIconWarpType": 3
   },
   "Progress": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "act_ghostbronze_shield",
+      "LocalizationKey": "",
+      "DefaultText": "Reforging"
+    },
+    "MaxValue": 1.0,
+    "RatePerDaytimePoint": 1.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": true,
+    "CountsForTradingValue": false,
+    "OnFull": {
+      "ActionName": {
+        "ParentObjectID": "act_ghostbronze_shield",
+        "LocalizationKey": "Advanced_Copper_Tools_RetiredShield_OnFull_ActionName",
+        "DefaultText": "Becomes a Metal Shield"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_ghostbronze_shield",
+        "LocalizationKey": "Advanced_Copper_Tools_RetiredShield_OnFull_ActionDescription",
+        "DefaultText": "An old card becomes the merged card of the same metal."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "RequiredStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "act_copper_shield",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferSpecial4": true
+      },
+      "ProducedCards": []
+    }
   },
   "SpecialDurability1": {
     "Active": false
@@ -139,13 +186,67 @@
     "Active": false
   },
   "SpecialDurability4": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 110.0,
+    "CardStatName": {
+      "ParentObjectID": "act_ghostbronze_shield",
+      "LocalizationKey": "",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [
+      110.0
+    ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false
   },
   "DurabilitySorting": {
     "SortingList": []
   },
   "CardInteractions": [],
   "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_ghostbronze_shield",
+        "LocalizationKey": "Advanced_Copper_Tools_RetiredShield_Reforge_ActionName",
+        "DefaultText": "Reforge as Metal Shield"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_ghostbronze_shield",
+        "LocalizationKey": "Advanced_Copper_Tools_RetiredShield_Reforge_ActionDescription",
+        "DefaultText": "Turn this old shield into a Metal Shield of the same metal, the one shield card every metal now uses. It keeps its wear and its warmth."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "act_copper_shield",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferSpecial4": true
+      },
+      "ProducedCards": []
+    },
     {
       "ActionName": {
         "ParentObjectID": "act_ghostbronze_shield",

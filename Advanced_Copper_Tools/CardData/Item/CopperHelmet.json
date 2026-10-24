@@ -3,16 +3,442 @@
   "CardName": {
     "ParentObjectID": "advanced_copper_tools_copper_helmet",
     "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_CardName",
-    "DefaultText": "Copper Helmet"
+    "DefaultText": "Metal Helmet"
   },
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_copper_helmet",
     "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_CardDescription",
-    "DefaultText": "A hammered copper helmet offering solid head protection. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+    "DefaultText": "A helmet hammered from metal sheets. Its protection, weight and look follow the metal it was made from. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
   },
+  "AlternateNames": [
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_AlternateNames[0].Name",
+        "DefaultText": "Copper Helmet"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_AlternateNames[0].Description",
+        "DefaultText": "A hammered copper helmet offering solid head protection. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CopperHelmet",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_AlternateNames[1].Name",
+        "DefaultText": "Ghost Bronze Helmet"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_AlternateNames[1].Description",
+        "DefaultText": "Bronze alloyed with witchstone, pale and cold to the touch. Wards the head against spiritual attacks (+12.5) and helps fear fade faster. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "GhostBronzeHelmet",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_AlternateNames[2].Name",
+        "DefaultText": "Tin Helmet"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_AlternateNames[2].Description",
+        "DefaultText": "Hammered from soft tin: a little tougher than copper and the lightest metal helmet to carry. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "TinHelmet",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_AlternateNames[3].Name",
+        "DefaultText": "Tin Bronze Helmet"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_AlternateNames[3].Description",
+        "DefaultText": "A hammered tin bronze helmet, tougher than copper and lighter than iron; the sturdiest of the bronzes. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "BronzeHelmet",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_AlternateNames[4].Name",
+        "DefaultText": "White Bronze Helmet"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_AlternateNames[4].Description",
+        "DefaultText": "High-tin bronze polished to a mirror shine. Nearly as protective as iron and it bolsters your courage (+3). Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "WhiteBronzeHelmet",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_AlternateNames[5].Name",
+        "DefaultText": "Iron Helmet"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_AlternateNames[5].Description",
+        "DefaultText": "A forged iron helmet offering superior head protection to its copper counterpart. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "IronHelmet",
+        "CardImageWarpType": 3
+      }
+    }
+  ],
   "CardType": 0,
+  "ToggleablePiling": true,
   "ObjectWeight": 250.0,
-  "WeightReductionWhenEquipped": -250.0,
+  "WeightReductionWhenEquipped": -280.0,
+  "AddedWeightFromDurabilities": [
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "OutputValueRange": {
+          "x": 15.0,
+          "y": 15.0
+        },
+        "WhenOutOfRange": 0,
+        "OutOfRangeCustomValue": 0.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "OutputValueRange": {
+          "x": -30.0,
+          "y": -30.0
+        },
+        "WhenOutOfRange": 0,
+        "OutOfRangeCustomValue": 0.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "OutputValueRange": {
+          "x": 15.0,
+          "y": 15.0
+        },
+        "WhenOutOfRange": 0,
+        "OutOfRangeCustomValue": 0.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "OutputValueRange": {
+          "x": 25.0,
+          "y": 25.0
+        },
+        "WhenOutOfRange": 0,
+        "OutOfRangeCustomValue": 0.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "OutputValueRange": {
+          "x": 30.0,
+          "y": 30.0
+        },
+        "WhenOutOfRange": 0,
+        "OutOfRangeCustomValue": 0.0
+      }
+    }
+  ],
   "TradingValue": 80.0,
   "CardImage": {
     "m_FileID": 0,
@@ -53,7 +479,93 @@
     "RLegArmorModifiers": [],
     "RLegHitProbabilityModifier": 0.0
   },
-  "ArmorValueDurabilitiesMultiplier": [],
+  "ArmorValueDurabilitiesMultiplier": [
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "OutputValueRange": {
+          "x": 1.1666666666666667,
+          "y": 1.1666666666666667
+        },
+        "WhenOutOfRange": 2,
+        "OutOfRangeCustomValue": 1.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "OutputValueRange": {
+          "x": 1.0833333333333333,
+          "y": 1.0833333333333333
+        },
+        "WhenOutOfRange": 2,
+        "OutOfRangeCustomValue": 1.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "OutputValueRange": {
+          "x": 1.25,
+          "y": 1.25
+        },
+        "WhenOutOfRange": 2,
+        "OutOfRangeCustomValue": 1.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "OutputValueRange": {
+          "x": 1.4166666666666667,
+          "y": 1.4166666666666667
+        },
+        "WhenOutOfRange": 2,
+        "OutOfRangeCustomValue": 1.0
+      }
+    },
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "OutputValueRange": {
+          "x": 1.5,
+          "y": 1.5
+        },
+        "WhenOutOfRange": 2,
+        "OutOfRangeCustomValue": 1.0
+      }
+    }
+  ],
   "AlwaysUpdate": true,
   "WhenCreatedSoundsWarpData": [
     "Metal"
@@ -113,7 +625,20 @@
     "Active": false
   },
   "SpecialDurability1": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_helmet",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_SpecialDurability1.CardStatName",
+      "DefaultText": "Oil Coat"
+    },
+    "MaxValue": 288.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 3,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": false
   },
   "SpecialDurability2": {
     "Active": false
@@ -122,12 +647,195 @@
     "Active": false
   },
   "SpecialDurability4": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 100.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_helmet",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_SpecialDurability4.CardStatName",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [
+      100.0,
+      110.0,
+      120.0,
+      130.0,
+      140.0,
+      200.0
+    ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": true,
+    "TradingValueCustomRanges": [
+      {
+        "Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "Value": 0.0
+      },
+      {
+        "Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "Value": 60.0
+      },
+      {
+        "Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "Value": 10.0
+      },
+      {
+        "Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "Value": 30.0
+      },
+      {
+        "Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "Value": 50.0
+      },
+      {
+        "Range": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "Value": 60.0
+      }
+    ]
   },
   "DurabilitySorting": {
     "SortingList": []
   },
-  "CardInteractions": [],
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_helmet",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_Grease_ActionName",
+        "DefaultText": "Grease with Fat"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_helmet",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_Grease_ActionDescription",
+        "DefaultText": "Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.2,
+          "MaxValue": 0.2
+        },
+        "HideActionIfNotMet": true
+      },
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "0eb3634f696991b4d97b91626270e035"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 288.0,
+          "y": 288.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_helmet",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_Oil_ActionName",
+        "DefaultText": "Oil"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_helmet",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperHelmet_Oil_ActionDescription",
+        "DefaultText": "Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.2,
+          "MaxValue": 0.2
+        },
+        "HideActionIfNotMet": true
+      },
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_Oil"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 288.0,
+          "y": 288.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "FinishUnlocking": false,
+              "DropChance": {
+                "Active": false,
+                "BaseDropChance": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "DismantleActions": [
     {
       "ActionName": {
@@ -165,7 +873,32 @@
                 "x": 2,
                 "y": 2
               },
-              "TransferRules": {"Spoilage":0,"Usage":0,"Fuel":0,"Progress":0,"Special1":0,"Special2":3,"Special3":0,"Special4":3,"SpoilageValue":0.0,"UsageValue":0.0,"FuelValue":0.0,"ProgressValue":0.0,"Special1Value":0.0,"Special2Value":50.0,"Special3Value":0.0,"Special4Value":100.0,"SpoilageFrom":0,"UsageFrom":0,"FuelFrom":0,"ProgressFrom":0,"Special1From":0,"Special2From":0,"Special3From":0,"Special4From":0}
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 3,
+                "Special3": 0,
+                "Special4": 1,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 50.0,
+                "Special3Value": 0.0,
+                "Special4Value": 0.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+              }
             },
             {
               "DroppedCard": {
@@ -177,6 +910,32 @@
               "Quantity": {
                 "x": 4,
                 "y": 4
+              },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 0,
+                "Special3": 0,
+                "Special4": 1,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 0.0,
+                "Special3Value": 0.0,
+                "Special4Value": 0.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
               }
             },
             {
@@ -243,7 +1002,14 @@
       "EffectName": "Armor (+30)",
       "OnlyWhenEquipped": true,
       "EquippedOnBodyOnly": true,
-      "Conditions": {},
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special4Range": {
+            "x": 100.0,
+            "y": 100.0
+          }
+        }
+      },
       "StatModifiers": [
         {
           "Stat": {
@@ -294,6 +1060,518 @@
           "x": 1.0,
           "y": 1.5
         }
+      }
+    },
+    {
+      "EffectName": "Armor (+35)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special4Range": {
+            "x": 110.0,
+            "y": 110.0
+          }
+        }
+      },
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "b9013a3e77a421b4bb7e4a8293e75382",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 35.0,
+            "y": 35.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectScalesWithDurabilities": {
+        "Active": false,
+        "Inputs": [
+          {
+            "Durability": 64,
+            "Range": {
+              "x": 0.0,
+              "y": 100.0
+            }
+          }
+        ],
+        "EffectScalingOutput": {
+          "x": 1.0,
+          "y": 1.5
+        }
+      }
+    },
+    {
+      "EffectName": "Armor (+32.5)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special4Range": {
+            "x": 120.0,
+            "y": 120.0
+          }
+        }
+      },
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "b9013a3e77a421b4bb7e4a8293e75382",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 32.5,
+            "y": 32.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectScalesWithDurabilities": {
+        "Active": false,
+        "Inputs": [
+          {
+            "Durability": 64,
+            "Range": {
+              "x": 0.0,
+              "y": 100.0
+            }
+          }
+        ],
+        "EffectScalingOutput": {
+          "x": 1.0,
+          "y": 1.5
+        }
+      }
+    },
+    {
+      "EffectName": "Armor (+37.5)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special4Range": {
+            "x": 130.0,
+            "y": 130.0
+          }
+        }
+      },
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "b9013a3e77a421b4bb7e4a8293e75382",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 37.5,
+            "y": 37.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectScalesWithDurabilities": {
+        "Active": false,
+        "Inputs": [
+          {
+            "Durability": 64,
+            "Range": {
+              "x": 0.0,
+              "y": 100.0
+            }
+          }
+        ],
+        "EffectScalingOutput": {
+          "x": 1.0,
+          "y": 1.5
+        }
+      }
+    },
+    {
+      "EffectName": "Armor (+42.5)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special4Range": {
+            "x": 140.0,
+            "y": 140.0
+          }
+        }
+      },
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "b9013a3e77a421b4bb7e4a8293e75382",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 42.5,
+            "y": 42.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectScalesWithDurabilities": {
+        "Active": false,
+        "Inputs": [
+          {
+            "Durability": 64,
+            "Range": {
+              "x": 0.0,
+              "y": 100.0
+            }
+          }
+        ],
+        "EffectScalingOutput": {
+          "x": 1.0,
+          "y": 1.5
+        }
+      }
+    },
+    {
+      "EffectName": "Armor (+45)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special4Range": {
+            "x": 200.0,
+            "y": 200.0
+          }
+        }
+      },
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "b9013a3e77a421b4bb7e4a8293e75382",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 45.0,
+            "y": 45.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectScalesWithDurabilities": {
+        "Active": false,
+        "Inputs": [
+          {
+            "Durability": 64,
+            "Range": {
+              "x": 0.0,
+              "y": 100.0
+            }
+          }
+        ],
+        "EffectScalingOutput": {
+          "x": 1.0,
+          "y": 1.5
+        }
+      }
+    },
+    {
+      "EffectName": "Spirit Ward: Fear (-0.25 per tick)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special4Range": {
+            "x": 110.0,
+            "y": 110.0
+          }
+        }
+      },
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": -0.25,
+            "y": -0.25
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectScalesWithDurabilities": {
+        "Active": false,
+        "Inputs": [
+          {
+            "Durability": 64,
+            "Range": {
+              "x": 0.0,
+              "y": 100.0
+            }
+          }
+        ],
+        "EffectScalingOutput": {
+          "x": 1.0,
+          "y": 1.5
+        }
+      }
+    },
+    {
+      "EffectName": "Mirror Shine: Courage (+3)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special4Range": {
+            "x": 140.0,
+            "y": 140.0
+          }
+        }
+      },
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3d37dbda5252dc14cb772b4c5e739916",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 3.0,
+            "y": 3.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectScalesWithDurabilities": {
+        "Active": false,
+        "Inputs": [
+          {
+            "Durability": 64,
+            "Range": {
+              "x": 0.0,
+              "y": 100.0
+            }
+          }
+        ],
+        "EffectScalingOutput": {
+          "x": 1.0,
+          "y": 1.5
+        }
+      }
+    },
+    {
+      "EffectName": "Rust (wet, uncoated)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.9
+          },
+          "Special4Range": {
+            "x": 200.0,
+            "y": 200.0
+          }
+        },
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 51.0,
+              "y": 100.0
+            }
+          }
+        ]
+      },
+      "StatModifiers": [],
+      "UsageRateModifier": {
+        "Active": true,
+        "FloatValue": -4.8
+      }
+    },
+    {
+      "EffectName": "Oil coat wear (wet)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special1Range": {
+            "x": 1.0,
+            "y": 288.0
+          },
+          "Special4Range": {
+            "x": 200.0,
+            "y": 200.0
+          }
+        },
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 51.0,
+              "y": 100.0
+            }
+          }
+        ]
+      },
+      "StatModifiers": [],
+      "Special1RateModifier": {
+        "Active": true,
+        "FloatValue": -1.0
       }
     }
   ]

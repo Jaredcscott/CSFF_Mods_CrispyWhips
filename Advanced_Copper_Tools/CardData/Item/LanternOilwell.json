@@ -618,6 +618,74 @@
         "SpawnTransformAtSource": true,
         "TransferSpecial4": true
       }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_lantern_oilwell",
+        "LocalizationKey": "Advanced_Copper_Tools_LanternOilwell_RefuelLiquid_ActionName",
+        "DefaultText": "Pour Oil from Container"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_lantern_oilwell",
+        "LocalizationKey": "Advanced_Copper_Tools_LanternOilwell_RefuelLiquid_ActionDescription",
+        "DefaultText": "Poured oil from the container into the oilwell."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Drink"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [],
+        "TriggerCardsWarpType": 3,
+        "TriggerTagsWarpData": [
+          "tag_WaterContainer",
+          "tag_ContainerOpenLarge",
+          "tag_WaterContainerLarge"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "StackCompatible": false,
+      "RequiredGivenLiquidContent": {
+        "IsActive": true,
+        "RequiredLiquid": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "RequiredGroup": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "RequiredGroupWarpData": "GpTag_FW_Oil",
+        "RequiredGroupWarpType": 3,
+        "RequiredQuantity": {
+          "x": 1.0,
+          "y": 0.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 0,
+        "ModifyLiquid": true,
+        "LiquidEffectScaling": 1,
+        "LiquidQuantityChange": {
+          "x": -300.0,
+          "y": -300.0
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 48.0,
+          "y": 48.0
+        }
+      }
     }
   ],
   "DismantleActions": [],

@@ -12,10 +12,9 @@ namespace Advanced_Copper_Tools.Patcher
     // Fleet plan feature 6). Each row is (ACT blueprint UID, required partner card UID, what is missing):
     //  - Copper Shears needs Sirus23's shears card, since only Sirus23's sheep have a Shear action (it
     //    triggers on tag_Shears). act_copper_shears is an END PRODUCT that no blueprint consumes.
-    //  - Render Hemp Seed Oil needs H&F's hemp seed oil, its unlock gate and its only ingredient. Its product,
-    //    ACT Oil, is consumed elsewhere, but it keeps two other producers (Bp_Oil, Bp_RenderFishOil), and
-    //    without H&F this recipe could never be made anyway, so hiding it strands nothing.
-    // Both satisfy CLAUDE.md "A C# blueprint lock may only ever hide an END PRODUCT". Shape: CMC
+    // (Render Hemp Seed Oil, the second row until 1.18.13, was retired: every tag_Oil card already fuels the
+    // lamps and coats iron, so turning hemp seed oil into ACT Oil did nothing.)
+    // The row satisfies CLAUDE.md "A C# blueprint lock may only ever hide an END PRODUCT". Shape: CMC
     // AcademyCourseService.HideIfDependencyMissing, run from a GameManager.InitializeStatsAndActions postfix,
     // the method that registers every blueprint into BlueprintModelStates and UnlockableCards. On a loaded
     // save the research replay (LoadCards -> SetBpAvailable) runs after it and re-enables a researched
@@ -35,7 +34,6 @@ namespace Advanced_Copper_Tools.Patcher
         private static readonly GateRow[] Rows =
         {
             new GateRow { BlueprintUid = "act_bp_copper_shears", RequiredUid = "sh_shears", Label = "Copper Shears", Partner = "Sirus23" },
-            new GateRow { BlueprintUid = "advanced_copper_tools_bp_render_hemp_oil", RequiredUid = "herbs_fungi_hemp_seed_oil", Label = "Render Hemp Seed Oil", Partner = "HerbsAndFungi" },
         };
 
         private const int StateAvailable = 0;   // BlueprintModelState: 0 Available, 1 Purchasable, 2 Locked, 3 Hidden

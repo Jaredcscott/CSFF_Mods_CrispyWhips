@@ -1,0 +1,28 @@
+{
+  "target": "WhiteBronzeShield.png",
+  "sourceCard": "CardData/Item/CopperShield.json",
+  "model": "none",
+  "mode": "recolour",
+  "credits": 0,
+  "generated": "2026-10-22",
+  "composition": {
+    "subject": "GhostBronzeShield",
+    "change": "the same round shield in bright silver white bronze: a hue-band recolour of the shipped Ghost Bronze Shield (only the metal band moves; wood rim, ink and alpha kept), metal band scaled to the median saturation and mean brightness of the shipped WhiteBronzeHelmet",
+    "finish": "keyed, framed and palettised by Development_Tools/CardArt/trim_card_art.py --apply",
+    "use": "AlternateNames Art of the merged Metal Shield (act_copper_shield) at its Metal Type, ACT armor merge (owner A2, 2026-10-22)"
+  },
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "GhostBronzeShield",
+      "image": "Resource/Picture/GhostBronzeShield.png",
+      "sha256": "27e3f33b4cccf14ebaf3616285407e339e1f92a25b9c5cd2239441d1143096ad"
+    },
+    {
+      "role": "colour",
+      "fragment": "WhiteBronzeHelmet",
+      "image": "Resource/Picture/WhiteBronzeHelmet.png"
+    }
+  ],
+  "verdict": "NOT YET JUDGED by a person (tracker row for the merged armor's look)"
+}
