@@ -54,6 +54,10 @@ namespace WaterDrivenInfrastructure.Patcher
         /// <summary>The shared Metal Nail card is loaded (framework 2.28.0+, or ACT on an older framework).</summary>
         public static bool MetalPartsPresent { get; private set; }
 
+        // ACT armor merge (2026-10-22): the five copper armor UIDs are now the one card per piece of every
+        // metal, with a Metal Type of their own (read first) and ACT's InheritMetal rows (17/26/13/17/25).
+        // The retired alloy and iron rows below stay while ACT's SmeltingRecipes.json keeps theirs (an old
+        // card reforges into the merged one within a tick).
         // Blast mirror (plan feature 15): one row per ACT item the Water-Driven Forge and Workshop
         // blast into Metal Nuggets, as (nugget count, Metal Type). The count mirrors NuggetReturn in
         // AdvancedCopperTools/SmeltingRecipes.json. The Metal Type is the one the nuggets take when the
@@ -84,17 +88,17 @@ namespace WaterDrivenInfrastructure.Patcher
             { "advanced_copper_tools_wheel_assembly",        (12, 100f) },
             { "advanced_copper_tools_tea_station_kit",       (48, 100f) },
             { "advanced_copper_tools_copper_bathtub_empty",  (78, 100f) },
-            { "advanced_copper_tools_copper_helmet",         (15, 100f) },
-            { "advanced_copper_tools_copper_gauntlets",      (11, 100f) },
-            { "advanced_copper_tools_copper_greaves",        (15, 100f) },
-            { "advanced_copper_tools_copper_breastplate",    (23, 100f) },
+            { "advanced_copper_tools_copper_helmet",         (17, 100f) },
+            { "advanced_copper_tools_copper_gauntlets",      (13, 100f) },
+            { "advanced_copper_tools_copper_greaves",        (17, 100f) },
+            { "advanced_copper_tools_copper_breastplate",    (26, 100f) },
             { "advanced_copper_tools_copper_brazier_kit",    (22, 100f) },
             { "advanced_copper_tools_copper_cauldron",       (34, 100f) },
             { "advanced_copper_tools_copper_watering_can",   (10, 100f) },
             { "advanced_copper_tools_copper_rim_chamberpot", (6, 100f) },
             // Retired by ACT 1.18.0 (it reforges into the Metal Sheet); kept while ACT's file keeps its row.
             { "act_iron_sheet",                              (5, 100f) },
-            { "act_copper_shield",                           (22, 100f) },
+            { "act_copper_shield",                           (25, 100f) },
             // Rows WDI has always blasted that are not in ACT's SmeltingRecipes.json: ACT melts these
             // through their own Progress, so there is no row to mirror, only the nugget count WDI used.
             { "advanced_copper_tools_shape_metal_pan",       (4, 100f) },

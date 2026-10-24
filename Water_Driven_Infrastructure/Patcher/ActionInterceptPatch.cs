@@ -160,9 +160,8 @@ namespace WaterDrivenInfrastructure.Patcher
         private const float  NuggetSluiceQuality =  35f;
         private const int    NuggetInitRetryFrames = 5;
 
-        // Iron item OnFull smelting (WDI iron items → 4x iron MetalNugget)
+        // The four iron parts melt to iron through their own OnFull drop; GetSelfSmeltCopperItemIds excludes them.
         private const string MetalBarFinishedGUID = "14f7ddfe60496b54881d5a25de8abb20"; // kept for reference
-        private const float  IronBarMetalType     = 200f; // SpecialDurability4 value for iron type
         private static readonly HashSet<string> IronSmeltItemIds = new HashSet<string>(StringComparer.Ordinal)
         {
             "water_sawmill_iron_parts",
@@ -223,9 +222,6 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             try
             {
-                // Compile-time typeof avoids ModCore's shadowing GameManager (which lacks a usable
-                // GiveCard) — WDI already references Assembly-CSharp. See root CLAUDE.md §Runtime Card Spawning.
-                var gmType = typeof(GameManager);
                 var cardType = AccessTools.TypeByName("InGameCardBase");
 
                 var selectedContainedBlueprint = AccessTools.Method(cardType, "GetSelectedContainedBlueprint");
@@ -237,21 +233,6 @@ namespace WaterDrivenInfrastructure.Patcher
                 else
                 {
                     Logger?.LogDebug("[ActionIntercept] InGameCardBase.GetSelectedContainedBlueprint not found; workshop storage routing patch unavailable");
-                }
-
-                // GiveCard postfix — set Metal Type=200 on MetalBarFinished from iron item OnFull
-                var giveCardForPatch = gmType?.GetMethods(Flags).FirstOrDefault(m =>
-                    m.Name == "GiveCard" && !m.IsGenericMethod &&
-                    m.GetParameters().Length >= 1 &&
-                    m.GetParameters()[0].ParameterType.Name.Contains("CardData"));
-                if (giveCardForPatch != null)
-                {
-                    harmony.Patch(giveCardForPatch,
-                        postfix: new HarmonyMethod(typeof(ActionInterceptPatch), nameof(GiveCard_Postfix)));
-                }
-                else
-                {
-                    Logger?.LogDebug("[ActionIntercept] GiveCard not found at patch time; iron bar metal type uses fallback");
                 }
 
                 // CardInteractions (drag) + DismantleActions (buttons) are now dispatched via
@@ -515,33 +496,20 @@ namespace WaterDrivenInfrastructure.Patcher
                 After = ctx => HandleBlastAllInner(ctx.Card)
             });
 
-            // Iron item OnFull smelting (Parts/Bearing/Axle/Wrench) — snapshot existing
-            // nugget IDs AND the source item's own quality (SpecialDurability2, read before
-            // the action consumes it) so newly spawned iron nuggets can be typed/quality-fixed
-            // afterward. Fires on every action on these 4 cards (matches the original
-            // unconditional-per-action check). Each item carries the Metal Quality of the bar it
-            // was made from (its blueprint's AffectResultDurabilities), and its nuggets take
-            // exactly that, never a floor (see NuggetSluiceQuality).
-            ActionRouter.Register(new ActionHandler
-            {
-                Name = "IronSmeltType",
-                CardPredicate = ctx => IronSmeltItemIds.Contains(ctx.CardUid),
-                Timing = ActionTiming.AfterWrapped,
-                Before = ctx => { ctx.Tag = (SnapshotCardIdsByUniqueId(CopperNuggetGUID), GetSourceQualityPercent(ctx.Card)); return true; },
-                After = ctx =>
-                {
-                    if (ctx.Tag is ValueTuple<HashSet<int>, float> tagged && ApplyIronBarType(tagged.Item1, tagged.Item2) == 0)
-                        StartDelayedIronBarTypeRetry(tagged.Item1, tagged.Item2);
-                }
-            });
+            // Iron item OnFull smelting (Parts/Bearing/Axle/Wrench) has NO handler: each part's
+            // Progress.OnFull nugget drop sets Metal Type iron itself (TransferRules Special4 = 3,
+            // Special4Value 200) and carries its Metal Quality (Special2 = 1), as ACT's Tin Ore does
+            // since 1.18.13. The "IronSmeltType" post-spawn stamp that stood here retyped EVERY
+            // untyped Metal Nugget born in its window, anywhere on the board, and once the drop typed
+            // its own nuggets it found none and always fell through to its one-frame retry.
 
             // Copper self-smelt items (gears/blades/etc.) — any item whose Progress OnFull
             // ProducedCards a copper nugget, discovered dynamically (see GetSelfSmeltCopperItemIds)
             // instead of a hardcoded UID list, so a new self-smelting item is covered without a
             // code change. Nuggets inherit the melted item's own quality percentage (the
             // crucible's, carried by the casting blueprint), never a floor (see ApplyBlastNuggetQuality).
-            // SD4 type is left untouched (stays copper), unlike IronSmeltType above which also
-            // stamps SD4=Iron.
+            // SD4 type is left untouched (stays copper); the iron parts are excluded from this set
+            // (GetSelfSmeltCopperItemIds) because their drop types its nuggets iron.
             ActionRouter.Register(new ActionHandler
             {
                 Name = "CopperSelfSmeltQuality",
@@ -1850,79 +1818,9 @@ namespace WaterDrivenInfrastructure.Patcher
         }
 
         // ============================================================
-        //  IRON ITEM SMELTING — set Metal Type=200 + quality on spawned iron nuggets
-        //  Iron items (Parts/Bearing/Axle/Wrench) use progress-based OnFull to smelt.
-        //  ProducedCards spawns MetalNugget x4 at SD4=0; we fix type and quality here.
+        //  IRON ITEM SMELTING - the nuggets of Iron Parts/Bearing/Axle/Wrench are typed iron
+        //  and graded by their own Progress.OnFull drop (TransferRules), with no code here.
         // ============================================================
-
-        static void GiveCard_Postfix(object __0)  // __0 = CardData; GiveCard returns void, __result is always null
-        {
-            try
-            {
-                if (__0 == null) return;
-                if (CardUtil.GetCardUniqueId(__0) != CopperNuggetGUID) return;
-
-                float sd4 = CardUtil.GetDurability(__0, "SpecialDurability4");
-                if (!float.IsNaN(sd4) && sd4 > 0f) return; // already typed by sluice or other path
-
-                // Type only. Quality is the melted item's own (IronSmeltType / CopperSelfSmeltQuality), never a
-                // floor: this used to raise the nugget to 50 whatever the item was made of (Nexus report 2026-10-11).
-                if (IsIronSmeltPending())
-                {
-                    bool ok = CardUtil.SetDurability(__0, "SpecialDurability4", IronBarMetalType);
-                    if (ok) Logger?.LogDebug("[ActionIntercept] IronSmelt (GiveCard): set Type=200 on iron nugget");
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"[ActionIntercept] GiveCard_Postfix: {ex.Message}");
-            }
-        }
-
-        private static bool IsIronSmeltPending()
-        {
-            try
-            {
-                foreach (var card in EnumerateGameManagerAllCards())
-                {
-                    if (!IronSmeltItemIds.Contains(CardUtil.GetCardUniqueId(card))) continue;
-                    float progress = CardUtil.GetDurability(card, "Progress");
-                    float max = CardUtil.GetDurabilityMax(card, "Progress");
-                    if (!float.IsNaN(progress) && !float.IsNaN(max) && max > 0f && progress >= max)
-                        return true;
-                }
-            }
-            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] IsIronSmeltPending: {ex.Message}"); }
-            return false;
-        }
-
-        // ActionRouter's After callback is synchronous and cannot itself yield an extra
-        // frame, so a failed first attempt (e.g. GiveCard hasn't registered the new
-        // nugget in AllCards yet) is retried via a decoupled one-frame-later coroutine —
-        // the same pattern as StartDelayedNuggetInitialization/StartDelayedLumpInitialization.
-        private static void StartDelayedIronBarTypeRetry(HashSet<int> preIds, float sourceQualityPct)
-        {
-            try
-            {
-                var gm = CardUtil.GetGameManagerInstance();
-                if (gm is UnityEngine.MonoBehaviour mb)
-                {
-                    mb.StartCoroutine(RetryIronBarTypeAfterOneFrame(preIds, sourceQualityPct));
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"[ActionIntercept] StartDelayedIronBarTypeRetry: {ex.Message}");
-            }
-            ApplyIronBarType(preIds, sourceQualityPct);
-        }
-
-        private static IEnumerator RetryIronBarTypeAfterOneFrame(HashSet<int> preIds, float sourceQualityPct)
-        {
-            yield return null;
-            ApplyIronBarType(preIds, sourceQualityPct);
-        }
 
         // A new nugget's metal type is NOT 0 by the time these one-frame passes read it: vanilla
         // MetalNugget's OnStatsChangeAction "Backwards Comptability - if Metal Type is 0 put it to
@@ -1932,34 +1830,6 @@ namespace WaterDrivenInfrastructure.Patcher
         // self-smelt nuggets with no quality floor.
         private static bool IsTypedByAnotherPath(float sd4) =>
             !float.IsNaN(sd4) && sd4 > 0f && Math.Abs(sd4 - NuggetCopperType) > 0.5f;
-
-        private static int ApplyIronBarType(HashSet<int> preIds, float sourceQualityPct)
-        {
-            int updated = 0;
-            try
-            {
-                foreach (var card in EnumerateGameManagerAllCards())
-                {
-                    if (CardUtil.GetCardUniqueId(card) != CopperNuggetGUID) continue;
-                    if (card is UnityEngine.Object uo && preIds != null && preIds.Contains(uo.GetInstanceID())) continue;
-
-                    float sd4 = CardUtil.GetDurability(card, "SpecialDurability4");
-                    if (IsTypedByAnotherPath(sd4)) continue;
-
-                    // The type is what marks a nugget handled. Quality is raised to the melted item's own
-                    // and may legitimately stay 0 (an item made before 1.12.3 carries none), so it is not
-                    // counted: counting it sent every quality-0 melt round the one-frame retry for nothing.
-                    bool ok = CardUtil.SetDurability(card, "SpecialDurability4", IronBarMetalType);
-                    ApplyBlastNuggetQuality(card, sourceQualityPct);
-                    if (ok) updated++;
-                }
-            }
-            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyIronBarType: {ex.Message}"); }
-
-            if (updated > 0)
-                Logger?.LogDebug($"[ActionIntercept] IronSmelt: set Type=200 quality={sourceQualityPct:P0} (the melted item's own) on {updated} iron nugget(s)");
-            return updated;
-        }
 
         // ============================================================
         //  COPPER SELF-SMELT ITEMS — quality floor on nuggets from Progress OnFull
@@ -2009,7 +1879,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (!ProducesCopperNuggetOnFull(obj)) continue;
                     set.Add(uid);
                 }
-                set.ExceptWith(IronSmeltItemIds); // those get SD4-typed by IronSmeltType instead
+                set.ExceptWith(IronSmeltItemIds); // their own OnFull drop types and grades those nuggets
             }
             catch (Exception ex)
             {

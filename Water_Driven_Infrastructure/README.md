@@ -1,6 +1,6 @@
 # Water Driven Infrastructure
 
-**Version:** 1.12.13
+**Version:** 1.12.14
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFFModFramework 2.28.0 or later. Advanced Copper Tools is optional and adds extras, but nothing needs it.
@@ -15,7 +15,9 @@ The mod stands alone with the framework. Its nails, solder and sheets are the fr
 
 Since 1.12.0 a running outlet also fills a Rain Cistern for winter, and you can feed your fishpond, plant reed and cattail beds, and build a Water Basin that raises Sanctuary. Working the stations trains your skills.
 
-26 of the 28 blueprints are in the journal from the start. Cast Large and Small Bronze Gear appear only with Advanced Copper Tools.
+Since 1.12.12 a Retting Pit soaks flax, nettle and reeds at your base, and an Irrigation Channel keeps fields out of drought.
+
+27 of the 29 blueprints are in the journal from the start. Cast Large and Small Bronze Gear appear only with Advanced Copper Tools.
 
 The mod ships 29 blueprints, 26 items, 21 placed structures (each form of a card counts), 4 Mill Race improvements, 7 perks, 12 Partner duties and 1 setting. It also keeps five retired parts and their six blueprints so old saves load (see **Retired parts**).
 
@@ -66,6 +68,7 @@ Finishing a Mill Race also connects the location at its far end, even one you ha
 - **Winter heat:** stations at a frozen outlet keep working if a heat source stands there. That means a lit Campfire, Fire Pit, Fireplace, Oven, Kiln, Furnace, Bloomery, Forge or Copper Brazier, or a Water-Driven Forge or Workshop at Temperature 900 or more. Heat does not thaw the outlet.
 - **Rain Cistern feed:** a Rain Cistern at the same location fills with River Water at 10 every 15 minutes, about 22 days from empty, so water banked in summer and autumn lasts into winter. Each outlet adds its own flow.
 - A cistern already holding rainwater or any other liquid is left alone until drawn empty. A frozen outlet feeds nothing until the thaw.
+- **Chip Ice** (30 minutes) on a frozen outlet gives an Ice Block, to store in an Ice Pit or melt for water.
 
 ---
 
@@ -100,7 +103,7 @@ Drag a log onto the sawmill to cut planks.
 | 1 | 25 Heavy Stone, 10 Plaster, a shovel (kept) |
 | 2 | 8 Rope |
 | 3 | 20 Wooden Planks, a Forge Hammer or Stone (kept) |
-| 4 | Water-Driven Mill, Mill Race, 2 Large Copper Gears, 4 Small Copper Gears, Copper Saw Blade, 2 Iron Parts, 2 Iron Bearings, 1 Iron Axle, 12 Metal Nails*, 1 Tin Solder* |
+| 4 | Water-Driven Mill, Mill Race (kept), 2 Large Copper Gears, 4 Small Copper Gears, Copper Saw Blade, 2 Iron Parts, 2 Iron Bearings, 1 Iron Axle, 12 Metal Nails*, 1 Tin Solder* |
 
 - **Cut** (1.5 hours): a log gives 8 Wooden Planks and 2 Wood Shavings. The planks keep the log's wood and dryness, so a birch log gives birch planks.
 - **Saw All** (3 hours): the sawmill holds 20,000 weight (6 logs). Saw All saws every log inside, each giving what Cut gives. It trains no skill.
@@ -247,14 +250,14 @@ The population grows slowly, about one Pike, Perch or Minnow every 3.5 days. Har
 
 **Frogs:** the Stocked pond's **Catch Frog** takes a frog from a pool your ponds share: up to 6 frogs, and one more arrives each day. With none left, Catch Frog cannot be used until one arrives.
 
-In winter the pond becomes the Fishpond (Frozen), with Ice Fish buttons, and cannot be packed up until spring.
+In winter the pond becomes the Fishpond (Frozen), with Ice Fish buttons, and cannot be drained until spring.
 
 - **Rod and spear:** drag a fishing rod onto a pond to **Fish**, or a spear to **Spearfish**. Each takes 30 minutes, wears the tool as river fishing does, and gives 0.5 Fishing XP.
 - **What you catch:** a random species, weighted by how many the pond holds, at Quality 72. Crayfish are not caught this way. With no fish, nothing happens and no time passes.
 - **Partner fishing:** mark a pond with **Fish the Fishpond** in the Duty Assignment menu. The Partner presses the Catch buttons under the same rules, taking the first species still in the pond (Pike, Perch, Minnow, Sturgeon, Trout, Char, Eel, Crayfish, Frog). Mark the pond again if it switches between Fishpond and Fishpond (Stocked).
 - **Eel:** drag a vanilla Eel onto a pond and **Stock Eel** adds it, up to 10. Eels do not breed. **Catch Eel** (spear in reach) or **Ice Fish Eel** takes one out. Eels survive the freeze and thaw.
 - **Feeding:** drag Fish Scraps, Bugs or any fishing bait onto a working pond, and **Scatter Fish Food** adds a quarter fish to the smallest breeding species among Pike, Perch and Minnow (2 to 9 fish). Your ponds take one feed a day between them, and with no species breeding the food is wasted. The frozen pond cannot be fed.
-- **Kit:** Pack Up keeps the fish. A kit from **Drain**, or the Angler's Start kit, places as an empty Fishpond to stock again.
+- **Kit:** a placed pond has no Pack Up. **Drain** gives back the kit, and that kit, like the Angler's Start kit, places as an empty Fishpond to stock again.
 
 ---
 
@@ -418,7 +421,7 @@ A Partner works only the stations you mark. The Grinding Mill, Ore Sluice, Stamp
 2. Install CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. (Optional) Install Advanced Copper Tools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game and look for `WaterDrivenInfrastructure v1.12.13 loaded.` in `BepInEx/LogOutput.log`.
+5. Launch the game and look for `WaterDrivenInfrastructure v1.12.14 loaded.` in `BepInEx/LogOutput.log`.
 
 ---
 
@@ -441,22 +444,19 @@ BepInEx writes `BepInEx/config/crispywhips.waterdriveninfrastructure.cfg` on fir
 
 ## Testing status
 
-Most features were checked by scripted tests in a running game. Not yet tried in a game, or by hand:
+Most features were checked by scripted tests in a running game. Confirmed in scripted runs since the last update: the 1.12.3 fixes, the Ore Sluice's metal rates, the Iron Nail cost of Expand, the Iron Sheet recipes, the Bronze Gear pile toggle, the Partner duties for the Stamp Mill, Fishpond and expanded stations, the Fulling Mill, the Retting Pit and the Irrigation Channel.
 
-- The 1.12.3 fixes (nugget quality, Blast, Cast Metal Lump, Hammer All on an Iron Bloom, world temperature, Smelt Greenstone, retired parts turning into shared ones). They have scripted checks that are not yet confirmed by hand.
-- The Ore Sluice's new metal rates, the Iron Nail cost of Expand, and the Iron Sheet recipes for the Stamp Mill and Water Basin.
-- The animated Water Wheel art: seen working, not yet judged by eye.
-- The animated Sawmill, Grinding Mill, Forge, Workshop and Overshot Wheel art (1.12.6): built and checked frame by frame, not yet seen in a running game.
-- The pile toggle on Bronze Gears (1.12.5).
-- Partner duties for the Stamp Mill, Fishpond and expanded stations: scripted checks only.
+Every card picture and animation, the 1.12.6 Sawmill, Grinding Mill, Forge, Workshop, Ore Sluice and Water Basin animations included, has passed the owner's art review. Still open:
+
+- The animated Water Wheel (also on the Overshot Wheel): seen changing frames in a scripted run, not yet watched turning in a game by a person.
+- The Fish Funnel Kit borrows the Fishpond Kit picture, whose box reads "Fishing Pond Kit": not yet judged by a person.
 - Part of the 1.12.10 balance pass (the slower pond, once-a-day feeding, the empty drained pond, the Partner duty limit, Winter Station Lock on by default): its scripted checks in a running game are being repeated.
-- The Irrigation Channel: checked against the data by scripted tests, not yet seen in a running game.
 
 ---
 
 ## Troubleshooting
 
-- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.13 loaded.`
+- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.14 loaded.`
 - **Forge won't smelt?** It must reach 1,100. Feed it charcoal and Blast first.
 - **Outlet not producing water?** It must be outdoors with a Mill Race built first. In winter it freezes: wait for spring, or keep a heat source there. Stations keep working, but a Rain Cistern stays unfed.
 - **Rain Cistern not filling?** It must stand at the same location as a running outlet and be empty or hold River Water.
@@ -513,6 +513,7 @@ Patches filter on this mod's UniqueIDs. Apart from BaseTemperatureHeal, they nev
 
 Full notes are in CHANGELOG.md.
 
+- **1.12.13:** the Fulling Mill Kit has boxed kit art like the other water-mill kits.
 - **1.12.12:** the new Retting Pit and Irrigation Channel; Hammer All raises copper nuggets; a Partner's Catch Frog spends the frog pool; a second Fish Funnel no longer speeds a Funnel Trap; Fulling Mill kit planks come back as oak.
 - **1.12.11:** the new Water-Driven Fulling Mill raises the Quality of finished cloth; the Water Basin's animation sits where its still picture does; the Overshot Wheel's help text gives the right Saw All time.
 - **1.12.10:** a balance pass closer to the base game: copper smelting gives a Metal Nugget and slag, Hammer All stops at 60, the sawmill is slower and its blade wears out, the fishpond breeds and pays out more slowly, frogs are limited, and every station stops in winter without heat by default.

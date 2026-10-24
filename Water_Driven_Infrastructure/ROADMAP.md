@@ -1,7 +1,7 @@
 # Roadmap: Water Driven Infrastructure
-Version at time of writing: 1.12.12
-Date: 2026-10-20
-Audit score: 10/10 (PASS - 0 CRITICAL, 0 DESIGN GAP, 0 open WARNING)
+Version at time of writing: 1.12.14
+Date: 2026-10-23
+Audit score: 9/10 (PASS - 0 CRITICAL, 0 DESIGN GAP; 1 owner-owned mechanical consistency call, low severity)
 
 ## Current State
 
@@ -9,17 +9,17 @@ Audit score: 10/10 (PASS - 0 CRITICAL, 0 DESIGN GAP, 0 open WARNING)
 
 **Content**: 31 items (26 live + 5 retired-for-save-compat) / 35 blueprints (29 live + 6 retired) / 21 structures / 7 perks / 39 custom images. 12 NPCDuty files power Partner station work.
 
-**Stability**: 10/10 - release ready. Build clean (0 errors / 0 warnings), versions synced at 1.12.12, localization + Chinese parity CLEAN (673/673), acquisition loops complete (0 unreachable / 0 dead-end), 0 cross-mod collisions.
+**Stability**: 9/10 - release ready. Build clean (0 errors / 0 warnings, preflight 2026-10-23), versions synced at 1.12.14, localization + Chinese parity CLEAN (673/673), acquisition loops complete (0 unreachable / 0 dead-end), 0 cross-mod collisions (17 mods / 2622 UIDs). The single point off is an owner-owned metal-identity consistency call in the `parts` module (W1 below), not a break.
 
-**Open work**: None. All 4 WDI-tagged retrospectives (`wdi-mill-race-improvement-tab`, `wdi-mill-race-edges`, `wdi-fish-quality`, `wdi-iron-smelt-output`) are 🔵 Graduated/archived.
+**Open work**: None in the retrospectives - all 4 WDI-tagged retros (`wdi-mill-race-improvement-tab`, `wdi-mill-race-edges`, `wdi-fish-quality`, `wdi-iron-smelt-output`) are 🔵 Graduated/archived. One open audit decision (W1, below) awaits an owner call; it is below the `/audit-to-plan` promotion threshold (a low-severity WARNING), so it lives here and in `.audit/`, not in a plan doc.
 
 **Framework compliance**: Tier 2, fully adopted. 31 `ActionRouter` registrations, 18 `SpawnService` spawns, 5 `TickEvents` subscriptions. No direct `ActionRoutine` patches, no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`. Requires CSFFModFramework 2.28.0+.
 
 ---
 
-## Phase 0: Stabilize  *(skipped - audit score 10/10, no open retrospectives)*
+## Phase 0: Stabilize  *(skipped - 0 CRITICAL, no open retrospectives)*
 
-Nothing to stabilize. The mod is release-ready.
+Nothing release-blocking. The one open mechanical item (W1) is a deliberate owner decision, not a stabilization fix.
 
 ---
 
@@ -29,7 +29,7 @@ Nothing to stabilize. The mod is release-ready.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Versions synced across ModInfo/Plugin.cs/README (1.12.12) | Version hygiene | ✓ done | Quick |
+| Versions synced across ModInfo/Plugin.cs/README (1.12.14) | Version hygiene | ✓ done | Quick |
 | ActionRouter / SpawnService / TickEvents in use | Framework Tier 2 | ✓ done | - |
 | SimpCn.csv present, 673/673 parity | Localization | ✓ done | Quick |
 | Re-run the stale domain sub-audits (items 2026-07-27 is most stale) at next content change | Audit hygiene | P2 (advisory) | Quick |
@@ -38,12 +38,18 @@ Nothing to stabilize. The mod is release-ready.
 
 ## Phase 2: Core Expansion
 
-> No open feature gaps. The one benched (not ruled-out) item is the sole near-term content candidate.
+> No feature gaps. One open mechanical decision and one benched (not ruled-out) feature are the near-term candidates.
+
+### W1 - Iron-parts metal identity (owner decision)
+**What**: The four wrought-iron machinery parts (`WaterDrivenSawmill_IronAxle/IronBearing/IronParts/IronWrench`) re-smelt into **copper** nuggets: their `Progress.OnFull` nugget `TransferRules` is `{Special2:1}` only and the construction blueprints use `AffectResultDurabilities` mask 64, so no Metal Type is carried and the nugget defaults to copper (100).
+**Why**: It contradicts the "wrought iron" card identity and is inconsistent with the copper/bronze gears, which preserve metal type. Low severity (value downgrade, not an exploit; no description claims otherwise).
+**Requires**: An owner choice between (a) retain iron - set mask **320** on the four `Bp_Iron*` blueprints and add `Special4:1` to each part's `Progress.OnFull` nugget `TransferRules`; or (b) accept copper as "generic scrap" and leave as-is. Below the `/audit-to-plan` promotion threshold (low-severity WARNING); re-plan into a MASTER_PLAN when the owner picks it up.
+**Complexity**: Quick (if fixed - four blueprint masks + four TransferRules edits, plus a localization/description pass if the identity is reaffirmed).
 
 ### Cold-Water Cache (benched, owner decision pending)
 **What**: A spoilage-halving (x0.5) river cache kept strictly weaker than vanilla's Ice Pit, with a flood-loss tick and a "Pull Up Cache" DA. UIDs `wdi_bp_coldwater_cache` / `wdi_coldwater_cache_placed`.
-**Why**: Completes the "river gives you cold storage" fantasy for players without an Ice Pit; fills the gap between no preservation and the Ice Pit.
-**Requires**: Owner decision - benched 2026-10-09 ("bnch for later in ideas"), NOT ruled out. Full as-built text + restore point at git `fb10224c1`; design record Feature 13 in `Documentation/Design/WaterDrivenInfrastructure_Round2_As_Built.md`. Open questions when picked up: is it wanted next to the Ice Pit, and do its all-placeholder numbers stay.
+**Why**: Completes the "river gives you cold storage" fantasy for players without an Ice Pit.
+**Requires**: Owner decision - benched 2026-10-09 ("bnch for later in ideas"), NOT ruled out. Full as-built text + restore point at git `fb10224c1`; design record Feature 13 in `Documentation/Design/WaterDrivenInfrastructure_Round2_As_Built.md`.
 **Complexity**: Medium (code existed in 1.12.0; mostly a restore + balance pass).
 
 ---
@@ -53,7 +59,7 @@ Nothing to stabilize. The mod is release-ready.
 ### AdvancedCopperTools (optional) - already wired
 **What**: Bronze gears are tabbed at runtime by `BronzeGearTabPatch` only when ACT is installed; shared Metal Nail / Tin Solder / Metal Sheet are framework-hosted; ACT is declared optional (no hard dependency, G7 clean).
 **Why**: Lets WDI's forge/workshop recipes use the shared fastener economy without forcing ACT.
-**Requires**: Nothing - shipped. Only open item is an in-game verification question: confirm the Cast Iron Sheet (SD4 `Active:false`) is correctly rejected from an ACT copper-tier slot, if the README's tier-lock claim is to be tracker-verified.
+**Requires**: Nothing - shipped.
 **Complexity**: Quick (a tracker row, not code).
 
 ---
@@ -64,7 +70,8 @@ Nothing to stabilize. The mod is release-ready.
 
 | Item | What | Complexity |
 |------|------|------------|
-| M1 - `GetCardCharges` uncached reflection | Cache the reflection lookup if a perf pass is run; below scoring floor, not re-flagged on 2026-10-20 code-quality | Quick |
+| M3 - retire 6 vestigial `parts` blueprints | `Bp_AlloySolder`, `Bp_CastIronSheet`, `Bp_CastMetalSheet`, `Bp_CopperRivet`, `Bp_IronRivet`, `Bp_IronRivetsFromSheet` are inert save-compat fallbacks (never researchable). `/remove-blueprint` once no shipped save can hold a researched copy | Quick |
+| M1 - `GetCardCharges` uncached reflection | Cache the reflection lookup if a perf pass is run; below scoring floor | Quick |
 
 ---
 
@@ -74,7 +81,7 @@ Nothing to stabilize. The mod is release-ready.
 
 WDI is at its natural feature-complete endpoint for a water-industry mod: the full chain from wheel → power → every station → river-fed base infrastructure (drinking, irrigation, retting, reed beds, winter cistern) ships and is in-game confirmed. The mod's role is the definitive "harness the river" overhaul, and the biggest justified remaining move is breadth (the benched Cold-Water Cache) rather than a new subsystem. A new mechanical pillar (e.g. water-powered milling of a new material class, or a tidal/seasonal flow mechanic) is not yet justified by scope; revisit only if vanilla adds a material or seasonal water system to anchor it.
 
-**Potential major additions** (not yet justified - revisit after an owner decision on the Cache):
+**Potential major additions** (not yet justified - revisit after an owner decision on W1 and the Cache):
 - Cold-Water Cache restore - benched, fits the river-preservation theme; the clearest next step.
 - Second-tier wheel/gearing progression - only if a new high-volume station class is added that needs it.
 
@@ -89,7 +96,7 @@ Any of these worth building belongs in a plan under `Documentation/Plans/WaterDr
 | After any new content phase | Run `/audit-mod WaterDrivenInfrastructure` and update this roadmap |
 | Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, re-run `/diagnose-log` |
 | After fixing a critical issue | Run `/critical-analysis WaterDrivenInfrastructure` to verify the fix |
-| After Phase 2 complete | Run `/export-to-repo WaterDrivenInfrastructure` and bump minor version; `/nexus-publish upload` (live is 1.12.11, deployed is 1.12.12) |
+| After Phase 2 complete | Run `/export-to-repo WaterDrivenInfrastructure` and bump minor version; `/nexus-publish upload` (live is 1.12.11, deployed is 1.12.14) |
 
 ---
 

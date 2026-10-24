@@ -2,6 +2,22 @@
 
 All notable changes to this mod are documented here.
 
+## [1.12.14] - 2026-10-22
+
+### Changed
+
+- **Blasting Advanced Copper Tools armor follows its armor merge (ACT 1.18.13).** ACT now makes each armor piece as one card in every metal. The Water-Driven Forge and Workshop melt a helmet into 17 nuggets, armor into 26, bracers into 13, greaves into 17 and a shield into 25, of the piece's own metal, the same counts as ACT's furnace. Armor made before the merge melts as before.
+
+### Fixed
+
+- **Iron Parts, Iron Bearings, Iron Axles and Iron Wrenches melt back into iron nuggets.** Their nuggets now come out as iron the moment they appear, instead of relying on a later fix-up that could leave them as copper. Parts you already own melt to iron too.
+- **Melting an iron part no longer turns other new nuggets to iron.** The old fix-up marked every unmarked Metal Nugget that appeared around an iron part's melt as iron, wherever it was, so a copper item melting at the same moment could give iron nuggets. It is gone: each iron part's own drop marks its nuggets.
+- **Researching Iron Parts needs a wrought iron bar, and the copper gears and saw blade need a crucible of molten copper, as their cards say.** Any metal bar or crucible used to unlock them, a copper bar for Iron Parts or a bronze crucible for a copper gear. Making them always needed the right metal.
+
+### For mod authors
+
+- `ActionInterceptPatch.GiveCard_Postfix`, `IsIronSmeltPending`, the `IronBarMetalType` constant and the `GameManager.GiveCard` patch lookup are deleted. The lookup never found `GiveCard` (it is static and the lookup asked for instance methods only), so the postfix never ran. The four iron parts' `Progress.OnFull` drops set Metal Type 200 themselves (`TransferRules` `Special4: 3`, `Special4Value: 200`).
+
 ## [1.12.13] - 2026-10-21
 
 ### Changed

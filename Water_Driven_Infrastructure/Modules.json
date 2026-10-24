@@ -1,0 +1,80 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). Every tracked file belongs to exactly one module, is a sharedTable (rows attributed by the UID or LocalizationKey they name), or is a picture/.art file owned by the module whose card names it. NPCDuty files live with the Partner Duties module, not their stations. `module_map.py check WaterDrivenInfrastructure` must exit 0.",
+  "sharedTables": [
+    "Localization/*.csv",
+    "BlueprintTabs.json"
+  ],
+  "modules": [
+    {
+      "id": "waterpower",
+      "name": "Water Power and Mill Race",
+      "summary": "Water Wheel, Overshot Wheel, Water Mill, Mill Race and its four sawmill env improvements, Mill Race Outlet (placed, closed, frozen), Water Basin, the Millwright and Outlet perks, the mill-race network and map-edge provider, and the ACT bathtub plumbing patch.",
+      "paths": ["CardData/**/*WaterWheel*", "CardData/**/*OvershotWheel*", "CardData/**/*WaterMill*", "CardData/**/*MillRace*", "CardData/**/*WaterBasin*", "Resource/GIF/Water*",
+                "Data/**", "CharacterPerk/Perk_Millwright.json", "CharacterPerk/Perk_OutletStart.json", "Patcher/MillRaceNetwork.cs", "Patcher/MillRaceMapEdgeProvider.cs", "Patcher/BathtubPlumbingPatch.cs", ".art/OvershotWheel.json", ".art/WaterBasin_gif.json", ".art/WaterWheel_gif.json"]
+    },
+    {
+      "id": "sawmill",
+      "name": "Water-Driven Sawmill",
+      "summary": "Water-Driven Sawmill (frame, placed, expanded), its blueprint, GIFs and starting perk.",
+      "paths": ["CardData/**/*Sawmill_Placed*", "CardData/Blueprint/Bp_WaterDrivenSawmill.json", "CardData/Item/WaterDrivenSawmill_Frame.json", "CardData/Gif/Sawmill*", "Resource/GIF/Sawmill*", "CharacterPerk/Perk_SawmillStart.json", ".art/SawmillFullyBuilt_gif.json"]
+    },
+    {
+      "id": "workshop",
+      "name": "Water-Driven Workshop",
+      "summary": "Water-Driven Workshop (kit, placed, expanded), its blueprint and GIFs.",
+      "paths": ["CardData/**/*Workshop*", "Resource/GIF/Workshop*", ".art/WorkshopFullyBuilt_gif.json"]
+    },
+    {
+      "id": "forge",
+      "name": "Water-Driven Forge",
+      "summary": "Water-Driven Forge (kit, placed), its blueprint, GIFs and starting perk, and the BaseTemperature repair for saves warmed by the old Blast.",
+      "paths": ["CardData/**/*Forge*", "Resource/GIF/Forge*", "CharacterPerk/Perk_ForgeStart.json", "Patcher/BaseTemperatureHeal.cs", ".art/ForgeFullyBuilt_gif.json"]
+    },
+    {
+      "id": "grinding",
+      "name": "Grinding and Stamp Mills",
+      "summary": "Water-Driven Grinding Mill and Stamp Mill (kits, placed), their blueprints, GIFs and the grinding-mill starting perk.",
+      "paths": ["CardData/**/*GrindingMill*", "CardData/Gif/GrindingMill*", "Resource/GIF/Grinding*", "CharacterPerk/Perk_GrindingMillStart.json", "CardData/**/*StampMill*", ".art/GrindingFullyBuilt_gif.json"]
+    },
+    {
+      "id": "oresluice",
+      "name": "Ore Sluice",
+      "summary": "Ore Sluice (kit, empty, placed), its blueprints, GIF and starting perk.",
+      "paths": ["CardData/**/*OreSluice*", "Resource/GIF/OreSluice*", "CharacterPerk/Perk_OreSluiceStart.json", ".art/OreSluicePlaced_gif.json"]
+    },
+    {
+      "id": "fishery",
+      "name": "Fishpond and Fish Funnel",
+      "summary": "Fishpond (kit, filled, stocked, winter), Fish Funnel, the pond feed and frog stats, the fishpond starting perk, and the population and one-funnel-per-trap patches.",
+      "paths": ["CardData/**/*Fish*", "GameStat/WDI_Pond*", "CharacterPerk/Perk_FishpondStart.json", "Patcher/FishFunnelPatch.cs", "Patcher/FishpondPopulationPatch.cs"]
+    },
+    {
+      "id": "wetland",
+      "name": "Wetland Beds, Fibre and Irrigation",
+      "summary": "Cattail Bed, Reed Bed, Retting Station, Fulling Mill and Irrigation Channel, their blueprints and kits, and the channel's field-hydration floor patch.",
+      "paths": ["CardData/**/*CattailBed*", "CardData/**/*ReedBed*", "CardData/**/*Retting*", "CardData/**/*FullingMill*", "CardData/**/*Irrigation*", "Patcher/IrrigationChannelPatch.cs"]
+    },
+    {
+      "id": "parts",
+      "name": "Cast Metal Parts",
+      "summary": "Copper and bronze gears, copper and iron rivets, iron axle, bearing, parts and wrench, alloy solder, cast iron and metal sheets, copper saw blade, the ACT detection point and the bronze-gear tab gate.",
+      "paths": ["CardData/**/*Gear*", "CardData/**/*Rivet*", "CardData/**/*IronAxle*", "CardData/**/*IronBearing*", "CardData/**/*IronParts*", "CardData/**/*IronWrench*", "CardData/**/*AlloySolder*",
+                "CardData/**/*CastIronSheet*", "CardData/**/*CastMetalSheet*", "CardData/**/*SawBlade*", "Patcher/ActCompat.cs", "Patcher/BronzeGearTabPatch.cs"]
+    },
+    {
+      "id": "duties",
+      "name": "Partner Duties",
+      "summary": "The twelve NPCDuty registrations (operate each station, harvest the beds, tend the fishpond) and the MillDutyPatch that lets a recruited Partner run them.",
+      "paths": ["NPCDuty/**", "Patcher/MillDutyPatch.cs"]
+    },
+    {
+      "id": "modwide",
+      "name": "Mod-wide",
+      "modWide": true,
+      "summary": "Plugin entry, the shared loader (GameLoadPatch) and the station action interceptor (ActionInterceptPatch, every station's DismantleActions), MiniJson, the batch action tag, project files, player docs, card motion, and art tooling state.",
+      "paths": ["Plugin.cs", "GlobalUsing.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "PLAYER_GUIDE.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore",
+                "Features.json", "Modules.json", "Patcher/GameLoadPatch.cs", "Patcher/ActionInterceptPatch.cs", "Util/**", "ScriptableObject/ActionTag/**", "CardData/Motion/**",
+                ".art/RUN_LOG.md", ".art/reference-uploads.json", ".art/review/**"]
+    }
+  ]
+}

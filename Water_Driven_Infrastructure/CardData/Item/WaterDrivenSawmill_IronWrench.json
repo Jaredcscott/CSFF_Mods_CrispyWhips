@@ -122,7 +122,9 @@
                 "y": 6
               },
               "TransferRules": {
-                "Special2": 1
+                "Special2": 1,
+                "Special4": 3,
+                "Special4Value": 200.0
               },
               "FinishUnlocking": false
             }
