@@ -41,6 +41,7 @@ internal static class GifLoader
         foreach (var mod in mods)
         {
             LoadGifFiles(mod);
+            LoadFrameFolders(mod);
             LoadDefinitions(mod);
         }
 
@@ -77,6 +78,128 @@ internal static class GifLoader
                 Log.Warn($"GifLoader: failed to decode '{name}': {Log.ExceptionText(ex)}");
             }
         }
+    }
+
+    // -------------------------------------------------------------------------
+    // PNG frame sequences
+    //
+    // <mod>/Resource/GIF/<GifName>/*.png plays exactly like <GifName>.gif, but each
+    // frame keeps full 8-bit alpha (a GIF pixel is either clear or solid, so soft
+    // shadows and glows are lost). Frames play in numeric order of the last digit run
+    // in the file name (flame_2.png before flame_10.png). Timing comes from an optional
+    // frames.json in the folder: { "DelayMs": 80 } for every frame, or
+    // { "DelaysMs": [80, 80, 120] } per frame (a short list repeats its last value).
+    // Default 100 ms. A .gif of the same name wins and the folder is skipped.
+    // -------------------------------------------------------------------------
+
+    internal const float DefaultFrameDelaySeconds = 0.1f;
+
+    private static void LoadFrameFolders(ModManifest mod)
+    {
+        foreach (var dir in ModAssets.ResolveGifFrameFolders(mod))
+        {
+            var name = Path.GetFileName(dir.TrimEnd('/', '\\'));
+            if (string.IsNullOrEmpty(name)) continue;
+            if (GifFrameSets.ContainsKey(name))
+            {
+                Log.Warn($"GifLoader: frame folder '{name}' in {mod.Name} skipped, a GIF of that name is already loaded");
+                continue;
+            }
+
+            try
+            {
+                var frameSet = DecodeFrameFolder(dir, name);
+                if (frameSet != null)
+                {
+                    GifFrameSets[name] = frameSet;
+                    Log.Debug($"GifLoader: loaded '{name}' ({frameSet.Frames.Length} PNG frames) from {mod.Name}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Warn($"GifLoader: failed to load frame folder '{name}': {Log.ExceptionText(ex)}");
+            }
+        }
+    }
+
+    internal static string[] OrderFrameFiles(IEnumerable<string> files)
+        => files
+            .OrderBy(f => FrameNumber(Path.GetFileNameWithoutExtension(f)))
+            .ThenBy(f => Path.GetFileName(f), StringComparer.OrdinalIgnoreCase)
+            .ToArray();
+
+    // Last run of digits in the name, or int.MaxValue when there is none (unnumbered sorts last).
+    internal static long FrameNumber(string stem)
+    {
+        int end = stem.Length - 1;
+        while (end >= 0 && !char.IsDigit(stem[end])) end--;
+        if (end < 0) return int.MaxValue;
+        int start = end;
+        while (start > 0 && char.IsDigit(stem[start - 1])) start--;
+        return long.TryParse(stem.Substring(start, end - start + 1), out var n) ? n : int.MaxValue;
+    }
+
+    // Per-frame delays in seconds from frames.json text (null text = defaults).
+    internal static float[] ReadFrameDelays(string json, int frameCount)
+    {
+        var delays = new float[frameCount];
+        for (int i = 0; i < frameCount; i++) delays[i] = DefaultFrameDelaySeconds;
+        if (string.IsNullOrEmpty(json) || frameCount == 0) return delays;
+        if (MiniJson.Parse(json) is not Dictionary<string, object> dict) return delays;
+
+        if (dict.TryGetValue("DelayMs", out var allRaw) && allRaw is double all && all > 0)
+            for (int i = 0; i < frameCount; i++) delays[i] = (float)(all / 1000.0);
+
+        if (dict.TryGetValue("DelaysMs", out var listRaw) && listRaw is List<object> list && list.Count > 0)
+        {
+            float last = delays[0];
+            for (int i = 0; i < frameCount; i++)
+            {
+                if (i < list.Count && list[i] is double ms && ms > 0) last = (float)(ms / 1000.0);
+                delays[i] = last;
+            }
+        }
+        return delays;
+    }
+
+    private static GifFrameSet DecodeFrameFolder(string dir, string name)
+    {
+        var files = OrderFrameFiles(Directory.GetFiles(dir, "*.png", SearchOption.TopDirectoryOnly));
+        if (files.Length == 0) return null;
+
+        var frames = new List<Sprite>(files.Length);
+        int width = 0, height = 0;
+        foreach (var file in files)
+        {
+            var tex = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+            // markNonReadable=true frees the CPU copy once uploaded, as DecodeGif does.
+            if (!tex.LoadImage(File.ReadAllBytes(file), true))
+            {
+                UnityEngine.Object.Destroy(tex);
+                Log.Warn($"GifLoader: '{name}' frame {Path.GetFileName(file)} is not a readable PNG, skipped");
+                continue;
+            }
+            if (frames.Count == 0) { width = tex.width; height = tex.height; }
+            else if (tex.width != width || tex.height != height)
+                Log.Warn($"GifLoader: '{name}' frame {Path.GetFileName(file)} is {tex.width}x{tex.height}, first frame is {width}x{height}");
+
+            tex.name = name;
+            var sprite = Sprite.Create(tex, new Rect(0f, 0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100f);
+            sprite.name = name;
+            frames.Add(sprite);
+        }
+        if (frames.Count == 0) return null;
+
+        var timing = Path.Combine(dir, "frames.json");
+        var delays = ReadFrameDelays(File.Exists(timing) ? File.ReadAllText(timing) : null, frames.Count);
+
+        return new GifFrameSet
+        {
+            Name = name,
+            Frames = frames.ToArray(),
+            Delays = delays,
+            Loop = true,
+        };
     }
 
     private static GifFrameSet DecodeGif(string path, string name)

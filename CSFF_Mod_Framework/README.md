@@ -4,7 +4,7 @@ The shared base for Card Survival: Fantasy Forest mods. It loads mod content fro
 
 It also fixes several base-game bugs and speeds up travel to long-unvisited places.
 
-- **Version:** 2.28.8
+- **Version:** 2.28.9
 - **Game version:** EA 0.69c
 - **Requires:** BepInEx 5.x
 - **Languages:** English and Simplified Chinese
@@ -56,11 +56,11 @@ These parts moved here from Advanced Copper Tools in 2.28.0 under the same IDs, 
 
 The tag shows in the character creation lists, the selected-perk panel, the character select card and the in-game character sheet, including their tooltips. It is display only: perk names in saves and stat reports are unchanged.
 
-It is confirmed on the character sheet and in the WikiMod tooltip; the character creation lists are not yet confirmed in a running game. Switch it off with `ShowModOriginTag`.
+It is confirmed on the character sheet and in the WikiMod tooltip, and in the character creation lists in a scripted run. Switch it off with `ShowModOriginTag`.
 
 **Card motion.** Mods can ask for a little movement on their art: NPCs and animals breathe softly and plants sway. The framework bends the card's own picture, so there are no extra image files and no extra texture memory, and with 24 moving cards on the board it measured about a tenth of a millisecond per frame.
 
-It has been seen working on board cards and in the inspection popup. The encounter picture is not yet confirmed in a running game. Switch it off with `CardMotion`.
+It has been seen working on board cards and in the inspection popup, and in the encounter picture in a scripted run. Switch it off with `CardMotion`.
 
 **Animated card art.** A mod can give a card a looping GIF, such as a fire that flickers while it is lit or a water wheel that turns. An animation tied to a stat (a kettle that steams only while hot) starts and stops as the stat changes, and the still picture comes back when no animation applies.
 
@@ -81,6 +81,8 @@ These are always on and need nothing from you.
 - Mod rooms no longer share one saved board, so the Inn's cards and the Bear Cave's bear stay out of the jail cell and the other mod rooms.
 - Animal tracks that have already run out are dropped before each save. The game only clears them where you stand, so on a long run every other place kept every track ever left there, and the autosave every two in-game hours could freeze the game for seconds. Tracks you can still follow are kept.
 - The framework's load-time cleanup leaves the base game's own cards exactly as they ship, so "Wash yourself" at a river no longer drains the fuel from every card on the board.
+- A mod perk that picks your starting place starts you there: Far Territory's Island Start puts you on Landfall Strand, not at River Clearing.
+- In Chinese, the popup for a mod animal or person shows its translated name as its description, not the English one.
 
 ### Compatibility with other mods
 
@@ -196,6 +198,7 @@ Every `*WarpData` key needs its `*WarpType` sibling: 3 Reference, 4 Add, 5 Modif
 | `DropInjections.json` | Adds drops to location card actions such as Forage, optionally by season |
 | `InjectImprovementInto.json` | `[{ "TargetEnvUID": "<CT8 UID>", "ImprovementUID": "<CT10 UID>" }]`. Makes an environment improvement buildable at a location |
 | `TradingValues.json` | `{ "<CardData UID>": <number> }` written onto `CardData.TradingValue`. Keys starting with `_` are comments. Later mods win a conflict (with a warning); a targeted `GameSourceModify` patch still wins over both |
+| `TagGroups.json` | `[{ "Name": "GpTag_...", "Label": "...", "LabelKey": "...", "Tags": ["tag_..."], "ExtraCards": ["<UID>"], "ExcludeLiquids": false }]`. A card group filled at load with every card that carries one of the tags (from any mod) plus the extra cards, for a blueprint slot's `RequiredTabGroupWarpData` or a liquid check's `RequiredGroupWarpData`, which cannot name a tag. The framework ships `GpTag_FW_Oil` (any oil, with vanilla rendered fat) and `GpTag_FW_OilIngredient` (any oil that is not a liquid) |
 | `CardData/Trigger/*.json` | Spawns a card on the player's board on a timer |
 | `SelfTriggeredAction/*.json` | Vanilla stat-triggered events. The game runs them; the framework checks them at load |
 | `EncounterGuards/*.json` | Stops encounters while a guard card or guard place is present |
@@ -282,6 +285,7 @@ A patch can only reach objects loaded at the main menu. Scene objects, such as t
 ### Perks
 
 - A perk goes into the PerkGroup named by `CharacterPerkPerkGroup` (Situational by default) and is removed from groups the game put it in by itself. `"CharacterPerkPerkGroup": "None"` keeps it out of every group, for perks granted only during a run through `AddedInRunPerksWarpData`.
+- A perk's starting place (`OverrideEnvironmentWarpData`) is kept when it names an environment card a mod ships. One that names a base-game board is cleared at load, since a mod perk usually carries that by accident.
 - `AddedCardsStats` and `EquippedCardsStats` give a perk's starting items real values instead of the card defaults (quality 0, Plank ID 0, leather Skin Type 0). Liquids are not covered.
 - Write them as `[ { "Card": "<uid>", "SpecialDurability4": 1 } ]` beside the matching `...WarpData` list, with `Card` exactly as it appears there.
 - On `EquippedCards`, every card from the first declared one on is equipped in the perk's own order, so a container listed before its contents exists before they are handed out.
@@ -467,7 +471,7 @@ The framework builds the `NPCAgent` with its duties and timers, plus the tracks,
 
 Use them for a winter-only visitor, or for an animal players can switch off through a hidden GameStat.
 
-The Approach button reads the framework's `CSFFMFW_Animal_Approach` row, so it follows the game language. `Encounter.ApproachLabelLocalizationKey` gives a species its own wording, and `Encounter.EnemyNameLocalizationKey` names a generated encounter's enemy. A key with no row in the mod's `SimpEn.csv` logs a warning.
+The Approach button reads the framework's `CSFFMFW_Animal_Approach` row, so it follows the game language. `Encounter.ApproachLabelLocalizationKey` gives a species its own wording, and `Encounter.EnemyNameLocalizationKey` names a generated encounter's enemy. The NPC popup's description reads the manifest's `LocalizationKey` row, or an optional top-level `DescriptionLocalizationKey`, which is ignored when `Agent.Ref` is set. A key with no row in the mod's `SimpEn.csv` logs a warning.
 
 An `AffectItems` duty can be limited to the containers it may open with `ContainerCards` (card UIDs), `ContainerTags` and `ContainerRequired`, alongside `InTrapContainers`. With `InTrapContainers` false and neither list set, the raider may take food from every container, and the loader warns.
 
@@ -539,6 +543,8 @@ Localization, audio, perks and blueprint tabs come last. Read that file for the 
 | `Stubs/LitJson/` | Source of the bundled `LitJSON.dll` (v0.19.0.0) |
 
 ## Recent releases
+
+**2.28.9.** Dragging a card no longer freezes the board when one card's data is broken, and a card animation can be a folder of PNG frames, so soft shadows and glows keep their transparency.
 
 **2.28.8.** A starting-location perk from a mod starts you where it says: Far Territory's Island Start puts you on Landfall Strand again. In Chinese, the popup of a mod animal or person shows its translated name as its description instead of the English one.
 

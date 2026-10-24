@@ -44,6 +44,39 @@ internal static class ModAssets
     public static IEnumerable<string> ResolveGifs(ModManifest mod)
         => Resolve(mod, mod.Assets?.Gifs, LegacyGifDirs, GifExts, recursive: true);
 
+    /// <summary>
+    /// PNG frame-sequence folders: every sub-folder of a GIF root (<c>Resource/GIF/</c>, or a
+    /// directory entry of <c>Assets.Gifs</c>) that directly holds at least one <c>.png</c>.
+    /// The folder name is the animation's GifName. A GIF root itself is never a sequence, so a
+    /// stray PNG beside the GIFs is ignored.
+    /// </summary>
+    public static IEnumerable<string> ResolveGifFrameFolders(ModManifest mod)
+    {
+        var roots = new List<string>();
+        if (mod.Assets?.Gifs != null && mod.Assets.Gifs.Count > 0)
+        {
+            foreach (var entry in mod.Assets.Gifs)
+            {
+                if (string.IsNullOrEmpty(entry)) continue;
+                var full = Path.Combine(mod.DirectoryPath, entry.Replace('\\', '/').TrimStart('/'));
+                if (Directory.Exists(full)) roots.Add(full);
+            }
+        }
+        else
+        {
+            foreach (var subDir in LegacyGifDirs)
+            {
+                var dir = Path.Combine(mod.DirectoryPath, subDir);
+                if (Directory.Exists(dir)) roots.Add(dir);
+            }
+        }
+
+        foreach (var root in roots)
+            foreach (var dir in Directory.GetDirectories(root, "*", SearchOption.AllDirectories))
+                if (Directory.GetFiles(dir, "*.png", SearchOption.TopDirectoryOnly).Length > 0)
+                    yield return dir;
+    }
+
     public static IEnumerable<string> ResolveMapCaches(ModManifest mod)
     {
         if (mod.Assets?.MapCaches != null && mod.Assets.MapCaches.Count > 0)

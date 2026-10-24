@@ -142,6 +142,11 @@ internal static class LoadOrchestrator
             //     rebuilt CardDrop[] targets are plain resolved CardData refs from GameRegistry.
             RunPhase(sw, "NPCActionDroppedCardsRepair", () => NPCActionDroppedCardsRepair.RepairAll());
 
+            // 4e. Tag groups (TagGroups.json, 2.28.9): register each declared CardTabGroup under its name
+            //     BEFORE WarpResolver, so a RequiredTabGroupWarpData / RequiredGroupWarpData naming it
+            //     resolves to this instance instead of an empty one WarpResolver would create. Filled at 8b.
+            RunPhase(sw, "TagGroupService.Declare", () => TagGroupService.DeclareAll(mods));
+
             // 5. Resolve ALL WarpData references (THE key fix)
             var allData = GetAllData();
 
@@ -363,6 +368,10 @@ internal static class LoadOrchestrator
 
             // 8. Rebuild maps so later services see tag/type changes made by patches.
             RunPhase(sw, "DataMap (post-GameSourceModifier)", () => DataMap.BuildMaps(allData));
+
+            // 8b. Fill the tag groups declared at 4e from every loaded card's tags (after GameSourceModify,
+            //     which can change tags; every mod's JSON is loaded by now, whatever its load order).
+            RunPhase(sw, "TagGroupService.Fill", () => TagGroupService.FillAll(allData, "load"));
 
             // 8a. Resolve sprites for cards and perks
             RunPhase(sw, "SpriteResolver", () => SpriteResolver.ResolveAll(allData, mods));

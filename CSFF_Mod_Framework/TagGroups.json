@@ -1,0 +1,16 @@
+[
+    {
+        "Name": "GpTag_FW_Oil",
+        "Label": "Oil",
+        "LabelKey": "CSFFMFW_GpTag_FW_Oil_TabName",
+        "Tags": ["tag_Oil"],
+        "ExtraCards": ["39ef9375746c7c34493215126e9888ee"]
+    },
+    {
+        "Name": "GpTag_FW_OilIngredient",
+        "Label": "Oil",
+        "LabelKey": "CSFFMFW_GpTag_FW_Oil_TabName",
+        "Tags": ["tag_Oil"],
+        "ExcludeLiquids": true
+    }
+]

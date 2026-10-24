@@ -1,0 +1,111 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). The framework is mostly C#, so modules follow the code's own folders and responsibilities (CLAUDE.md Framework Scope); its few cards (Metal Parts, the Portal hub) get their own modules. Every tracked file belongs to exactly one module, is a sharedTable (rows attributed by the UID or LocalizationKey they name), or is a picture/.art file owned by the module whose card names it. `module_map.py check CSFFModFramework` must exit 0.",
+  "sharedTables": [
+    "Localization/*.csv",
+    "BlueprintTabs.json",
+    "SmeltingRecipes.json"
+  ],
+  "modules": [
+    {
+      "id": "core",
+      "name": "Core and Mod-wide",
+      "summary": "Plugin entry, ModInfo, csproj, docs and licenses, shared utilities (Util, ReflectionCache), the LitJSON stub, SafePatcher and art review state.",
+      "modWide": true,
+      "paths": ["Plugin.cs", "GlobalUsing.cs", "ModInfo.json", "CSFFModFramework.csproj", "README.md", "CHANGELOG.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", "THIRD_PARTY_LICENSES.md", ".gitignore", "Modules.json", "Features.json",
+                "Util/**", "Reflection/**", "Stubs/**", "Patching/SafePatcher.cs", ".art/review/**"]
+    },
+    {
+      "id": "api",
+      "name": "Public API",
+      "summary": "The Api/ facade content mods compile against: ContentModPlugin, Framework, GameQuery, SpawnService, Inventory, StatAccess, TickEvents, Gate, RecipeInjector, BlueprintAlternates, WorldMap, Npc and the rest of the contract surface.",
+      "paths": ["Api/**"]
+    },
+    {
+      "id": "discovery",
+      "name": "Mod Discovery",
+      "summary": "Finding and classifying installed mods: ModDiscovery, ModManifest (ModLoader ownership and framework-only markers), ModAssets, ModTag and plugin dependency reading.",
+      "paths": ["Discovery/**", "Loading/PluginDependencyReader.cs"]
+    },
+    {
+      "id": "loading",
+      "name": "Load Pipeline and Data",
+      "summary": "LoadOrchestrator and GameLoadPatch phases, JsonDataLoader, Data/ (Database, GameRegistry, DataMap, WarpResolver, GameSourceModifier, ExtraDataStore), UID aliases, clones, foreign-instance reconcile, normalizers, index repairs, stale-content cleanup, AlwaysUpdate, authoring lint and the VanillaIds registry.",
+      "paths": ["Data/**", "Resources/VanillaIds.json", "Patching/GameLoadPatch.cs",
+                "Loading/LoadOrchestrator.cs", "Loading/JsonDataLoader.cs", "Loading/PhaseTimings.cs", "Loading/FrameworkDirtyTracker.cs", "Loading/AuthoringLint.cs",
+                "Loading/UidAliasService.cs", "Loading/CardCloneService.cs", "Loading/ForeignInstanceReconciler.cs", "Loading/NullReferenceCompactor.cs", "Loading/PassiveEffectNormalizer.cs",
+                "Loading/ProducedCardService.cs", "Loading/TypedCacheAllDataSync.cs", "Loading/UniqueIdIndexRepair.cs", "Loading/StaleContentCleaner.cs", "Loading/AlwaysUpdateService.cs",
+                "Loading/SpawnStatDefaultsLoader.cs", "Loading/NPCActionDroppedCardsRepair.cs"]
+    },
+    {
+      "id": "assets",
+      "name": "Sprites, Audio and Localization",
+      "summary": "SpriteLoader, SpriteResolver, SpriteTextureCache, AudioLoader, AssetBundleLoader, LocalizationLoader, the vanilla-key default-text repair and LocalizationPatch.",
+      "paths": ["Loading/SpriteLoader.cs", "Loading/SpriteResolver.cs", "Loading/SpriteTextureCache.cs", "Loading/AudioLoader.cs", "Loading/AssetBundleLoader.cs",
+                "Loading/LocalizationLoader.cs", "Loading/VanillaKeyDefaultTextRepair.cs", "Patching/LocalizationPatch.cs"]
+    },
+    {
+      "id": "injection",
+      "name": "Declarative Content Injectors",
+      "summary": "Blueprint tabs and container fix, perks (injection, relocation, origin tag, starting stats), drops, improvements, smelting, tag groups (TagGroups.json), trading values, flavour matrix, modifier packages, quests, STA activation and the blueprint flag fix.",
+      "paths": ["Injection/BlueprintInjector.cs", "Injection/PerkInjector.cs", "Injection/PerkStartingItemStats.cs", "Injection/DropInjector.cs", "Injection/ImprovementInjector.cs",
+                "Injection/SmeltingRecipeInjector.cs", "Injection/TagGroupService.cs", "Injection/TradingValueInjector.cs", "Injection/FlavourMatrixInjector.cs",
+                "Injection/ModifierPackageInjector.cs", "Injection/QuestInjector.cs", "Injection/StaActivationService.cs",
+                "Loading/PerkRelocationService.cs", "Loading/BlueprintContainerSaveLoadFix.cs", "Patching/PerkOriginTagPatch.cs", "Patching/BlueprintFlagFix.cs", "TagGroups.json"]
+    },
+    {
+      "id": "worldmap",
+      "name": "World Map and Travel",
+      "summary": "WorldMapLoader and WorldMapInjector (clone nodes, travel DAs), CoordRegistry, env capacity, connection and sealable gates, conditional drops, strip-all contamination check, map cache and the travel-path crash guards.",
+      "paths": ["Injection/WorldMapInjector.cs", "Injection/CoordRegistry.cs", "Injection/EnvCapacityPatcher.cs", "Injection/ConnectionGateService.cs", "Injection/SealableGateService.cs",
+                "Injection/ConditionalDropService.cs", "Injection/StripAllContaminationCheck.cs", "Loading/WorldMapLoader.cs", "Loading/MapCacheLoader.cs", "Patching/ConnectionGatePatch.cs",
+                "Patching/BugFixes/AddInstancedEnvCrashGuard.cs", "Patching/BugFixes/ChangeEnvironmentCrashGuard.cs", "Patching/BugFixes/TravelDaCacheResync.cs",
+                "Patching/BugFixes/ExplorationPopupFix.cs", "Patching/BugFixes/RetiredEnvironmentSaveRepair.cs"]
+    },
+    {
+      "id": "portal",
+      "name": "Portal Hub",
+      "summary": "Map-mod portals: PortalService, PortalRegistry, MapModLoader, PortalTravelPatch, the arrival guard, the Portal Kit and placed portal, hub exit, Wayfinder perk and the animated portal GIF.",
+      "paths": ["Portal/**", "CardData/Hub/**", "CardData/Gif/Portal*.json", "CharacterPerk/csffmfw_perk_wayfinder.json", "Patching/BugFixes/PortalArrivalNextEnvGuard.cs",
+                "Resource/GIF/Portal_Placed.gif", ".art/Portal_Placed_gif.json", ".art/gif_work/Portal_Placed.png"]
+    },
+    {
+      "id": "animation",
+      "name": "GIF and Card Motion",
+      "summary": "Animated card art (Gif/ loader, frame sets, player, GifAnimationPatch) and card motion profiles (Motion/, CardMotionPatch).",
+      "paths": ["Gif/**", "Motion/**", "Patching/GifAnimationPatch.cs", "Patching/CardMotionPatch.cs"]
+    },
+    {
+      "id": "animals",
+      "name": "Animals and Wildlife",
+      "summary": "Declarative animals (loader, schema, validator, encounters, tracks, traps, taming, companions, duties, lifecycle), wildlife raids, expired-track pruning and the wildlife-stuck diagnostic.",
+      "paths": ["Animals/**", "Wildlife/**", "Patching/WildlifeRaidPatch.cs", "Patching/BugFixes/ExpiredTrackPruner.cs", "Patching/Diagnostics/WildlifeStuckDiagnostics.cs"]
+    },
+    {
+      "id": "encounters",
+      "name": "Encounters, NPCs and Triggers",
+      "summary": "Encounter guards (loader and both patches), character rosters, NPC agent activation, NPC action-row and button-text fixes, and spawn triggers (Triggers/).",
+      "paths": ["Triggers/**", "Loading/EncounterGuardLoader.cs", "Patching/EncounterGuardPatch.cs", "Patching/AgentEncounterGuardPatch.cs",
+                "Injection/CharacterRosterInjector.cs", "Injection/NPCAgentActivationService.cs", "Patching/BugFixes/NPCActionRowOverflowFix.cs", "Patching/BugFixes/NPCButtonTextFit.cs"]
+    },
+    {
+      "id": "compat",
+      "name": "Bug Fixes and Mod Compatibility",
+      "summary": "Vanilla crash guards and UI fixes not tied to one subsystem (blueprint screen, drag start, null tag, passive multiplier cancel, stale save cards) and third-party compatibility (CardSizeReduce scale, Cheats, WikiMod).",
+      "paths": ["Patching/BugFixes/BlueprintScreenFix.cs", "Patching/BugFixes/CardScaleCompat.cs", "Patching/BugFixes/CheatsPatchCompat.cs", "Patching/BugFixes/DragStartCrashGuard.cs",
+                "Patching/BugFixes/NullTagOnBoardGuard.cs", "Patching/BugFixes/PassiveMultiplierCancelFix.cs", "Patching/BugFixes/SaveStaleCardGuard.cs", "Patching/BugFixes/WikiMod*.cs"]
+    },
+    {
+      "id": "performance",
+      "name": "Performance and Diagnostics",
+      "summary": "Catch-up tick batching, caps and budget clamp, off-screen and off-env throttles, DOTween prewarm, ambience reuse, log suppression, and the opt-in autosave, frame, tracking, catch-up and blueprint search diagnostics.",
+      "paths": ["Patching/Performance/**", "Patching/Diagnostics/AutoSaveDiagnostics.cs", "Patching/Diagnostics/BlueprintSearchDiagnostic.cs", "Patching/Diagnostics/CatchUpEndStateDiagnostics.cs",
+                "Patching/Diagnostics/FrameTimingDiagnostics.cs", "Patching/Diagnostics/TrackingTimingDiagnostics.cs"]
+    },
+    {
+      "id": "metalparts",
+      "name": "Shared Metal Parts",
+      "summary": "Metal Sheet, Metal Nails (copper, cast copper, iron) and Tin Solder cards and blueprints shared by content mods, with their metal-variant pictures and smelting rows.",
+      "paths": ["CardData/MetalParts/**"]
+    }
+  ]
+}

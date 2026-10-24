@@ -4,6 +4,25 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.28.9] - 2026-10-22
+
+### Added
+
+- **Card animations can keep soft shadows and glows.** A GIF pixel is either fully clear or fully solid, so a lamp flame drawn with a soft shadow lost the shadow in game (reported by Chiwei). A mod can now ship a folder of PNG frames instead of a GIF, and every frame keeps its full transparency. It plays exactly like a GIF and costs the same while playing, because the framework turns both into the same frames when the game loads.
+
+- **A mod can now ask for "any oil" (or any card with a given tag) in a recipe slot.** Recipes and lamps in the suite now take every oil, including oils from mods you add later, instead of naming one oil. The framework itself provides the shared oil list.
+
+### Fixed
+
+- **Dragging a card no longer freezes the board.** When you started dragging a card (a Flint Knife onto a fish, for example), the cards it could be used on lit up but the dragged card stayed put, and after you let go the highlights and greyed-out cards stayed until you saved and reloaded. The game checks every card on the board when a drag starts, and if one card's data was broken the check stopped there and the drag never really began. Now that one card just shows no action and the drag works as normal. The framework also writes one warning naming that card to `BepInEx/LogOutput.log`, so a report can say which card, from which mod, is at fault (the game itself only writes the error to `Player.log`).
+
+### For mod authors
+
+- PNG frame sequences: put the frames in `Resource/GIF/<GifName>/*.png` (or a sub-folder of a directory listed in `Assets.Gifs`) and name `<GifName>` in `CardData/Gif/*.json` as you would a GIF. Frames play in the numeric order of the last number in each file name (`flame_2.png` before `flame_10.png`); timing comes from an optional `frames.json` in the folder, `{ "DelayMs": 80 }` or `{ "DelaysMs": [80, 80, 120] }`, default 100 ms. A `.gif` of the same name wins. Code: `Gif/GifLoader.cs` (`LoadFrameFolders`), `Discovery/ModAssets.cs` (`ResolveGifFrameFolders`). Guide: `Documentation/CSFF_GIF_Authoring.md`. Gate: `Development_Tools/Tests/Framework-GifPngFrames.Tests.ps1`.
+- `Patching/BugFixes/DragStartCrashGuard.cs`: a Harmony finalizer on `InGameCardBase.GetPossibleActionFromPlayerDrag` (no subclass overrides it). Vanilla `GameManager.BeginDragItem` invokes `OnBeginDragItem`, a multicast delegate holding that method for every board card; a throw from one card stopped the invoke and left `InGameDraggableCard.OnBeginDrag` before `Dragged = true`, so `OnEndDrag` never ran and `GameManager.DraggedCard` stayed set. Reproduced on a harness rig (a null planted in a Trout's `CardInteractions`, then a real pointer drag of a Flint Knife) and gone with the guard. Gate: `Development_Tools/Tests/Framework-DragStartCrashGuard.Tests.ps1`. A `DragStartCrashGuard:` warning in your log means one of your cards throws in its drag check; the line names it.
+- Tag groups (`Injection/TagGroupService.cs`): a `TagGroups.json` beside `ModInfo.json` declares `[{ "Name", "Label", "LabelKey", "Tags": [...], "ExtraCards": [...], "ExcludeLiquids" }]`. Each Name becomes one `CardTabGroup`, registered before WarpResolver so a `RequiredTabGroupWarpData` (blueprint slot) or `RequiredGroupWarpData` (`LiquidContentCondition`) naming it resolves to it, and filled after GameSourceModify with every loaded card carrying one of the tags (matched by tag name) plus the extra cards; it is filled again once at run start (a `GameManager.Awake` prefix) for cards a content mod registers in its own load postfix. Declarations of one Name from several mods merge. `ExcludeLiquids` drops tag-matched CT9 liquids (an extra card always stays). An extra card that does not resolve is skipped with a Debug line and counted in the Info summary. The label, when given, is the slot's displayed name (`BlueprintElement.GetName` prefers the group's TabName over `RequiredCard`).
+- The framework declares two groups: `GpTag_FW_Oil` (every `tag_Oil` card plus vanilla rendered fat `LQ_Fat`, for liquid checks such as refuelling a lamp from a container) and `GpTag_FW_OilIngredient` (every `tag_Oil` card that is not a liquid, for blueprint slots: a liquid in a slot's group lets one unit of liquid from any container fill the slot). A stack in one blueprint slot must be one card kind (`BlueprintElement.CompatibleInGameCard` rejects a second model), so a slot needing two oils cannot take two different oils.
+
 ## [2.28.8] - 2026-10-22
 
 ### Fixed

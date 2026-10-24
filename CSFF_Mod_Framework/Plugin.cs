@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.28.8";
+    public const string PluginVersion = "2.28.9";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -169,6 +169,7 @@ public class Plugin : BaseUnityPlugin
         Patching.LocalizationPatch.ApplyPatch(Harmony);
         Patching.BlueprintFlagFix.ApplyPatch(Harmony);
         Loading.UniqueIdIndexRepair.ApplyPatch(Harmony);
+        Injection.TagGroupService.ApplyPatch(Harmony);
         Loading.TypedCacheAllDataSync.ApplyPatch(Harmony);
         Patching.BugFixes.WikiModQuickFindFix.ApplyPatch(Harmony);
         // Finalizer on Harmony's own PatchClassProcessor.Patch: when a WikiMod patch class cannot bind
@@ -245,6 +246,11 @@ public class Plugin : BaseUnityPlugin
         // so every later action answers "I can't do two things at once..." (retro
         // vanilla-pen-coop-null-tag-wedge, 2026-10-09). Answers false, as its other branches do.
         Patching.BugFixes.NullTagOnBoardGuard.ApplyPatch(Harmony);
+        // Starting a drag asks every board card in one delegate chain what the dragged card would do
+        // to it; one card that throws stops the chain before the drag starts, so the board stays
+        // dimmed and the game thinks the card is still held until a reload (Nexus report 2026-10-21,
+        // Flint Knife onto a fish). Swallows that card's exception and names it once in the log.
+        Patching.BugFixes.DragStartCrashGuard.ApplyPatch(Harmony);
 
         // WorldMap clone envs could show doubled forage terrain (two Ponds, two Pine Trees,
         // two Small Pine Trees) after a player's FIRST mid-session visit to an expansion tile —

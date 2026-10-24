@@ -1,7 +1,7 @@
 # Roadmap: CSFF Mod Framework
-Version at time of writing: 2.28.7
-Date: 2026-10-20 (refreshed by `/consolidate-audit` after source commit of 2026-10-20)
-Audit score: 10/10 - PASS (2026-10-20 critical-analysis returned SOLID; code-quality 10/10; mod-report PASS, 0 CRITICAL)
+Version at time of writing: 2.28.9
+Date: 2026-10-23 (refreshed by `/consolidate-audit` after source commit of 2026-10-22)
+Audit score: 10/10 - PASS (2026-10-23 critical-analysis returned SOLID; code-quality 10/10; mod-report PASS, 0 CRITICAL)
 
 > **This is the framework, not a content mod.** The content-mod roadmap template (Tier 2 migration,
 > theme expansion, art) mostly does not apply: the framework DEFINES Tier 2, and its own content is a
@@ -17,14 +17,16 @@ Audit score: 10/10 - PASS (2026-10-20 critical-analysis returned SOLID; code-qua
 **Theme**: The shared engine for Card Survival: Fantasy Forest mods - JSON-driven content loading, WarpData
 resolution, sprite/localization loading, perk/blueprint/improvement/drop injection, declarative WorldMap,
 Portal Hub, the declarative Animal System, encounter guards, GameModifierPackage and flavour-synergy
-injection, plus a set of base-game bug fixes. 17 content mods (2,620 UIDs) load through it.
+injection, a shared GpTag vocabulary (`TagGroups.json`, GpTag_FW_Oil/OilIngredient), plus a set of
+base-game bug fixes. 17 content mods (2,622 UIDs) load through it.
 
 **Content**: 4 internal items / 8 blueprints / 2 structures (Portal Hub) / 1 perk (Wayfinder) / 19 custom
 images / 3 shared parts (Metal Sheet, Metal Nail, Tin Solder) + their blueprints. 178 `.cs` source files.
 
-**Stability**: 10/10 - PASS. Build clean (Release, 0/0), versions synchronized at 2.28.7, localization and
-Chinese parity CLEAN (61/61), bin/Release in sync, 0 cross-mod structural refs or tag collisions across the
-17 dependent mods. No advertised dead code.
+**Stability**: 10/10 - PASS. Build clean (Release, 0/0), versions synchronized at 2.28.9, localization and
+Chinese parity CLEAN (62/62), bin/Release in sync, 0 cross-mod structural refs or tag collisions across the
+17 dependent mods. No advertised dead code. New since 2.28.7 and audited clean: `TagGroupService`
+(TagGroups.json), `DragStartCrashGuard`, GIF PNG-frame sequences - all wired, documented, consumed live and gated green.
 
 **Open work**: 0 red (Open) retrospectives. 2 yellow debts: `wikimod-old-save-load-crash` (2.25.25/26 rescue
 patches not re-verified in-game) and `questinjector-blueprint-reset-risk` / `RETRO_CLOSURE_PLAN_2026-07-23`
@@ -51,7 +53,7 @@ target for every content mod.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Nexus release batch: framework 2.28.7 is ahead of Nexus 2.26.12; ship with the dependent-mod batch (`/nexus-publish upload --behind`) | Release tail | P1 | Medium |
+| Nexus release batch: framework 2.28.9 is ahead of Nexus 2.26.12; ship with the dependent-mod batch (`/nexus-publish upload --behind`) | Release tail | P1 | Medium |
 | `/package-mod-suite` + Mod_Update_Manager repack per the MUM-last rule | Release tail | P1 | Quick |
 | Verify `wikimod-old-save-load-crash` fix in-game on an old WikiMod save, then `/resolve-retro` | Retro close | P2 | Medium |
 | Decide `OffEnvNpcAiThrottle` ship/keep: feature-17 measurement showed ~310/385 ms per off-location tick is vanilla agent actions (16% is a lower bound vs the 20% bar); owner kept it default-off 2026-10-12 | Decision (settled) | P3 | Quick |
