@@ -1,0 +1,71 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). Every tracked file belongs to exactly one module, is a sharedTable (rows attributed by the UID or LocalizationKey they name), or is a picture/.art file owned by the module whose card names it. `module_map.py check Sirus23_Mod_Collection` must exit 0.",
+  "sharedTables": [
+    "Localization/*.csv",
+    "BlueprintTabs.json"
+  ],
+  "modules": [
+    {
+      "id": "sheep",
+      "name": "Sheep Husbandry",
+      "summary": "Wild and tame sheep, rams, lactating ewes, lambs and remains, their spawn triggers, the Sheep Pen, Sheep Feeder, Sheep Bell and Shears, the predator tracks, the husbandry perks, and the pen, feeder and grazing-guard patches.",
+      "paths": ["**/*WildSheep*", "**/*TameSheep*", "**/*MaleSheep*", "**/*LactatingSheep*", "**/*SheepRemains*", "**/*SheepPen*", "**/*SheepFeeder*", "**/*SheepBell*", "**/*SheepSpawn*", "**/*StartSheep*", "**/*SheepGrazing*", "**/*_sheep.*", "**/*sheep_remains*", "**/*sheep_bell*", "**/*sheep_feeder*", "**/*Lamb.json", "**/*Shears*", "**/*PredatorTracks*", "CharacterPerk/Pk_SH_HusbandryKit.json", "CharacterPerk/Pk_SH_ShepherdsStart.json"]
+    },
+    {
+      "id": "dairy",
+      "name": "Dairy and Dishes",
+      "summary": "Sheep Milk, Warm Milk, Cream, Butter (fresh, salted, clarified), Buttermilk, Curdled Milk, Whey, Yogurt, Sour Cream, Ricotta, the sheep cheeses, Cheese Cloth, the Butter Churn, and the dishes built on them (Berry Mix, Berry Yogurt, Buttered Roots, Creamy Mash, Soured Turnroot, Buttermilk Hardtack, Cheese-Stuffed Flatbread, Ricotta Rye Round).",
+      "paths": ["**/*Milk*", "**/*Cream*", "**/*Butter*", "**/*Curdled*", "**/*Whey*", "**/*Yogurt*", "**/*Ricotta*", "**/*Cheese*", "**/*BerryMix*", "**/*SouredTurnroot*", "**/*CreamyMash*"]
+    },
+    {
+      "id": "textiles",
+      "name": "Wool, Felt and Comfort",
+      "summary": "Wool, Washed Wool, Yarn, Felted Wool, Woven Cloth, the felt and wool clothing, bedroll, rug, blanket and Feather Pillow, Lanolin and Lanolin Salve, the comfort/outfit stats, the crafting-kit perk and the one-time Comfort fixup patch.",
+      "paths": ["**/*Wool*", "**/*Yarn*", "**/*Felt*", "**/*WovenCloth*", "**/*FeatherPillow*", "**/*Lanolin*", "GameStat/sh_stat_blanket_carried.json", "GameStat/sh_stat_comfort_fixup_done.json", "GameStat/sh_stat_soft_furnishing.json", "CharacterPerk/Pk_SH_CraftingKit.json", "Patcher/ComfortFixupPatch.cs"]
+    },
+    {
+      "id": "wolf",
+      "name": "Wolf Companion",
+      "summary": "Wolf Companion, Wolf Pup, Wolf Den, Bone Treat, the Wolf Friend and Pack Bond perks, the wolf encounter guard and vanilla wolf agent edits, and the fetch lockout stat.",
+      "paths": ["**/*Wolf*", "**/*BoneTreat*", "**/*PackBond*", "**/fc_wolf_pup.*"]
+    },
+    {
+      "id": "fox",
+      "name": "Fox Companion",
+      "summary": "Fox Companion, the Fox Friend perk, the fox encounter guard and vanilla fox agent edits, and the fox scout and fetch stats.",
+      "paths": ["**/*Fox*"]
+    },
+    {
+      "id": "owl",
+      "name": "Owl Companion",
+      "summary": "Wild Owl (animal, NPC agent and stats), tied, tracked and dead owl, Owl Companion, Owlet, Owl Perch, Owl Treat, the Owl Friend perk and guard, and the roost, pest-control, owlet-nest and wild-owl duty-guard patches.",
+      "paths": ["**/Owl*", "**/*WildOwl*", "**/*_Owl*", "**/fc_owlet.*", "NPCAgent/Agent_WildOwl.json", "NPCStat/Stat_WildOwl_*.json"]
+    },
+    {
+      "id": "hawk",
+      "name": "Hawk Companion",
+      "summary": "Wild Hawk animal, Eyas, Hawk Companion and Hawk Carcass.",
+      "paths": ["**/*Hawk*", "**/*Eyas*"]
+    },
+    {
+      "id": "companions",
+      "name": "Companion Behaviour",
+      "summary": "Shared companion behaviour: Send on Hunt and the fetches, Stay Here / Follow Me, the container guard, the cave/indoor environment check, and the Recall Whistle that calls left-behind companions back.",
+      "paths": ["Patcher/CompanionHuntPatch.cs", "Patcher/CompanionStayPatch.cs", "Patcher/CompanionContainerGuardPatch.cs", "Patcher/IndoorOrCaveEnv.cs", "**/*RecallWhistle*"]
+    },
+    {
+      "id": "working",
+      "name": "Working Animals",
+      "summary": "Ferret (and its trap drop-chance patch), Truffle Hog (and its Herbs and Fungi run-start patch), Ox Cart and Ox Plough.",
+      "paths": ["**/*Ferret*", "**/*TruffleHog*", "**/*OxCart*", "**/*OxPlough*"]
+    },
+    {
+      "id": "modwide",
+      "name": "Mod-wide",
+      "modWide": true,
+      "summary": "Plugin entry, the shared vanilla-data loader (GameLoadPatch: sheep butter interactions, sheep pregnancy, yarn alternates, trader stock), project files, player docs, card motion, and art tooling state.",
+      "paths": ["Plugin.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "LICENSE", "Features.json", "Modules.json", "Patcher/GameLoadPatch.cs", "CardData/Motion/**",
+                ".art/compositions.json", ".art/liquid_bowls.json", ".art/RUN_LOG.md", ".art/reference-uploads.json", ".art/review/**"]
+    }
+  ]
+}

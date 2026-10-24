@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.22.11] - 2026-10-23
+
+### Fixed
+
+- **Behind the scenes:** wild-animal taming, the sheep pen's night roll and Tend Flock each leave one warning in the log if a game update stops them reading the game's NPC or card lists or a sheep's Nourishment, instead of failing silently.
+
 ## [1.22.10] - 2026-10-22
 
 ### Fixed

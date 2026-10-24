@@ -313,12 +313,28 @@ internal static class CompanionHuntPatch
     /// checked; never return the first NPC found regardless of match (see CLAUDE.md's
     /// UniqueOnBoard-duplicate-instance lesson: resolvers must match the ACTUAL instance the
     /// player interacted with, not just any instance of a similar type).</summary>
+    // One cause (a game update renaming GameManager.AllNPCs), so a single dedicated latch rather
+    // than a shared bool that could silence an unrelated cause (CLAUDE.md Silent Catch Blocks, G5).
+    private static bool _warnedAllNpcsMissing;
+
     private static bool TryFindNpcByCard(object card, out object npc)
     {
         npc = null;
         var gm = CardUtil.GetGameManagerInstance();
-        if (gm == null) return false;
-        if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs) return false;
+        if (gm == null) return false;   // evaluated outside gameplay: benign negative, stays silent
+        if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs)
+        {
+            // Reflect.GetMember returns null (never throws) on a missing member, so without this
+            // line a renamed AllNPCs would make every tame CardPredicate silently return false and
+            // kill the wild-tame feature with zero log output (the retirement error at line ~428 is
+            // never reached, because the handler never dispatches).
+            if (!_warnedAllNpcsMissing)
+            {
+                _warnedAllNpcsMissing = true;
+                Plugin.Logger.LogWarning("[CompanionHunt] GameManager.AllNPCs could not be read as an IEnumerable; wild-animal taming (fox/wolf/wolf pack) will no longer detect its target. Logged once.");
+            }
+            return false;
+        }
 
         foreach (var candidate in allNpcs)
         {

@@ -145,8 +145,12 @@ internal static class SheepFeederPatch
         if (feederEmpty && piles.Count == 0) return 0;
         float cur = CardUtil.GetDurability(sheep, NourishmentStat);
         float max = CardUtil.GetDurabilityMax(sheep, NourishmentStat);
-        if (float.IsNaN(cur) || float.IsNaN(max) || max <= 0f) return 0;
-        if (cur / max >= FeedRefillBelowPercent) return 0;
+        if (float.IsNaN(cur) || float.IsNaN(max) || max <= 0f)
+        {
+            WarnOnce("nourishment-read", $"a sheep's Nourishment ({NourishmentStat}) could not be read, so Tend Flock could not feed it.");
+            return 0;
+        }
+        if (cur / max >= FeedRefillBelowPercent) return 0;  // not hungry: the normal negative, kept silent
 
         // The feeder's own stock first, then a Dry Fodder pile (the same flat 144 either way: no Nutrition scaling).
         bool fed = false;

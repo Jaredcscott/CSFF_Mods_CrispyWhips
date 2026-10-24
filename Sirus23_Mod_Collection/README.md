@@ -1,6 +1,6 @@
 # Sirus23 Mod Collection
 
-**Version:** 1.22.10
+**Version:** 1.22.11
 **Author:** Sirus, Jared
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFF Mod Framework 2.28.0 or later. Older frameworks back to 2.14.1 still load the mod, but the Wild Owl, the Hawk and the features marked "needs 2.28.0" below do not work fully.

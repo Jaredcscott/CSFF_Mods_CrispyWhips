@@ -157,7 +157,7 @@
     {
       "name": "Ox Cart",
       "status": "Implemented",
-      "_note": "NEW group (1.22.0, 2026-10-03). A hand-held container modelled on the vanilla Travois at twice its capacity, with the Travois's Movement Penalty gated off while a Bull (CowFreeMale) is on the board (W0-14 branch (a)); blueprint gated on a Bull. Borrows the Ox Plough's picture (ART PARTIAL).",
+      "_note": "NEW group (1.22.0, 2026-10-03). A hand-held container modelled on the vanilla Travois at twice its capacity, with the Travois's Movement Penalty gated off while a Bull (CowFreeMale) is on the board (W0-14 branch (a)); blueprint gated on a Bull. Borrows the Ox Plough's picture (ART PARTIAL). Since 1.22.6: MaxWeightCapacity 6000 (1.5x the Travois's 4000), unconditional; a Bull on the board cuts MovementPenalty from 2 to 1 and drops the CantHaulSoMuchPenalty +1, which is the vanilla two-large-carts movement block (status at 2), not a capacity change.",
       "cards": [
         "sh_ox_cart",
         "sh_bp_ox_cart"

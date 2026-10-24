@@ -1,6 +1,6 @@
 # Roadmap: Sirus23 Mod Collection
-Version at time of writing: 1.22.9
-Date: 2026-10-21
+Version at time of writing: 1.22.10
+Date: 2026-10-23
 Audit score: 10/10 - PASS (0 CRITICAL)
 
 ## Current State
@@ -9,9 +9,9 @@ Audit score: 10/10 - PASS (0 CRITICAL)
 
 **Content**: 71 items / 29 blueprints / 7 structures / 9 perks / 78 custom images / 2 triggers / 2 Animals manifests (Owl, Hawk) / 4 GameSourceModify patches / 3 EncounterGuards / 1 liquid.
 
-**Stability**: 10/10 - 0 CRITICAL, 0 design gaps, 2 warnings (code-quality G2: Debug-only catches in Tend Flock and the owl cave rule). The 2026-10-20 per-type CRITICALs (Sheep Feeder spill, Felt Bedroll and Ox Plough export tag names) and their warnings are fixed in 8e0a8b7de, the Pack Bond framework guard and Shears text in da5ee9b33. critical-analysis (2026-10-21) is SOLID; code-quality (2026-10-21) is 10/10.
+**Stability**: 10/10 - 0 CRITICAL, 0 design gaps, 2 open warnings. Both open warnings are player-facing description-vs-data inaccuracies in the Working Animals module (Ox Plough's "the Bull gets hungrier" claim with no field implementing it; Ox Cart's unconditional haul text that is actually Bull-conditional) surfaced by the working-module critical-analysis (CURRENT at `a3e7e9e4c`, 2026-10-23). The 2026-10-21 reliability warnings (Tend Flock and owl cave-rule Debug-only catches, RecallWhistle saved-weight catch) are all RESOLVED; the 2026-10-20 per-type CRITICALs and their warnings are fixed in 8e0a8b7de, Pack Bond guard and Shears text in da5ee9b33. Module-scoped audits: 8 of 10 modules fully CURRENT and clean (companions, dairy, textiles, wolf, fox, owl, hawk, working); sheep and modwide reports are STALE and defer to the mod-level pass.
 
-**Open work**: No open or pending retrospectives name this mod. No open plan: the vanilla-balance-and-niche plan was built and archived as `Documentation/Design/Sirus23_Vanilla_Balance_And_Niche_As_Built.md` (1.22.6-1.22.8). What remains is the two logging warnings, in-game verification on tracker rows and the release of 1.22.9 (Nexus holds 1.22.8, published 2026-10-19).
+**Open work**: No open or pending retrospectives name this mod. No open plan existed before this pass (the vanilla-balance-and-niche plan was built and archived as `Documentation/Design/Sirus23_Vanilla_Balance_And_Niche_As_Built.md`, 1.22.6-1.22.8). `/audit-to-plan` may open a MASTER_PLAN remediation section for the two Ox docs warnings. What otherwise remains is in-game verification on tracker rows and the release of 1.22.9/1.22.10.
 
 **Framework compliance**: Tier 2, fully adopted. `Plugin.cs` extends `ContentModPlugin`; patchers use `ActionRouter`, `SpawnService`, `TickEvents`, `CompanionService` and declarative `EncounterGuards`. Declarative content (BlueprintTabs, GameSourceModify, Animals manifests, EncounterGuards) used throughout. No deprecated patterns (`DropCollectionGuardPatch`, unfiltered hot-path prefixes, `ModLoaderVerison`) present.
 
@@ -19,12 +19,12 @@ Audit score: 10/10 - PASS (0 CRITICAL)
 
 ## Phase 0: Stabilize
 
-> Audit score is 10/10 with 0 CRITICAL and no open retrospectives. Two low-severity reliability fixes are worth landing before the 1.22.9 upload (G5 landed in d60305366).
+> Audit score is 10/10 with 0 CRITICAL and no open retrospectives. The two open warnings are player-facing docs-honesty, worth landing before the next public upload; neither fails the mod. The prior pass's two logging warnings (W1/W2) and the RecallWhistle catch are RESOLVED (same commit, 2026-10-21).
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| W2 - Tend Flock: reset the Wool stat before spawning wool and abort if the reset fails, then warn once per cause at LogWarning (`SheepFeederPatch.cs:161-162`, `:230-231`); the only path that could mint resources | Reliability fix | P0 | Quick |
-| W1 - owl cave-rule catches: per-cause warn-once at LogWarning, latched (`CompanionStayPatch.cs:183`, `IndoorOrCaveEnv.cs:137`, `:115`) | Reliability fix | P1 | Quick |
+| Ox Plough Bull-hunger text (README:247): soften the "the Bull gets hungrier" line to match what ships (player/field/plough bear the cost), OR add a real Bull NPCStat hunger write on the "Plough the Field" path | Docs-honesty (or small feature) | P1 | Quick (text) / Medium (feature) |
+| Ox Cart haul text (OxCart.json CardDescription + SimpCn + README:251): ADJUDICATE first - split container capacity (`MaxWeightCapacity: 6000`, real) from haul-while-held (the Bull-only CantHaulSoMuchPenalty drop); then qualify the text as Bull-conditional or make the no-Bull branch actually haul more. Confirm the Bull-branch haul magnitude in game before quoting a number | Docs-honesty | P1 | Quick (text) / Medium (verify + retune) |
 
 ---
 
@@ -34,20 +34,20 @@ Audit score: 10/10 - PASS (0 CRITICAL)
 
 | Item | Type | State |
 |------|------|-------|
-| Versions synced across ModInfo/Plugin.cs/README (1.22.9 x3) | Version hygiene | DONE |
+| Versions synced across ModInfo/Plugin.cs/README (1.22.10 x3) | Version hygiene | DONE |
 | Tier 2 framework adoption (ActionRouter/SpawnService/TickEvents/CompanionService) | Framework | DONE |
-| SimpCn.csv Chinese parity (679/679 CLEAN, 2026-10-21) | Localization | DONE |
+| SimpCn.csv Chinese parity (CLEAN; 1.22.10 Ferret food text in both files) | Localization | DONE |
 | bin/Release sync clean | Build hygiene | DONE |
-| Publish 1.22.9 to Nexus (1.22.8 live since 2026-10-19 per `.claude/nexus-publish-status.json`) - re-verify with `/nexus-publish status`; Pack Bond needs framework 2.28.0 | Release | TODO |
+| Publish 1.22.9/1.22.10 to Nexus - re-verify with `/nexus-publish status`; build needs framework > Nexus 2.26.12, so ship in a framework batch; Pack Bond needs framework 2.28.0 | Release | TODO |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> The mod's core loops are complete and recently extended (1.22.8 niche content). No new core content is justified until the pending in-game verification confirms what is already built. The next "expansion" work is closing verification debt, not writing features.
+> The mod's core loops are complete and recently extended (1.22.8 niche content, 1.22.9/1.22.10 fixes). No new core content is justified until the pending in-game verification confirms what is already built. The next "expansion" work is closing verification debt, not writing features.
 
-### Close 1.22.8 and 1.22.9 verification debt
-**What**: Run the pending tracker rows in-game and record results: T2.587-T2.591 (the 1.22.9 audit fix set: feeder spill, Rotten Remains, bedroll sleep tag and plough, Pack Bond, EN/CN text), T2.582 (felt wet-weather), T2.583 (fox forager's-aid), T2.585 (owl pest-control cadence), T2.586 (lanolin waterproofing), plus the older pending companion/sheep rows (T2.561-T2.574, tame rows T2.551/T2.552 await `record`).
+### Close 1.22.8 / 1.22.9 / 1.22.10 verification debt
+**What**: Run the pending tracker rows in-game and record results: T2.587-T2.591 (the 1.22.9 audit fix set: feeder spill, Rotten Remains, bedroll sleep tag and plough, Pack Bond, EN/CN text), T2.582 (felt wet-weather), T2.583 (fox forager's-aid), T2.585 (owl pest-control cadence), T2.586 (lanolin waterproofing), the older pending companion/sheep rows (T2.561-T2.574, tame rows T2.551/T2.552 await `record`), plus the working-module Ox Cart haul-magnitude check (new, for Phase 0 W2).
 **Why**: The code is built; these are open questions on `.claude/playthrough-test-status.json`, not findings. A failed row returns as a fix. Code work is not blocked on them (CLAUDE.md: code never waits on a playthrough).
 **Requires**: a running build; the Transfer-TestingState sync if verified on the testbox.
 **Complexity**: Medium (human playthrough, not code).
@@ -73,7 +73,7 @@ Audit score: 10/10 - PASS (0 CRITICAL)
 | Item | What | Complexity |
 |------|------|------------|
 | Art review pass | Run `/review-art Sirus23_Mod_Collection` if any 1.22.8 image was regenerated/altered and needs a fresh verdict | Quick |
-| Description accuracy | README is heavily caveated and matches the tracker; re-check "not yet confirmed in the game" lines after each verification pass so passing rows do not leave stale under-claims | Quick |
+| Description accuracy | README is heavily caveated and matches the tracker; re-check "not yet confirmed in the game" lines after each verification pass so passing rows do not leave stale under-claims. The two Ox cards (Phase 0) are the current live description-vs-data gaps | Quick |
 
 ---
 
@@ -81,7 +81,7 @@ Audit score: 10/10 - PASS (0 CRITICAL)
 
 > Where this mod should be at v1.23+.
 
-Sirus23 is feature-complete for its theme: a companion-and-husbandry layer that closes vanilla's livestock and fibre gaps end to end (acquire -> tend -> produce -> preserve -> wear). Its natural endpoint is a fully-verified, Nexus-published 1.22.x with every companion, sheep, dairy and felt loop confirmed in-game, then a move toward `Stable/` once the verification debt is cleared and the mod only updates to track game/framework versions. The biggest addition that would become natural at a larger scale is a dedicated shepherd/trainer NPC economy, but that was ruled out in the as-built plan (it belongs to CMC's village scope) - do not re-propose it here.
+Sirus23 is feature-complete for its theme: a companion-and-husbandry layer that closes vanilla's livestock and fibre gaps end to end (acquire -> tend -> produce -> preserve -> wear). Its natural endpoint is a fully-verified, Nexus-published 1.22.x with every companion, sheep, dairy and felt loop confirmed in-game and the two Ox docs gaps closed, then a move toward `Stable/` once the verification debt is cleared and the mod only updates to track game/framework versions. The biggest addition that would become natural at a larger scale is a dedicated shepherd/trainer NPC economy, but that was ruled out in the as-built plan (it belongs to CMC's village scope) - do not re-propose it here.
 
 **Potential major additions** (not yet justified - revisit only after verification debt clears):
 - None currently selected. The as-built plan's "Considered, not selected" rulings (husbandry mastery perk, shepherd-trainer NPC) carry their rejection reasons; do not re-promote.

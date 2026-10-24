@@ -153,6 +153,7 @@ namespace Sirus23ModCollection.Patcher
             "a98be0703900d5f45a89c3990c370138",
         };
         private static bool _warnedEnvUnreadable;
+        private static bool _warnedAllCardsUnreadable;
 
         private enum PenState { Loose, Penned, WornPen }
 
@@ -231,7 +232,15 @@ namespace Sirus23ModCollection.Patcher
             if (playerInEnclosure)
                 Logger?.LogDebug($"[SheepPen] the player is in the vanilla Enclosure ({envUid}) - its sheep are penned, no roll here tonight.");
 
-            if (CardUtil.GetMemberValue(gm, "AllCards") is not IEnumerable allCards) return;
+            if (CardUtil.GetMemberValue(gm, "AllCards") is not IEnumerable allCards)
+            {
+                if (!_warnedAllCardsUnreadable)
+                {
+                    _warnedAllCardsUnreadable = true;
+                    Logger?.LogWarning("[SheepPen] could not read GameManager.AllCards; tonight's escape/predation roll was skipped. Logged once per session.");
+                }
+                return;
+            }
 
             var atRisk = new List<object>();
             var inWornPen = new HashSet<object>();
