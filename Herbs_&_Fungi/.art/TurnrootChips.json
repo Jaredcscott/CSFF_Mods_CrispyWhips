@@ -1,0 +1,22 @@
+{
+ "target": "TurnrootChips.png",
+ "sourceCard": "TurnrootChips",
+ "subject": "a small loose heap of dried turnroot chips, drawn bare, pale cream cut faces with a purple-tinged skin rim",
+ "model": "nano-banana-2",
+ "mode": "image2image",
+ "params": {
+  "imageCount": 1,
+  "aspectRatio": "2:3",
+  "resolution": "1K",
+  "autoEnhancePrompt": false,
+  "visualReferences": [
+   "vanilla Turnroot_Fresh (style and colour) TXRpFzqq9IIQETeqJs5N"
+  ]
+ },
+ "historyId": "ZlYE1az7ChFM2RtKyBwr",
+ "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792696802885_1ed49221_1792696803004_04d41974.png",
+ "credits": 20,
+ "transparent_pct": 82.5,
+ "generated": "2026-10-22",
+ "review": "Banana Monk report 2026-10-22 (turnroot bread should look like a dense little brick; chips need their own art); owner chose generate now; awaits owner gallery review"
+}

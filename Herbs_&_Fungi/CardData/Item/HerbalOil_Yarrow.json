@@ -8,12 +8,12 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_herbal_oil_yarrow",
         "LocalizationKey": "Herbs_And_Fungi_HerbalOilYarrow_CardDescription",
-        "DefaultText": "A clay bowl of oil infused with yarrow essence. Apply it for healing, restorative effects - the same as smoking the pipe, without the smoke."
+        "DefaultText": "A clay bowl of oil infused with yarrow essence. Apply it for a gentle lift to your mood."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_herbal_oil_yarrow",
         "LocalizationKey": "Herbs_And_Fungi_HerbalOilYarrow_CardHelpSection",
-        "DefaultText": "<b>Crafted:</b> By pressing 1 Fresh Yarrow + Clay Bowl at the Oil Press.\n\n<b>Uses:</b> Apply directly for healing, restorative effects. Returns an empty clay bowl."
+        "DefaultText": "<b>Crafted:</b> By pressing 1 Fresh Yarrow + Clay Bowl at the Oil Press.\n\n<b>Uses:</b> Apply directly for a gentle lift to your mood. Returns an empty clay bowl."
     },
     "CardType": 0,
     "ObjectWeight": 100,
@@ -28,9 +28,7 @@
     "CardTags": [],
     "CardTagsWarpData": [
         "tag_Oil",
-        "tag_HumanFood",
-        "tag_Heatable",
-        "tag_Plateable"
+        "tag_Heatable"
     ],
     "CardTagsWarpType": 3,
     "WhenCreatedSoundsWarpData": [
@@ -72,7 +70,7 @@
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herbal_oil_yarrow",
                 "LocalizationKey": "Herbs_And_Fungi_HerbalOilYarrow_Apply_ActionDescription",
-                "DefaultText": "Apply the yarrow oil. Healing and restorative effects."
+                "DefaultText": "Apply the yarrow oil. A gentle lift to your mood."
             },
             "ActionSounds": [],
             "ActionTags": [],

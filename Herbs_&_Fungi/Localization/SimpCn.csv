@@ -274,13 +274,15 @@ Herbs_And_Fungi_OilPress_CardName,Oil Press,油压机
 Herbs_And_Fungi_OilPress_CardDescription,"A mechanical oil press for extracting oil. Open the Recipes tab to press hemp seeds, a truffle, or fresh herbs into oil.",机械榨油机，用于榨取油脂。打开配方页，将大麻籽、松露或新鲜草药压榨成油。
 Herbs_And_Fungi_OilPress_CardHelpSection,"<b>How to Use:</b>
 • Open the <b>Recipes</b> tab on the press
-• Press Hemp Seeds (3 seeds + bowl), Press Truffle (1 truffle + bowl), or press fresh herbs (fairyweed, hemp flower, appleweed, frostleaf + bowl)
-• Each recipe consumes the ingredients and produces 1 bowl of oil
+• Press 3 Hemp Seeds, Flax Seeds, Peanuts or Pine Nuts, 1 Truffle, or 1 fresh herb (hemp flower, fairyweed, appleweed, frostleaf, chamomile, ginseng or yarrow), each with a clay bowl
+• Each recipe consumes the ingredients and produces 1 bowl of oil (flax also leaves a Linseed Cake)
 
-<b>Herbal oils</b> give the same calming/mood effects as smoking the corresponding herb in a pipe.","<b>使用方法：</b>
+<b>Herbal oils</b> are applied, not smoked. Hemp, fairyweed, appleweed and frostleaf oils give the same mood effects as smoking that herb in the Herb Pipe. Chamomile, ginseng and yarrow have no pipe.","<b>使用方法：</b>
 • 在压榨机上打开<b>配方</b>页
-• 选择<b>压榨大麻籽</b>（需要3粒大麻籽）或<b>压榨松露</b>（需要1个新鲜松露）
-• 压榨机将消耗材料并产出1份灯油"
+• 压榨3粒大麻种子、亚麻籽、花生或松子，1个松露，或1株新鲜草药（大麻花、仙女草、苹果草、冰叶、洋甘菊、人参或蓍草），每次都需要1个陶碗
+• 每个配方消耗材料并产出1碗油（压榨亚麻籽还会留下1块亚麻籽饼）
+
+<b>草药油</b>用于涂抹，而非吸食。大麻、仙女草、苹果草和冰叶药油的情绪效果与用草药烟斗吸食同种草药相同。洋甘菊、人参和蓍草没有对应的烟斗。"
 herbsfungiblacktrumpet_CardName,Black Trumpet,黑喇叭菇
 herbsfungiblacktrumpet_CardDescription,"A dark, funnel-shaped mushroom with an intense, smoky flavor. Also called the 'Horn of Plenty'. Prized by foragers for its gourmet qualities.",一种带有浓郁烟熏风味的美食蘑菇。秋季在橡树和山毛榉附近发现。深受厨师青睐。
 herbsfungiblacktrumpetdried_CardName,Dried Black Trumpet,干黑喇叭菇
@@ -665,10 +667,10 @@ Herbs_And_Fungi_PickleBrine_CardDescription,A salt-water brine for fermenting an
 Herbs_And_Fungi_PicklingVat_MakeBrine_ActionName,Make Brine,制作卤水
 Herbs_And_Fungi_PicklingVat_MakeBrine_ActionDescription,Dissolve salt into the water to form pickle brine.,将盐溶于水中形成腌制卤水。
 Herbs_And_Fungi_HempSeedOil_CardName,Hemp Seed Oil,大麻籽油
-Herbs_And_Fungi_HempSeedOil_CardDescription,"Cold-pressed oil extracted from hemp seeds, served in a clay bowl. Nutty and rich. Eat it, season food with it, or render it into lamp oil.",从大麻籽冷榨的油，盛于陶碗中。坚果香浓郁。可直接食用、为食物调味，或熬炼成灯油。
+Herbs_And_Fungi_HempSeedOil_CardDescription,"Cold-pressed oil extracted from hemp seeds, served in a clay bowl. Nutty and rich. Eat it, season food with it, or burn it in an oil lamp.",从大麻籽冷榨的油，盛于陶碗中。坚果香浓郁。可直接食用、为食物调味，或放进油灯里当燃料。
 Herbs_And_Fungi_HempSeedOil_CardHelpSection,"<b>Crafted:</b> By pressing 3 Hemp Seeds + Clay Bowl on a placed Oil Press.
 
-<b>Uses:</b> Eat directly (returns empty clay bowl), drag onto food to season, or render over a fire into lamp oil.","<b>制作：</b>在放置的油压机上压榨大麻籽。
+<b>Uses:</b> Eat directly (returns empty clay bowl), drag onto food to season, or pour into an oil lamp as fuel.","<b>制作：</b>在放置的油压机上压榨大麻籽。
 
 <b>用途：</b>可直接食用、拖到食物上调味、或在火上熬炼成灯油。"
 Herbs_And_Fungi_TruffleOil_CardName,Bowl of Truffle Oil,松露油碗
@@ -709,8 +711,8 @@ Herbs_And_Fungi_Bp_PainReliefPowder_CardName,Pain Relief Powder,止痛粉
 Herbs_And_Fungi_Bp_PainReliefPowder_CardDescription,Combine ground yarrow with frostleaf powder in a clay bowl for a powdered pain reliever. Frostleaf adds a mild numbing effect.,将磨碎的蓍草与霜叶粉在陶碗中混合制成粉末止痛剂。霜叶添加轻微麻木效果。
 Herbs_And_Fungi_Bp_PainReliefPowder_UnlockConditionsDesc,Unlocked after obtaining Frostleaf Powder,获得霜叶粉后解锁
 Herbs_And_Fungi_Bp_HerbalSalve_CardName,Herbal Salve,草药膏
-Herbs_And_Fungi_Bp_HerbalSalve_CardDescription,Combine 2 ground yarrow with hemp seed oil in a clay bowl to make a wound-healing salve. Apply directly for faster recovery.,将2份磨碎的蓍草与麻籽油在陶碗中混合制成伤口愈合软膏。直接涂抹可加速恢复。
-Herbs_And_Fungi_Bp_HerbalSalve_UnlockConditionsDesc,Unlocked after obtaining Hemp Seed Oil,获得麻籽油后解锁
+Herbs_And_Fungi_Bp_HerbalSalve_CardDescription,Combine 2 ground yarrow with any oil in a clay bowl to make a wound-healing salve. Apply directly for faster recovery.,将2份磨碎的蓍草与任意一种油在陶碗中混合制成伤口愈合软膏。直接涂抹可加速恢复。
+Herbs_And_Fungi_Bp_HerbalSalve_UnlockConditionsDesc,Unlocked after obtaining any oil,获得任意一种油后解锁
 Herbs_And_Fungi_Bp_HerbalTincture_CardName,Herbal Tincture,草药酊剂
 Herbs_And_Fungi_Bp_HerbalTincture_CardDescription,Press 2 dried yarrow and 1 dried reishi into a clay bowl at the oil press to extract a medicinal tincture. A bitter but effective all-purpose remedy.,在榨油机上将3株干蓍草压榨入陶碗以提取药用酊剂。苦涩但有效的全能药剂。
 Herbs_And_Fungi_Bp_HerbalTincture_UnlockConditionsDesc,Unlocked after obtaining Dried Yarrow and an Oil Press,获得干蓍草后解锁
@@ -776,27 +778,39 @@ Herbs_And_Fungi_Bp_PicklingVat_CardDescription,Shape a soft clay pickling vat. F
 Herbs_And_Fungi_Bp_PicklingVat_CardName,Unfired Pickle Vat,未烧制腌制瓦罐
 Herbs_And_Fungi_HerbalOilAppleweed_Apply_ActionDescription,Apply the appleweed oil. Sweet and soothing effects.,涂抹苹果草油。甜蜜舒缓的效果。
 Herbs_And_Fungi_HerbalOilAppleweed_Apply_ActionName,Apply,涂抹
-Herbs_And_Fungi_HerbalOilAppleweed_CardDescription,"A clay bowl of oil infused with appleweed essence. Apply it for sweet, soothing effects — the same as smoking the pipe, without the smoke.",注入苹果草精华的陶碗油脂。涂抹以获得甜蜜舒缓的效果。
+Herbs_And_Fungi_HerbalOilAppleweed_CardDescription,"A clay bowl of oil infused with appleweed essence. Apply it for sweet, soothing effects: the same as smoking the pipe, without the smoke.",注入苹果草精华的陶碗油脂。涂抹以获得甜蜜舒缓的效果：与吸烟斗相同，但没有烟雾。
 Herbs_And_Fungi_HerbalOilAppleweed_CardHelpSection,"<b>Crafted:</b> By pressing 1 Fresh Appleweed + Clay Bowl at the Oil Press.
-<b>Uses:</b> Apply directly for soothing wellness effects. Returns an empty clay bowl.",<b>制作：</b>在油压机上压榨1份新鲜苹果草 + 陶碗。
+
+<b>Uses:</b> Apply directly for soothing wellness effects. Returns an empty clay bowl.","<b>制作：</b>在油压机上压榨1份新鲜苹果草 + 陶碗。
+
+<b>用途：</b>直接涂抹获得舒缓身心的效果。归还一个空陶碗。"
 Herbs_And_Fungi_HerbalOilAppleweed_CardName,Appleweed Herbal Oil,苹果草药油
 Herbs_And_Fungi_HerbalOilFairyweed_Apply_ActionDescription,Apply the fairyweed oil. Mystical and uplifting effects.,涂抹仙女草油。神秘振奉的效果。
 Herbs_And_Fungi_HerbalOilFairyweed_Apply_ActionName,Apply,涂抹
-Herbs_And_Fungi_HerbalOilFairyweed_CardDescription,"A clay bowl of oil infused with fairyweed essence. Apply it for mystical, uplifting effects — the same as smoking the pipe, without the smoke.",一碗注入仙草精华的油。涂抹后获得神秘振奋的效果——与吸烟斗相同，但没有烟雾。
+Herbs_And_Fungi_HerbalOilFairyweed_CardDescription,"A clay bowl of oil infused with fairyweed essence. Apply it for mystical, uplifting effects: the same as smoking the pipe, without the smoke.",一碗注入仙草精华的油。涂抹后获得神秘振奋的效果：与吸烟斗相同，但没有烟雾。
 Herbs_And_Fungi_HerbalOilFairyweed_CardHelpSection,"<b>Crafted:</b> By pressing 1 Fresh Fairyweed + Clay Bowl at the Oil Press.
-<b>Uses:</b> Apply directly for uplifting, mood-enhancing effects. Returns an empty clay bowl.",<b>制作：</b>在油压机上压榨1份新鲜仙草 + 陶碗。
+
+<b>Uses:</b> Apply directly for uplifting, mood-enhancing effects. Returns an empty clay bowl.","<b>制作：</b>在油压机上压榨1份新鲜仙草 + 陶碗。
+
+<b>用途：</b>直接涂抹获得振奋、改善情绪的效果。归还一个空陶碗。"
 Herbs_And_Fungi_HerbalOilFairyweed_CardName,Fairyweed Herbal Oil,仙女草药油
-Herbs_And_Fungi_HerbalOilFrostleaf_Apply_ActionDescription,Apply the frostleaf oil. Cool and refreshing effects.,涂抹冰叶油。清凉爽神的效果。
+Herbs_And_Fungi_HerbalOilFrostleaf_Apply_ActionDescription,Apply the frostleaf oil. A refreshing lift to your mood.,涂抹冰叶油。心情好转，令人振作。
 Herbs_And_Fungi_HerbalOilFrostleaf_Apply_ActionName,Apply,涂抹
-Herbs_And_Fungi_HerbalOilFrostleaf_CardDescription,"A clay bowl of oil infused with frostleaf essence. Apply it for cool, refreshing pain relief — the same as smoking the pipe, without the smoke.",一碗注入冰叶精华的油。涂抹后获得清凉爽快的止痛效果——与吸烟斗相同，但没有烟雾。
+Herbs_And_Fungi_HerbalOilFrostleaf_CardDescription,"A clay bowl of oil infused with frostleaf essence. Apply it for a refreshing lift to your mood: the same as smoking the pipe, without the smoke.",一碗注入冰叶精华的油。涂抹后心情好转，令人振作：与吸烟斗相同，但没有烟雾。
 Herbs_And_Fungi_HerbalOilFrostleaf_CardHelpSection,"<b>Crafted:</b> By pressing 1 Fresh Frostleaf + Clay Bowl at the Oil Press.
-<b>Uses:</b> Apply directly for cooling, pain-relieving effects. Returns an empty clay bowl.",<b>制作：</b>在油压机上压榨1份新鲜冰叶 + 陶碗。
+
+<b>Uses:</b> Apply directly for a refreshing lift to your mood. Returns an empty clay bowl.","<b>制作：</b>在油压机上压榨1份新鲜冰叶 + 陶碗。
+
+<b>用途：</b>直接涂抹，心情好转，令人振作。归还一个空陶碗。"
 Herbs_And_Fungi_HerbalOilFrostleaf_CardName,Frostleaf Herbal Oil,冰叶药油
-Herbs_And_Fungi_HerbalOilHemp_Apply_ActionDescription,Apply the hemp oil. Calming and stress-relieving effects.,涂抹大麻油。具有镇静与缓解压力的效果。
+Herbs_And_Fungi_HerbalOilHemp_Apply_ActionDescription,Apply the hemp oil. A calming lift to your mood.,涂抹大麻油。心情平和好转。
 Herbs_And_Fungi_HerbalOilHemp_Apply_ActionName,Apply,涂抹
-Herbs_And_Fungi_HerbalOilHemp_CardDescription,"A clay bowl of oil infused with hemp flower essence. Apply it to the skin for calming, stress-relieving effects — the same as smoking the pipe, without the smoke.",一碗注入大麻花精华的油。涂抹于皮肤获得镇定、缓解压力的效果——与吸烟斗相同，但没有烟雾。
+Herbs_And_Fungi_HerbalOilHemp_CardDescription,"A clay bowl of oil infused with hemp flower essence. Apply it to the skin for a calming lift to your mood: the same as smoking the pipe, without the smoke.",一碗注入大麻花精华的油。涂抹于皮肤，心情平和好转：与吸烟斗相同，但没有烟雾。
 Herbs_And_Fungi_HerbalOilHemp_CardHelpSection,"<b>Crafted:</b> By pressing 1 Hemp Flower + Clay Bowl at the Oil Press.
-<b>Uses:</b> Apply directly for calming and stress-relieving effects. Returns an empty clay bowl.",<b>制作：</b>在油压机上压榨1朵大麻花 + 陶碗。
+
+<b>Uses:</b> Apply directly for a calming lift to your mood. Returns an empty clay bowl.","<b>制作：</b>在油压机上压榨1朵大麻花 + 陶碗。
+
+<b>用途：</b>直接涂抹，心情平和好转。归还一个空陶碗。"
 Herbs_And_Fungi_HerbalOilHemp_CardName,Hemp Herbal Oil,大麻药油
 Herbs_And_Fungi_OilPressKit_Place_ActionDescription,Set up the oil press in your environment.,在你所在的环境中架设榞油机。
 Herbs_And_Fungi_OilPressKit_Place_ActionName,Place,放置
@@ -1178,8 +1192,8 @@ Herbs_And_Fungi_HempFlower_CardHelpSection,"<b>Uses:</b> Harvest seeds for plant
 <b>Drying:</b> Can be dried to preserve longer.","<b>用途：</b>采收种子用于种植。
 
 <b>晾干：</b>可晾干以延长保存时间。"
-Herbs_And_Fungi_HempFlower_CardInteractions_HarvestSeeds_ActionDescription,Extract seeds from the flower. Yields 1-3 seeds.,从花穗中提取种子，可得1至3颗种子。
-Herbs_And_Fungi_HempFlower_CardInteractions_HarvestSeeds_ActionName,Harvest Seeds,采收种子
+Herbs_And_Fungi_HempFlower_DismantleActions_HarvestSeeds_ActionDescription,Extract seeds from the flower. Yields 1-3 seeds.,从花穗中提取种子，可得1至3颗种子。
+Herbs_And_Fungi_HempFlower_DismantleActions_HarvestSeeds_ActionName,Harvest Seeds,采收种子
 Herbs_And_Fungi_HempFlower_CardName,Hemp Flower,大麻花
 Herbs_And_Fungi_HempFlower_SpecialDurability2_CardStatName,Quality,品质
 Herbs_And_Fungi_HempFlower_SpoilageTime_CardStatName,Spoilage,腐败
@@ -1632,21 +1646,21 @@ Herbs_And_Fungi_Bp_TrailMix_UnlockConditionsDesc,Roasted Peanuts Needed,需要�
 Herbs_And_Fungi_Bp_OilPressHerbalYarrow_CardDescription,Press 1 fresh yarrow into an empty clay bowl to extract a healing herbal oil.,将1株新鲜蓍草压入空陶碗，提取愈合的草药油。
 Herbs_And_Fungi_Bp_OilPressHerbalYarrow_CardName,Press Yarrow Oil,压榨蓍草油
 Herbs_And_Fungi_Bp_OilPress_HerbalOil_Yarrow_UnlockConditionsDesc,Oil Press Needed,需要榨油机
-Herbs_And_Fungi_HerbalOilYarrow_Apply_ActionDescription,Apply the yarrow oil. Healing and restorative effects.,涂抹蓍草油。愈合舒缓的效果。
+Herbs_And_Fungi_HerbalOilYarrow_Apply_ActionDescription,Apply the yarrow oil. A gentle lift to your mood.,涂抹蓍草油。心情略有好转。
 Herbs_And_Fungi_HerbalOilYarrow_Apply_ActionName,Apply,涂抹
-Herbs_And_Fungi_HerbalOilYarrow_CardDescription,"A clay bowl of oil infused with yarrow essence. Apply it for healing, restorative effects - the same as smoking the pipe, without the smoke.",一碗注入蓍草精华的油。涂抹后获得愈合舒缓的效果，与吸烟斗相同，但没有烟雾。
+Herbs_And_Fungi_HerbalOilYarrow_CardDescription,"A clay bowl of oil infused with yarrow essence. Apply it for a gentle lift to your mood.",一碗注入蓍草精华的油。涂抹后心情略有好转。
 Herbs_And_Fungi_HerbalOilYarrow_CardHelpSection,"<b>Crafted:</b> By pressing 1 Fresh Yarrow + Clay Bowl at the Oil Press.
 
-<b>Uses:</b> Apply directly for healing, restorative effects. Returns an empty clay bowl.","<b>制作：</b>在油压机上压榨1份新鲜蓍草 + 陶碗。
+<b>Uses:</b> Apply directly for a gentle lift to your mood. Returns an empty clay bowl.","<b>制作：</b>在油压机上压榨1份新鲜蓍草 + 陶碗。
 
-<b>用途：</b>直接涂抹获得愈合舒缓的效果。归还一个空陶碗。"
+<b>用途：</b>直接涂抹，心情略有好转。归还一个空陶碗。"
 Herbs_And_Fungi_HerbalOilYarrow_CardName,Yarrow Herbal Oil,蓍草药油
 Herbs_And_Fungi_Bp_OilPressHerbalChamomile_CardDescription,Press 1 fresh chamomile into an empty clay bowl to extract a calming herbal oil.,将1株新鲜洋甘菊压入空陶碗，提取舒缓镇静的草药油。
 Herbs_And_Fungi_Bp_OilPressHerbalChamomile_CardName,Press Chamomile Oil,压榨洋甘菊油
 Herbs_And_Fungi_Bp_OilPress_HerbalOil_Chamomile_UnlockConditionsDesc,Oil Press Needed,需要榨油机
 Herbs_And_Fungi_HerbalOilChamomile_Apply_ActionDescription,Apply the chamomile oil. Calming and relaxing effects.,涂抹洋甘菊油。舒缓镇静的效果。
 Herbs_And_Fungi_HerbalOilChamomile_Apply_ActionName,Apply,涂抹
-Herbs_And_Fungi_HerbalOilChamomile_CardDescription,"A clay bowl of oil infused with chamomile essence. Apply it for calming, relaxing effects - the same as smoking the pipe, without the smoke.",一碗注入洋甘菊精华的油。涂抹后获得舒缓镇静的效果，与吸烟斗相同，但没有烟雾。
+Herbs_And_Fungi_HerbalOilChamomile_CardDescription,"A clay bowl of oil infused with chamomile essence. Apply it for calming, relaxing effects.",一碗注入洋甘菊精华的油。涂抹后获得舒缓镇静的效果。
 Herbs_And_Fungi_HerbalOilChamomile_CardHelpSection,"<b>Crafted:</b> By pressing 1 Fresh Chamomile + Clay Bowl at the Oil Press.
 
 <b>Uses:</b> Apply directly for calming, relaxing effects. Returns an empty clay bowl.","<b>制作：</b>在油压机上压榨1份新鲜洋甘菊 + 陶碗。
@@ -1656,14 +1670,14 @@ Herbs_And_Fungi_HerbalOilChamomile_CardName,Chamomile Herbal Oil,洋甘菊药油
 Herbs_And_Fungi_Bp_OilPressHerbalGinseng_CardDescription,Press 1 fresh ginseng into an empty clay bowl to extract an invigorating herbal oil.,将1株新鲜人参压入空陶碗，提取提神的草药油。
 Herbs_And_Fungi_Bp_OilPressHerbalGinseng_CardName,Press Ginseng Oil,压榨人参油
 Herbs_And_Fungi_Bp_OilPress_HerbalOil_Ginseng_UnlockConditionsDesc,Oil Press Needed,需要榨油机
-Herbs_And_Fungi_HerbalOilGinseng_Apply_ActionDescription,Apply the ginseng oil. Energizing and invigorating effects.,涂抹人参油。提神活力的效果。
+Herbs_And_Fungi_HerbalOilGinseng_Apply_ActionDescription,Apply the ginseng oil. A strong lift to your mood.,涂抹人参油。心情大为好转。
 Herbs_And_Fungi_HerbalOilGinseng_Apply_ActionName,Apply,涂抹
-Herbs_And_Fungi_HerbalOilGinseng_CardDescription,"A clay bowl of oil infused with ginseng essence. Apply it for energizing, invigorating effects - the same as smoking the pipe, without the smoke.",一碗注入人参精华的油。涂抹后获得提神活力的效果，与吸烟斗相同，但没有烟雾。
+Herbs_And_Fungi_HerbalOilGinseng_CardDescription,"A clay bowl of oil infused with ginseng essence. Apply it for a strong lift to your mood.",一碗注入人参精华的油。涂抹后心情大为好转。
 Herbs_And_Fungi_HerbalOilGinseng_CardHelpSection,"<b>Crafted:</b> By pressing 1 Fresh Ginseng + Clay Bowl at the Oil Press.
 
-<b>Uses:</b> Apply directly for energizing, invigorating effects. Returns an empty clay bowl.","<b>制作：</b>在油压机上压榨1份新鲜人参 + 陶碗。
+<b>Uses:</b> Apply directly for a strong lift to your mood. Returns an empty clay bowl.","<b>制作：</b>在油压机上压榨1份新鲜人参 + 陶碗。
 
-<b>用途：</b>直接涂抹获得提神活力的效果。归还一个空陶碗。"
+<b>用途：</b>直接涂抹，心情大为好转。归还一个空陶碗。"
 Herbs_And_Fungi_HerbalOilGinseng_CardName,Ginseng Herbal Oil,人参药油
 Herbs_And_Fungi_Perk_HerbalistHeadstart_PerkName,Herbalist's Advantage,草药师优势
 Herbs_And_Fungi_Perk_HerbalistHeadstart_PerkDescription,"Start as an experienced herbalist: your Herbalism skill begins already sharpened, ahead of where a fresh start would normally put it.",以资深草药师的身份开始：你的草药学技能起点更高，超过普通开局的水平。
@@ -3669,13 +3683,15 @@ Herbs_And_Fungi_TurnrootChips_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_TurnrootChips_SpoilageTime_OnFull_ActionDescription,The turnroot chips have gone mouldy.,芜菁根薄片发霉了。
 Herbs_And_Fungi_TurnrootChips_Grind_ActionName,Grind,研磨
 Herbs_And_Fungi_TurnrootChips_Grind_ActionDescription,Grind the chips into turnroot flour.,把薄片磨成芜菁根粉。
+Herbs_And_Fungi_TurnrootChips_DismantleActions_Eat_ActionName,Eat,吃
+Herbs_And_Fungi_TurnrootChips_DismantleActions_Eat_ActionDescription,Eat the turnroot chips.,吃掉芜菁根薄片。
 Herbs_And_Fungi_TurnrootChips_CardName,Turnroot Chips,芜菁根薄片
-Herbs_And_Fungi_TurnrootChips_CardDescription,"Dried turnroot cut into thin, hard chips for grinding into starch.",切成硬薄片的干芜菁根，可以研磨成淀粉。
+Herbs_And_Fungi_TurnrootChips_CardDescription,"Dried turnroot cut into thin, hard chips. Eat them as they are or grind them into starch.",切成硬薄片的干芜菁根，可以直接吃，也可以研磨成淀粉。
 Herbs_And_Fungi_TurnrootChips_CardHelpSection,"<b>Made from:</b> Blueprint: Turnroot Chips (Cooking tab, 1 Dried Turnroot).
 
-<b>Uses:</b> Grind with a stone mortar or any grinding tool (or a Grinding Mill) into Turnroot Flour.","<b>制作：</b>蓝图：芜菁根薄片（烹饪页，1份干芜菁根）。
+<b>Uses:</b> Eat them (they nourish like Dried Turnroot), or grind with a stone mortar or any grinding tool (or a Grinding Mill) into Turnroot Flour.","<b>制作：</b>蓝图：芜菁根薄片（烹饪页，1份干芜菁根）。
 
-<b>用途：</b>用石臼或任何研磨工具（或磨坊）研磨成芜菁根粉。"
+<b>用途：</b>直接食用（营养与干芜菁根相同），或用石臼或任何研磨工具（或磨坊）研磨成芜菁根粉。"
 Herbs_And_Fungi_TurnrootFlour_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_TurnrootFlour_SpoilageTime_OnFull_ActionDescription,The turnroot flour has gone off.,芜菁根粉变质了。
 Herbs_And_Fungi_TurnrootFlour_Soak_ActionName,Soak,浸泡
@@ -3705,12 +3721,12 @@ Herbs_And_Fungi_TurnrootFlatbread_DismantleActions_Eat_ActionName,Eat,吃
 Herbs_And_Fungi_TurnrootFlatbread_DismantleActions_Eat_ActionDescription,Eat the turnroot flatbread.,吃掉芜菁根薄饼。
 Herbs_And_Fungi_TurnrootFlatbread_FuelCapacity_CardStatName,Temperature,温度
 Herbs_And_Fungi_TurnrootFlatbread_CardName,Turnroot Flatbread,芜菁根薄饼
-Herbs_And_Fungi_TurnrootFlatbread_CardDescription,"A flat, chewy bread with a sweet, earthy taste of turnroot.",一种扁平有嚼劲的面饼，带着芜菁根甜甜的土香。
+Herbs_And_Fungi_TurnrootFlatbread_CardDescription,"A dense little brick of baked turnroot starch and water, sweet and earthy.",一块紧实的小砖状烤饼，由芜菁根淀粉和水烤成，带着甜甜的土香。
 Herbs_And_Fungi_TurnrootFlatbread_CardHelpSection,"<b>Made from:</b> Turnroot Dough baked near a fire.
 
-<b>Uses:</b> Eat it for a filling meal (values are tunable placeholders, copied from the vanilla rye flatbread).","<b>制作：</b>在火旁烤制芜菁根面团。
+<b>Uses:</b> Eat it. It nourishes like Dried Turnroot, a little less filling.","<b>制作：</b>在火旁烤制芜菁根面团。
 
-<b>用途：</b>食用，可以饱腹（数值为可调占位值，照搬原版黑麦薄饼）。"
+<b>用途：</b>食用。营养与干芜菁根相同，饱腹感稍低。"
 Herbs_And_Fungi_Bp_TurnrootChips_CardName,Turnroot Chips,芜菁根薄片
 Herbs_And_Fungi_Bp_TurnrootChips_CardDescription,Cut dried turnroot into chips so it can be ground into flour.,把干芜菁根切成薄片，以便磨成面粉。
 Herbs_And_Fungi_Bp_TurnrootChips_UnlockConditionsDesc,Unlocked after obtaining Dried Turnroot,获得干芜菁根后解锁
@@ -3726,7 +3742,7 @@ Herbs_And_Fungi_Ful_CardHelpSection,"<b>Made from:</b> Blueprint: Ful (Cooking t
 
 <b>用途：</b>食用（数值为可调占位值）。"
 Herbs_And_Fungi_Bp_Ful_CardName,Ful,蚕豆泥
-Herbs_And_Fungi_Bp_Ful_CardDescription,Mash broad beans with peanut oil into ful. The oil's clay bowl comes back.,把蚕豆和花生油捣成蚕豆泥。装花生油的陶碗会返还。
+Herbs_And_Fungi_Bp_Ful_CardDescription,Mash broad beans with any oil into ful. The oil's clay bowl comes back.,把蚕豆和任意一种油捣成蚕豆泥。装油的陶碗会返还。
 Herbs_And_Fungi_Bp_Ful_UnlockConditionsDesc,Unlocked after obtaining Broad Beans,获得蚕豆后解锁
 Herbs_And_Fungi_PeaBreadRaw_CardName,Raw Pea Bread,生豌豆面包
 Herbs_And_Fungi_PeaBreadRaw_CardDescription,A dense yellow loaf of pea dough. Bake it near a fire.,用豌豆面团捏成的厚实黄色面坯。需在火旁烤熟。
@@ -4390,7 +4406,7 @@ herbsfungielderflowerdried_MixTea_FailMessage,Not hot enough.,水温不够热。
 herbsfungielderflowerdried_Eat,Eat,吃
 herbsfungielderflowerdried_Eat_Desc,Chew the dried elderflowers. Faintly sweet and perfumed.,嚼干接骨木花。淡淡的甜味和香气。
 herbsfungielderflowercordial_CardName,Elderflower Cordial,接骨木花露饮
-herbsfungielderflowercordial_CardDescription,"A sweet, floral drink steeped from dried elderflowers. Soothing, and cooling on a warm day.",用干接骨木花泡出的甜美花香饮品。舒缓，暖天里清凉。
+herbsfungielderflowercordial_CardDescription,"A sweet, floral drink steeped from dried elderflowers. Soothing, and a little thirst-quenching.",用干接骨木花泡出的甜美花香饮品。舒缓心神，略能解渴。
 herbsfungielderflowercordial_SpoilageTime_StatName,Spoilage,腐败
 herbsfungielderflowercordial_Spoiled,The elderflower cordial has spoiled.,接骨木花露饮变质了。
 herbsfungielderflowercordial_Drink,Drink,喝

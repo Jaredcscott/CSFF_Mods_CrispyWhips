@@ -212,6 +212,7 @@ When the plant or field matures, harvest:
 | Input | Process | Output |
 |-------|---------|--------|
 | Hemp Flower | Dry on tray | Hemp Flower Dried |
+| Hemp Flower | Harvest Seeds (button on the card, uses up the flower) | Hemp Seeds (1 to 3) |
 | Hemp Flower Dried | Grind | Hemp Flower Powder |
 | Hemp Flower Powder | Load into Herb Pipe | Herb Pipe (Hemp) |
 | Hemp Flower Powder + Fat | Cook together | Hemp Butter |
@@ -379,7 +380,7 @@ Brew ground medicinal powder in hot water.
 
 ## Other Medicinal Items
 
-**Herbal Salve** — Craft from herbs + fat. A topical wound treatment applied directly to injuries. With Sirus23's Mod Collection installed, Lanolin can stand in for the oil.
+**Herbal Salve** - Craft from Ground Yarrow and any oil. A topical wound treatment applied directly to injuries. With Sirus23's Mod Collection installed, Lanolin can stand in for the oil.
 
 **Herbal Tincture** — An alcohol-based herbal extract; more potent than tea in some situations.
 
@@ -413,7 +414,7 @@ Brew ground medicinal powder in hot water.
 
 **Pea Bread** - Make it from the Cooking tab (two Pea Dough; it unlocks once you hold Pea Dough). Cook the Raw Pea Bread near a fire and eat the bread. Placeholder values and art.
 
-**Pea Flour and Turnroot Flour** - Make Split Peas (two Dried Peas) or Turnroot Chips (one Dried Turnroot) from the Cooking tab; each unlocks once you hold its vanilla ingredient. Grind them with a stone mortar or any grinding tool (or Water Driven Infrastructure's Grinding Mill, if you have it) into flour. Drag the flour onto a bowl or pot holding at least 150 of cool fresh water to make dough. Bake Turnroot Dough near a fire into Turnroot Flatbread and eat it. Shape two Pea Dough into Pea Bread (below). Placeholder values and art.
+**Pea Flour and Turnroot Flour** - Make Split Peas (two Dried Peas) or Turnroot Chips (one Dried Turnroot) from the Cooking tab; each unlocks once you hold its vanilla ingredient. Grind them with a stone mortar or any grinding tool (or Water Driven Infrastructure's Grinding Mill, if you have it) into flour. Drag the flour onto a bowl or pot holding at least 150 of cool fresh water to make dough. Bake Turnroot Dough near a fire into Turnroot Flatbread, a dense brick that nourishes like Dried Turnroot, a little less filling, and eat it. Turnroot Chips can also be eaten as they are, like Dried Turnroot. Shape two Pea Dough into Pea Bread (below). Pea Flour's values and art are placeholders.
 
 **Ful** - Make it from the Cooking tab (three Broad Beans and one Peanut Oil; it unlocks once you hold Broad Beans). Eat the bean mash; the oil's clay bowl comes back. Placeholder values and art.
 

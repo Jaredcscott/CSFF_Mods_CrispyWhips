@@ -8,12 +8,12 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_herbal_oil_frostleaf",
         "LocalizationKey": "Herbs_And_Fungi_HerbalOilFrostleaf_CardDescription",
-        "DefaultText": "A clay bowl of oil infused with frostleaf essence. Apply it for cool, refreshing pain relief — the same as smoking the pipe, without the smoke."
+        "DefaultText": "A clay bowl of oil infused with frostleaf essence. Apply it for a refreshing lift to your mood: the same as smoking the pipe, without the smoke."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_herbal_oil_frostleaf",
         "LocalizationKey": "Herbs_And_Fungi_HerbalOilFrostleaf_CardHelpSection",
-        "DefaultText": "<b>Crafted:</b> By pressing 1 Fresh Frostleaf + Clay Bowl at the Oil Press.\n\n<b>Uses:</b> Apply directly for cooling, pain-relieving effects. Returns an empty clay bowl."
+        "DefaultText": "<b>Crafted:</b> By pressing 1 Fresh Frostleaf + Clay Bowl at the Oil Press.\n\n<b>Uses:</b> Apply directly for a refreshing lift to your mood. Returns an empty clay bowl."
     },
     "CardType": 0,
     "ObjectWeight": 100,
@@ -28,9 +28,7 @@
     "CardTags": [],
     "CardTagsWarpData": [
         "tag_Oil",
-        "tag_HumanFood",
-        "tag_Heatable",
-        "tag_Plateable"
+        "tag_Heatable"
     ],
     "CardTagsWarpType": 3,
     "WhenCreatedSoundsWarpData": [
@@ -72,7 +70,7 @@
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herbal_oil_frostleaf",
                 "LocalizationKey": "Herbs_And_Fungi_HerbalOilFrostleaf_Apply_ActionDescription",
-                "DefaultText": "Apply the frostleaf oil. Cool and refreshing effects."
+                "DefaultText": "Apply the frostleaf oil. A refreshing lift to your mood."
             },
             "ActionSounds": [],
             "ActionTags": [],

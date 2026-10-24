@@ -120,11 +120,8 @@ namespace Herbs_And_Fungi.Patcher
                 // Allow the vanilla Pouch to store herb/mushroom powders
                 PatchVanillaPouchForPowderStorage(allDataEnumerable, allCardTags);
 
-                // With Sirus23's Mod Collection installed, the Herbal Salve's oil slot also takes Lanolin.
-                // Allow-list form: ACT's Render Hemp Oil also requires hemp seed oil and must NOT take lanolin.
-                // Returns 0 (no Warn) when sh_lanolin does not resolve, i.e. Sirus23 is absent.
-                int lanolinSlots = BlueprintAlternates.AddAlternateIngredientIn(allDataEnumerable, "herbs_fungi_hemp_seed_oil", "sh_lanolin", new[] { "herbs_fungi_bp_herbal_salve" }, "H&F salve lanolin");
-                Logger.LogDebug($"Herbal Salve lanolin alternate: patched {lanolinSlots} slot(s).");
+                // The Herbal Salve's oil slot takes any oil, and Sirus23's Lanolin when that mod is installed:
+                // TagGroups.json (GpTag_HnF_SalveBase), filled by the framework (2.28.9), not here.
 
                 // Populate the four pickleable GpTags (auto-created by framework) with raw-only ingredient lists
                 GpTagContentPatch.Populate();

@@ -5,6 +5,31 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [1.14.15] - 2026-10-22
+
+Needs CSFF Mod Framework 2.28.9 or later.
+
+### Changed
+
+- **Ful and the Herbal Salve take any oil.** Ful no longer needs Peanut Oil and the salve no longer needs Hemp Seed Oil: any bowl of oil works, from this mod, Advanced Copper Tools or another mod. The salve shows up in the Medical tab as soon as you hold any oil. With Sirus23's Mod Collection the salve still takes Lanolin.
+- **Herbal oils are no longer food.** The seven pressed herbal oils (Appleweed, Chamomile, Fairyweed, Frostleaf, Ginseng, Hemp and Yarrow) were only ever applied, never eaten, but were tagged as food, so a partner could try to eat one, raiders could take one as food and food shelves accepted them. They are now oils only: you still apply them, and they still fuel lamps.
+- **Hemp Seed Oil's description** no longer says to render it into lamp oil (Advanced Copper Tools retired that recipe, since every oil already fuels a lamp). The README's Advanced Copper Tools note no longer describes that recipe either: it now says every pressed oil fuels ACT's lamps as it is.
+- **Turnroot Flatbread is a dense little brick of turnroot starch.** It now nourishes like Dried Turnroot, a little less filling, instead of borrowing the rye flatbread's values, and it has its own picture. Thanks to Banana Monk for the suggestion.
+- **Turnroot Chips can be eaten as they are**, with the same nourishment as Dried Turnroot, and they have their own picture instead of the whole turnroot's.
+
+### For mod authors
+
+- The salve's oil slot is `GpTag_HnF_SalveBase` from the new `TagGroups.json` (every non-liquid `tag_Oil` card plus `sh_lanolin`), replacing the `BlueprintAlternates.AddAlternateIngredientIn` call in `Patcher/GameLoadPatch.cs`; its visibility is `TagsOnBoard` `tag_Oil` (was `CardsOnBoard` Hemp Seed Oil). Ful's slot carries the framework's `GpTag_FW_OilIngredient`. Both keep their oil as `RequiredCard`.
+- `HerbalOil_*.json`: `tag_HumanFood` and `tag_Plateable` removed from `CardTagsWarpData`.
+- `HempFlower.json`: "Harvest Seeds" was a `CardInteractions` entry with all four triggers empty, so it never rendered. It is now a `DismantleActions` entry (`HandAction`, `DaytimeCost` 1, `ModType` 3, 1 to 3 `herbs_fungi_hemp_seeds`), and its keys are `Herbs_And_Fungi_HempFlower_DismantleActions_HarvestSeeds_ActionName` and `_ActionDescription`.
+
+### Fixed
+
+- **Behind the scenes:** with Community Mod Chest installed, a missing Herbalism graduate perk is now a default-visible log warning (it was a debug-only line), so a missing Identify (Academy training) action can be diagnosed.
+- **Hemp Flower's Harvest Seeds button shows up.** The card said it could be harvested for seeds, but the action never appeared. It is now a button on the flower: Harvest Seeds uses up the flower and gives 1 to 3 Hemp Seeds.
+- **Elderflower Cordial no longer claims to cool you.** Its description said it was cooling on a warm day, but it never lowered your temperature (the iced teas and Shaved Ice do). It now says what it does: soothing, and a little thirst-quenching.
+- **The Oil Press help is accurate.** It said every herbal oil matches smoking that herb in a pipe, but chamomile, ginseng and yarrow have no pipe, and their oils' descriptions said the same. The help now names the four oils that match a pipe (hemp, fairyweed, appleweed and frostleaf), lists every pressing (flax, peanuts, pine nuts and the chamomile, ginseng and yarrow oils were missing) and mentions the Linseed Cake. The Chinese help, which only covered hemp seeds and truffle, now says the same. Four herbal oils also promised more than they give: Yarrow oil said it heals, Frostleaf oil that it eases pain, Hemp oil that it relieves stress and Ginseng oil that it energizes, but every herbal oil only lifts your mood. Their descriptions, help and Apply text now say so, in English and Chinese.
+
 ## [1.14.14] - 2026-10-22
 
 ### Fixed

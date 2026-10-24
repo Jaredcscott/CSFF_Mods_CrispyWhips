@@ -8,12 +8,12 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_hemp_seed_oil",
         "LocalizationKey": "Herbs_And_Fungi_HempSeedOil_CardDescription",
-        "DefaultText": "Cold-pressed oil extracted from hemp seeds, served in a clay bowl. Nutty and rich. Eat it, season food with it, or render it into lamp oil."
+        "DefaultText": "Cold-pressed oil extracted from hemp seeds, served in a clay bowl. Nutty and rich. Eat it, season food with it, or burn it in an oil lamp."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hemp_seed_oil",
         "LocalizationKey": "Herbs_And_Fungi_HempSeedOil_CardHelpSection",
-        "DefaultText": "<b>Crafted:</b> By pressing 3 Hemp Seeds + Clay Bowl on a placed Oil Press.\n\n<b>Uses:</b> Eat directly (returns empty clay bowl), drag onto food to season, or render over a fire into lamp oil."
+        "DefaultText": "<b>Crafted:</b> By pressing 3 Hemp Seeds + Clay Bowl on a placed Oil Press.\n\n<b>Uses:</b> Eat directly (returns empty clay bowl), drag onto food to season, or pour into an oil lamp as fuel."
     },
     "CardType": 0,
     "ObjectWeight": 100,

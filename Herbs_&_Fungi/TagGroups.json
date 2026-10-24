@@ -1,0 +1,10 @@
+[
+    {
+        "Name": "GpTag_HnF_SalveBase",
+        "Label": "Oil",
+        "LabelKey": "CSFFMFW_GpTag_FW_Oil_TabName",
+        "Tags": ["tag_Oil"],
+        "ExtraCards": ["sh_lanolin"],
+        "ExcludeLiquids": true
+    }
+]

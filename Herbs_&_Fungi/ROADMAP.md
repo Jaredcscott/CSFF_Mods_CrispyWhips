@@ -1,17 +1,17 @@
 # Roadmap: Herbs and Fungi
-Version at time of writing: 1.14.12
-Date: 2026-10-21
-Audit score: 9/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 6 open WARNING, 1 open MINOR) - see [.audit/summary.md](.audit/summary.md)
+Version at time of writing: 1.14.15
+Date: 2026-10-23
+Audit score: 10/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 4 open WARNING, 0 open MINOR) - see [.audit/summary.md](.audit/summary.md)
 
 ## Current State
 
 **Theme**: The repo's gold-standard DATA mod - a deep foraging, herbalism and preservation system: 14 mushrooms, 9 berries/wild fruits, 7 medicinal herbs, teas and a mushroom broth, drying/pickling/fermentation chains, an Oil Press, an Apothecary Shelf, a Death Cap Ward, and 16 character-creation perks. Pairs with Community Mod Chest (Academy Herbalism course identifies Unknown Chanterelles).
 
-**Content**: 249 item JSONs / 133 blueprints / 80 structures / 16 perks / 235 custom images / 45 liquid JSONs / 11 GameStats / 0 SelfTriggeredActions (folder counts, 2026-10-20). By CardType the mod ships 507 cards (267 items CT0, 27 liquids CT9, 80 structures CT2, 133 blueprints CT7), matching README.md. No map locations: all forage is injected into vanilla locations.
+**Content**: 507 cards by CardType (267 items CT0, 27 liquids CT9, 80 structures CT2, 133 blueprints CT7), matching README.md / 16 perks / 292 image references all resolving / 11 GameStats / 16 SpiceTags / 2 EncounterGuards / 3 GameSourceModify patches / 0 SelfTriggeredActions. No map locations: all forage is injected into vanilla locations. Organized into 15 audit modules (`Modules.json`).
 
-**Stability**: 9/10 - minor issues only, still PASS. 0 CRITICAL, 0 DESIGN GAP, 6 open WARNINGs: W5 (perk starting-kit weight, a human check under T4.41) plus W6-W10, five G5 silent-exit breadcrumb gaps found by the 2026-10-21 code-quality re-run, all on game-update-only reflection paths and none live today (Phase 1). Six crosses the rubric's 5+ warning threshold, which costs the one point. The older code-quality warnings (W1-W4) and the uncached-reflection minor (M1) were fixed in `61d1b7e62` (1.14.4) and stay resolved. Versions synced 1.14.12 across ModInfo.json, Plugin.cs and README.md; localization EN/CN parity clean at the 2026-10-18 audit; `bin/` is not tracked. The critical-analysis was re-run 2026-10-21 (SOLID, 0 failures) at the current source HEAD, so it is current. Its one new note is a runtime-verification item (DeathCapWardWildlife.json, an inert-but-harmless second ward guard), not a defect.
+**Stability**: 10/10 - minor issues only, still PASS. 0 CRITICAL, 0 blocking DESIGN GAP, 4 open WARNINGs: W5 (perk starting-kit weight, a human check under T4.41) plus W11/W12/W13, three player-facing text-vs-behavior misses surfaced by the 2026-10-23 per-module critical-analysis runs. Four is under the rubric's 5+ warning threshold, so no point is lost. The 2026-10-21 code-quality G5 breadcrumb gaps (W6-W10) shipped fixed in `00eeafb74` (1.14.13); the older code-quality warnings (W1-W4) and the uncached-reflection minor (M1) were fixed in `61d1b7e62` (1.14.4). Versions synced 1.14.15 across ModInfo.json, Plugin.cs and README.md; localization EN/CN parity clean at 3187/3187; build 0/0; `bin/` is not tracked. The whole-mod critical-analysis.md (2026-10-21) is now predated by 2026-10-23 source commits; the per-module critical-analysis runs (all CURRENT) supersede it, so a whole-mod re-run is optional.
 
-**Open work**: No open retrospectives name this mod (`sealablegates-portal-hardening-2026-07-02` is Graduated). The round-2 MASTER_PLAN was drained and archived 2026-10-12 to `Documentation/Design/HerbsAndFungi_Content_Update_1_14_1_As_Built.md`; the vanilla-balance and niche-content MASTER_PLAN that followed was drained and archived 2026-10-18 to `Documentation/Design/HerbsAndFungi_Vanilla_Balance_As_Built.md` (Plan Reconciliation Log, last entry), so `Documentation/Plans/HerbsAndFungi/` no longer exists. 8 H&F rows are still `pending` in `.claude/playthrough-test-status.json` (T2.1034, T2.1094, T2.1359, T2.1360, T2.1363, T2.1365, T2.1755, T2.1764 on 2026-10-20) - code work is done; those need a human at a running build. T4.41 sits in `confirmedItems` (harness PASS, 2026-10-14). The mod sits at the repo root pending full human testing before any `Stable/` move (owner rule, 2026-10-12).
+**Open work**: No open retrospectives name this mod (`sealablegates-portal-hardening-2026-07-02` is Graduated). The round-2 MASTER_PLAN was drained and archived 2026-10-12 to `Documentation/Design/HerbsAndFungi_Content_Update_1_14_1_As_Built.md`; the vanilla-balance MASTER_PLAN that followed was drained and archived 2026-10-18 to `Documentation/Design/HerbsAndFungi_Vanilla_Balance_As_Built.md`, so `Documentation/Plans/HerbsAndFungi/` does not exist; `/audit-to-plan` promoted nothing this pass (W11-W13 are Warnings, which it does not promote), so the three text fixes live in Phase 1 below. 8 H&F rows are still `pending` in `.claude/playthrough-test-status.json` (T2.1034, T2.1094, T2.1359, T2.1360, T2.1363, T2.1365, T2.1755, T2.1764) - code work is done; those need a human at a running build. T4.41 sits in `confirmedItems` (harness PASS, 2026-10-14). The mod sits at the repo root pending full human testing before any `Stable/` move (owner rule, 2026-10-12).
 
 **Framework compliance**: Tier 2 - `ContentModPlugin` base, `Api.ActionRouter` for action dispatch (owns dedup), `Api.SpawnService.CardSpawned` for the Apothecary quest gate, `Api.TickEvents` for the mirror poll, `FindObjectsOfTypeAll` load-time one-shots cached and type-guarded. All event registration is once-per-process from `RegisterPatches` (not `OnGMInitialized`), so a save reload cannot stack handlers. Soft dependency on `crispywhips.CSFFModFramework`. No deprecated patterns (no `DropCollectionGuardPatch`, no hot-path prefixes, no manual perk/blueprint injection, no `ModLoaderVerison`/`ModEditorVersion`).
 
@@ -23,22 +23,24 @@ Audit score: 9/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 6 open WARNING, 1 open MINOR
 
 ## Phase 1: Foundation
 
-> Hygiene and audit freshness. The 2026-10-11 code-quality hardening items (W1-W4, M1) all shipped in 1.14.4 (`61d1b7e62`) and are no longer work; `bin/Release/` is already untracked (0 tracked files). The full blueprint audit ran 2026-10-20 over all 133 blueprints and its 36 warnings were cleared the same day (`dce6b94b7`: 19 text fixes, 17 crop action-tag false positives closed by an audit-rule fix); 7 INFO loose gate names remain (summary M5, Phase 4).
+> Three small player-facing honesty fixes surfaced by the 2026-10-23 per-module runs, plus ongoing hygiene. The 2026-10-11 code-quality hardening (W1-W4, M1) shipped in 1.14.4 (`61d1b7e62`); the five G5 breadcrumb gaps (W6-W10) and the 7 loose blueprint gate names (M5) shipped in 1.14.13 (`00eeafb74`); `bin/Release/` is already untracked. The full blueprint audit ran 2026-10-20 over all 133 blueprints and is clean.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| G5 breadcrumb hardening (summary W6-W10), one commit: W6 check the discarded `StatAccess.SetCurrentValue` result at `Patcher/ApothecaryQuestGatePatch.cs:153` and warn once (the only row with gameplay reach: the Anti-Nausea / Stimulant Tea gate would never open, silently); W7 resolve the four `CardDrop` / `CardDropChance` fields once in `AddDropToFirstCollection` (`Patcher/GameLoadPatch.cs:247-253`) and check the `ActionName` `SetMember` results (`:462-465`); W8 resolve `TagFilter.Tag` once and `LogError` + return before building Pouch entries (`GameLoadPatch.cs:774`); W9 warn once on a missing `CardVisuals` field or `Setup` method (`Patcher/PickleVatRoutePatch.cs:205-212`); W10 warn when `TabName` / `DefaultText` is missing (`Patcher/GpTagContentPatch.cs:93,140-151`). Clearing any two restores 10/10. Fix text for each is in `.audit/code-quality.md`. | Reliability (G5) | P1 | Quick |
-| Name the remaining shipped wild finds in `ModInfo.json` Description (Water Lily Rhizome, Chicory, Goosefoot, Mustard); 1.14.4 already added Watercress, Rhubarb, Horseradish, Mandrake, the iced teas, Shaved Ice and Raw Peanuts. ModInfo, README and CHANGELOG in one commit. | Feature honesty | P2 | Quick |
+| **W11** - ElderflowerCordial advertises cooling but grants none. Either add a small `herbs_fungi_stat_cooling` value to the Drink `StatModifications` in `CardData/Liquid/ElderflowerCordial.json`, or reword the description to drop the temperature claim. JSON `DefaultText` + SimpEn + SimpCn in one commit (Docs-Honesty rule). | Feature honesty (drinks) | P1 | Quick |
+| **W12** - HempFlower "Harvest Seeds" is a dead, invisible CardInteraction (empty triggers). Move it into `DismantleActions` (its `ProducedCards` + `ModType:3` already satisfy `WillHaveAnEffect()`), or give the CI a real `tag_CuttingTool` trigger; align the `CardDescription` either way. `CardData/Item/HempFlower.json`. Contained (seeds also from field Harvest), so not progression-blocking. | Feature honesty (hemp) | P1 | Quick |
+| **W13** - OilPress help claims herbal oils match "the corresponding herb in a pipe," false for chamomile/ginseng/yarrow (no pipe). Reword the `CardHelpSection` (key `Herbs_And_Fungi_OilPress_CardHelpSection` in `CardData/Location/OilPress.json`) to describe the mood effect directly or scope the comparison to the four herbs that have a pipe; realign SimpEn/SimpCn for that key. | Feature honesty (oilpress) | P1 | Quick |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> No active plan. Both round-2 and the later vanilla-balance MASTER_PLANs were drained and archived (2026-10-12 and 2026-10-18). Every feature is either built (shipped across 1.14.0-1.14.12, some awaiting human verification) or closed into an archive's "Considered, not selected" table with its reason. **Do not re-promote a Considered row** - each carries why it was ruled out (vanilla already ships it, dead mechanism, design call). New content for this mod starts from a fresh `/generate-ideas` + plan, not from an archive's Considered table.
+> No active plan. Both round-2 and the later vanilla-balance MASTER_PLANs were drained and archived (2026-10-12 and 2026-10-18). Every feature is either built (shipped across 1.14.0-1.14.15, some awaiting human verification) or closed into an archive's "Considered, not selected" table with its reason. **Do not re-promote a Considered row** - each carries why it was ruled out. New content for this mod starts from a fresh `/generate-ideas` + plan, not from an archive's Considered table.
 
 - **Shipped, awaiting human verification** (code done; the only "expansion" left is confirming it plays): the 8 pending H&F rows in `.claude/playthrough-test-status.json`. Source of truth: `Documentation/Design/HerbsAndFungi_Content_Update_1_14_1_As_Built.md` and `HerbsAndFungi_Vanilla_Balance_As_Built.md`.
-- **2026-10-14 (1.14.9): the Foraging Forest is retired.** Owner decision once Far Territory took over mod-made locations: the 7 forest nodes, the Wild Bees' Nest, the three forage hotspots, the Fungal Bloom, the Overgrown Forest Trail and the Old-Growth Grove unlock are removed, and every forest forage rule moved to the vanilla location its node cloned (see CHANGELOG 1.14.9). Any roadmap, audit or tracker row about those features (for example T2.1007, the Wild Bees' Nest) no longer applies and is not work to do.
-- **No new content is scheduled.** The mod is feature-complete for round 2 and for the vanilla-balance pass (1.14.12 added herb winter grow bags and longer-keeping vats from that pass); the next build phase would be a new planning pass, not continuation of a drained plan.
+- **2026-10-14 (1.14.9): the Foraging Forest is retired.** Owner decision once Far Territory took over mod-made locations: the forest nodes, the Wild Bees' Nest, the forage hotspots, the Fungal Bloom, the Overgrown Forest Trail and the Old-Growth Grove unlock are removed, and every forest forage rule moved to the vanilla location its node cloned. Any roadmap/audit/tracker row about those features (e.g. T2.1007) no longer applies.
+- **No new content is scheduled.** The mod is feature-complete for round 2 and the vanilla-balance pass; the next build phase would be a new planning pass, not continuation of a drained plan.
+- **Content options surfaced (unscoped) by the W11/W13 fixes**: an ambient (un-iced) cooling cordial that is a distinct mild cooler rather than copying the iced teas; chamomile/ginseng/yarrow pipes to make the OilPress "corresponding pipe" claim literally true. Both are content choices, not required for the honesty fixes. See `.audit/ideas.md`.
 
 ---
 
@@ -49,25 +51,25 @@ Audit score: 9/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 6 open WARNING, 1 open MINOR
 ### Academy Herbalism course (Community Mod Chest)
 **What**: CMC's Academy Herbalism course identifies Unknown Chanterelles. Already wired via `AcademyHerbalismBridgePatch`.
 **Why**: gives CMC players a progression route to safe chanterelle ID beyond the Herbalism skill and the Botanical Field Guide.
-**Requires**: CMC installed (soft). Shipped.
+**Requires**: CMC installed (soft). Shipped. (Note: code-quality G2 - the CMC perk-drift breadcrumb at `AcademyHerbalismBridgePatch.cs:106-107` is `debugOnly`; a future CMC rename takes the Identify path dead with no default-visible log. Optional one-line hardening, below the mod warning threshold.)
 **Complexity**: done.
 
 ### WDI sawdust -> Grow Bag; Sirus23 `tag_x_AnimalRemedy`
 **What**: WDI's Sawmill "Cut" drops vanilla `WoodShavings`, which H&F's Grow Bag accepts; H&F self-tags an animal remedy that Sirus23's livestock feature consumes.
 **Why**: completes the forager/industry and forager/livestock loops across mods under the soft-dependency doctrine (consumer ships the acceptance).
-**Requires**: coordination recorded in the As-Built; a couple of partner-side legs were still blocked outside the plan at close (see an archive's Considered/cross-mod rows).
+**Requires**: coordination recorded in the As-Built; a couple of partner-side legs were still blocked outside the plan at close.
 **Complexity**: H&F half done; remainder is partner-mod work.
 
 ---
 
 ## Phase 4: Polish
 
-> Art is effectively complete - 235 custom PNGs, 292 image references all resolve, 0 orphans, 0 GUID-in-sprite.
+> Art is effectively complete - 292 image references all resolve, 0 orphans, 0 GUID-in-sprite.
 
 | Item | What | Complexity |
 |------|------|------------|
 | Perk starting-item weight balance (W5) | 10 perks exceed the 8-entry heuristic. Since 1.14.4 every grant is an AddedCard that lands on the board, and T4.41 recorded a harness PASS 2026-10-14; what remains is a human feel check before W5 is struck. Not a bug. | Quick (human check) |
-| Description-accuracy pass | Fold the ModInfo wild-finds sentence (Phase 1) and the 7 loose blueprint gate names (summary M5: "a plank" for Wooden Plank on 5 blueprints, "a Clean Stomach" on Bp_Haggis, "Dried Bog Myrtle" on Bp_GruitBundle; SimpEn and SimpCn together) into the next player-facing text sweep; confirm README/CHANGELOG/ModInfo stay in sync. | Quick |
+| Optional G2 breadcrumb (code-quality) | Drop `debugOnly: true` on the `"perk-unresolved"` WarnOnce at `AcademyHerbalismBridgePatch.cs:106-107` so a CMC rename surfaces one default-visible warning. Below the mod warning threshold; fold into the next C# touch. | Quick |
 
 ---
 
@@ -89,7 +91,7 @@ Any of these worth building belongs in a fresh plan under `Documentation/Plans/H
 |---------|--------|
 | After any new content phase | Run `/audit-mod HerbsAndFungi` and update this roadmap |
 | Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, re-run `/diagnose-log` |
-| After any source change | Run `/critical-analysis HerbsAndFungi` so the adversarial report does not go stale again |
+| After any source change | Run `/critical-analysis HerbsAndFungi` (or the per-module runs) so the adversarial report does not go stale |
 | Before the `Stable/` move | Complete the full awaiting-verification playthrough set; the mod moves only after full human testing (owner rule) |
 
 ---
@@ -98,8 +100,8 @@ Any of these worth building belongs in a fresh plan under `Documentation/Plans/H
 
 ```
 /audit-mod HerbsAndFungi          - full health check, updates .audit/
-/critical-analysis HerbsAndFungi  - adversarial review
-/audit-blueprints HerbsAndFungi   - blueprint JSON audit (all 133, 2026-10-20)
+/critical-analysis HerbsAndFungi  - adversarial review (or per-module via module_map)
+/audit-blueprints HerbsAndFungi   - blueprint JSON audit (all 133)
 /code-quality HerbsAndFungi       - C# reliability/maintainability scan
 /build-mod HerbsAndFungi          - build Release DLL
 /deploy-mods HerbsAndFungi        - build + deploy to game

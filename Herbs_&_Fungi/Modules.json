@@ -1,0 +1,127 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). Every tracked file belongs to exactly one module, is a sharedTable (rows attributed by the UID or LocalizationKey they name), or is a picture/.art file owned by the module whose card names it. Card globs are anchored under CardData/ and by name prefix because one ingredient name (Chamomile, Hemp, Peanut) recurs across teas, oils and pipes. `module_map.py check HerbsAndFungi` must exit 0.",
+  "sharedTables": [
+    "Localization/*.csv",
+    "BlueprintTabs.json",
+    "DropInjections.json",
+    "UidAliases.json",
+    "TagGroups.json"
+  ],
+  "modules": [
+    {
+      "id": "fungi",
+      "name": "Wild Mushrooms and Truffles",
+      "summary": "Foraged mushrooms (Chanterelle and its look-alikes, Chicken of the Woods, Puffball, Black Trumpet, Morel, Shiitake, Lion's Mane, Golden and King Oyster, Velvet Shank, Reishi, Death Cap, Chaga) cooked/dried/ground, the truffle chain, toxin tolerance, and the Academy herbalism identify bridge.",
+      "paths": ["CardData/Item/*Chanterelle*", "CardData/Item/ChickenOfWoods.json", "CardData/Item/CookedChickenOfWoods.json", "CardData/Item/DriedChickenOfWoods.json",
+                "CardData/Item/*Puffball*", "CardData/Item/BlackTrumpet*", "CardData/Item/Morel*", "CardData/Item/Shiitake*", "CardData/Item/LionsMane*",
+                "CardData/Item/GoldenOyster*", "CardData/Item/VelvetShank*", "CardData/Item/KingOyster*", "CardData/Item/Reishi*", "CardData/Item/DriedReishi.json",
+                "CardData/Item/DeathCap.json", "CardData/Item/DeathCapDried.json", "CardData/Item/Chaga*", "CardData/Item/*Truffle*",
+                "GameStat/HF_ToxinTolerance.json", "GameStat/HF_AcademyHerbalism.json", "Patcher/AcademyHerbalismBridgePatch.cs"]
+    },
+    {
+      "id": "cultivation",
+      "name": "Mushroom Cultivation",
+      "summary": "Mushroom logs for six species (blueprints, spore-print variants, growing and mature logs), oyster grow bags, and spore prints.",
+      "paths": ["CardData/**/*MushroomLog*", "CardData/Blueprint/Bp_GrowBag_*", "CardData/Location/GrowBag*", "CardData/Item/SporePrint*"]
+    },
+    {
+      "id": "herbs",
+      "name": "Medicinal Herbs and Wild Flowers",
+      "summary": "Chamomile, Dandelion, Ginseng, Yarrow, Common Plantain and Ginger (fresh, dried, ground) with their garden plants, Wild Flowers and the Flower Garland.",
+      "paths": ["CardData/Item/Chamomile*", "CardData/Item/Dandelion*", "CardData/Item/Ginseng*", "CardData/Item/DriedGinseng.json", "CardData/Item/Yarrow*",
+                "CardData/Item/CommonPlantain*", "CardData/Item/Ginger*", "CardData/Item/DriedGinger.json",
+                "CardData/Location/ChamomilePlant*", "CardData/Location/DandelionPlant*", "CardData/Location/GinsengPlant*", "CardData/Location/YarrowPlant*", "CardData/Location/PlantainPlant*",
+                "CardData/Blueprint/Bp_ChamomilePlant.json", "CardData/Blueprint/Bp_DandelionPlant.json", "CardData/Blueprint/Bp_GinsengPlant.json", "CardData/Blueprint/Bp_YarrowPlant.json", "CardData/Blueprint/Bp_PlantainPlant.json",
+                "CardData/**/*WildFlowers*", "CardData/**/*FlowerGarland*"]
+    },
+    {
+      "id": "garden",
+      "name": "Garden Crops",
+      "summary": "Broad bean and oat fields, carrot, kale, leek, rhubarb, grape and hop plants, cress bed, moss bed, winter grow bags, the dead crop, and their produce.",
+      "paths": ["CardData/**/*BroadBean*", "CardData/**/*Carrot*", "CardData/**/CressBed.json", "CardData/**/Bp_CressBed.json", "CardData/Item/Grapes.json", "CardData/**/*GrapePlant*",
+                "CardData/**/*Hops*", "SpiceTag/Spice_Hops.json", "CardData/**/*Kale*", "CardData/**/*Leek*", "CardData/**/*OatField*", "CardData/Item/Oats.json",
+                "CardData/**/*Rhubarb*", "CardData/**/*Mossbed*", "CardData/**/*WinterGrowBag*", "CardData/Location/DeadCrop.json"]
+    },
+    {
+      "id": "forage",
+      "name": "Wild Fruit, Nuts, Roots and Greens",
+      "summary": "Foraged berries (currants, lingonberry, cloudberry, elderberry) with mashes, preserves, berry leather and honeyed nuts/berries, crabapple, pear, plum, sloe, elderflower, chestnut, hazelnut, fiddleheads, goosefoot, thistle, watercress, horseradish, water lily and mustard.",
+      "paths": ["CardData/**/*currant*", "CardData/**/*Lingonberr*", "CardData/**/*Cloudberr*", "CardData/**/Berry*", "CardData/**/Bp_Berry*", "CardData/**/*Honeyed*", "CardData/**/*Elderberr*",
+                "CardData/Item/Elderflower*", "CardData/**/*Crabapple*", "CardData/Item/Pear*", "CardData/Item/Plum*", "CardData/Blueprint/Bp_PlumPreserve.json", "CardData/Item/Sloe.json",
+                "CardData/Item/Chestnut.json", "CardData/Item/RoastedChestnut.json", "CardData/**/*Hazelnut*", "CardData/**/*Fiddlehead*", "CardData/**/*Goosefoot*", "GameStat/HF_GoosefootPurge.json",
+                "CardData/**/*Thistle*", "CardData/Item/Watercress*", "**/*Horseradish*", "CardData/**/*WaterLily*", "CardData/Item/MustardSeeds.json", "SpiceTag/Spice_Mustard.json"]
+    },
+    {
+      "id": "breads",
+      "name": "Wild Flours and Breads",
+      "summary": "Camas, chestnut, turnroot and pea flour chains with their doughs, flatbreads and breads, nettle and sprout bread, split peas, ful, oatmeal, bark meal, and the mushroom and wild-berry pasties.",
+      "paths": ["CardData/**/*Camas*", "CardData/Item/Chestnut?*.json", "CardData/**/*Turnroot*", "CardData/**/*PeaBread*", "CardData/Item/PeaDough.json", "CardData/Item/PeaFlour.json",
+                "CardData/**/*SplitPeas*", "CardData/Item/Ful.json", "CardData/Blueprint/Bp_Ful.json", "CardData/**/*NettleBread*", "CardData/**/*SproutBread*", "CardData/Item/Oatmeal.json",
+                "CardData/**/*BarkMeal*", "CardData/**/*Pasty*"]
+    },
+    {
+      "id": "kitchen",
+      "name": "Fish, Meat and Savoury Kitchen",
+      "summary": "Fish mash and fishcakes, haggis, liver sausage, lye-cured fish and lutefisk, fish sauce, tendon soup, herb butter and cheese, forager seasoning, and maggots from rotten remains.",
+      "paths": ["CardData/**/*FishMash*", "CardData/**/*Fishcake*", "CardData/**/*Haggis*", "CardData/**/*LiverSausage*", "CardData/**/*Lutefisk*", "CardData/**/*Lye*",
+                "**/*FishSauce*", "CardData/**/*TendonSoup*", "CardData/**/*HerbButter*", "CardData/**/*HerbCheese*", "**/*ForagerSeasoning*", "CardData/Item/Maggots.json",
+                "GameSourceModify/RottenRemains.json"]
+    },
+    {
+      "id": "hemp",
+      "name": "Hemp, Paper and the Herb Pipe",
+      "summary": "Hemp field and plant, seeds, stalks, flower, butter, pulp and seed oil, hemp paper, and the Herb Pipe with its four loads.",
+      "paths": ["CardData/**/Hemp*", "CardData/**/Bp_Hemp*", "SpiceTag/Spice_Hemp*", "CardData/**/*HerbPipe*", "CardData/Item/Paper.json", "CardData/Blueprint/Bp_Paper.json"]
+    },
+    {
+      "id": "peanut",
+      "name": "Peanuts",
+      "summary": "Peanut plant, pods, raw and roasted peanuts, peanut butter, meal and oil, trail mix, nut milk and nut tofu.",
+      "paths": ["CardData/Item/*Peanut*", "CardData/**/*PeanutPlant*", "CardData/Blueprint/Bp_PeanutMeal.json", "CardData/**/*TrailMix*", "CardData/**/*NutTofu*", "CardData/**/*NutMilk*", "SpiceTag/Spice_PeanutOil.json"]
+    },
+    {
+      "id": "oilpress",
+      "name": "Oil Press and Oils",
+      "summary": "Oil Press Station and its parts (kit, legs, frame, bed, screw, bag, plate, utensils), every press recipe, the seven herbal oils, linseed oil and cake, pine nut oil, and the wax leather dressing.",
+      "paths": ["CardData/**/*OilPress*", "CardData/**/*PressBedFrame*", "CardData/Item/HerbalOil_*", "**/*Linseed*", "**/*PineNutOil*", "CardData/**/*WaxLeather*"]
+    },
+    {
+      "id": "pickling",
+      "name": "Pickling",
+      "summary": "Pickling Vat (unfired, fired), plain and spiced brine, the frog/meat/mushroom/vegetable vats in closed, sealed and ready states, the open pickle jar, and the brine-swap and ingredient-tab patches.",
+      "paths": ["**/*Pickl*", "Patcher/GpTagContentPatch.cs"]
+    },
+    {
+      "id": "drinks",
+      "name": "Teas, Broths and Brews",
+      "summary": "Herbal and mushroom teas (iced included), chicory, mushroom broths, elderflower cordial, honeycomb herbal ferment, hopped, gruit, needle and spiced ales and wines, grape and sloe musts, shaved ice, and the cooling stat.",
+      "paths": ["CardData/Liquid/*Tea.json", "CardData/Blueprint/Bp_*Tea.json", "CardData/Liquid/*Broth.json", "CardData/Blueprint/Bp_*Broth.json", "CardData/Liquid/*Ale.json", "CardData/Liquid/*Wine.json",
+                "CardData/Liquid/*Must.json", "CardData/Liquid/HerbalFerment*", "CardData/Liquid/ElderflowerCordial.json", "**/*Chicory*", "**/*Gruit*", "**/*Needle*",
+                "SpiceTag/Spice_MulledHerbs.json", ".art/HF_*Tea.json", "CardData/**/*ShavedIce*", "GameStat/HF_Cooling.json", "GameSourceModify/33cf4067563dac649b026a87ba0766bd.json"]
+    },
+    {
+      "id": "medicine",
+      "name": "Medicine and Apothecary",
+      "summary": "Pain relief powder, salve, poultice, tinctures (herbal, healer's moss, death cap), honey syrups, bath soak, mandrake draught, vigor elixir, Death Cap Ward and its encounter guards, Apothecary Shelf, Incense Bundle, their effect stats, and the apothecary quest gate.",
+      "paths": ["CardData/**/*PainRelief*", "CardData/**/*HerbalSalve*", "CardData/**/*PlantainPoultice*", "CardData/**/*HerbalTincture*", "CardData/**/*HealersMoss*", "CardData/**/*DeathCapTincture*",
+                "CardData/**/*DeathCapWard*", "EncounterGuards/**", "**/*ApothecaryShelf*", "**/*IncenseBundle*", "**/*BathSoak*", "**/*Mandrake*", "CardData/**/*VigorElixir*", "**/*HoneySyrup*",
+                "**/*ClottingEffect*", "**/*HerbalAnalgesic*", "**/*HerbalTonic*", "GameStat/HF_Quest*", "GameStat/HF_SoothingSoak.json", "GameSourceModify/ClayCauldron.json", "Patcher/ApothecaryQuestGatePatch.cs"]
+    },
+    {
+      "id": "storage",
+      "name": "Drying, Storage and Field Notes",
+      "summary": "Drying Tray and Drying Stack, Wooden Pantry, the Forager's Notebook and its discovery patch, and the Botanical Field Guide.",
+      "paths": ["CardData/**/*Drying*", "CardData/**/*WoodenPantry*", "**/*ForagersNotebook*", "CardData/**/*BotanicalFieldGuide*"]
+    },
+    {
+      "id": "modwide",
+      "name": "Mod-wide",
+      "modWide": true,
+      "summary": "Plugin entry, the shared loader (GameLoadPatch), the sixteen character perks (each grants kits from several subsystems), project files, player docs, card motion, art tooling state, and three orphaned art records whose cards (forest trails, wild bees nest) no longer exist.",
+      "paths": ["Plugin.cs", "GlobalUsing.cs", "Properties/**", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "PLAYER_GUIDE.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore",
+                "Features.json", "Modules.json", "Patcher/GameLoadPatch.cs", "CharacterPerk/**", "CardData/Motion/**",
+                ".art/compositions.json", ".art/bowl_items.json", ".art/liquid_bowls.json", ".art/RUN_LOG.md", ".art/reference-uploads.json", ".art/review/**",
+                ".art/HF_ClearedForestTrail.json", ".art/HF_OvergrownForestTrail.json", ".art/WildBeesNest.json"]
+    }
+  ]
+}

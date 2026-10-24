@@ -8,25 +8,28 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_bp_herbal_salve",
         "LocalizationKey": "Herbs_And_Fungi_Bp_HerbalSalve_CardDescription",
-        "DefaultText": "Combine 2 ground yarrow with hemp seed oil in a clay bowl to make a wound-healing salve. Apply directly for faster recovery."
+        "DefaultText": "Combine 2 ground yarrow with any oil in a clay bowl to make a wound-healing salve. Apply directly for faster recovery."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
         "ParentObjectID": "herbs_fungi_bp_herbal_salve",
         "LocalizationKey": "Herbs_And_Fungi_Bp_HerbalSalve_UnlockConditionsDesc",
-        "DefaultText": "Unlocked after obtaining Hemp Seed Oil"
+        "DefaultText": "Unlocked after obtaining any oil"
     },
     "BlueprintUnlockTicksCost": 8.0,
     "BuildingStatConditions": [],
     "StartUnlocked": false,
-    "CardsOnBoard": [
+    "CardsOnBoard": [],
+    "TagsOnBoard": [
         {
-            "ObjectiveName": "HasHempSeedOil",
+            "ObjectiveName": "HasAnyOil",
             "CompletionWeight": 1,
-            "Card": {
+            "Tag": {
                 "m_FileID": 0,
                 "m_PathID": 0
             },
+            "TagWarpData": "tag_Oil",
+            "TagWarpType": 3,
             "Quantity": 1,
             "ConstantlyChecking": false,
             "OnlyInEnvironment": {
@@ -39,12 +42,9 @@
                     "m_FileID": 0,
                     "m_PathID": 0
                 }
-            },
-            "CardWarpData": "herbs_fungi_hemp_seed_oil",
-            "CardWarpType": 3
+            }
         }
     ],
-    "TagsOnBoard": [],
     "StatValues": [],
     "BlueprintStages": [
         {
@@ -76,7 +76,9 @@
                     "RequiredQuantity": 1,
                     "DontSpend": false,
                     "RequiredCardWarpData": "herbs_fungi_hemp_seed_oil",
-                    "RequiredCardWarpType": 3
+                    "RequiredCardWarpType": 3,
+                    "RequiredTabGroupWarpData": "GpTag_HnF_SalveBase",
+                    "RequiredTabGroupWarpType": 3
                 }
             ],
             "StepActionTags": [],

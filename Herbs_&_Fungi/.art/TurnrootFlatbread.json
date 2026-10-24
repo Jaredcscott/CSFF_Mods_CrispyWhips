@@ -1,0 +1,22 @@
+{
+ "target": "TurnrootFlatbread.png",
+ "sourceCard": "TurnrootFlatbread",
+ "subject": "one small dense rectangular brick of baked turnroot bread, drawn bare, pale golden-tan crust, tight pale cream crumb",
+ "model": "nano-banana-2",
+ "mode": "image2image",
+ "params": {
+  "imageCount": 1,
+  "aspectRatio": "2:3",
+  "resolution": "1K",
+  "autoEnhancePrompt": false,
+  "visualReferences": [
+   "vanilla BreadLoaf_Rye (style) tObrwB4IpbVjdFG6jGLU"
+  ]
+ },
+ "historyId": "FAhpM8m4oi286eQMbb8u",
+ "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792696800766_aca4a25b_1792696800965_33967e00.png",
+ "credits": 20,
+ "transparent_pct": 74.8,
+ "generated": "2026-10-22",
+ "review": "Banana Monk report 2026-10-22 (turnroot bread should look like a dense little brick; chips need their own art); owner chose generate now; awaits owner gallery review"
+}

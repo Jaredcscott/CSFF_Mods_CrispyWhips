@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_oil_press",
         "LocalizationKey": "Herbs_And_Fungi_OilPress_CardHelpSection",
-        "DefaultText": "<b>How to Use:</b>\n• Open the <b>Recipes</b> tab on the press\n• Press Hemp Seeds (3 seeds + bowl), Press Truffle (1 truffle + bowl), or press fresh herbs (fairyweed, hemp flower, appleweed, frostleaf + bowl)\n• Each recipe consumes the ingredients and produces 1 bowl of oil\n\n<b>Herbal oils</b> give the same calming/mood effects as smoking the corresponding herb in a pipe."
+        "DefaultText": "<b>How to Use:</b>\n• Open the <b>Recipes</b> tab on the press\n• Press 3 Hemp Seeds, Flax Seeds, Peanuts or Pine Nuts, 1 Truffle, or 1 fresh herb (hemp flower, fairyweed, appleweed, frostleaf, chamomile, ginseng or yarrow), each with a clay bowl\n• Each recipe consumes the ingredients and produces 1 bowl of oil (flax also leaves a Linseed Cake)\n\n<b>Herbal oils</b> are applied, not smoked. Hemp, fairyweed, appleweed and frostleaf oils give the same mood effects as smoking that herb in the Herb Pipe. Chamomile, ginseng and yarrow have no pipe."
     },
     "CardType": 2,
     "CardTagsWarpData": [

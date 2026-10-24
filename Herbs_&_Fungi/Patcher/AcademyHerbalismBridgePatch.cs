@@ -104,7 +104,8 @@ internal static class AcademyHerbalismBridgePatch
             return;
         }
         if (GameContent.Find(perkType, GraduatePerkUid) == null)
-            WarnOnce("perk-unresolved", $"Community Mod Chest is loaded but its perk '{GraduatePerkUid}' does not resolve; Identify (Academy training) will stay hidden.", debugOnly: true);
+            // Default-visible: CMC is present, so a missing perk is an integration regression, not a benign state.
+            WarnOnce("perk-unresolved", $"Community Mod Chest is loaded but its perk '{GraduatePerkUid}' does not resolve; Identify (Academy training) will stay hidden.");
     }
 
     // The live InGameStat for this run, from GameManager.StatsDict keyed by the GameStat definition.

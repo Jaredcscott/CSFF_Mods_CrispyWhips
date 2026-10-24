@@ -8,24 +8,26 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_turnroot_chips",
         "LocalizationKey": "Herbs_And_Fungi_TurnrootChips_CardDescription",
-        "DefaultText": "Dried turnroot cut into thin, hard chips for grinding into starch."
+        "DefaultText": "Dried turnroot cut into thin, hard chips. Eat them as they are or grind them into starch."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_turnroot_chips",
         "LocalizationKey": "Herbs_And_Fungi_TurnrootChips_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> Blueprint: Turnroot Chips (Cooking tab, 1 Dried Turnroot).\n\n<b>Uses:</b> Grind with a stone mortar or any grinding tool (or a Grinding Mill) into Turnroot Flour."
+        "DefaultText": "<b>Made from:</b> Blueprint: Turnroot Chips (Cooking tab, 1 Dried Turnroot).\n\n<b>Uses:</b> Eat them (they nourish like Dried Turnroot), or grind with a stone mortar or any grinding tool (or a Grinding Mill) into Turnroot Flour."
     },
     "CardType": 0,
     "CardImage": {
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Turnroot_Fresh",
+    "CardImageWarpData": "TurnrootChips",
     "CardImageWarpType": 3,
     "ObjectWeight": 50,
     "TradingValue": 2,
     "CardTags": [],
-    "CardTagsWarpData": [],
+    "CardTagsWarpData": [
+        "tag_HumanFood"
+    ],
     "CardTagsWarpType": 3,
     "FlavourTags": [],
     "AlwaysUpdate": false,
@@ -174,7 +176,156 @@
             }
         }
     ],
-    "DismantleActions": [],
+    "DismantleActions": [
+        {
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "a9de36f279b1e6449a01d9b05e45aa5d",
+                    "TargetWarpType": 3
+                },
+                {
+                    "TargetWarpData": "a4340107e78034a4192d126d8129ec67",
+                    "TargetWarpType": 3
+                }
+            ],
+            "ReceivingCardFlavourBonus": true,
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_turnroot_chips",
+                "LocalizationKey": "Herbs_And_Fungi_TurnrootChips_DismantleActions_Eat_ActionName",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_turnroot_chips",
+                "LocalizationKey": "Herbs_And_Fungi_TurnrootChips_DismantleActions_Eat_ActionDescription",
+                "DefaultText": "Eat the turnroot chips."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSoundsWarpData": [
+                "Eating"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "79d00ad5e2cc54640acf89f21be83706",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -96.0,
+                        "y": -96.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 25.0,
+                        "y": 25.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 6.4,
+                        "y": 6.4
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 24.0,
+                        "y": 24.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 12.0,
+                        "y": 12.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5.0,
+                        "y": 5.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "c88a8dd710996d64982b4948ca1ec996",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 35.0,
+                        "y": 35.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
     "WhenCreatedSoundsWarpData": [
         "GrassAppear"
     ],

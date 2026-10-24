@@ -1,6 +1,6 @@
 # Herbs and Fungi: Player Guide
 
-**Version:** 1.14.14
+**Version:** 1.14.15
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -140,9 +140,9 @@ Blueprints are in the Cooking tab unless noted. No vanilla card changes.
 - **Forager's Pasties**: drag a foraged mushroom or berry onto greased rye or wheat dough in daylight to make a raw pasty, then bake it in an oven into a **Mushroom Pasty** or **Wild Berry Pasty**.
   - Food values and flavours are copied from vanilla's rye bilberry and rye meat pasties.
 - **Breads**: 2 Rye Grist and 1 Rye Dough bake into **Sprouted Rye Bread**. 1 Dried Nettle Leaves and 1 rye or wheat dough bake into **Nettle Bread**. 2 Pea Dough bake into **Pea Bread**. Food values are copied from vanilla rye flatbread.
-- **Flours**: **Split Peas** (2 Dried Peas) and **Turnroot Chips** (1 Dried Turnroot) **Grind** into Pea Flour and Turnroot Flour with a stone mortar, any grinding tool or Water Driven Infrastructure's Grinding Mill.
-  - Drag a flour onto a bowl or pot holding at least 150 of cool fresh water to **Soak** it into dough. Turnroot Dough bakes into **Turnroot Flatbread**. Camas Flour makes Camas Dough and **Camas Flatbread** the same way.
-- **Ful**: 3 Broad Beans and 1 Peanut Oil make a bean mash you **Eat**. You get the clay bowl back.
+- **Flours**: **Split Peas** (2 Dried Peas) and **Turnroot Chips** (1 Dried Turnroot, also edible as they are) **Grind** into Pea Flour and Turnroot Flour with a stone mortar, any grinding tool or Water Driven Infrastructure's Grinding Mill.
+  - Drag a flour onto a bowl or pot holding at least 150 of cool fresh water to **Soak** it into dough. Turnroot Dough bakes into **Turnroot Flatbread**, a dense brick that nourishes like Dried Turnroot, a little less filling. Camas Flour makes Camas Dough and **Camas Flatbread** the same way.
+- **Ful**: 3 Broad Beans and 1 bowl of any oil make a bean mash you **Eat**. You get the clay bowl back.
 - **Nut Milk and Nut Tofu**: drag **Peanut Meal** (2 Roasted Peanuts) onto a bowl of cool fresh water to **Soak** it into **Nut Milk**, which sours in about three days. **Nut Tofu** takes 1 Salt and a bowl holding 150 Nut Milk.
 - **Tendon Soup, Fishcake and Haggis**: **Tendon Soup** is 2 Tendon, Dried Yarrow and a Clay Bowl, and you **Drink** it. **Fishcake** is Raw Fish Filling, rye or wheat flour and Dried Dandelion, cooked near a fire.
   - **Haggis** is a Clean Stomach, Liver, Heart, 2 Rye Grains and Dried Common Plantain, cooked near a fire.
@@ -178,7 +178,7 @@ Blueprints are in the Cooking tab unless noted. No vanilla card changes.
 | **Stimulant Tea** | Lowers stress a little |
 | **Anti-Nausea Tea** | Settles the stomach |
 | **Chaga Tea** | The largest Herbal Tonic dose of any tea, about half a day, and some stress relief |
-| **Herbal Salve** | Eases pain. Made from Ground Yarrow and Hemp Seed Oil |
+| **Herbal Salve** | Eases pain. Made from Ground Yarrow and any oil |
 | **Plantain Poultice** | Simple relief for pain and inflammation |
 | **Herbal Honey Syrup** | A spoonful raises the Heather Effect, which slows chest and throat infections |
 | **Herbal Tincture** | An alcohol-based herbal extract |
@@ -366,7 +366,7 @@ Oil-pressing and pickle blueprints appear once their workstation is built and th
 
 With Sirus23's Mod Collection, Dried Yarrow, Ground Yarrow, Yarrow Tea, Herbal Salve and Plantain Poultice treat a companion's wounds through its Treat Wounds action. Reishi Tea does not. Without Sirus23 nothing changes.
 
-With Sirus23's Mod Collection, the Herbal Salve also takes Lanolin in place of Hemp Seed Oil. Hemp Seed Oil still works, and Advanced Copper Tools' Render Hemp Seed Oil is unaffected.
+With Sirus23's Mod Collection, the Herbal Salve also takes Lanolin in place of the oil. Any oil still works.
 
 ---
 
@@ -438,7 +438,7 @@ One option, in `BepInEx/config/` after the first launch:
 - Safe to add to existing saves.
 - Removing it mid-save makes this mod's items in the world disappear on load.
 - **Community Mod Chest:** fresh Chamomile, Dandelion, Wild Flowers, Elderflowers and Hemp Flower, the Flower Garland and the Herbal Incense Bundle count as flowers and fill CMC's Painted Clay Vase (Arrange Flowers). Dried herbs do not.
-- **Advanced Copper Tools:** its Render Hemp Seed Oil blueprint uses this mod's Hemp Seed Oil, and ACT hides that blueprint when Herbs and Fungi is not installed. Neither mod needs the other.
+- **Advanced Copper Tools:** with ACT 1.17.0 or later, every oil this mod presses, Hemp Seed Oil included, fuels ACT's Metal Lantern, Copper Brazier and Copper Oil Flask as it is. ACT 1.18.13 retired its Render Hemp Seed Oil recipe, since the oil already burns without it. Neither mod needs the other.
 
 ### For Modders
 Three patches ship in `GameSourceModify/`:
@@ -467,6 +467,7 @@ Patch classes in `Patcher/`:
 
 Full notes are in `CHANGELOG.md`.
 
+- **1.14.15**: Turnroot Flatbread is a dense brick that nourishes like Dried Turnroot, a little less filling; Turnroot Chips can be eaten; both have their own pictures.
 - **1.14.14**: the mod list description names the six herb grow bags as well as Kale's.
 - **1.14.13**: Peanut Butter has its own picture; the pickling recipes say they need the open Pickle Vat; Forager's Seasoning and seven other recipes name their ingredients and unlocks by the cards' real names; clearer log warnings if a game update breaks one of the mod's patches.
 - **1.14.12**: Chamomile, Dandelion, Plantain, Yarrow, Rhubarb and Healer's Moss get a Grow Bag that keeps growing through winter while a lit fire is on its board; rinsing Peanut Pods works in both drag directions and uses 100 water; ready pickle vats keep about a month.

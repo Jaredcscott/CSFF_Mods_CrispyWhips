@@ -8,12 +8,12 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_herbal_oil_ginseng",
         "LocalizationKey": "Herbs_And_Fungi_HerbalOilGinseng_CardDescription",
-        "DefaultText": "A clay bowl of oil infused with ginseng essence. Apply it for energizing, invigorating effects - the same as smoking the pipe, without the smoke."
+        "DefaultText": "A clay bowl of oil infused with ginseng essence. Apply it for a strong lift to your mood."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_herbal_oil_ginseng",
         "LocalizationKey": "Herbs_And_Fungi_HerbalOilGinseng_CardHelpSection",
-        "DefaultText": "<b>Crafted:</b> By pressing 1 Fresh Ginseng + Clay Bowl at the Oil Press.\n\n<b>Uses:</b> Apply directly for energizing, invigorating effects. Returns an empty clay bowl."
+        "DefaultText": "<b>Crafted:</b> By pressing 1 Fresh Ginseng + Clay Bowl at the Oil Press.\n\n<b>Uses:</b> Apply directly for a strong lift to your mood. Returns an empty clay bowl."
     },
     "CardType": 0,
     "ObjectWeight": 100,
@@ -28,9 +28,7 @@
     "CardTags": [],
     "CardTagsWarpData": [
         "tag_Oil",
-        "tag_HumanFood",
-        "tag_Heatable",
-        "tag_Plateable"
+        "tag_Heatable"
     ],
     "CardTagsWarpType": 3,
     "WhenCreatedSoundsWarpData": [
@@ -72,7 +70,7 @@
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herbal_oil_ginseng",
                 "LocalizationKey": "Herbs_And_Fungi_HerbalOilGinseng_Apply_ActionDescription",
-                "DefaultText": "Apply the ginseng oil. Energizing and invigorating effects."
+                "DefaultText": "Apply the ginseng oil. A strong lift to your mood."
             },
             "ActionSounds": [],
             "ActionTags": [],

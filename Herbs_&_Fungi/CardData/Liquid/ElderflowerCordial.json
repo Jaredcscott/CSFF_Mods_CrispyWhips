@@ -9,7 +9,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_elderflower_cordial",
         "LocalizationKey": "herbsfungielderflowercordial_CardDescription",
-        "DefaultText": "A sweet, floral drink steeped from dried elderflowers. Soothing, and cooling on a warm day."
+        "DefaultText": "A sweet, floral drink steeped from dried elderflowers. Soothing, and a little thirst-quenching."
     },
     "CardType": 0,
     "CardTagsWarpData": [
