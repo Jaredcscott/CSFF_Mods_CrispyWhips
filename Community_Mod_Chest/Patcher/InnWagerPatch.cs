@@ -255,7 +255,11 @@ namespace CommunityModChest.Patcher
             float balance = ReadBalance(counter);
             if (balance < 0f) return -1f;
             float next = ClampAccount(balance + delta);
-            CardUtil.SetDurability(counter, BalanceStat, next);
+            if (!CardUtil.SetDurability(counter, BalanceStat, next))
+            {
+                WarnOnce("account-write", "[InnWagerPatch] the Inn Account (SpecialDurability1) did not take the write - no wager is settled.");
+                return -1f;
+            }
             CardVisualsRefresh.RefreshDurabilityVisuals(counter);
             CardVisualsRefresh.RefreshOpenInventoryPopup();
             return next;
@@ -291,6 +295,7 @@ namespace CommunityModChest.Patcher
                 if (loaded && Wins(NextRoll(), LoadedCaughtChance))
                 {
                     float afterCaught = SettleWager(ctx.Card, Stake, false);
+                    if (afterCaught < 0f) return; // the account was not written (warned once): nothing settled
                     float crime = VillageCrimePatch.AddCrime(CaughtCrime);
                     Notify(ctx.Card, CaughtKey, Stake);
                     Plugin.Logger.LogInfo($"[InnWagerPatch] Loaded Dice caught: -{Stake:0} stake, Village Crime +{CaughtCrime:0} (now {crime:0}), balance {afterCaught:0}.");
@@ -299,6 +304,7 @@ namespace CommunityModChest.Patcher
 
                 bool won = Wins(NextRoll(), loaded ? LoadedWinChance : BoneWinChance);
                 float after = SettleWager(ctx.Card, Stake, won);
+                if (after < 0f) return; // the account was not written (warned once): no result shown
                 Notify(ctx.Card, won ? WinKey : LoseKey, Stake);
                 Plugin.Logger.LogDebug($"[InnWagerPatch] {(loaded ? "Loaded" : "Bone")} Dice {(won ? "won" : "lost")} {Stake:0}, balance now {after:0}.");
             }
@@ -384,6 +390,7 @@ namespace CommunityModChest.Patcher
             double roll = NextRoll();
             bool won = Wins(roll, chance);
             float balance = SettleWager(ctx.Card, Stake, won);
+            if (balance < 0f) return; // the account was not written (warned once): no result shown
             Notify(ctx.Card, won ? winKey : loseKey, Stake, PickResident(roll));
             Plugin.Logger.LogDebug($"[InnWagerPatch] {label} {(won ? "won" : "lost")} {Stake:0} at {chance:0.00}, balance now {balance:0}.");
         }

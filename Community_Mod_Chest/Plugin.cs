@@ -24,7 +24,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.69.21";
+    public const string PluginVersion = "1.69.22";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }

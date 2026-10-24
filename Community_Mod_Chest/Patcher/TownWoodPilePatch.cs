@@ -139,6 +139,14 @@ namespace CommunityModChest.Patcher
         private static MethodInfo _getFromIdMethod;
         private static bool _initialized;
 
+        // One latch per cause (CLAUDE.md Silent Catch Blocks, G5).
+        private static readonly HashSet<string> _warned = new HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
+        }
+
         // ── Registration ─────────────────────────────────────────────────────────
 
         public static void Initialize()
@@ -348,7 +356,9 @@ namespace CommunityModChest.Patcher
             float pay = CardUtil.GetDurability(pileCard, "SpecialDurability2");
             if (float.IsNaN(pay)) pay = 0f;
             float updated = Mathf.Min(pay + addedValue, PayMax);
-            CardUtil.SetDurability(pileCard, "SpecialDurability2", updated);
+            // The fuel itself is already in the pool, so a failed Pay write only costs the payout: say so.
+            if (!CardUtil.SetDurability(pileCard, "SpecialDurability2", updated))
+                WarnOnce("pay-credit-failed", "[TownWoodPilePatch] Player's Pay (SpecialDurability2) did not take the write - stocked fuel reached the hearths but earned no pay.");
         }
 
         /// <summary>
@@ -367,7 +377,12 @@ namespace CommunityModChest.Patcher
 
                 int count = (int)(pay / costEach);
                 float remainder = pay - count * costEach;
-                CardUtil.SetDurability(ctx.Card, "SpecialDurability2", remainder);
+                // Drain first and check it: a Pay that did not go down must not pay out (G5).
+                if (!CardUtil.SetDurability(ctx.Card, "SpecialDurability2", remainder))
+                {
+                    WarnOnce("collect-drain-failed", "[TownWoodPilePatch] Player's Pay (SpecialDurability2) did not take the write - nothing is paid out.");
+                    return;
+                }
                 CardVisualsRefresh.RefreshDurabilityVisuals(ctx.Card);
 
                 // A nugget spawns as real copper (row 2.3); a bare spawn is Metal Type 0.
@@ -426,7 +441,12 @@ namespace CommunityModChest.Patcher
                 float shown = CardUtil.GetDurability(card, "SpecialDurability1");
                 if (!float.IsNaN(shown) && Mathf.Approximately(shown, pool)) continue;
 
-                CardUtil.SetDurability(card, "SpecialDurability1", pool);
+                // Display mirror only (the pool is the canonical copy), so a failed write is one warning, not a retry storm.
+                if (!CardUtil.SetDurability(card, "SpecialDurability1", pool))
+                {
+                    WarnOnce("bar-sync-failed", "[TownWoodPilePatch] the pile's Wood Stockpile bar (SpecialDurability1) did not take the write - the bar may not match the real pool.");
+                    continue;
+                }
                 CardVisualsRefresh.RefreshDurabilityVisuals(card);
             }
         }

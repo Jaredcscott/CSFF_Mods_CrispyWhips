@@ -234,7 +234,12 @@ namespace CommunityModChest.Patcher
             float revenue = CardUtil.GetDurability(ctx.Card, "SpecialDurability1");
             if (float.IsNaN(revenue) || revenue < CostPerNugget) return;
             int count = (int)(revenue / CostPerNugget);
-            CardUtil.SetDurability(ctx.Card, "SpecialDurability1", revenue - count * CostPerNugget);
+            // Drain first and check it: a revenue that did not go down must not pay out (G5).
+            if (!CardUtil.SetDurability(ctx.Card, "SpecialDurability1", revenue - count * CostPerNugget))
+            {
+                WarnOnce("collect-drain-failed", "[MarketStallPatch] Sales Revenue (SpecialDurability1) did not take the write - nothing is paid out.");
+                return;
+            }
             for (int i = 0; i < count; i++) SpawnService.Spawn(NuggetGuid, CurrencyValue.CopperNuggetStats);
             Plugin.Logger.LogDebug($"[MarketStallPatch] Collected {count} copper nugget(s) (revenue was {revenue:0}).");
         }
@@ -244,7 +249,11 @@ namespace CommunityModChest.Patcher
             float revenue = CardUtil.GetDurability(ctx.Card, "SpecialDurability1");
             if (float.IsNaN(revenue) || revenue < CostPerSalt) return;
             int count = (int)(revenue / CostPerSalt);
-            CardUtil.SetDurability(ctx.Card, "SpecialDurability1", revenue - count * CostPerSalt);
+            if (!CardUtil.SetDurability(ctx.Card, "SpecialDurability1", revenue - count * CostPerSalt))
+            {
+                WarnOnce("collect-drain-failed", "[MarketStallPatch] Sales Revenue (SpecialDurability1) did not take the write - nothing is paid out.");
+                return;
+            }
             for (int i = 0; i < count; i++) SpawnService.Spawn(SaltGuid);
             Plugin.Logger.LogDebug($"[MarketStallPatch] Collected {count} salt unit(s) (revenue was {revenue:0}).");
         }
@@ -263,7 +272,11 @@ namespace CommunityModChest.Patcher
             float revenue = CardUtil.GetDurability(ctx.Card, "SpecialDurability1");
             if (float.IsNaN(revenue) || revenue < price) return;
             int count = (int)(revenue / price);
-            CardUtil.SetDurability(ctx.Card, "SpecialDurability1", revenue - count * price);
+            if (!CardUtil.SetDurability(ctx.Card, "SpecialDurability1", revenue - count * price))
+            {
+                WarnOnce("collect-drain-failed", "[MarketStallPatch] Sales Revenue (SpecialDurability1) did not take the write - nothing is paid out.");
+                return;
+            }
             for (int i = 0; i < count; i++) SpawnService.Spawn(CurrencyValue.CoinUid);
             Plugin.Logger.LogDebug($"[MarketStallPatch] Collected {count} Duros coin(s) at {price:0.##} each (revenue was {revenue:0}).");
         }
@@ -410,12 +423,18 @@ namespace CommunityModChest.Patcher
             float baseValue = GetItemValue(item);
             float multiplier = VillagePricing.Multiplier(VillagePricing.PriceSide.Earn);
             float value = baseValue * multiplier;
-            ConsumeItem(stall, list, container, item);
 
+            // Credit the revenue first and only then take the item, so a revenue that cannot be
+            // written leaves the item on the stall instead of selling it for nothing (G5).
             float current = CardUtil.GetDurability(stall, "SpecialDurability1");
             if (float.IsNaN(current)) current = 0f;
             float newRev = Mathf.Min(current + value, SD1MaxValue);
-            CardUtil.SetDurability(stall, "SpecialDurability1", newRev);
+            if (!CardUtil.SetDurability(stall, "SpecialDurability1", newRev))
+            {
+                WarnOnce("sell-credit-failed", "[MarketStallPatch] Sales Revenue (SpecialDurability1) did not take the write - the stall sells nothing until it does.");
+                return;
+            }
+            ConsumeItem(stall, list, container, item);
             Plugin.Logger.LogDebug($"[MarketStallPatch] Item sold for +{value:0.##} revenue (base {baseValue:0}, x{multiplier:0.00}). Total: {newRev:0}");
         }
 

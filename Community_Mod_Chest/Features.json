@@ -1713,11 +1713,9 @@
       "confidence": "MEDIUM",
       "evidence": "Static: Development_Tools/Tests/Academy-CourseGating.Tests.ps1 (every gated blueprint UID resolves to a real ACT blueprint and no gated blueprint's product is another gated recipe's ingredient outside the course). Harness T2.947 reads both new shields and the Copper Shield Hidden without the degree and Available with it; written 2026-10-04, not yet run.",
       "cards": [
-        "act_bp_iron_shield",
-        "act_bp_ghostbronze_shield",
         "act_bp_copper_shield"
       ],
-      "notes": "Round 2 F4 (ea38a21b5). ACT 1.18.0's Iron Shield and Ghost Bronze Shield join the Armorer course's unlock array beside the Copper Shield (UIDs read from ACT's own blueprint files). They are end products, so the lock hides no ingredient; an ACT without them skips the entries. A recipe already researched stays yours. OWNER 2026-10-18 REVERSED THE LOCK: the whole Armorer armor set (these shields included) moved from the lock table to CourseGrants, so these recipes are no longer Hidden without the degree; the degree only hands them over early. Harness T2.947's Hidden-without-degree reading no longer applies."
+      "notes": "Round 2 F4 (ea38a21b5). ACT 1.18.0's Iron Shield and Ghost Bronze Shield join the Armorer course's unlock array beside the Copper Shield (UIDs read from ACT's own blueprint files). They are end products, so the lock hides no ingredient; an ACT without them skips the entries. A recipe already researched stays yours. OWNER 2026-10-18 REVERSED THE LOCK: the whole Armorer armor set (these shields included) moved from the lock table to CourseGrants, so these recipes are no longer Hidden without the degree; the degree only hands them over early. Harness T2.947's Hidden-without-degree reading no longer applies. ACT 1.18.13 armor merge (2026-10-22): ACT's shield is one blueprint in every metal (act_bp_copper_shield); the Iron and Ghost Bronze Shield blueprints are retired (out of ACT's tabs, research carried by AlsoUnlocks), so CMC 1.69.22 grants only the merged shield and armor blueprints; harness T2.2004."
     },
     {
       "name": "Founder's Monument",

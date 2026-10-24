@@ -141,8 +141,10 @@ namespace CommunityModChest.Patcher
                 return;
             }
 
-            HiddenStat.Set(row.LatchStat, 0f);
-            WarnOnce("spawn-missing:" + row.DiplomaUid, $"[AcademyDiplomaPatch] {row.DiplomaUid} did not appear after the spawn - latch put back, the next Academy visit retries. Is the card loaded?");
+            if (HiddenStat.Set(row.LatchStat, 0f))
+                WarnOnce("spawn-missing:" + row.DiplomaUid, $"[AcademyDiplomaPatch] {row.DiplomaUid} did not appear after the spawn - latch put back, the next Academy visit retries. Is the card loaded?");
+            else
+                WarnOnce("latch-reset-failed:" + row.LatchStat, $"[AcademyDiplomaPatch] {row.DiplomaUid} did not appear after the spawn, and {row.LatchStat} could not be put back, so this diploma will not be retried. Is the card loaded?");
         }
 
         /// <summary>Counts every current-board card of this UID, never stopping at the first.</summary>

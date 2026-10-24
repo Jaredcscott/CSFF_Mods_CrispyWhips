@@ -5,6 +5,29 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.69.22] - 2026-10-22
+
+Needs CSFF Mod Framework 2.28.9 or later for the new refuel.
+
+### Added
+
+- **The Ceramic Lamp takes liquid oil from a container.** Drag a clay bowl, pot or other container holding melted fat, or another mod's liquid oil, onto the lamp (**Pour Oil from Container**). A full clay bowl of liquid oil adds the same fuel as a bowl of oil, less adds less, and you keep the container.
+
+### Changed
+
+- **The Armorer course hands over Advanced Copper Tools' five armor recipes.** ACT 1.18.13 makes each armor piece one recipe in every metal (Metal Helmet, Metal Armor, Metal Bracers, Metal Greaves, Metal Shield), so the Armorer degree now hands over those five early instead of the twenty-eight per-metal recipes ACT no longer lists. Without the degree they are researched normally, as before.
+
+### For mod authors
+
+- `CeramicLamp.json` gains a fourth CardInteraction: trigger tags `tag_WaterContainer` / `tag_ContainerOpenLarge` / `tag_WaterContainerLarge`, `RequiredGivenLiquidContent.RequiredGroupWarpData: GpTag_FW_Oil` (framework 2.28.9 tag group), `GivenCardChanges` `ModifyLiquid` `LiquidQuantityChange -300` with `LiquidEffectScaling 1`, `FuelChange 24`.
+- `Patcher/AcademyCourseService.cs` Armorer `CourseGrants`: only `advanced_copper_tools_bp_copper_{helmet,breastplate,gauntlets,greaves}` and `act_bp_copper_shield`. The 23 retired ACT alloy and iron armor blueprints are dropped; ACT hands their research on to these five through `AlsoUnlocks`.
+
+### Fixed
+
+- **Behind the scenes:** Academy course gating and the Professor's forage and specialty actions now leave one warning in the log if a game update breaks them, instead of going quiet. The README's Village Hall line lists the materials of all seven building stages (34 Heavy Stone, 32 Tree Log, 10 Wooden Plank, 20 Plaster, 16 Clay), not only the last.
+- **Behind the scenes:** the Academy deposit and the Professor's Commissions window drop their August investigation logging, both confirmed working. The check on where the Professor takes commissions now writes to the log by default until it is confirmed in game.
+- **Behind the scenes:** if a game update ever stops the Inn account or the Tuition Account from being written, a deposit is refused and you keep your card, instead of the card vanishing for nothing; a meal, a night or a study session that cannot be charged says so in the log, and the retired Carpentry Bench stays put until its balance and hours have really moved. The same goes for the Market Stall and the Town Wood Pile: nothing is paid out unless the takings or Player's Pay really went down, the stall sells nothing it cannot credit, and an Inn wager whose stake cannot be moved is not settled. The Professor's hidden stats, the Academy's course unlocks, each course's 15-point counter and the diploma retry also leave one warning each if they stop working, instead of going quiet.
+
 ## [1.69.21] - 2026-10-22
 
 ### Fixed

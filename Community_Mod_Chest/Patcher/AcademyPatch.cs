@@ -99,6 +99,14 @@ namespace CommunityModChest.Patcher
 
         private static bool _initialized;
 
+        // One latch per cause (CLAUDE.md Silent Catch Blocks, G5).
+        private static readonly HashSet<string> _warned = new HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
+        }
+
         // ── Registration ─────────────────────────────────────────────────────
 
         public static void Initialize(Harmony harmony)
@@ -366,7 +374,11 @@ namespace CommunityModChest.Patcher
                     return; // ACT installed — Armorer course stays
 
                 var lecternCard = UniqueIDScriptable.GetFromID<CardData>(LecternUid);
-                if (lecternCard?.DismantleActions == null) return;
+                if (lecternCard?.DismantleActions == null)
+                {
+                    WarnOnce("prune-lectern-unresolved", $"[AcademyPatch] {LecternUid} {(lecternCard == null ? "did not resolve" : "has no DismantleActions")} - the Armorer course was not pruned and shows without Advanced Copper Tools. Logged once.");
+                    return;
+                }
 
                 var kept = new List<DismantleCardAction>(lecternCard.DismantleActions.Count);
                 int removed = 0;
@@ -540,10 +552,16 @@ namespace CommunityModChest.Patcher
                 float balance = CardUtil.GetDurability(ctx.Card, BalanceStat);
                 if (float.IsNaN(balance)) balance = 0f;
                 float newBalance = Math.Max(balance - price, 0f);
-                CardUtil.SetDurability(ctx.Card, BalanceStat, newBalance);
-                CardVisualsRefresh.RefreshDurabilityVisuals(ctx.Card);
-                CardVisualsRefresh.RefreshOpenInventoryPopup();
-                Plugin.Logger.LogDebug($"[AcademyPatch] Tuition drawn for {course.NameFragment}: hoursAfter={hours} -{price:0} (base {TuitionPrice:0}; balance {balance:0} -> {newBalance:0}/{AccountMax:0}).");
+                if (CardUtil.SetDurability(ctx.Card, BalanceStat, newBalance))
+                {
+                    CardVisualsRefresh.RefreshDurabilityVisuals(ctx.Card);
+                    CardVisualsRefresh.RefreshOpenInventoryPopup();
+                    Plugin.Logger.LogDebug($"[AcademyPatch] Tuition drawn for {course.NameFragment}: hoursAfter={hours} -{price:0} (base {TuitionPrice:0}; balance {balance:0} -> {newBalance:0}/{AccountMax:0}).");
+                }
+                else
+                {
+                    Plugin.Logger.LogWarning($"[AcademyPatch] Could not draw {price:0} tuition for {course.NameFragment}: the Tuition Account ({BalanceStat}) did not take the write, so this session cost nothing.");
+                }
             }
 
             // N5: the session also teaches the course's skill, once per completed action. GraduateBonus below only
@@ -591,20 +609,23 @@ namespace CommunityModChest.Patcher
 
         private static bool DepositGate(ActionContext ctx)
         {
+            // The native action takes the dragged card AFTER every handler's prefix step, and a
+            // Before handler (DepositApply) cannot cancel it. So this Cancel gate proves the account
+            // is readable AND writable, by writing the balance back unchanged, before it lets the card
+            // go: a stat the game no longer exposes refuses the deposit with the card kept, instead of
+            // eating it for nothing (and an unreadable balance is never overwritten from 0).
             float balance = CardUtil.GetDurability(ctx.Card, BalanceStat);
-            bool full = !float.IsNaN(balance) && balance >= AccountMax - 0.5f;
-            // TEMP DIAGNOSTIC (2026-08-08) — see DepositApply note above.
-            Plugin.Logger.LogDebug($"[AcademyPatch] DepositGate fired: balance={balance:0} full={full}");
-            return full; // return true = cancel
+            if (float.IsNaN(balance) || !CardUtil.SetDurability(ctx.Card, BalanceStat, balance))
+            {
+                WarnOnce("deposit-unwritable", $"[AcademyPatch] The lectern's Tuition Account ({BalanceStat}) cannot be read or written - deposits are refused and the dragged card is kept. Logged once.");
+                return true; // cancel
+            }
+            return balance >= AccountMax - 0.5f; // return true = cancel (account full)
         }
 
         private static bool DepositApply(ActionContext ctx)
         {
-            // TEMP DIAGNOSTIC (2026-08-08, Inn/Academy deposit does nothing) — see
-            // matching note in InnPatch.DepositApply. Demote to LogDebug once confirmed.
             string givenUid = CardUtil.GetCardUniqueId(ctx.GivenCard) ?? "null";
-            float givenSd4 = CardUtil.GetDurability(ctx.GivenCard, "SpecialDurability4");
-            Plugin.Logger.LogDebug($"[AcademyPatch] DepositApply fired: GivenCard UID={givenUid} SD4={givenSd4}");
 
             float value = CurrencyValue.ValueOf(ctx.GivenCard);
             if (value <= 0f)
@@ -616,7 +637,13 @@ namespace CommunityModChest.Patcher
             float balance = CardUtil.GetDurability(ctx.Card, BalanceStat);
             if (float.IsNaN(balance)) balance = 0f;
             float newBalance = Math.Min(balance + value, AccountMax);
-            CardUtil.SetDurability(ctx.Card, BalanceStat, newBalance);
+            if (!CardUtil.SetDurability(ctx.Card, BalanceStat, newBalance))
+            {
+                // DepositGate's write-back passed this same frame, so this should not happen; if it
+                // does, the card is already committed to the native action and cannot be kept here.
+                Plugin.Logger.LogWarning($"[AcademyPatch] Deposit of {value:0} (UID={givenUid}) was NOT credited: the Tuition Account ({BalanceStat}) did not take the write.");
+                return true;
+            }
             CardVisualsRefresh.RefreshDurabilityVisuals(ctx.Card);
             CardVisualsRefresh.RefreshOpenInventoryPopup();
             Plugin.Logger.LogInfo($"[AcademyPatch] Deposited {value:0} into the Tuition account (balance now {newBalance:0}/{AccountMax:0}).");
@@ -641,8 +668,9 @@ namespace CommunityModChest.Patcher
         /// Carpentry hours (max onto every live lectern, mirroring ReconcileCourseProgress)
         /// onto the Lecture Hall lectern. Returns FALSE (let the action's own ModType 3 Destroy
         /// remove the bench) only when nothing of value is left on it; returns TRUE (cancel,
-        /// bench kept) when the lectern was full, no lectern is on this board, or anything
-        /// threw - the bench must never be destroyed with unmoved balance still on it.
+        /// bench kept) when the lectern was full, no lectern is on this board, a balance or hours
+        /// write did not land, or anything threw - the bench must never be destroyed with unmoved
+        /// balance still on it.
         /// </summary>
         private static bool RetiredBenchTransfer(ActionContext ctx)
         {
@@ -669,8 +697,21 @@ namespace CommunityModChest.Patcher
                 float moved = Math.Min(benchBalance, Math.Max(AccountMax - lecternBalance, 0f));
                 if (moved > 0f)
                 {
-                    CardUtil.SetDurability(target, BalanceStat, lecternBalance + moved);
-                    CardUtil.SetDurability(ctx.Card, BalanceStat, benchBalance - moved);
+                    // Credit the lectern first and check it: the bench gives nothing up until that lands.
+                    if (!CardUtil.SetDurability(target, BalanceStat, lecternBalance + moved))
+                    {
+                        Plugin.Logger.LogWarning($"[AcademyPatch] Retired bench transfer: the lectern's Tuition Account ({BalanceStat}) did not take the write - nothing moved, bench kept.");
+                        return true;
+                    }
+                    if (!CardUtil.SetDurability(ctx.Card, BalanceStat, benchBalance - moved))
+                    {
+                        // Undo the credit so the same tuition cannot be transferred twice.
+                        bool undone = CardUtil.SetDurability(target, BalanceStat, lecternBalance);
+                        Plugin.Logger.LogWarning("[AcademyPatch] Retired bench transfer: the bench's own balance did not take the write - " +
+                            (undone ? "the lectern credit was undone, nothing moved, bench kept."
+                                    : $"the lectern credit of {moved:0} could not be undone either, so it now exists on both cards; bench kept."));
+                        return true;
+                    }
                     CardVisualsRefresh.RefreshDurabilityVisuals(target);
                 }
                 float remaining = benchBalance - moved;
@@ -683,6 +724,7 @@ namespace CommunityModChest.Patcher
                     if (course.NameFragment == "Carpentry") { carpentryMax = course.TotalHours; lecternHoursStat = course.StatName; break; }
                 }
                 float hoursMoved = 0f;
+                bool hoursFailed = false;
                 if (benchHours > 0f)
                 {
                     foreach (var lectern in lecterns)
@@ -692,11 +734,21 @@ namespace CommunityModChest.Patcher
                         float merged = Math.Min(Math.Max(current, benchHours), carpentryMax);
                         if (merged > current)
                         {
-                            CardUtil.SetDurability(lectern, lecternHoursStat, merged);
+                            if (!CardUtil.SetDurability(lectern, lecternHoursStat, merged)) { hoursFailed = true; continue; }
                             CardVisualsRefresh.RefreshDurabilityVisuals(lectern);
                             hoursMoved = merged - current;
                         }
                     }
+                }
+
+                // A lectern that did not take the hours keeps the bench: its hours are never lowered,
+                // so the next Transfer merges them again (max, so a lectern that did take them is unchanged).
+                if (hoursFailed)
+                {
+                    CardVisualsRefresh.RefreshDurabilityVisuals(ctx.Card);
+                    CardVisualsRefresh.RefreshOpenInventoryPopup();
+                    Plugin.Logger.LogWarning($"[AcademyPatch] Retired bench transfer: a lectern's Carpentry hours ({lecternHoursStat}) did not take the write - moved {moved:0} tuition, bench kept with its {benchHours:0}h for a later transfer.");
+                    return true;
                 }
 
                 if (remaining > 0.5f)

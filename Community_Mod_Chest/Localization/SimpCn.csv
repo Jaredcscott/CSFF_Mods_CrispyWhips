@@ -3694,3 +3694,5 @@ CMC_ProfessorGreeting_Start_Answer_Amends,About your chest...,关于你那只箱
 CMC_ProfessorGreeting_Start_Answer_AmendsGiveUp,I can't find a candle after all.,我还是没找到蜡烛。
 CMC_Professor_Amends_ActionName,Make Amends: Candle,赔礼：蜡烛
 CMC_Professor_Amends_ActionDescription,"Hand over an unlit Candle for the Professor's late reading, as asked when you spoke about the chest. Fetching it takes about two hours. Talk to the Professor again for the thanks; the Trust comes back after that.",把一支未点燃的蜡烛交给教授，供夜读，这是你们谈起箱子时提的。取烛要花大约两小时。再和教授交谈，对方会道谢，信任随后回升。
+CeramicLamp_RefuelLiquid_ActionName,Pour Oil from Container,从容器倒入油
+CeramicLamp_RefuelLiquid_ActionDescription,Pour oil from a container into the lamp's reservoir. A full clay bowl of liquid oil burns as long as a bowl of oil.,把容器里的油倒进灯的油槽里。一满陶碗的液态油和一碗油烧得一样久。

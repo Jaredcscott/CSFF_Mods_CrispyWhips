@@ -139,7 +139,8 @@ namespace CommunityModChest.Patcher
                     Plugin.Logger.LogWarning($"[AcademyCourseService] Could not raise {row.SkillLabel} by {grant:0.##}; the course taught nothing this session.");
                     return;
                 }
-                HiddenStat.Set(row.TaughtStatUid, taught + grant);
+                if (!HiddenStat.Set(row.TaughtStatUid, taught + grant))
+                    WarnOnce("taught-counter-write:" + row.TaughtStatUid, $"[AcademyCourseService] {row.SkillLabel} was raised but its course counter could not be written, so this course's {TaughtCap:0.##}-point cap is not counting. Logged once.");
                 Plugin.Logger.LogDebug($"[AcademyCourseService] Course taught {row.SkillLabel} +{grant:0.##} ({taught + grant:0.##}/{TaughtCap:0.##} from this course).");
             }
             catch (Exception ex)
@@ -254,41 +255,16 @@ namespace CommunityModChest.Patcher
                 RequiredPerks = new[] { GradArmorer },
                 Blueprints    = new[]
                 {
+                    // ACT's armor merge (ACT 1.18.13, owner 2026-10-22): one blueprint per piece, whatever the
+                    // metal (the piece takes the metal of its sheets), on the old copper UIDs. The 23 alloy and
+                    // iron blueprints this list named until then are retired: out of every tab, and their research
+                    // passes to these five (AlsoUnlocks), so granting them would add nothing. An older ACT that
+                    // still ships them separately gets only these five granted; the rest stay researchable as before.
                     "advanced_copper_tools_bp_copper_breastplate",
                     "advanced_copper_tools_bp_copper_helmet",
                     "advanced_copper_tools_bp_copper_greaves",
                     "advanced_copper_tools_bp_copper_gauntlets",
-                    // ACT ships the iron breastplate as two blueprints (female and male fit). The single
-                    // "act_bp_iron_breastplate" listed here until 1.69.0 matched no blueprint, so both
-                    // breastplates were researchable without the degree.
-                    "act_bp_iron_breastplate_f",
-                    "act_bp_iron_breastplate_m",
-                    "act_bp_iron_helmet",
-                    "act_bp_iron_greaves",
-                    "act_bp_iron_gauntlets",
-                    // ACT 1.18.0 alloy armor and the Copper Shield (owner 2026-09-29 gated these; owner 2026-10-18 moved them to grants). An older
-                    // ACT without these blueprints is harmless: GateTable skips a UID that resolves to nothing.
-                    "act_bp_copper_shield",
-                    // The Iron Shield and Ghost Bronze Shield (UIDs read from ACT's Bp_IronShield.json and
-                    // Bp_GhostBronzeShield.json, Phase F4).
-                    "act_bp_iron_shield",
-                    "act_bp_ghostbronze_shield",
-                    "act_bp_bronze_helmet",
-                    "act_bp_bronze_breastplate",
-                    "act_bp_bronze_gauntlets",
-                    "act_bp_bronze_greaves",
-                    "act_bp_tin_helmet",
-                    "act_bp_tin_breastplate",
-                    "act_bp_tin_gauntlets",
-                    "act_bp_tin_greaves",
-                    "act_bp_ghostbronze_helmet",
-                    "act_bp_ghostbronze_breastplate",
-                    "act_bp_ghostbronze_gauntlets",
-                    "act_bp_ghostbronze_greaves",
-                    "act_bp_whitebronze_helmet",
-                    "act_bp_whitebronze_breastplate",
-                    "act_bp_whitebronze_gauntlets",
-                    "act_bp_whitebronze_greaves"
+                    "act_bp_copper_shield"
                 }
             }
         };
@@ -345,6 +321,9 @@ namespace CommunityModChest.Patcher
         private static bool _subscribed;
         private static Action _gmInitializedHandler;
         private static MethodInfo _getFromIdCardData;
+        // One latch: both early exits mean "GetFromID<CardData> cannot be built", and every caller
+        // then no-ops course gating, so one breadcrumb names the cause (CLAUDE.md Silent Catch Blocks, G5).
+        private static bool _getFromIdUnavailableWarned;
         private static MethodInfo _makeBlueprintAvailable;
         private static FieldInfo _disabledField;
         private static bool _inRunPerkCheckFailureLogged;
@@ -626,7 +605,7 @@ namespace CommunityModChest.Patcher
 
                     if (earned)
                     {
-                        MakeAvailable(bp);
+                        if (!MakeAvailable(bp)) continue; // MakeAvailable warned once; not counted as unlocked
                         unlocked++;
                         Plugin.Logger.LogDebug($"[AcademyCourseService] {course.Label} degree held — unlocked {bpUid}.");
                     }
@@ -672,7 +651,7 @@ namespace CommunityModChest.Patcher
                     if (!states.Contains(bp)) continue; // not registered as a blueprint this run
                     if (Convert.ToInt32(states[bp]) == StateAvailable) continue; // already researched or granted
 
-                    MakeAvailable(bp);
+                    if (!MakeAvailable(bp)) continue; // MakeAvailable warned once; not counted as granted
                     granted++;
                     Plugin.Logger.LogDebug($"[AcademyCourseService] {course.Label} degree held - granted {bpUid}.");
                 }
@@ -728,6 +707,13 @@ namespace CommunityModChest.Patcher
 
         // ── Game-side helpers (cached reflection) ─────────────────────────────
 
+        private static void WarnGetFromIdUnavailable(string cause)
+        {
+            if (_getFromIdUnavailableWarned) return;
+            _getFromIdUnavailableWarned = true;
+            Plugin.Logger.LogWarning($"[AcademyCourseService] {cause}; course gating is inactive (every course card resolves to nothing). Logged once.");
+        }
+
         private static object FindCardData(string uid)
         {
             try
@@ -736,7 +722,11 @@ namespace CommunityModChest.Patcher
                 {
                     var uidScriptableType = CardUtil.FindGameType("UniqueIDScriptable");
                     var cardDataType = CardUtil.FindGameType("CardData");
-                    if (uidScriptableType == null || cardDataType == null) return null;
+                    if (uidScriptableType == null || cardDataType == null)
+                    {
+                        WarnGetFromIdUnavailable("UniqueIDScriptable or CardData type not found");
+                        return null;
+                    }
 
                     MethodInfo generic = null;
                     foreach (var m in uidScriptableType.GetMethods(BindingFlags.Static | BindingFlags.Public))
@@ -747,7 +737,11 @@ namespace CommunityModChest.Patcher
                             break;
                         }
                     }
-                    if (generic == null) return null;
+                    if (generic == null)
+                    {
+                        WarnGetFromIdUnavailable("no generic UniqueIDScriptable.GetFromID");
+                        return null;
+                    }
                     _getFromIdCardData = generic.MakeGenericMethod(cardDataType);
                 }
                 return _getFromIdCardData.Invoke(null, new object[] { uid });
@@ -759,20 +753,27 @@ namespace CommunityModChest.Patcher
             }
         }
 
-        private static void MakeAvailable(object bp)
+        /// <summary>Unlocks one blueprint. False (and one warning per cause) when the game method cannot be
+        /// reached, so callers never count or log a blueprint as unlocked that was not.</summary>
+        private static bool MakeAvailable(object bp)
         {
             if (_makeBlueprintAvailable == null)
             {
                 var gmType = CardUtil.FindGameType("GameManager");
-                if (gmType == null) return;
+                if (gmType == null)
+                {
+                    WarnOnce("make-available-no-gm-type", "[AcademyCourseService] GameManager type not found - cannot unlock course blueprints. Logged once.");
+                    return false;
+                }
                 _makeBlueprintAvailable = AccessTools.Method(gmType, "MakeBlueprintAvailable");
                 if (_makeBlueprintAvailable == null)
                 {
-                    Plugin.Logger.LogWarning("[AcademyCourseService] GameManager.MakeBlueprintAvailable not found — cannot unlock blueprints.");
-                    return;
+                    WarnOnce("make-available-missing", "[AcademyCourseService] GameManager.MakeBlueprintAvailable not found - cannot unlock course blueprints. Logged once.");
+                    return false;
                 }
             }
             _makeBlueprintAvailable.Invoke(null, new[] { bp });
+            return true;
         }
 
         private static void DisableUnlockConditions(IList unlockables, object bp)
@@ -784,9 +785,22 @@ namespace CommunityModChest.Patcher
                 if (!ReferenceEquals(CardUtil.GetMemberValue(entry, "UnlockedCard"), bp)) continue;
 
                 _disabledField ??= entry.GetType().GetField("Disabled", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-                _disabledField?.SetValue(entry, true);
+                if (_disabledField == null)
+                {
+                    WarnOnce("unlock-disabled-field-missing", $"[AcademyCourseService] {entry.GetType().Name}.Disabled not found - a hidden course blueprint keeps its own research condition and can still be researched without the course. Logged once.");
+                    return;
+                }
+                _disabledField.SetValue(entry, true);
                 return;
             }
+        }
+
+        // One latch per cause (CLAUDE.md Silent Catch Blocks, G5).
+        private static readonly System.Collections.Generic.HashSet<string> _warned = new(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
         }
     }
 }

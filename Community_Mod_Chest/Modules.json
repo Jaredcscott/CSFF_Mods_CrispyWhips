@@ -1,0 +1,132 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). Every tracked file belongs to exactly one module, is a sharedTable (rows attributed by the UID or LocalizationKey they name), or is a picture/.art file owned by the module whose card names it. NPC globs are anchored on the card prefix (CMC_Miller*, CMC_Apoth*, CMC_Prof*) because cross-NPC stats (CMC_AcademySitInMiller, CMC_BoardWeaver, CMC_CopperChestInnKeeper) carry other NPCs' names. `module_map.py check Community_Mod_Chest` must exit 0.",
+  "sharedTables": [
+    "Localization/*.csv",
+    "BlueprintTabs.json",
+    "TradingValues.json",
+    "DropInjections.json",
+    "InjectImprovementInto.json"
+  ],
+  "modules": [
+    {
+      "id": "apparel",
+      "name": "Apparel, Dyes and Wardrobe",
+      "summary": "Foot and Hand Wraps, Straw Hat, Scarf, Chaperon, Coat, Apron, Sandals, Mask, Hood, Long Johns, Quilted and Wool-Quilted Cap and Vest, every dyed variant, Pigments, the Dye Vat, the Outfit Wardrobe and Layered Warmth.",
+      "paths": ["**/*FootWraps*", "**/*HandWraps*", "**/*StrawHat*", "**/*ClothScarf*", "**/*Chaperon*", "**/*ClothCoat*", "**/*LeatherApron*", "**/*LeatherSandals*",
+                "**/*ClothMask*", "**/*ClothHood*", "**/*LongJohns*", "**/*QuiltedCap*", "**/*QuiltedVest*", "**/*Pigment*", "**/*DyeVat*", "**/*OutfitWardrobe*", "**/*LayeredWarmth*"]
+    },
+    {
+      "id": "home",
+      "name": "Pottery, Decor, Comfort and Toys",
+      "summary": "Painted and glazed clay, figurines, beads, stone tiles and floor, beds and bedding, straw mat, wall hangings and paintings, curtains, trophies, camp furnishings, incense burners, ceramic lamp, scented candle, wind chimes, wreath, garden trellis, soaking trough and the toys and games (dice, Morris board, top, wheeled horse, ocarina).",
+      "paths": ["**/*Painted*", "**/*Figurine*", "**/*ClayBeads*", "**/*StoneTile*", "**/*HeatherWreath*", "**/*WindChimes*", "**/*Bedroll*", "**/*ComfortableBed*", "**/*CopperBedFrame*", "**/*DownMattress*",
+                "**/*StrawMat*", "**/*WallHanging*", "**/*WallPainting*", "**/*Canvas*", "**/*Curtains*", "**/*Trophy*", "**/*LogBench*", "**/*WickerChair*", "**/*ClothRug*", "**/*FramedMap*",
+                "**/*Potpourri*", "**/*StoneCairn*", "**/*IceSculpture*", "**/*IncenseBurner*", "**/*CeramicLamp*", "**/*ScentedCandle*", "**/*GlazedPlate*", "**/*GlazedClayPlate*",
+                "**/*GardenTrellis*", "**/*LimewaterTrough*", "**/*BoneDice*", "**/*LoadedDice*", "**/*MorrisBoard*", "**/*SpinningTop*", "**/*WheeledHorse*", "**/*Ocarina*", ".art/gif_work/**"]
+    },
+    {
+      "id": "gear",
+      "name": "Weapons, Armor, Fishing and Hunting Gear",
+      "summary": "Club, Fire-Hardened Spear and its charred-tip move, Stone Mace, Wooden Shield, Bone Lamellar, the armor card and Armorer-shield patches, Iron Fishing Rod and fittings, Fishing Net, Hunting Stand and its encounter guard, Training Post and the melee skill.",
+      "paths": ["**/Club.json", "**/Bp_Club.json", "**/CMC_Club.json", "**/*FireHardenedSpear*", "**/*StoneMace*", "**/*WoodenShield*", "**/*BoneLamellar*", "**/*IronFishingRod*", "**/*FishingNet*",
+                "**/*HuntingStand*", "**/*TrainingPost*", "GameStat/CMC_MeleeFighting.json", "ScriptableObject/DamageType/**", "ScriptableObject/WeaponMove/**", "GameSourceModify/SpearThrow.json",
+                "Patcher/ArmorCardsPatch.cs", "Patcher/ArmorUsageFixupPatch.cs", "Patcher/IronRodFishingPatch.cs"]
+    },
+    {
+      "id": "forage",
+      "name": "Foraging, Herbs and Remedies",
+      "summary": "Forage injections (Old Growth Bark, Hollow Sage, Silverwort), the herbalism forage patch, Herb Paste, Herb Poultice and Tincture, Spring Tonic, the tannic flavour tags and the spirit-herb tag.",
+      "paths": ["**/*OldGrowthBark*", "**/*HollowSage*", "**/*Silverwort*", "**/*HerbPaste*", "**/*HerbPoultice*", "**/*Tincture*", "**/*SpringTonic*", "GameStat/CMC_HerbalAnalgesic.json",
+                "FlavourMatrix/**", "FlavourTag/**", "GameSourceModify/GpTag_SpiritHerb.json", "Patcher/ForageInjectionPatch.cs", "Patcher/HerbalismForagePatch.cs"]
+    },
+    {
+      "id": "world",
+      "name": "Village Map, Roads and Wilds",
+      "summary": "The Village world-map nodes and vanilla location edits, farm fields, River Bridge, Climbing Rope and the Skylit path, seasonal road blockages (snow drifts, deadfall, clay shoal flood, bramble thicket, plank causeway), river swimming, tree respawn, stray-improvement cleanup and wildlife encounter suppression.",
+      "paths": ["WorldMap/**", "MapMod.json", "GameSourceModify/cmc*.json", "EncounterGuards/CMC_*", "**/*Imp_RiverBridge*", "CardData/Gif/RiverBridge.json", "Resource/GIF/VillageBridge.gif", "Resource/Picture/ForagingForest.png", "Resource/Picture/VillageFarm.png", "Resource/Picture/VillagePath.png", ".art/VillageBridge_gif.json",
+                "**/*ClimbingRope*", "**/*BrambleThicket*", "**/*SnowDrift*", "**/*Deadfall*", "**/*ClayShoal*", "**/*Causeway*", "**/*VillageField*",
+                "Patcher/TreeRespawnPatch.cs", "Patcher/WildlifeIndoorGuardPatch.cs", "Patcher/RiverSwimPatch.cs", "Patcher/RiverBridgeUnlockPatch.cs", "Patcher/StrayImprovementsPatch.cs"]
+    },
+    {
+      "id": "civic",
+      "name": "Village Hall, Reputation, Clock and Commons",
+      "summary": "Village Clock, phases and seasons (supper, provisioning, market day), Village Hall and Reputation, pricing by crime and reputation, notice boards, the Chronicle, Village Well, Home Sign, Founder perk and Monument, hearths, Town Wood Pile, Stockpiles and the Market Stall with its robbery clock.",
+      "paths": ["**/*VillageHall*", "**/*VillageWell*", "**/CMC_WellPlans*", "**/*VillageHomeSign*", "**/*VillageFounder*", "**/*Monument*", "**/*TownWoodPile*", "**/*Stockpile*", "**/CMC_MarketStall*", "**/Bp_CMC_MarketStall*", "Patcher/MarketStallPatch.cs",
+                "GameStat/CMC_Founder*", "GameStat/CMC_Chronicle*", "GameStat/CMC_Season*", "GameStat/CMC_Supper*", "GameStat/CMC_Provision*", "GameStat/CMC_MarketDay.json", "GameStat/CMC_Stall*",
+                "GameStat/CMC_DurosPresent.json", "GameStat/CMC_VillageEpochDay.json", "GameStat/CMC_VillagePhase.json", "GameStat/CMC_VillageReputation.json", "GameStat/CMC_VillageWeek.json",
+                "CardData/Location/CMC_BoardTown*", "CardData/Location/CMC_BoardApothecary.json", "CardData/Location/CMC_BoardInnKeeper.json", "CardData/Location/CMC_BoardMiller.json",
+                "CardData/Location/CMC_BoardPotter.json", "CardData/Location/CMC_BoardProfessor.json", "CardData/Location/CMC_BoardWeaver.json",
+                "Patcher/VillageClock.cs", "Patcher/VillagePricing.cs", "Patcher/VillageReputationPatch.cs", "Patcher/VillageChroniclePatch.cs", "Patcher/VillageFireplacePatch.cs", "Patcher/VillageSeasonsPatch.cs"]
+    },
+    {
+      "id": "achievements",
+      "name": "Achievements and King of the Forest",
+      "summary": "Achievement Board, the achievement tracker, seed and kill-effect patches, every CMC_Ach stat, and King of the Forest with its Throne and Crown.",
+      "paths": ["GameStat/CMC_Ach*", "Patcher/Achievement*.cs", "CardData/Location/CMC_BoardAchievements.json", "SelfTriggeredAction/CMC_KingOfTheForest.json", "**/*Throne*", "**/*Crown*"]
+    },
+    {
+      "id": "residents",
+      "name": "Miller, Weaver and Potter",
+      "summary": "The Miller's and Weaver's cottages and the Potter: schedules, moving in, trade and mill/loom services, story and quest chains, commissions, hireling chores, gifts and keepsakes, road meetings, the five residents' Copper Chests and make-amends errands.",
+      "paths": ["**/CMC_Miller*", "**/Bp_CMC_Miller*", "**/*CottageMiller*", "**/CMC_Weaver*", "**/Bp_CMC_Weaver*", "**/*CottageWeaver*", "**/CMC_Potter*", "NPCAgent/Agent_Miller.json", "NPCAgent/Agent_Weaver.json", "NPCAgent/Agent_Potter.json",
+                "**/CMC_CopperChest*", "GameStat/CMC_Commission*", "GameStat/CMC_QuestRenown*", "GameStat/CMC_RoadMeet*", "GameStat/CMC_SirusYarnPresent.json", ".art/fragments/**",
+                "Patcher/Cottage*.cs", "Patcher/PotterSchedulePatch.cs", "Patcher/CommissionPatch.cs", "Patcher/HirelingChorePatch.cs", "Patcher/QuestChainSchedulePatch.cs", "Patcher/RoadMeetingPatch.cs",
+                "Patcher/CopperChestPatch.cs", "Patcher/AmendsPatch.cs"]
+    },
+    {
+      "id": "apothecary",
+      "name": "Apothecary",
+      "summary": "The Apothecary's Cabin and interior, the Apothecary NPC with her schedule, dialog, quests, healing mixture and potion, rare-herb gift and stall portrait.",
+      "paths": ["**/CMC_Apoth*", "**/Bp_CMC_Apoth*", "NPCAgent/Agent_Apothecary.json", "Patcher/ApothecarySchedulePatch.cs"]
+    },
+    {
+      "id": "academy",
+      "name": "Academy and Professor",
+      "summary": "The Village Academy and interior, the Professor NPC (schedule, greeting dialog, quests, commissions, gifts), courses, sit-in study, diplomas, the Carpentry Bench and the Graduate perks.",
+      "paths": ["**/CMC_Academy*", "**/CMC_Prof*", "**/Bp_CMC_Prof*", "**/*Diploma*", "**/CMC_Graduate*", "**/VillageAcademy*", "NPCAgent/Agent_Professor.json", "CardData/Location/CMC_CarpentryBench.json",
+                "CharacterPerk/Pk_Grad*", "CharacterPerk/Pk_HigherEducation.json", "Patcher/Academy*.cs", "Patcher/ProfessorSchedulePatch.cs", "Patcher/GraduatePerkPatch.cs"]
+    },
+    {
+      "id": "inn",
+      "name": "Village Inn and Inn Keeper",
+      "summary": "The Village Inn and interior, the Inn Keeper (spawn, onboarding storyline, dialog, remarks, overheard talk, quests, errands, odd-jobs board, pantry), evenings, wagers, the interlock story and the Inn perks.",
+      "paths": ["GameStat/CMC_Inn*", "GameStat/CMC_Interlock*", "CardData/Location/CMC_Inn*", "CardData/Environment/CMC_Inn*", "ScriptableObject/**/CMC_InnKeeper*", "NPCAgent/Agent_InnKeeper.json",
+                "CharacterPerk/Pk_InnRegular.json", "CharacterPerk/Pk_VillageInn.json", "Patcher/Inn*.cs", "Patcher/CurrencyValue.cs"]
+    },
+    {
+      "id": "law",
+      "name": "Guards, Crime and Jail",
+      "summary": "The four Town Watch guards (agents, perks, encounters, dialog, duty, witness, chase, bribes, outcomes), village crime and banishment, fugitive watch, the jail cell, cave and ledge escape, jail labour and headcount, community service, the Outskirts escort and the Burglar's Kit.",
+      "paths": ["Patcher/Guard*.cs", "NPCAgent/Agent_Guard*", "NPCCharacterPerk/**", "GameStat/CMC_Guard*", "NPCStat/CMC_Guard*", "ScriptableObject/DialogLine/CMC_GuardTalk*", "ScriptableObject/NPCTag/**", "Encounter/**",
+                "**/*Sterling*", "**/*Corrin*", "**/*Thorne*", "**/*Vane*", "**/*Jail*", "**/*VillageCrime*", "GameStat/CMC_Fugitive*", "Patcher/FugitiveWatchPatch.cs", "GameStat/CMC_Watch*", "GameStat/CMC_ArrestPending.json", "GameStat/CMC_CaptainSummoned.json",
+                "**/*BurglarsKit*", "**/*OutskirtsEscort*", "Patcher/CommunityServicePatch.cs", ".art/CMC_SkylitCave.json"]
+    },
+    {
+      "id": "companions",
+      "name": "Cats and Companions",
+      "summary": "Ash the cat and the lost-cat storyline, Shadow the tameable cat and the night hunts, Ash's boar hunt, stray and inn cats, cat bed, bowl and gifts, the dormant Ash partner and partner-NPC indoor following.",
+      "paths": ["**/CMC_Ash*", "Patcher/Ash*.cs", "NPCAgent/Agent_AshPartner.json", "**/*ShadowCat*", "**/*ShadowHunt*", "**/*StrayCat*", "**/*LostCat*", "**/CMC_InnCat.json", "**/*CatBed*", "**/*CatBowl*",
+                "GameStat/CMC_CatGift*", "Patcher/CatGiftPatch.cs", "Patcher/PartnerIndoorFollowPatch.cs", "Patcher/CompanionFollowDiagnostics.cs"]
+    },
+    {
+      "id": "traits",
+      "name": "Traits and Starting Kits",
+      "summary": "Every character trait perk and perk group (time-based, consumption, passive and starting traits, Angler, Pathfinder, Quiet Village), Nightcrawler's burn trigger and event, the trait stats and composite resync, the Homestead and Founders kits, and perk-spawned item init.",
+      "paths": ["CharacterPerk/Perk_*", "CharacterPerk/Pk_Agoraphobia.json", "CharacterPerk/Pk_Angler.json", "CharacterPerk/Pk_Drunkard.json", "CharacterPerk/Pk_LactoseIntolerant.json", "CharacterPerk/Pk_Lunacy.json",
+                "CharacterPerk/Pk_Nyctophobia.json", "CharacterPerk/Pk_QuietVillage.json", "CharacterPerk/Pk_RainCisternKit.json", "CharacterPerk/Pk_VillagePathfinder.json", "PerkGroup/**",
+                "GameStat/CMC_Trait*", "GameStat/CMC_SpiritHarmonious.json", "GameStat/CMC_ClottingEffect.json", "SelfTriggeredAction/Tgr_*", "CardData/Event/**", "**/*Homestead*",
+                "GameSourceModify/Calories_Stomach.json", "GameSourceModify/Sunburn.json", "Patcher/HomesteadKitPatch.cs", "Patcher/TraitCompositeResyncPatch.cs", "Patcher/QuietVillagePerkPatch.cs", "Patcher/PerkItemInitPatch.cs"]
+    },
+    {
+      "id": "modwide",
+      "name": "Mod-wide",
+      "modWide": true,
+      "summary": "Plugin entry, project files, player docs, card motion, shared helpers serving every subsystem (hidden stats, card visuals refresh, NPC tile walker, rotten-remains cleanup, luck readers, interior save data, UID index fallback, env-improvement twin guard, stat tab injection, comfort fixup) and art tooling state.",
+      "paths": ["Plugin.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "PLAYER_GUIDE.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore", "Features.json", "Modules.json",
+                "CardData/Motion/**", "GameStat/CMC_ComfortFixupDone.json",
+                "Patcher/HiddenStat.cs", "Patcher/CardVisualsRefresh.cs", "Patcher/NpcTileWalker.cs", "Patcher/NpcRottenRemainsCleanupPatch.cs", "Patcher/LuckBonus.cs", "Patcher/InteriorEnvSaveDataPatch.cs",
+                "Patcher/UniqueIdIndexFallbackPatch.cs", "Patcher/EnvImprovementTwinGuard.cs", "Patcher/StatTabInjectionPatch.cs", "Patcher/ComfortFixupPatch.cs",
+                ".art/compositions.json", ".art/RUN_LOG.md", ".art/reference-uploads.json", ".art/review/**"]
+    }
+  ]
+}

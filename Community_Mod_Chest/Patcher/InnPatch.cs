@@ -47,6 +47,14 @@ namespace CommunityModChest.Patcher
 
         private static bool _initialized;
 
+        // One latch per cause (CLAUDE.md Silent Catch Blocks, G5).
+        private static readonly System.Collections.Generic.HashSet<string> _warned = new(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
+        }
+
         // ── Registration ─────────────────────────────────────────────────────
 
         public static void Initialize(Harmony harmony)
@@ -251,7 +259,11 @@ namespace CommunityModChest.Patcher
             float price = VillagePricing.Apply(basePrice);
             float balance = CardUtil.GetDurability(ctx.Card, BalanceStat);
             if (float.IsNaN(balance)) balance = 0f;
-            CardUtil.SetDurability(ctx.Card, BalanceStat, Math.Max(0f, balance - price));
+            if (!CardUtil.SetDurability(ctx.Card, BalanceStat, Math.Max(0f, balance - price)))
+            {
+                Plugin.Logger.LogWarning($"[InnPatch] Could not draw {price:0} for '{ctx.ActionName}': the Inn account ({BalanceStat}) did not take the write, so it cost nothing.");
+                return;
+            }
             CardVisualsRefresh.RefreshDurabilityVisuals(ctx.Card);
             CardVisualsRefresh.RefreshOpenInventoryPopup();
             Plugin.Logger.LogDebug($"[InnPatch] '{ctx.ActionName}' drew {price:0} (base {basePrice:0}) from the Inn account (balance now {Math.Max(0f, balance - price):0}).");
@@ -262,7 +274,15 @@ namespace CommunityModChest.Patcher
         private static bool DepositGate(ActionContext ctx)
         {
             float balance = CardUtil.GetDurability(ctx.Card, BalanceStat);
-            bool full = !float.IsNaN(balance) && balance >= AccountMax - 0.5f;
+            // Same write-back proof as AcademyPatch.DepositGate: the native action takes the dragged
+            // card after every prefix step and DepositApply (Before) cannot cancel, so an account that
+            // cannot be read or written refuses the deposit here, with the card kept.
+            if (float.IsNaN(balance) || !CardUtil.SetDurability(ctx.Card, BalanceStat, balance))
+            {
+                WarnOnce("deposit-unwritable", $"[InnPatch] The Inn account ({BalanceStat}) cannot be read or written - deposits are refused and the dragged card is kept. Logged once.");
+                return true; // cancel
+            }
+            bool full = balance >= AccountMax - 0.5f;
             Plugin.Logger.LogDebug($"[InnPatch] DepositGate fired: balance={balance:0} full={full}");
             return full; // return true = cancel
         }
@@ -272,8 +292,8 @@ namespace CommunityModChest.Patcher
             // CONFIRMED WORKING 2026-08-09 (log-verified: three successful deposits in a live
             // session, 0->50->100, demoted from the 2026-08-08 TEMP DIAGNOSTIC LogInfo escalation
             // per CLAUDE.md Debugging Discipline — see project_cmc_innkeeper_academy_deposit_bug
-            // memory). AcademyPatch's identical DepositGate/DepositApply pair remains unconfirmed
-            // (never exercised in that session) — do NOT assume it's fixed by this evidence alone.
+            // memory). AcademyPatch's identical DepositGate/DepositApply pair was confirmed separately
+            // (tracker T2.62, 2026-08-14; harness T2.127, 2026-10-12), and its diagnostics are gone.
             string givenUid = CardUtil.GetCardUniqueId(ctx.GivenCard) ?? "null";
             float givenSd4 = CardUtil.GetDurability(ctx.GivenCard, "SpecialDurability4");
             Plugin.Logger.LogDebug($"[InnPatch] DepositApply fired: GivenCard UID={givenUid} SD4={givenSd4}");
@@ -288,7 +308,13 @@ namespace CommunityModChest.Patcher
             float balance = CardUtil.GetDurability(ctx.Card, BalanceStat);
             if (float.IsNaN(balance)) balance = 0f;
             float newBalance = Math.Min(balance + value, AccountMax);
-            CardUtil.SetDurability(ctx.Card, BalanceStat, newBalance);
+            if (!CardUtil.SetDurability(ctx.Card, BalanceStat, newBalance))
+            {
+                // DepositGate's write-back passed this same frame; if this still fails the card is
+                // already committed to the native action and cannot be kept here.
+                Plugin.Logger.LogWarning($"[InnPatch] Deposit of {value:0} (UID={givenUid}) was NOT credited: the Inn account ({BalanceStat}) did not take the write.");
+                return true;
+            }
             CardVisualsRefresh.RefreshDurabilityVisuals(ctx.Card);
             CardVisualsRefresh.RefreshOpenInventoryPopup();
             Plugin.Logger.LogDebug($"[InnPatch] Deposited {value:0} into the Inn account (balance now {newBalance:0}/{AccountMax:0}).");

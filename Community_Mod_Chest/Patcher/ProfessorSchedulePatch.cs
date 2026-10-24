@@ -233,20 +233,14 @@ namespace CommunityModChest.Patcher
         private static int _lastSpecialtyDay = int.MinValue;     // throttles specialty stock to 1/day
         private static int _lastLoggedHeld = -1;                 // diagnostic: satchel-count change tracker
         private static bool _fireActionUnavailableWarned;
+        // Per ActionID: a drifted forage ID must not silence a different one (G5, one latch per cause).
+        private static readonly HashSet<string> _fireActionMissWarned = new HashSet<string>(StringComparer.Ordinal);
         private static int _lastPortrait; // 0 = not yet synced this run
 
         // Commission diagnostics (temporary — owner reported "commissions only work at the Inn";
         // logs on change so a single play session captures the state transition without spam).
         private static string _lastLoggedCommissionEnv;
         private static bool? _lastLoggedHasVisibleCommissions;
-
-        // Commission popup diagnostics (temporary — owner reported 2026-08-05: the Commissions
-        // popup shows a "?" placeholder slot and a duplicated "Specimen Request" label/switch
-        // button when the Professor has 2+ commissions simultaneously ready). Fired once per
-        // CommissionDiag log line (see LogCommissionDiagnostics) to dump each commission's
-        // resolved BlueprintModelState + CommissionIsVisible(i) — the two gates that decide
-        // whether BlueprintConstructionPopup.SetupActions shows a switch-blueprint button for it.
-        private static MethodInfo _commissionIsVisibleMethod; // InGameNPC.CommissionIsVisible(int)
 
         // Once-true caches (graduations and the bridge cannot revert mid-run). Reset per run
         // in RestoreOnLoad_Postfix so a different save loaded in the same session cannot
@@ -347,8 +341,6 @@ namespace CommunityModChest.Patcher
             _getStatValueMethod = AccessTools.Method(_inGameNpcType, "GetStatValue", new[] { _npcStatType });
             // Optional — portrait tracking degrades gracefully if absent (art just stays static).
             _setCardImageMethod = AccessTools.Method(_cardDataType, "SetCardImage", new[] { typeof(Sprite) });
-            // Optional — commission-popup diagnostics degrade gracefully (logged once) if absent.
-            _commissionIsVisibleMethod = AccessTools.Method(_inGameNpcType, "CommissionIsVisible", new[] { typeof(int) });
             _envIdFromCardCtor = _envIdType.GetConstructor(new[] { _cardDataType, typeof(bool) });
             _envIdEmpty = Activator.CreateInstance(_envIdType);
 
@@ -419,7 +411,16 @@ namespace CommunityModChest.Patcher
             if (_npcStatCache.TryGetValue(uid, out var cached)) return cached;
             var stat = _getFromIdMethod.Invoke(null, new object[] { uid });
             if (stat != null) _npcStatCache[uid] = stat;
+            else WarnOnce("stat-unresolved:" + uid, $"[ProfessorSchedulePatch] NPCStat '{uid}' does not resolve (is its NPCStat/*.json UniqueID still '{uid}'?); whatever it gates on the Professor stops updating. Logged once.");
             return stat;
+        }
+
+        // One latch per cause (stat UID plus exit), so a drifted stat cannot silence a different one (G5).
+        private static readonly HashSet<string> _warned = new HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
         }
 
         // ── Spawn / residency (P1, unchanged behavior) ───────────────────────────
@@ -601,7 +602,7 @@ namespace CommunityModChest.Patcher
 
                 SyncCourseEligibility(npc, associatedCard, phase);
                 SyncNarrativeStats(npc);
-                LogCommissionDiagnostics(gm, npc, associatedCard);
+                LogCommissionDiagnostics(npc, associatedCard);
 
                 if (QuietVillagePerkPatch.IsActive())
                 {
@@ -866,10 +867,11 @@ namespace CommunityModChest.Patcher
         /// actually sit (these are two distinct native cards — see InGameNPC.CommissionsAssociatedCard
         /// / GameManager.MoveNPC — and only vanilla's own MoveNPC keeps them in sync when he
         /// walks), plus HasVisibleCommissions and the raw stat values every commission BP's
-        /// BlueprintNPCStatConditions reads. Demote to LogDebug once the divergence (if any) is
-        /// confirmed and fixed.
+        /// BlueprintNPCStatConditions reads. Raised to LogInfo 2026-10-23: the report was never
+        /// confirmed closed (no tracker row), so the line must reach LogOutput.log without
+        /// VerboseLogging. Delete it once the Professor is seen taking commissions at the Academy.
         /// </summary>
-        private static void LogCommissionDiagnostics(object gm, object npc, object associatedCard)
+        private static void LogCommissionDiagnostics(object npc, object associatedCard)
         {
             string envLabel = EnvLabel(Reflect.GetMember(npc, "CurrentEnvironment"));
             bool hasVisible = Reflect.GetMember(npc, "HasVisibleCommissions") is true;
@@ -889,55 +891,12 @@ namespace CommunityModChest.Patcher
             float herbEligible = GetNpcStatValue(npc, ResolveNpcStat("cmcStatProfEligibleHerbalism"));
             float herbClaimed = GetNpcStatValue(npc, ResolveNpcStat("cmcStatProfAppliedHerbalismClaimed"));
 
-            Plugin.Logger.LogDebug("[ProfessorSchedulePatch][CommissionDiag] "
+            Plugin.Logger.LogInfo("[ProfessorSchedulePatch][CommissionDiag] "
                 + $"npcEnv={envLabel} associatedCardEnv={associatedCardEnv} "
                 + $"commissionsCard={(commissionsCard != null ? "present" : "MISSING")} commissionsCardEnv={commissionsCardEnv} "
                 + $"HasVisibleCommissions={hasVisible} phase={phaseVal} "
                 + $"specimenReady={specimenReady} fieldReady={fieldReady} fieldClaimed={fieldClaimed} "
                 + $"herbEligible={herbEligible} herbClaimed={herbClaimed}");
-
-            LogCommissionPopupState(gm, npc, commissionsCard);
-        }
-
-        /// <summary>
-        /// Dumps, per commission slot on Agent_Professor.json's CommissionsBpWarpData, the two
-        /// gates BlueprintConstructionPopup.SetupActions ANDs together to decide whether that
-        /// slot's switch-blueprint button renders (owner report 2026-08-05: a "?" placeholder
-        /// slot plus a duplicated "Specimen Request" switch button in the Commissions popup).
-        /// Also dumps CommissionsAssociatedCard.CardModel.ContainedBlueprintCards.Length and
-        /// SelectedContainedBlueprint so a mismatch against CommissionsBp.Length (3 expected)
-        /// is visible directly. Demote to LogDebug once the glitch is confirmed and fixed.
-        /// </summary>
-        private static void LogCommissionPopupState(object gm, object npc, object commissionsCard)
-        {
-            if (Reflect.GetMember(_agent, "CommissionsBp") is not Array commissionsBp) return;
-
-            var blueprintStates = Reflect.GetMember(gm, "BlueprintModelStates") as System.Collections.IDictionary;
-            int selected = commissionsCard != null ? Convert.ToInt32(Reflect.GetMember(commissionsCard, "SelectedContainedBlueprint") ?? -1) : -1;
-            var containedCards = commissionsCard != null ? Reflect.GetMember(Reflect.GetMember(commissionsCard, "CardModel"), "ContainedBlueprintCards") as Array : null;
-
-            var sb = new System.Text.StringBuilder();
-            sb.Append("[ProfessorSchedulePatch][CommissionPopupDiag] ")
-              .Append($"CommissionsBp.Length={commissionsBp.Length} ContainedBlueprintCards.Length={(containedCards?.Length.ToString() ?? "null")} SelectedContainedBlueprint={selected} ");
-
-            for (int i = 0; i < commissionsBp.Length; i++)
-            {
-                var bpCard = commissionsBp.GetValue(i);
-                string uid = bpCard != null ? CardUtil.GetCardUniqueId(bpCard) : "null";
-                bool visible = false;
-                if (bpCard != null && _commissionIsVisibleMethod != null)
-                {
-                    try { visible = (bool)_commissionIsVisibleMethod.Invoke(npc, new object[] { i }); }
-                    catch (Exception ex) { Plugin.Logger.LogDebug($"[ProfessorSchedulePatch] CommissionIsVisible({i}) failed: {ex.InnerException?.ToString() ?? ex.ToString()}"); }
-                }
-                string state = "MISSING-KEY";
-                if (bpCard != null && blueprintStates != null && blueprintStates.Contains(bpCard))
-                    state = blueprintStates[bpCard]?.ToString() ?? "null";
-
-                sb.Append($"[{i}]uid={uid} visible={visible} state={state} ");
-            }
-
-            Plugin.Logger.LogDebug(sb.ToString());
         }
 
         /// <summary>
@@ -1211,9 +1170,10 @@ namespace CommunityModChest.Patcher
         // DropCardsInsideInventory into an NPC's satchel. Native CheckForActions never fires
         // these (they are RepeatOptions:OnlyWhenTriggered), so there is no double-firing.
         // Returns true when the action was found AND dispatched. The forage/specialty call sites
-        // ignore the result (a missing forage action is already covered by the warning below);
-        // CopperChestPatch.TryAccrue consumes it so a typo'd chest ActionID is reported once
-        // instead of silently accruing nothing forever.
+        // ignore the result, so an unreadable AgentActions or an ActionID with no match in
+        // Agent_Professor.json warns once here per ActionID; CopperChestPatch.TryAccrue also
+        // consumes the result so a typo'd chest ActionID is reported once instead of silently
+        // accruing nothing forever.
         private static bool FireAgentAction(object npc, object associatedCard, string actionId)
         {
             if (_toActionMethod == null || _performActionMethod == null || _inGameNpcOrPlayerCtor == null)
@@ -1226,7 +1186,12 @@ namespace CommunityModChest.Patcher
                 return false;
             }
 
-            if (Reflect.GetMember(_agent, "AgentActions") is not Array agentActions) return false;
+            if (Reflect.GetMember(_agent, "AgentActions") is not Array agentActions)
+            {
+                if (_fireActionMissWarned.Add(actionId))
+                    Plugin.Logger.LogWarning($"[ProfessorSchedulePatch] Professor AgentActions unreadable; '{actionId}' not fired. Logged once per action.");
+                return false;
+            }
             object matched = null;
             foreach (var action in agentActions)
             {
@@ -1236,7 +1201,12 @@ namespace CommunityModChest.Patcher
                     break;
                 }
             }
-            if (matched == null) return false;
+            if (matched == null)
+            {
+                if (_fireActionMissWarned.Add(actionId))
+                    Plugin.Logger.LogWarning($"[ProfessorSchedulePatch] No Professor AgentAction with ActionID '{actionId}' (Agent_Professor.json); not fired. Logged once per action.");
+                return false;
+            }
 
             try
             {
@@ -1272,10 +1242,24 @@ namespace CommunityModChest.Patcher
             if (stat == null) return;
             try
             {
-                if (Reflect.GetMember(npc, "NPCStatsDict") is not IDictionary dict) return;
-                if (!dict.Contains(stat)) return;
+                if (Reflect.GetMember(npc, "NPCStatsDict") is not IDictionary dict)
+                {
+                    WarnOnce("stats-dict-unreadable", "[ProfessorSchedulePatch] InGameNPC.NPCStatsDict is not readable - none of the Professor's stats can be written. Logged once.");
+                    return;
+                }
+                if (!dict.Contains(stat))
+                {
+                    string statUid = Reflect.GetMember(stat, "UniqueID") as string ?? "?";
+                    WarnOnce("stat-not-on-agent:" + statUid, $"[ProfessorSchedulePatch] NPCStat '{statUid}' is not in the Professor's NPCStatsDict (missing from Agent_Professor.json AgentStats?); it cannot be written. Logged once.");
+                    return;
+                }
                 var inGameStat = dict[stat];
-                if (inGameStat == null) return;
+                if (inGameStat == null)
+                {
+                    string statUid = Reflect.GetMember(stat, "UniqueID") as string ?? "?";
+                    WarnOnce("stat-null-entry:" + statUid, $"[ProfessorSchedulePatch] NPCStat '{statUid}' has a null entry in the Professor's NPCStatsDict; it cannot be written. Logged once.");
+                    return;
+                }
                 // InGameNPCStat has no public SetStatValue(float): since EA 0.66 SetStatValue is a
                 // PRIVATE IEnumerator taking (float, NPCStatModifierTypes). The public 1-arg wrapper
                 // is SetStatValueFromEditor, which starts that coroutine as a Permanent change (it
