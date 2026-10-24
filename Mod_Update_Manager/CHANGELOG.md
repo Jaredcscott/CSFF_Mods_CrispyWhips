@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.74] - 2026-10-24
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds CSFF Mod Framework 2.28.9, Herbs and Fungi 1.14.15, Advanced Copper Tools 1.18.13, Water Driven Infrastructure 1.12.14, Community Mod Chest 1.69.22, Homestead Perks 1.3.9, Repeat Action 2.2.3, Quick Transfer 1.9.2, Skill Speed Boost 1.11.2, and the pre-release Partner Overhaul 1.1.6, Harsh Wilds 0.11.9, Far Territory 0.1.12, Forest Lore 0.1.8, Utility Belt 0.1.7 and Sirus23 Mod Collection 1.22.11. The framework stops a broken card from freezing the board when you drag it and lets a mod's recipe ask for any oil. Advanced Copper Tools merges each armor piece into one card per piece whatever the metal, adds tin, tin bronze and white bronze shields, and its lamps take liquid oil (so does Community Mod Chest's Ceramic Lamp). Herbs and Fungi's herbal oils are no longer food. Water Driven Infrastructure's iron parts melt back into iron. Far Territory's traps say how often they catch, and Ginger Warmth is gone.
+
 ## [2.1.73] - 2026-10-22
 
 ### Changed

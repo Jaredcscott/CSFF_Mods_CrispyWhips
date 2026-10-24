@@ -1,0 +1,58 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). Pure-C# utility mod with no card JSON, so modules follow the code's responsibilities (Nexus client, update checking, discovery, suite installer, installed-mod scan, conflict diagnostics, window). Localization CSVs feed the generated MumText.Table.cs and name no card, so their rows attribute to the mod-wide module. `module_map.py check Mod_Update_Manager` must exit 0.",
+  "sharedTables": [
+    "Localization/*.csv"
+  ],
+  "modules": [
+    {
+      "id": "nexus",
+      "name": "Nexus Client",
+      "summary": "Requests to Nexus Mods: the API and public clients, public query model, request headers, API key check, response cache policy and endorsement.",
+      "paths": ["NexusApiClient.cs", "NexusPublicClient.cs", "NexusPublicQuery.cs", "NexusRequestHeaders.cs", "ApiKeyCheck.cs", "ResponseCachePolicy.cs", "NexusEndorse.cs"]
+    },
+    {
+      "id": "updates",
+      "name": "Update Checking",
+      "summary": "UpdateChecker, UpdateScheduler, the window-open policy, the public check plan, version comparison, the version ledger, changelog parsing and the compatibility chip.",
+      "paths": ["UpdateChecker.cs", "UpdateScheduler.cs", "UpdateWindowPolicy.cs", "PublicCheckPlan.cs", "VersionComparer.cs", "VersionLedger.cs", "ChangelogParser.cs", "CompatibilityChip.cs"]
+    },
+    {
+      "id": "discovery",
+      "name": "Mod Discovery",
+      "summary": "Finding mods on Nexus: NexusModDiscovery, the New and updated feed, the built-in known-mod registry and folder-to-Nexus mod mappings.",
+      "paths": ["NexusModDiscovery.cs", "DiscoveryFeed.cs", "KnownModRegistry.cs", "ModMappingManager.cs"]
+    },
+    {
+      "id": "suite",
+      "name": "Suite Installer",
+      "summary": "The embedded mod suite: ZIP reading, extraction and install (with the keep-previous half), batch apply, suite dependencies, descriptions, registry, version reader, installed-elsewhere check and the handoff note.",
+      "paths": ["**/*Suite*", "MiniZip.cs", "MumHandoff.cs"]
+    },
+    {
+      "id": "installed",
+      "name": "Installed Mods and Profiles",
+      "summary": "ModScanner and the InstalledModInfo row, plugin metadata reading, saved profiles, the My Mods sort orders and the comparison view.",
+      "paths": ["ModScanner.cs", "InstalledModInfo.cs", "PluginMetadataReader.cs", "ModProfile.cs", "ModSorter.cs", "ModComparisonView.cs"]
+    },
+    {
+      "id": "diagnostics",
+      "name": "Conflicts and Load Diagnostics",
+      "summary": "ConflictDetector, missing-dependency validation, plugin GUID collisions, and the loaded-status probe comparing BepInEx and framework load against installed folders.",
+      "paths": ["ConflictDetector.cs", "DependencyValidator.cs", "PluginGuidCollisions.cs", "LoadedProbe.cs", "LoadedStatus.cs"]
+    },
+    {
+      "id": "ui",
+      "name": "Window, Text and Settings",
+      "summary": "The IMGUI UpdateManagerUI window, MumText and its generated English table, player preferences and the BepInEx config.",
+      "paths": ["UpdateManagerUI.cs", "MumText.cs", "MumText.Table.cs", "ModPreferences.cs", "ModUpdateConfig.cs"]
+    },
+    {
+      "id": "modwide",
+      "name": "Mod-wide",
+      "modWide": true,
+      "summary": "Plugin entry, GameLoadPatch, the shared log sink and JSON helpers (MumLog, JsonText, SimpleJson), project files and docs.",
+      "paths": ["Plugin.cs", "GlobalUsing.cs", "Patcher/GameLoadPatch.cs", "MumLog.cs", "JsonText.cs", "SimpleJson.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore",
+                "FEATURES_IMPLEMENTED.md", "IMPLEMENTATION_SUMMARY.md", "Modules.json"]
+    }
+  ]
+}
