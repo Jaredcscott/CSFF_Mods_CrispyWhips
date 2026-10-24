@@ -465,7 +465,7 @@ Far_Territory_SeaUrchin_DA_Eat_Desc,"Open the sea urchin and eat what is inside,
 Far_Territory_FishTrap_CardName,Fish Trap
 Far_Territory_FishTrap_CardDescription,A cage of twigs and twine with a funnel mouth. Stake it in the shallows of a calm shore and it catches fish while you are away.
 Far_Territory_FishTrapPlaced_CardName,Fish Trap (Set)
-Far_Territory_FishTrapPlaced_CardDescription,A fish trap staked in the shallows. It springs every few hours; haul it out to take what it holds.
+Far_Territory_FishTrapPlaced_CardDescription,A fish trap staked in the shallows. It springs about once a day (every 24 to 30 hours); haul it out to take what it holds.
 Far_Territory_FishTrapPlaced_DA_HaulOut,Haul Out the Trap
 Far_Territory_FishTrapPlaced_DA_HaulOut_Desc,"Wade out and lift the trap, with whatever it caught, onto the shore."
 Far_Territory_FishTrapPlaced_Triggered,Trap Triggered!
@@ -1103,10 +1103,6 @@ Far_Territory_Effect_Coffee_Status_Mild_Name,Coffee Buzz
 Far_Territory_Effect_Coffee_Status_Mild_Description,"You feel more awake, a little on edge and a little thirsty."
 Far_Territory_Effect_Coffee_Status_Strong_Name,Coffee Jitters
 Far_Territory_Effect_Coffee_Status_Strong_Description,"Far too many berries. Wide awake, jittery and parched."
-Far_Territory_Effect_Ginger_StatName,Ginger Warmth
-Far_Territory_Effect_Ginger_StatDescription,"Chewed ginger still working in you. It settles a queasy stomach and dulls aches a little, and wears off over the following hours."
-Far_Territory_Effect_Ginger_Status_Mild_Name,Ginger Warmth
-Far_Territory_Effect_Ginger_Status_Mild_Description,A hot tingle in the mouth. A queasy stomach settles faster.
 Far_Territory_GingerPlant_CardName,Ginger Plant
 Far_Territory_GingerPlant_CardDescription,"A clump of tall, narrow-leaved ginger stems over knotted roots in damp ground."
 Far_Territory_GingerPlant_Yield,Ginger Roots
@@ -1857,7 +1853,7 @@ Far_Territory_SeaRootwaterThicket_CI_Net_Desc,Heave a net out from the shore and
 Far_Territory_SeaRootwaterThicket_CI_SetFunnelTrap,Set the Funnel Trap
 Far_Territory_SeaRootwaterThicket_CI_SetFunnelTrap_Desc,Wade out and stake the funnel trap in the shallows. It catches the sea's fish on its own while you are away.
 Far_Territory_FunnelTrapPlaced_CardName,Funnel Trap (Set)
-Far_Territory_FunnelTrapPlaced_CardDescription,A funnel trap staked in the shallows. It springs every few hours; haul it out to take what it holds.
+Far_Territory_FunnelTrapPlaced_CardDescription,A funnel trap staked in the shallows. It springs about once a day (every 24 to 30 hours); haul it out to take what it holds.
 Far_Territory_FunnelTrapPlaced_DA_HaulOut,Haul Out the Trap
 Far_Territory_FunnelTrapPlaced_DA_HaulOut_Desc,Wade out and lift the funnel trap onto the shore. Whatever it caught spills out beside it.
 Far_Territory_FunnelTrapPlaced_Triggered,Trap Triggered!

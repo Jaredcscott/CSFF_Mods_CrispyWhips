@@ -471,7 +471,7 @@ Far_Territory_SeaUrchin_DA_Eat_Desc,"Open the sea urchin and eat what is inside,
 Far_Territory_FishTrap_CardName,Fish Trap,捕鱼陷阱
 Far_Territory_FishTrap_CardDescription,A cage of twigs and twine with a funnel mouth. Stake it in the shallows of a calm shore and it catches fish while you are away.,一个用细枝和细线编成的笼子，开口呈漏斗状。把它插在平静海岸的浅水里，你不在时它也会捕鱼。
 Far_Territory_FishTrapPlaced_CardName,Fish Trap (Set),捕鱼陷阱（已放置）
-Far_Territory_FishTrapPlaced_CardDescription,A fish trap staked in the shallows. It springs every few hours; haul it out to take what it holds.,一个插在浅水中的捕鱼陷阱。每隔几小时触发一次；把它拖上岸就能取出里面的收获。
+Far_Territory_FishTrapPlaced_CardDescription,A fish trap staked in the shallows. It springs about once a day (every 24 to 30 hours); haul it out to take what it holds.,一个插在浅水中的捕鱼陷阱。大约每天触发一次（每24到30小时）；把它拖上岸就能取出里面的收获。
 Far_Territory_FishTrapPlaced_DA_HaulOut,Haul Out the Trap,拖出陷阱
 Far_Territory_FishTrapPlaced_DA_HaulOut_Desc,"Wade out and lift the trap, with whatever it caught, onto the shore.",涉水过去，把陷阱连同捕获的东西一起拖上岸。
 Far_Territory_FishTrapPlaced_Triggered,Trap Triggered!,陷阱触发了！
@@ -1109,10 +1109,6 @@ Far_Territory_Effect_Coffee_Status_Mild_Name,Coffee Buzz,咖啡提神
 Far_Territory_Effect_Coffee_Status_Mild_Description,"You feel more awake, a little on edge and a little thirsty.",你感觉更清醒了，但有点紧张，也有点口渴。
 Far_Territory_Effect_Coffee_Status_Strong_Name,Coffee Jitters,咖啡过量
 Far_Territory_Effect_Coffee_Status_Strong_Description,"Far too many berries. Wide awake, jittery and parched.",吃了太多咖啡果。毫无睡意，心慌手抖，口干舌燥。
-Far_Territory_Effect_Ginger_StatName,Ginger Warmth,姜之暖意
-Far_Territory_Effect_Ginger_StatDescription,"Chewed ginger still working in you. It settles a queasy stomach and dulls aches a little, and wears off over the following hours.",嚼下的姜仍在体内起效。它能平复恶心的肠胃，稍稍缓解疼痛，效果会在接下来的几个小时内逐渐消退。
-Far_Territory_Effect_Ginger_Status_Mild_Name,Ginger Warmth,姜之暖意
-Far_Territory_Effect_Ginger_Status_Mild_Description,A hot tingle in the mouth. A queasy stomach settles faster.,嘴里一阵辛辣的刺麻感。恶心的肠胃平复得更快。
 Far_Territory_GingerPlant_CardName,Ginger Plant,姜株
 Far_Territory_GingerPlant_CardDescription,"A clump of tall, narrow-leaved ginger stems over knotted roots in damp ground.",一丛高高的窄叶姜茎，生长在潮湿的土地上，下面是盘结的根茎。
 Far_Territory_GingerPlant_Yield,Ginger Roots,姜根
@@ -1174,7 +1170,7 @@ Far_Territory_Ginger_Spoiled,The ginger root has spoiled.,姜根已经变质了�
 Far_Territory_Ginger_Planting,Planting,种植
 Far_Territory_Ginger_Planted,The ginger root has taken root in the garden plot.,姜根已在菜园中扎根。
 Far_Territory_Ginger_DA_Chew,Chew,咀嚼
-Far_Territory_Ginger_DA_Chew_Desc,"Chew the raw root. Hot and sharp, it settles the stomach and dulls aches for a few hours (Ginger).",嚼食生姜根。又辣又冲，能平复肠胃几个小时（姜之暖意）。
+Far_Territory_Ginger_DA_Chew_Desc,"Chew the raw root. Hot and sharp, it settles the stomach and dulls aches for a few hours (Ginger).",嚼食生姜根。又辣又冲，能在几个小时内平复肠胃、缓解疼痛（姜效果）。
 Far_Territory_KavaRoot_CardName,Kava Root,卡瓦根
 Far_Territory_KavaRoot_CardDescription,"A thick, woody root with an earthy, peppery bite. Chewed raw it numbs the mouth, eases worry and dulls aches for a few hours; too much leaves you drowsy. Set one in a garden plot and it sprouts.",一截粗壮的木质根，带着泥土气和胡椒般的辛辣。生嚼会让嘴里发麻，几个小时内缓解忧虑、减轻疼痛；嚼多了会让人昏昏欲睡。种进菜园就会发芽。
 Far_Territory_KavaRoot_Spoilage,Spoilage,变质
@@ -1863,7 +1859,7 @@ Far_Territory_SeaRootwaterThicket_CI_Net_Desc,Heave a net out from the shore and
 Far_Territory_SeaRootwaterThicket_CI_SetFunnelTrap,Set the Funnel Trap,放置鱼篓陷阱
 Far_Territory_SeaRootwaterThicket_CI_SetFunnelTrap_Desc,Wade out and stake the funnel trap in the shallows. It catches the sea's fish on its own while you are away.,蹚水出去，把鱼篓陷阱固定在浅水里。你不在的时候，它会自己捕捉海里的鱼。
 Far_Territory_FunnelTrapPlaced_CardName,Funnel Trap (Set),鱼篓陷阱（已放置）
-Far_Territory_FunnelTrapPlaced_CardDescription,A funnel trap staked in the shallows. It springs every few hours; haul it out to take what it holds.,固定在浅水里的鱼篓陷阱。每隔几小时触发一次；把它拖上来就能取出里面的收获。
+Far_Territory_FunnelTrapPlaced_CardDescription,A funnel trap staked in the shallows. It springs about once a day (every 24 to 30 hours); haul it out to take what it holds.,固定在浅水里的鱼篓陷阱。大约每天触发一次（每24到30小时）；把它拖上来就能取出里面的收获。
 Far_Territory_FunnelTrapPlaced_DA_HaulOut,Haul Out the Trap,收起陷阱
 Far_Territory_FunnelTrapPlaced_DA_HaulOut_Desc,Wade out and lift the funnel trap onto the shore. Whatever it caught spills out beside it.,蹚水出去，把鱼篓陷阱提上岸。捕到的东西会倒在它旁边。
 Far_Territory_FunnelTrapPlaced_Triggered,Trap Triggered!,陷阱触发了！

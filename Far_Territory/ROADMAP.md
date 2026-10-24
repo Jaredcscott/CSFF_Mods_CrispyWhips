@@ -1,7 +1,7 @@
 # Roadmap: Far Territory
-Version at time of writing: 0.1.10
-Date: 2026-10-20
-Audit score: 10/10 - PASS
+Version at time of writing: 0.1.11
+Date: 2026-10-23
+Audit score: 10/10 - PASS (1 open WARNING + 1 open MINOR from the module audits)
 
 ## Current State
 
@@ -9,106 +9,87 @@ Audit score: 10/10 - PASS
 
 **Content**: 99 items / 5 blueprints / 167 location+structure cards / 1 perk (Island Start) / 2 liquids / 181 custom images
 
-**Stability**: 10/10 - 0 CRITICAL, 0 design gaps, 1 open in-game verification question (Fish Trap catch capacity), 4 cosmetic Minor items. The one historical CRITICAL (Fish Trap never researchable) is re-verified RESOLVED.
+**Stability**: 10/10 - 0 CRITICAL, 0 design gaps. Two open items from the 2026-10-23 module audits: the fish/funnel trap descriptions overstate catch cadence ("every few hours" vs ~once a day), and the orphaned effect stat `ft_stat_ginger` is dead data. Both are low-risk polish. The one historical CRITICAL (Fish Trap never researchable) is re-verified RESOLVED.
 
-**Open work**: No open or pending retrospective names Far Territory, Far Territory, `crispywhips.far_territory` or FT.
+**Open work**: No open or pending retrospective names Far Territory, `crispywhips.far_territory` or FT.
 
 **Framework compliance**: Tier 2. C# is 4 small classes (`ClimateService`, `EnvSaveDataPreCreate`, `LandmarkSeed`, `OwlIslandGuard`) using `ContentModPlugin`, `SpawnService` and `TickEvents`; no deprecated patterns (no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no manual perk/blueprint injection, no `ModLoaderVerison`). Requires CSFFModFramework 2.28.2+.
 
 ---
 
-## Phase 0: Stabilize  *(skipped - audit score 10/10, no open retrospectives)*
+## Phase 0: Stabilize
 
-Nothing blocking. The mod builds clean (0 errors / 0 warnings), versions are synced across ModInfo.json / Plugin.cs / README.md (0.1.10), bin/Release is byte-identical to source, and localization parity is 1962/1962.
+> Score is 10/10 with no open retrospectives, so the heavy stabilize phase is skipped. Two small loose ends remain from the module audits - both quick, neither blocks a release.
+
+| Item | Type | Priority | Complexity |
+|------|------|----------|------------|
+| Reword fish/funnel trap "springs every few hours" to the real ~once-a-day cadence, in both `FT_FishTrapPlaced` and `FT_FunnelTrapPlaced` CardDescription CSV rows (SimpEn + SimpCn, all four) and the matching JSON `DefaultText` | Docs-honesty (WARNING W1) | P0 | Quick |
+| Delete orphaned effect stat `ft_stat_ginger` (`GameStat/FT_Effect_Ginger.json` + `Far_Territory_Effect_Ginger_*` CSV rows), or repoint Ginger's Chew to it if a custom Ginger Warmth was intended | Dead-data cleanup (MINOR M1) | P1 | Quick |
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes maintenance; all currently satisfied. Listed so a regression is visible on the next sweep.
+> Table-stakes health. All green today; listed so a game-update or new-content pass re-verifies them.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Versions synced across ModInfo/Plugin.cs/README (0.1.10) | Version hygiene | - | Done |
-| SimpCn.csv parity (1962/1962, no CJK leakage, no header row) | Localization | - | Done |
-| Tier 2 services in use (ContentModPlugin/SpawnService/TickEvents) | Framework | - | Done |
-| Set `Bp_FT_CinchonaDecoction.json` result Quantity to `{1,1}` (framework backstops to 1 today) | Cleanliness (M4) | P2 | Quick |
-| Add `ObjectWeight` to FT_FishTrapPlaced.json; `ParentObjectID` to the 3 blueprints | Consistency (M1/M2) | P3 | Quick |
+| Keep ModInfo/Plugin.cs/README versions in lockstep on every bump | Version hygiene | P1 | Quick |
+| Chinese parity stays CLEAN (1962/1962 today) on every CSV edit | Localization | P1 | Quick |
+| Re-seed the `modwide` module report (STALE stub) at the next full audit | Audit hygiene | P2 | Quick |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> The one open plan plus the two near-term content ideas the audits surfaced.
+> The content additions the mod's own README already flags as unmet. Each closes a loop the mod half-built.
 
-### CSTI art adoption (the open plan)
-**What**: Replace Far Territory's generated island art with Card Survival: Tropical Island's own art, card by card, now that the CSTI developers gave permission (2026-10-19). Research gate W0.1 (how a sky-keyed CSTI picture renders on a FT card) and the W0.2 setting filter (no modern objects) come first; then Phase A1 keyed items, A2 plant structures, B near matches, C island locations/sea/paths.
-**Why**: It is the mod's only scheduled work and raises the island's visual fidelity to its CSTI tribute intent.
-**Requires**: W0.1 render decision (both branches built so no phase waits on a playthrough).
-**Complexity**: Complex (multi-phase; tooling `Development_Tools/CardArt/csti_art.py` already built).
-**Scope** -> `Documentation/Plans/FarTerritory/MASTER_PLAN.md`
-
-### Cooked forms for shellfish and seaweed
-**What**: A cook chain for Conch, Oyster, Sea Urchin and Seaweed, which today eat raw only.
-**Why**: README section Fishing states "Shellfish and Seaweed have no cooked form yet" - an open loop, where gutted sea fish already cook on the base-game fire.
+### Cooked shellfish and seaweed
+**What**: A cook path (steam/boil over the base-game fire) for Conch, Oyster, Sea Urchin and Seaweed, mirroring the gutted-fish cook chain already shipped.
+**Why**: README states "Shellfish and Seaweed have no cooked form yet" - the raw-only path is a visible gap next to cooked fish, yams and sago.
 **Requires**: none.
-**Complexity**: Medium. Pattern: the existing Gut-a-fish chain + `Documentation/CSFF_Patterns.md` Food Items & EdibleStats.
+**Complexity**: Medium
 
-### Spice-driven dishes
-**What**: FT dishes keyed to the flavour tags on Ginger Root, Chillies, Lemongrass and Jasmine Flowers.
-**Why**: Those spice plants carry base-game flavour tags but no FT dish uses them; if live play confirms base-game dishes do not pick up the tags, this makes the spice plants matter.
-**Requires**: the in-game flavour-pickup check (README section Spices, M3).
-**Complexity**: Medium. Pattern: `Documentation/CSFF_Patterns.md` section Shipping a FlavourTag (Intensity is an enum: 0=Medium, 1=Strong, 2=Subtle).
+### Spice flavour synergy, confirmed
+**What**: Verify (in game, or via a `FlavourMatrix/*.json` row) that Ginger/Chilli/Lemongrass/Jasmine actually flavour base-game dishes, and state the result in the README instead of "has not been checked in game".
+**Why**: The spice plants are shipped and advertised; the payoff is currently unverified.
+**Requires**: none.
+**Complexity**: Quick-Medium
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> Cross-mod hooks are already wired as soft crossovers (reflection, log-and-skip when absent); listed for completeness.
+> The four soft crossovers already ship. Depth here means tuning, not new wiring.
 
-### Sirus23 Mod Collection
-**What**: Wild sheep spawn on island places; the Wild Owl is kept off FT boards (`OwlIslandGuard`).
-**Why**: Shares the island's wildlife without either mod hard-depending on the other.
-**Requires**: coordination only; reflection-based, no reference.
-**Complexity**: Done (maintain).
-
-### Forest Lore
-**What**: Standing Stones seeded on Wildrye Plain (`LandmarkSeed`).
-**Why**: Places Forest Lore's landmark when that mod is present.
-**Requires**: Forest Lore installed; soft.
-**Complexity**: Done (maintain).
-
-### Harsh Wilds
-**What**: Declared optional crossover in the Description; 0 foreign structural refs today.
-**Why**: Room for a concrete shared item or place if a natural coordination point appears.
-**Requires**: coordination with Harsh Wilds.
-**Complexity**: Medium (unscoped).
+### Tuning pass on first-guess numbers
+**What**: Revisit the self-declared "first guess" numbers once play data exists - cooked-food weights, the dried pith's 18 days, sea-salt boil time, fish-trap/net yields, cave forage tables.
+**Why**: The README flags these as unbalanced placeholders; a data-driven pass is the natural next maintenance step.
+**Requires**: in-game play data (the pending person-verification tracker rows).
+**Complexity**: Medium
 
 ---
 
 ## Phase 4: Polish
 
-> Art and text that make the mod feel finished. Most is folded into the CSTI art plan (Phase 2).
+> The active plan IS a polish-tier effort: adopting Card Survival: Tropical Island's own art.
 
 | Item | What | Complexity |
 |------|------|------------|
-| CSTI art rollout | Phase A/B/C of the open plan replace generated island art with CSTI's own | Complex (see Phase 2) |
-| README caveat pass | Clear the 7+ "first guess / not yet confirmed" numbers through live play, update both directions in the same commit (Docs-Honesty) | Quick (per item) |
-| Owner art review | T2.1797 - owner reviews the shipped/converted art | Quick (person) |
+| CSTI art adoption (MASTER_PLAN) | Overwrite keyed item pictures with CSTI's own sprites; then the sky-key research and location/plant art | Complex (multi-phase) |
+| Coconut Milk (optional) | A pressed-coconut liquid + a richer stew variant - only if it earns its weight | Medium |
 
 ---
 
 ## Long-term Vision
 
-> Where Far Territory should be at v0.2 / v1.0.
+> At v0.2+, Far Territory is a feature-complete biome expansion: a tropical island, grassland, mountains and fjords that each feel distinct, reached by ordinary travel, with every advertised loop confirmed in real play and every card drawing art that matches the base game's hand. The CSTI art adoption is the single biggest in-flight addition; beyond it, the mod's natural endpoint is a tuning-and-confirmation pass that turns the many "first guess" numbers into balanced, playtested values.
 
-Far Territory is content-complete for its first arc: the island, mainland uplands and fjords all ship with their animals, fishing, plants, cooking, a castaway start and soft crossovers. The next major version is about fidelity and confirmation rather than new systems - the CSTI art adoption plan lands the tribute visuals, and the long tail of in-game verification rows (fishing stocks, swamp fever, the outrigger rework, the owl guard through a real night) turn the README's honest "first guess" numbers into balanced, confirmed ones. Beyond that, the natural scale-up is depth within the existing places: cooked shellfish/seaweed, spice dishes, and a small island-survival perk tier to join Island Start.
+**Potential major additions** (not yet justified - revisit after Phase 3):
+- Cooked shellfish/seaweed chain - completes the raw-vs-cooked symmetry the mod already set up for fish.
+- Coconut Milk and a milk stew - fits the coconut chain, but only if a second coconut sink is wanted.
 
-**Potential major additions** (not yet justified - revisit after the art plan and the verification backlog clear):
-- A perk tier themed to island survival (castaway skills, sea-danger resistance) - Island Start is currently the only perk.
-- Cooked shellfish/seaweed and spice-driven dishes - close the two open food loops the README names.
-
-Anything worth building belongs in the mod's plan under `Documentation/Plans/FarTerritory/` (or its Considered table, with the reason, if not); never a stub under `Documentation/Ideas/`.
+Anything worth building belongs in `Documentation/Plans/FarTerritory/MASTER_PLAN.md` (or its Considered table, with the reason, if not); never a stub under `Documentation/Ideas/`.
 
 ---
 
@@ -120,7 +101,6 @@ Anything worth building belongs in the mod's plan under `Documentation/Plans/Far
 | Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
 | After fixing a critical issue | Run `/critical-analysis FarTerritory` to verify the fix |
 | After Phase 2 complete | Run `/export-to-repo FarTerritory` and bump minor version |
-| After the CSTI art rollout | Run `/review-art FarTerritory` and clear T2.1797 |
 
 ---
 
@@ -136,8 +116,6 @@ Anything worth building belongs in the mod's plan under `Documentation/Plans/Far
 /update-mod-version FarTerritory <ver> - bump version in all 3 files
 /export-to-repo FarTerritory    - push to public repo
 ```
-
----
 
 ## Plan Reconciliation Log
 

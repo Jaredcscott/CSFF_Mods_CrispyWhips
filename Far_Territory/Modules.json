@@ -1,0 +1,121 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). Every tracked file belongs to exactly one module, is a sharedTable (rows attributed by the UID or LocalizationKey they name), or is a picture/.art file owned by the module whose card names it. Region modules own a place's Environment and Location cards by the anchored glob CardData/*/FT_<Place>*; every FT_Path* card names two places, so all paths, swims and climbs live in one travel module. Resource/GIF is not derived from cards, so each GIF is claimed by name. `module_map.py check FarTerritory` must exit 0.",
+  "sharedTables": [
+    "Localization/*.csv",
+    "BlueprintTabs.json",
+    "DropInjections.json",
+    "WorldMap/MapNodes.json"
+  ],
+  "modules": [
+    {
+      "id": "crossing",
+      "name": "Getting There and Island Start",
+      "summary": "Brackwater Mouth, Driftwood Shore and Seaward Sands, the Dugout and Outrigger Canoes with their moored-boat shores, and the Island Start perk with its Choose Your Landing card.",
+      "paths": ["GameSourceModify/ftLocRiverMouth.json", "CardData/*/FT_Shore.json", "CardData/*/FT_ShoreLocation.json", "CardData/*/FT_LandingBeach*", "CardData/**/*FT_Canoe*", "**/*Outrigger*",
+                "CardData/Location/FT_MooredBoat*", "CharacterPerk/**", "CardData/Item/FT_CastawayLanding.json"]
+    },
+    {
+      "id": "travel",
+      "name": "Paths, Swims and Climbs",
+      "summary": "Every FT_Path card (shore walks, cave entrances, swims, climbs, the forest trails west and north), the swim GIFs, and Rope and Pitons for the cliff.",
+      "paths": ["CardData/Location/FT_Path*", "CardData/Gif/SwimTo*", "Resource/GIF/FT_PathSwimToShore.gif", ".art/FT_PathSwimToShore_gif.json", "**/*RopeAndPitons*"]
+    },
+    {
+      "id": "island",
+      "name": "Island Places",
+      "summary": "The island's 21 surface places (Landfall Strand to Fallen Dwelling, Fire Mountain and Sour Crater) as environment and location cards, and the Wrecked Ship.",
+      "paths": ["CardData/*/FT_LandfallStrand*", "CardData/*/FT_CoralInlet*", "CardData/*/FT_BoulderShore*", "CardData/*/FT_PalmFringe*", "CardData/*/FT_RootwaterThicket*",
+                "CardData/*/FT_BleakStrand*", "CardData/*/FT_GullStack*", "CardData/*/FT_CliffboundCove*", "CardData/*/FT_VineWoods*", "CardData/*/FT_WestgrassPlain*",
+                "CardData/*/FT_EastgrassPlain*", "CardData/*/FT_ReedMarsh*", "CardData/*/FT_GreenDeep*", "CardData/*/FT_HiddenVale*", "CardData/*/FT_MistyRidge*",
+                "CardData/*/FT_WesternUplands*", "CardData/*/FT_EasternUplands*", "CardData/*/FT_FireMountain*", "CardData/*/FT_SourCrater*", "CardData/*/FT_WreckHollow*",
+                "CardData/*/FT_FallenDwelling*", "CardData/Location/FT_Shipwreck.json"]
+    },
+    {
+      "id": "caves",
+      "name": "Island Caves",
+      "summary": "The eight surface caves and the eight-hall dark chamber chain (environments, locations, the Sea and Wave Grotto GIFs) and the Cave Darkness card.",
+      "paths": ["CardData/*/FT_SeaGrotto*", "CardData/Gif/SeaGrotto*", "Resource/GIF/FT_SeaGrotto.gif", ".art/FT_SeaGrotto_gif.json", "CardData/*/FT_WaveGrotto*", "CardData/Gif/WaveGrotto*", "Resource/GIF/FT_WaveGrotto.gif", ".art/FT_WaveGrotto_gif.json",
+                "CardData/*/FT_PlainGrotto*", "CardData/*/FT_BatRoost*", "CardData/*/FT_MonkeyDen*", "CardData/*/FT_BlackGrotto*", "CardData/*/FT_Sinkhole*", "CardData/*/FT_LavaTube*",
+                "CardData/*/FT_DrippingHall*", "CardData/*/FT_Squeeze*", "CardData/*/FT_LowerHall*", "CardData/*/FT_GlitteringHall*", "CardData/*/FT_DrownedHall*",
+                "CardData/*/FT_MiddleHall*", "CardData/*/FT_UpperHall*", "CardData/*/FT_LightlessHall*", "CardData/Location/FT_CaveDarkness.json"]
+    },
+    {
+      "id": "mountains",
+      "name": "The Mountains",
+      "summary": "Scree Slope, Steaming Shelf, Windgap Col and the Greenstone, Rust and Glimmer Grottoes, the Hot Spring with its Spring Warmth stat and GIF, and the Rock Salt Seam.",
+      "paths": ["CardData/*/FT_ScreeSlope*", "CardData/*/FT_SteamingShelf*", "CardData/*/FT_WindgapCol*", "CardData/*/FT_GreenstoneGrotto*", "CardData/*/FT_RustGrotto*",
+                "CardData/*/FT_GlimmerGrotto*", "**/*HotSpring*", "GameStat/FT_Effect_SpringWarmth.json", "CardData/Location/FT_RockSaltSeam.json"]
+    },
+    {
+      "id": "fjords",
+      "name": "The Fjords",
+      "summary": "Fjord Head, Seal Skerry and Puffin Cliffs, and The Fjord sea card (wash, watch the water).",
+      "paths": ["CardData/*/FT_FjordHead*", "CardData/*/FT_SealSkerry*", "CardData/*/FT_PuffinCliffs*", "CardData/Location/FT_SeaFjord.json"]
+    },
+    {
+      "id": "grassland",
+      "name": "The Grassland",
+      "summary": "Wildrye Plain and Sedge Fen, and the LandmarkSeed patch that stands Forest Lore's Standing Stones on Wildrye Plain.",
+      "paths": ["CardData/*/FT_WildryePlain*", "CardData/*/FT_SedgeFen*", "Patcher/LandmarkSeed.cs"]
+    },
+    {
+      "id": "shore",
+      "name": "Shore and Sea",
+      "summary": "The island coasts' sea cards and The Sea (wash, dive, fill with sea water, sea dangers), its GIF, Driftwood Log, Shell-Strewn Sand, Tide Pool, Seashells, Seaweed, Shore Crab, Rock Prawn and Sea Water.",
+      "paths": ["CardData/Location/FT_SeaBleakStrand.json", "CardData/Location/FT_SeaBoulderShore.json", "CardData/Location/FT_SeaCliffboundCove.json", "CardData/Location/FT_SeaCoralInlet.json",
+                "CardData/Location/FT_SeaRootwaterThicket.json", "CardData/*/FT_SeaShore*", "CardData/Gif/SeaShore.json", "Resource/GIF/FT_SeaShore.gif", ".art/FT_SeaShore_gif.json",
+                "CardData/Location/FT_Driftwood.json", "CardData/Location/FT_ShellSand.json", "CardData/Location/FT_TidePool.json", "CardData/Item/FT_Seashells.json",
+                "CardData/Item/FT_Seaweed.json", "CardData/Item/FT_Crab.json", "CardData/Item/FT_Prawn.json", "CardData/Liquid/FT_SeaWater.json"]
+    },
+    {
+      "id": "fishing",
+      "name": "Fishing",
+      "summary": "The seven sea fish and three shellfish, their hidden stock stats, the Fish Trap (blueprint, card, set) and the set Funnel Trap.",
+      "paths": ["CardData/Item/FT_Bonefish.json", "CardData/Item/FT_Goatfish.json", "CardData/Item/FT_Mudskipper.json", "CardData/Item/FT_Parrotfish.json", "CardData/Item/FT_ReefGrouper.json",
+                "CardData/Item/FT_SilverHerring.json", "CardData/Item/FT_Threadfin.json", "CardData/Item/FT_Conch.json", "CardData/Item/FT_Oyster.json", "CardData/Item/FT_SeaUrchin.json",
+                "GameStat/FT_Pop_*", "CardData/**/*FishTrap*", "CardData/Location/FT_FunnelTrapPlaced.json"]
+    },
+    {
+      "id": "palms",
+      "name": "Coconuts and Palms",
+      "summary": "Coconut Palm (grown, felled, young), green and husked coconuts, coconut water and meat, the Coconut Shell Bowl, Palm Frond, and coconut meat in the vanilla stew.",
+      "paths": ["CardData/**/*Coconut*", "CardData/Location/FT_Palm.json", "CardData/Location/FT_PalmCleared.json", "CardData/Location/FT_PalmYoung.json", "CardData/Item/FT_PalmFrond.json",
+                "GameSourceModify/425259cb06b869d45be2e7f1b5b54aff.json"]
+    },
+    {
+      "id": "foodplants",
+      "name": "Tropical Food Plants",
+      "summary": "Banana, Mango, Tropical Almond, Jujube, Nipa Palm, Wild Yam (Baked Yam) and Sago Palm (pith, dried pith, dough, flatbread): wild plants, produce, garden growing and garden cards, and the Dead Plant.",
+      "paths": ["CardData/**/*Banana*", "CardData/**/*Mango*", "CardData/**/*Almond*", "CardData/**/*Jujube*", "CardData/**/*Nipa*", "CardData/**/*Yam*", "CardData/**/*Sago*",
+                "CardData/Item/FT_DeadPlant.json"]
+    },
+    {
+      "id": "medplants",
+      "name": "Medicine, Spice and Fibre Plants",
+      "summary": "Ginger, Kava, Chilli, Lemongrass, Jasmine, Aloe Vera, Cinchona (with the Cinchona Decoction) and Coffee, China Rose, Spider Lily, Weevil Lily and Snake Grass: plants, produce, garden cards, and their effect stats.",
+      "paths": ["**/*Ginger*", "**/*Kava*", "**/*Chilli*", "**/*Lemongrass*", "**/*Jasmine*", "**/*Aloe*", "**/*Cinchona*", "**/*Coffee*",
+                "**/*ChinaRose*", "**/*SpiderLily*", "**/*WeevilLily*", "**/*SnakeGrass*"]
+    },
+    {
+      "id": "animals",
+      "name": "Animals",
+      "summary": "Macaque, monitor lizard, cobra, seagull, bat, moose, seal, walrus and puffin: Animals manifests, encounters, carcasses, the bat picture (named only by its manifest), and the Seagull Nest.",
+      "paths": ["Animals/**", "Encounter/**", "CardData/Item/FT_*Carcass.json", "CardData/Location/FT_SeagullNest.json", ".art/FT_Bat.json", "Resource/Picture/FT_Bat.png"]
+    },
+    {
+      "id": "climate",
+      "name": "Climate",
+      "summary": "ClimateService: the card-less perceived-temperature changes for the island, volcano, mountains and fjords, and the art records of the four retired climate cards it replaced.",
+      "paths": ["Patcher/ClimateService.cs", ".art/FT_*Climate.json"]
+    },
+    {
+      "id": "modwide",
+      "name": "Mod-wide",
+      "modWide": true,
+      "summary": "Plugin entry, EnvSaveDataPreCreate (pre-creates every board's save entry), OwlIslandGuard (Sirus23 compatibility), project files, player docs, card motion, and art tooling state.",
+      "paths": ["Plugin.cs", "GlobalUsing.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "PLAYER_GUIDE.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore",
+                "Features.json", "Modules.json", "Patcher/EnvSaveDataPreCreate.cs", "Patcher/OwlIslandGuard.cs", "CardData/Motion/**",
+                ".art/RUN_LOG.md", ".art/compositions.json", ".art/liquid_bowls.json", ".art/reference-uploads.json", ".art/review/**"]
+    }
+  ]
+}

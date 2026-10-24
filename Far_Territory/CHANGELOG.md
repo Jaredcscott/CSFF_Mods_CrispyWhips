@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.1.12] - 2026-10-24
+
+### Fixed
+
+- **The set Fish Trap and Funnel Trap say how often they catch.** Their cards said they spring every few hours; they spring about once a day (every 24 to 30 hours), and now say so in English and Chinese.
+- **Chewing Ginger Root names the right effect in Chinese.** The Chinese action text still named Far Territory's old Ginger Warmth; it now names the base game's Ginger effect and says it dulls aches, as the English does.
+
+### Removed
+
+- **Ginger Warmth is gone.** Nothing has raised it since 0.1.8, when Ginger Root moved to the base game's Ginger effect. A save that still holds some simply drops it on load.
+
 ## [0.1.11] - 2026-10-21
 
 ### Fixed

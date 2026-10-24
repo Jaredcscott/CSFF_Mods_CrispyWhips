@@ -1,6 +1,6 @@
 # Far Territory
 
-**Version:** 0.1.11
+**Version:** 0.1.12
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.2 or later
 **Status:** pre-release. Version 0.1.7 brought the numbers in line with the base game (crops need care, forage and fishing can come up empty, the crossing takes effort, carcasses give a hide); they may still be tuned. Version 0.1.8 added swamp fever and its cure, fish gutting, cooked island food and sea salt, and 0.1.9 the Island Start perk; their numbers are first guesses.
@@ -12,7 +12,7 @@ Far Territory adds lands beyond the forest, reached by ordinary travel. Follow t
 - **Things to do:** fish every coast and gut the catch, climb and fell coconut palms, gather tropical food, medicine, spice and fibre plants (all also grown in the base game's Garden Plot), bake yams and sago flatbread, boil sea water into salt, and fight island animals.
 - **Island Start:** a starting perk that begins your run as a castaway on the island shore of your choice.
 
-Every card has its own picture except Brackwater Mouth's map picture, the set Funnel Trap and the effect icons, which use the base game's art. Choose Your Landing borrows the Outrigger Canoe's picture, and the Island Start perk uses Landfall Strand's.
+Every card has its own picture except Brackwater Mouth's map picture, the set Funnel Trap, the Dead Plant and the effect icons, which use the base game's art. Choose Your Landing borrows the Outrigger Canoe's picture, the Island Start perk uses Landfall Strand's, the Wrecked Ship uses the Driftwood Log's, and Conch, Oyster and Sea Urchin share the Seashells picture. A plant in the Garden Plot shows its wild plant's picture or one of five shared growing pictures.
 
 ## At a glance
 

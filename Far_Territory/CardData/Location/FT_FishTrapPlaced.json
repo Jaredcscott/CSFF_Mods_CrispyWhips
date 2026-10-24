@@ -7,7 +7,7 @@
   },
   "CardDescription": {
     "LocalizationKey": "Far_Territory_FishTrapPlaced_CardDescription",
-    "DefaultText": "A fish trap staked in the shallows. It springs every few hours; haul it out to take what it holds."
+    "DefaultText": "A fish trap staked in the shallows. It springs about once a day (every 24 to 30 hours); haul it out to take what it holds."
   },
   "CardImageWarpData": "FT_FishTrapSet",
   "CardImageWarpType": 3,
