@@ -4,6 +4,14 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.28.10] - 2026-10-25
+
+### Fixed
+
+- **The Portal Hub's travel buttons follow the game language.** "Travel to Village" and "Travel to Fantasy Forest" stayed in English in Chinese mode (reported by Chiwei). Each button is now "Travel to {world}" in the current language, with the world's own name: 前往村庄, 前往奇幻森林. A mod names its world's text with the new optional `WorldNameKey` in `MapMod.json` (a key in its Localization CSVs); `WorldName` stays the fallback.
+- **Every framework setting is described in English and Chinese.** The descriptions in `crispywhips.CSFFModFramework.cfg` and in BepInEx ConfigurationManager now give the English line and then the same text in Chinese (requested by Chiwei).
+- Technical: `PortalService.InjectHubTravelDAs` registers each travel button's row with `LocalizationLoader.RegisterDerivedRow` (template `CSFFMFW_Portal_TravelTo`, name from `PortalWorld.WorldNameKey`); a derived row registered before the first localization load is now written by that load instead of warning that its template is missing. New `Util/ConfigText` adds a `Bind(section, key, default, english, chinese)` overload; all 41 settings use it.
+
 ## [2.28.9] - 2026-10-22
 
 ### Added

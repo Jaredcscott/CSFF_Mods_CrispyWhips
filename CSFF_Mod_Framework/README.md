@@ -4,7 +4,7 @@ The shared base for Card Survival: Fantasy Forest mods. It loads mod content fro
 
 It also fixes several base-game bugs and speeds up travel to long-unvisited places.
 
-- **Version:** 2.28.9
+- **Version:** 2.28.10
 - **Game version:** EA 0.69c
 - **Requires:** BepInEx 5.x
 - **Languages:** English and Simplified Chinese
@@ -417,6 +417,8 @@ A mod ships `MapMod.json` at its root, and its world gets a "Travel to [WorldNam
 ```
 
 `EnvironmentUID` is the CT4 environment to travel to. The framework adds the Exit card itself.
+
+`WorldNameKey` (optional) is a key in the mod's Localization CSVs for the world's name, such as `"WorldNameKey": "MyMod_IronWastes_Name"`. The button then reads "Travel to" plus that name in the game language (前往… in Chinese); without it, the button uses `WorldName` in every language.
 
 The travel and exit buttons are wired during the map pass, which runs only when some mod ships a `WorldMap/` map file. A mod with `MapMod.json` alone gets a button that spends time and goes nowhere. Every in-house world mod ships both.
 

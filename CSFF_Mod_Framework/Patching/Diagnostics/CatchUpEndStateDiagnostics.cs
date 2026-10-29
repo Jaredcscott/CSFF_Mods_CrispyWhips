@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -42,7 +43,8 @@ internal static class CatchUpEndStateDiagnostics
             "When true, after each travel that replayed catch-up ticks, logs one block listing the "
             + "destination board's cards (up to 200, ordered by UniqueID) with every durability value "
             + "and liquid quantity. Used to compare the shipped catch-up batching against exact "
-            + "per-tick replay. Patches are installed only when this is true. Off by default.");
+            + "per-tick replay. Patches are installed only when this is true. Off by default.",
+            "为 true 时，每次旅行补算了错过的时间刻后，记录一段目的地版面上的卡牌列表（最多 200 张，按 UniqueID 排序），包含每个耐久值和液体量。用于比较已发布的补算分批与逐刻精确补算。只有为 true 时才会安装相关补丁。默认关闭。");
         if (!enabled.Value) return;
 
         bool a = SafePatcher.TryPatch(harmony, "GameManager", "ChangeEnvironment",

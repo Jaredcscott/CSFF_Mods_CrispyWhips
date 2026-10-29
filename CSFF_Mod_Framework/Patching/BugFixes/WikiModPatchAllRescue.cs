@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -78,7 +79,8 @@ internal static class WikiModPatchAllRescue
             + "WikiMod's Harmony PatchAll can finish. Set false to only log the problem and let "
             + "WikiMod abort as it would without the framework, which silently drops every WikiMod "
             + "patch class after the broken one (card tooltips, inspection popup, stat readouts) "
-            + "until WikiMod is updated.");
+            + "until WikiMod is updated.",
+            "当某个 WikiMod 补丁类无法绑定到当前游戏版本时，只跳过该类，让 WikiMod 的 Harmony PatchAll 能够完成。设为 false 则只记录问题，让 WikiMod 像没有框架时一样中止，这会静默丢弃出错类之后的所有 WikiMod 补丁类（卡牌提示、检视弹窗、属性读数），直到 WikiMod 更新。");
         _rescue = rescueCfg.Value;
 
         _containerTypeField = AccessTools.Field(typeof(PatchClassProcessor), "containerType");

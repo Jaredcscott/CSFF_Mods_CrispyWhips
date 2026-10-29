@@ -83,7 +83,9 @@ internal static class LocalizationLoader
     /// current language's <paramref name="templateKey"/> row (or <paramref name="vowelTemplateKey"/>'s when the
     /// name starts with an English vowel, for "an Owl") and the name is <paramref name="nameKey"/>'s row, or
     /// <paramref name="fallbackName"/> when that key is empty or has no row. Writes the row now and again on
-    /// every language load. Returns <paramref name="englishTemplate"/> formatted with
+    /// every language load; a row registered before the first load (the Portal Hub's travel buttons, injected
+    /// at an earlier load phase) is written by that load, since its template row is not loaded yet. Returns
+    /// <paramref name="englishTemplate"/> formatted with
     /// <paramref name="fallbackName"/>, for a <c>DefaultText</c> that stays English whatever the language.
     /// </summary>
     internal static string RegisterDerivedRow(string key, string templateKey, string vowelTemplateKey,
@@ -91,7 +93,7 @@ internal static class LocalizationLoader
     {
         var row = new DerivedRow { TemplateKey = templateKey, VowelTemplateKey = vowelTemplateKey, NameKey = nameKey, FallbackName = fallbackName };
         _derivedRows[key] = row;
-        var currentTexts = GetCurrentTexts();
+        var currentTexts = _mods != null ? GetCurrentTexts() : null;
         if (currentTexts != null) WriteDerivedRow(key, row, currentTexts);
         return FormatDerived(englishTemplate, englishVowelTemplate, fallbackName) ?? fallbackName;
     }

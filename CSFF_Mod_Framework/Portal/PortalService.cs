@@ -32,6 +32,7 @@ namespace CSFFModFramework.Portal;
 internal static class PortalService
 {
     private const string DaKeyPrefix = "CSFFMFW_Portal_DA_";
+    private const string TravelToTemplateKey = "CSFFMFW_Portal_TravelTo";
 
     // UID of the framework exit card, injected into each mod's CT4 DefaultEnvCardDrops
     // so the player always has a "Return to Portal" button inside any registered mod world.
@@ -527,8 +528,12 @@ internal static class PortalService
             // Fresh ActionName (must not share the template's LocalizedString).
             var newName = Activator.CreateInstance(lsType);
             pidFieldLS?.SetValue(newName, HubPlacedUid);
-            lkFieldLS?.SetValue(newName, $"{DaKeyPrefix}{world.Index}");
-            dtFieldLS?.SetValue(newName, $"Travel to {world.WorldName}");
+            // The key's row is "Travel to {0}" in the current language formatted with the world's name row,
+            // re-derived on every language load; it used to be English only (Nexus c174400506).
+            var daKey = $"{DaKeyPrefix}{world.Index}";
+            lkFieldLS?.SetValue(newName, daKey);
+            dtFieldLS?.SetValue(newName, Loading.LocalizationLoader.RegisterDerivedRow(daKey, TravelToTemplateKey, TravelToTemplateKey,
+                world.WorldNameKey, world.WorldName, "Travel to {0}", null));
             anField?.SetValue(newDa, newName);
 
             // Travel cost = 2 DTP (30 min).

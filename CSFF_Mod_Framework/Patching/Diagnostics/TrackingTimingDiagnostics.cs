@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -72,7 +73,8 @@ internal static class TrackingTimingDiagnostics
             + "UpdatePassiveEffects and an AllCards census broken down by owning mod (with "
             + "AlwaysUpdate/IndependentFromEnv counts per mod). Use to diagnose long "
             + "location-load times when entering an environment with fresh tracks, "
-            + "a large catch-up gap, or a large modded AllCards population. Off by default.");
+            + "a large catch-up gap, or a large modded AllCards population. Off by default.",
+            "为 true 时，每次旅行记录 EnvironmentSaveDataByReference.CheckForTracks 和 GameManager.ChangeEnvironment 的 CPU 耗时，并标注目的地环境；另记录 CheckForTracks 期间触发的 GameManager.GiveCard 次数、ChangeEnvironment 期间 GameManager.ApplyRates 补算的时间刻数及之后的 AllCards.Count，还有 LoadCardSet 和 UpdatePassiveEffects 的分项计时，以及按所属模组划分的 AllCards 统计（含每个模组的 AlwaysUpdate/IndependentFromEnv 数量）。用于诊断进入带有新足迹、长时间未访问或模组卡牌很多的环境时加载过慢的问题。默认关闭。");
         if (!enabled.Value) return;
 
         var checkForTracksPost = new HarmonyMethod(

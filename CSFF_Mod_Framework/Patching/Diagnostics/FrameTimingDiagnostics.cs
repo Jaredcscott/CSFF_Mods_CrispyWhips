@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using System;
 using System.Collections;
 using System.Diagnostics;
@@ -69,7 +70,8 @@ internal static class FrameTimingDiagnostics
             + "and an agent's tick split into its parts (stat ticks, action checks and the actions it "
             + "performs, by action name, duty work and hiding checks). A "
             + "measurement aid for performance work; patches are installed only when this is true. "
-            + "Off by default.");
+            + "Off by default.",
+            "为 true 时，每 60 秒记录一条 Info 摘要：帧时间统计（平均、p95、最差帧、超过 33 毫秒的帧数）、InGameNPC.UpdateTick 的 CPU 耗时（分为你所在环境内和其他环境中的角色），以及 AI 职责选择、每个游戏时间刻的实际耗时和 CPU（GameManager.ApplyRates，不含补算的实时时间刻），并把角色的时间刻拆分为各部分（属性刻、动作检查和执行的动作（按动作名）、职责工作和躲藏检查）。性能工作的测量工具；只有为 true 时才会安装相关补丁。默认关闭。");
         if (!enabled.Value) return;
 
         bool a = SafePatcher.TryPatch(harmony, typeof(InGameNPC), "UpdateTick",

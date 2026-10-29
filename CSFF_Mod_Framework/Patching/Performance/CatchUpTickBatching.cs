@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using BepInEx.Configuration;
 using HarmonyLib;
 
@@ -118,14 +119,16 @@ internal static class CatchUpTickBatching
             + "granularity — up to K-1 ticks (4 in-game hours at K=16) of timing "
             + "slop per transition, strictly smaller than what CatchUpTickCap already "
             + "discards wholesale on any capped hop. 0 disables batching entirely "
-            + "(exact today's per-tick behavior).");
+            + "(exact today's per-tick behavior).",
+            "补算时间刻分批的块大小（K）：不再逐刻补算每个经过的时间刻，而是分成最多 K 刻一组，并相应缩放或重复每刻的工作。这是补算性能计划中最大的杠杆：被限制的 1344 刻补算实测 4.4-6.2 秒，在默认 K=16 时预计降到约 0.8-1.1 秒。精度代价：窗口中途的速率变化（火熄灭、炊具燃料耗尽）会变成以 K 刻为粒度的分段常数，每次变化最多有 K-1 刻（K=16 时为游戏内 4 小时）的时间误差，远小于 CatchUpTickCap 在任何被限制的移动中直接丢弃的部分。0 完全关闭分批（与目前的逐刻行为完全一致）。");
         _batchK = batchCfg.Value;
 
         var minCfg = config.Bind(
             "Performance", "CatchUpBatchMinTicks", 96,
             "Don't bother batching a replay shorter than this many ticks — the "
             + "overhead isn't worth it for a handful of ticks. Below this, catch-up "
-            + "runs today's unbatched per-tick behavior even with batching enabled.");
+            + "runs today's unbatched per-tick behavior even with batching enabled.",
+            "短于这么多时间刻的补算不做分批，几个时间刻不值得这样的开销。低于此值时，即使启用了分批，补算仍按目前的逐刻方式运行。");
         _batchMinTicks = minCfg.Value;
 
         if (_batchK <= 0)

@@ -1,7 +1,7 @@
 # Roadmap: CSFF Mod Framework
-Version at time of writing: 2.28.9
-Date: 2026-10-23 (refreshed by `/consolidate-audit` after source commit of 2026-10-22)
-Audit score: 10/10 - PASS (2026-10-23 critical-analysis returned SOLID; code-quality 10/10; mod-report PASS, 0 CRITICAL)
+Version at time of writing: 2.28.10
+Date: 2026-10-27 (refreshed by `/consolidate-audit` after the 2.28.10 release)
+Audit score: 10/10 - PASS (2026-10-27 core/assets/portal module re-audits all returned SOLID / 10-10; whole-mod critical-analysis SOLID, code-quality 10/10, mod-report PASS, 0 CRITICAL; two portal-module MINOR polish items, non-blocking)
 
 > **This is the framework, not a content mod.** The content-mod roadmap template (Tier 2 migration,
 > theme expansion, art) mostly does not apply: the framework DEFINES Tier 2, and its own content is a
@@ -23,10 +23,12 @@ base-game bug fixes. 17 content mods (2,622 UIDs) load through it.
 **Content**: 4 internal items / 8 blueprints / 2 structures (Portal Hub) / 1 perk (Wayfinder) / 19 custom
 images / 3 shared parts (Metal Sheet, Metal Nail, Tin Solder) + their blueprints. 178 `.cs` source files.
 
-**Stability**: 10/10 - PASS. Build clean (Release, 0/0), versions synchronized at 2.28.9, localization and
+**Stability**: 10/10 - PASS. Build clean (Release, 0/0), versions synchronized at 2.28.10, localization and
 Chinese parity CLEAN (62/62), bin/Release in sync, 0 cross-mod structural refs or tag collisions across the
 17 dependent mods. No advertised dead code. New since 2.28.7 and audited clean: `TagGroupService`
 (TagGroups.json), `DragStartCrashGuard`, GIF PNG-frame sequences - all wired, documented, consumed live and gated green.
+The 2026-10-27 portal module re-audit surfaced two maintainability items (hoist a load-time `GetFields()` out of a loop;
+delete a dead private method), both non-blocking - see Phase 4.
 
 **Open work**: 0 red (Open) retrospectives. 2 yellow debts: `wikimod-old-save-load-crash` (2.25.25/26 rescue
 patches not re-verified in-game) and `questinjector-blueprint-reset-risk` / `RETRO_CLOSURE_PLAN_2026-07-23`
@@ -53,7 +55,7 @@ target for every content mod.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Nexus release batch: framework 2.28.9 is ahead of Nexus 2.26.12; ship with the dependent-mod batch (`/nexus-publish upload --behind`) | Release tail | P1 | Medium |
+| Nexus release batch: framework 2.28.10 is ahead of Nexus 2.26.12; ship with the dependent-mod batch (`/nexus-publish upload --behind`) | Release tail | P1 | Medium |
 | `/package-mod-suite` + Mod_Update_Manager repack per the MUM-last rule | Release tail | P1 | Quick |
 | Verify `wikimod-old-save-load-crash` fix in-game on an old WikiMod save, then `/resolve-retro` | Retro close | P2 | Medium |
 | Decide `OffEnvNpcAiThrottle` ship/keep: feature-17 measurement showed ~310/385 ms per off-location tick is vanilla agent actions (16% is a lower bound vs the 20% bar); owner kept it default-off 2026-10-12 | Decision (settled) | P3 | Quick |
@@ -103,6 +105,8 @@ target for every content mod.
 
 | Item | What | Complexity |
 |------|------|------------|
+| Hoist `GetFields()` out of the world loop (M1) | `Portal/PortalService.cs:525` re-enumerates `daType.GetFields(...)` once per registered world inside `foreach (var world in worlds)`; hoist above the loop (the `lkFieldLS`/`dtFieldLS` lookups at :513-518 already are). Load-time, small N - cleanup, not a perf fix | Quick |
+| Delete dead private `FindField` (M2) | `Portal/PortalService.cs:806-814` defines `FindField(Type, string)` but nothing calls it; remove the clutter | Quick |
 | D17 out-param breadcrumb shape | Teach the preflight D17 check the `causeKey=`/`cause=` out-param pattern so it stops re-flagging WorldMapInjector.cs:2078 as a false positive | Quick |
 | Author-time gate-misconfig detection | Fold a `LockConditions`/`GateConditions` mutual-exclusion check into the F21-F27 WorldMap validators | Medium |
 | Foreign-plugin PatchAll isolation seam | Only if a second plugin (beyond WikiMod) exhibits the abort-cascade; general `Api`-level seam | Complex |
@@ -377,3 +381,11 @@ and the dormant-surface dispositions in `.audit/ideas.md`; none is a `Documentat
 - **Pruned:** nothing further from the plan body (earlier passes had already collapsed every built section); added a CLOSED paragraph at its top, a DONE line on section 17, a "Feature 17 follow-up" block in section 15 Measurements, and a final-state list at the top of the appended pack.
 - **Evidence:** harness on dev rig 8 (framework at HEAD, owner's third-party mods installed): T2.1211 PASS (batch `walkthrough-20261012-025356`, AI judge PASS 0.85; step 21 reads `StartEventPopup.TitleText` 你看到了猫头鹰！ and step 22 finds it on screen, screenshot read), T2.1224 PASS 50/50 with no allowed failures (WikiMod control and guard line both held), T2.1249 the 2026-10-11 rerun; `autoplay.py audit` classes all three FULL. Feature 17 split from five measurement runs (reports `research-feature-17-tick-part-split-key-off-w0-7-save-20261012-*`): about 310 of 385 ms per off-location agent tick is vanilla agent actions, 25 ms AI selection. Release tail: 11 of 11 framework-linking projects rebuild with 0 errors and 0 warnings against the new DLL, each resolving a refreshed `lib/` copy (`dotnet build -v:d` "Resolved file path"). Gate: 184 of 185 test files, 6,183 passed, 56 failed plus one errored file, none in a framework or plan file (Skill Speed Boost 40, Mod Update Manager docs and the stale WDI embed 6, H&F renamed CT2 pins 2, a missing .NET 9 SDK 2, a new CMC zero-slot mini-inventory, WDI gear piling, two peer scenarios, an unmapped new skill, and `Harness-Feed` broken by `walkthrough.py` now calling `/popups`); `CMC-Round2.Tests.ps1` (872 tests) not run, its author ran it green at `0639bc894`. New gate `Framework-AnimalEncounterEventTitle.Tests.ps1` 4/4, watched red on the pre-fix shape.
 - **Verification debt:** T2.1211, T2.1224, T2.1249 (FULL, recorded by `autoplay.py record` once peers' uncommitted tracker and checklist edits land); T2.1316, T2.1245, T2.1247 (a person's look); T2.456 (the bear raid fix in the Considered table); the cited cross-plan rows T2.467, T2.482 (Harsh Wilds) and T2.543 (Sirus23). Release work owed: framework deploy to the real install, `/package-mod-suite`, Mod_Update_Manager deploy (`.claude/handoffs/csff-framework-plan-closeout-2026-10-12.md`).
+
+### 2026-10-28 - Fleet MASTER_PLAN (shared resources and cross-mod tooling, Chiwei / APE), /audit-plan
+- Scope: Fleet; recorded here because the framework hosts every surface the plan builds.
+- **Verdict:** NOT drained. Section 1 (the 10-21 thread) is built and re-verified; Wave 0 (W0.1 to W0.10), sections 4.1 to 4.3, 5.1 to 5.7, 6.1 to 6.7 and the section 8 reply draft are all OPEN. Nothing FAILED or OBSOLETE.
+- **Disposition:** KEEP IN PLACE - code work remains. Next: `/plan-to-prompts Documentation/Plans/Fleet/MASTER_PLAN.md`, then Wave 0 in parallel. Mission `csff-plans-prune-2026-10-28`.
+- **Pruned:** section 1's six-row table collapsed to one as-built paragraph (full table at `147c11532`). A dated status paragraph appended to the plan.
+- **Evidence:** at `efe084587`: `git grep -l -F` over CSFFModFramework, AdvancedCopperTools, HerbsAndFungi and Community_Mod_Chest (bin and obj excluded) returned 0 files for each new UID, file name and tag the plan introduces (`APE_LQ_LampOil`, `APE_StearinCake`, `APE_LQ_SaltWater`, `APE_LQ_SaltSyrup`, `APE_MetalSheet`, `LiquidConversions`, `MatchAcross`, `tag_x_MetalSheet`, `tag_x_Brine`, `GpTag_FW_Brine`, `GpTag_FW_MetalSheet`) and a word grep for `CardState` in CSFFModFramework returned nothing, while the controls returned 24 files (`GpTag_FW_Oil`) and 2 (`LoadFrameFolders`). Section 1 read from code: `TagGroups.json` tag_Oil groups, ACT `SimpEn.csv` Pour Oil from Container rows, `Interop_Registry.md` R16-R18 and C7, `Loading/UidAliasService.cs`, the armor-merge As_Built. Tracker: T2.1990, T2.1994 and T2.2007 pending; T2.1991 to T2.1993 and T2.2000 to T2.2006 and T2.2008 in `confirmedItems`.
+- **Verification debt:** T2.1990 (PNG frames), T2.1994 (any-oil recipes and liquid refuel), T2.2007 (armor merge look and old save), all person rows.

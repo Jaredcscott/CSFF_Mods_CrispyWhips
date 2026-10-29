@@ -68,3 +68,5 @@ Advanced_Copper_Tools_Bp_CastCopperNails_UnlockConditionsDesc,Heated Metal Bar N
 Advanced_Copper_Tools_MetalSheet_AlternateNames[5].Name,Iron Sheet,铁片
 Advanced_Copper_Tools_CopperNails_AlternateNames[5].Name,Iron Nail,铁钉
 CSFFMFW_GpTag_FW_Oil_TabName,Oil,油
+CSFFMFW_Portal_TravelTo,Travel to {0},前往{0}
+CSFFMFW_Portal_World_FantasyForest,Fantasy Forest,奇幻森林

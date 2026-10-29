@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using System;
 using System.Reflection;
 using BepInEx.Configuration;
@@ -30,13 +31,16 @@ internal static class DOTweenCapacityPrewarm
     {
         var tweenersCfg = config.Bind(
             "Performance", "DOTweenTweenerCapacity", TweenerCapacity,
-            "Pre-allocate DOTween tweener pool to this size. Prevents mid-session GC spike when many cards animate at once. Default 1000 (game default is 200).");
+            "Pre-allocate DOTween tweener pool to this size. Prevents mid-session GC spike when many cards animate at once. Default 1000 (game default is 200).",
+            "把 DOTween 补间池预先分配到这个大小。防止许多卡牌同时播放动画时在游戏中途出现 GC 卡顿。默认 1000（游戏默认 200）。");
         var sequencesCfg = config.Bind(
             "Performance", "DOTweenSequenceCapacity", SequenceCapacity,
-            "Pre-allocate DOTween sequence pool to this size. Default 200 (game default is 50).");
+            "Pre-allocate DOTween sequence pool to this size. Default 200 (game default is 50).",
+            "把 DOTween 序列池预先分配到这个大小。默认 200（游戏默认 50）。");
         var quietCfg = config.Bind(
             "Performance", "DOTweenQuietLogs", true,
-            "Downshift DOTween log verbosity to ErrorsOnly. Reduces per-frame GC from tween warnings. Default true.");
+            "Downshift DOTween log verbosity to ErrorsOnly. Reduces per-frame GC from tween warnings. Default true.",
+            "把 DOTween 的日志级别降为仅错误（ErrorsOnly）。减少补间警告带来的每帧 GC。默认 true。");
 
         if (!TryApply(tweenersCfg.Value, sequencesCfg.Value, quietCfg.Value))
             Plugin.Instance?.StartCoroutine(ApplyWhenAvailable(tweenersCfg.Value, sequencesCfg.Value, quietCfg.Value));

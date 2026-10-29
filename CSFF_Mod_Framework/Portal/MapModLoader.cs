@@ -13,9 +13,13 @@ namespace CSFFModFramework.Portal;
 /// <code>
 /// {
 ///   "WorldName": "The Iron Wastes",
+///   "WorldNameKey": "MyMod_IronWastes_Name",
 ///   "EnvironmentUID": "mymod_env_hub"
 /// }
 /// </code>
+///
+/// <para><c>WorldNameKey</c> (optional) names a row in the mod's Localization CSVs, so the
+/// world's "Travel to" button reads in the game language; <c>WorldName</c> is the fallback.</para>
 ///
 /// <para><c>EnvironmentUID</c> (preferred, a CT4) or <c>SacredSiteUID</c> (legacy CT8 fallback)
 /// is the UniqueID of the environment card <see cref="PortalService.RegisterHubTravelHandlers"/>
@@ -67,6 +71,9 @@ internal static class MapModLoader
         var worldName = parsed.TryGetValue("WorldName", out var wn) && wn is string s && !string.IsNullOrWhiteSpace(s)
             ? s : modName;
 
+        var worldNameKey = parsed.TryGetValue("WorldNameKey", out var wk) && wk is string wks && !string.IsNullOrWhiteSpace(wks)
+            ? wks : null;
+
         var sacredSiteUID = parsed.TryGetValue("SacredSiteUID", out var ss) && ss is string ssu && !string.IsNullOrWhiteSpace(ssu)
             ? ssu : null;
 
@@ -81,6 +88,7 @@ internal static class MapModLoader
         PortalRegistry.Register(new PortalWorld
         {
             WorldName      = worldName,
+            WorldNameKey   = worldNameKey,
             ModName        = modName,
             EnvironmentUID = environmentUID,
             SacredSiteUID  = sacredSiteUID,

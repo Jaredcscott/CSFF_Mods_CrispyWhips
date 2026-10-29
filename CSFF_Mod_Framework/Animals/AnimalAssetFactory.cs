@@ -413,7 +413,7 @@ internal static class AnimalAssetFactory
         if (init != null)
         {
             try { init.Invoke(agent, null); }
-            catch (Exception ex) { Log.Debug($"AnimalAssetFactory: NPCAgent.Init() failed for '{agent?.name}' before full resolution — that's OK: {ex.GetType().Name} {ex.Message}"); }
+            catch (Exception ex) { Log.Debug($"AnimalAssetFactory: NPCAgent.Init() failed for '{agent?.name}' before full resolution - that's OK: {Log.ExceptionText(ex)}"); }
         }
 
         if (!GameRegistry.TryRegister(agent))

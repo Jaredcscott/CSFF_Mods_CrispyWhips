@@ -7,6 +7,12 @@ internal sealed class PortalWorld
 {
     public int               Index;
     public string            WorldName;
+    /// <summary>
+    /// Localization key of the world's name, so the hub's "Travel to [World]" button follows the
+    /// game language; <see cref="WorldName"/> is the fallback when it is empty or has no row.
+    /// Populated from MapMod.json "WorldNameKey".
+    /// </summary>
+    public string            WorldNameKey;
     public string            ModName;
     /// <summary>
     /// UniqueID of the CT4 Environment card for direct portal teleportation.
@@ -34,6 +40,7 @@ internal static class PortalRegistry
     {
         Index = 0,
         WorldName = "Fantasy Forest",
+        WorldNameKey = "CSFFMFW_Portal_World_FantasyForest",
         ModName = "vanilla"
     };
 

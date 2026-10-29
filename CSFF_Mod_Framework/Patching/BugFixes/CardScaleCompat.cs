@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSFFModFramework.Util;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -60,7 +61,8 @@ internal static class CardScaleCompat
 
         var scaleCfg = config.Bind(
             "CardScale", "SlotScaleFactor", 0.75f,
-            "Scale applied to BaseSlotsLine/LocationSlotsLine when CardSizeReduce is active (CSR owns the other lines). 1.0 = default, 0.75 = 75%.");
+            "Scale applied to BaseSlotsLine/LocationSlotsLine when CardSizeReduce is active (CSR owns the other lines). 1.0 = default, 0.75 = 75%.",
+            "启用 CardSizeReduce 时应用于 BaseSlotsLine/LocationSlotsLine 的缩放比例（其余行由 CSR 负责）。1.0 = 默认，0.75 = 75%。");
         _scale = Mathf.Clamp(scaleCfg.Value, 0.25f, 1f);
 
         // CSR is installed. Fix its broken AccessTools.Field calls so it can read

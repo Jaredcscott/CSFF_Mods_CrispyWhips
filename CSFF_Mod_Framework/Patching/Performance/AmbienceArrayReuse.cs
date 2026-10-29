@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using BepInEx.Configuration;
@@ -25,7 +26,8 @@ internal static class AmbienceArrayReuse
         var enabledCfg = config.Bind(
             "Performance", "AmbienceArrayReuseEnabled", true,
             "Reuse a cached float[3] inside AmbienceImageEffect.Update instead of allocating per frame. "
-            + "Set false to disable for diagnostic isolation.");
+            + "Set false to disable for diagnostic isolation.",
+            "在 AmbienceImageEffect.Update 中复用缓存的 float[3]，而不是每帧分配。设为 false 可在诊断时单独排除此项。");
         if (!enabledCfg.Value)
         {
             Util.Log.Debug("AmbienceArrayReuse: disabled via config.");

@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using System.Diagnostics;
 
 namespace CSFFModFramework.Patching.Diagnostics;
@@ -19,7 +20,8 @@ internal static class AutoSaveDiagnostics
         var enabled = config.Bind("Diagnostics", "LogAutoSaveCalls", false,
             "When true, logs the CheckpointTypes value and call-stack of every "
             + "GameLoad.AutoSaveGame invocation (first 8 calls). Used to diagnose "
-            + "third-party autosave-blocker mods. Off by default.");
+            + "third-party autosave-blocker mods. Off by default.",
+            "为 true 时，记录每次 GameLoad.AutoSaveGame 调用（前 8 次）的 CheckpointTypes 值和调用堆栈。用于诊断第三方阻止自动存档的模组。默认关闭。");
         if (!enabled.Value) return;
 
         var prefix = new HarmonyMethod(AccessTools.Method(typeof(AutoSaveDiagnostics), nameof(Prefix)));

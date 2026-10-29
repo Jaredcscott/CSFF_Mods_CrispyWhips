@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using System;
 using BepInEx.Configuration;
 using HarmonyLib;
@@ -71,7 +72,8 @@ internal static class CatchUpTickCap
             + "counters always fast-forward to their live value regardless of this "
             + "setting; only rate-driven decay/production beyond the cap is skipped. "
             + "0 = vanilla unbounded catch-up (CatchUpBudgetMs and CatchUpBatchTicks "
-            + "below still apply independently even when this is 0).");
+            + "below still apply independently even when this is 0).",
+            "进入环境时 ChangeEnvironment 最多重新模拟的已经过游戏时间刻数（每刻为游戏内 15 分钟，每天 96 刻）。默认 1344 = 游戏内 14 天，这是能让所有普通易腐物和建筑/洞穴计时器完全饱和的最小上限（生食 ≤3.1 天、熟食 ≤7 天、肉干 8.8 天、面包/馅饼/洞穴计时器 10.4-11.2 天）。腐坏只会在补算窗口内发生，未访问的版面在两次访问之间完全不会腐坏，所以这个上限就是长期未访问版面会受到的全部腐坏，而不是某种持续腐坏之下的下限。保质期很长的保存食品（硬奶酪 60 天、硬面包/谷物/葡萄酒 120 天）按设计只会在窗口内部分推进；把上限降到 1344 以下会让这类腐坏不足的物品更多（672 还会让肉干/面包/洞穴计时器不再完全腐坏；384 还会让熟食不再完全腐坏；192 会让生肉、鱼和水果在任何长时间离开后永远保持约 80% 新鲜，不推荐）。植物和树木的生长计数无论此设置如何都会快进到实时值；只有超出上限、由速率驱动的腐坏和产出会被跳过。0 = 原版无上限补算（即使为 0，下方的 CatchUpBudgetMs 和 CatchUpBatchTicks 仍会各自生效）。");
         _maxTicks = capCfg.Value;
 
         var chainCapCfg = config.Bind(
@@ -85,14 +87,16 @@ internal static class CatchUpTickCap
             + "The skipped decay on a discounted pass-through board is permanent (it "
             + "will not be replayed later), but is always player-favorable (things are "
             + "fresher than they should be, never destroyed). 0 disables the discount "
-            + "(every hop always pays the full CatchUpTickCap).");
+            + "(every hop always pays the full CatchUpTickCap).",
+            "在短时间内连续穿过多个长期未访问的环境（一串被限制的移动）时，第一次之后的每次移动都要再付出完整的 CatchUpTickCap 补算。如果这串移动中的上一次也在 CatchUpChainWindowSeconds 内被限制，本次就改用这个较小的上限：672 = 游戏内 7 天，仍会让生食完全腐坏，但这一次不会让肉干/面包/洞穴计时器走完。途经版面上被打折跳过的腐坏是永久的（之后不会再补算），但总是对玩家有利（东西比应有的更新鲜，绝不会被毁掉）。0 关闭折扣（每次移动都付出完整的 CatchUpTickCap）。");
         _chainCapTicks = chainCapCfg.Value;
 
         var chainWindowCfg = config.Bind(
             "Performance", "CatchUpChainWindowSeconds", 180f,
             "How long after a capped hop the CatchUpChainCapTicks discount stays "
             + "armed for the next hop. Resets every time a hop clamps; a hop more than "
-            + "this many real seconds after the last clamp always pays the full cap.");
+            + "this many real seconds after the last clamp always pays the full cap.",
+            "被限制的移动之后，CatchUpChainCapTicks 折扣对下一次移动保持生效的时长。每次移动被限制时重新计时；距上次限制超过这么多真实秒数的移动总是付出完整上限。");
         _chainWindowSeconds = chainWindowCfg.Value;
 
         if (_maxTicks <= 0)

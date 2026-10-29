@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using System;
 using System.Collections.Generic;
 using HarmonyLib;
@@ -29,7 +30,8 @@ internal static class BlueprintSearchDiagnostic
             + "to resolve (which is why it's invisible in the crafting journal's Search box), "
             + "along with the specific reason (no BlueprintModelStates entry vs. not present "
             + "in any tab's IncludedCards). Open the crafting journal and use Search to produce "
-            + "log entries. Off by default.");
+            + "log entries. Off by default.",
+            "为 true 时，记录 BlueprintModelsScreen.FindTabFor 未能解析的每个模组蓝图（这就是它在制作日志搜索框中搜不到的原因），并附上具体原因（没有 BlueprintModelStates 条目，或不在任何分页的 IncludedCards 中）。打开制作日志并使用搜索即可产生日志。默认关闭。");
         if (!enabled.Value) return;
 
         var postfix = new HarmonyMethod(AccessTools.Method(typeof(BlueprintSearchDiagnostic), nameof(FindTabFor_Postfix)));

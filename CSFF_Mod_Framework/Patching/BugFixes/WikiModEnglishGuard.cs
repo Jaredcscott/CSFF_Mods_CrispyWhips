@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using System;
 using System.Reflection;
 using BepInEx.Configuration;
@@ -54,7 +55,8 @@ internal static class WikiModEnglishGuard
             "With WikiMod installed and the game in English, stop WikiMod's durability-stat translation "
             + "table writing Chinese labels (Quality, Freshness, Temperature, Metal Type and more) onto "
             + "every card. Only that one WikiMod translation step is skipped, and only outside Chinese "
-            + "mode; WikiMod's other English relabelling is untouched. Set false to let WikiMod run it.");
+            + "mode; WikiMod's other English relabelling is untouched. Set false to let WikiMod run it.",
+            "安装了 WikiMod 且游戏为英文时，阻止 WikiMod 的耐久属性翻译表把中文标签（品质、新鲜度、温度、金属类型等）写到每张卡上。只跳过 WikiMod 的这一个翻译步骤，且仅在非中文模式下；WikiMod 的其他英文改名不受影响。设为 false 则让 WikiMod 照常执行。");
         if (!guardCfg.Value)
         {
             Util.Log.Debug("WikiModEnglishGuard: disabled by config.");

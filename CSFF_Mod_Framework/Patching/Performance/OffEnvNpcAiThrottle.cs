@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -62,7 +63,8 @@ internal static class OffEnvNpcAiThrottle
             + "companions, catch-up ticks and environment transitions are never throttled; an agent can "
             + "start its next duty one tick (15 in-game minutes) later. Measured: agents elsewhere cost "
             + "about a third of a tick's time on a late-game save with 41 agents. Default false. A change "
-            + "needs a full quit to desktop and relaunch, because this file is read once at startup.");
+            + "needs a full quit to desktop and relaunch, because this file is read once at startup.",
+            "让你当前环境之外的 NPC 角色每隔一个游戏时间刻才进行一次 AI 选择，而不是每刻都进行。它们的属性、职责执行和动作仍然每刻运行，同伴、补算时间刻和环境切换永远不会被限制；角色开始下一个职责最多会晚一刻（游戏内 15 分钟）。实测：在有 41 个角色的后期存档中，其他环境的角色约占每刻耗时的三分之一。默认 false。更改后需要完全退出到桌面再重新启动，因为此文件只在启动时读取一次。");
         Enabled = cfg.Value;
         if (!Enabled)
         {

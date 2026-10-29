@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using System.Diagnostics;
 using BepInEx.Configuration;
 using HarmonyLib;
@@ -57,7 +58,8 @@ internal static class CatchUpBudgetClamp
             + "and full CatchUpTickCap fidelity is kept; on a heavy save it clamps "
             + "replay depth to whatever fits the budget. Trade-off: replay depth (and "
             + "therefore exact decay amount) becomes machine-load-dependent instead of "
-            + "deterministic. 0 disables the budget clamp entirely.");
+            + "deterministic. 0 disables the budget clamp entirely.",
+            "单次 ChangeEnvironment 补算的实际时间预算（毫秒），叠加在 CatchUpTickCap 的固定上限之上。补算运行超过这个时间且已模拟至少 CatchUpMinTicks 个时间刻后，该次移动剩余未补算的时间刻将被跳过（与 CatchUpTickCap 已接受的精度损失同类，只是随机器速度和存档大小自适应）。自动调节：存档较轻时很少触发，保留 CatchUpTickCap 的完整精度；存档较重时把补算深度限制在预算之内。代价：补算深度（因而精确的腐坏量）取决于机器负载而不再固定。0 完全关闭预算限制。");
         _budgetMs = budgetCfg.Value;
 
         var minTicksCfg = config.Bind(
@@ -65,7 +67,8 @@ internal static class CatchUpBudgetClamp
             "Floor under CatchUpBudgetMs: never cut a replay shorter than this many "
             + "ticks even if the budget has elapsed, so raw food/milk/fruit/cooked meat "
             + "(all ≤300-tick saturation windows) always fully rot on any visit long "
-            + "enough to trigger catch-up at all.");
+            + "enough to trigger catch-up at all.",
+            "CatchUpBudgetMs 的下限：即使预算已用完，也绝不把补算缩短到少于这么多时间刻，这样生食、奶、水果和熟肉（饱和时间都不超过 300 刻）在任何足以触发补算的离开之后都会完全腐坏。");
         _minTicks = minTicksCfg.Value;
 
         if (_budgetMs <= 0)

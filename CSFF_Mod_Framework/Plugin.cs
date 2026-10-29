@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 namespace CSFFModFramework;
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
@@ -5,7 +6,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.28.9";
+    public const string PluginVersion = "2.28.10";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -19,19 +20,22 @@ public class Plugin : BaseUnityPlugin
 
         // Config: verbose logging (default off — suppresses per-item diagnostic spam)
         var verboseConfig = Config.Bind("General", "VerboseLogging", false,
-            "Enable verbose/debug logging. Shows per-item diagnostic traces in LogOutput.log.");
+            "Enable verbose/debug logging. Shows per-item diagnostic traces in LogOutput.log.",
+            "启用详细/调试日志。在 LogOutput.log 中显示逐项的诊断跟踪。");
         Util.Log.Verbose = verboseConfig.Value;
 
         // Config: force Chinese localization (default off — override for testing without a Chinese game install)
         var forceChineseConfig = Config.Bind("General", "ForceChineseMode", false,
             "When true, loads Chinese (SimpCn.csv) regardless of game language setting. "
-            + "Use to test Chinese translations without changing your system language.");
+            + "Use to test Chinese translations without changing your system language.",
+            "为 true 时，无论游戏语言设置如何都加载中文（SimpCn.csv）。用于在不更改系统语言的情况下测试中文翻译。");
         Loading.LocalizationLoader.ForceChineseMode = forceChineseConfig.Value;
 
         // Config: load-time diagnostics (default off — two full AllData scans around WarpResolver)
         var diagConfig = Config.Bind("General", "EnableLoadDiagnostics", false,
             "Run blueprint research diagnostic passes around WarpResolver. "
-            + "Off by default — enable only when investigating research-timer regressions.");
+            + "Off by default — enable only when investigating research-timer regressions.",
+            "在 WarpResolver 前后运行蓝图研究诊断。默认关闭，仅在排查研究计时回归问题时启用。");
         Loading.LoadOrchestrator.EnableLoadDiagnostics = diagConfig.Value;
 
         // Config: load-time authoring lint (default on: one Warn per affected mod, silent otherwise).
@@ -44,14 +48,18 @@ public class Plugin : BaseUnityPlugin
             + "(any structure tagged tag_NotSafeFromAnimals) in the player's environment. "
             + "Bear encounters also roll a separate raid chance against any container tagged "
             + "tag_NotSafeFromAnimals or tag_NotSafeFromBears. "
-            + "Disabled by default — enable to opt in.");
+            + "Disabled by default — enable to opt in.",
+            "每个游戏日掷一次概率，判定野生动物是否会袭击玩家所在环境中无人看守的容器（任何带有 tag_NotSafeFromAnimals 标签的建筑）。遭遇熊时还会另外掷一次概率，袭击任何带有 tag_NotSafeFromAnimals 或 tag_NotSafeFromBears 标签的容器。默认关闭，需要时手动开启。");
         var raidChance = Config.Bind("Wildlife", "WildlifeRaidDailyChance", 0.35f,
-            "Probability (0-1) per in-game day that a general wildlife raid is attempted.");
+            "Probability (0-1) per in-game day that a general wildlife raid is attempted.",
+            "每个游戏日尝试一次普通野生动物袭击的概率（0-1）。");
         var bearRaidChance = Config.Bind("Wildlife", "BearRaidChance", 0.5f,
             "Probability (0-1) that a bear encounter also triggers a raid on nearby open containers. "
-            + "Sealed containers (Copper Chest, vanilla Chest) are always safe.");
+            + "Sealed containers (Copper Chest, vanilla Chest) are always safe.",
+            "遭遇熊时同时袭击附近开放容器的概率（0-1）。密封容器（铜箱、原版箱子）始终安全。");
         var raidStress = Config.Bind("Wildlife", "WildlifeRaidStressPenalty", 2f,
-            "Stress added to the player when a raid succeeds.");
+            "Stress added to the player when a raid succeeds.",
+            "袭击成功时给玩家增加的压力。");
         Wildlife.WildlifeRaidService.Enabled = raidEnabled.Value;
         Wildlife.WildlifeRaidService.DailyChance = raidChance.Value;
         Wildlife.WildlifeRaidService.BearRaidChance = bearRaidChance.Value;
@@ -62,7 +70,8 @@ public class Plugin : BaseUnityPlugin
             + "another spoiled item. 0 turns it off (the default); 3 is a reasonable start if you want it. "
             + "The count is kept only while the game runs: loading a save or returning to the menu resets it. "
             + "Encounter guards that keep wildlife out of a place (such as Community Mod Chest's village) "
-            + "also stop this bear.");
+            + "also stop this bear.",
+            "需要开启 WildlifeRaidsEnabled。野生动物连续这么多个游戏日袭击你所在地点的开放容器后，下一次袭击将变成与棕熊的战斗，而不是又一件物品变质。0 为关闭（默认）；想要的话 3 是不错的起点。计数只在游戏运行期间保留：读取存档或返回主菜单都会重置。阻止野生动物进入某处的遭遇守卫（例如 Community Mod Chest 的村庄）也会挡住这头熊。");
         Wildlife.WildlifeRaidService.BearRaidEscalationDays = System.Math.Max(0, bearEscalationDays.Value);
         Wildlife.WildlifeRaidService.Init();
 
@@ -71,7 +80,8 @@ public class Plugin : BaseUnityPlugin
         var animalsEnabled = Config.Bind("Animals", "AnimalsEnabled", true,
             "Load declarative animal species from mods' Animals/*.json manifests "
             + "(framework-generated NPC agents: spawning, movement, tracks, traps, encounters). "
-            + "Disable to skip all framework-generated animals.");
+            + "Disable to skip all framework-generated animals.",
+            "从各模组的 Animals/*.json 清单加载声明式动物物种（由框架生成的 NPC 角色：生成、移动、足迹、陷阱、遭遇）。关闭则跳过所有由框架生成的动物。");
         Animals.AnimalService.Enabled = animalsEnabled.Value;
 
         // Config: vanilla QuestLog auto-injection (OFF by default — this exact path caused a
@@ -83,7 +93,8 @@ public class Plugin : BaseUnityPlugin
             "DANGER: attach mod QuestLogs (Quests.json) to PlayerCharacter.Quests. This caused a "
             + "confirmed blueprint research reset on save load in CMC 1.7.0 and the root cause was "
             + "never found. Leave false unless you have verified on a disposable save that blueprint "
-            + "research survives a save/reload cycle with the quest mod installed.");
+            + "research survives a save/reload cycle with the quest mod installed.",
+            "危险：把模组的任务日志（Quests.json）附加到 PlayerCharacter.Quests。这曾在 CMC 1.7.0 中确认导致读档时蓝图研究被重置，且根本原因始终没有找到。除非你已在一个可丢弃的存档上验证过安装任务模组后蓝图研究能在存档/读档后保留，否则请保持 false。");
         Injection.QuestInjector.Enabled = questInjectionEnabled.Value;
 
         // Config: perk origin marker (on by default; owner decision 2026-09-14). Display only:
@@ -95,23 +106,27 @@ public class Plugin : BaseUnityPlugin
             + "marked. The tag comes from the mod's ModInfo.json \"ShortName\", or the initials of its "
             + "name when it has none. Display only: perk names, saves and stat reports are unchanged. "
             + "Set false to hide the tags. A change needs a full quit to desktop and relaunch, because "
-            + "this file is read once at startup.");
+            + "this file is read once at startup.",
+            "在角色创建的特质列表、已选特质面板和角色属性页中，给每个由模组添加的特质（特性）名字后面加上简短的模组标记，例如“Swimmer [CMC]”，以便区分来自不同模组的特质。原版特质永远不会被标记。标记取自模组 ModInfo.json 中的“ShortName”，没有时取其名称的首字母。仅影响显示：特质名称、存档和属性报告都不变。设为 false 隐藏标记。更改后需要完全退出到桌面再重新启动，因为此文件只在启动时读取一次。");
         Patching.PerkOriginTagPatch.Enabled = perkOriginTag.Value;
 
         var cardMotion = Config.Bind("Visuals", "CardMotion", true,
             "Subtle movement on mod art that asks for it: NPCs and animals breathe, location paintings drift "
             + "slowly. Drawn by bending the card's picture, so it uses no extra images or texture memory. "
-            + "Set false to keep every card still. Takes effect at the next launch.");
+            + "Set false to keep every card still. Takes effect at the next launch.",
+            "为需要的模组插画加入轻微动态：NPC 和动物在呼吸，地点画作缓缓漂移。通过弯曲卡牌图片实现，不占用额外的图片或纹理内存。设为 false 让所有卡牌保持静止。下次启动时生效。");
         var cardMotionRate = Config.Bind("Visuals", "CardMotionUpdatesPerSecond", 20f,
             "How many times a second moving cards are redrawn (5 to 60). Lower costs less; 20 looks smooth "
-            + "for movement this small. Takes effect at the next launch.");
+            + "for movement this small. Takes effect at the next launch.",
+            "动态卡牌每秒重绘的次数（5 到 60）。越低开销越小；对这么小的动作来说 20 已经很流畅。下次启动时生效。");
         Motion.CardMotionService.Enabled = cardMotion.Value;
         Motion.CardMotionDriver.TicksPerSecond = cardMotionRate.Value;
 
         Loading.SpriteTextureCache.CompressEnabled = Config.Bind("Performance", "CompressModSprites", false,
             "Compress cached mod sprites to DXT5 (about 4x less video memory and sprite cache; art can look slightly softer). "
             + "Only sprites whose width and height are multiples of 4 are compressed. Takes effect at the next launch; "
-            + "the sprite cache rebuilds once on each change. Default false.").Value;
+            + "the sprite cache rebuilds once on each change. Default false.",
+            "把缓存的模组图片压缩为 DXT5（显存和图片缓存约减少到四分之一；插画可能略显柔和）。只有宽和高都是 4 的倍数的图片才会被压缩。下次启动时生效；每次更改后图片缓存会重建一次。默认 false。").Value;
 
         Triggers.TriggerService.Init();
 

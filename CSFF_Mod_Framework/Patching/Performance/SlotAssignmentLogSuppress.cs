@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using BepInEx.Configuration;
@@ -29,7 +30,8 @@ internal static class SlotAssignmentLogSuppress
         var enabledCfg = config.Bind(
             "Performance", "SlotAssignmentLogSuppressEnabled", true,
             "Strip Debug.LogWarning calls from DynamicLayoutSlot.AssignCard. "
-            + "Reduces per-frame GC churn on late-game saves. Set false to disable for diagnostic isolation.");
+            + "Reduces per-frame GC churn on late-game saves. Set false to disable for diagnostic isolation.",
+            "去掉 DynamicLayoutSlot.AssignCard 中的 Debug.LogWarning 调用。减少后期存档的每帧 GC 开销。设为 false 可在诊断时单独排除此项。");
         if (!enabledCfg.Value)
         {
             Util.Log.Debug("SlotAssignmentLogSuppress: disabled via config.");

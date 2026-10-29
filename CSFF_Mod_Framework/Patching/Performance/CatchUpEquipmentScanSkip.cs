@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using BepInEx.Configuration;
 using HarmonyLib;
 
@@ -27,7 +28,8 @@ internal static class CatchUpEquipmentScanSkip
             + "'not equipped' for CharacterScreen.HasCardEquipped without scanning the equipment slots. "
             + "Safe because every card the replay processes is already known not to be equipped (an "
             + "equipped card is independent of the environment and is skipped before any rate is read). "
-            + "Shortens long-absence travel. Set false to restore the vanilla scan.");
+            + "Shortens long-absence travel. Set false to restore the vanilla scan.",
+            "游戏在到达时补算错过的时间刻期间（GameManager.IsCatchingUp），CharacterScreen.HasCardEquipped 直接回答“未装备”，不扫描装备栏。这是安全的，因为补算处理的每张卡都已知未被装备（已装备的卡与环境无关，在读取任何速率之前就被跳过）。可缩短长时间离开后的旅行。设为 false 恢复原版扫描。");
         var logCfg = config.Bind(
             "Performance", "LogCatchUpEquipmentScanHits", true,
             "Diagnostic for the catch-up equipment-scan skip (see "
@@ -35,7 +37,8 @@ internal static class CatchUpEquipmentScanSkip
             + "CharacterScreen.HasCardEquipped returns true for a card while GameManager.IsCatchingUp "
             + "is true: the one case where the skip would give the wrong answer. It can only observe "
             + "while CatchUpEquipmentScanSkip is false, since the skip answers before the scan runs. "
-            + "Cheap (one bool check per call; only logs on the rare unsafe case), safe to leave on.");
+            + "Cheap (one bool check per call; only logs on the rare unsafe case), safe to leave on.",
+            "补算装备扫描跳过的诊断（见 Documentation/Design/CatchUp_Performance_As_Built.md）。每当 GameManager.IsCatchingUp 为 true 时 CharacterScreen.HasCardEquipped 对某张卡返回 true，就记录一条 Info，这是跳过会给出错误答案的唯一情况。只有 CatchUpEquipmentScanSkip 为 false 时才能观察到，因为跳过会在扫描之前作答。开销很小（每次调用一次布尔检查，只在罕见的不安全情况下记录），可以一直开着。");
         _skipEnabled = skipCfg.Value;
         bool logHits = logCfg.Value;
         if (!_skipEnabled && !logHits) return;

@@ -58,7 +58,8 @@ internal static class WildlifeStuckDiagnostics
             "When true, watches live vanilla Bear/Wolf/WolfPack/PrimevalWolf agents and logs "
             + "how many consecutive DTP ticks each has stayed in the same environment. Used to "
             + "confirm and localize player reports of wildlife getting permanently stuck on "
-            + "mod-injected WorldMap trail nodes. Temporary diagnostic — no behavior is changed.");
+            + "mod-injected WorldMap trail nodes. Temporary diagnostic — no behavior is changed.",
+            "为 true 时，监视原版熊、狼、狼群和远古狼角色，记录每个角色连续停留在同一环境中的 DTP 时间刻数。用于确认和定位玩家报告的野生动物永久卡在模组添加的世界地图小径节点上的问题。临时诊断，不改变任何行为。");
 
         if (!_enabled.Value) return;
         if (_subscribed) return;

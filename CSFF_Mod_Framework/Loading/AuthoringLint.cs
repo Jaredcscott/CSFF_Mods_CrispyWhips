@@ -180,7 +180,8 @@ internal static class AuthoringLint
             "Scan the loaded mod JSON once at startup for shapes that load cleanly and then do nothing "
             + "(an out-of-range flavour Intensity, a bogus durability key, a flat drop list, another mod's "
             + "UniqueID in a structural field with no hard dependency on that mod, ...) and log "
-            + "one Warn line per affected mod. Silent when nothing is found; per-finding detail is Debug.");
+            + "one Warn line per affected mod. Silent when nothing is found; per-finding detail is Debug.",
+            "启动时扫描一次已加载的模组 JSON，查找能正常加载却不起作用的写法（超出范围的风味强度、无效的耐久度键、扁平的掉落列表、在结构字段中引用了未设为硬依赖的其他模组的 UniqueID 等），每个受影响的模组记录一条警告。没有发现问题时不输出；每项发现的详情为 Debug 级别。");
     }
 
     /// <summary>Called by <see cref="JsonDataLoader"/> when a non-UID ScriptableObject name another mod's file holds is replaced.</summary>

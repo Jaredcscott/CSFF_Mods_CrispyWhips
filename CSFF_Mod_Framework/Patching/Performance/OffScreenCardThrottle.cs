@@ -1,3 +1,4 @@
+using CSFFModFramework.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -58,12 +59,14 @@ internal static class OffScreenCardThrottle
             "Performance", "OffScreenCardThrottleEnabled", true,
             "Throttle InGameCardBase.LateUpdate for off-screen, non-animating cards. "
             + "Reduces per-frame cost on late-game saves with many placed improvements. "
-            + "Set false to disable if you observe visual glitches at screen edges.");
+            + "Set false to disable if you observe visual glitches at screen edges.",
+            "限制屏幕外、没有动画的卡牌的 InGameCardBase.LateUpdate 运行频率。在放置了许多环境改良的后期存档中降低每帧开销。如果在屏幕边缘看到显示异常，可设为 false 关闭。");
         var framesCfg = config.Bind(
             "Performance", "OffScreenCardThrottleFrames", 3,
             "Number of frames between LateUpdate runs for eligible off-screen cards. "
             + "2 = near-zero lag. 3 = default (balanced). 4+ = more savings, more lag. "
-            + "Clamped to [2, 10].");
+            + "Clamped to [2, 10].",
+            "符合条件的屏幕外卡牌每隔多少帧运行一次 LateUpdate。2 = 几乎没有延迟。3 = 默认（平衡）。4 及以上 = 更省，但延迟更明显。限制在 [2, 10] 之间。");
 
         _enabled = enabledCfg.Value;
         _throttleFrames = Mathf.Clamp(framesCfg.Value, 2, 10);
