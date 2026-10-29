@@ -46,6 +46,19 @@ namespace CommunityModChest.Patcher
 
         private static bool _initialized;
 
+        // One latch per cause (CLAUDE.md Silent Catch Blocks, G5).
+        private static readonly System.Collections.Generic.HashSet<string> _warned = new(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
+        }
+
+        /// <summary>Consecutive 5 s polls the season-seen stat may read unreadable before its one warning
+        /// (a run's first polls can miss while it boots).</summary>
+        private const int SeenUnreadablePollsBeforeWarning = 6;
+        private static int _seenUnreadablePolls;
+
         public static void Initialize()
         {
             if (_initialized) return;
@@ -65,10 +78,25 @@ namespace CommunityModChest.Patcher
                 if (season == 0) return; // unknown this frame: never fire or latch on a null
 
                 float seen = HiddenStat.Get(SeenStatUid);
-                if (seen < 0f) return;   // stat not readable yet
+                if (seen < 0f)           // stat not readable yet; warned if it stays that way
+                {
+                    if (++_seenUnreadablePolls == SeenUnreadablePollsBeforeWarning)
+                        WarnOnce("seen-unreadable", $"[VillageSeasonsPatch] {SeenStatUid} is not readable - no season beat fires until it is.");
+                    return;
+                }
+                _seenUnreadablePolls = 0;
 
+                // HiddenStat.Set reports a refused write at Debug only, so each failure here warns once; both are
+                // retried on the next poll (an unlatched season re-runs its beat).
                 if ((int)Math.Round(seen) != season && EnterSeason(season))
-                    HiddenStat.Set(SeenStatUid, season);
+                {
+                    if (!HiddenStat.Set(SeenStatUid, season))
+                        WarnOnce("seen-write", $"[VillageSeasonsPatch] {SeenStatUid} did not take {season} - the season's beat runs again every poll until it does.");
+                }
+                else if ((int)Math.Round(seen) != season)
+                {
+                    WarnOnce("beat-" + season, $"[VillageSeasonsPatch] Season {season}'s beat did not take one of its writes - retried every poll until it does.");
+                }
 
                 PublishSupperOpen();
             }
@@ -102,7 +130,11 @@ namespace CommunityModChest.Patcher
                 case 3: // Autumn: provisioning
                 {
                     float marker = HiddenStat.Get(ProvisionStateUid);
-                    if (marker < 0f) return false;
+                    if (marker < 0f)
+                    {
+                        WarnOnce("provision-unreadable", $"[VillageSeasonsPatch] {ProvisionStateUid} is not readable - the autumn provisioning errand is retried every poll until it is.");
+                        return false;
+                    }
                     // Offer only from rest: a delivery still awaiting thanks (0.5) is not clobbered.
                     if (marker < 0.25f && !HiddenStat.Set(ProvisionStateUid, 1f)) return false;
                     if (!HiddenStat.Set(ProvisionDoneUid, 0f)) return false;
@@ -130,7 +162,8 @@ namespace CommunityModChest.Patcher
 
             float hour = GameQuery.HourOfDay;
             float want = (armed >= 0.5f && hour >= SupperEveningFrom) ? 1f : 0f;
-            if (Math.Abs(open - want) > 0.01f) HiddenStat.Set(SupperOpenStatUid, want);
+            if (Math.Abs(open - want) > 0.01f && !HiddenStat.Set(SupperOpenStatUid, want))
+                WarnOnce("supper-open-write", $"[VillageSeasonsPatch] {SupperOpenStatUid} did not take {want} - the Snowed-In Supper button may show at the wrong hour.");
         }
 
         // GameQuery.CurrentSeason is a NAME (null until the season resolves); 0 = unknown this frame.
@@ -142,7 +175,7 @@ namespace CommunityModChest.Patcher
             if (season.Equals("Summer", StringComparison.OrdinalIgnoreCase)) return 2;
             if (season.Equals("Autumn", StringComparison.OrdinalIgnoreCase)) return 3;
             if (season.Equals("Winter", StringComparison.OrdinalIgnoreCase)) return 4;
-            Plugin.Logger.LogDebug($"[VillageSeasonsPatch] Unrecognized season name '{season}' - beat skipped this poll.");
+            WarnOnce("season-unrecognised", $"[VillageSeasonsPatch] Unrecognized season name '{season}' - no season beat fires while the game reports it.");
             return 0;
         }
     }

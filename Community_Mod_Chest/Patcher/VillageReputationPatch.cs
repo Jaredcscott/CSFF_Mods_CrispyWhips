@@ -116,6 +116,29 @@ namespace CommunityModChest.Patcher
         private const float ReputationMax = 100f;
 
         private static bool _initialized;
+
+        // One latch per cause (CLAUDE.md Silent Catch Blocks, G5).
+        private static readonly System.Collections.Generic.HashSet<string> _warned =
+            new System.Collections.Generic.HashSet<string>(StringComparer.Ordinal);
+
+        /// <summary>Consecutive in-run ticks the Reputation stat has not resolved. A run's first ticks can
+        /// legitimately miss while it boots, so the warning waits for this many (30 s) in a row.</summary>
+        private static int _unresolvedTicks;
+        private const int UnresolvedTicksBeforeWarn = 6;
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
+        }
+
+        /// <summary>A resolution miss: quiet outside a run and during its first ticks, one warning per cause
+        /// once it has lasted <see cref="UnresolvedTicksBeforeWarn"/> ticks inside a live run.</summary>
+        private static void NoteUnresolved(object gm, string cause, string message)
+        {
+            if (gm == null || GameQuery.CurrentDay <= 0) { _unresolvedTicks = 0; return; }
+            if (++_unresolvedTicks >= UnresolvedTicksBeforeWarn) WarnOnce(cause, message);
+        }
+
         private static Type _uidType;
         private static MethodInfo _getFromIdMethod;
         private static object _reputationStat;
@@ -194,12 +217,21 @@ namespace CommunityModChest.Patcher
         {
             try
             {
-                if (!ResolveTypes()) return;
                 var gm = CardUtil.GetGameManagerInstance();
+                if (!ResolveTypes())
+                {
+                    NoteUnresolved(gm, "types-unresolved", "[VillageReputationPatch] UniqueIDScriptable.GetFromID(string) not found - Village Reputation is not updated.");
+                    return;
+                }
                 if (gm == null) return;
 
                 var statInstance = ResolveStatInstance(gm);
-                if (statInstance == null) return;
+                if (statInstance == null)
+                {
+                    NoteUnresolved(gm, "stat-unresolved", $"[VillageReputationPatch] {ReputationStatUid} does not resolve in GameManager.StatsDict - Village Reputation is not updated.");
+                    return;
+                }
+                _unresolvedTicks = 0;
 
                 // Clamp the civic total to its old intended 0-100 cap BEFORE subtracting crime.
                 // The pre-merge Renown sum was never explicitly clamped (structures + all 6
@@ -210,15 +242,18 @@ namespace CommunityModChest.Patcher
                 float civicTotal = Math.Min(CivicTotalMax, Math.Max(0f, ComputeCivicTotal(gm)));
                 float crime = VillageCrimePatch.CurrentCrime();
                 float reputation = Math.Min(ReputationMax, Math.Max(ReputationMin, civicTotal - crime));
-                StatAccess.SetCurrentValue(statInstance, reputation);
+                if (!StatAccess.SetCurrentValue(statInstance, reputation))
+                    WarnOnce("reputation-write-failed", $"[VillageReputationPatch] {ReputationStatUid} did not take the write - Village Reputation stays at its saved value.");
 
                 // G1: the first time the net value reads its full mark, latch the monument as earned. Never
                 // cleared, so it is still owed if Reputation later falls; MonumentSeedPatch places it.
                 if (reputation >= ReputationMax && HiddenStat.Get(MonumentSeedPatch.EarnedStatUid) < 0.5f)
-                    HiddenStat.Set(MonumentSeedPatch.EarnedStatUid, 1f);
+                    if (!HiddenStat.Set(MonumentSeedPatch.EarnedStatUid, 1f))
+                        WarnOnce("monument-latch-failed", $"[VillageReputationPatch] {MonumentSeedPatch.EarnedStatUid} did not take the write - retried next tick while Reputation stays full.");
 
                 var hall = CardFinder.Find(VillageHallUid);
-                if (hall != null) CardUtil.SetDurability(hall, "SpecialDurability1", Math.Max(0f, reputation));
+                if (hall != null && !CardUtil.SetDurability(hall, "SpecialDurability1", Math.Max(0f, reputation)))
+                    WarnOnce("hall-bar-failed", "[VillageReputationPatch] The Village Hall's Reputation bar (SpecialDurability1) did not take the write - it shows a stale value.");
             }
             catch (Exception ex)
             {
@@ -291,7 +326,10 @@ namespace CommunityModChest.Patcher
 
             if (CardUtil.GetCachedField(gm.GetType(), "StatsDict")?.GetValue(gm) is not IDictionary statsDict) return false;
             if (!statsDict.Contains(_marketStallMilestoneStat)) return false;
-            StatAccess.SetCurrentValue(statsDict[_marketStallMilestoneStat], 1f);
+            // Counted this tick either way (the stall was seen over the mark); a failed latch is retried the next
+            // time the stall is in view.
+            if (!StatAccess.SetCurrentValue(statsDict[_marketStallMilestoneStat], 1f))
+                WarnOnce("stall-milestone-latch-failed", $"[VillageReputationPatch] {MarketStallMilestoneUid} did not take the write - the Market Stall milestone counts only while the stall is in view.");
             return true;
         }
 
@@ -300,12 +338,19 @@ namespace CommunityModChest.Patcher
         /// instance the same way <see cref="ResolveStatInstance"/> does for the main Reputation
         /// stat. Returns 0 if the stat is not yet registered/present so a missing or not-yet-
         /// built flag simply contributes nothing. Used for both the one-shot errand/commission
-        /// quest flags and the persistent structure-completion Chronicle stats.
+        /// quest flags and the persistent structure-completion Chronicle stats. Only reached once
+        /// the Reputation stat itself resolved in StatsDict, so a UID that GetFromID cannot find
+        /// here is a permanent fault (renamed or unshipped stat) and warns once; the StatsDict
+        /// paths stay quiet.
         /// </summary>
         private static float GetStatValue(object gm, ref object cachedStat, string uid)
         {
             cachedStat ??= _getFromIdMethod.Invoke(null, new object[] { uid });
-            if (cachedStat == null) return 0f;
+            if (cachedStat == null)
+            {
+                WarnOnce("stat-missing-" + uid, $"[VillageReputationPatch] GameStat {uid} does not exist - it adds nothing to Village Reputation.");
+                return 0f;
+            }
 
             if (CardUtil.GetCachedField(gm.GetType(), "StatsDict")?.GetValue(gm) is not IDictionary statsDict) return 0f;
             if (!statsDict.Contains(cachedStat)) return 0f;

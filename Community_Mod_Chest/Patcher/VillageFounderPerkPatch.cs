@@ -118,6 +118,19 @@ namespace CommunityModChest.Patcher
         private static MethodInfo _setStatValueFromEditorMethod;
         private static readonly Dictionary<string, object> _statCache = new(StringComparer.Ordinal);
 
+        // One latch per cause (CLAUDE.md Silent Catch Blocks, G5).
+        private static readonly HashSet<string> _warned = new(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
+        }
+
+        /// <summary>Consecutive TryApply ticks (3 s each, so 30 s) the applied latch may read unreadable
+        /// before its one warning: a run's first ticks can miss while it boots.</summary>
+        private const int AppliedUnreadableTicksBeforeWarning = 10;
+        private static int _appliedUnreadableTicks;
+
         public static void Initialize(Harmony harmony)
         {
             if (_initialized) return;
@@ -134,26 +147,42 @@ namespace CommunityModChest.Patcher
             try
             {
                 if (!CardUtil.IsPerkEquipped(PerkUid)) return;
-                if (!ResolveGetFromId()) return;
+                if (!ResolveGetFromId())
+                {
+                    WarnOnce("types-unresolved", "[VillageFounderPerkPatch] UniqueIDScriptable.GetFromID(string) not found - the Village Founder perk does not apply.");
+                    return;
+                }
 
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null) return;
 
-                if (ReadStat(gm, AppliedStatUid) >= 0.5f) return; // already applied this save
+                // An unreadable latch is "unknown", not "not applied": treating it as unset would re-stamp the
+                // quest chains, friendship and move-in timers every tick.
+                float applied = ReadStat(gm, AppliedStatUid);
+                if (applied < 0f)
+                {
+                    if (++_appliedUnreadableTicks >= AppliedUnreadableTicksBeforeWarning)
+                        WarnOnce("applied-unreadable", $"[VillageFounderPerkPatch] {AppliedStatUid} is not readable - the Village Founder perk waits until it is.");
+                    return;
+                }
+                _appliedUnreadableTicks = 0;
+                if (applied >= 0.5f) return; // already applied this save
 
                 foreach (var kvp in StatWrites)
                 {
                     float value = kvp.Value < 0f ? GameQuery.CurrentDay - 1 : kvp.Value;
                     if (!WriteStat(gm, kvp.Key, value))
-                        Plugin.Logger.LogWarning($"[VillageFounderPerkPatch] Could not write stat '{kvp.Key}' — perk may apply incompletely.");
+                        WarnOnce("apply-" + kvp.Key, $"[VillageFounderPerkPatch] Could not write stat '{kvp.Key}' - perk may apply incompletely.");
                 }
 
                 // Village clock epoch/week — back-dated so week-gated dialog reads as
                 // "long since introduced" rather than day zero (same fields VillageClock.Tick
                 // itself stamps on first observing phase >= 1).
                 int backdatedEpoch = Math.Max(1, GameQuery.CurrentDay - 13); // +1 unset-sentinel offset, same as VillageClock
-                WriteStat(gm, VillageEpochDayStatUid, backdatedEpoch);
-                WriteStat(gm, VillageWeekStatUid, 2f);
+                if (!WriteStat(gm, VillageEpochDayStatUid, backdatedEpoch))
+                    WarnOnce("apply-" + VillageEpochDayStatUid, $"[VillageFounderPerkPatch] Could not write stat '{VillageEpochDayStatUid}' - the village clock stamps its own epoch from today instead of back-dating it.");
+                if (!WriteStat(gm, VillageWeekStatUid, 2f))
+                    WarnOnce("apply-" + VillageWeekStatUid, $"[VillageFounderPerkPatch] Could not write stat '{VillageWeekStatUid}' - the village clock recomputes it on its next poll.");
 
                 // Structures are NOT placed here — SpawnService.Spawn targets the current
                 // board, and at apply time that is the run's starting location, not the
@@ -163,7 +192,7 @@ namespace CommunityModChest.Patcher
                 if (WriteStat(gm, AppliedStatUid, 1f))
                     Plugin.Logger.LogInfo("[VillageFounderPerkPatch] Village Founder perk applied — village fast-forwarded; buildings appear on first visit to the Village / Foraging Forest.");
                 else
-                    Plugin.Logger.LogWarning("[VillageFounderPerkPatch] AppliedStatUid write failed — will retry next tick; quest stats may be re-stamped until this resolves.");
+                    WarnOnce("applied-write-failed", $"[VillageFounderPerkPatch] {AppliedStatUid} write failed - retried next tick; quest stats are re-stamped until it takes.");
             }
             catch (Exception ex)
             {
@@ -207,8 +236,13 @@ namespace CommunityModChest.Patcher
                     }
                 }
 
-                if (allPlaced && WriteStat(gm, latchUid, 1f))
-                    Plugin.Logger.LogInfo($"[VillageFounderPerkPatch] Village Founder buildings placed at '{envUid}'.");
+                if (allPlaced)
+                {
+                    if (WriteStat(gm, latchUid, 1f))
+                        Plugin.Logger.LogInfo($"[VillageFounderPerkPatch] Village Founder buildings placed at '{envUid}'.");
+                    else
+                        WarnOnce("placed-latch-" + latchUid, $"[VillageFounderPerkPatch] {latchUid} write failed - a founder building the player takes down at '{envUid}' is placed again until it takes.");
+                }
             }
             catch (Exception ex)
             {
@@ -226,7 +260,11 @@ namespace CommunityModChest.Patcher
             try
             {
                 if (!CardUtil.IsPerkEquipped(PerkUid)) return;
-                if (!ResolveGetFromId() || !ResolveNpcStatMethods()) return;
+                if (!ResolveGetFromId() || !ResolveNpcStatMethods())
+                {
+                    WarnOnce("npc-methods-unresolved", "[VillageFounderPerkPatch] GetFromID or GameManager.FindNPC / InGameNPC.HasStat / GetStat / InGameNPCStat.SetStatValueFromEditor not found - the founder trust boost does not apply.");
+                    return;
+                }
 
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null) return;
@@ -238,13 +276,17 @@ namespace CommunityModChest.Patcher
 
                     var agentSo = StatRef(boost.AgentUid);
                     var npcStatSo = StatRef(boost.NpcStatUid);
-                    if (agentSo == null || npcStatSo == null) continue;
+                    if (agentSo == null || npcStatSo == null)
+                    {
+                        WarnOnce("trust-ref-missing-" + boost.AgentUid, $"[VillageFounderPerkPatch] {(agentSo == null ? boost.AgentUid : boost.NpcStatUid)} does not exist - that resident's founder trust boost never applies.");
+                        continue;
+                    }
 
                     object inGameNpc;
                     try { inGameNpc = _findNpcMethod.Invoke(gm, new object[] { agentSo }); }
                     catch (Exception ex)
                     {
-                        Plugin.Logger.LogDebug($"[VillageFounderPerkPatch] FindNPC invoke failed for agent={boost.AgentUid}: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                        WarnOnce("findnpc-" + boost.AgentUid, $"[VillageFounderPerkPatch] FindNPC invoke failed for agent={boost.AgentUid}: {ex.InnerException?.ToString() ?? ex.ToString()}");
                         continue;
                     }
                     if (inGameNpc == null) continue; // resident not spawned yet
@@ -253,7 +295,7 @@ namespace CommunityModChest.Patcher
                     try { hasStat = (bool)_hasStatMethod.Invoke(inGameNpc, new object[] { npcStatSo }); }
                     catch (Exception ex)
                     {
-                        Plugin.Logger.LogDebug($"[VillageFounderPerkPatch] HasStat invoke failed for npcStat={boost.NpcStatUid}: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                        WarnOnce("hasstat-" + boost.NpcStatUid, $"[VillageFounderPerkPatch] HasStat invoke failed for npcStat={boost.NpcStatUid}: {ex.InnerException?.ToString() ?? ex.ToString()}");
                         continue;
                     }
                     if (!hasStat) continue;
@@ -262,7 +304,7 @@ namespace CommunityModChest.Patcher
                     try { inGameNpcStat = _getStatMethod.Invoke(inGameNpc, new object[] { npcStatSo }); }
                     catch (Exception ex)
                     {
-                        Plugin.Logger.LogDebug($"[VillageFounderPerkPatch] GetStat invoke failed for npcStat={boost.NpcStatUid}: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                        WarnOnce("getstat-" + boost.NpcStatUid, $"[VillageFounderPerkPatch] GetStat invoke failed for npcStat={boost.NpcStatUid}: {ex.InnerException?.ToString() ?? ex.ToString()}");
                         continue;
                     }
                     if (inGameNpcStat == null) continue;
@@ -276,6 +318,8 @@ namespace CommunityModChest.Patcher
 
                     if (WriteStat(gm, boost.LatchUid, 1f))
                         Plugin.Logger.LogInfo($"[VillageFounderPerkPatch] Boosted '{boost.NpcStatUid}' to {TrustBoostValue} for '{boost.AgentUid}'.");
+                    else
+                        WarnOnce("trust-latch-" + boost.LatchUid, $"[VillageFounderPerkPatch] {boost.LatchUid} write failed - '{boost.NpcStatUid}' is set back to {TrustBoostValue} every tick until it takes.");
                 }
             }
             catch (Exception ex)
@@ -339,15 +383,23 @@ namespace CommunityModChest.Patcher
             return Reflect.GetMember(inGameStat, "SimpleCurrentValue") is float f ? f : -1f;
         }
 
+        /// <summary>False when the write did not take; a missing stat or a refused write also warns once per
+        /// stat (the same two permanent faults VillageClock.WriteStat reports). Boot-time StatsDict misses stay quiet.</summary>
         private static bool WriteStat(object gm, string uid, float value)
         {
             var stat = StatRef(uid);
-            if (stat == null) return false;
+            if (stat == null)
+            {
+                WarnOnce("stat-missing-" + uid, $"[VillageFounderPerkPatch] GameStat {uid} does not exist - it cannot be set.");
+                return false;
+            }
             if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return false;
             if (!statsDict.Contains(stat)) return false;
             var inGameStat = statsDict[stat];
             if (inGameStat == null) return false;
-            return Reflect.SetMember(inGameStat, "CurrentBaseValue", value);
+            if (Reflect.SetMember(inGameStat, "CurrentBaseValue", value)) return true;
+            WarnOnce("write-failed-" + uid, $"[VillageFounderPerkPatch] {uid} did not take the write of {value}.");
+            return false;
         }
 
         private static bool CardExistsAnywhere(object gm, string uid) => FindLiveCard(gm, uid) != null;

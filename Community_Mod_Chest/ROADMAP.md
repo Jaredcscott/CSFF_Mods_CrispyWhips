@@ -1,6 +1,6 @@
 # Roadmap: Community Mod Chest
-Version at time of writing: 1.69.22
-Date: 2026-10-23
+Version at time of writing: 1.69.24
+Date: 2026-10-27
 Audit score: 10/10 - PASS (0 CRITICAL)
 
 ## Current State
@@ -9,9 +9,9 @@ Audit score: 10/10 - PASS (0 CRITICAL)
 
 **Content**: 117 items / 108 blueprints / 97 locations / 9 CT4 environments / 7 CT10 improvements / 60 perks / 256 custom images / 363 GameStats / 95 C# patcher files.
 
-**Stability**: 10/10 - 0 CRITICAL (3 X1 cross-mod refs are HIDE/STRIP-covered), 0 open Design Gap, 2 counted low WARNING (both in the academy module: G5 partial silent-fail-closed on the Professor NPCStat path, G2 stale LogDebug diagnostics; 2 < the 5-warning dock, so the mod stays 10/10 while the academy module itself is 9/10). K33 x4 and A10 diagnostics are by design; 1 open MINOR (S-M2, documentation scope). 13 of 15 modules SOLID with zero open findings.
+**Stability**: 10/10 - 0 CRITICAL (3 X1 cross-mod refs are HIDE/STRIP-covered), 0 open Design Gap, 4 counted low WARNING (civic `VillageReputationPatch`/`VillageClock` and inn `InnKeeperDialogSchedulePatch`: silent fail-closed stat read/write exits; 4 < the 5-warning dock, so the mod stays 10/10 while the civic and inn modules themselves are each 10/10). The academy module's two prior warnings (G5 diploma-latch key, G2 stale diagnostics) are closed in source and it is back to 10/10. K33 x4 and A10 diagnostics are by design; 1 open MINOR (S-M2, documentation scope). 13 of 15 modules SOLID with zero open findings.
 
-**Open work**: No red retrospectives. 3 CMC-scoped yellow Pending Verification rows, each needing a live in-game confirmation rather than code: `cmc-guard-combat-no-damage` (law), `cmc-village-hearth-fuel-not-refilling` (civic/academy), `guard-kill-despawn` (law). Plus the two academy code-quality warnings (Phase 1).
+**Open work**: No red retrospectives. 2 CMC-scoped yellow Pending Verification rows, each needing a live in-game confirmation rather than code: `cmc-guard-combat-no-damage` (law, T4.35), `guard-kill-despawn` (law, not re-verified since 1.54.3). Plus the four civic/inn code-quality warnings (Phase 1). `cmc-village-hearth-fuel-not-refilling` and `CMC-HSP-compat` graduated since the last roadmap.
 
 **Framework compliance**: Tier 2. ~72 C# files use `ActionRouter` / `SpawnService` / `TickEvents` / `ContentModPlugin`. `ContentModPlugin` base with `SoftDependency` and per-patch `TryApply` (no `PatchAll`), no ModCore/ModLoader/Pikachu dependency, no deprecated `DropCollectionGuardPatch`, no unfiltered hot-path prefixes. Already on the proven H&F architecture.
 
@@ -19,20 +19,21 @@ Audit score: 10/10 - PASS (0 CRITICAL)
 
 ## Phase 0: Stabilize  *(skipped - audit score 10/10, no red retrospectives)*
 
-No blocking work. The 3 yellow retros are human-verification debt, not code defects; they live in the playthrough tracker, not a code phase.
+No blocking work. The 2 yellow retros are human-verification debt, not code defects; they live in the playthrough tracker, not a code phase.
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes maintenance. The two academy warnings are the only live code items; the rest are satisfied and listed for the maintenance record.
+> Table-stakes maintenance. The four civic/inn G5 breadcrumbs are the only live code items; the rest are satisfied and listed for the maintenance record.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **Academy G5**: add a `WarnOnce(uid, ...)` breadcrumb at `ProfessorSchedulePatch.ResolveNpcStat` null return (`:419-425`) and the `SetNpcStatValue` dict-miss early returns (`:1286-1291`). `1845281bc` closed the `FireAgentAction` + method-resolution halves; this is the half the code-quality report named that it did not reach (module history T2.993 is this exact silent-write class) | Reliability | P1 | Quick |
-| **Academy G2**: resolve the three "demote once confirmed" diagnostics still at `LogDebug` (`AcademyPatch.cs:607`, `ProfessorSchedulePatch.cs:894`, `:942`) - delete if the investigation is closed, or raise to `LogInfo` until confirmed; keep in step with any retro naming the line | Maintainability | P1 | Quick |
-| Versions synced across ModInfo/Plugin.cs/README (1.69.22 x3) | Version hygiene | - | Done |
-| Chinese localization parity (CLEAN 3442/3442) | Localization | - | Done |
+| **Civic G5 x2**: add a `WarnOnce(uid, ...)` breadcrumb at `VillageReputationPatch.GetStatValue` unresolved return (`:343`) and at each of `VillageClock.WriteStat`'s five silent failure exits (`:221`). Same silent-fail-closed class the academy module just closed | Reliability | P1 | Quick |
+| **Inn G5 x2**: breadcrumb `InnKeeperDialogSchedulePatch.ResolveTypes` miss (`:86`) and the `ReadStat` unresolved/dict-miss return (`:155`). The 1.69.24 pass hardened other inn write sites but left these read/resolve exits silent | Reliability | P1 | Quick |
+| ~~Academy G5 / G2~~ | Reliability/Maintainability | - | Done: `deb65a230` (diploma-latch own key), `3fcb41fd9`/`feeed34cd` (write checks), `34eed4b10` (August diagnostics deleted); academy module 10/10 |
+| Versions synced across ModInfo/Plugin.cs/README (1.69.24 x3) | Version hygiene | - | Done |
+| Chinese localization parity (CLEAN 3442+/3442+) | Localization | - | Done |
 | Framework Tier 2 adoption (~72 C# files) | Framework | - | Done |
 | Unquoted-internal-comma detection | Localization hardening | - | Done: `Check-LocalizationParity.ps1` row E24 |
 
@@ -43,7 +44,7 @@ No blocking work. The 3 yellow retros are human-verification debt, not code defe
 > CMC is already very broad; there is no obvious core-loop gap. Expansion should be demand-driven (new community suggestions), not invented here.
 
 ### Refresh the remaining domain sub-audits
-**What**: `items-report` and `perks-report` were fully re-run 2026-10-20 (both 0 CRITICAL / 0 WARNING / 0 Design Gaps). The blueprints, structures, environments and images reports still date 2026-09-05 to 2026-09-12 and the feature map to v1.68.16; all predate the latest source commit (`1845281bc`, 2026-10-23). Re-run `/audit-blueprints`, `/audit-structures`, `/audit-environments`, `/audit-images` and `/feature-map Community_Mod_Chest`, then `/consolidate-audit Community_Mod_Chest`.
+**What**: `items-report` and `perks-report` were fully re-run 2026-10-20 (both 0 CRITICAL / 0 WARNING / 0 Design Gaps). The blueprints, structures, environments and images reports still date 2026-09-05 to 2026-09-12 and the feature map to v1.68.16; all predate the latest source commit (`4565f8d609`, CMC 1.69.24). Re-run `/audit-blueprints`, `/audit-structures`, `/audit-environments`, `/audit-images` and `/feature-map Community_Mod_Chest`, then `/consolidate-audit Community_Mod_Chest`.
 **Why**: every finding they carry was re-checked by hand and none is open but S-M2, so the reports over-report; `/audit-structures` also replaces S-M2's out-of-date tag table.
 **Requires**: none.
 **Complexity**: Medium.
@@ -55,7 +56,7 @@ No blocking work. The 3 yellow retros are human-verification debt, not code defe
 > Cross-mod interop is already wired and HIDE-gated; depth here is maintenance, not new build.
 
 ### Keep the four interop partners healthy
-**What**: HerbsAndFungi (hemp, Inn foods), Sirus23 (wool apparel, Inn cheese), AdvancedCopperTools (Inn teas), DurosCoinage (Market Stall coins). Each foreign UID is HIDE/STRIP-gated per `Interop_Registry.md` (`Patcher/AcademyCourseService.cs`) and re-arms if the partner installs later.
+**What**: HerbsAndFungi (hemp, Inn foods), Sirus23 (wool apparel, Inn cheese), AdvancedCopperTools (Inn teas, Armorer course grants five ACT armor recipes), DurosCoinage (Market Stall coins). Each foreign UID is HIDE/STRIP-gated per `Interop_Registry.md` (`Patcher/AcademyCourseService.cs`) and re-arms if the partner installs later.
 **Why**: a partner-mod data rename silently breaks the gated content; the X1 preflight pins (`Preflight-CrossModRefs.Tests.ps1:51-53`) catch structural drift.
 **Requires**: coordination with each partner mod's release.
 **Complexity**: Medium (only when a partner changes).
@@ -68,11 +69,11 @@ No blocking work. The 3 yellow retros are human-verification debt, not code defe
 
 | Item | What | Complexity |
 |------|------|------------|
-| Verify the 3 yellow retros in-game | Guard-combat damage (T4.35), village-hearth refuel (Academy/Village Hall visit), guard-kill despawn; results recorded via `/playthrough-test-plan record` | Medium (human) |
+| Verify the 2 yellow retros in-game | Guard-combat damage (T4.35), guard-kill despawn; results recorded via `/playthrough-test-plan record` | Medium (human) |
 | S-M2 tag-vocabulary scope line | Next `/audit-structures` pass writes the measured non-vanilla tag counts (2026-10-20: `tag_Structure` 65, `tag_Furniture` 17, `tag_Wood` 2, `tag_x_WaterSource` 2 across CT2/CT10). Documentation only; the tags stay | Quick |
 | ~~Village Hall README cost~~ | Resolved at HEAD (`README.md:124` now states the full 7-stage total) | Done |
+| ~~Academy warnings~~ | G5 + G2 closed in source; academy module 10/10 | Done |
 | ~~Perk description CSV/JSON alignment~~ | Resolved (P-F1, 1.68.35 onward) | Done |
-| ~~Item authoring consistency~~ | I2/I4/I6 adjudicated 2026-10-20 (inert or resolved) | Done |
 
 ---
 
@@ -80,7 +81,7 @@ No blocking work. The 3 yellow retros are human-verification debt, not code defe
 
 > Where CMC should be at v1.70+.
 
-CMC is a stable, mature content-and-simulation anchor for the fleet - in active-workspace maintenance, not feature expansion. Its natural endpoint is a village simulation whose every advertised loop is confirmed in-game, with the retro backlog closed, the two academy warnings cleared, and the domain sub-audits refreshed. The biggest justified future work is retiring the diagnostic logging (`GuardCombatDiagnosticPatch`, `CompanionFollowDiagnostics`) once their open retros confirm.
+CMC is a stable, mature content-and-simulation anchor for the fleet - in active-workspace maintenance, not feature expansion. Its natural endpoint is a village simulation whose every advertised loop is confirmed in-game, with the retro backlog closed, the civic/inn reliability breadcrumbs added, and the domain sub-audits refreshed. The biggest justified future work is retiring the diagnostic logging (`GuardCombatDiagnosticPatch`, `CompanionFollowDiagnostics`) once their open retros confirm.
 
 **Potential major additions** (not yet justified - revisit after the retro backlog closes):
 - A declarative `Modifiers.json` / `FlavourMatrix` pass if community suggestions call for food-synergy depth - fits the Inn/cooking theme.
@@ -112,7 +113,7 @@ Anything worth building belongs in a `Documentation/Plans/Community_Mod_Chest/MA
 /repair-blueprints Community_Mod_Chest  - auto-fix blueprint JSON issues
 /build-mod Community_Mod_Chest          - build Release DLL
 /deploy-mods Community_Mod_Chest        - build + deploy to game
-/playthrough-test-plan                  - file/record the 3 yellow-retro checks
+/playthrough-test-plan                  - file/record the 2 yellow-retro checks
 /export-to-repo Community_Mod_Chest     - push to public repo
 ```
 

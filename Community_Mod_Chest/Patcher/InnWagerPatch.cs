@@ -415,7 +415,12 @@ namespace CommunityModChest.Patcher
         {
             try
             {
-                bool exhausted = ctx.Tag is float stamina && stamina >= 0f && stamina < ExhaustedBelow;
+                // Stamina captured in the Before step, before the bout's own 8-Stamina cost. An unreadable capture
+                // (-1) counts as not exhausted, the odds' upper side, and says so once.
+                bool staminaRead = ctx.Tag is float stamina && stamina >= 0f;
+                if (!staminaRead)
+                    WarnOnce("odds-" + StaminaStatUid, "[InnWagerPatch] Stamina is not readable - the exhausted penalty is not applied.");
+                bool exhausted = staminaRead && (float)ctx.Tag < ExhaustedBelow;
                 float fitness = ReadForOdds(FitnessStatUid, "Fitness");
                 SettleGame(ctx, ArmWinChance(fitness, exhausted), ArmWinKey, ArmLoseKey, exhausted ? "Arm wrestle (exhausted)" : "Arm wrestle");
             }

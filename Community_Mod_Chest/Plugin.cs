@@ -24,7 +24,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.69.22";
+    public const string PluginVersion = "1.69.25";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }
@@ -209,8 +209,9 @@ internal class Plugin : ContentModPlugin
         // "Outfit 1/2/3" labels on the wardrobe's inventory grid — see file header for why
         // this was needed (the 54-slot grid gave no visual cue where each outfit's slots were).
         TryApply("OutfitWardrobeSectionsPatch", () => OutfitWardrobeSectionsPatch.ApplyPatch(harmony));
-        // Graduate perk — grants all 6 Academy graduate perks + backfills Lecture Hall
-        // course progress, independent of Village Founder (split 2026-07-23).
+        // Graduate perk — every Academy course takes half its sessions (and half its tuition)
+        // while held; see GraduatePerkPatch.cs header for the pre-1.69.17 grant-all behavior this
+        // replaced (vanilla balance pass, plan Part II row 3.3.2).
         TryApply("GraduatePerkPatch", () => GraduatePerkPatch.Initialize(harmony));
         TryApply("ProfessorSchedulePatch", () => ProfessorSchedulePatch.Initialize(harmony));
         // The Potter (round 2 H6): a lodger at the Inn who works the market corner on market day.

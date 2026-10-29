@@ -93,9 +93,10 @@ namespace CommunityModChest.Patcher
                 if (HasPreReworkEvidence(gm))
                 {
                     // Already has real interaction history — skip both the intro AND the
-                    // trait-welcome stand-in line; nothing to introduce.
-                    WriteStat(gm, PhaseStatUid, 1f);
-                    WriteStat(gm, TraitWelcomeGivenStatUid, 1f);
+                    // trait-welcome stand-in line; nothing to introduce. The latch goes first: once
+                    // phase reads 1 this branch never runs again, so a latch written after it is never retried.
+                    if (!WriteStat(gm, TraitWelcomeGivenStatUid, 1f)) return;
+                    if (!WriteStat(gm, PhaseStatUid, 1f)) return;
                     phase = 1f;
                     Plugin.Logger.LogInfo("[VillageClock] Intro waived (pre-rework village progress) — phase backfilled to 1.");
                 }
@@ -105,7 +106,7 @@ namespace CommunityModChest.Patcher
                     // actually met the Inn Keeper — leave TraitWelcomeGivenStatUid unset so
                     // CMC_InnKeeperTalk_TraitWelcome fires on their first Talk instead of
                     // landing cold on whatever week/errand line the phase gate opens next.
-                    WriteStat(gm, PhaseStatUid, 1f);
+                    if (!WriteStat(gm, PhaseStatUid, 1f)) return;
                     phase = 1f;
                     Plugin.Logger.LogInfo("[VillageClock] Intro waived (Village Inn trait) — phase backfilled to 1, trait welcome pending.");
                 }
@@ -117,13 +118,13 @@ namespace CommunityModChest.Patcher
             float epoch = ReadStat(gm, EpochDayStatUid);
             if (epoch >= 0f && epoch < 0.5f)
             {
-                epoch = GameQuery.CurrentDay + 1;
-                WriteStat(gm, EpochDayStatUid, epoch);
-
                 // Step backfill: a save that already has the Well Plans heard both onboarding
-                // beats in the pre-clock ordering — don't replay them.
-                if (ReadStat(gm, WellPlansGivenStatUid) >= 0.5f)
-                    WriteStat(gm, OnboardStepStatUid, 2f);
+                // beats in the pre-clock ordering: don't replay them. Before the epoch stamp, which ends
+                // this branch for good, so a failed step write is retried next poll.
+                if (ReadStat(gm, WellPlansGivenStatUid) >= 0.5f && !WriteStat(gm, OnboardStepStatUid, 2f)) return;
+
+                epoch = GameQuery.CurrentDay + 1;
+                if (!WriteStat(gm, EpochDayStatUid, epoch)) return; // not stamped: no week yet, retried next poll
 
                 Plugin.Logger.LogInfo($"[VillageClock] Village epoch stamped: day {GameQuery.CurrentDay} (stat {epoch}).");
             }
@@ -133,7 +134,7 @@ namespace CommunityModChest.Patcher
             int week = WeekFromEpoch(epoch);
             float storedWeek = ReadStat(gm, WeekStatUid);
             if (storedWeek >= 0f && (int)Math.Round(storedWeek) != week)
-                WriteStat(gm, WeekStatUid, week);
+                WriteStat(gm, WeekStatUid, week); // warns once itself; recomputed every poll
         }
 
         // ── Queries for other patchers ────────────────────────────────────────────
@@ -218,15 +219,32 @@ namespace CommunityModChest.Patcher
             return Reflect.GetMember(inGameStat, "SimpleCurrentValue") is float f ? f : -1f;
         }
 
-        internal static void WriteStat(object gm, string uid, float value)
+        /// <summary>Sets a player GameStat's base value; false when it did not take. The two permanent
+        /// faults (no such stat, the write refused) warn once per stat; the StatsDict misses a run's
+        /// boot can produce stay quiet, and Tick retries on the next poll either way.</summary>
+        internal static bool WriteStat(object gm, string uid, float value)
         {
             var stat = StatRef(uid);
-            if (stat == null) return;
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return;
-            if (!statsDict.Contains(stat)) return;
+            if (stat == null)
+            {
+                WarnOnce("stat-missing-" + uid, $"[VillageClock] GameStat {uid} does not exist - the village clock cannot set it.");
+                return false;
+            }
+            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return false;
+            if (!statsDict.Contains(stat)) return false;
             var inGameStat = statsDict[stat];
-            if (inGameStat == null) return;
-            Reflect.SetMember(inGameStat, "CurrentBaseValue", value);
+            if (inGameStat == null) return false;
+            if (Reflect.SetMember(inGameStat, "CurrentBaseValue", value)) return true;
+            WarnOnce("write-failed-" + uid, $"[VillageClock] {uid} did not take the write of {value} - retried every poll.");
+            return false;
+        }
+
+        // One latch per cause (CLAUDE.md Silent Catch Blocks, G5).
+        private static readonly HashSet<string> _warned = new(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
         }
     }
 }

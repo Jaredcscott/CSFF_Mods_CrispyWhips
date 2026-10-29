@@ -142,6 +142,11 @@ namespace CommunityModChest.Patcher
         // One latch per cause (CLAUDE.md Silent Catch Blocks, G5).
         private static readonly HashSet<string> _warned = new HashSet<string>(StringComparer.Ordinal);
 
+        /// <summary>Consecutive TryConsume calls that found the pool unreadable; the warning waits for a few
+        /// in a row inside a run, since the pool can miss for a moment while a run boots.</summary>
+        private const int PoolUnreadableCallsBeforeWarning = 3;
+        private static int _poolUnreadableCalls;
+
         private static void WarnOnce(string cause, string message)
         {
             if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
@@ -249,9 +254,12 @@ namespace CommunityModChest.Patcher
                 float pool = ReadPool(gm);
                 if (pool < 0f)
                 {
-                    Plugin.Logger.LogDebug($"[TownWoodPilePatch] Pool unreadable — allowing '{reason}' rather than freezing the hearths.");
+                    // Fail open (never freeze the hearths), but a pool that stays unreadable tends them for free.
+                    if (GameQuery.CurrentDay > 0 && ++_poolUnreadableCalls == PoolUnreadableCallsBeforeWarning)
+                        WarnOnce("pool-unreadable", $"[TownWoodPilePatch] The wood pool is not readable - '{reason}' and every later hearth refill are allowed for free until it is.");
                     return true; // fail open
                 }
+                _poolUnreadableCalls = 0;
 
                 if (pool < amount)
                 {
@@ -259,7 +267,13 @@ namespace CommunityModChest.Patcher
                     return false;
                 }
 
-                WritePool(gm, pool - amount);
+                if (!WritePool(gm, pool - amount))
+                {
+                    // Still fail open, like an unreadable pool: the hearth is tended, but the log no
+                    // longer claims a debit that did not happen.
+                    WarnOnce("pool-debit-failed", $"[TownWoodPilePatch] {FuelStatUid} did not take the write - '{reason}' was tended without spending the Wood Stockpile.");
+                    return true;
+                }
                 SyncCardBar(gm, pool - amount);
                 // Info: fires only on an actual debit, which is at most once per hearth per drain
                 // cycle, so it cannot flood. This is the line that proves the pool is really being
@@ -326,7 +340,11 @@ namespace CommunityModChest.Patcher
                 }
 
                 float updated = Mathf.Min(pool + value, PoolMax);
-                WritePool(gm, updated);
+                if (!WritePool(gm, updated))
+                {
+                    WarnOnce("pool-credit-failed", $"[TownWoodPilePatch] {FuelStatUid} did not take the write - stocked fuel was NOT credited and earned no pay.");
+                    return;
+                }
                 SyncCardBar(gm, updated);
 
                 CreditPay(ctx.Card, value);
@@ -547,14 +565,15 @@ namespace CommunityModChest.Patcher
             return float.IsNaN(value) ? -1f : value;
         }
 
-        private static void WriteStat(object gm, string statUid, float value, float min, float max)
+        /// <summary>False when the stat does not resolve or does not take the write; callers decide what that costs.</summary>
+        private static bool WriteStat(object gm, string statUid, float value, float min, float max)
         {
             var instance = ResolveStatInstance(gm, statUid);
-            if (instance != null) StatAccess.SetCurrentValue(instance, Mathf.Clamp(value, min, max));
+            return instance != null && StatAccess.SetCurrentValue(instance, Mathf.Clamp(value, min, max));
         }
 
         private static float ReadPool(object gm) => ReadStat(gm, FuelStatUid);
 
-        private static void WritePool(object gm, float value) => WriteStat(gm, FuelStatUid, value, 0f, PoolMax);
+        private static bool WritePool(object gm, float value) => WriteStat(gm, FuelStatUid, value, 0f, PoolMax);
     }
 }

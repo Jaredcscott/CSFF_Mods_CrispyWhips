@@ -99,6 +99,15 @@ namespace CommunityModChest.Patcher
         private const string FuelStat = "FuelCapacity";
 
         private static bool _initialized;
+
+        // One latch per cause (CLAUDE.md Silent Catch Blocks, G5).
+        private static readonly System.Collections.Generic.HashSet<string> _warned =
+            new System.Collections.Generic.HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
+        }
         private static string _lastPolledEnvUid;
         private static int _pollAttempts;
         private static bool _pollSettled;
@@ -256,10 +265,19 @@ namespace CommunityModChest.Patcher
             float max = CardUtil.GetDurabilityMax(card, FuelStat);
             float currentRaw = CardUtil.GetDurability(card, FuelStat);
             Plugin.Logger.LogDebug($"[VillageFireplacePatch] TopOffIfLow('{envUid}'): max={max}, current={currentRaw}, threshold={(float.IsNaN(max) ? -1f : max * RefillThresholdFraction):0}");
-            if (float.IsNaN(max) || max <= 0f) return;
+            if (float.IsNaN(max) || max <= 0f)
+            {
+                WarnOnce("fuel-max-unreadable-" + envUid, $"[VillageFireplacePatch] The hearth at '{envUid}' has no readable {FuelStat} maximum - it is not topped off.");
+                return;
+            }
 
             float current = currentRaw;
-            if (float.IsNaN(current) || current > max * RefillThresholdFraction) return;
+            if (float.IsNaN(current))
+            {
+                WarnOnce("fuel-unreadable-" + envUid, $"[VillageFireplacePatch] The hearth at '{envUid}' has no readable {FuelStat} - it is not topped off.");
+                return;
+            }
+            if (current > max * RefillThresholdFraction) return;
 
             // DEAD-ON-ARRIVAL SPAWN (CMC 1.68.13 bugfix — see
             // Documentation/Retrospectives/cmc-village-hearth-fuel-not-refilling.md): vanilla

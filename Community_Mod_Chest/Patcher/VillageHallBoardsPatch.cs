@@ -10,6 +10,15 @@ namespace CommunityModChest.Patcher
 {
     internal static class VillageHallBoardsPatch
     {
+        // One latch per cause (CLAUDE.md Silent Catch Blocks, G5): a board that fails to build hides its
+        // readout or its buttons from the player, so it is a Warning, not a Debug line.
+        private static readonly HashSet<string> _warned = new HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
+        }
+
         // Live status readout appended under each board's notices (descriptive tier + number).
         // Friendship reads the NPC's player-side stat (Inn Keeper: cmcStatInnFriendship;
         // Miller/Weaver/Apothecary/Professor: the QuestChainSchedulePatch trust mirror, which
@@ -394,7 +403,7 @@ namespace CommunityModChest.Patcher
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogDebug($"[VillageHallBoardsPatch] Failed to build status lines for '{boardUid}': {ex.InnerException?.ToString() ?? ex.ToString()}");
+                WarnOnce("status-lines-" + boardUid, $"[VillageHallBoardsPatch] Failed to build status lines for '{boardUid}' (the board shows no status readout): {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -469,7 +478,7 @@ namespace CommunityModChest.Patcher
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogDebug($"[VillageHallBoardsPatch] Failed to build achievement board sections: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                WarnOnce("achievement-sections", $"[VillageHallBoardsPatch] Failed to build achievement board sections (the board shows none): {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -647,7 +656,7 @@ namespace CommunityModChest.Patcher
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogDebug($"[VillageHallBoardsPatch] Failed to evaluate board action visibility on '{card?.CardModel?.UniqueID}': {ex.InnerException?.ToString() ?? ex.ToString()}");
+                WarnOnce("action-visibility-" + card?.CardModel?.UniqueID, $"[VillageHallBoardsPatch] Failed to evaluate board action visibility on '{card?.CardModel?.UniqueID}' (the action is hidden): {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }

@@ -1,6 +1,6 @@
 # Community Mod Chest
 
-**Version:** 1.69.22
+**Version:** 1.69.25
 
 **Language:** English, Simplified Chinese
 
@@ -114,7 +114,7 @@ Twelve explorable locations east of the River Clearing. Build the **River Bridge
   - **Carpentry** unlocks the decor above, a **Wicker Chair**, a **Training Post** (2 Planks, 2 Rope, 2 Stones; Practice Strikes: an hour for Melee Fighting +2 and Stamina -10, once a day) and the **Outfit Wardrobe** (three 18-slot sections; use **Equip Outfit N** to change a whole outfit at once), and the graduate counts Woodworking 15 higher.
   - Metallurgy's two sheets, the Architecture mills and the Armorer armor are only handed over early and stay in normal research for everyone else; every other blueprint above stays locked until its course is passed. An older save may hold the retired Carpentry Bench: its **Transfer to Lecture Hall** moves its balance and hours to the lectern.
   - **Sit In and Study Alone** at the Academy: when the Miller, Weaver, Apothecary or Professor is there with you, **Sit In** gives two hours of listening for +3 to that resident's craft (Cooking, Weaving, Herbalism, Insight), once a week each. The **Academy Bookshelf** offers **Study Alone** (+1 Insight, once a day).
-- **Market Stall:** a kit of 6 Planks, 4 Small Cloth, 6 Rope and a Storage Chest (ACT's Copper Chest also fits). Research it with a Storage Chest on hand. Set it up only in the Village. One item sells each day you spend in the Village with it. Sales build Sales Revenue, which you collect as copper nuggets (250 each), salt (15 each) or, with DurosCoinage, coins.
+- **Market Stall:** a kit of 6 Planks, 4 Small Cloth, 6 Rope and a Storage Chest (ACT's Copper Chest also fits). Research it with a Storage Chest on hand. Set it up only in the Village. One item sells each day you spend in the Village with it. Sales build Sales Revenue, which you collect as copper nuggets (250 each), salt (15 each) or, with DurosCoinage, coins. It stops selling while the bar has no room for the next sale, so a full stall keeps its stock.
   - The daily sale gets a Reputation bonus growing to +25% at full Reputation, halved while Banished. A stall has a 5% chance of being robbed every 7 such days (down to 1% with Luck 36); the count survives a relaunch.
   - **Report the Theft:** after a robbery, choose it in Talk with any guard. About three days later the item comes back half the time, in the Village (not the stall), otherwise nothing is found.
   - **Set Up Awning** and **Take Down Awning** toggle a free cosmetic look. **Pack Up Stall** hands back the kit (not yet confirmed in game).
@@ -236,4 +236,4 @@ Full history is in `CHANGELOG.md`.
 
 ## Install
 
-Copy the mod folder into `BepInEx/plugins/Community_Mod_Chest/`, with `Community_Mod_Chest.dll` inside it. A clean load logs `Community Mod Chest v1.69.22 loaded.`
+Copy the mod folder into `BepInEx/plugins/Community_Mod_Chest/`, with `Community_Mod_Chest.dll` inside it. A clean load logs `Community Mod Chest v1.69.25 loaded.`

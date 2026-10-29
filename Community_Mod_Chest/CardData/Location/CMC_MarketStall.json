@@ -7,7 +7,7 @@
     "LocalizationKey": "CMC_MarketStall_CardName"
   },
   "CardDescription": {
-    "DefaultText": "A small trading post set up in the village. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar (more as Village Reputation grows and less while you are Banished). Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each), or, with DurosCoinage installed, Duros coins. Thieves occasionally target unattended stalls.",
+    "DefaultText": "A small trading post set up in the village. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar (more as Village Reputation grows and less while you are Banished). Collect earnings as copper nuggets (250 revenue each) or salt (15 revenue each), or, with DurosCoinage installed, Duros coins. Merchants stop buying once the bar has no room for the next sale, so collect regularly. Thieves occasionally target unattended stalls.",
     "LocalizationKey": "CMC_MarketStall_CardDesc"
   },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },

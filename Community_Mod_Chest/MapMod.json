@@ -1,5 +1,6 @@
 {
   "WorldName": "Village",
+  "WorldNameKey": "CMC_Village_CardName",
   "EnvironmentUID": "cmcEnvVillage",
   "SacredSiteUID": "cmcLocVillage"
 }

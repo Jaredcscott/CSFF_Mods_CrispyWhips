@@ -7,7 +7,7 @@
     "LocalizationKey": "CMC_TownWoodPile_CardName"
   },
   "CardDescription": {
-    "DefaultText": "The village's communal fuel stack, kept beside the square. Drag twigs, long sticks, wood or firewood onto it to add to the Wood Stockpile. The hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin all tend themselves from this pile - when it runs dry they stop being tended and burn down, though any of them can still be fed and lit by hand like any other fireplace. The village also keeps a running Player's Pay balance for what you've fed in, built at the same rate as the Wood Stockpile; withdraw it any time as copper nuggets (50 pay each) or salt (30 pay each) with Collect as Copper/Collect as Salt - a reward for the fuel you contributed that never draws against what the hearths need.",
+    "DefaultText": "The village's communal fuel stack, kept beside the square. Drag twigs, long sticks, wood or firewood onto it to add to the Wood Stockpile. The hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin all tend themselves from this pile - when it runs dry they stop being tended and burn down, though any of them can still be fed and lit by hand like any other fireplace. The village also keeps a running Player's Pay balance for what you've fed in, built at the same rate as the Wood Stockpile; withdraw it any time as copper nuggets (250 pay each) or salt (15 pay each) with Collect as Copper/Collect as Salt - a reward for the fuel you contributed that never draws against what the hearths need.",
     "LocalizationKey": "CMC_TownWoodPile_CardDesc"
   },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
@@ -102,7 +102,7 @@
         "LocalizationKey": "CMC_TownWoodPile_DA_CollectCopper"
       },
       "ActionDescription": {
-        "DefaultText": "Withdraw your Player's Pay balance as copper nuggets, 50 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on.",
+        "DefaultText": "Withdraw your Player's Pay balance as copper nuggets, 250 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on.",
         "LocalizationKey": "CMC_TownWoodPile_DA_CollectCopper_Desc"
       },
       "DaytimeCost": 0,
@@ -120,7 +120,7 @@
         "LocalizationKey": "CMC_TownWoodPile_DA_CollectSalt"
       },
       "ActionDescription": {
-        "DefaultText": "Withdraw your Player's Pay balance as salt, 30 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on.",
+        "DefaultText": "Withdraw your Player's Pay balance as salt, 15 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on.",
         "LocalizationKey": "CMC_TownWoodPile_DA_CollectSalt_Desc"
       },
       "DaytimeCost": 0,

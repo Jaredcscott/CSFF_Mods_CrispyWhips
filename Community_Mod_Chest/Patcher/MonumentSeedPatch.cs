@@ -30,6 +30,15 @@ namespace CommunityModChest.Patcher
 
         private static bool _initialized;
 
+        // One latch per cause (CLAUDE.md Silent Catch Blocks, G5).
+        private static readonly System.Collections.Generic.HashSet<string> _warned =
+            new System.Collections.Generic.HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
+        }
+
         public static void Initialize()
         {
             if (_initialized) return;
@@ -56,7 +65,8 @@ namespace CommunityModChest.Patcher
                 {
                     if (existing > 1)
                         Plugin.Logger.LogWarning($"[MonumentSeedPatch] Found {existing} copies of '{MonumentUid}' on the board - latching {PlacedStatUid} without spawning another. No per-instance state to reconcile.");
-                    HiddenStat.Set(PlacedStatUid, 1f);
+                    if (!HiddenStat.Set(PlacedStatUid, 1f))
+                        WarnOnce("placed-latch", $"[MonumentSeedPatch] {PlacedStatUid} did not take the write - retried while the monument stands; one the player takes down is placed again.");
                     return;
                 }
 
@@ -65,7 +75,8 @@ namespace CommunityModChest.Patcher
                 SpawnService.Spawn(MonumentUid);
                 if (CountMonuments(gm) > 0)
                 {
-                    HiddenStat.Set(PlacedStatUid, 1f);
+                    if (!HiddenStat.Set(PlacedStatUid, 1f))
+                        WarnOnce("placed-latch", $"[MonumentSeedPatch] {PlacedStatUid} did not take the write - retried while the monument stands; one the player takes down is placed again.");
                     Plugin.Logger.LogInfo("[MonumentSeedPatch] Founder's Monument placed in the Village.");
                 }
                 else

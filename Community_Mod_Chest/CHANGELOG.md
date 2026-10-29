@@ -5,6 +5,42 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.69.25] - 2026-10-27
+
+### Fixed
+
+- **A Market Stall sale or robbery really takes the item away.** The sold or stolen item used to be hidden and dropped from the stall's list but stayed among the game's cards, where a save could still find it. It is now removed the way the game removes any card; if that ever fails, the item stays on the stall, the sale pays nothing and one warning goes to the log.
+- **The arm-wrestling bout says when it cannot read your Stamina.** The bout then counts you as not exhausted, as before, but now leaves one warning in the log instead of silently skipping the penalty.
+- Technical: `MarketStallPatch.ConsumeItem` removes through `CardUtil.TryRemoveCard` (vanilla `GameManager.RemoveCard`) and returns `bool`; `SellNextItem` rolls the credited revenue back and `TryRobStall` records no theft when it fails; `TrySetActive` is gone. `InnWagerPatch.PlayArmBout` warns once (`odds-` + Stamina UID) on an unreadable Stamina capture. Civic code-quality W8 and inn W4; gate `Development_Tools/Tests/CMC-SilentExits.Tests.ps1`, in-game row T2.1473.
+
+### Changed
+
+- **The village says in the log when one of its counters cannot be read or set.** Village Reputation, the village clock, the construction chronicle, the seasons, the Village Founder perk, the stockpiles, the hearths, the Founder's Monument, the Town Hall boards, the Town Wood Pile and the Inn Keeper's schedule used to stop without a word when a stat was missing or would not take a value, so a broken game update or install looked like the village simply doing nothing. Each such fault now leaves one warning in `BepInEx/LogOutput.log`, once per cause. Nothing changes in play when everything works.
+- **A village counter that cannot be read no longer repeats its work.** If the Village Founder perk cannot read whether it has already been applied, it now waits instead of re-stamping the quest chains, friendship and move-in timers every few seconds; the village clock no longer skips a one-time step (the trait welcome, the onboarding step) when the write after it fails; and a stockpile whose count cannot be read before Take Apart says so instead of quietly handing back nothing.
+- Technical: `VillageReputationPatch.GetStatValue` warns once per UID that `GetFromID` cannot find; `VillageClock.WriteStat` returns `bool`, warns once on a missing stat or a refused write, and `Tick` no longer computes a week from an epoch it failed to stamp; `InnKeeperDialogSchedulePatch` warns once when `ResolveTypes` or the `cmcStatAshTakeover` / `cmcStatInnLastSeason` reads keep missing for 30 s inside a run (`NoteMiss`, the boot-grace shape of `VillageReputationPatch.NoteUnresolved`). Same sweep over the civic siblings: `VillageChroniclePatch` warns on a missing `GetFromID`, an unknown chronicle stat and a refused stamp (it logged "chronicled" either way), and `VillageFounderPerkPatch` warns when its back-dated epoch or week write fails. Boot-time StatsDict misses stay quiet.
+- Technical, from the civic and inn `/code-quality` confirm-fix re-runs: `InnKeeperDialogSchedulePatch` warns at once, naming the missing type, when `ResolveTypes` fails (`NoteMiss`'s in-run test reads `GameQuery.CurrentDay`, which itself needs `GameManager`), and warns on an unrecognised season and an unreadable `AllCards` or card `UniqueID`; `VillageClock.Tick` writes the trait-welcome latch and the onboarding step before the write that would end their branch, and returns on each failure; `VillageFounderPerkPatch` gets `WarnOnce`, a warning `WriteStat`, a 30 s grace on an unreadable applied latch (it no longer reads as unset), and warnings on its placement and trust latches and its NPC-method lookups (were Debug); `VillageSeasonsPatch` warns once per season whose beat did not take a write (`HiddenStat.Set` reports it at Debug only), checks the season-seen and supper-open writes, and warns on an unreadable seen or provisioning stat and an unrecognised season; `StockpilePatch` splits the fullness-write warning by Stack and Take with each one's real consequence and warns when Take Apart could not read the count; `VillageFireplacePatch` warns on an unreadable fuel or fuel maximum; `MonumentSeedPatch` checks both latch writes; `VillageHallBoardsPatch`, `TownWoodPilePatch` (unreadable wood pool, after three calls in a run) and `MarketStallPatch` (item toggle) raise feature-stopping Debug lines to warn-once Warnings. Gate `CMC-SilentExits.Tests.ps1` covers all thirty-two causes; two `CMC-Round2` shape checks (the season-seen write, the monument latch) now require the checked form.
+
+## [1.69.24] - 2026-10-25
+
+### Fixed
+
+- **The Market Stall and Town Wood Pile text quotes the real prices.** A copper nugget costs 250 revenue or pay and a salt 15, as the 1.69.17 balance pass set them; the card text and button descriptions still said 50 and 30, in English and Chinese.
+- **A full Market Stall keeps its stock.** Once Sales Revenue had no room for the next sale, the stall still took one item a day and paid nothing for it. It now stops selling until you collect, and its card text says so.
+- **A failed write no longer pays out or logs a success that did not happen.** These only matter if the game refuses a stat write, which a working install does not do, and each now leaves one warning in the log:
+  - Stockpile **Take One / Take Five** hands nothing out when the count could not be lowered.
+  - The **Town Wood Pile** no longer credits pay or logs "Stocked" when the Wood Stockpile did not move, and no longer logs "Spent" for a hearth tended without a debit.
+  - The **Inn Keeper** stamps the new season before anything else and stops if it cannot, instead of re-rolling the season story and clearing the odd-job errand every 5 seconds. The Ash takeover is logged as armed only when it was.
+  - **Village Reputation** warns when its stat stays unresolved or unwritten in a running game, and when the Village Hall bar, the Founder's Monument latch or the Market Stall milestone latch does not take its write.
+  - A **Report the Theft** search warns if its due day cannot be cleared, and a new theft report clears it first, so an old due day cannot settle the next search on its first day.
+
+## [1.69.23] - 2026-10-25
+
+Needs CSFF Mod Framework 2.28.10 or later for the Chinese button text; older frameworks ignore the new key.
+
+### Fixed
+
+- **The Portal Hub's "Travel to Village" button reads 前往村庄 in Chinese.** `MapMod.json` names the village's text with `WorldNameKey: CMC_Village_CardName`, so the framework shows the village's own name in the game language (reported by Chiwei).
+
 ## [1.69.22] - 2026-10-22
 
 Needs CSFF Mod Framework 2.28.9 or later for the new refuel.

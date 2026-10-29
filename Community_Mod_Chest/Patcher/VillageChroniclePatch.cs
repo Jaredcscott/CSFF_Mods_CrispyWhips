@@ -54,6 +54,14 @@ namespace CommunityModChest.Patcher
         private static MethodInfo _getFromIdMethod;
         private static readonly Dictionary<string, object> _statCache = new(StringComparer.Ordinal);
 
+        // One latch per cause (CLAUDE.md Silent Catch Blocks, G5).
+        private static readonly HashSet<string> _warned = new(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
+        }
+
         public static void Initialize()
         {
             if (_initialized) return;
@@ -66,9 +74,13 @@ namespace CommunityModChest.Patcher
         {
             try
             {
-                if (!ResolveGetFromId()) return;
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null) return;
+                if (!ResolveGetFromId())
+                {
+                    WarnOnce("types-unresolved", "[VillageChroniclePatch] UniqueIDScriptable.GetFromID(string) not found - no village structure is chronicled.");
+                    return;
+                }
 
                 foreach (var structure in Structures)
                     CheckAndStamp(gm, structure);
@@ -90,7 +102,11 @@ namespace CommunityModChest.Patcher
             if (CardFinder.Find(structure.CardUid) == null) return; // not built yet
 
             float stamp = GameQuery.CurrentDay + 1;
-            StatAccess.SetCurrentValue(stat, stamp);
+            if (!StatAccess.SetCurrentValue(stat, stamp))
+            {
+                WarnOnce("write-failed-" + structure.ChronicleStatUid, $"[VillageChroniclePatch] {structure.ChronicleStatUid} did not take the write - the {structure.Name} is not chronicled yet; retried every poll.");
+                return;
+            }
             Plugin.Logger.LogInfo($"[VillageChroniclePatch] {structure.Name} complete — chronicled on day {GameQuery.CurrentDay} (stat {stamp}).");
         }
 
@@ -112,7 +128,12 @@ namespace CommunityModChest.Patcher
                 statSo = _getFromIdMethod.Invoke(null, new object[] { uid });
                 if (statSo != null) _statCache[uid] = statSo;
             }
-            if (statSo == null) return null;
+            if (statSo == null)
+            {
+                // No such GameStat at all: a renamed or unshipped UID, not the boot-time StatsDict miss below.
+                WarnOnce("stat-missing-" + uid, $"[VillageChroniclePatch] GameStat {uid} does not exist - that structure is never chronicled.");
+                return null;
+            }
 
             if (CardUtil.GetCachedField(gm.GetType(), "StatsDict")?.GetValue(gm) is not IDictionary statsDict) return null;
             if (!statsDict.Contains(statSo)) return null;

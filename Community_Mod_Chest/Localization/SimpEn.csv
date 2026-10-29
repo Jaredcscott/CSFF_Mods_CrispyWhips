@@ -594,7 +594,7 @@ CMC_MarketStallKit_CardDesc,"A portable market stall. Can only be assembled in t
 CMC_MarketStallKit_Help,Market Stall Kit
 CMC_MarketStall_DA_SetUp,Set Up Stall
 CMC_MarketStall_CardName,Market Stall
-CMC_MarketStall_CardDesc,"A small trading post set up in the village. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar (more as Village Reputation grows and less while you are Banished). Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each), or, with DurosCoinage installed, Duros coins. Thieves occasionally target unattended stalls."
+CMC_MarketStall_CardDesc,"A small trading post set up in the village. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar (more as Village Reputation grows and less while you are Banished). Collect earnings as copper nuggets (250 revenue each) or salt (15 revenue each), or, with DurosCoinage installed, Duros coins. Merchants stop buying once the bar has no room for the next sale, so collect regularly. Thieves occasionally target unattended stalls."
 CMC_MarketStall_SD1_Name,Sales Revenue
 CMC_MarketStall_DA_CollectCopper,Collect as Copper
 CMC_MarketStall_DA_CollectSalt,Collect as Salt
@@ -2313,7 +2313,7 @@ CMC_DeadfallSouth_CardDescription,"An autumn storm has toppled a huge pine acros
 CMC_DeadfallSouth_CI_Chop_ActionName,Chop Through the Fallen Pine
 CMC_DeadfallSouth_CI_Chop_ActionDescription,Chop through the fallen trunk blocking the trail. Clears the road between Pine Trail and Highland Pines once fully chopped through.
 CMC_MarketStallDressed_CardName,Market Stall
-CMC_MarketStallDressed_CardDesc,"A small trading post set up in the village, dressed with a striped awning and hanging bunting for market days. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar (more as Village Reputation grows and less while you are Banished). Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each), or, with DurosCoinage installed, Duros coins. Thieves occasionally target unattended stalls."
+CMC_MarketStallDressed_CardDesc,"A small trading post set up in the village, dressed with a striped awning and hanging bunting for market days. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar (more as Village Reputation grows and less while you are Banished). Collect earnings as copper nuggets (250 revenue each) or salt (15 revenue each), or, with DurosCoinage installed, Duros coins. Merchants stop buying once the bar has no room for the next sale, so collect regularly. Thieves occasionally target unattended stalls."
 CMC_MarketStallDressed_CardHelpSection,Market Stall
 CMC_MarketStall_CardHelpSection,Market Stall
 CMC_MarketStallDressed_SD1_Name,Sales Revenue
@@ -2454,7 +2454,7 @@ CMC_VillageHomeSignCarved_DA_Plane_ActionName,Plane the Face Smooth
 CMC_VillageHomeSignCarved_DA_Plane_ActionDescription,"Work the relief and the border back off the board, leaving the plain rustic face."
 CMC_VillageHomeSignCarved_DA_Dismantle,Take Down Sign
 CMC_TownWoodPile_CardName,Town Wood Pile
-CMC_TownWoodPile_CardDesc,"The village's communal fuel stack, kept beside the square. Drag twigs, long sticks, wood or firewood onto it to add to the Wood Stockpile. The hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin all tend themselves from this pile - when it runs dry they stop being tended and burn down, though any of them can still be fed and lit by hand like any other fireplace. The village also keeps a running Player's Pay balance for what you've fed in, built at the same rate as the Wood Stockpile; withdraw it any time as copper nuggets (50 pay each) or salt (30 pay each) with Collect as Copper/Collect as Salt - a reward for the fuel you contributed that never draws against what the hearths need."
+CMC_TownWoodPile_CardDesc,"The village's communal fuel stack, kept beside the square. Drag twigs, long sticks, wood or firewood onto it to add to the Wood Stockpile. The hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin all tend themselves from this pile - when it runs dry they stop being tended and burn down, though any of them can still be fed and lit by hand like any other fireplace. The village also keeps a running Player's Pay balance for what you've fed in, built at the same rate as the Wood Stockpile; withdraw it any time as copper nuggets (250 pay each) or salt (15 pay each) with Collect as Copper/Collect as Salt - a reward for the fuel you contributed that never draws against what the hearths need."
 CMC_TownWoodPile_CardHelpSection,Town Wood Pile
 CMC_TownWoodPile_SD1_Name,Wood Stockpile
 CMC_TownWoodPile_SD2_Name,Player's Pay
@@ -2464,9 +2464,9 @@ CMC_TownWoodPileFuel_StatName,Town Wood Pile
 CMC_TownWoodPileFuel_StatDescription,"Hidden fuel pool for the village's communal wood pile, measured in the same units the vanilla Fireplace burns (1 per tick, 96 for a full hearth). Rises when fuel is stacked on the Town Wood Pile in the village, falls whenever one of the six village hearths is automatically topped off or re-lit. Starts at 96 - one full hearth's worth - so a run that has never seen the pile still gets a grace period before the village fires start going out. This is the canonical store: the pile's own Wood Stockpile bar is a display mirror of it, because the hearths that draw on it sit in interiors where the pile card is not on the board."
 CMC_TownWoodPile_CI_Stock_Full,The wood pile is already stacked as high as it will go.
 CMC_TownWoodPile_DA_CollectCopper,Collect as Copper
-CMC_TownWoodPile_DA_CollectCopper_Desc,"Withdraw your Player's Pay balance as copper nuggets, 50 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on."
+CMC_TownWoodPile_DA_CollectCopper_Desc,"Withdraw your Player's Pay balance as copper nuggets, 250 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on."
 CMC_TownWoodPile_DA_CollectSalt,Collect as Salt
-CMC_TownWoodPile_DA_CollectSalt_Desc,"Withdraw your Player's Pay balance as salt, 30 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on."
+CMC_TownWoodPile_DA_CollectSalt_Desc,"Withdraw your Player's Pay balance as salt, 15 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on."
 CMC_CarpentryBench_CardName,Carpentry Bench (retired)
 CMC_CarpentryBench_CardDescription,"This bench was retired when the Carpentry course moved onto the Lecture Hall lectern, which now holds a single Tuition Account for every course. Anything still banked here can be carried over: Transfer to Lecture Hall moves this bench's Tuition Account balance (as much as the lectern's account can hold) and any Carpentry study hours onto the lectern, then clears the bench away. If the lectern's account is full, the remainder stays here until you transfer again."
 CMC_CarpentryBench_Prog_Tuition,Tuition Account

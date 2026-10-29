@@ -99,7 +99,6 @@ namespace CommunityModChest.Patcher
         }
 
         private static bool _initialized;
-        private static bool _setActiveFailureLogged;
 
         private static MethodInfo _getFromIdMethod;
         private static object _robberyDaysStat;
@@ -417,7 +416,7 @@ namespace CommunityModChest.Patcher
 
         private static void SellNextItem(object stall)
         {
-            var (list, container, item) = PickRandomItem(stall);
+            var item = PickRandomItem(stall);
             if (item == null) return;
 
             float baseValue = GetItemValue(item);
@@ -428,22 +427,35 @@ namespace CommunityModChest.Patcher
             // written leaves the item on the stall instead of selling it for nothing (G5).
             float current = CardUtil.GetDurability(stall, "SpecialDurability1");
             if (float.IsNaN(current)) current = 0f;
+            // A sale the bar has no room for keeps the item: the clamp below would otherwise take it for
+            // part or none of its value. An empty stall still sells an item worth more than the whole bar.
+            if (current > 0f && current + value > SD1MaxValue)
+            {
+                Plugin.Logger.LogDebug($"[MarketStallPatch] Sales Revenue {current:0}/{SD1MaxValue:0} has no room for a {value:0.##} sale - nothing sold until it is collected.");
+                return;
+            }
             float newRev = Mathf.Min(current + value, SD1MaxValue);
             if (!CardUtil.SetDurability(stall, "SpecialDurability1", newRev))
             {
                 WarnOnce("sell-credit-failed", "[MarketStallPatch] Sales Revenue (SpecialDurability1) did not take the write - the stall sells nothing until it does.");
                 return;
             }
-            ConsumeItem(stall, list, container, item);
+            if (!ConsumeItem(item, "sold"))
+            {
+                // The item stays on the stall, so the sale's revenue goes back.
+                if (!CardUtil.SetDurability(stall, "SpecialDurability1", current))
+                    WarnOnce("sell-credit-rollback-failed", "[MarketStallPatch] Sales Revenue could not be rolled back after a sale whose item stayed on the stall.");
+                return;
+            }
             Plugin.Logger.LogDebug($"[MarketStallPatch] Item sold for +{value:0.##} revenue (base {baseValue:0}, x{multiplier:0.00}). Total: {newRev:0}");
         }
 
         private static void TryRobStall(object stall)
         {
-            var (list, container, item) = PickRandomItem(stall);
+            var item = PickRandomItem(stall);
             if (item == null) return;
             string stolenUid = CardUtil.GetCardUniqueId(item);
-            ConsumeItem(stall, list, container, item);
+            if (!ConsumeItem(item, "stolen")) return;
             Plugin.Logger.LogDebug($"[MarketStallPatch] Market stall robbed! An item was stolen ({stolenUid ?? "unknown uid"}).");
             RecordTheft(stolenUid);
         }
@@ -469,6 +481,13 @@ namespace CommunityModChest.Patcher
             if (state >= 0.5f)
             {
                 Plugin.Logger.LogDebug("[MarketStallPatch] A theft report is already open, so this theft is not recorded.");
+                return;
+            }
+            // The due day is cleared before the record opens, so a clear that failed after the last search
+            // cannot carry its old day over and decide this report on its first daily tick.
+            if (!HiddenStat.Set(RecoveryDueUid, 0f))
+            {
+                WarnOnce("theft-due-reset-failed", $"[MarketStallPatch] {RecoveryDueUid} could not be reset, so this theft cannot be reported.");
                 return;
             }
             if (!HiddenStat.Set(TheftHashUid, IdentityHash(uid)) || !HiddenStat.Set(TheftStateUid, 1f))
@@ -518,7 +537,8 @@ namespace CommunityModChest.Patcher
                     WarnOnce("theft-result-write-failed", $"[MarketStallPatch] {TheftStateUid} could not be written, so the search result was not recorded.");
                     return;
                 }
-                HiddenStat.Set(RecoveryDueUid, 0f);
+                if (!HiddenStat.Set(RecoveryDueUid, 0f))
+                    WarnOnce("theft-due-clear-failed", $"[MarketStallPatch] {RecoveryDueUid} could not be cleared after the search; the next theft report clears it when it is recorded.");
                 Plugin.Logger.LogDebug($"[MarketStallPatch] Theft search decided: rolled {roll:0.000} against {RecoveryChance:0.000}, {(found ? "found" : "not found")}.");
             }
             catch (Exception ex)
@@ -549,7 +569,10 @@ namespace CommunityModChest.Patcher
                     WarnOnce("theft-latch-write-failed", $"[MarketStallPatch] {TheftStateUid} could not be reset, so the recovered item was not delivered.");
                     return;
                 }
-                HiddenStat.Set(TheftHashUid, 0f);
+                // RecordTheft overwrites the hash before the next report opens, so a failed clear only leaves
+                // a stale value no reader consults while the state is 0.
+                if (!HiddenStat.Set(TheftHashUid, 0f))
+                    WarnOnce("theft-hash-clear-failed", $"[MarketStallPatch] {TheftHashUid} could not be cleared; the next theft overwrites it.");
                 if (uid == null) return; // ResolveStolenUid already warned, once per cause
 
                 SpawnService.Spawn(uid);
@@ -590,12 +613,12 @@ namespace CommunityModChest.Patcher
 
         // ── Inventory manipulation ────────────────────────────────────────────────
 
-        private static (IList list, object container, object item) PickRandomItem(object stall)
+        private static object PickRandomItem(object stall)
         {
             var slots = CardUtil.GetInventoryList(stall);
-            if (slots == null || slots.Count == 0) return (null, null, null);
+            if (slots == null || slots.Count == 0) return null;
 
-            var candidates = new List<(object container, IList innerList, object card)>();
+            var candidates = new List<object>();
             foreach (var slot in slots)
             {
                 if (slot == null) continue;
@@ -603,59 +626,28 @@ namespace CommunityModChest.Patcher
                 if (inner != null)
                 {
                     foreach (var c in inner)
-                        if (c != null) candidates.Add((slot, inner, c));
+                        if (c != null) candidates.Add(c);
                 }
                 else
                 {
-                    candidates.Add((null, slots, slot));
+                    candidates.Add(slot);
                 }
             }
 
-            if (candidates.Count == 0) return (null, null, null);
-            int idx    = UnityEngine.Random.Range(0, candidates.Count);
-            var chosen = candidates[idx];
-            return (chosen.innerList, chosen.container, chosen.card);
+            if (candidates.Count == 0) return null;
+            return candidates[UnityEngine.Random.Range(0, candidates.Count)];
         }
 
-        private static void ConsumeItem(object stall, IList list, object container, object item)
+        /// <summary>Takes a sold or stolen item out of the game through vanilla <c>GameManager.RemoveCard</c>
+        /// (<see cref="CardUtil.TryRemoveCard"/>), which also takes it out of its stall slot and out of
+        /// <c>GameManager.AllCards</c>, so a save cannot keep it. Until 1.69.25 this removed the item from the
+        /// slot list and hid it, leaving a live <c>AllCards</c> entry. Returns false, after one warning per
+        /// cause, when the removal did not take.</summary>
+        private static bool ConsumeItem(object item, string cause)
         {
-            try
-            {
-                list.Remove(item);
-                TrySetActive(item, false);
-
-                // Remove the slot wrapper if it is now empty
-                if (container != null)
-                {
-                    var remaining = CardUtil.GetInventoryList(container);
-                    if (remaining == null || remaining.Count == 0)
-                        CardUtil.GetInventoryList(stall)?.Remove(container);
-                }
-            }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogWarning($"[MarketStallPatch] ConsumeItem: {ex.InnerException?.ToString() ?? ex.ToString()}");
-            }
-        }
-
-        private static void TrySetActive(object card, bool active)
-        {
-            try
-            {
-                if (card is UnityEngine.Object uo)
-                {
-                    var go = (uo as Component)?.gameObject ?? uo as GameObject;
-                    go?.SetActive(active);
-                }
-            }
-            catch (Exception ex)
-            {
-                if (!_setActiveFailureLogged)
-                {
-                    _setActiveFailureLogged = true;
-                    Plugin.Logger.LogDebug($"[MarketStallPatch] TrySetActive failed (item visual may not toggle): {ex.Message}");
-                }
-            }
+            if (CardUtil.TryRemoveCard(item)) return true;
+            WarnOnce(cause + "-remove-failed", $"[MarketStallPatch] CardUtil.TryRemoveCard could not take the {cause} item ({CardUtil.GetCardUniqueId(item) ?? "unknown uid"}) out of the stall, so it stays there.");
+            return false;
         }
 
         // ── Value calculation ─────────────────────────────────────────────────────

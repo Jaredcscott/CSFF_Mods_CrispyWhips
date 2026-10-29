@@ -168,7 +168,9 @@ namespace CommunityModChest.Patcher
                         WarnOnce("fullness-unreadable", "[StockpilePatch] Fullness could not be read, so a stacked card was NOT counted.");
                         return;
                     }
-                    SetCount(ctx.Card, Math.Min(count + 1f, MaxCount));
+                    // The dragged card is already consumed here, so a failed write loses it: say so.
+                    SetCount(ctx.Card, Math.Min(count + 1f, MaxCount), "stack",
+                        "[StockpilePatch] Fullness could not be written on Stack, so the dragged card was consumed and NOT counted.");
                 }
                 else if (Ends(key, TakeOneSuffix) || Ends(key, TakeFiveSuffix))
                 {
@@ -177,13 +179,20 @@ namespace CommunityModChest.Patcher
                     float count = Count(ctx.Card);
                     if (count < 1f) return;
                     int give = (int)Math.Min(want, Math.Floor(count));
-                    SetCount(ctx.Card, count - give);
+                    // Drain first and check it: a count that did not move must not hand anything out.
+                    if (!SetCount(ctx.Card, count - give, "take",
+                            "[StockpilePatch] Fullness could not be written on Take, so the count did not change and nothing was taken.")) return;
                     for (int i = 0; i < give; i++) SpawnService.Spawn(material);
                     Plugin.Logger.LogDebug($"[StockpilePatch] Took {give} from {ctx.CardUid} ({count:0} -> {count - give:0}).");
                 }
                 else if (Ends(key, TakeApartSuffix))
                 {
-                    int give = ctx.Tag is float held && held >= 1f ? (int)Math.Floor(held) : 0;
+                    if (ctx.Tag is not float held || held < 0f)
+                    {
+                        WarnOnce("takeapart-unreadable", "[StockpilePatch] Fullness could not be read before Take Apart, so the stored cards were NOT handed back.");
+                        return;
+                    }
+                    int give = held >= 1f ? (int)Math.Floor(held) : 0;
                     for (int i = 0; i < give; i++) SpawnService.Spawn(material);
                     Plugin.Logger.LogDebug($"[StockpilePatch] Take Apart handed back {give} from {ctx.CardUid}.");
                 }
@@ -194,11 +203,15 @@ namespace CommunityModChest.Patcher
             }
         }
 
-        private static void SetCount(object card, float value)
+        /// <summary>Writes the fullness count; on failure warns once per <paramref name="cause"/> with the
+        /// caller's own consequence, since Stack and Take lose different things.</summary>
+        private static bool SetCount(object card, float value, string cause, string failMessage)
         {
-            if (!CardUtil.SetDurability(card, "SpecialDurability1", value))
-                WarnOnce("fullness-write", "[StockpilePatch] Fullness could not be written, so the count did not change.");
+            bool ok = CardUtil.SetDurability(card, "SpecialDurability1", value);
+            if (!ok)
+                WarnOnce("fullness-write-" + cause, failMessage);
             CardVisualsRefresh.RefreshDurabilityVisuals(card);
+            return ok;
         }
 
         private static void WarnOnce(string cause, string message)
