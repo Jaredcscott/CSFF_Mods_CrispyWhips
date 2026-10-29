@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.75] - 2026-10-29
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds CSFF Mod Framework 2.28.10, Herbs and Fungi 1.14.17, Advanced Copper Tools 1.18.14, Water Driven Infrastructure 1.12.16, Community Mod Chest 1.69.25, Homestead Perks 1.3.9, Repeat Action 2.2.3, Quick Transfer 1.9.2, Skill Speed Boost 1.11.2, and the pre-release Partner Overhaul 1.1.6, Harsh Wilds 0.11.9, Far Territory 0.1.13, Forest Lore 0.1.8, Utility Belt 0.1.7 and Sirus23 Mod Collection 1.22.11. Fixes from player reports: the Grinding Mill's Grind All gives powders the quality grinding by hand would (herbs no longer come out at 0, ore powder no longer random), the Portal Hub's travel buttons follow the game language (Chinese included), every framework setting is described in English and Chinese, a Pouch bought from a trader holds powders like a crafted one once its salt is out (the salt now comes out beside the pouch), the Wearable Metal Pan goes on a campfire or any other lit fire the copper kettle does, and Community Mod Chest's Market Stall and Town Wood Pile quote the real prices and a full stall stops selling until you collect. Also in this suite: a Market Stall sale or robbery really takes the item out of the game, and Far Territory's island draws Card Survival: Tropical Island's own art, used with its developers' permission.
+
 ## [2.1.74] - 2026-10-24
 
 ### Changed
