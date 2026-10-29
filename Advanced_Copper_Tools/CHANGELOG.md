@@ -2,6 +2,15 @@
 
 All notable changes to this mod are documented here.
 
+## [1.18.14] - 2026-10-25
+
+### Fixed
+
+- **The Wearable Metal Pan goes on a campfire.** A pan of water dragged onto a lit Campfire, Fire Pit, Fireplace, Hearth or Oven was refused with no room, though it is a cooking pot (Nexus report, February). It now goes in wherever the copper tea kettle does and its contents heat there. It weighs 300, so it fits a Campfire's 600 like a vanilla pot.
+- Technical: `VanillaFireKettlePatch` adds `advanced_copper_tools_wearable_metal_pan` to each lit vanilla fire's `InventoryFilter.AcceptedCards` and heating recipe, beside the kettle. The pan's `tag_CookingPot` is a mod tag object, never the vanilla one the fires accept, so it found no slot.
+- Technical: `PanMeltFatPatch` reads the Clay Bowl's `ContainedLiquid` through `Reflect.TryGetMember`. If a game update ever renames that field, Melt Fat now leaves every bowl alone and logs one warning, instead of reading the miss as "empty" and using up a bowl that holds liquid (G5, fleet review 60th pass, cookware `/code-quality`).
+- **A melted-down pan keeps its metal.** Melting a Wearable Metal Pan or an unassembled Pan Head of Tin, Bronze or any metal but Copper gave plain Copper nuggets. The nuggets now carry the pan's metal, as melted armor and stoves already did (`TransferRules` `Special4: 1` on both melt drops; fleet review 60th pass, cookware `/audit-mod`).
+
 ## [1.18.13] - 2026-10-22
 
 Needs CSFF Mod Framework 2.28.9 or later.

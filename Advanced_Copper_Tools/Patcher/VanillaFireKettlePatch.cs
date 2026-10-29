@@ -10,9 +10,12 @@ using CSFFModFramework.Api;
 namespace Advanced_Copper_Tools.Patcher
 {
     /// <summary>
-    /// Lets ACT's copper tea kettle and copper cauldron sit on vanilla fires and heat there.
+    /// Lets ACT's copper tea kettle, copper cauldron and Wearable Metal Pan sit on vanilla fires and heat there.
+    /// The pan joined in 1.18.14: it carries tag_CookingPot but vanilla fires accept their pots by
+    /// vanilla tag objects, so it found no room on a Campfire (Nexus c164999767). It goes where the
+    /// kettle goes (300 weight, inside the Campfire's 600).
     ///
-    /// Two injections per fire, both keyed on the two ACT cards themselves:
+    /// Two injections per fire, both keyed on the ACT cards themselves:
     ///   1. The containers are appended to the fire's InventoryFilter.AcceptedCards.
     ///      CardFilter.SupportsCard returns true for any AcceptedCards match (after the fire's
     ///      own NOT filters), so no tag injection is needed and none is done.
@@ -41,6 +44,7 @@ namespace Advanced_Copper_Tools.Patcher
 
         private const string KettleUid = "advanced_copper_tools_copper_tea_kettle";
         private const string CauldronUid = "advanced_copper_tools_copper_cauldron";
+        private const string PanUid = "advanced_copper_tools_wearable_metal_pan";
         private static bool _loggedReady;
 
         private static readonly HashSet<string> LitFireGuids = new HashSet<string>
@@ -72,6 +76,7 @@ namespace Advanced_Copper_Tools.Patcher
             {
                 object kettleCard = null;
                 object cauldronCard = null;
+                object panCard = null;
                 var fireCands = new List<(string uid, object card)>();
 
                 foreach (var item in allData)
@@ -82,10 +87,11 @@ namespace Advanced_Copper_Tools.Patcher
 
                     if (uid == KettleUid) kettleCard = item;
                     else if (uid == CauldronUid) cauldronCard = item;
+                    else if (uid == PanUid) panCard = item;
                     else if (LitFireGuids.Contains(uid)) fireCands.Add((uid, item));
                 }
 
-                if (kettleCard == null && cauldronCard == null)
+                if (kettleCard == null && cauldronCard == null && panCard == null)
                 {
                     Logger?.LogDebug("[KettleFire] ACT copper fire containers not present in AllData; injection skipped for this pass.");
                     return;
@@ -96,6 +102,7 @@ namespace Advanced_Copper_Tools.Patcher
                 {
                     var containers = new List<object>();
                     if (kettleCard != null) containers.Add(kettleCard);
+                    if (panCard != null) containers.Add(panCard);
                     if (cauldronCard != null && !NoCauldronFireGuids.Contains(uid)) containers.Add(cauldronCard);
                     if (containers.Count == 0) continue;
 

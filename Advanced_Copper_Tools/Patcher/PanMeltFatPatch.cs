@@ -66,7 +66,14 @@ namespace Advanced_Copper_Tools.Patcher
             {
                 if (card == null) continue;
                 if (!string.Equals(CardUtil.GetCardUniqueId(card), ClayBowlGuid, StringComparison.OrdinalIgnoreCase)) continue;
-                if (Reflect.GetMember(card, "ContainedLiquid") is UnityEngine.Object liquid && liquid != null) continue;
+                if (!Reflect.TryGetMember(card, "ContainedLiquid", out var rawLiquid))
+                {
+                    // A null-returning miss is indistinguishable from "empty bowl"; fail safe
+                    // (never consume a bowl we cannot prove is empty) and leave a cause-keyed breadcrumb.
+                    WarnOnce("liquid-member-missing", "ContainedLiquid not found on the Clay Bowl; cannot tell an empty bowl from a full one, so none was used up");
+                    continue;
+                }
+                if (rawLiquid is UnityEngine.Object liquid && liquid != null) continue;
                 var inv = CardUtil.GetInventoryList(card);
                 if (inv != null && HasAnyCard(inv)) continue;
                 bowl = card;

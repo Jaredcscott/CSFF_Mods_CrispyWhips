@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using BepInEx.Logging;
+using HarmonyLib;
 using CSFFModFramework.Api;
 
 namespace Advanced_Copper_Tools.Patcher
@@ -61,7 +62,7 @@ namespace Advanced_Copper_Tools.Patcher
                 foreach (var item in allData)
                 {
                     if (item == null) continue;
-                    var uid = item.GetType().GetField("UniqueID", Flags)?.GetValue(item) as string;
+                    var uid = AccessTools.Field(item.GetType(), "UniqueID")?.GetValue(item) as string;
                     if (uid != null && wanted.Contains(uid)) byUid[uid] = item;
                 }
 

@@ -1,7 +1,7 @@
 # Roadmap: Advanced Copper Tools
-Version at time of writing: 1.18.13
-Date: 2026-10-23
-Audit score: 8/10 - PASS (0 CRITICAL, 0 Design Gap, 5 open Warning - all doc-honesty / version-consistency / cosmetic; consolidated 2026-10-23)
+Version at time of writing: 1.18.14
+Date: 2026-10-27
+Audit score: 9/10 - PASS (0 CRITICAL, 0 Design Gap, 0 open Warning; consolidated 2026-10-27)
 
 ## Current State
 
@@ -9,26 +9,11 @@ Audit score: 8/10 - PASS (0 CRITICAL, 0 Design Gap, 5 open Warning - all doc-hon
 
 **Content**: 76 item cards / 65 blueprints / 16 structures / 7 perks / 135 custom images
 
-**Stability**: Release-functional. Build is 0 errors / 0 warnings; EN/CN localization parity 1160/1160; bin/Release in sync; 0 cross-mod collisions (17 mods / 2622 UIDs indexed). The 5 open warnings are documentation and build-metadata cleanup, not gameplay defects.
+**Stability**: Release-functional, clean. Build is 0 errors / 0 warnings; EN/CN localization parity 1160/1160; bin/Release in sync; 0 cross-mod collisions (17 mods / 2621 UIDs indexed). No open finding at any severity: the five 2026-10-23 docs/metadata warnings (W1-W5) are all closed, and the 2026-10-27 cookware pass fixed the one CRITICAL-shaped data defect it found (non-copper pan melt-down yielded copper nuggets) plus a reflection breadcrumb gap.
 
-**Open work**: 5 docs/metadata warnings (W1-W5, see Phase 0), surfaced by the newest module run (modwide, `a3e7e9e4c`). No open or pending retrospective names this mod (the ACT-tagged retros are all Graduated/Archived).
+**Open work**: None scheduled. Two in-game claims await human verification (not defects): the Bedwarming Pan ember lifetime (~10h), and the liquid-oil refuel harness run (T2.1992, `pending` in Features.json). No open or pending retrospective names this mod (the ACT-tagged retros are all Graduated/Archived).
 
-**Framework compliance**: Tier 2. Five patchers registered via `TryApply`; uses `ActionRouter`/`SpawnService`-style idioms plus the compile-time `ArmorWardPatch`. No deprecated patterns (`DropCollectionGuardPatch` absent; no unfiltered hot-path prefixes; no `ModLoaderVerison`/`ModEditorVersion` in ModInfo). Since `ArmorWardPatch` (2026-10-22) ACT's DLL carries typed game references, so its `lib/Assembly-CSharp.dll` must be refreshed on every game update alongside the framework. The 1.18.13 liquid-oil refuel CIs require framework 2.28.9 (`GpTag_FW_Oil`); Nexus currently serves 2.28.8, so ACT 1.18.13 must ship batched with the framework.
-
----
-
-## Phase 0: Docs & metadata cleanup
-
-> Nothing is broken in-game, but these 5 warnings keep the docs honest and gate the release ordering.
-> All are low-risk; W2 is first because it decides when ACT 1.18.13 can go to Nexus.
-
-| Item | Type | Priority | Complexity |
-|------|------|----------|------------|
-| W2: unify framework minimum to 2.28.9 across README:611 and ModInfo Description (CHANGELOG already says 2.28.9); ship ACT 1.18.13 batched with framework 2.28.9 | Version consistency / release gate | P0 | Quick |
-| W1: delete the retired Render Hemp Seed Oil rows from PLAYER_GUIDE.md:274,280 and fix ROADMAP/other stale wording; optionally note hemp seed oil now burns in the lamps directly | Docs-honesty (over-claim) | P0 | Quick |
-| W3: add the README:388 Pour/Fill-from-Container paragraph to PLAYER_GUIDE.md lantern/flask section | Docs-honesty (under-claim) | P1 | Quick |
-| W4: fix the stale "(185 hits)" comment at GameLoadPatch.cs:325 (wear is 250 x CancelledAtTick) | Code comment | P2 | Quick |
-| W5: point csproj HintPath at `lib\Assembly-CSharp.dll` instead of the April nstrip dll, rebuild, confirm resolution log unchanged | Build metadata | P2 | Quick |
+**Framework compliance**: Tier 2. Five patchers registered via `TryApply`; uses `ActionRouter`/`SpawnService`/`TickEvents` idioms plus the compile-time `ArmorWardPatch`. No deprecated patterns (`DropCollectionGuardPatch` absent; no unfiltered hot-path prefixes; no `ModLoaderVerison`/`ModEditorVersion` in ModInfo). Since `ArmorWardPatch` (2026-10-22) ACT's DLL carries typed game references, so its `lib/Assembly-CSharp.dll` must be refreshed on every game update alongside the framework. The liquid-oil refuel CIs require framework 2.28.9 (`GpTag_FW_Oil`); if Nexus still serves an older framework, ACT must ship batched with framework 2.28.9.
 
 ---
 
@@ -38,16 +23,18 @@ Audit score: 8/10 - PASS (0 CRITICAL, 0 Design Gap, 5 open Warning - all doc-hon
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Keep ModInfo / Plugin.cs / README versions in lockstep | Version hygiene | P1 | Quick (done - all 1.18.13) |
+| Keep ModInfo / Plugin.cs / README versions in lockstep | Version hygiene | P1 | Quick (done - all 1.18.14) |
 | Keep EN/CN CSV parity on every text change | Localization | P1 | Quick (done - 1160/1160) |
+| Keep docs honest in the same commit as any behavior change (both directions - over- and under-claim) | Docs-honesty | P1 | Quick |
 | Keep ACT `lib/Assembly-CSharp.dll` on the game-update refresh list (typed refs exist) | Framework compliance | P1 | Quick |
+| Keep each melt/dismantle metal drop carrying `TransferRules.Special4: 1` (FromReceivingCard) so the card's metal is inherited | Data correctness | P1 | Quick (done - pans fixed 1.18.14) |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> No new core content is scheduled. Every forward idea that was ever on the backlog is now a drained
-> plan feature or a ruled-out "Considered, not selected" row (see `.audit/ideas.md`). The mod is
+> No new core content is scheduled. Every forward idea that was ever on the backlog is now a ruled-out
+> "Considered, not selected" row (see `.audit/ideas.md` and the As_Built Considered table). The mod is
 > feature-complete for its current scope; do not re-propose a Considered row:
 >
 > - Copper Ore Crusher - vanilla already crushes ore; owner chose a WDI stamp mill (2026-10-01).
@@ -64,7 +51,7 @@ Audit score: 8/10 - PASS (0 CRITICAL, 0 Design Gap, 5 open Warning - all doc-hon
 
 | Integration | State | Coordination |
 |-------------|-------|--------------|
-| CSFFModFramework 2.28.9+ | Metal Sheet/Nail/Tin Solder + 7 blueprints ship in the framework under shared UIDs since ACT 1.18.0; liquid-oil refuel CIs need `GpTag_FW_Oil` (2.28.9) | Keep ACT's minimum framework in step with Nexus-served version before upload |
+| CSFFModFramework 2.28.9+ | Metal Sheet/Nail/Tin Solder + 7 blueprints ship in the framework under shared UIDs since ACT 1.18.0; liquid-oil refuel CIs need `GpTag_FW_Oil` (2.28.9) | Keep ACT's minimum framework in step with the Nexus-served version before upload |
 | WaterDrivenInfrastructure | Tin Solder <-> Alloy Solder, Copper Nail <-> Rivets, Sheet <-> Cast Sheet; WDI owns the ore stamp mill | Bidirectional - watch for UID drift |
 | Community Mod Chest | River Bridge, Market Stall (consumes Copper Chest), Academy Armorer course gates the armor, Metallurgy grants Bronze Sheet | CMC consumes ACT content |
 | HerbsAndFungi | H&F herbs -> Tea Station teas; shared brew tag on Copper Cauldron; H&F oils and hemp seed oil burn directly in ACT's lamps (the standalone Render Hemp Seed Oil recipe was retired in 1.18.13) | Soft dep (recipes HIDE without H&F) |
@@ -75,12 +62,12 @@ Audit score: 8/10 - PASS (0 CRITICAL, 0 Design Gap, 5 open Warning - all doc-hon
 ## Phase 4: Polish
 
 > No open art gaps. 135 custom PNGs; items/structures resolve to mod art or genuine vanilla sprites.
-> The open docs warnings W1/W3 (Phase 0) are the only description-accuracy items. Standing polish triggers:
+> No open docs warnings. Standing polish triggers:
 
 | Item | What | Complexity |
 |------|------|------------|
 | Re-review any regenerated card art | If art is re-keyed/re-encoded, its sha1 changes and the review gallery reads it as changed | Quick |
-| Description pass on any behavior change | Keep ModInfo Description / README / CHANGELOG / PLAYER_GUIDE honest in the same commit (both directions - W1 over-claim and W3 under-claim were the current miss) | Quick |
+| Description pass on any behavior change | Keep ModInfo Description / README / CHANGELOG / PLAYER_GUIDE honest in the same commit (both directions) | Quick |
 
 ---
 
@@ -98,7 +85,7 @@ currently qualifies.
 - None open. Every prior candidate is a Considered-and-ruled-out row with its reason on disk.
 
 Anything that later clears that bar belongs in a new `Documentation/Plans/AdvancedCopperTools/` plan (or
-its Considered table, with the reason), never a stub under `Documentation/Ideas/`.
+its Considered table, with the reason); never a stub under `Documentation/Ideas/`, which keeps no backlog.
 
 ---
 
@@ -107,9 +94,9 @@ its Considered table, with the reason), never a stub under `Documentation/Ideas/
 | Trigger | Action |
 |---------|--------|
 | After any new content phase | Run `/audit-mod AdvancedCopperTools` and update this roadmap |
-| Game version update | Run `/update-mod-version`, refresh ACT `lib/Assembly-CSharp.dll`, check CLAUDE.md EA notes, `/diagnose-log` |
+| Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, check CLAUDE.md EA notes, re-run `/diagnose-log` |
 | After fixing a critical issue | Run `/critical-analysis AdvancedCopperTools` to verify the fix |
-| Before a Nexus upload | Confirm ACT's minimum framework is <= the Nexus-served framework, or batch with the framework |
+| Before a Nexus upload | Confirm ACT's minimum framework <= the Nexus-served framework, or batch the framework upload |
 
 ---
 
@@ -118,10 +105,11 @@ its Considered table, with the reason), never a stub under `Documentation/Ideas/
 ```
 /audit-mod AdvancedCopperTools         - full health check, updates .audit/
 /critical-analysis AdvancedCopperTools - adversarial review
-/code-quality AdvancedCopperTools      - C# reliability scan
+/repair-items AdvancedCopperTools      - auto-fix item JSON issues
+/repair-blueprints AdvancedCopperTools - auto-fix blueprint JSON issues
 /build-mod AdvancedCopperTools         - build Release DLL
 /deploy-mods AdvancedCopperTools       - build + deploy to game
-/nexus-publish upload AdvancedCopperTools - publish release + changelog
+/nexus-publish upload AdvancedCopperTools - publish to Nexus
 ```
 
 ---

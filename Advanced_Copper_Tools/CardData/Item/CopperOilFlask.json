@@ -96,7 +96,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_oil_flask",
     "LocalizationKey": "Advanced_Copper_Tools_CopperOilFlask_CardHelpSection",
-    "DefaultText": "<b>Fill:</b> Drag any lamp oil served in a clay bowl onto the flask (6 bowls = full). You get the bowl back.\n\n<b>Use:</b> Drag the flask onto a Metal Lantern to pour in one full charge of oil."
+    "DefaultText": "<b>Fill:</b> Drag any lamp oil served in a clay bowl onto the flask (4 bowls = full). You get the bowl back.\n\n<b>Use:</b> Drag the flask onto a Metal Lantern to pour in one full charge of oil."
   },
   "CardImage": {
     "m_FileID": 0,

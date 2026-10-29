@@ -64,7 +64,7 @@
   },
   "UsageDurability": {
     "Active": true,
-    "FloatValue": 1.0,
+    "FloatValue": 1000.0,
     "CardStatName": {
       "ParentObjectID": "advanced_copper_tools_wheel_assembly",
       "LocalizationKey": "Advanced_Copper_Tools_WheelAssembly_UsageDurability_CardStatName",

@@ -41,7 +41,7 @@
   "PerkDescription": {
     "DefaultText": "Start with all the components needed to assemble a wheelbarrow: bucket, handles, and wheel assembly.",
     "LocalizationKey": "Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkDescription",
-    "ParentObjectID": "advanced_copper_tools_perk_wheelbarrow_kit"
+    "ParentObjectID": "advanced_copper_tools_perk_hauling_wheelbarrow_kit"
   },
   "PerkIcon": {
     "m_FileID": 0,
@@ -52,12 +52,12 @@
   "PerkName": {
     "DefaultText": "Wheelbarrow Kit",
     "LocalizationKey": "Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkName",
-    "ParentObjectID": "advanced_copper_tools_perk_wheelbarrow_kit"
+    "ParentObjectID": "advanced_copper_tools_perk_hauling_wheelbarrow_kit"
   },
   "PerkUnlockConditions": {
     "DefaultText": "",
     "LocalizationKey": "",
-    "ParentObjectID": "advanced_copper_tools_perk_wheelbarrow_kit"
+    "ParentObjectID": "advanced_copper_tools_perk_hauling_wheelbarrow_kit"
   },
   "PlayedCharacter": [],
   "RequiredDifficultyScore": {
@@ -71,6 +71,6 @@
   "SunsCost": 0,
   "TagsOnBoardObjectives": [],
   "TimeObjectives": [],
-  "UniqueID": "advanced_copper_tools_perk_wheelbarrow_kit",
+  "UniqueID": "advanced_copper_tools_perk_hauling_wheelbarrow_kit",
   "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
 }
