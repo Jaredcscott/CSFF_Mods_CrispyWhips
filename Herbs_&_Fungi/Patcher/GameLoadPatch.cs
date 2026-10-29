@@ -727,33 +727,44 @@ namespace Herbs_And_Fungi.Patcher
             return fi;
         }
 
+        // The crafted vanilla Pouch, "ideal for preserving powders". The one traders sell (PouchTrader,
+        // 3a242c4a86f9d9c44958bca5ad499072) is not patched: it turns into this Pouch on its first tick or
+        // action, so no player ever holds it empty (T2.2025, 2026-10-25; owner, 2026-10-26).
+        private const string VanillaPouchUid = "80fb7f8100618414d9abb10dec0e31a5";
+
+        // Vanilla Salt carries tag_Powder, which vanilla allows once per container. A bought pouch arrives
+        // with 150 Salt, and when it is taken out the last 10 Salt spawn into any container that accepts
+        // them; inside the pouch they then block every other powder. Kept out of the filter, they land
+        // beside the pouch as they do in the base game (owner option C, 2026-10-26).
+        private const string VanillaSaltUid = "f91b5676fc26c0e48a4ee6fd9dfc2ffa";
+
         /// <summary>
-        /// Patches the vanilla Pouch (description: "ideal for preserving powders") to actually
-        /// function as a powder container. Sets MaxWeightCapacity and adds tag_Powder /
-        /// tag_PowderLiquid to its InventoryFilter so H&amp;F ground herbs fit inside.
+        /// Patches the vanilla Pouch (description: "ideal for preserving powders") to actually function as
+        /// a powder container. Sets MaxWeightCapacity, adds tag_Powder / tag_PowderLiquid to its
+        /// InventoryFilter so H&amp;F ground herbs fit inside, and keeps vanilla Salt out of it.
         /// </summary>
         static void PatchVanillaPouchForPowderStorage(IEnumerable allDataEnumerable, UnityEngine.Object[] allCardTags)
         {
-            const string PouchGuid = "80fb7f8100618414d9abb10dec0e31a5";
+            object pouch = null, salt = null;
+            foreach (var item in allDataEnumerable)
+            {
+                if (item == null) continue;
+                var uid = CachedField(item.GetType(), "UniqueID")?.GetValue(item) as string;
+                if (uid == VanillaPouchUid) pouch = item;
+                else if (uid == VanillaSaltUid) salt = item;
+                if (pouch != null && salt != null) break;
+            }
+            if (pouch == null) { Logger?.LogWarning($"[PouchPatch] Vanilla Pouch ({VanillaPouchUid}) not found in AllData."); return; }
+            if (salt == null) Logger?.LogWarning($"[PouchPatch] Vanilla Salt ({VanillaSaltUid}) not found in AllData; a bought pouch's last Salt will stay inside it.");
+            PatchPouchForPowderStorage(pouch, salt, "Pouch", allCardTags);
+        }
+
+        static void PatchPouchForPowderStorage(object pouch, object salt, string label, UnityEngine.Object[] allCardTags)
+        {
             const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
             try
             {
-                // Locate the vanilla Pouch CardData
-                object pouch = null;
-                foreach (var item in allDataEnumerable)
-                {
-                    if (item == null) continue;
-                    var uid = CachedField(item.GetType(), "UniqueID")?.GetValue(item) as string;
-                    if (uid == PouchGuid) { pouch = item; break; }
-                }
-
-                if (pouch == null)
-                {
-                    Logger?.LogWarning("[PouchPatch] Vanilla Pouch not found in AllData.");
-                    return;
-                }
-
                 // Give it enough weight capacity for ~10 powder items (each weighs 10)
                 var weightField = CachedField(pouch.GetType(), "MaxWeightCapacity");
                 if (weightField == null) { Logger?.LogError("[PouchPatch] MaxWeightCapacity field not found."); return; }
@@ -828,10 +839,29 @@ namespace Herbs_And_Fungi.Patcher
                 }
                 else { Logger?.LogError("[PouchPatch] TagFilters is neither Array nor IList."); return; }
 
+                // Keep vanilla Salt out (see VanillaSaltUid): append it to NOTAcceptedCards.
+                bool saltExcluded = false;
+                if (salt != null)
+                {
+                    var notField = filterObj.GetType().GetField("NOTAcceptedCards", Flags);
+                    if (notField == null) Logger?.LogWarning("[PouchPatch] NOTAcceptedCards field not found; Salt not excluded.");
+                    else
+                    {
+                        var oldNot = notField.GetValue(filterObj) as Array;
+                        var elemType = notField.FieldType.GetElementType();
+                        int n = oldNot?.Length ?? 0;
+                        var newNot = Array.CreateInstance(elemType, n + 1);
+                        if (oldNot != null) Array.Copy(oldNot, newNot, n);
+                        newNot.SetValue(salt, n);
+                        notField.SetValue(filterObj, newNot);
+                        saltExcluded = true;
+                    }
+                }
+
                 // Write the (potentially boxed) filter struct back onto the card
                 filterField.SetValue(pouch, filterObj);
 
-                Logger?.LogDebug("[PouchPatch] Vanilla Pouch patched: capacity=100, accepts tag_Powder + tag_PowderLiquid.");
+                Logger?.LogDebug($"[PouchPatch] Vanilla {label} patched: capacity=100, accepts tag_Powder + tag_PowderLiquid, Salt excluded={saltExcluded}.");
             }
             catch (Exception ex)
             {

@@ -1,6 +1,6 @@
 # Herbs and Fungi: Player Guide
 
-**Version:** 1.14.15
+**Version:** 1.14.17
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -446,7 +446,7 @@ Three patches ship in `GameSourceModify/`:
 - the **Clay Cauldron** gains the medicine-brew-station tag that the Vigor Elixir reads;
 - vanilla **Honeycomb** (`33cf4067563dac649b026a87ba0766bd.json`) gains the **Stir into Tea to Ferment** interaction behind Herbal Ferment.
 
-The mod adds forage and dig actions to vanilla locations and tags vanilla Turnroot and Fireroot `tag_Fermentable`. `GameLoadPatch` also gives the vanilla Drying Rack a Tendon drying recipe, lets the vanilla Pouch hold powders, and adds Lanolin as an alternate Herbal Salve ingredient.
+The mod adds forage and dig actions to vanilla locations and tags vanilla Turnroot and Fireroot `tag_Fermentable`. `GameLoadPatch` also gives the vanilla Drying Rack a Tendon drying recipe and lets the vanilla Pouch hold powders. The Herbal Salve's oil slot also takes Sirus23's Lanolin when that mod is installed: `TagGroups.json` lists it in `GpTag_HnF_SalveBase`, and the framework (2.28.9 or later) fills the group.
 
 Most vanilla locations are named by ID in `DropInjections.json` (river places match `tag_River`), so a location a game update adds gets nothing until it has an entry.
 

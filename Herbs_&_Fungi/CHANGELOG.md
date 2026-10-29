@@ -5,6 +5,19 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [1.14.17] - 2026-10-26
+
+### Fixed
+
+- **A bought pouch now takes powders once its salt is out.** A Pouch bought from a trader comes full of salt. When you took the salt out, the last 10 Salt stayed inside the pouch, and since a pouch holds only one kind of powder (Salt counts as one), it then refused every herb and mushroom powder. Salt now always comes out beside the pouch, as in the base game, so an emptied bought pouch holds up to 100 weight of powders like a crafted one.
+- Technical: the pouch's inventory filter excludes vanilla Salt (`NOTAcceptedCards`). The patch on the trader-sold Pouch card from 1.14.16 is removed: that card turns into the crafted Pouch on its first tick or action, so the crafted Pouch's patch already covers every bought pouch.
+
+## [1.14.16] - 2026-10-25
+
+### Fixed
+
+- **A Pouch bought from a trader holds powders too.** The base game has two Pouch cards, the one you make and the one traders sell, both "ideal for preserving powders". Only the first was given room for this mod's ground herbs and mushroom powders, so a bought pouch still held nothing (reported on Nexus by qwa053). Both pouches now hold up to 100 weight of powders.
+
 ## [1.14.15] - 2026-10-22
 
 Needs CSFF Mod Framework 2.28.9 or later.
