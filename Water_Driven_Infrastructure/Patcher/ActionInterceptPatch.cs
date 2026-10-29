@@ -938,7 +938,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 return false;
             }
 
-            var toGrind = new List<(object card, string resultId)>();
+            var toGrind = new List<(object card, string resultId, object change, object result)>();
             foreach (var slotItem in inventory)
             {
                 if (slotItem == null) continue;
@@ -948,16 +948,16 @@ namespace WaterDrivenInfrastructure.Patcher
                     foreach (var inner in innerCards)
                     {
                         if (inner == null) continue;
-                        string resultId = ResolveGrindResult(inner);
+                        string resultId = ResolveGrindInteraction(inner, out object change, out object result);
                         if (resultId != null)
-                            toGrind.Add((inner, resultId));
+                            toGrind.Add((inner, resultId, change, result));
                     }
                 }
                 else
                 {
-                    string resultId = ResolveGrindResult(slotItem);
+                    string resultId = ResolveGrindInteraction(slotItem, out object change, out object result);
                     if (resultId != null)
-                        toGrind.Add((slotItem, resultId));
+                        toGrind.Add((slotItem, resultId, change, result));
                 }
             }
 
@@ -980,12 +980,12 @@ namespace WaterDrivenInfrastructure.Patcher
             // scan is now taken at most ONCE for the whole batch, only if that cheap path ever
             // misses a spawn.
             var preIdsByResult = new Dictionary<string, HashSet<int>>();
-            foreach (var resultId in toGrind.Select(t => t.resultId).Distinct())
+            foreach (var resultId in toGrind.Where(t => t.change == null || t.result == null).Select(t => t.resultId).Distinct())
                 preIdsByResult[resultId] = SnapshotCardIdsByUniqueId(resultId, EnumerateGameManagerAllCards());
 
             bool sceneFallbackUsed = false;
 
-            foreach (var (sourceCard, resultId) in toGrind)
+            foreach (var (sourceCard, resultId, change, result) in toGrind)
             {
                 string srcUid  = CardUtil.GetCardUniqueId(sourceCard);
                 float srcQ2    = CardUtil.GetDurability(sourceCard, "SpecialDurability2");
@@ -993,6 +993,17 @@ namespace WaterDrivenInfrastructure.Patcher
                 float srcQ3    = CardUtil.GetDurability(sourceCard, "SpecialDurability3");
                 float srcQ3Max = CardUtil.GetDurabilityMax(sourceCard, "SpecialDurability3");
                 Logger?.LogDebug($"[GrindAll] grinding '{srcUid}' → '{resultId}': SD2={srcQ2:F1}/{srcQ2Max:F1}");
+
+                // A TransformInto grind spawns its result with the hand grind's stats SET, never raised to a
+                // floor: an unset powder keeps its own random start (Greenstone Powder 0 to 55) and a Quality 0
+                // dried herb never got the grind's bonus (Nexus c170857136, c171336107).
+                if (change != null && result != null)
+                {
+                    var stats = BuildGrindResultStats(sourceCard, change, result);
+                    SpawnService.Spawn(resultId, stats);
+                    Logger?.LogDebug($"[GrindAll] '{srcUid}' -> '{resultId}' at {string.Join(", ", stats.Select(kv => $"{kv.Key}={kv.Value:F1}"))}");
+                    continue;
+                }
 
                 var preIds = preIdsByResult[resultId];
                 SpawnService.Spawn(resultId);
@@ -1207,8 +1218,67 @@ namespace WaterDrivenInfrastructure.Patcher
             catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] TrySetActive: {ex.Message}"); }
         }
 
-        private static string ResolveGrindResult(object card)
+        private static string ResolveGrindResult(object card) => ResolveGrindInteraction(card, out _, out _);
+
+        // The stats a TransformInto grind result spawns with, following vanilla's transform
+        // (.decomp/GameManager.cs ApplyCardStateChange, Transform case): each stat the CI transfers is carried
+        // over (times its TransferScale when that is active), then ModifyDurability adds the CI's change. Every stat,
+        // Quality (SD2, SD3) included, is carried raw, as vanilla's transform copies it (.decomp/GameManager.cs ~11922);
+        // until 1.12.16 Quality was rescaled by share of max, which no vanilla grind does (MASTER_PLAN 1, T2.2023).
+        private static readonly (string stat, string transfer, string scale, string delta)[] GrindTransferStats =
         {
+            ("SpoilageTime",       "TransferSpoilage", "SpoilageTransferScale", "SpoilageChange"),
+            ("SpecialDurability1", "TransferSpecial1", "Special1TransferScale", "Special1Change"),
+            ("SpecialDurability2", "TransferSpecial2", "Special2TransferScale", "Special2Change"),
+            ("SpecialDurability3", "TransferSpecial3", "Special3TransferScale", "Special3Change"),
+            ("SpecialDurability4", "TransferSpecial4", "Special4TransferScale", "Special4Change"),
+        };
+
+        private static Dictionary<string, float> BuildGrindResultStats(object source, object change, object result)
+        {
+            var stats = new Dictionary<string, float>(StringComparer.Ordinal);
+            bool setOutright = GetBoolField(change, "DurabilityChangesSetTheValueOfTransformResult");
+            bool modify = GetBoolField(change, "ModifyDurability");
+            foreach (var (stat, transfer, scale, delta) in GrindTransferStats)
+            {
+                if (!GetBoolField(change, transfer)) continue;
+                float dstMax = ReadField(ReadField(result, stat), "MaxValue") is float m ? m : float.NaN;
+                var range = ReadField(change, delta) is UnityEngine.Vector2 v ? v : UnityEngine.Vector2.zero;
+                float value;
+                if (setOutright)
+                {
+                    value = GrindTransferValue(range.x, 0f, dstMax);
+                }
+                else
+                {
+                    float src = CardUtil.GetDurability(source, stat);
+                    if (float.IsNaN(src)) src = 0f;
+                    // OptionalValue.Active is protected; the game's own implicit operators read it.
+                    if (ReadField(change, scale) is OptionalFloatValue scaleValue && (bool)scaleValue)
+                        src *= (float)scaleValue;
+                    value = GrindTransferValue(src, modify ? UnityEngine.Random.Range(range.x, range.y) : 0f, dstMax);
+                }
+                stats[stat] = value;
+            }
+            return stats;
+        }
+
+        // One transferred stat of a grind result: the source's value (already times an active TransferScale) plus
+        // the CI's rolled change, clamped to the result's max and floored at 0. Pure, so the Pester gate compiles it
+        // (WaterDrivenInfrastructure.Tests.ps1, "Grind All quality transfer").
+        internal static float GrindTransferValue(float src, float bonus, float dstMax)
+        {
+            float value = src + bonus;
+            if (!float.IsNaN(dstMax) && dstMax > 0f && value > dstMax) value = dstMax;
+            if (value < 0f) value = 0f;
+            return value;
+        }
+
+        // The grind CI's result UID; change and result are its ReceivingCardChanges and TransformInto CardData
+        // when the result comes from TransformInto, and null for the ProducedCards fallback (Path B).
+        private static string ResolveGrindInteraction(object card, out object change, out object result)
+        {
+            change = null; result = null;
             try
             {
                 if (card == null) return null;
@@ -1252,7 +1322,12 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (transformCard != null)
                     {
                         var uid = ReadField(transformCard, "UniqueID") as string;
-                        if (!string.IsNullOrEmpty(uid)) return uid;
+                        if (!string.IsNullOrEmpty(uid))
+                        {
+                            change = rcc;
+                            result = transformCard;
+                            return uid;
+                        }
                     }
 
                     // Path B: ProducedCards[0].DroppedCards[0] fallback

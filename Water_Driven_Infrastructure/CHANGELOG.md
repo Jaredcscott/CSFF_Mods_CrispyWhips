@@ -2,6 +2,20 @@
 
 All notable changes to this mod are documented here.
 
+## [1.12.16] - 2026-10-27
+
+### Fixed
+
+- **Grind All copies a source's quality straight across, as grinding by hand does.** 1.12.15 carried quality over as a share of the most each card can hold. For every base-game item the Grinding Mill grinds itself, the source and the powder have the same maximum, so nothing you grind changes. A modded item whose powder can hold more than its source (say Quality 72 of 144 into a powder of up to 192, with +25 for grinding) now gives 97, as by hand, instead of 121.
+- Technical: `BuildGrindResultStats` (`Patcher/ActionInterceptPatch.cs`) no longer rescales `SpecialDurability2`/`SpecialDurability3` by `src / srcMax * dstMax`; every transferred stat is copied raw (times an active `*TransferScale`), as `.decomp/GameManager.cs` does, then the rolled `*Change` is added and the result clamped to its max and floored at 0 in the new pure `GrindTransferValue`. Gated by `WaterDrivenInfrastructure.Tests.ps1` "Grind All quality transfer", watched red on the 1.12.15 source.
+
+## [1.12.15] - 2026-10-25
+
+### Fixed
+
+- **Grind All gives each powder the quality the hand grind would.** Ground dried herbs came out of the Grinding Mill at Quality 0, and ground ore such as Greenstone Powder at a random quality from 0 to about 55, because the mill only ever raised a powder's starting quality to its source's share and never added the grind's own bonus (reported on Nexus by a1962129403). Each powder now starts at its source's quality, as a share of the most it can have, plus the base game's grinding bonus (dried herbs +25, Greenstone +7), and carries the source's freshness the way the base game's grind does.
+- Technical: `HandleGrindAllInner` spawns a TransformInto grind result through `SpawnService.Spawn(uid, stats)` with the stats SET from the matched CardInteraction (`BuildGrindResultStats`: each `Transfer*` flag with its `*TransferScale`, then `ModifyDurability`'s `*Change`, quality by percentage of max), instead of `ApplyMinimumQualityPercent` after the spawn. A ProducedCards (Path B) grind keeps the old floor-only path.
+
 ## [1.12.14] - 2026-10-22
 
 ### Changed

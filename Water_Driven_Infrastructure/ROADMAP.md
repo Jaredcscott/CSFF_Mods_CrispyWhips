@@ -1,7 +1,7 @@
 # Roadmap: Water Driven Infrastructure
-Version at time of writing: 1.12.14
-Date: 2026-10-23
-Audit score: 9/10 (PASS - 0 CRITICAL, 0 DESIGN GAP; 1 owner-owned mechanical consistency call, low severity)
+Version at time of writing: 1.12.15
+Date: 2026-10-27
+Audit score: 9/10 (PASS - 0 CRITICAL, 0 Design Gap, 0 player-visible defect; one latent, already-scheduled correctness item)
 
 ## Current State
 
@@ -9,17 +9,17 @@ Audit score: 9/10 (PASS - 0 CRITICAL, 0 DESIGN GAP; 1 owner-owned mechanical con
 
 **Content**: 31 items (26 live + 5 retired-for-save-compat) / 35 blueprints (29 live + 6 retired) / 21 structures / 7 perks / 39 custom images. 12 NPCDuty files power Partner station work.
 
-**Stability**: 9/10 - release ready. Build clean (0 errors / 0 warnings, preflight 2026-10-23), versions synced at 1.12.14, localization + Chinese parity CLEAN (673/673), acquisition loops complete (0 unreachable / 0 dead-end), 0 cross-mod collisions (17 mods / 2622 UIDs). The single point off is an owner-owned metal-identity consistency call in the `parts` module (W1 below), not a break.
+**Stability**: 9/10 - release ready. Build clean (0 errors / 0 warnings, preflight 2026-10-27), versions synced at 1.12.15, localization + Chinese parity CLEAN (673/673), acquisition loops complete (0 unreachable / 0 dead-end), 0 cross-mod collisions (17 mods / 2621 UIDs). The single point off was a **latent, non-player-visible** Grind All quality-transfer defect (W1 below) - not a break, and not reachable by any shipped item; it shipped fixed in 1.12.16. The former iron->copper re-smelt inconsistency is **fixed** (1.12.14).
 
-**Open work**: None in the retrospectives - all 4 WDI-tagged retros (`wdi-mill-race-improvement-tab`, `wdi-mill-race-edges`, `wdi-fish-quality`, `wdi-iron-smelt-output`) are 🔵 Graduated/archived. One open audit decision (W1, below) awaits an owner call; it is below the `/audit-to-plan` promotion threshold (a low-severity WARNING), so it lives here and in `.audit/`, not in a plan doc.
+**Open work**: None in the retrospectives - all 4 WDI-tagged retros (`wdi-mill-race-improvement-tab`, `wdi-mill-race-edges`, `wdi-fish-quality`, `wdi-iron-smelt-output`) are Graduated/archived. The one code item (W1, below) shipped in 1.12.16; its plan is archived at `Documentation/Design/WaterDrivenInfrastructure_Grind_Quality_As_Built.md`, and WDI has no plan folder.
 
-**Framework compliance**: Tier 2, fully adopted. 31 `ActionRouter` registrations, 18 `SpawnService` spawns, 5 `TickEvents` subscriptions. No direct `ActionRoutine` patches, no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`. Requires CSFFModFramework 2.28.0+.
+**Framework compliance**: Tier 2, fully adopted. 19 `ActionRouter.Register` call sites, 15 `SpawnService.Spawn`, 5 `TickEvents` subscriptions (measured 2026-10-27). No direct `ActionRoutine` patches, no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`. Requires CSFFModFramework 2.28.0+.
 
 ---
 
 ## Phase 0: Stabilize  *(skipped - 0 CRITICAL, no open retrospectives)*
 
-Nothing release-blocking. The one open mechanical item (W1) is a deliberate owner decision, not a stabilization fix.
+Nothing release-blocking. The one code item (W1), a latent correctness fix, shipped in 1.12.16.
 
 ---
 
@@ -29,22 +29,19 @@ Nothing release-blocking. The one open mechanical item (W1) is a deliberate owne
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Versions synced across ModInfo/Plugin.cs/README (1.12.14) | Version hygiene | ✓ done | Quick |
-| ActionRouter / SpawnService / TickEvents in use | Framework Tier 2 | ✓ done | - |
-| SimpCn.csv present, 673/673 parity | Localization | ✓ done | Quick |
-| Re-run the stale domain sub-audits (items 2026-07-27 is most stale) at next content change | Audit hygiene | P2 (advisory) | Quick |
+| Versions synced across ModInfo/Plugin.cs/README (1.12.15) | Version hygiene | done | Quick |
+| ActionRouter / SpawnService / TickEvents in use | Framework Tier 2 | done | - |
+| SimpCn.csv present, 673/673 parity | Localization | done | Quick |
+| Refresh the mod-level `critical-analysis.md` / `code-quality.md` to 1.12.15 (both 2026-10-20, now stale on the 1.12.14 parts fixes and the Grind All item) | Audit hygiene | P2 (advisory) | Quick |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> No feature gaps. One open mechanical decision and one benched (not ruled-out) feature are the near-term candidates.
+> No feature gaps. The one scheduled code fix (W1) shipped in 1.12.16; one benched (not ruled-out) feature is the near-term candidate.
 
-### W1 - Iron-parts metal identity (owner decision)
-**What**: The four wrought-iron machinery parts (`WaterDrivenSawmill_IronAxle/IronBearing/IronParts/IronWrench`) re-smelt into **copper** nuggets: their `Progress.OnFull` nugget `TransferRules` is `{Special2:1}` only and the construction blueprints use `AffectResultDurabilities` mask 64, so no Metal Type is carried and the nugget defaults to copper (100).
-**Why**: It contradicts the "wrought iron" card identity and is inconsistent with the copper/bronze gears, which preserve metal type. Low severity (value downgrade, not an exploit; no description claims otherwise).
-**Requires**: An owner choice between (a) retain iron - set mask **320** on the four `Bp_Iron*` blueprints and add `Special4:1` to each part's `Progress.OnFull` nugget `TransferRules`; or (b) accept copper as "generic scrap" and leave as-is. Below the `/audit-to-plan` promotion threshold (low-severity WARNING); re-plan into a MASTER_PLAN when the owner picks it up.
-**Complexity**: Quick (if fixed - four blueprint masks + four TransferRules edits, plus a localization/description pass if the identity is reaffirmed).
+### W1 - Grind All transfers quality raw (DONE, 1.12.16)
+Built 2026-10-27: `BuildGrindResultStats` copies every transferred stat raw through `GrindTransferValue`, as a vanilla grind does; gate `Development_Tools/Tests/WaterDrivenInfrastructure.Tests.ps1` "Grind All quality transfer", in-game row T2.2023 PASS on rig 2 (WDI 1.12.16). Plan archived 2026-10-28: `Documentation/Design/WaterDrivenInfrastructure_Grind_Quality_As_Built.md` section 1.
 
 ### Cold-Water Cache (benched, owner decision pending)
 **What**: A spoilage-halving (x0.5) river cache kept strictly weaker than vanilla's Ice Pit, with a flood-loss tick and a "Pull Up Cache" DA. UIDs `wdi_bp_coldwater_cache` / `wdi_coldwater_cache_placed`.
@@ -70,8 +67,8 @@ Nothing release-blocking. The one open mechanical item (W1) is a deliberate owne
 
 | Item | What | Complexity |
 |------|------|------------|
-| M3 - retire 6 vestigial `parts` blueprints | `Bp_AlloySolder`, `Bp_CastIronSheet`, `Bp_CastMetalSheet`, `Bp_CopperRivet`, `Bp_IronRivet`, `Bp_IronRivetsFromSheet` are inert save-compat fallbacks (never researchable). `/remove-blueprint` once no shipped save can hold a researched copy | Quick |
-| M1 - `GetCardCharges` uncached reflection | Cache the reflection lookup if a perf pass is run; below scoring floor | Quick |
+| M2 - retire 6 vestigial `parts` blueprints | `Bp_AlloySolder`, `Bp_CastIronSheet`, `Bp_CastMetalSheet`, `Bp_CopperRivet`, `Bp_IronRivet`, `Bp_IronRivetsFromSheet` are inert save-compat fallbacks (never researchable). `/remove-blueprint` once no shipped save can hold a researched copy | Quick |
+| M1 - 5 empty-`InventorySlots` structure cards | Intentional for non-storage landscape/state-variant cards; no action unless a storage role is added | - |
 
 ---
 
@@ -79,9 +76,9 @@ Nothing release-blocking. The one open mechanical item (W1) is a deliberate owne
 
 > Where WDI should be at v1.13+.
 
-WDI is at its natural feature-complete endpoint for a water-industry mod: the full chain from wheel → power → every station → river-fed base infrastructure (drinking, irrigation, retting, reed beds, winter cistern) ships and is in-game confirmed. The mod's role is the definitive "harness the river" overhaul, and the biggest justified remaining move is breadth (the benched Cold-Water Cache) rather than a new subsystem. A new mechanical pillar (e.g. water-powered milling of a new material class, or a tidal/seasonal flow mechanic) is not yet justified by scope; revisit only if vanilla adds a material or seasonal water system to anchor it.
+WDI is at its natural feature-complete endpoint for a water-industry mod: the full chain from wheel -> power -> every station -> river-fed base infrastructure (drinking, irrigation, retting, reed beds, winter cistern) ships and is in-game confirmed. The mod's role is the definitive "harness the river" overhaul, and the biggest justified remaining move is breadth (the benched Cold-Water Cache) rather than a new subsystem. A new mechanical pillar (e.g. water-powered milling of a new material class, or a tidal/seasonal flow mechanic) is not yet justified by scope; revisit only if vanilla adds a material or seasonal water system to anchor it.
 
-**Potential major additions** (not yet justified - revisit after an owner decision on W1 and the Cache):
+**Potential major additions** (not yet justified - revisit after the owner decides on the Cache):
 - Cold-Water Cache restore - benched, fits the river-preservation theme; the clearest next step.
 - Second-tier wheel/gearing progression - only if a new high-volume station class is added that needs it.
 
@@ -96,7 +93,7 @@ Any of these worth building belongs in a plan under `Documentation/Plans/WaterDr
 | After any new content phase | Run `/audit-mod WaterDrivenInfrastructure` and update this roadmap |
 | Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, re-run `/diagnose-log` |
 | After fixing a critical issue | Run `/critical-analysis WaterDrivenInfrastructure` to verify the fix |
-| After Phase 2 complete | Run `/export-to-repo WaterDrivenInfrastructure` and bump minor version; `/nexus-publish upload` (live is 1.12.11, deployed is 1.12.14) |
+| Before a release | Run `/nexus-publish status` to read the live-vs-local version delta, then `/export-to-repo WaterDrivenInfrastructure` and `/nexus-publish upload` |
 
 ---
 
@@ -366,3 +363,10 @@ conservation-checked line-by-line with a multiset compare against the HEAD blob.
 - **Pruned:** the plan and pack left `Documentation/Plans/WaterDrivenInfrastructure/`; live citations repointed (the three section 2 tracker rows' `source`, the WDI Pester balance comment); dated records (earlier entries of this log, `Documentation/Design/AdvancedCopperTools_Vanilla_Balance_As_Built.md`, `Documentation/Reports/Plan_Review/plan-review.html`) left as written.
 - **Evidence:** WDI Release build 0 warnings; `WaterDrivenInfrastructure.Tests.ps1`, `Version-Synchronization` and `GameData-VersionLabel` Pester 124 passed, 0 failed on the 1.12.12 tree; the builders' runs of Sprite-NameResolves, CardArt-ShippedForm, Blueprint-TabGroupNames, Perk-StartingItemStats, InventoryCapacity-Model, Passive-Ct13-BackgroundScoped and Localization-EnglishColumnCjk green; `Check-LocalizationParity` CLEAN 673/673; new contracts (retting pit pairs to River.json, irrigation changes only Hydration within the bands) each watched red on a scratchpad copy. Deployed 1.12.12 (DLL 2026-10-18 05:43, release zip `Water_Driven_Infrastructure_1-12-12.zip`); not uploaded to Nexus (live 1.12.11).
 - **Verification debt:** T2.1700 to T2.1712 (section 1); `wdi_niche_fulling_mill_quality`; T2.1798 (Retting Pit); T2.1799 (Irrigation Channel, including whether `tag_RiverShore_LowAcidity` / `tag_Wetlands_HighAcidity` are the tags vanilla's shore soils carry).
+
+### 2026-10-28 - MASTER_PLAN (Grind All quality transfer) built and archived
+- **Verdict:** DRAINED. The plan's one section (Grind All copies quality raw through `GrindTransferValue`) shipped in WDI 1.12.16 (`142750d8f`) and its in-game row T2.2023 is CONFIRMED; 0 open items, no pack was ever made.
+- **Disposition:** ARCHIVE to `Documentation/Design/WaterDrivenInfrastructure_Grind_Quality_As_Built.md` (plan text verbatim under an archive header); `Documentation/Plans/WaterDrivenInfrastructure/` removed. Mission `csff-plans-prune-2026-10-28`.
+- **Pruned:** the whole plan. Live pointers repointed: this ROADMAP (Open work line, W1 section) and the T2.2023 tracker note, whose dead path `PlaythroughRow-Citations.Tests.ps1` caught (now the archive with an 'archived 2026-10-28 from' tail; no status changed). Left as written, being dated records: earlier entries of this log, `WaterDrivenInfrastructure/.audit/summary.md` and `.audit/ideas.md` (consolidated 2026-10-27), and the Pester Describe label "MASTER_PLAN 1, T2.2023" in `Development_Tools/Tests/WaterDrivenInfrastructure.Tests.ps1` (a check label is its identity in the gate log).
+- **Evidence:** at `efe084587`: `GrindTransferValue` defined and called twice in `WaterDrivenInfrastructure/Patcher/ActionInterceptPatch.cs` (lines 1250, 1259, 1269); Pester `WaterDrivenInfrastructure.Tests.ps1` filtered to "Grind All quality transfer" ran 2 passed, 0 failed; T2.2023 read from `confirmedItems` (`wdi_grind_all_sets_hand_grind_quality`); `git log 17b302ba3..HEAD -- WaterDrivenInfrastructure` returned no commits; `ModInfo.json` 1.12.16 while `.claude/nexus-publish-status.json` holds 1.12.15.
+- **Verification debt:** none (T2.2023 CONFIRMED). Release owed: WDI 1.12.16 to Nexus under the mod's own release rules.

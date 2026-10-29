@@ -98,9 +98,9 @@
         <Content Include="GameStat\**\*.*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="Data\**\*.*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="Localization\**\*.*" CopyToOutputDirectory="PreserveNewest" />
-        <!-- PerkGroup removed: injection is handled by C# AddPerkToSituationalTab() -->
-        <!-- ScriptableObject removed: CardTabGroup JSONs override vanilla tabs and break things.
-             Tab injection is handled by C# AddBlueprintsToTabs() instead. -->
+        <!-- PerkGroup removed: the framework auto-injects perks via each perk's CharacterPerkPerkGroup field. -->
+        <!-- ScriptableObject/CardTabGroup removed: those JSONs override vanilla tabs and break things.
+             Tab injection is handled by the framework's declarative BlueprintTabs.json instead. -->
         <Content Include="Resource\**\*.*" CopyToOutputDirectory="PreserveNewest" />
         <!-- ScriptableObject/ActionTag only (plan feature 21): never ship ScriptableObject/CardTabGroup. -->
         <Content Include="ScriptableObject\**\*.*" CopyToOutputDirectory="PreserveNewest" />
