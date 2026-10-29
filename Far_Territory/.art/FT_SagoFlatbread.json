@@ -1,41 +1,14 @@
 {
   "target": "FT_SagoFlatbread.png",
-  "sourceCard": [
+  "sourceCard": "CardData/Item/FT_SagoFlatbread.json",
+  "usedBy": [
     "CardData/Item/FT_SagoFlatbread.json"
   ],
-  "subject": "one single round sago flatbread at a slight three-quarter angle: thin and flat, pale cream-white with a faint greyish tint, scattered small toasted golden-brown spots and a few darker scorch marks, the rim a little more golden; whole",
-  "model": "nano-banana-2",
-  "mode": "image2image (reference images, keyed item)",
-  "params": {
-    "imageCount": 1,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "(see historyId: the 2026-10-12 vanilla-style keyed item template (content + style references, literal Subject, flat posterized Style, white paper, Avoid list incl. footprints); full text on the historyId)",
-  "refs": [
-    {
-      "label": "vanilla Flatbread_Wheat (content and style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Flatbread_Wheat_1791744907270_dd06b3c7.png"
-    },
-    {
-      "label": "Far Territory FT_SagoPith (colour)",
-      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698739661_6f2b5ee9_1791698739737_83eec536.png"
-    }
-  ],
-  "historyId": "pFUcSMOxH0amm29DPIbm",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792304454419_bb27f869_1792304454461_f97eeada.png",
-  "credits": 20,
-  "generated": "2026-10-18",
-  "finish": "keyed",
-  "note": "FT plan N2 cooked food, pack Prompt 8; previously borrowed Flatbread_Wheat. One sample, for the owner's gallery review. Self-check: MISSED two phrases: drawn top-down, not at a three-quarter angle, and tinted lilac-grey rather than cream; a likely regenerate in review.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1792304454419_bb27f869_1792304454461_f97eeada.png",
-      "verdict": "MISSED two phrases: drawn top-down, not at a three-quarter angle, and tinted lilac-grey rather than cream; a likely regenerate in review"
-    }
-  ],
-  "picked": "A",
-  "predicted": "A"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "SagoFlatbread",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 11.0), 56055 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

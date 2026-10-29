@@ -1,36 +1,14 @@
 {
   "target": "FT_Seaweed.png",
-  "sourceCard": null,
-  "subject": "a loose bundle of glossy olive-green seaweed, flat ribbon-like fronds lying together with a wet sheen, simple and unbundled by cord, no rock and no bowl",
-  "model": "nano-banana-2",
-  "mode": "text2image",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "2K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Hand-painted watercolor-and-ink game item illustration of a loose bundle of glossy olive-green seaweed, flat ribbon-like fronds lying together with a wet sheen, simple and unbundled by cord, no rock and no bowl, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
-  "historyId": "aGxkcIWsKEnx4AxlVQBc",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647414730_ae69c7dd_1791647415645_d05e6bb6.png",
-  "credits": 90,
-  "generated": "2026-10-10",
-  "note": "owner gallery rework 2026-10-12: has white to remove. Re-keyed, no generation: 12 enclosed paper gaps between the fronds keyed with the shipped ramp (components picked by eye; 3 enclosed white highlights inside fronds left opaque), then defringe.py, then trimmed. Earlier note: Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647419391_cb1ee230_1791647419561_816c5f78.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647414905_917a19aa_1791647415698_c995284d.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647414730_ae69c7dd_1791647415645_d05e6bb6.png"
-    }
+  "sourceCard": "CardData/Item/FT_Seaweed.json",
+  "usedBy": [
+    "CardData/Item/FT_Seaweed.json"
   ],
-  "picked": "C",
-  "predicted": "B",
-  "reworked": "2026-10-12"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "Seaweed",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 19.3), 104397 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

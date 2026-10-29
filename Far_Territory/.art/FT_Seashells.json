@@ -1,17 +1,14 @@
 {
   "target": "FT_Seashells.png",
-  "sourceCard": "CardData/Item/FT_Conch.json",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF card art as style reference)",
-  "params": {
-    "imageCount": 1,
-    "aspectRatio": "2:3",
-    "resolution": "2K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "not recorded: the batch agent stopped at a usage limit before writing its record",
-  "refs": [],
-  "resource_url": null,
-  "generated": "2026-10-10",
-  "note": "Owner-approved 2026-10-10 in the Card Art Restyle Review (restyle toward vanilla card art). Finished by /process-card-art --full-bleed."
+  "sourceCard": "CardData/Item/FT_Seashells.json",
+  "usedBy": [
+    "CardData/Item/FT_Seashells.json"
+  ],
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "PrettySeashells",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 21.0), 48255 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

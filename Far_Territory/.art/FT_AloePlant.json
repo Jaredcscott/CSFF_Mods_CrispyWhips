@@ -1,42 +1,15 @@
 {
   "target": "FT_AloePlant.png",
-  "sourceCard": [
-    "CardData/Location/FT_AloePlant.json",
-    "CardData/Item/FT_AloeGarden.json"
+  "sourceCard": "CardData/Item/FT_AloeGarden.json",
+  "usedBy": [
+    "CardData/Item/FT_AloeGarden.json",
+    "CardData/Location/FT_AloePlant.json"
   ],
-  "subject": "one aloe vera plant growing wild in pale sand at the top of a tropical beach: a low rosette of thick fleshy pointed grey-green leaves with pale flecks and small pale teeth, dark beach rocks and a dry palm frond on the sand, two leaning coconut palms and a strip of turquoise sea behind",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 1,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "(see historyId: the 2026-10-12 vanilla-style full-bleed scene template, style refs + Subject + \"The painted scene reaches every edge of the frame\" + Avoid list incl. footprints, tracks, plain white background)",
-  "refs": [
-    {
-      "label": "vanilla Turnroot_Plant (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Turnroot_Plant_1791745248505_467c5843.png"
-    },
-    {
-      "label": "vanilla Fireroot_Plant (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fireroot_Plant_1791700790415_5376148c.png"
-    }
-  ],
-  "historyId": "0I3y0whWTa4MgZC4fFaS",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797791463_52316c9a_1791797791556_f18efa08.png",
-  "credits": 20,
-  "generated": "2026-10-12",
-  "finish": "full-bleed",
-  "note": "owner gallery rework 2026-10-12: scene is wrong. Aloe grows on the shore and coastal upland boards (Landfall Strand, Bleak Strand, Coral Inlet, Palm Fringe, the uplands and Eastgrass Plain), so the scene moved from dry grassland to a tropical beach. The model drew the sand salmon-pink (\"coral sand\"); it was recoloured locally to pale tan (hue 38, saturation x0.62 on the pink band only) before finishing, no extra credits.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797791463_52316c9a_1791797791556_f18efa08.png"
-    }
-  ],
-  "picked": "A",
-  "predicted": "A",
-  "previous_resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702217399_c86c640a_1791702217556_f3bd49a8.png"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "AloeVera",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": "key kept as-is (plan W0.1 branch a)",
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 5.1), 105073 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

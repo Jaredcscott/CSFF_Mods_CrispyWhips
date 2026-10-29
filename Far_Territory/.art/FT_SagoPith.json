@@ -1,45 +1,14 @@
 {
   "target": "FT_SagoPith.png",
   "sourceCard": "CardData/Item/FT_SagoPith.json",
-  "subject": "a heap of pale cream sago pith: coarse, fibrous, crumbly starch scraped from inside a palm trunk, in a small loose pile.",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a heap of pale cream sago pith: coarse, fibrous, crumbly starch scraped from inside a palm trunk, in a small loose pile.\nStyle: vanilla survival card game item art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, slight three-quarter angle, a single subject comfortably inset from every edge with a generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: bowl, plate, flour bag, footprints, tracks, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, cropped, blurry, scenery behind the subject, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame.",
-  "refs": [
-    {
-      "label": "vanilla PineNuts (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/PineNuts_1791697574555_66534f44.png"
-    },
-    {
-      "label": "vanilla Bowl_Clay (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bowl_Clay_1791697575163_a3345586.png"
-    }
+  "usedBy": [
+    "CardData/Item/FT_SagoPith.json"
   ],
-  "historyId": "nFstn57xmNAK3bGwZ74k",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698739661_6f2b5ee9_1791698739737_83eec536.png",
-  "credits": 60,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26 (3 samples; predicted A, written before the owner looked). Finished by /process-card-art (white paper keyed). Used by FT_SagoPith.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698740106_0c29cf45_1791698740157_688be68b.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698742764_c563ea0d_1791698742819_3b8e7b0c.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698739661_6f2b5ee9_1791698739737_83eec536.png"
-    }
-  ],
-  "picked": "C",
-  "predicted": "A"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "SagoPulp",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 29.3), 78632 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

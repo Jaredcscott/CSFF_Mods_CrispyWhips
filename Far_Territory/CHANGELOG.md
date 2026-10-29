@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.13] - 2026-10-29
+
+### Changed
+
+- **The island draws Card Survival: Tropical Island's own art.** Its developers allowed the mod to use that game's art, so 111 pictures are now the originals: 30 island places, 11 kinds of path, the open sea off four shores, the wild and garden plants, and the island's fruit, fish, shellfish, carcasses and finds. The mainland, its animals, the boats, the animated places (the Sea, the grottos, the Hot Spring, Swim to Shore) and the island cards that game has no matching picture for keep their own art. `ASSET_CREDITS.md` lists every picture and the sprite it comes from.
+- **Conch, Oyster and Sea Urchin have their own pictures.** They shared the Seashells picture; each now shows its own shell.
+
 ## [0.1.12] - 2026-10-24
 
 ### Fixed

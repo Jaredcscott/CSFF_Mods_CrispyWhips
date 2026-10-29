@@ -1,41 +1,14 @@
 {
   "target": "FT_Yam.png",
-  "sourceCard": [
+  "sourceCard": "CardData/Item/FT_Yam.json",
+  "usedBy": [
     "CardData/Item/FT_Yam.json"
   ],
-  "subject": "one wild yam root lying on its side, clearly a root vegetable: a long smooth slightly curved cylinder about four times as long as it is wide, tapering to a narrow point at the left end, dark reddish-brown rough bark-like skin with fine rings and a few hairlike rootlets, the thick right end cut cleanly across showing a flat round face of pale creamy-white flesh",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 1,
-    "aspectRatio": "3:2",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "(see historyId: the 2026-10-12 vanilla-style keyed item template, \"Use the attached reference images, each for one purpose\" + Subject + flat posterized style + white paper + Avoid list incl. footprints)",
-  "refs": [
-    {
-      "label": "vanilla Fireroot_Item (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fireroot_Item_1791697571643_a266b2a4.png"
-    },
-    {
-      "label": "vanilla Turnroot_Fresh (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Turnroot_Fresh_1791745247756_1cbfb0bb.png"
-    }
-  ],
-  "historyId": "LPZ2P0Rkb5X2hVpMBWDp",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797793838_4638ed0f_1791797793867_e6690cf3.png",
-  "credits": 20,
-  "generated": "2026-10-12",
-  "finish": "keyed",
-  "note": "owner gallery rework 2026-10-12: looks like poop. Generated at 3:2 (a wide subject) and padded to 2:3 with white before /process-card-art, per the redraw rule; proportion stated as a number.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791797793838_4638ed0f_1791797793867_e6690cf3.png"
-    }
-  ],
-  "picked": "A",
-  "predicted": "A",
-  "previous_resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698669304_7b37bdb8_1791698669355_706abf0e.png"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "Yam",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 9.8), 77768 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

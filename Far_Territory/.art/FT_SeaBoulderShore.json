@@ -1,35 +1,14 @@
 {
   "target": "FT_SeaBoulderShore.png",
-  "sourceCard": null,
-  "subject": "warm water surging in and out between dark boulders, white spray, a sheltered gap between the rocks with calmer water, weed on the stones",
-  "model": "nano-banana-2",
-  "mode": "text2image",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "2K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Hand-painted illustration of warm water surging in and out between dark boulders, white spray, a sheltered gap between the rocks with calmer water, weed on the stones, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
-  "historyId": "SFQ9PLfXelTSMMBr1t1h",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647540685_8e899ee3_1791647541397_f3506bc7.png",
-  "credits": 90,
-  "generated": "2026-10-10",
-  "note": "Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647539850_90d393dc_1791647541107_0d3cdfd6.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647540685_8e899ee3_1791647541397_f3506bc7.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647540133_951a85c7_1791647540860_26e221ec.png"
-    }
+  "sourceCard": "CardData/Location/FT_SeaBoulderShore.json",
+  "usedBy": [
+    "CardData/Location/FT_SeaBoulderShore.json"
   ],
-  "picked": "B",
-  "predicted": "B"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "Sea",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": "key kept as-is (plan W0.1 branch a)",
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 5.3), 101412 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

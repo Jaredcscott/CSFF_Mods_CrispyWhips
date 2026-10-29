@@ -1,52 +1,15 @@
 {
   "target": "FT_MistyRidge.png",
   "sourceCard": "CardData/Environment/FT_MistyRidge.json",
-  "subject": "a high windswept ridge of broken grey rock with a few small stunted, wind-bent trees, wrapped in drifting white cloud; on the left a cliff edge drops away, and far below through a gap in the cloud lies a green forest. No animals.",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a high windswept ridge of broken grey rock with a few small stunted, wind-bent trees, wrapped in drifting white cloud; on the left a cliff edge drops away, and far below through a gap in the cloud lies a green forest. No animals.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, birds, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
-  "refs": [
-    {
-      "label": "vanilla BoggyMeadows (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BoggyMeadows_1791697553603_15fe9a26.png"
-    },
-    {
-      "label": "vanilla Path (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Path_1791693750843_84388d59.png"
-    }
+  "usedBy": [
+    "CardData/Environment/FT_MistyRidge.json",
+    "CardData/Location/FT_MistyRidgeLocation.json"
   ],
-  "historyId": "PULoArH0G86LqqnUo00b",
-  "redrawHistoryId": "SXatRIjCUlSjKVUyq5Xc",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699405422_d0bd66b3_1791699405704_e3d8fa56.png",
-  "credits": 80,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the Prompt 18 picker page picker_18 (3 samples; predicted A, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_MistyRidge, FT_MistyRidgeLocation. Redraw history: SXatRIjCUlSjKVUyq5Xc.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791697935358_99125765_1791697935427_a522eff8.png"
-    },
-    {
-      "n": "B-rejected",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791697936185_b0cd787d_1791697936225_3e9734e8.png",
-      "verdict": "rejected before the pick: small oval pits in a line along the rock path, readable as prints; never shown to the owner"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699405422_d0bd66b3_1791699405704_e3d8fa56.png",
-      "verdict": "redraw of the rejected B with the same prompt"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791697935843_6dbc31a7_1791697935904_c8da2bae.png"
-    }
-  ],
-  "picked": "B",
-  "predicted": "A"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "JungleHighlands",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 6.3), 244745 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

@@ -1,45 +1,14 @@
 {
   "target": "FT_Palm.png",
   "sourceCard": "CardData/Location/FT_Palm.json",
-  "subject": "a tall leaning coconut palm on a beach, its crown of long fronds holding a cluster of green coconuts, the sea behind.",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a tall leaning coconut palm on a beach, its crown of long fronds holding a cluster of green coconuts, the sea behind.\nStyle: vanilla survival card game plant art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
-  "refs": [
-    {
-      "label": "vanilla TreeOak (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/TreeOak_1791700790914_80eaf8fd.png"
-    },
-    {
-      "label": "vanilla Tree1 (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tree1_1791700791469_422d956a.png"
-    }
+  "usedBy": [
+    "CardData/Location/FT_Palm.json"
   ],
-  "historyId": "7PLIiAZbOylEp4BCg7A9",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701889532_c6ae35ac_1791701889875_c4eb80ef.png",
-  "credits": 60,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26b (3 samples; predicted B, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_Palm.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701889195_fbc73617_1791701889311_a7f45fa6.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701889532_c6ae35ac_1791701889875_c4eb80ef.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701885943_6aa0c762_1791701886168_3557f408.png"
-    }
-  ],
-  "picked": "B",
-  "predicted": "B"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "PalmTree",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": "key kept as-is (plan W0.1 branch a)",
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 9.7), 77913 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

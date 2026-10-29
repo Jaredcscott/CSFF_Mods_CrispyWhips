@@ -1,45 +1,15 @@
 {
   "target": "FT_Sinkhole.png",
   "sourceCard": "CardData/Environment/FT_Sinkhole.json",
-  "subject": "looking up from the bottom of a sinkhole shaft: a floor of broken rubble and rocks, rough earth and rock walls rising a man's height or more to a ragged ring of green turf and bright sky above, and a low dark opening at the foot of one wall leading further in.",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: looking up from the bottom of a sinkhole shaft: a floor of broken rubble and rocks, rough earth and rock walls rising a man's height or more to a ragged ring of green turf and bright sky above, and a low dark opening at the foot of one wall leading further in.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, waterfall, ladders, ropes, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
-  "refs": [
-    {
-      "label": "vanilla Tunnel_1 (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tunnel_1_1791697554255_c7ac50b2.png"
-    },
-    {
-      "label": "vanilla Waterfall_Cave (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Waterfall_Cave_1791697554788_97421448.png"
-    }
+  "usedBy": [
+    "CardData/Environment/FT_Sinkhole.json",
+    "CardData/Location/FT_SinkholeLocation.json"
   ],
-  "historyId": "gK23UY3MfuWJ4mg60Rrz",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698207519_873cc447_1791698207567_e47a2f6d.png",
-  "credits": 60,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the Prompt 18 picker page picker_18 (3 samples; predicted A, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_Sinkhole, FT_SinkholeLocation.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698207122_a1271bee_1791698207219_f5c9fb92.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698207519_873cc447_1791698207567_e47a2f6d.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698206245_d5072640_1791698206302_f536f24c.png"
-    }
-  ],
-  "picked": "B",
-  "predicted": "A"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "HoleDown",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 6.2), 158524 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

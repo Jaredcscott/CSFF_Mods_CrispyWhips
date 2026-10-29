@@ -1,45 +1,14 @@
 {
   "target": "FT_Threadfin.png",
   "sourceCard": "CardData/Item/FT_Threadfin.json",
-  "subject": "one threadfin lying on its side: a pale silvery-grey fish with a blunt snout and several long thin threads trailing down from the fins under its throat, a forked tail. A single whole fish.",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: one threadfin lying on its side: a pale silvery-grey fish with a blunt snout and several long thin threads trailing down from the fins under its throat, a forked tail. A single whole fish.\nStyle: vanilla survival card game item art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, slight three-quarter angle, a single subject comfortably inset from every edge with a generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: hook, line, plate, multiple fish, footprints, tracks, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, cropped, blurry, scenery behind the subject, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame.",
-  "refs": [
-    {
-      "label": "vanilla Trout (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Trout_1791697557182_73386fae.png"
-    },
-    {
-      "label": "vanilla Perch (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Perch_1791697557695_897f7b94.png"
-    }
+  "usedBy": [
+    "CardData/Item/FT_Threadfin.json"
   ],
-  "historyId": "QFc5SUT97HAhpswjyuSj",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698578643_eb85926d_1791698578733_ec80f21a.png",
-  "credits": 60,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26 (3 samples; predicted B, written before the owner looked). Finished by /process-card-art (white paper keyed). Used by FT_Threadfin. 10 enclosed pocket(s) of white paper that the border-connected key cannot reach (between legs, coils, leaflets or roots) were keyed afterwards with the same 200 to 250 ramp, limited to 3 px past each pocket; painted whites were left opaque.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698578245_f03cd27e_1791698578276_46804f68.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698579945_fcc872e8_1791698579985_ec95bc16.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698578643_eb85926d_1791698578733_ec80f21a.png"
-    }
-  ],
-  "picked": "C",
-  "predicted": "B"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "KingThreadfin",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 26.4), 78012 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

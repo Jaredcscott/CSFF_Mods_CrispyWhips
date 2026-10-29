@@ -1,41 +1,15 @@
 {
   "target": "FT_CoffeeBush.png",
-  "sourceCard": "CardData/Location/FT_CoffeeBush.json",
-  "subject": "a wild coffee bush standing in a tropical forest clearing: many thin branches of glossy dark green oval leaves with wavy edges, and tight clusters of small round berries pressed along the branches where the leaves join, the berries a mix of bright red ripe ones and green unripe ones. The ground under the bush is plain earth and a little grass, nothing lying on it.",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 2,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a wild coffee bush standing in a tropical forest clearing: many thin branches of glossy dark green oval leaves with wavy edges, and tight clusters of small round berries pressed along the branches where the leaves join, the berries a mix of bright red ripe ones and green unripe ones. The ground under the bush is plain earth and a little grass, nothing lying on it.\nStyle: vanilla survival card game plant art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, seed pods, open pods, fallen fruit, berries on the ground, baskets, flowers, beans on the ground, cacao pods, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
-  "refs": [
-    {
-      "label": "vanilla Springberries_Plant (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Springberries_Plant_1791700789781_c8c7ea21.png"
-    },
-    {
-      "label": "vanilla Fireroot_Plant (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fireroot_Plant_1791700790415_5376148c.png"
-    }
+  "sourceCard": "CardData/Item/FT_CoffeeGarden.json",
+  "usedBy": [
+    "CardData/Item/FT_CoffeeGarden.json",
+    "CardData/Location/FT_CoffeeBush.json"
   ],
-  "historyId": "DMrWhlUD3EAAZtidHGvv",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705062804_7dbda2b4_1791705062956_62caa20f.png",
-  "credits": 40,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the redraw picker page picker_redraw (2 samples; predicted B, written before the owner looked). Owner asked for a fresh redraw; vanilla sprites as style references only. Finished by /process-card-art --full-bleed. Used by FT_CoffeeBush, FT_CoffeeGarden.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705062804_7dbda2b4_1791705062956_62caa20f.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705059298_e7bc1c9b_1791705060057_4b1bdd37.png"
-    }
-  ],
-  "picked": "A",
-  "predicted": "B"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "CoffeePlant",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": "key kept as-is (plan W0.1 branch a)",
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 8.3), 136530 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

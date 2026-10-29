@@ -1,35 +1,15 @@
 {
   "target": "FT_PalmFringe.png",
-  "sourceCard": null,
-  "subject": "the top of a pale sand beach where it meets the jungle: a few leaning palms, dry brown fronds lying on the sand, low green scrub behind them and a dense green wall of jungle at the back, no people",
-  "model": "nano-banana-2",
-  "mode": "text2image",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "2K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Hand-painted illustration of the top of a pale sand beach where it meets the jungle: a few leaning palms, dry brown fronds lying on the sand, low green scrub behind them and a dense green wall of jungle at the back, no people, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
-  "historyId": "0lOaBCt9ldw8A2jyqVly",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647419733_f1351652_1791647420466_e3d92f1a.png",
-  "credits": 90,
-  "generated": "2026-10-10",
-  "note": "Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647421542_456e11dd_1791647422405_fce8b6bf.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647421141_93f4fd79_1791647422189_773ddf9b.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647419733_f1351652_1791647420466_e3d92f1a.png"
-    }
+  "sourceCard": "CardData/Environment/FT_PalmFringe.json",
+  "usedBy": [
+    "CardData/Environment/FT_PalmFringe.json",
+    "CardData/Location/FT_PalmFringeLocation.json"
   ],
-  "picked": "C",
-  "predicted": "B"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "JunglePatch",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": "key kept as-is (plan W0.1 branch a)",
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 7.7), 179884 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

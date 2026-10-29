@@ -1,45 +1,15 @@
 {
   "target": "FT_DrippingHall.png",
   "sourceCard": "CardData/Environment/FT_DrippingHall.json",
-  "subject": "a low wet cave chamber where water drips from the roof into a clear spring pool in the rock floor, the walls shining wet. No torch; dim, cool, sourceless cave light.",
-  "model": "nano-banana-2",
-  "mode": "image2image (picked first-batch sample as composition reference, vanilla CSFF sprite as style reference)",
-  "params": {
-    "imageCount": 2,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the COMPOSITION and look to keep: a low wet cave chamber where water drips from the roof into a clear spring pool in the rock floor, the walls shining wet. Redraw this same picture, changed only as the Change line says.\nReference image 2 is a STYLE reference only: match its flat posterized fills, thin dark ink outlines and small hatch marks; do not copy its subject or composition.\nChange: Remove every torch, flame, fire and lit sconce, and remove the warm orange torchlight glow at the edges of the frame. The light now comes from nowhere in particular: dim, cool and natural for a cave, the rock in muted blue-grey and grey-brown shades, the far openings fading into darkness. Keep everything else exactly as in reference image 1: the same rock forms, the same openings, the same floor, the same camera position and framing.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, torch, torches, flame, fire, sconce, lantern, warm orange glow, firelight, lit edge of the frame, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
-  "refs": [
-    {
-      "label": "FT_DrippingHall picked C (composition)",
-      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701579397_f86b9e74_1791701579500_b557eb7c.png"
-    },
-    {
-      "label": "vanilla Tunnel_1 (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tunnel_1_1791697554255_c7ac50b2.png"
-    }
+  "usedBy": [
+    "CardData/Environment/FT_DrippingHall.json",
+    "CardData/Location/FT_DrippingHallLocation.json"
   ],
-  "historyId": "OFleeQHIJsOALJF96I0M",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791704936849_73a684bd_1791704936980_232e94ce.png",
-  "credits": 40,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the redraw picker page picker_redraw (2 samples; predicted A, written before the owner looked). Owner asked for the same picture with one change; composition reference: FT_DrippingHall picked C sample from the first batch. Finished by /process-card-art --full-bleed. Used by FT_DrippingHall, FT_DrippingHallLocation.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791704936849_73a684bd_1791704936980_232e94ce.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791704936040_c7966078_1791704936107_25cc6a4f.png"
-    }
-  ],
-  "picked": "A",
-  "predicted": "A",
-  "composition_reference": {
-    "sample": "FT_DrippingHall picked C",
-    "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701579397_f86b9e74_1791701579500_b557eb7c.png"
-  }
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "DampChamber",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 1.6), 182015 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

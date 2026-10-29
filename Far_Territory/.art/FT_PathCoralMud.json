@@ -1,54 +1,15 @@
 {
   "target": "FT_PathCoralMud.png",
   "sourceCard": "CardData/Location/FT_PathCoralInletRootwaterThicket.json",
-  "subject": "a long way round along a tropical shore: pale cream sand at a clear still turquoise lagoon turning to smooth wet brown mud, a few low dark rocks on the waterline, and ahead where the shore curves a dark wood of trees on tall arching stilt roots; no marks on the sand or mud, no people",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "2K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject, their forest or their composition.\nSubject: a long way round along a tropical shore, seen from the near end. In the foreground, pale cream sand at the edge of a clear, still turquoise lagoon. Further along, the pale sand turns to smooth wet brown mud, with a few low dark rocks along the waterline. Ahead, where the shore curves, a low dark wood of trees standing on tall arching stilt roots over the brown mud and water, their roots clearly visible. The way is simply the open shore between the water and the land, smooth and untouched, with no marks on the sand or the mud. Soft daylight, pale sky. No people, no animals, no boats.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground, sand, mud or snow, drag marks, a worn trail line, people, animals, birds, boats, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
-  "refs": [
-    {
-      "label": "vanilla Path (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Path_1791693750843_84388d59.png"
-    },
-    {
-      "label": "vanilla Swamp1 (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Swamp1_1791693751649_15bef096.png"
-    }
+  "usedBy": [
+    "CardData/Location/FT_PathCoralInletRootwaterThicket.json",
+    "CardData/Location/FT_PathRootwaterThicketCoralInlet.json"
   ],
-  "historyId": "6ZJk38Tc42PCZAYTjuKV",
-  "redrawHistoryId": "iZW0qPMDLYKQUOi5CbRO",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791695295019_3fcde91a_1791695295647_e6e787ad.png",
-  "credits": 120,
-  "generated": "2026-10-10",
-  "note": "Redo of the first 2026-10-10 batch (DVhtxLNwvJ12ACCdGChP), whose picked sample showed footprints, which the owner bans. The first sample B was rejected before the owner saw it (two isolated oval hollows outlined in the mud that could read as prints) and redrawn once with the same prompt (iZW0qPMDLYKQUOi5CbRO, 30 credits); the redraw is B. Owner picked B 2026-10-10 (predicted A). Finished by /process-card-art --full-bleed. Used by FT_PathCoralInletRootwaterThicket and FT_PathRootwaterThicketCoralInlet.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791695096605_5b3a8c15_1791695096952_a91444bf.png",
-      "verdict": "no prints; sand to mud with water pools, rocks on the waterline, stilt wood ahead"
-    },
-    {
-      "n": "B-rejected",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791695096782_6a59807a_1791695097441_b2c8fba8.png",
-      "verdict": "rejected before the pick: oval hollows in the mud that could read as prints; never shown to the owner"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791695295019_3fcde91a_1791695295647_e6e787ad.png",
-      "verdict": "redraw of the rejected B; no prints; clean lagoon curve, sand turning to mud, rocks, stilt wood along the shore ahead"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791695097396_74919276_1791695097666_afcfea6e.png",
-      "verdict": "no prints; lagoon in front, mud and wood behind it"
-    }
-  ],
-  "picked": "B",
-  "predicted": "A"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "MangrovesFromBeach",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": "key kept as-is (plan W0.1 branch a)",
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 12.4), 105517 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

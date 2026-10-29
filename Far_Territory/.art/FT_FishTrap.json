@@ -1,40 +1,15 @@
 {
   "target": "FT_FishTrap.png",
-  "sourceCard": [
-    "CardData/Item/FT_FishTrap.json",
-    "CardData/Blueprint/Bp_FT_FishTrap.json"
+  "sourceCard": "CardData/Blueprint/Bp_FT_FishTrap.json",
+  "usedBy": [
+    "CardData/Blueprint/Bp_FT_FishTrap.json",
+    "CardData/Item/FT_FishTrap.json"
   ],
-  "subject": "a fish trap: a cylindrical cage about the length of a forearm made of thin straight peeled twigs laid side by side, bound in rings of brown twine at both ends and around the middle; one end closed and tapered to a blunt point, the other end an open funnel mouth of twigs turned inward toward the centre. Pale grey-brown twigs, darker brown twine. The cage is empty.",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 1,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "(see historyId; the item or scene template of this folder's 2026-10-11 sidecars with the subject above)",
-  "refs": [
-    {
-      "label": "vanilla LogPiece (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/LogPiece_1791697573880_2de4c7fa.png"
-    },
-    {
-      "label": "vanilla Bowl_Clay (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bowl_Clay_1791697575163_a3345586.png"
-    }
-  ],
-  "historyId": "jYAaKpJbFFomOuNjOEfB",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791743167178_a0a0658b_1791743167260_1d18e8d2.png",
-  "credits": 20,
-  "generated": "2026-10-11",
-  "note": "Owner asked 2026-10-11 for one sample per card, redos to follow; replaces the base-game stand-in (FunnelTrap). Finished by /process-card-art (white paper keyed). Used by FT_FishTrap, Bp_FT_FishTrap.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791743167178_a0a0658b_1791743167260_1d18e8d2.png"
-    }
-  ],
-  "picked": "A",
-  "predicted": "A"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "FishTrap",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 10.6), 57706 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

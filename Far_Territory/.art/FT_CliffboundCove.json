@@ -1,35 +1,15 @@
 {
   "target": "FT_CliffboundCove.png",
-  "sourceCard": null,
-  "subject": "a small hidden beach walled in by tall cliffs on both sides, calm deep clear water with a pale sandy floor showing through, a distant white-streaked rock islet on the horizon between the cliffs",
-  "model": "nano-banana-2",
-  "mode": "text2image",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "2K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Hand-painted illustration of a small hidden beach walled in by tall cliffs on both sides, calm deep clear water with a pale sandy floor showing through, a distant white-streaked rock islet on the horizon between the cliffs, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
-  "historyId": "r21G3woRXOJZnJcRNcYf",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647483629_29ea1d99_1791647484225_630b2999.png",
-  "credits": 90,
-  "generated": "2026-10-10",
-  "note": "Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647481032_903e4a79_1791647481784_db84b0d2.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647483629_29ea1d99_1791647484225_630b2999.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647480541_c4d959d3_1791647482483_552631ca.png"
-    }
+  "sourceCard": "CardData/Environment/FT_CliffboundCove.json",
+  "usedBy": [
+    "CardData/Environment/FT_CliffboundCove.json",
+    "CardData/Location/FT_CliffboundCoveLocation.json"
   ],
-  "picked": "B",
-  "predicted": "B"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "Cove",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": "key kept as-is (plan W0.1 branch a)",
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 7.2), 91029 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

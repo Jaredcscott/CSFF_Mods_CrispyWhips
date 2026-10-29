@@ -1,45 +1,14 @@
 {
   "target": "FT_Herring.png",
   "sourceCard": "CardData/Item/FT_SilverHerring.json",
-  "subject": "one small herring lying on its side: a slim bright silver body shining like a coin, a blue-green back, a forked tail. A single whole fish.",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: one small herring lying on its side: a slim bright silver body shining like a coin, a blue-green back, a forked tail. A single whole fish.\nStyle: vanilla survival card game item art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, slight three-quarter angle, a single subject comfortably inset from every edge with a generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: hook, line, plate, multiple fish, footprints, tracks, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, cropped, blurry, scenery behind the subject, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame.",
-  "refs": [
-    {
-      "label": "vanilla Trout (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Trout_1791697557182_73386fae.png"
-    },
-    {
-      "label": "vanilla Perch (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Perch_1791697557695_897f7b94.png"
-    }
+  "usedBy": [
+    "CardData/Item/FT_SilverHerring.json"
   ],
-  "historyId": "bBUBxaVieTBPeFkl7e4o",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698506371_871542d9_1791698506406_25871ca3.png",
-  "credits": 60,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26 (3 samples; predicted B, written before the owner looked). Finished by /process-card-art (white paper keyed). Used by FT_SilverHerring.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698506843_5f419be0_1791698507035_4b72a812.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698507334_aa3adba2_1791698507410_9ddd578a.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698506371_871542d9_1791698506406_25871ca3.png"
-    }
-  ],
-  "picked": "C",
-  "predicted": "B"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "Herring",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 23.2), 34287 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

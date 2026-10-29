@@ -1,18 +1,18 @@
 # Far Territory
 
-**Version:** 0.1.12
+**Version:** 0.1.13
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.2 or later
 **Status:** pre-release. Version 0.1.7 brought the numbers in line with the base game (crops need care, forage and fishing can come up empty, the crossing takes effort, carcasses give a hide); they may still be tuned. Version 0.1.8 added swamp fever and its cure, fish gutting, cooked island food and sea salt, and 0.1.9 the Island Start perk; their numbers are first guesses.
 
-Far Territory adds lands beyond the forest, reached by ordinary travel. Follow the river to the sea and cross to a warm island that recreates Card Survival: Tropical Island's island as a tribute (all text and art are new). Past the forest lie a grassland, mountains and fjords.
+Far Territory adds lands beyond the forest, reached by ordinary travel. Follow the river to the sea and cross to a warm island that recreates Card Survival: Tropical Island's island as a tribute: all text is new, and the island's places, plants and finds draw that game's own art, used with its developers' permission (see `ASSET_CREDITS.md`). Past the forest lie a grassland, mountains and fjords.
 
 - **Coast and island:** three new shore places at the river's end, an outrigger crossing, and an island with seven shore places, a gull islet, a whole interior, a volcano and sixteen caves (eight of them a chain of dark halls).
 - **Far lands:** a grassland west of the forest with a moose, snowy mountains north of it with a hot spring and rock salt, and cold fjords beyond with seals, walrus and puffins.
 - **Things to do:** fish every coast and gut the catch, climb and fell coconut palms, gather tropical food, medicine, spice and fibre plants (all also grown in the base game's Garden Plot), bake yams and sago flatbread, boil sea water into salt, and fight island animals.
 - **Island Start:** a starting perk that begins your run as a castaway on the island shore of your choice.
 
-Every card has its own picture except Brackwater Mouth's map picture, the set Funnel Trap, the Dead Plant and the effect icons, which use the base game's art. Choose Your Landing borrows the Outrigger Canoe's picture, the Island Start perk uses Landfall Strand's, the Wrecked Ship uses the Driftwood Log's, and Conch, Oyster and Sea Urchin share the Seashells picture. A plant in the Garden Plot shows its wild plant's picture or one of five shared growing pictures.
+Every card has its own picture except Brackwater Mouth's map picture, the set Funnel Trap, the Dead Plant and the effect icons, which use the base game's art. Choose Your Landing borrows the Outrigger Canoe's picture, the Island Start perk uses Landfall Strand's, the Wrecked Ship uses the Driftwood Log's, the Fish Trap and its set trap share one picture, as Card Survival: Tropical Island draws them, and the four island seas (the Grey Surf, the Rocky Swell, the Cove Water and the Reef Water) share that game's sea picture. A plant in the Garden Plot shows its wild plant's picture or one of six shared growing pictures.
 
 ## At a glance
 
@@ -454,6 +454,8 @@ BepInEx/
 
 See `CHANGELOG.md` for the full list.
 
+- **0.1.13:** the island's places, paths, sea, plants and many of its finds now draw Card Survival: Tropical Island's own art, used with its developers' permission; Conch, Oyster and Sea Urchin get pictures of their own.
+- **0.1.12:** the set Fish Trap and Funnel Trap say they catch about once a day; Chewing Ginger Root names the right effect in Chinese; the unused Ginger Warmth is gone.
 - **0.1.11:** Sago Pith's Drying bar shows the base game's drying icon; this README now says which features a scripted run in the game has confirmed.
 - **0.1.10:** the outrigger home from the island is now built, not given; art for the cooked island food; the crossings and the canoe paddle really cost stamina; boiling sea water no longer freezes the game; no winter storms outside winter; the Cinchona Decoction pot holds three doses, not nine.
 - **0.1.9:** the Island Start perk: begin as a castaway and choose your landing shore, or let the sea decide.
@@ -467,4 +469,4 @@ See `CHANGELOG.md` for the full list.
 - **0.1.1:** Simplified Chinese translation, and new pictures for the Tropical Almond tree and the set Fish Trap.
 - **0.1.0:** first public release, as a pre-release.
 
-**License:** MIT (`LICENSE`). Every card picture apart from the base-game ones named at the top is the mod's own; how each was made is in `ASSET_CREDITS.md`.
+**License:** MIT (`LICENSE`) for the code, the text and the pictures made for this mod. The pictures taken from Card Survival: Tropical Island are that game's art, used with its developers' permission and not covered by the MIT license; `ASSET_CREDITS.md` says which pictures those are and how every other one was made.

@@ -1,45 +1,15 @@
 {
   "target": "FT_BatRoost.png",
   "sourceCard": "CardData/Environment/FT_BatRoost.json",
-  "subject": "a tall dark cave whose high roof is covered in many small hanging sleeping bats, the floor beneath piled deep with dark brown droppings, pale whitish crystals crusting the walls. A grey slit of daylight at the entrance.",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a tall dark cave whose high roof is covered in many small hanging sleeping bats, the floor beneath piled deep with dark brown droppings, pale whitish crystals crusting the walls. A grey slit of daylight at the entrance.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, waterfall, flying bats in the foreground, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
-  "refs": [
-    {
-      "label": "vanilla Tunnel_1 (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tunnel_1_1791697554255_c7ac50b2.png"
-    },
-    {
-      "label": "vanilla Waterfall_Cave (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Waterfall_Cave_1791697554788_97421448.png"
-    }
+  "usedBy": [
+    "CardData/Environment/FT_BatRoost.json",
+    "CardData/Location/FT_BatRoostLocation.json"
   ],
-  "historyId": "AT1cT8lgKLOwwgW5nxDD",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698202532_9ae30237_1791698202664_2f0b1eca.png",
-  "credits": 60,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the Prompt 18 picker page picker_18 (3 samples; predicted A, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_BatRoost, FT_BatRoostLocation.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698200280_f6b4612d_1791698200473_98608607.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698202532_9ae30237_1791698202664_2f0b1eca.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698199669_ba38cec0_1791698199722_2da21756.png"
-    }
-  ],
-  "picked": "B",
-  "predicted": "A"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "BatCave",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 5.8), 121494 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

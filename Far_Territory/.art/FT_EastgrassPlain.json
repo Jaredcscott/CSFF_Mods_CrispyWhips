@@ -1,45 +1,15 @@
 {
   "target": "FT_EastgrassPlain.png",
   "sourceCard": "CardData/Environment/FT_EastgrassPlain.json",
-  "subject": "an open tropical grassland of knee-high green and gold grass dotted with low round scrub bushes, and beyond it at the far edge a pale grey beach and a strip of sea. Bright daylight, pale sky. No animals.",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: an open tropical grassland of knee-high green and gold grass dotted with low round scrub bushes, and beyond it at the far edge a pale grey beach and a strip of sea. Bright daylight, pale sky. No animals.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, birds, a worn trail line, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
-  "refs": [
-    {
-      "label": "vanilla BoggyMeadows (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BoggyMeadows_1791697553603_15fe9a26.png"
-    },
-    {
-      "label": "vanilla Path (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Path_1791693750843_84388d59.png"
-    }
+  "usedBy": [
+    "CardData/Environment/FT_EastgrassPlain.json",
+    "CardData/Location/FT_EastgrassPlainLocation.json"
   ],
-  "historyId": "rBFrtNqbsU7QOcBNUHUz",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791697936330_8e560fed_1791697936390_69cccd5f.png",
-  "credits": 60,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the Prompt 18 picker page picker_18 (3 samples; predicted B, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_EastgrassPlain, FT_EastgrassPlainLocation.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791697937360_2b71b047_1791697938083_9303547b.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791697945424_10ca8772_1791697945728_5cffa397.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791697936330_8e560fed_1791697936390_69cccd5f.png"
-    }
-  ],
-  "picked": "C",
-  "predicted": "B"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "GrasslandsEastern",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": "key kept as-is (plan W0.1 branch a)",
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 5.8), 127306 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

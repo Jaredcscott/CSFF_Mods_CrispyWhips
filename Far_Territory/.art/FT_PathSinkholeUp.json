@@ -1,39 +1,14 @@
 {
   "target": "FT_PathSinkholeUp.png",
-  "sourceCard": [
+  "sourceCard": "CardData/Location/FT_PathSinkholeWesternUplands.json",
+  "usedBy": [
     "CardData/Location/FT_PathSinkholeWesternUplands.json"
   ],
-  "subject": "seen from the rubble floor at the bottom of a sinkhole, looking straight up: the rough steep grey rock walls of the shaft with ledges and handholds rising on every side to a ragged ring of bright daylight at the top, tufts of grass and roots hanging over the rim against a pale sky. The bottom is dim and cool; light falls down the walls from above. No rope, no ladder, no people.",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 1,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "(see historyId; the item or scene template of this folder's 2026-10-11 sidecars with the subject above)",
-  "refs": [
-    {
-      "label": "vanilla Tunnel_1 (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tunnel_1_1791697554255_c7ac50b2.png"
-    },
-    {
-      "label": "vanilla Waterfall_Cave (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Waterfall_Cave_1791697554788_97421448.png"
-    }
-  ],
-  "historyId": "liTFln56Qz3E0AElmvCR",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791743177174_a8aeebb8_1791743177779_351fbad5.png",
-  "credits": 20,
-  "generated": "2026-10-11",
-  "note": "Owner asked 2026-10-11 for one sample per card, redos to follow; replaces the base-game stand-in (Rope). Finished by /process-card-art --full-bleed. Used by FT_PathSinkholeWesternUplands.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791743177174_a8aeebb8_1791743177779_351fbad5.png"
-    }
-  ],
-  "picked": "A",
-  "predicted": "A"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "HoleUpNoRope",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": "key kept as-is (plan W0.1 branch a)",
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 7.4), 163849 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

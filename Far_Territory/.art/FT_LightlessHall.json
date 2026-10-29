@@ -1,49 +1,15 @@
 {
   "target": "FT_LightlessHall.png",
   "sourceCard": "CardData/Environment/FT_LightlessHall.json",
-  "note": "owner gallery rework 2026-10-12: just simple black nothing else, just blackness Made locally, no generation: a plain opaque black (0,0,0) 512x768 full-bleed canvas, the location-card form the old picture used (vanilla has the same idea in its Darkness sprite). Used by FT_LightlessHall (CT4) and FT_LightlessHallLocation (CT8). Earlier note: Owner pick 2026-10-11 from the redraw picker page picker_redraw (2 samples; predicted A, written before the owner looked). Owner asked for the same picture with one change; composition reference: FT_LightlessHall picked C sample from the first batch. Finished by /process-card-art --full-bleed. Used by FT_LightlessHall, FT_LightlessHallLocation.",
-  "mode": "local (no generation)",
-  "superseded_generation": {
-    "subject": "a small cave chamber that is almost entirely plain flat black, only the faintest dark grey suggestion of the nearest rock edges, a narrow way leading on into blackness.",
-    "model": "nano-banana-2",
-    "mode": "image2image (picked first-batch sample as composition reference, vanilla CSFF sprite as style reference)",
-    "params": {
-      "imageCount": 2,
-      "aspectRatio": "2:3",
-      "resolution": "1K",
-      "autoEnhancePrompt": false
-    },
-    "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the COMPOSITION and look to keep: a small cave chamber, almost entirely black, a narrow way leading on into the dark. Redraw this same picture, changed only as the Change line says.\nReference image 2 is a STYLE reference only: match its flat posterized fills, thin dark ink outlines and small hatch marks; do not copy its subject or composition.\nChange: make the darkness plain flat black. Fill most of the frame with solid flat black; only the faintest dark blue-grey outlines of the nearest rock edges remain, barely visible. Remove every warm light, glow, highlight and lit surface. No light source of any kind. Keep the same rock shapes and camera position as reference image 1, now sunk in blackness.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, torch, torches, flame, fire, sconce, lantern, warm orange glow, firelight, lit edge of the frame, glow, light rays, bright highlights, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
-    "refs": [
-      {
-        "label": "FT_LightlessHall picked C (composition)",
-        "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701675151_cc102194_1791701675216_6ebf413b.png"
-      },
-      {
-        "label": "vanilla Tunnel_1 (style)",
-        "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tunnel_1_1791697554255_c7ac50b2.png"
-      }
-    ],
-    "historyId": "rpwpQCFhuZqLdqun0nIb",
-    "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705009866_42e75f98_1791705009898_30172798.png",
-    "credits": 40,
-    "generated": "2026-10-11",
-    "candidates": [
-      {
-        "n": "A",
-        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705009866_42e75f98_1791705009898_30172798.png"
-      },
-      {
-        "n": "B",
-        "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705008360_3f2d7e71_1791705008392_4dfc37ad.png"
-      }
-    ],
-    "picked": "A",
-    "predicted": "A",
-    "composition_reference": {
-      "sample": "FT_LightlessHall picked C",
-      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701675151_cc102194_1791701675216_6ebf413b.png"
-    }
-  },
-  "reworked": "2026-10-12"
+  "usedBy": [
+    "CardData/Environment/FT_LightlessHall.json",
+    "CardData/Location/FT_LightlessHallLocation.json"
+  ],
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "Darkness",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 0.0), 359 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

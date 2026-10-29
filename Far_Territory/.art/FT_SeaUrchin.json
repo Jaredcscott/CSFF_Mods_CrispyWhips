@@ -1,0 +1,14 @@
+{
+  "target": "FT_SeaUrchin.png",
+  "sourceCard": "CardData/Item/FT_SeaUrchin.json",
+  "usedBy": [
+    "CardData/Item/FT_SeaUrchin.json"
+  ],
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "Urchin",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 28.1), 60109 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
+}

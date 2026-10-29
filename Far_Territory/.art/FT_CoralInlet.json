@@ -1,35 +1,15 @@
 {
   "target": "FT_CoralInlet.png",
-  "sourceCard": null,
-  "subject": "a sheltered inlet of clear still turquoise water over pale coral and sand, a reef line where small waves break far out, a narrow pale beach in front with strands of weed and a few shells, no people, no boats",
-  "model": "nano-banana-2",
-  "mode": "text2image",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "2K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Hand-painted illustration of a sheltered inlet of clear still turquoise water over pale coral and sand, a reef line where small waves break far out, a narrow pale beach in front with strands of weed and a few shells, no people, no boats, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
-  "historyId": "0zezFqoar9HE2RoFSEyM",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647421735_9f4f55ba_1791647422418_7d4ead17.png",
-  "credits": 90,
-  "generated": "2026-10-10",
-  "note": "Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647418474_6af7d503_1791647419107_0007ad4d.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647420559_38cb4d1f_1791647421346_4c2a68d7.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647421735_9f4f55ba_1791647422418_7d4ead17.png"
-    }
+  "sourceCard": "CardData/Environment/FT_CoralInlet.json",
+  "usedBy": [
+    "CardData/Environment/FT_CoralInlet.json",
+    "CardData/Location/FT_CoralInletLocation.json"
   ],
-  "picked": "C",
-  "predicted": "C"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "Bay",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": "key kept as-is (plan W0.1 branch a)",
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 6.6), 68651 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

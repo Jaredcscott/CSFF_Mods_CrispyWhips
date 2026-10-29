@@ -1,45 +1,15 @@
 {
   "target": "FT_PlainGrotto.png",
   "sourceCard": "CardData/Environment/FT_PlainGrotto.json",
-  "subject": "a shallow dry cave in a grassy earth bank seen from inside looking out: a low arched opening full of bright green grass and sky, a dry dusty sandy floor, a few small dark beetles on the floor. Not deep. No other animals.",
-  "model": "nano-banana-2",
-  "mode": "image2image (vanilla CSFF sprites as style references)",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "1K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a shallow dry cave in a grassy earth bank seen from inside looking out: a low arched opening full of bright green grass and sky, a dry dusty sandy floor, a few small dark beetles on the floor. Not deep. No other animals.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, waterfall, large animals, birds, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
-  "refs": [
-    {
-      "label": "vanilla Tunnel_1 (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tunnel_1_1791697554255_c7ac50b2.png"
-    },
-    {
-      "label": "vanilla Waterfall_Cave (style)",
-      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Waterfall_Cave_1791697554788_97421448.png"
-    }
+  "usedBy": [
+    "CardData/Environment/FT_PlainGrotto.json",
+    "CardData/Location/FT_PlainGrottoLocation.json"
   ],
-  "historyId": "j9Di4WUpiDVAjKMKOtp8",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698168640_d4dbff81_1791698169165_c2f056d6.png",
-  "credits": 60,
-  "generated": "2026-10-11",
-  "note": "Owner pick 2026-10-11 from the Prompt 18 picker page picker_18 (3 samples; predicted C, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_PlainGrotto, FT_PlainGrottoLocation.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698169376_dd3f4b77_1791698169486_964457b3.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698169648_616bf6c2_1791698169694_b9a1006c.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698168640_d4dbff81_1791698169165_c2f056d6.png"
-    }
-  ],
-  "picked": "C",
-  "predicted": "C"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "GrasslandsCaveEntrance",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 6.3), 163170 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }

@@ -1,35 +1,14 @@
 {
   "target": "FT_TidePool.png",
-  "sourceCard": null,
-  "subject": "a bowl in the dark rocks left full of clear seawater, crabs in the crevices, small clear prawns in the shallows, green weed on the walls, a few small shells on the bottom",
-  "model": "nano-banana-2",
-  "mode": "text2image",
-  "params": {
-    "imageCount": 3,
-    "aspectRatio": "2:3",
-    "resolution": "2K",
-    "autoEnhancePrompt": false
-  },
-  "prompt": "Hand-painted illustration of a bowl in the dark rocks left full of clear seawater, crabs in the crevices, small clear prawns in the shallows, green weed on the walls, a few small shells on the bottom, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
-  "historyId": "Dj79MENGbptdKKPtpKFR",
-  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647574119_41d4da82_1791647575418_f45d080f.png",
-  "credits": 90,
-  "generated": "2026-10-10",
-  "note": "Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
-  "candidates": [
-    {
-      "n": "A",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647573754_16c325da_1791647574416_da744814.png"
-    },
-    {
-      "n": "B",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647574445_3a89c089_1791647574961_d599820e.png"
-    },
-    {
-      "n": "C",
-      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647574119_41d4da82_1791647575418_f45d080f.png"
-    }
+  "sourceCard": "CardData/Location/FT_TidePool.json",
+  "usedBy": [
+    "CardData/Location/FT_TidePool.json"
   ],
-  "picked": "C",
-  "predicted": "B"
+  "source": "Card Survival: Tropical Island",
+  "csti_sprite": "TidePool",
+  "permission": "Documentation/Research/FarTerritory/csti/art_permission_2026-10-19.md",
+  "sky": null,
+  "finishing": "csti_art.py adopt: 341x512 -> 512x768 Lanczos, CSTI placement kept, palette 255 colours (worst 16x16 patch 7.8), 169191 bytes",
+  "adopted": "2026-10-29",
+  "note": "CSTI's own art for the card it recreates (FarTerritory MASTER_PLAN section 1)."
 }
