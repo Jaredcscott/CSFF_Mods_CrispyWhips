@@ -30,7 +30,7 @@
   "CardTagsWarpType": 3,
   "DoesNotPile": true,
   "WhenCreatedSounds": [],
-  "WhenCreatedSoundsWarpData": ["Stone"],
+  "WhenCreatedSoundsWarpData": ["StoneAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {"Active": false},
   "UsageDurability": {"Active": false},
@@ -59,7 +59,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Stone"],
+      "ActionSoundsWarpData": ["StoneAppear"],
       "ActionSoundsWarpType": 3,
       "RequiredCardsOnBoard": [],
       "RequiredTagsOnBoard": [],
@@ -90,7 +90,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Stone"],
+      "ActionSoundsWarpData": ["StoneAppear"],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
         "ModType": 3

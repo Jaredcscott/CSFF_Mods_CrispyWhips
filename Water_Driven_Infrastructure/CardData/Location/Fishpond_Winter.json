@@ -25,7 +25,7 @@
   "DoesNotPile": true,
   "CannotBeTrashed": false,
   "WhenCreatedSounds": [],
-  "WhenCreatedSoundsWarpData": ["Ice"],
+  "WhenCreatedSoundsWarpData": [],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
     "Active": true,
@@ -395,7 +395,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": ["HandAction"],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpData": ["HittingStone"],
       "ActionSoundsWarpType": 3,
       "RequiredTagsOnBoard": [
         {
@@ -485,7 +485,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": ["HandAction"],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpData": ["HittingStone"],
       "ActionSoundsWarpType": 3,
       "RequiredTagsOnBoard": [
         {
@@ -575,7 +575,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": ["HandAction"],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpData": ["HittingStone"],
       "ActionSoundsWarpType": 3,
       "RequiredTagsOnBoard": [
         {
@@ -665,7 +665,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": ["HandAction"],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpData": ["HittingStone"],
       "ActionSoundsWarpType": 3,
       "RequiredTagsOnBoard": [
         {
@@ -755,7 +755,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": ["HandAction"],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpData": ["HittingStone"],
       "ActionSoundsWarpType": 3,
       "RequiredTagsOnBoard": [
         {
@@ -845,7 +845,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": ["HandAction"],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpData": ["HittingStone"],
       "ActionSoundsWarpType": 3,
       "RequiredTagsOnBoard": [
         {
@@ -935,7 +935,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": ["HandAction"],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpData": ["HittingStone"],
       "ActionSoundsWarpType": 3,
       "RequiredTagsOnBoard": [
         {
@@ -1025,7 +1025,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": ["HandAction"],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpData": ["HittingStone"],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {
         "RequiredProgressPercent": {"Active": true, "FloatValue": 0.1, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},

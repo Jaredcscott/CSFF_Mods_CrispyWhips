@@ -26,7 +26,7 @@
   "CannotBeTrashed": false,
   "WhenCreatedSounds": [],
   "WhenCreatedSoundsWarpData": [
-    "Water"
+    "Flowing1"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "CompatibleDuties": [],
@@ -92,7 +92,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Stone"
+        "StoneAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {

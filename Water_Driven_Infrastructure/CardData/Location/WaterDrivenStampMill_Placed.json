@@ -35,7 +35,7 @@
   "CannotBeTrashed": false,
   "WhenCreatedSounds": [],
   "WhenCreatedSoundsWarpData": [
-    "Stone"
+    "StoneAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
@@ -200,7 +200,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Stone"
+        "HittingStone"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
@@ -233,7 +233,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Stone"
+        "StoneAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {

@@ -170,7 +170,7 @@
       }
     ],
     "WhenCreatedSoundsWarpData": [
-        "Wood"
+        "WoodAppear"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "BlueprintUnlockTicksCost": 16.0,

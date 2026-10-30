@@ -26,7 +26,7 @@
   "DoesNotPile": true,
   "CannotBeTrashed": false,
   "WhenCreatedSounds": [],
-  "WhenCreatedSoundsWarpData": ["Stone"],
+  "WhenCreatedSoundsWarpData": ["StoneAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {"Active": false},
   "UsageDurability": {"Active": false},
@@ -110,7 +110,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpData": ["WoodAppear"],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
         "ModType": 0
@@ -135,7 +135,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Stone"],
+      "ActionSoundsWarpData": ["StoneAppear"],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
         "ModType": 2,

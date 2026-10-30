@@ -1,9 +1,9 @@
 # Water Driven Infrastructure
 
-**Version:** 1.12.16
+**Version:** 1.12.17
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
-**Requires:** CSFFModFramework 2.28.0 or later. Advanced Copper Tools is optional and adds extras, but nothing needs it.
+**Requires:** CSFFModFramework 2.29.0 or later. Advanced Copper Tools is optional and adds extras, but nothing needs it.
 
 ---
 
@@ -415,13 +415,13 @@ A Partner works only the stations you mark. The Grinding Mill, Ore Sluice, Stamp
 
 ## Installation
 
-**Requirements:** BepInEx 5.x, CSFFModFramework 2.28.0 or later, and Card Survival: Fantasy Forest (EA 0.69c). Advanced Copper Tools is optional: it adds Blast melting for its metal items, the lit Copper Brazier as winter heat, bronze gears and the plumbed bathtub.
+**Requirements:** BepInEx 5.x, CSFFModFramework 2.29.0 or later, and Card Survival: Fantasy Forest (EA 0.69c). Advanced Copper Tools is optional: it adds Blast melting for its metal items, the lit Copper Brazier as winter heat, bronze gears and the plumbed bathtub.
 
 1. Install BepInEx 5.x if you have not already.
 2. Install CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. (Optional) Install Advanced Copper Tools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game and look for `WaterDrivenInfrastructure v1.12.16 loaded.` in `BepInEx/LogOutput.log`.
+5. Launch the game and look for `WaterDrivenInfrastructure v1.12.17 loaded.` in `BepInEx/LogOutput.log`.
 
 ---
 
@@ -456,7 +456,7 @@ Every card picture and animation, the 1.12.6 Sawmill, Grinding Mill, Forge, Work
 
 ## Troubleshooting
 
-- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.16 loaded.`
+- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.17 loaded.`
 - **Forge won't smelt?** It must reach 1,100. Feed it charcoal and Blast first.
 - **Outlet not producing water?** It must be outdoors with a Mill Race built first. In winter it freezes: wait for spring, or keep a heat source there. Stations keep working, but a Rain Cistern stays unfed.
 - **Rain Cistern not filling?** It must stand at the same location as a running outlet and be empty or hold River Water.

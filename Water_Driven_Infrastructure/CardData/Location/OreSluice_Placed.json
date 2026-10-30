@@ -28,7 +28,7 @@
   "DoesNotPile": true,
   "CannotBeTrashed": false,
   "WhenCreatedSounds": [],
-  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpData": ["WoodAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {"Active": false},
   "UsageDurability": {"Active": false},
@@ -459,7 +459,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Wood"
+        "WoodAppear"
       ],
       "ActionSoundsWarpType": 3,
       "WorksInverted": false,
@@ -555,7 +555,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": ["wdi_action_batch"],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Water"],
+      "ActionSoundsWarpData": ["Flowing1"],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {},
       "ProducedCards": [],
@@ -582,7 +582,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Wood"
+        "WoodAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
@@ -665,7 +665,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Wood"
+        "WoodAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {

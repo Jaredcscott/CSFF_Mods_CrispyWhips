@@ -2,6 +2,20 @@
 
 All notable changes to this mod are documented here.
 
+## [1.12.17] - 2026-10-30
+
+### Fixed
+
+- **A Blast melts Advanced Copper Tools' new Metal Gloves.** ACT 1.18.15 adds Metal Gloves in every metal; a Blast in the Water-Driven Forge or Workshop now melts a pair into 6 Metal Nuggets of its metal, as smelting them does. Before, the gloves stayed in the forge.
+- Technical: `Patcher/ActCompat.cs` `BlastRows` gains `advanced_copper_tools_copper_gloves` (6, Metal Type 100 when the pair carries none), mirroring its `AdvancedCopperTools/SmeltingRecipes.json` row (`InheritMetal`, `NuggetReturn` 6). Gate: `Development_Tools/Tests/WaterDrivenInfrastructure.Tests.ps1` (the mirror is complete against ACT's file), red in gate csff-mods-test-20261030T185455Z.
+
+### Changed
+
+- **Actions that were silent now make a sound.** Chiwei raised that smithing made no sound. The cause was 260 sound references in this mod naming sounds the game does not have (`Wood`, `Metal`, `Water`, `Stone`, `Ice`, `FireIgnite`, `Dirt`), so those actions and newly made cards played nothing. Each now names a base-game sound: forging and reforging use the smithing sound, other metal work the metal sound, sawing the woodworking sound, feeding fuel the sound of sticks, water work the sound of flowing water, stone work the stone sound, chipping ice a stone-hit sound and digging the dig sound. The bellows (Blast, Increase Temperature) stay silent: no base-game sound fits. Lighting or putting out a fire stays silent: the game has no short sound for it. Which sound goes with which action is a matter of taste and can be tuned.
+- Technical: every name in a `*SoundsWarpData` list is now a base-game AudioClip, remapped by `Development_Tools/SpriteCheck/remap_sound_names.py` from one table (fleet plan 4.1, Prompt 12; finding `Documentation/Research/Fleet/APE_Port/W0.1_missing_audio.md`). The table is a taste call and tunable. `Development_Tools/Tests/Mods-SoundNamesAreClips.Tests.ps1` fails on any name that is not a clip.
+- **Tin Solder is now a tool with five uses.** The five recipes here that take a Tin Solder stick (the Water-Driven Forge, Grinding Mill, Sawmill, Stamp Mill and Workshop Kit) now spend one use of the stick and keep it, instead of using up the whole stick. A stick from an older save holds one use. Needs CSFF Mod Framework 2.29.0 or later, which gives the stick its uses.
+- Technical: each of the five `act_tin_solder` slots now carries `DontSpend: true` and an `EffectOnIngredient` of ModType 1 with `Special1Change` -1 (fleet plan 5.1, W0.6 choice D6, tunable); the `"RequiredCardWarpData": "act_tin_solder"` text the WDI gates read is unchanged. On a framework older than 2.29.0 the stick would never run out, so the framework floor rises to 2.29.0 (ModInfo, README). Gate: `Development_Tools/Tests/Framework-MetalPartsMerge.Tests.ps1`.
+
 ## [1.12.16] - 2026-10-27
 
 ### Fixed

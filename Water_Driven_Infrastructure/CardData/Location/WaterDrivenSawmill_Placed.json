@@ -27,7 +27,7 @@
   "DoesNotPile": true,
   "CannotBeTrashed": false,
   "WhenCreatedSounds": [],
-  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpData": ["WoodAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {"Active": false},
   "UsageDurability": {"Active": true, "FloatValue": 0.0, "MaxValue": 60.0, "CardStatName": {"ParentObjectID": "water_sawmill_placed", "LocalizationKey": "Water_Sawmill_SawmillPlaced_BladeWear_StatName", "DefaultText": "Blade Wear"}, "RatePerDaytimePoint": 0.0, "HidingOptions": 3},
@@ -450,7 +450,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Wood"
+        "WoodAppear"
       ],
       "ActionSoundsWarpType": 3,
       "WorksInverted": false,
@@ -544,7 +544,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpData": ["Woodworking"],
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {
         "TriggerCards": [],
@@ -694,7 +694,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Metal"
+        "MetalAppear"
       ],
       "ActionSoundsWarpType": 3,
       "WorksInverted": false,
@@ -790,7 +790,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpData": ["WoodAppear"],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
         "ModType": 0
@@ -815,7 +815,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": ["wdi_action_batch"],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpData": ["Woodworking"],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {
         "RequiredSpoilagePercent": {

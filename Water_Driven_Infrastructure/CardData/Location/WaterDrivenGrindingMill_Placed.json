@@ -28,7 +28,7 @@
   "DoesNotPile": true,
   "CannotBeTrashed": false,
   "WhenCreatedSounds": [],
-  "WhenCreatedSoundsWarpData": ["Stone"],
+  "WhenCreatedSoundsWarpData": ["StoneAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {"Active": false},
   "UsageDurability": {"Active": false},
@@ -656,7 +656,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Wood"
+        "WoodAppear"
       ],
       "ActionSoundsWarpType": 3,
       "WorksInverted": false,
@@ -752,7 +752,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": ["wdi_action_batch"],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Stone"],
+      "ActionSoundsWarpData": ["GrindingLeaves"],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
         "ModType": 0
@@ -781,7 +781,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Stone"
+        "StoneAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
@@ -864,7 +864,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Stone"
+        "StoneAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {

@@ -90,6 +90,7 @@ namespace WaterDrivenInfrastructure.Patcher
             { "advanced_copper_tools_copper_bathtub_empty",  (78, 100f) },
             { "advanced_copper_tools_copper_helmet",         (17, 100f) },
             { "advanced_copper_tools_copper_gauntlets",      (13, 100f) },
+            { "advanced_copper_tools_copper_gloves",         (6, 100f) },   // ACT 1.18.15 Metal Gloves
             { "advanced_copper_tools_copper_greaves",        (17, 100f) },
             { "advanced_copper_tools_copper_breastplate",    (26, 100f) },
             { "advanced_copper_tools_copper_brazier_kit",    (22, 100f) },

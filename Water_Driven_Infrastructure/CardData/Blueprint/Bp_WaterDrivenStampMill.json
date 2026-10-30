@@ -137,7 +137,14 @@
             "m_PathID": 0
           },
           "RequiredQuantity": 1,
-          "DontSpend": false,
+          "DontSpend": true,
+          "EffectOnIngredient": {
+              "ModType": 1,
+              "Special1Change": {
+                  "x": -1.0,
+                  "y": -1.0
+              }
+          },
           "RequiredCardWarpData": "act_tin_solder",
           "RequiredCardWarpType": 3
         }
@@ -205,7 +212,7 @@
     }
   ],
   "WhenCreatedSoundsWarpData": [
-    "Wood"
+    "WoodAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintUnlockTicksCost": 96.0,

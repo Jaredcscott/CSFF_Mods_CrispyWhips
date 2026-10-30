@@ -30,7 +30,7 @@
   "CardTagsWarpType": 3,
   "DoesNotPile": true,
   "WhenCreatedSounds": [],
-  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpData": ["WoodAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {"Active": false},
   "UsageDurability": {"Active": true, "FloatValue": 0.0, "MaxValue": 60.0, "CardStatName": {"ParentObjectID": "water_sawmill_frame", "LocalizationKey": "Water_Sawmill_SawmillPlaced_BladeWear_StatName", "DefaultText": "Blade Wear"}, "RatePerDaytimePoint": 0.0, "HidingOptions": 3},
@@ -59,7 +59,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpData": ["WoodAppear"],
       "ActionSoundsWarpType": 3,
       "RequiredCardsOnBoard": [],
       "RequiredTagsOnBoard": [],
@@ -91,7 +91,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpData": ["WoodAppear"],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
         "ModType": 3

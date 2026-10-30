@@ -185,7 +185,7 @@
       "IsInverse": false
     }
   ],
-  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpData": ["WoodAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTags": [],
   "BlueprintActionTagsWarpData": [

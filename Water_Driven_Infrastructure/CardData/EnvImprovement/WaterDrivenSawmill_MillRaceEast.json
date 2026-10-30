@@ -39,7 +39,7 @@
   "CannotBeTrashed": true,
   "WhenCreatedSounds": [],
   "WhenCreatedSoundsWarpData": [
-    "Wood"
+    "WoodAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
