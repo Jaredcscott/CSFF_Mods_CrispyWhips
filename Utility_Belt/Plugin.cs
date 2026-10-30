@@ -11,7 +11,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.utility_belt";
     private const string PluginName = "Utility Belt";
-    private const string PluginVersion = "0.1.7";
+    private const string PluginVersion = "0.1.8";
 
     internal new static ManualLogSource Logger;
 

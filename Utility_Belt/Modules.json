@@ -1,0 +1,63 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). Pure-C# mod with no card JSON, so modules follow the code's own option groups (item locks, card size and capacity, containers, sorting, card marks and display, hotkeys, Repeat Action add-ons, character randomiser). Localization CSVs name no card, so their rows attribute to the mod-wide module. `module_map.py check UtilityBelt` must exit 0.",
+  "sharedTables": [
+    "Localization/*.csv"
+  ],
+  "modules": [
+    {
+      "id": "locks",
+      "name": "Item Locks",
+      "summary": "Item lock: the per-save lock store, the run-start slot switch and prune, the EmptyInventory prefix, and LockApi, the seam Quick Transfer and Repeat Action call.",
+      "paths": ["Locks/**", "LockApi.cs", "Patcher/ItemLockPatch.cs"]
+    },
+    {
+      "id": "capacity",
+      "name": "Card Size and Capacity",
+      "summary": "Card Size row layouts, Extra Hand Slots and Extra Carry Weight, their CardSizePatch hooks, and the Show Carry Weight tooltip.",
+      "paths": ["CardSize.cs", "Capacity.cs", "Patcher/CardSizePatch.cs", "CarryWeight.cs"]
+    },
+    {
+      "id": "containers",
+      "name": "Containers",
+      "summary": "Container Filter search box and its SetupInventory re-apply, equipped-container cycle/open hotkeys, and the sealed-container wax mark.",
+      "paths": ["ContainerFilter.cs", "Patcher/ContainerFilterPatch.cs", "ContainerHotkeys.cs", "SealedMark.cs"]
+    },
+    {
+      "id": "sorting",
+      "name": "Sorting",
+      "summary": "Sort an open container and Sort Hand Row / Sort Base Row hotkeys, sharing one sort cycle.",
+      "paths": ["SortContainer.cs", "RowSort.cs"]
+    },
+    {
+      "id": "display",
+      "name": "Display and Accessibility",
+      "summary": "Card corner marks and the worn-tool mark, capacity and warmth readouts, clock format, Never Follow Cards, and Hide Rain And Snow Effects.",
+      "paths": ["CardMark.cs", "WornToolMark.cs", "Patcher/InspectionReadoutPatch.cs", "Patcher/ClockFormatPatch.cs", "Patcher/NeverFollowCardPatch.cs", "Patcher/WeatherEffectsPatch.cs"]
+    },
+    {
+      "id": "hotkeys",
+      "name": "Hotkeys and Equipment",
+      "summary": "Trash Card hotkey, Pin Blueprint and pinned blueprints, and Quickswap When Equipping.",
+      "paths": ["TrashHotkey.cs", "BlueprintPins.cs", "Patcher/QuickswapEquipPatch.cs"]
+    },
+    {
+      "id": "repeataction",
+      "name": "Repeat Action Add-ons",
+      "summary": "Auto-Pull Materials, Store Products In and Equip Spare Tool On Break, plus ModuleSeams, Utility Belt's side of Repeat Action's and Quick Transfer's public seams.",
+      "paths": ["AutoPull.cs", "StoreProducts.cs", "SpareTool.cs", "ModuleSeams.cs"]
+    },
+    {
+      "id": "randomiser",
+      "name": "Character Randomiser",
+      "summary": "The character-creation randomiser postfix on MainMenu.SetupCharacterCreationScreen.",
+      "paths": ["Patcher/CharacterRandomiserPatch.cs"]
+    },
+    {
+      "id": "modwide",
+      "name": "Mod-wide",
+      "modWide": true,
+      "summary": "Host plugin, the module registry, the overlay strings, project files and docs.",
+      "paths": ["Plugin.cs", "GlobalUsing.cs", "ModuleRegistry.cs", "OverlayText.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore", "Modules.json"]
+    }
+  ]
+}

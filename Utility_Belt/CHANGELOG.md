@@ -2,6 +2,14 @@
 
 All notable changes to this mod are documented here.
 
+## [0.1.8] - 2026-10-30
+
+### Fixed
+Utility Belt now carries Repeat Action 2.2.4, Quick Transfer 1.9.3 and Skill Speed Boost 1.11.2.
+
+- **Repeat Action: a repeated pour no longer takes the drink out of a bottle you locked.** 0.1.7 meant to leave a locked container's liquid alone, but the game also lists the liquid as a card of its own, and through that entry the lock was missed. A liquid now takes its container's lock either way. The liquid you picked by hand is still used.
+- **Quick Transfer: a broken translation now shows in the log** as a warning instead of a hidden debug line.
+
 ## [0.1.7] - 2026-10-22
 
 ### Fixed

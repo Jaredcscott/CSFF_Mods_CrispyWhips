@@ -1,11 +1,11 @@
 # Roadmap: Utility Belt
-Version at time of writing: 0.1.6
+Version at time of writing: 0.1.7
 Date: 2026-10-20
 Audit score: 10/10 (PASS, 0 CRITICAL / 0 DESIGN GAP / 0 release-blocking WARNING)
 
 ## Current State
 
-**Theme**: A quality-of-life mod that gathers small utilities into one download for players who would rather install one thing. It bundles Repeat Action 2.2.2, Quick Transfer 1.9.1 and Skill Speed Boost 1.11.1, and adds its own accessibility, display, inventory, capacity and equipment options. It ships no cards, items, blueprints, structures or perks by design.
+**Theme**: A quality-of-life mod that gathers small utilities into one download for players who would rather install one thing. It bundles Repeat Action 2.2.4, Quick Transfer 1.9.3 and Skill Speed Boost 1.11.2, and adds its own accessibility, display, inventory, capacity and equipment options. It ships no cards, items, blueprints, structures or perks by design.
 
 **Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom images (adds no card content by design). 32 C# source files; 32 `Config.Bind` entries in `Plugin.cs` across its config sections (Accessibility, Capacity, Card Size, Character, Diagnostics, Display, Equipment, General, Hotkeys, RepeatAction).
 
@@ -48,7 +48,7 @@ Audit score: 10/10 (PASS, 0 CRITICAL / 0 DESIGN GAP / 0 release-blocking WARNING
 > The mod's integration surface is its reason for existing: it bundles and hooks three standalone mods.
 
 ### Keep bundled module versions in lockstep with their standalones
-**What**: Repeat Action 2.2.2, Quick Transfer 1.9.1 and Skill Speed Boost 1.11.1 are embedded from `..\RepeatAction`, `..\QuickTransfer` and `..\SkillSpeedBoost` (`Utility_Belt.csproj`). When a standalone ships a new version, rebuild UB to re-embed it and bump UB.
+**What**: Repeat Action 2.2.4, Quick Transfer 1.9.3 and Skill Speed Boost 1.11.2 are embedded from `..\RepeatAction`, `..\QuickTransfer` and `..\SkillSpeedBoost` (`Utility_Belt.csproj`). When a standalone ships a new version, rebuild UB to re-embed it and bump UB.
 **Why**: a bundled module drifting behind its standalone is the one honesty risk unique to this mod's design.
 **Requires**: each module's own release commit and version bump.
 **Complexity**: Quick per bump, checked by `Development_Tools/Tests/UtilityBelt-Bundle.Tests.ps1`.
