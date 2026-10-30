@@ -1898,7 +1898,8 @@ namespace Repeat_Action.Patcher
         /// play. AllCards alone is NOT this board - travel re-adds background cards whose
         /// environment is elsewhere (every NPC's card, cards in an allied NPC's location), so
         /// each entry must also pass InPlayerEnv; a ContainedLiquid inherits its container's
-        /// verdict. Prefers the exact instance the player used; falls back to another live card
+        /// verdict, and a liquid also takes its container's Utility Belt lock whether it is reached
+        /// through the container or as its own AllCards entry. Prefers the exact instance the player used; falls back to another live card
         /// of the same UniqueID unless allowSibling is false (Lock To Original Target), which only
         /// narrows the result set, so the environment filter above still applies unchanged.
         /// With hasPreference, the first such sibling whose container is preferContainer (null meaning
@@ -1930,6 +1931,9 @@ namespace Repeat_Action.Patcher
                     // so MatchCard's own lock test never sees it. The exact instance the player used stays eligible.
                     if (hit != null && !ReferenceEquals(hit, original) && UtilityBeltLockBridge.IsLocked(c)) hit = null;
                 }
+                // AllCards also holds the liquid card itself, so the liquid in a locked vessel is matched above on its
+                // own UniqueID and MatchCard asked about the liquid, which is never locked: test the vessel it sits in.
+                else if (!ReferenceEquals(hit, original) && hit.IsLiquid && UtilityBeltLockBridge.IsLocked(ContainerOf(hit))) hit = null;
                 if (hit == null) continue;
                 if (ReferenceEquals(hit, original)) return hit; // exact instance the player used
                 if (fallback == null && allowSibling) fallback = hit;

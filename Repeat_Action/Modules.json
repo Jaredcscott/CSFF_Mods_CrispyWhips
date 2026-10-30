@@ -1,0 +1,31 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). Small pure-C# utility mod (16 tracked files, no card JSON or localization tables), so 4 modules following the code's responsibilities rather than 5-15. `module_map.py check RepeatAction` must exit 0.",
+  "sharedTables": [],
+  "modules": [
+    {
+      "id": "replay",
+      "name": "Action Replay",
+      "summary": "ActionPatch (the v2 native-dispatch repeat loop) and RunHooks, what a run hands a requirements-unmet subscriber.",
+      "paths": ["Patcher/ActionPatch.cs", "Patcher/RunHooks.cs"]
+    },
+    {
+      "id": "sequences",
+      "name": "Sequences and Presets",
+      "summary": "Recorded action sequences played back by the count (Sequences) and named run-setting presets (Presets).",
+      "paths": ["Patcher/Sequences.cs", "Presets.cs"]
+    },
+    {
+      "id": "bridges",
+      "name": "Cross-mod Bridges",
+      "summary": "UtilityBeltLockBridge: a run skips cards Utility Belt has locked.",
+      "paths": ["UtilityBeltLockBridge.cs"]
+    },
+    {
+      "id": "modwide",
+      "name": "Mod-wide",
+      "modWide": true,
+      "summary": "Plugin entry, config and count keys, the player toast texts, project files and docs.",
+      "paths": ["Plugin.cs", "Messages.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore", "Modules.json"]
+    }
+  ]
+}

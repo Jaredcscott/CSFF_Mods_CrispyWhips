@@ -1,6 +1,6 @@
 # Repeat Action
 
-**Version:** 2.2.3
+**Version:** 2.2.4
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (Early Access)
 
@@ -54,7 +54,7 @@ Any action you click in a card's popup or do by drag-and-drop: Forage, Chop, Eat
 
 - **Pinned action.** `Shift+P` pins the action `Shift+R` would repeat. `Shift+F` repeats it later with the current count, even after other actions or travel. One pin at a time. It lasts until you pin another, it turns out to be gone when you fire it, or you quit.
 - **Pause.** `Shift+G` pauses after the current iteration. While paused you can eat, rest or craft by hand, and the run keeps its remaining count and its action. Time spent paused does not count toward `Stop After In-Game Hours`. `Shift+R` cancels a paused run.
-- **Recorded sequences.** Press `Shift+K`, do a few actions ("plant, water, harvest"), then press `Shift+K` again. `Shift+M` plays the steps in order, repeated by the current count. A step that cannot run stops the play and names it ("step 2 of 3 (Water): ..."); no step is skipped. Your 10 most recent recordings are kept when you quit, except ones containing a Rest, a liquid pour, or an action the card does not list as its own button, which last for the session ("kept for this session"). A saved drag-and-drop step takes the first item of its kind it finds. Loading a save while recording drops the recording. You cannot record and run at the same time. Not yet confirmed in a running game.
+- **Recorded sequences.** Press `Shift+K`, do a few actions ("plant, water, harvest"), then press `Shift+K` again. `Shift+M` plays the steps in order, repeated by the current count. A step that cannot run stops the play and names it ("step 2 of 3 (Water): ..."); no step is skipped. Your 10 most recent recordings are kept when you quit, except ones containing a Rest, a liquid pour, or an action the card does not list as its own button, which last for the session ("kept for this session"). A saved drag-and-drop step takes the first item of its kind it finds. Loading a save while recording drops the recording. You cannot record and run at the same time. Confirmed in a scripted run.
 - **Repeat Presets.** Write named sets of settings in `Repeat Presets` and `Shift+N` loads the next one. Format: `name: key=value, key=value; name: key=value`.
 
 ```
@@ -181,7 +181,7 @@ Or change them in game with the optional [BepInEx ConfigurationManager](https://
 ## Compatibility
 
 - **Quick Transfer.** Version 1.9.0 and later steps aside from this mod's keys, so `Shift+Plus` and `Shift+Minus` change only the repeat count. Quick Transfer's own Shift preset is then nudged with `Alt+Plus` and `Alt+Minus`. With `Ctrl+Shift+Plus` or `Minus`, Quick Transfer changes nothing while this mod still counts. Quick Transfer's `Yield Count Keys To Repeat Action` (on by default) controls this, and 1.9.0 follows rebound count keys. Version 1.8.1 and earlier also react to Shift+Plus and Shift+Minus, so one press changes both mods' settings: update Quick Transfer, or turn off its `Enable Modifier Presets`. Quick Transfer's on-screen amount hint shows whenever Shift is held; it is only a hint.
-- **Utility Belt.** A run never picks up a card you locked there (its `L` key) as a target, ingredient or tool. The card you used for the first repeat stays eligible. Utility Belt's `RepeatAction` options work with this mod: `Auto-Pull Materials` fetches a card the game wants in your hand and retries the repeat once, `Store Products In` moves what a run makes into a container you picked, and `Equip Spare Tool On Break` puts on a spare when a worn tool breaks. Without a worn-tool spare, a run whose worn tool breaks stops with "requirements no longer met". Repeat Action does not depend on Utility Belt.
+- **Utility Belt.** A run never picks up a card you locked there (its `L` key) as a target, ingredient or tool. The card you used for the first repeat stays eligible. A repeated pour also leaves alone the liquid inside a container you locked (not yet confirmed in a running game). Utility Belt's `RepeatAction` options work with this mod: `Auto-Pull Materials` fetches a card the game wants in your hand and retries the repeat once, `Store Products In` moves what a run makes into a container you picked, and `Equip Spare Tool On Break` puts on a spare when a worn tool breaks. Without a worn-tool spare, a run whose worn tool breaks stops with "requirements no longer met". Repeat Action does not depend on Utility Belt.
 - **Other mods:** should work with most. Please report problems.
 
 ## Troubleshooting

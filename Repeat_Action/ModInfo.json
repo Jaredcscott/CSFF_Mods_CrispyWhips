@@ -2,6 +2,6 @@
 	"Name": "RepeatAction",
 	"ShortName": "RA",
 	"Author": "Jared",
-	"Version": "2.2.3",
+	"Version": "2.2.4",
 	"Description": "Repeat your last action with a keypress. Set a count or Unlimited with the +/- keys or the mouse wheel. A repeat runs only while the card and game conditions still match, then stops cleanly and gives the game's own reason. Pin an action (Shift+P) and fire it later (Shift+F), pause and resume a run (Shift+G), record a few actions and play them back (Shift+K, Shift+M), and switch between named presets of settings (Shift+N). Stop conditions: stat floors and ceilings on any vanilla or modded stat, a full inventory, nightfall, a season change, an encounter, a number of in-game hours, holding enough of a card, and a tool breaking or wearing below a share of its durability (with an option to carry on with a spare tool). A run can also eat or drink your pinned food once when a stat floor would stop it. Group actions repeat as whole sweeps or one card at a time. Other options: a pause between iterations, locking a run to the exact card you clicked, a progress bar, a count indicator, and a sound when a run ends. Notifications are in Simplified Chinese when the game is (not yet reviewed by a native speaker) and name actions and cards in your game language. With Utility Belt installed, a run never picks up a card you locked there."
 }

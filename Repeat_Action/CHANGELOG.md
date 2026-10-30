@@ -1,5 +1,11 @@
 # Repeat Action: Changelog
 
+## [2.2.4] - 2026-10-30
+
+### Fixed
+
+- **A repeated pour no longer takes the drink out of a bottle you locked with Utility Belt.** 2.2.3 meant to leave a locked container's liquid alone, but it only caught the liquid when it looked through the container. The game also lists the liquid as a card of its own, and through that entry the lock was missed, so a run whose source ran dry could still pour from the locked bottle. A liquid now takes its container's lock either way. The liquid you picked by hand is still used.
+
 ## [2.2.3] - 2026-10-22
 
 ### Fixed
