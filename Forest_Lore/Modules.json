@@ -1,0 +1,65 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). One module per place (each with its own site cards, art and any GameSourceModify edit of its vanilla clone), plus climbing aids and the rusty-axe art patches (the axes drop at three places). WorldMap/MapNodes.json, which defines every place's node, sits in the mod-wide module. GameSourceModify patches are listed by file name; the rusty-axe pictures are caught by name glob, since GameSourceModify is not a card folder. `module_map.py check ForestLore` must exit 0.",
+  "sharedTables": [
+    "Localization/*.csv"
+  ],
+  "modules": [
+    {
+      "id": "barrow",
+      "name": "Barrow Wood",
+      "summary": "Ancient Cairn, Standing Stones, Circle Stone, Line of Petrospheres, Tree Hollow shelter and Weeping Pine.",
+      "paths": ["**/*AncientCairn*", "**/*StandingStones*", "**/*CircleStone*", "**/*Petrospheres*", "**/*TreeHollow*", "**/*ResinPine*"]
+    },
+    {
+      "id": "battlefield",
+      "name": "Old Battlefield",
+      "summary": "The searchable Battlefield and the Fallen Watchtower.",
+      "paths": ["**/*Battlefield*", "**/*FallenWatchtower*"]
+    },
+    {
+      "id": "homestead",
+      "name": "Abandoned Homestead",
+      "summary": "Ruined Homestead salvage and repair, the Homestead shelter with storage and decay, the Grinding Slab, and the Clay Banks clone's Clay edit (flLocHomestead).",
+      "paths": ["**/*Homestead*", "**/*GrindingSlab*"]
+    },
+    {
+      "id": "mudsprings",
+      "name": "Mud Springs",
+      "summary": "Mud Volcano, Salt Crust, Tar Seep, Deer Lick, and the Fetid Bog clone's Dig Peat edit (flLocMudSprings).",
+      "paths": ["**/*MudVolcano*", "**/*SaltCrust*", "**/*TarSeep*", "**/*DeerLick*", "**/*MudSprings*"]
+    },
+    {
+      "id": "outlying",
+      "name": "Guano Rock and Bog Body",
+      "summary": "Guano Rock's Guano Ledge, and the Bog Body found by digging peat at the vanilla Peat Bog (its Dig Peat drop edit).",
+      "paths": ["**/*GuanoRock*", "**/*BogBody*", "GameSourceModify/494b063d0a8ca66498dcd0e55b7f15be.json"]
+    },
+    {
+      "id": "caves",
+      "name": "Rock Shelter and Sunken Caves",
+      "summary": "Overhanging Rock, Cave Mouth, Painted Chamber paintings, Ossuary bone mounds, the Squeeze, Cave Lake and Cave Exit.",
+      "paths": ["**/*OverhangingRock*", "**/*CaveMouth*", "**/*CavePaintings*", "**/*BoneMounds*", "**/*Squeeze*", "**/*CaveLake*", "**/*CaveExit*"]
+    },
+    {
+      "id": "climbing",
+      "name": "Climbing Aids",
+      "summary": "Carved Stairs and the two Fairy Hole Ladders, their injection into vanilla boards, and the Shaft Climb Up Climbing Aid edit.",
+      "paths": ["CardData/EnvImprovement/**", "InjectImprovementInto.json", "GameSourceModify/6c508761e14c85d47b65d76a4148db30.json"]
+    },
+    {
+      "id": "axes",
+      "name": "Rusty Axes",
+      "summary": "Art patches giving the vanilla Blunt Rusty Axe (cairn and battlefield drop) and Rusty Axe (sharpened form, ossuary find) their pictures.",
+      "paths": ["**/*AxeRusty*", "GameSourceModify/5a5b31be26b363c4da6e9cd65750500f.json", "GameSourceModify/95da1742320318348b0fa4f03e81c2f3.json"]
+    },
+    {
+      "id": "modwide",
+      "name": "Mod-wide",
+      "modWide": true,
+      "summary": "Plugin entry, the world map nodes for every place, card motion, project files, player docs and art tooling state.",
+      "paths": ["Plugin.cs", "GlobalUsing.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore", "Modules.json",
+                "WorldMap/MapNodes.json", "CardData/Motion/**",
+                ".art/RUN_LOG.md", ".art/reference-uploads.json", ".art/review/**"]
+    }
+  ]
+}

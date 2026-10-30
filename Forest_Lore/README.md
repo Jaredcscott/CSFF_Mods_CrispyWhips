@@ -1,6 +1,6 @@
 # Forest Lore
 
-**Version:** 0.1.8
+**Version:** 0.1.9
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
 **Status:** pre-release, early development.
@@ -43,7 +43,7 @@ The bronze nugget, here and everywhere below, is a vanilla Metal Nugget of Tin B
 - While you are in Barrow Wood it gives +1 Rain Protection and +1 Sun Protection.
 - It never decays and cannot be repaired or deconstructed.
 
-**Weeping Pine.** A lone old pine among the barrows, its bark beaded with resin. **Collect Resin** (15 minutes) gives vanilla Cold Resin, four collections from a full tree, then about one every five days while the scars refill. A vanilla Resin Tap gives one a day once built and refreshed, so the pine is a slow extra, not a replacement.
+**Weeping Pine.** A lone old pine among the barrows, its bark beaded with resin. **Collect Resin** (15 minutes) gives vanilla Cold Resin, four collections from a full tree, then about one every five days while the scars refill. A vanilla Resin Tap gives one a day once built and refreshed, so the pine is a slow extra, not a replacement. It shows the base game's pine picture until it has its own.
 
 An emptied cairn stays empty for good. Finds go straight into your hands, and anything you leave in Barrow Wood stays there.
 
@@ -104,7 +104,7 @@ Three things to build where the game has a climb, from the board's Improvements 
 - **Fairy Hole Ladder (Top)** goes on Rocky Grove and helps the climb down. 4 Wooden Planks and 2 Ropes, 1 hour 30 minutes, Climbing Aid +120.
 - **Fairy Hole Ladder (Foot)** goes on The Shaft and helps the climb back up. Same materials and time, Climbing Aid +120.
 
-Each one appears in the Improvements tab the first time you stand on one of its boards. A scripted run built each and saw the raised stat, and the stairs stayed built across a save and reload. A human check in a normal game is still pending.
+Each one appears in the Improvements tab the first time you stand on one of its boards. Confirmed in a scripted run: each was built and raised the stat, and the stairs stayed built across a save and reload.
 
 The vanilla Shaft's Climb Up used to ignore Climbing Aid. The mod now adds it to that action's success odds, so a skill-0 climb goes from about 53 to about 77 percent with the ladder built. That is one of the mod's few edits to vanilla cards (the others add the Bog Body find to the Peat Bog and give the two rusty axes their pictures).
 
@@ -139,7 +139,7 @@ Three chambers lie in a line, reachable only through the Cave Mouth and not draw
 ## Version history
 
 Full notes are in CHANGELOG.md.
-- **0.1.8:** hunting a deer at the Deer Lick now starts the fight.
+- **0.1.8:** hunting a deer at the Deer Lick now starts the fight, new pictures for the Rusty Axe and the Blunt Rusty Axe.
 - **0.1.7:** a Deer Lick at the Mud Springs, no clay from clearing the Homestead, two peat a dig at the Mud Springs, a picture for the Rusty Axe.
 - **0.1.6:** the four reading actions calm you once a day, a Weeping Pine at Barrow Wood, rare relic finds at the Ossuary and the Bog Body, the Cave Lake's winter text, a picture for the Blunt Rusty Axe.
 - **0.1.5:** balance pass: fewer bronze nuggets, a stocked eel lake, a gentler Mud Volcano, a Homestead that decays and stores less, three Mud Piles a scoop.

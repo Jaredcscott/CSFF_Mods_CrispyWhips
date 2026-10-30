@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.9] - 2026-10-30
+
+### Fixed
+
+- **A Homestead filled before 0.1.5 keeps everything in it when the save loads.** 0.1.5 lowered its capacity from 10000 to 4000 and promised that nothing already stored would be thrown out, but the base game re-adds each stored card on load and checks it against the new limit, so whatever went past 4000 landed loose on the board (a test run with six Heavy Stones, 4500, kept five). Now every stored card stays inside; you still cannot add more until it holds less than 4000. Technical: the mod's first Harmony patch, `HomesteadLoadKeepPatch` (rules in `HomesteadLoadKeep.cs`, gate `Development_Tools/Tests/ForestLore-HomesteadOverCapacityLoad.Tests.ps1`), lets only the Homestead, and only while a save loads, take a card past its weight limit.
+- **Napping and sleeping at the Abandoned Homestead, the Overhanging Rock and the Tree Hollow now count as sleep.** Their Nap and Sleep carried a broken tag, so effects and objectives that look for a sleep action skipped them. They carry the base game's sleep tag now, as the Felt Bedroll does since Sirus23 1.22.9.
+
+### Changed
+
+- **Actions that were silent now make a sound.** Chiwei raised that smithing made no sound. The cause was 2 sound references in this mod naming sounds the game does not have (`Wood`), so those actions and newly made cards played nothing. Each now names a base-game sound: building a ladder uses the wood sound. Which sound goes with which action is a matter of taste and can be tuned.
+- Technical: every name in a `*SoundsWarpData` list is now a base-game AudioClip, remapped by `Development_Tools/SpriteCheck/remap_sound_names.py` from one table (fleet plan 4.1, Prompt 12; finding `Documentation/Research/Fleet/APE_Port/W0.1_missing_audio.md`). The table is a taste call and tunable. `Development_Tools/Tests/Mods-SoundNamesAreClips.Tests.ps1` fails on any name that is not a clip.
+
 ## [0.1.8] - 2026-10-20
 
 ### Changed

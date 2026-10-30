@@ -1,10 +1,13 @@
 using BepInEx;
 using CSFFModFramework.Api;
+using HarmonyLib;
 
 namespace ForestLore;
 
 /// <summary>
-/// Forest Lore host plugin. The mod ships no Harmony patches and no C#: its places, cards, climbing aids and its
+/// Forest Lore host plugin. The mod ships one Harmony patch, <see cref="HomesteadLoadKeepPatch"/> (0.1.9): a save
+/// that stored more than the Homestead's 4000 weight (a 0.1.4 Homestead held 10000) keeps every stored card inside it
+/// on load. Everything else is declarative JSON: its places, cards, climbing aids and its
 /// <c>GameSourceModify/</c> patches are all declarative JSON the framework loads
 /// (<c>WorldMap/MapNodes.json</c>, <c>CardData/</c>, <c>InjectImprovementInto.json</c>, <c>GameSourceModify/</c>).
 /// The patches: two append a drop or a drop-chance modifier to a vanilla card (the Peat Bog's Dig Peat Bog Body
@@ -21,5 +24,10 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.forest_lore";
     public const string PluginName = "Forest Lore";
-    public const string PluginVersion = "0.1.8";
+    public const string PluginVersion = "0.1.9";
+
+    protected override void RegisterPatches(Harmony harmony)
+    {
+        TryApply("HomesteadLoadKeepPatch", () => HomesteadLoadKeepPatch.ApplyPatch(harmony));
+    }
 }

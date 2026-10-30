@@ -32,7 +32,7 @@
   "DoesNotPile": true,
   "CannotBeTrashed": true,
   "WhenCreatedSoundsWarpData": [
-    "Wood"
+    "WoodAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": { "Active": false },

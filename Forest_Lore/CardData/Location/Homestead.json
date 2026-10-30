@@ -157,7 +157,7 @@
             "CompatibleNPCDuties": [],
             "ActionTags": [],
             "ActionTagsWarpData": [
-                "Frame"
+                "SleepAction"
             ],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [],
@@ -1252,7 +1252,7 @@
             "CompatibleNPCDuties": [],
             "ActionTags": [],
             "ActionTagsWarpData": [
-                "Frame"
+                "SleepAction"
             ],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [],
