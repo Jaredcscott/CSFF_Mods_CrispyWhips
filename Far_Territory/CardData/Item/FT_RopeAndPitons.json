@@ -14,7 +14,7 @@
   "ObjectWeight": 800.0,
   "DoesNotPile": true,
   "WhenCreatedSoundsWarpData": [
-    "Metal"
+    "MetalAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "PassiveEffects": [

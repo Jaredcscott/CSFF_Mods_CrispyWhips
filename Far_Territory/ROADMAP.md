@@ -11,7 +11,7 @@ Audit score: 10/10 - PASS (0 open findings)
 
 **Stability**: 10/10 - 0 CRITICAL, 0 design gaps, 0 open warnings or minors. The two loose ends from the 2026-10-23 module audits (fish/funnel trap cadence text; orphaned `ft_stat_ginger`) both shipped as fixes in v0.1.12 (`efaed5d758`). The one historical CRITICAL (Fish Trap never researchable) is re-verified RESOLVED.
 
-**Open work**: No open or pending retrospective names Far Territory, `crispywhips.far_territory` or FT. The only active plan is CSTI art adoption (`Documentation/Plans/FarTerritory/MASTER_PLAN.md`), a content/polish feature, not remediation.
+**Open work**: No open or pending retrospective names Far Territory, `crispywhips.far_territory` or FT, and no plan is open: the CSTI art adoption plan was built in v0.1.13 and closed 2026-10-29 (`Documentation/Design/FarTerritory_As_Built.md` section 24).
 
 **Framework compliance**: Tier 2. C# is 4 small classes (`ClimateService`, `EnvSaveDataPreCreate`, `LandmarkSeed`, `OwlIslandGuard`) using `ContentModPlugin`, `SpawnService` and `TickEvents`; no deprecated patterns (no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no manual perk/blueprint injection, no `ModLoaderVerison`). Requires CSFFModFramework 2.28.2+.
 
@@ -42,11 +42,11 @@ Nothing to do; re-check after any content phase lands.
 
 > The current active feature work is the CSTI art adoption plan. Content additions below are README-acknowledged gaps, not yet planned.
 
-### CSTI art adoption (active plan)
-**What**: Replace Far Territory's generated island art with Card Survival: Tropical Island's own sprites, phase by phase (A1 keyed items, A2 plant structures, B near matches, C locations/sea/paths, D FT-only restyle), with the sky-key research (W0.1) and setting filter (W0.2) as gates.
+### CSTI art adoption (built, v0.1.13)
+**What**: 111 island pictures are Card Survival: Tropical Island's own art (phases A1, A2, B, C); the optional Phase D restyle was dropped (owner, 2026-10-29).
 **Why**: CSTI's developers granted permission 2026-10-19; their art is a closer visual match to the tribute than generated placeholders, and A1 (~30 item pictures) needs no per-card judgement.
-**Requires**: W0.1 sky-key research gates A2 and C; A1 is dependency-free and ready now.
-**Complexity**: Complex (spans phases; see `Documentation/Plans/FarTerritory/MASTER_PLAN.md`).
+**Requires**: nothing to build. Tracker rows T2.2030 (sky key, branch a shipped) and T2.2031-T2.2034 carry the in-game and gallery look.
+**Complexity**: Done; record in `Documentation/Design/FarTerritory_As_Built.md` section 24.
 
 ### Cooked shellfish / seaweed (README gap, unplanned)
 **What**: A cook path (steam or boil) for Conch, Oyster, Sea Urchin and Seaweed, mirroring the gutted-fish cook chain already shipped.

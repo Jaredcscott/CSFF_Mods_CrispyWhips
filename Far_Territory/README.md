@@ -1,6 +1,6 @@
 # Far Territory
 
-**Version:** 0.1.13
+**Version:** 0.1.14
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.2 or later
 **Status:** pre-release. Version 0.1.7 brought the numbers in line with the base game (crops need care, forage and fishing can come up empty, the crossing takes effort, carcasses give a hide); they may still be tuned. Version 0.1.8 added swamp fever and its cure, fish gutting, cooked island food and sea salt, and 0.1.9 the Island Start perk; their numbers are first guesses.

@@ -13,7 +13,7 @@
   "CardImageWarpType": 3,
   "ObjectWeight": 3000.0,
   "WhenCreatedSoundsWarpData": [
-    "Wood"
+    "WoodAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "DismantleActions": [

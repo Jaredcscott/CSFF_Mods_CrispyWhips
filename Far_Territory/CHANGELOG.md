@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.14] - 2026-10-30
+
+### Changed
+
+- **Actions that were silent now make a sound.** Chiwei raised that smithing made no sound. The cause was 6 sound references in this mod naming sounds the game does not have (`Wood`, `Metal`), so those actions and newly made cards played nothing. Each now names a base-game sound: newly made wooden things use the wood sound and metal things the metal sound. Which sound goes with which action is a matter of taste and can be tuned.
+- Technical: every name in a `*SoundsWarpData` list is now a base-game AudioClip, remapped by `Development_Tools/SpriteCheck/remap_sound_names.py` from one table (fleet plan 4.1, Prompt 12; finding `Documentation/Research/Fleet/APE_Port/W0.1_missing_audio.md`). The table is a taste call and tunable. `Development_Tools/Tests/Mods-SoundNamesAreClips.Tests.ps1` fails on any name that is not a clip.
+
 ## [0.1.13] - 2026-10-29
 
 ### Changed
