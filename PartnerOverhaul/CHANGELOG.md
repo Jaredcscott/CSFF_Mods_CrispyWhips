@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.7 (2026-10-30)
+
+### Changed
+
+- **The Ember Pot's lighting and burning out name no sound.** Chiwei raised that smithing made no sound, and the check that followed found that these 4 sound names (`FireIgnite`, `FireExtinguish`) are not sounds in the game, so they never played. The game has no short sound for lighting or putting out a fire, so they now name none: nothing changes in play, and a misspelt sound name added later shows in the framework's log.
+- Technical: every name in a `*SoundsWarpData` list is now a base-game AudioClip, remapped by `Development_Tools/SpriteCheck/remap_sound_names.py` from one table (fleet plan 4.1, Prompt 12; finding `Documentation/Research/Fleet/APE_Port/W0.1_missing_audio.md`). The table is a taste call and tunable. `Development_Tools/Tests/Mods-SoundNamesAreClips.Tests.ps1` fails on any name that is not a clip.
+
 ## 1.1.6 (2026-10-22)
 
 ### Fixed

@@ -2,7 +2,7 @@
 
 Fixes a batch of bugs in the base game's Partner companions and adds opt-in diagnostics for reporting new ones. It also gives your Partner a voice: a short spoken conversation you can open from its Talk menu. Its only cards are the opt-in Ember Pot (off by default).
 
-**Version:** 1.1.6
+**Version:** 1.1.7
 **Author:** Jared
 **Language:** English (the conversation's lines are English only; all other in-game text is the game's)
 **Requires:** BepInEx 5. CSFFModFramework is a soft dependency: it loads the Talk conversation and sets load order. Without it every fix still works and the Talk menu is exactly the game's.

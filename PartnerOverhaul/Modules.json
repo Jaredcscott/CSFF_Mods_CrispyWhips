@@ -1,0 +1,85 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). Every tracked file belongs to exactly one module, is a sharedTable (rows attributed by the UID or LocalizationKey they name), or is a picture/.art file owned by the module whose card names it. GameSourceModify/Agent_Partner.json registers the stats of several talk modules, so it is mod-wide. `module_map.py check PartnerOverhaul` must exit 0.",
+  "sharedTables": [
+    "Localization/*.csv",
+    "BlueprintTabs.json"
+  ],
+  "modules": [
+    {
+      "id": "talk",
+      "name": "Talk Scene",
+      "summary": "PO's own PO_PartnerTalk scene (start, day, gift, mood router and moods, player-condition lines), the gift-season stat, the Talk hub answer, the Partner's name in dialog, and the opt-in Partner-starts-conversations duty.",
+      "paths": ["ScriptableObject/DialogScene/PO_PartnerTalk.json", "ScriptableObject/DialogLine/PO_PartnerTalk_Start.json", "ScriptableObject/DialogLine/PO_PartnerTalk_Day.json", "ScriptableObject/DialogLine/PO_PartnerTalk_Gift.json",
+                "ScriptableObject/DialogLine/PO_PartnerTalk_Mood*.json", "ScriptableObject/DialogLine/PO_PartnerTalk_Player_*.json", "NPCStat/poStatGiftSeason.json",
+                "Patcher/PartnerTalkAnswerPatch.cs", "Patcher/PartnerNameInDialogPatch.cs", "Patcher/PartnerStartsTalkDutyPatch.cs"]
+    },
+    {
+      "id": "topics",
+      "name": "Talk Topics",
+      "summary": "The Talk about... topic list and its sixteen topic lines, the heard-topic marker stats, and the Community Mod Chest village and inn topics.",
+      "paths": ["ScriptableObject/DialogLine/PO_PartnerTalk_Topic*.json", "NPCStat/poStatTopicHeard*.json", "Patcher/PartnerCmcTopicPatch.cs"]
+    },
+    {
+      "id": "voice",
+      "name": "Partner Voices",
+      "summary": "The four voice traits (anxious, assertive, reserved, warm): their stats, the vanilla partner NPCs they are added to, and the voiced mood lines.",
+      "paths": ["ScriptableObject/DialogLine/PO_PartnerTalk_Voice_*.json", "NPCStat/poStatVoice*.json", "GameSourceModify/????????????????????????????????.json"]
+    },
+    {
+      "id": "express",
+      "name": "Partner Expressions",
+      "summary": "The voiced replies to vanilla's nine PartnerDuty_Express* duties (routers and per-need, per-mood, per-voice lines) and the opt-in cold-partner warmth warning.",
+      "paths": ["ScriptableObject/DialogLine/PO_PartnerExpress_*.json", "Patcher/PartnerExpressVoicePatch.cs", "Patcher/ColdPartnerWarmthPatch.cs"]
+    },
+    {
+      "id": "memory",
+      "name": "Memories and Milestones",
+      "summary": "Short-lived event memories (build, catch, escape, fight) and the relationship milestones (day 7, 30, 100, affection, trust): their lines, stats and the memory patch.",
+      "paths": ["ScriptableObject/DialogLine/PO_PartnerTalk_Memory_*.json", "ScriptableObject/DialogLine/PO_PartnerTalk_Milestone_*.json", "NPCStat/poStatMemory*.json", "NPCStat/poStatMilestone*.json", "Patcher/PartnerMemoryPatch.cs"]
+    },
+    {
+      "id": "firstvisit",
+      "name": "First Visits",
+      "summary": "The one-shot first-visit remarks for Lake, Oak, Pine, River and Wetlands, their region marker stats and the first-visit patch.",
+      "paths": ["ScriptableObject/DialogLine/PO_PartnerTalk_FirstVisit_*.json", "NPCStat/poStatRegion*.json", "Patcher/PartnerFirstVisitPatch.cs"]
+    },
+    {
+      "id": "reports",
+      "name": "Expedition Reports",
+      "summary": "The foraging, hunting and fishing expedition report lines and the patch that picks one from the Partner's inventory.",
+      "paths": ["ScriptableObject/DialogLine/PO_PartnerTalk_Report_*.json", "Patcher/PartnerExpeditionStoryPatch.cs"]
+    },
+    {
+      "id": "partnerai",
+      "name": "Partner Duty Fixes",
+      "summary": "Vanilla Partner duty data fixes at load (eating stew, cleaning, overwatering, fireplace fuel, hearth duties, stat visibility, lake and stream drinking), NPC path speed, the off-screen NPC sound gate, the dialog-interrupt guard and the Partner diagnostics logging.",
+      "paths": ["Patcher/GameLoadPatch.cs", "Patcher/PathSpeedPatch.cs", "Patcher/NpcSoundEnvGatePatch.cs", "Patcher/DialogInterruptPatch.cs", "Patcher/PartnerDiagnosticsPatch.cs"]
+    },
+    {
+      "id": "firekeeping",
+      "name": "Fire Keeping and Fuel Reserve",
+      "summary": "Charcoal as Fire Keeping fuel, the reserved fuel/wood UID list and the reserve-aware duty decisions.",
+      "paths": ["Patcher/CharcoalFuelDecision.cs", "Patcher/ReserveAwareDecision.cs", "Patcher/WoodReserveListPatch.cs"]
+    },
+    {
+      "id": "emberpot",
+      "name": "Ember Pot",
+      "summary": "The opt-in Ember Pot (unlit, lit), its blueprint and its tab gate patch.",
+      "paths": ["CardData/**/*EmberPot*", "Patcher/EmberPotPatch.cs"]
+    },
+    {
+      "id": "playerfixes",
+      "name": "Pouring and Wound Fixes",
+      "summary": "The partial powder pour fix and its pouch-transfer diagnostics, and wound-stacking consolidation.",
+      "paths": ["Patcher/PartialPowderPourPatch.cs", "Patcher/PouchTransferDiagnosticsPatch.cs", "Patcher/WoundStackingPatch.cs"]
+    },
+    {
+      "id": "modwide",
+      "name": "Mod-wide",
+      "modWide": true,
+      "summary": "Plugin entry, the Agent_Partner stat registrations shared by the talk modules, the reflection helper, project files, player docs and art tooling state.",
+      "paths": ["Plugin.cs", "GlobalUsing.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "PLAYER_GUIDE.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore",
+                "Features.json", "Modules.json", "GameSourceModify/Agent_Partner.json", "Patcher/ReflectionHelper.cs", ".art/RUN_LOG.md", ".art/review/**"]
+    }
+  ]
+}
