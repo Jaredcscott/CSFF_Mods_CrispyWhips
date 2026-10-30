@@ -23,7 +23,7 @@
   },
   "CardImageWarpData": "CopperShears",
   "CardImageWarpType": 3,
-  "WhenCreatedSoundsWarpData": ["Metal"],
+  "WhenCreatedSoundsWarpData": ["MetalAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
     "Active": false

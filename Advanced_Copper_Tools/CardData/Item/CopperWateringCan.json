@@ -53,7 +53,7 @@
   "ToggleablePiling": false,
   "DoesNotPinAutomatically": false,
   "WhenCreatedSounds": [],
-  "WhenCreatedSoundsWarpData": [ "Metal" ],
+  "WhenCreatedSoundsWarpData": [ "MetalAppear" ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": { "Active": false },
   "UsageDurability": { "Active": false },
@@ -79,7 +79,7 @@
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
-      "ActionSoundsWarpData": [ "Water" ],
+      "ActionSoundsWarpData": [ "Flowing1" ],
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {
         "TriggerCards": [],
@@ -114,7 +114,7 @@
       "ActionTags": [],
       "DaytimeCost": 0,
       "UseMiniTicks": 0,
-      "ActionSoundsWarpData": [ "Water" ],
+      "ActionSoundsWarpData": [ "Flowing1" ],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {
         "RequiredLiquidQuantity": 1.0,

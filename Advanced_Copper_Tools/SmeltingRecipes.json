@@ -90,6 +90,12 @@
     "Duration": 8
   },
   {
+    "Item": "advanced_copper_tools_copper_gloves",
+    "InheritMetal": true,
+    "NuggetReturn": 6,
+    "Duration": 8
+  },
+  {
     "Item": "advanced_copper_tools_copper_greaves",
     "InheritMetal": true,
     "NuggetReturn": 17,

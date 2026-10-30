@@ -42,16 +42,24 @@
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
           "RequiredQuantity": 1,
           "DontSpend": false,
-          "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
-          "RequiredCardWarpType": 3,
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_FW_MetalSheet",
+          "RequiredTabGroupWarpType": 3,
           "Special4": { "Active": true, "FloatValue": 0.0, "MaxValue": 100.0 }
         },
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
           "RequiredQuantity": 1,
           "DontSpend": false,
-          "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
-          "RequiredCardWarpType": 3
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_FW_MetalNail",
+          "RequiredTabGroupWarpType": 3
         },
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
@@ -79,7 +87,7 @@
     }
   ],
   "BlueprintStatModifications": [],
-  "WhenCreatedSoundsWarpData": [ "Metal" ],
+  "WhenCreatedSoundsWarpData": [ "MetalAppear" ],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
   "BlueprintActionTagsWarpType": 3,

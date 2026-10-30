@@ -34,7 +34,7 @@
   },
   "CardImageWarpData": "CopperBrazier_Unlit",
   "CardImageWarpType": 3,
-  "WhenCreatedSoundsWarpData": ["Metal"],
+  "WhenCreatedSoundsWarpData": ["MetalAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
     "Active": false
@@ -208,7 +208,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["FireIgnite"],
+      "ActionSoundsWarpData": [],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {
         "RequiredFuelPercent": {
@@ -334,7 +334,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Metal"],
+      "ActionSoundsWarpData": ["MetalAppear"],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
         "ModType": 2,

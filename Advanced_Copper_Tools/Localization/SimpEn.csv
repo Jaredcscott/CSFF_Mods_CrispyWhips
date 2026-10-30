@@ -7,8 +7,9 @@ Advanced_Copper_Tools_Oil_CardHelpSection,"<b>Crafted:</b> By rendering 2 animal
 <b>用途：</b> 饮用补充营养（返回空陶碗），或倒入提灯、火盆或油瓶作为灯油。其他装在陶碗中的灯油同样可作燃料。每碗油价值48点燃料：在点燃的提灯油井中可燃烧12小时，在陶灯中可燃烧24小时，在金属提灯中可燃烧27.6小时。"
 Advanced_Copper_Tools_Oil_Drink_ActionName,Drink,饮用
 Advanced_Copper_Tools_Bp_Oil_CardName,Rendered Oil,熬制油脂
-Advanced_Copper_Tools_Bp_Oil_CardDescription,Render 2 animal fat in a clay bowl to produce cooking oil and lamp fuel.,将2块动物脂肪放入陶碗熬制，制成烹饪油和灯油。
+Advanced_Copper_Tools_Bp_Oil_CardDescription,Render 2 animal fat or fatty fish meat in a clay bowl to produce cooking oil and lamp fuel.,将2块动物脂肪或肥鱼肉放入陶碗熬制，制成烹饪油和灯油。
 Advanced_Copper_Tools_Bp_Oil_UnlockConditionsDesc,Animal Fat Needed,需要动物脂肪
+Advanced_Copper_Tools_GpTag_RenderableFat_TabName,Animal Fat or Fatty Fish Meat
 Advanced_Copper_Tools_MetalLantern_Refuel_ActionName,Refuel with Oil,用油补充燃料
 Advanced_Copper_Tools_MetalLantern_Refuel_ActionDescription,Poured oil into the lantern.,向提灯中倒入油脂。
 Advanced_Copper_Tools_MetalLantern_Light_ActionName,Light Lantern,点燃提灯
@@ -332,19 +333,20 @@ Advanced_Copper_Tools_CopperBathtub_Warm_RefillRiver_ActionName,Refill from Rive
 Advanced_Copper_Tools_CopperBathtub_Warm_RefillRiver_ActionDescription,Haul more water from the river to refill the warm bathtub.,从河流取更多水以补充温热浴缸。
 Advanced_Copper_Tools_LargeSaw_CardName,Large Copper Saw,大型铜锯
 Advanced_Copper_Tools_LargeSaw_CardDescription,A large two-handled saw with a copper blade. Cuts large trees faster than an axe while it is sharp.,一把带铜锯条的大型双手锯。锋利时比斧头更快地砍伐大树。
-Advanced_Copper_Tools_LargeSaw_CardHelpSection,"<b>Crafted:</b> From 3 metal sheets of one metal, 2 Wood, 2 copper nails and 1 tin solder using a hammer. The saw is the metal of its sheets.
+Advanced_Copper_Tools_LargeSaw_CardHelpSection,"<b>Crafted:</b> From 3 metal sheets of one metal, 2 Wood, 2 metal nails of the same metal and 1 tin solder using a hammer. The saw is the metal of its sheets, copper, ghost bronze, tin, tin bronze, white bronze or iron; a nail of another metal than the sheets is refused.
 
-<b>Uses:</b> Cuts large trees faster than an axe while sharp. Copper, Ghost Bronze and Tin Bronze fell a large pine or willow in two pulls and a large birch or oak in three; White Bronze fells a pine or willow in one pull and a birch or oak in two; Tin takes two pulls for a pine, willow or birch and three for an oak. Each pull adds 1 Dullness; at 25 the saw is blunt and cuts like an axe until you drag a stone or whetstone onto it to sharpen it. A saw lasts about 100 pulls in copper, 166 in Ghost Bronze, 66 in Tin, 200 in Tin Bronze and 80 in White Bronze. Use as a cutting tool.","<b>制作：</b> 由3块同种金属片、2块木材、2枚铜钉和1块锡焊料使用锤子制成。锯子的金属与所用金属片相同。
+<b>Uses:</b> Cuts large trees faster than an axe while sharp. Copper, Ghost Bronze and Tin Bronze fell a large pine or willow in two pulls and a large birch or oak in three; White Bronze and Iron fell a pine or willow in one pull and a birch or oak in two; Tin takes two pulls for a pine, willow or birch and three for an oak. Each pull adds 1 Dullness; at 25 the saw is blunt and cuts like an axe until you drag a stone or whetstone onto it to sharpen it. A saw lasts about 100 pulls in copper, 166 in Ghost Bronze, 66 in Tin, 200 in Tin Bronze, 80 in White Bronze and 150 in Iron. An iron saw rusts while you are wet unless it carries an Oil Coat: drag Fat or any oil onto it. Use as a cutting tool.","<b>制作：</b> 由3块同种金属片、2块木材、2枚同种金属的钉子和1块锡焊料使用锤子制成。锯子的金属与所用金属片相同：铜、幽灵青铜、锡、锡青铜、白青铜或铁；与金属片金属不同的钉子会被拒绝。
 
-<b>用途：</b> 锋利时比斧头更快地砍伐大树。铜、幽灵青铜和锡青铜锯：大松树或大柳树需要两锯，大桦树或大橡树需要三锯；白青铜锯：大松树或大柳树一锯即倒，大桦树或大橡树两锯；锡锯：大松树、大柳树或大桦树需要两锯，大橡树三锯。每锯一次钝度加1；钝度达到25时锯子变钝，砍伐速度与斧头相同，把石头或磨刀石拖到锯子上即可磨利。耐用次数约为：铜100锯，幽灵青铜166锯，锡66锯，锡青铜200锯，白青铜80锯。可用作切割工具。"
+<b>用途：</b> 锋利时比斧头更快地砍伐大树。铜、幽灵青铜和锡青铜锯：大松树或大柳树需要两锯，大桦树或大橡树需要三锯；白青铜和铁锯：大松树或大柳树一锯即倒，大桦树或大橡树两锯；锡锯：大松树、大柳树或大桦树需要两锯，大橡树三锯。每锯一次钝度加1；钝度达到25时锯子变钝，砍伐速度与斧头相同，把石头或磨刀石拖到锯子上即可磨利。耐用次数约为：铜100锯，幽灵青铜166锯，锡66锯，锡青铜200锯，白青铜80锯，铁150锯。铁锯在潮湿时会生锈，除非带有油膜：把油脂或任何油拖到锯子上即可。可用作切割工具。"
 Advanced_Copper_Tools_LargeSaw_UsageDurability.CardStatName,Durability,耐久度
 Advanced_Copper_Tools_LargeSaw_UsageDurability.OnZero.ActionDescription,Saw Broken!,锯子破损！
+Advanced_Copper_Tools_LargeSaw_PartQualityLine,Its sheets and nails were smithed to quality {0}.,它的金属板和钉子锻打到了品质 {0}。
 Advanced_Copper_Tools_LargeSaw_SpecialDurability1.CardStatName,Dullness,钝度
 Advanced_Copper_Tools_LargeSaw_Sharpen_ActionName,Sharpen,磨利
 Advanced_Copper_Tools_LargeSaw_Sharpen_ActionDescription,Sharpen the saw's teeth so it fells fast again.,磨利锯齿，让它重新快速砍伐。
 Advanced_Copper_Tools_LargeSaw_FuelCapacity.CardStatName,Temperature,温度
 Advanced_Copper_Tools_Bp_LargeSaw_CardName,Large Copper Saw,大型铜锯
-Advanced_Copper_Tools_Bp_LargeSaw_CardDescription,"Assemble a large saw from 3 metal sheets of one metal, 2 copper nails, 2 wood, 1 tin solder and a hammer. The saw takes the sheets' metal. Takes copper, tin or bronze sheets, not iron: the Iron Large Saw is its own recipe.",用3块同种金属片、2枚铜钉、2块木材、1块焊锡和一把锤子组装一把大型锯。锯子采用金属片的金属。只接受铜、锡或青铜片，不接受铁片：铁制大锯有自己的配方。
+Advanced_Copper_Tools_Bp_LargeSaw_CardDescription,"Assemble a large saw from 3 metal sheets of one metal, 2 metal nails of that same metal, 2 wood, 1 tin solder and a hammer. The saw takes the sheets' metal: copper, ghost bronze, tin, tin bronze, white bronze or iron. A nail of another metal than the sheets is refused.",用3块同种金属片、2枚同种金属的钉子、2块木材、1块焊锡和一把锤子组装一把大型锯。锯子采用金属片的金属：铜、幽灵青铜、锡、锡青铜、白青铜或铁。与金属片金属不同的钉子会被拒绝。
 Advanced_Copper_Tools_Bp_LargeSaw_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_IronLargeSaw_CardName,Iron Large Saw,大型铁锯
 Advanced_Copper_Tools_IronLargeSaw_CardDescription,"A large two-handled saw with a forged iron blade. Tougher than the copper saw, and it drops a large pine or willow in one pull.",一把带锻铁锯条的大型双手锯。比铜锯更耐用，大松树或大柳树一锯即倒。
@@ -524,6 +526,14 @@ Advanced_Copper_Tools_CopperGauntlets_Dismantle_ActionDescription,Break apart th
 Advanced_Copper_Tools_Bp_CopperGauntlets_CardName,Metal Bracers,金属护腕
 Advanced_Copper_Tools_Bp_CopperGauntlets_CardDescription,"Hammer a pair of bracers from 2 metal sheets of one metal, 4 metal nails, 1 small leather and 2 sinew. Requires a hammer. Copper, tin, ghost bronze, tin bronze, white bronze or iron: the bracers takes the metal of its sheets, and with it that metal's protection, weight and look.",用锤子，以2块同种金属的金属片、4枚金属钉、1块小皮革和2根肌腱打造护腕。铜、锡、幽灵青铜、锡青铜、白青铜或铁皆可：护腕取其金属片的金属，并随之获得该金属的防护、重量和外观。
 Advanced_Copper_Tools_Bp_CopperGauntlets_UnlockConditionsDesc,Metal Sheet Needed,需要金属片
+Advanced_Copper_Tools_CopperGloves_CardName,Metal Gloves
+Advanced_Copper_Tools_CopperGloves_CardDescription,"Gloves hammered from a metal sheet and sewn to leather. They protect the hands like leather gloves do and guard both arms a little, but give no warmth or comfort. Their protection, weight and look follow the metal they were made from. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperGloves_UsageDurability.CardStatName,Durability
+Advanced_Copper_Tools_CopperGloves_Dismantle_ActionName,Dismantle
+Advanced_Copper_Tools_CopperGloves_Dismantle_ActionDescription,Take the gloves apart to recover materials.
+Advanced_Copper_Tools_Bp_CopperGloves_CardName,Metal Gloves
+Advanced_Copper_Tools_Bp_CopperGloves_CardDescription,"Hammer a pair of gloves from 1 metal sheet, 2 metal nails, 1 small leather and 1 sinew. Requires a hammer. Copper, tin, ghost bronze, tin bronze, white bronze or iron: the gloves take the metal of the sheet, and with it that metal's protection, weight and look."
+Advanced_Copper_Tools_Bp_CopperGloves_UnlockConditionsDesc,Metal Sheet Needed
 Advanced_Copper_Tools_CopperGreaves_CardName,Metal Greaves,金属护胫
 Advanced_Copper_Tools_CopperGreaves_CardDescription,"Greaves hammered from metal sheets. Its protection, weight and look follow the metal it was made from. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",用金属片锤制的护胫。它的防护、重量和外观取决于制作所用的金属。可在熔炉中回收。必须装备在装备槽上才能生效。
 Advanced_Copper_Tools_CopperGreaves_UsageDurability.CardStatName,Durability,耐久度
@@ -732,15 +742,6 @@ Advanced_Copper_Tools_OreChestPlaced_DismantleActions_PickUp_FailMessage,Empty t
 Advanced_Copper_Tools_Bp_OreChest_CardName,Ore Bin
 Advanced_Copper_Tools_Bp_OreChest_CardDescription,"Build a high-capacity open-topped metal bin for mined ore: greenstone, bog iron, tin ore and flint. Requires 6 metal sheets, 4 planks, 8 copper nails, 1 tin solder, and a hammer."
 Advanced_Copper_Tools_Bp_OreChest_UnlockConditionsDesc,Copper Sheet Needed
-Advanced_Copper_Tools_SaltCuredMeat_CardName,Salt-Cured Meat
-Advanced_Copper_Tools_SaltCuredMeat_CardDescription,"Raw meat packed in salt and left to cure. A filling, slow-spoiling travel ration - though the salt will leave you thirsty."
-Advanced_Copper_Tools_SaltCuredMeat_SpoilageTime_StatName,Spoilage
-Advanced_Copper_Tools_SaltCuredMeat_SpoilageTime_OnFull,The salt-cured meat has finally spoiled.
-Advanced_Copper_Tools_SaltCuredMeat_Eat,Eat
-Advanced_Copper_Tools_SaltCuredMeat_Eat_Desc,"Eat the salt-cured meat. Filling, but salty."
-Advanced_Copper_Tools_Bp_SaltCuredMeat_CardName,Salt-Cured Meat
-Advanced_Copper_Tools_Bp_SaltCuredMeat_CardDescription,Pack raw meat in salt to cure it into a slow-spoiling travel ration. Requires 1 raw meat and 2 salt.
-Advanced_Copper_Tools_Bp_SaltCuredMeat_UnlockConditionsDesc,Salt Needed
 Advanced_Copper_Tools_BronzeHelmet_CardName,Tin Bronze Helmet
 Advanced_Copper_Tools_BronzeHelmet_CardDescription,"A hammered tin bronze helmet, tougher than copper and lighter than iron; the sturdiest of the bronzes. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
 Advanced_Copper_Tools_BronzeHelmet_UsageDurability.CardStatName,Durability
@@ -899,15 +900,6 @@ Advanced_Copper_Tools_GhostBronzeShield_Dismantle_ActionDescription,Break apart 
 Advanced_Copper_Tools_Bp_GhostBronzeShield_CardName,Ghost Bronze Shield
 Advanced_Copper_Tools_Bp_GhostBronzeShield_CardDescription,"Face a plank shield with 3 pale Ghost Bronze sheets, nail them down with 4 copper nails, seal the edges with a tin solder and fit a leather grip. Requires a hammer. Wards off spiritual attacks."
 Advanced_Copper_Tools_Bp_GhostBronzeShield_UnlockConditionsDesc,Ghost Bronze Sheet Needed
-Advanced_Copper_Tools_SaltCuredFish_CardName,Salt-Cured Fish
-Advanced_Copper_Tools_SaltCuredFish_CardDescription,"Lean fish packed in coarse salt and left to cure. A light, slow-spoiling travel ration that keeps far longer than dried fish - though the salt will leave you thirsty."
-Advanced_Copper_Tools_SaltCuredFish_SpoilageTime_StatName,Spoilage
-Advanced_Copper_Tools_SaltCuredFish_SpoilageTime_OnFull,The salt-cured fish has finally spoiled.
-Advanced_Copper_Tools_SaltCuredFish_Eat,Eat
-Advanced_Copper_Tools_SaltCuredFish_Eat_Desc,"Eat the salt-cured fish. Light, but salty."
-Advanced_Copper_Tools_Bp_SaltCuredFish_CardName,Salt-Cured Fish
-Advanced_Copper_Tools_Bp_SaltCuredFish_CardDescription,Pack lean fish in salt to cure it into a slow-spoiling travel ration. Requires 1 lean fish and 2 salt.
-Advanced_Copper_Tools_Bp_SaltCuredFish_UnlockConditionsDesc,Salt Needed
 Advanced_Copper_Tools_LargeSaw_AlternateNames[0].Name,Large Copper Saw,大型铜锯
 Advanced_Copper_Tools_LargeSaw_AlternateNames[0].Description,"A large two-handled saw with a copper blade. Fells a large pine or willow in two pulls, a large birch or oak in three, and lasts about 100 pulls.",一把带铜锯条的大型双手锯。大松树或大柳树需要两锯，大桦树或大橡树需要三锯，约可使用100锯。
 Advanced_Copper_Tools_LargeSaw_AlternateNames[1].Name,Large Ghost Bronze Saw,大型幽灵青铜锯
@@ -918,7 +910,14 @@ Advanced_Copper_Tools_LargeSaw_AlternateNames[3].Name,Large Tin Bronze Saw,大�
 Advanced_Copper_Tools_LargeSaw_AlternateNames[3].Description,"A large two-handled saw with a tin bronze blade. Fells like copper (a large pine or willow in two pulls, a large birch or oak in three) and is the toughest: about 200 pulls.",一把带锡青铜锯条的大型双手锯。砍伐速度与铜锯相同（大松树或大柳树需要两锯，大桦树或大橡树需要三锯），且最为耐用：约可使用200锯。
 Advanced_Copper_Tools_LargeSaw_AlternateNames[4].Name,Large White Bronze Saw,大型白青铜锯
 Advanced_Copper_Tools_LargeSaw_AlternateNames[4].Description,"A large two-handled saw with a hard white bronze blade. Fells a large pine or willow in one pull and a large birch or oak in two, but it is brittle: about 80 pulls.",一把带坚硬白青铜锯条的大型双手锯。大松树或大柳树一锯即倒，大桦树或大橡树需要两锯，但较脆：约可使用80锯。
+Advanced_Copper_Tools_LargeSaw_AlternateNames[5].Name,Large Iron Saw
+Advanced_Copper_Tools_LargeSaw_AlternateNames[5].Description,"A large two-handled saw with a forged iron blade. Fells a large pine or willow in one pull and a large birch or oak in two, and lasts about 150 pulls. It rusts while you are wet unless you coat it with Fat or Oil."
 Advanced_Copper_Tools_LargeSaw_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_LargeSaw_SpecialDurability3.CardStatName,Oil Coat
+Advanced_Copper_Tools_LargeSaw_Grease_ActionName,Grease with Fat
+Advanced_Copper_Tools_LargeSaw_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.
+Advanced_Copper_Tools_LargeSaw_Oil_ActionName,Oil
+Advanced_Copper_Tools_LargeSaw_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.
 Advanced_Copper_Tools_CopperStove_AlternateNames[0].Name,Small Copper Stove,小型铜炉
 Advanced_Copper_Tools_CopperStove_AlternateNames[1].Name,Small Ghost Bronze Stove,小型幽灵青铜炉
 Advanced_Copper_Tools_CopperStove_AlternateNames[2].Name,Small Tin Stove,小型锡炉
@@ -1222,6 +1221,24 @@ Advanced_Copper_Tools_CopperGauntlets_Grease_ActionName,Grease with Fat
 Advanced_Copper_Tools_CopperGauntlets_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.
 Advanced_Copper_Tools_CopperGauntlets_Oil_ActionName,Oil
 Advanced_Copper_Tools_CopperGauntlets_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.
+Advanced_Copper_Tools_CopperGloves_AlternateNames[0].Name,Copper Gloves
+Advanced_Copper_Tools_CopperGloves_AlternateNames[0].Description,"Hammered copper plates sewn to leather, protecting the hands like leather gloves do and guarding both arms a little (+2 each). They give no warmth. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperGloves_AlternateNames[1].Name,Ghost Bronze Gloves
+Advanced_Copper_Tools_CopperGloves_AlternateNames[1].Description,"Bronze alloyed with witchstone, pale and cold to the touch, sewn to leather: it protects the hands like leather gloves do and guards both arms a little (+2.2 each). They give no warmth. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperGloves_AlternateNames[2].Name,Tin Gloves
+Advanced_Copper_Tools_CopperGloves_AlternateNames[2].Description,Hammered from soft tin: a little tougher than copper (+2.1 each) and the lightest metal gloves to carry. They protect the hands like leather gloves do but give no warmth. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
+Advanced_Copper_Tools_CopperGloves_AlternateNames[3].Name,Tin Bronze Gloves
+Advanced_Copper_Tools_CopperGloves_AlternateNames[3].Description,"Hammered tin bronze plates sewn to leather, protecting the hands like leather gloves do and guarding both arms a little (+2.3 each). They give no warmth. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperGloves_AlternateNames[4].Name,White Bronze Gloves
+Advanced_Copper_Tools_CopperGloves_AlternateNames[4].Description,"High-tin bronze polished to a mirror shine, nearly as protective as iron (+2.5 each). It protects the hands like leather gloves do but gives no warmth. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperGloves_AlternateNames[5].Name,Iron Gloves
+Advanced_Copper_Tools_CopperGloves_AlternateNames[5].Description,"Forged iron gloves, the toughest of the metals (+2.7 each), protecting the hands like leather gloves do. They give no warmth and rust while you are wet unless oiled. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_CopperGloves_SpecialDurability1.CardStatName,Oil Coat
+Advanced_Copper_Tools_CopperGloves_SpecialDurability4.CardStatName,Metal Type
+Advanced_Copper_Tools_CopperGloves_Grease_ActionName,Grease with Fat
+Advanced_Copper_Tools_CopperGloves_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.
+Advanced_Copper_Tools_CopperGloves_Oil_ActionName,Oil
+Advanced_Copper_Tools_CopperGloves_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.
 Advanced_Copper_Tools_CopperGreaves_AlternateNames[0].Name,Copper Greaves
 Advanced_Copper_Tools_CopperGreaves_AlternateNames[0].Description,Hammered copper greaves protecting both legs. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.
 Advanced_Copper_Tools_CopperGreaves_AlternateNames[1].Name,Ghost Bronze Greaves
@@ -1278,3 +1295,7 @@ Advanced_Copper_Tools_RetiredShield_Reforge_ActionName,Reforge as Metal Shield
 Advanced_Copper_Tools_RetiredShield_Reforge_ActionDescription,"Turn this old shield into a Metal Shield of the same metal, the one shield card every metal now uses. It keeps its wear and its warmth."
 Advanced_Copper_Tools_RetiredShield_OnFull_ActionName,Becomes a Metal Shield
 Advanced_Copper_Tools_RetiredShield_OnFull_ActionDescription,An old card becomes the merged card of the same metal.
+Advanced_Copper_Tools_RetiredLargeSaw_Reforge_ActionName,Reforge as Large Saw
+Advanced_Copper_Tools_RetiredLargeSaw_Reforge_ActionDescription,"Turn this old saw into a Large Saw of the same metal, the one saw card every metal now uses. It keeps its wear (scaled to the new card), its Dullness and its warmth."
+Advanced_Copper_Tools_RetiredLargeSaw_OnFull_ActionName,Becomes a Large Saw
+Advanced_Copper_Tools_RetiredLargeSaw_OnFull_ActionDescription,An old card becomes the merged card of the same metal.

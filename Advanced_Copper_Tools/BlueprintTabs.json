@@ -1,9 +1,6 @@
 {
     "Tab_1_Survival_Subtab_2_Support_TabName": [
-        "advanced_copper_tools_bp_oil",
-        "advanced_copper_tools_bp_render_fish_oil",
-        "advanced_copper_tools_bp_salt_cured_meat",
-        "advanced_copper_tools_bp_salt_cured_fish"
+        "advanced_copper_tools_bp_oil"
     ],
     "Tab_5_MetalAndClay_Subtab_3_MetalCrafts_TabName": [
         "advanced_copper_tools_bp_wheel_rim",
@@ -12,26 +9,29 @@
         "advanced_copper_tools_bp_cast_wheel_hub"
     ],
     "Tab_2_Construction_Subtab_2_MetalTools_TabName": [
-        "advanced_copper_tools_bp_wearable_metal_pan",
         "advanced_copper_tools_bp_large_saw",
-        "act_bp_iron_large_saw",
-        "advanced_copper_tools_bp_lantern_oilwell",
+        "act_bp_copper_spigot",
+        "act_bp_copper_sap_bucket",
+        "act_bp_copper_shears",
+        "advanced_copper_tools_bp_copper_watering_can"
+    ],
+    "Tab_5_MetalAndClay_Subtab_1_Utensils_TabName": [
         "advanced_copper_tools_bp_copper_tea_kettle",
-        "advanced_copper_tools_bp_copper_oil_flask",
-        "advanced_copper_tools_bp_copper_cauldron",
+        "advanced_copper_tools_bp_copper_cauldron"
+    ],
+    "Tab_4_Tailoring_Subtab_5_Equipment_TabName": [
+        "advanced_copper_tools_bp_wearable_metal_pan",
         "advanced_copper_tools_bp_copper_helmet",
         "advanced_copper_tools_bp_copper_gauntlets",
+        "advanced_copper_tools_bp_copper_gloves",
         "advanced_copper_tools_bp_copper_greaves",
         "advanced_copper_tools_bp_copper_breastplate",
         "act_bp_copper_shield",
-        "act_bp_bedwarming_pan",
-        "act_bp_cautery_iron",
-        "act_bp_copper_spigot",
-        "act_bp_copper_sap_bucket",
-        "act_bp_grappling_hook",
-        "act_bp_copper_shears",
         "act_bp_tool_belt",
-        "advanced_copper_tools_bp_copper_watering_can"
+        "act_bp_grappling_hook"
+    ],
+    "Tab_1_Survival_Subtab_3_Medical_TabName": [
+        "act_bp_cautery_iron"
     ],
     "Tab_2_Construction_Subtab_2_AdvancedTools_TabName": [
         "advanced_copper_tools_bp_metal_lantern",
@@ -51,6 +51,9 @@
         "advanced_copper_tools_bp_ore_chest"
     ],
     "Tab_1_Survival_Subtab_1_Fire_TabName": [
-        "advanced_copper_tools_bp_copper_brazier"
+        "advanced_copper_tools_bp_copper_brazier",
+        "advanced_copper_tools_bp_lantern_oilwell",
+        "advanced_copper_tools_bp_copper_oil_flask",
+        "act_bp_bedwarming_pan"
     ]
 }

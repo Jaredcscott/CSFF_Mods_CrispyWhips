@@ -54,7 +54,7 @@
       "name": "Oil",
       "status": "Implemented",
       "confidence": "LOW",
-      "evidence": "Rendered Fish Oil art bug fixed 1.16.1 (2026-08-16); re-verification PENDING per playtest T2.114 (2026-08-17). 1.18.13: Render Hemp Seed Oil retired (every tag_Oil card, Hemp Seed Oil included, already fuels the lamps and coats iron)",
+      "evidence": "Rendered Fish Oil art bug fixed 1.16.1 (2026-08-16); re-verification PENDING per playtest T2.114 (2026-08-17). 1.18.13: Render Hemp Seed Oil retired (every tag_Oil card, Hemp Seed Oil included, already fuels the lamps and coats iron). 1.18.15: Rendered Oil takes 2 of animal fat or fatty fish meat through the tag group GpTag_ACT_RenderableFat; bp_render_fish_oil is a retired stub (no gate, out of the tabs) that hands its research to bp_oil (fleet plan 6.6, harness T2.2012)",
       "cards": [
         "advanced_copper_tools_oil",
         "advanced_copper_tools_bp_oil",
@@ -100,13 +100,15 @@
       ]
     },
     {
-      "name": "Large Copper Saw",
+      "name": "Large Saw",
       "status": "Implemented",
       "confidence": "VERIFIED",
-      "evidence": "playtest T2.8 (2026-07-21) batch spot-check. SawEffectPatch.cs moved to a UID map in 1.17.0 with the copper value still -25; regression step in tracker T2.323. 1.18.0 Tier B (Documentation/Design/AdvancedCopperTools_Metal_Variant_Art_As_Built.md step 3): Metal Type (SD4) taken from the sheets (mask 256, stack filter, replace flag), per-metal names, descriptions and Chiwei's art, and SawEffectPatch (now AfterWrapped) reads the saw's Metal Type for extra Progress and wear per pull (tunable placeholders); gated by ACT-MetalVariantArt.Tests.ps1, not yet run in-game (tracker T2.760). 2026-10-05 (Chiwei 1004): 3 sheets, 2 wood, 2 copper nails, weight 375, not yet run in-game (tracker T2.777)",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check. SawEffectPatch.cs moved to a UID map in 1.17.0 with the copper value still -25; regression step in tracker T2.323. 1.18.0 Tier B (Documentation/Design/AdvancedCopperTools_Metal_Variant_Art_As_Built.md step 3): Metal Type (SD4) taken from the sheets (mask 256, stack filter, replace flag), per-metal names, descriptions and Chiwei's art, and SawEffectPatch (now AfterWrapped) reads the saw's Metal Type for extra Progress and wear per pull (tunable placeholders); gated by ACT-MetalVariantArt.Tests.ps1, not yet run in-game (tracker T2.760). 2026-10-05 (Chiwei 1004): 3 sheets, 2 wood, 2 copper nails, weight 375, not yet run in-game (tracker T2.777). 1.18.15 (fleet plan 5.6, Prompt 20, W0.7): the Iron Large Saw merged in as Metal Type 200 (sixth name and art, Oil Coat on Special3, rust and Grease/Oil gated to iron, SawEffectPatch 200 rung, 150 pulls), the nails must match the sheets (MatchAcross Special4 across the sheet and nail slots), the retired act_iron_large_saw reforges into this card, APE big saw UIDs aliased in UidAliases.json; gated by ACT-LargeSawMerge.Tests.ps1, not yet run in-game (tracker T2.2009); 1.18.15 (fleet plan 6.3, Prompt 23, the first consumer of the framework's Api.CardState): a built saw keeps the average smithing Quality (Special3) of its framework sheets and nails as the card value act.large_saw.part_quality and shows it under its description (LargeSawPartQualityPatch); gated by Framework-CardState.Tests.ps1, harness T2.2075 PASS 95/95 on lane rig 2 (2026-10-30)",
       "cards": [
         "advanced_copper_tools_large_saw",
-        "advanced_copper_tools_bp_large_saw"
+        "advanced_copper_tools_bp_large_saw",
+        "act_iron_large_saw",
+        "act_bp_iron_large_saw"
       ]
     },
     {
@@ -207,14 +209,16 @@
       "name": "Metal Armor (one card per piece, every metal)",
       "status": "Implemented",
       "confidence": "MEDIUM",
-      "evidence": "ACT 1.18.13 armor merge (owner decisions D4, A1-A5, 2026-10-22): the four copper UIDs are the one helmet, armor, bracers and greaves card and blueprint for every metal; Metal Type (SpecialDurability4) picks name, art, location armor (ArmorValueDurabilitiesMultiplier), weight, trade value and passive effects, each equal to the old per-metal card (Development_Tools/Tests/ACT-ArmorMerge.Tests.ps1 reads the pre-merge blobs at 713533229); spiritual ward by Patcher/ArmorWardPatch.cs (ACT-ArmorWard.Tests.ps1). Not yet run in game: harness T2.2000-T2.2003, T2.2005, T2.2006, person T2.2007. Before the merge: VERIFIED via T2.6 (2026-07-21) for the copper set.",
+      "evidence": "ACT 1.18.13 armor merge (owner decisions D4, A1-A5, 2026-10-22): the four copper UIDs are the one helmet, armor, bracers and greaves card and blueprint for every metal; Metal Type (SpecialDurability4) picks name, art, location armor (ArmorValueDurabilitiesMultiplier), weight, trade value and passive effects, each equal to the old per-metal card (Development_Tools/Tests/ACT-ArmorMerge.Tests.ps1 reads the pre-merge blobs at 713533229); spiritual ward by Patcher/ArmorWardPatch.cs (ACT-ArmorWard.Tests.ps1). Metal Gloves (ACT 1.18.15, fleet plan 5.7): a sixth piece on the same pattern in the hands slot (eTag_Hands), numbers in Documentation/Research/AdvancedCopperTools/metal_gloves_balance_2026-10-30.md, art a recolour of the vanilla Gloves sprite (a stand-in for Chiwei's), crafted and equipped in each metal by harness T2.2014, the look is person row T2.2015. Not yet run in game: harness T2.2000-T2.2003, T2.2005, T2.2006, person T2.2007. Before the merge: VERIFIED via T2.6 (2026-07-21) for the copper set.",
       "cards": [
         "advanced_copper_tools_copper_helmet",
         "advanced_copper_tools_copper_gauntlets",
+        "advanced_copper_tools_copper_gloves",
         "advanced_copper_tools_copper_greaves",
         "advanced_copper_tools_copper_breastplate",
         "advanced_copper_tools_bp_copper_helmet",
         "advanced_copper_tools_bp_copper_gauntlets",
+        "advanced_copper_tools_bp_copper_gloves",
         "advanced_copper_tools_bp_copper_greaves",
         "advanced_copper_tools_bp_copper_breastplate"
       ]
@@ -291,26 +295,6 @@
       ]
     },
     {
-      "name": "Salt-Cured Meat",
-      "status": "Implemented",
-      "confidence": "LOW",
-      "evidence": "brand new in 1.16.0 (2026-08-16), playtest T2.93 unverified; sprite fixed 1.16.1, re-check T2.114 also pending; flavours (Savoury, Earthy, Salty) added in 1.18.0, T2.751 pending; tag_HumanFood added 2026-10-09 so an allied Partner's Eat Food duty takes it (T2.783 rerun pending)",
-      "cards": [
-        "advanced_copper_tools_salt_cured_meat",
-        "advanced_copper_tools_bp_salt_cured_meat"
-      ]
-    },
-    {
-      "name": "Salt-Cured Fish",
-      "status": "Implemented",
-      "confidence": "unverified",
-      "evidence": "brand new in 1.18.0 (2026-10-02), the fish twin of Salt-Cured Meat; Eat values and spoilage are tunable placeholders; a craft-and-eat harness scenario and a person row are pending; tag_HumanFood added 2026-10-09 so an allied Partner's Eat Food duty takes it (T2.783 rerun pending)",
-      "cards": [
-        "advanced_copper_tools_salt_cured_fish",
-        "advanced_copper_tools_bp_salt_cured_fish"
-      ]
-    },
-    {
       "name": "Copper Watering Can",
       "status": "Implemented",
       "confidence": "unverified",
@@ -336,16 +320,6 @@
       "confidence": "MEDIUM",
       "evidence": "custom C# via Api.BlueprintAlternates since 2026-06-21/2026-07-17, zero direct playtest evidence in ACT digest. 1.18.0 (sheet and nail merge): WDI's Cast Iron Sheet and the retired act_iron_sheet go only into the seven iron recipes (AddAlternateIngredientIn), the Cast Copper Sheet into every sheet slot, the retired act_iron_nail and WDI's rivets into every nail slot",
       "cards": []
-    },
-    {
-      "name": "Iron Large Saw",
-      "status": "Implemented",
-      "confidence": "LOW",
-      "evidence": "new in 1.17.0 (2026-09-26): declarative item + blueprint cloned from the in-game-proven Large Copper Saw, SawEffectPatch UID map gives -50; build 0/0, gates green; no in-game run yet (tracker T2.323). 1.18.0 per-metal pictures (Chiwei's 0928 set), gated by ACT-MetalVariantArt.Tests.ps1, not yet run in-game (tracker T2.752)",
-      "cards": [
-        "act_iron_large_saw",
-        "act_bp_iron_large_saw"
-      ]
     },
     {
       "name": "Metal Shield (every metal)",
@@ -418,7 +392,7 @@
       "name": "Grappling Hook",
       "status": "Implemented",
       "confidence": "LOW",
-      "evidence": "new in 1.18.0 (2026-10-02, plan E3, carried branch chosen by W0-12): act_grappling_hook (CT0, no durability) carries one PassiveEffects entry with no OnlyWhenEquipped, OnlyWhenInHand or PlayerUsesCard condition raising ClimbingAid (33f8297bdbbdf7a47b9944f633fdcad8, range 0-288) by ValueModifier 72; act_bp_grappling_hook takes 3 MetalNugget at Special4 100 and 1 Rope with a hammering tool not spent, on the Metal Tools tab. No climb card is edited. Gated by CardData-Integrity, Blueprint-TabGroupNames and the card-art gates; the harness scenario and tracker row are written and not yet run in a game.",
+      "evidence": "new in 1.18.0 (2026-10-02, plan E3, carried branch chosen by W0-12): act_grappling_hook (CT0, no durability) carries one PassiveEffects entry with no OnlyWhenEquipped, OnlyWhenInHand or PlayerUsesCard condition raising ClimbingAid (33f8297bdbbdf7a47b9944f633fdcad8, range 0-288) by ValueModifier 72; act_bp_grappling_hook takes 3 MetalNugget at Special4 100 and 1 Rope with a hammering tool not spent, on the Tailoring > Equipment tab (moved there from Metal Tools in 1.18.15). No climb card is edited. Gated by CardData-Integrity, Blueprint-TabGroupNames and the card-art gates; the harness scenario and tracker row are written and not yet run in a game.",
       "cards": [
         "act_grappling_hook",
         "act_bp_grappling_hook"

@@ -370,9 +370,7 @@
   },
   "CardImageWarpData": "ACT_MetalLantern_On_Copper",
   "CardImageWarpType": 3,
-  "WhenCreatedSoundsWarpData": [
-    "FireIgnite"
-  ],
+  "WhenCreatedSoundsWarpData": [],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
     "Active": false
@@ -415,9 +413,7 @@
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
-      "ActionSoundsWarpData": [
-        "FireExtinguish"
-      ],
+      "ActionSoundsWarpData": [],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
         "ModType": 2,
@@ -489,9 +485,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [
-        "FireExtinguish"
-      ],
+      "ActionSoundsWarpData": [],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
         "ModType": 2,
@@ -524,7 +518,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Metal"
+        "MetalAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {

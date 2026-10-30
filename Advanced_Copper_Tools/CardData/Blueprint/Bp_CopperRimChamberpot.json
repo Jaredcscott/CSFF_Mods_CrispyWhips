@@ -49,8 +49,12 @@
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
           "RequiredQuantity": 1,
           "DontSpend": false,
-          "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
-          "RequiredCardWarpType": 3
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_FW_MetalSheet",
+          "RequiredTabGroupWarpType": 3
         },
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
@@ -81,7 +85,7 @@
     }
   ],
   "BlueprintStatModifications": [],
-  "WhenCreatedSoundsWarpData": [ "Clay" ],
+  "WhenCreatedSoundsWarpData": [ "SmallObject_A" ],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
   "BlueprintActionTagsWarpType": 3,

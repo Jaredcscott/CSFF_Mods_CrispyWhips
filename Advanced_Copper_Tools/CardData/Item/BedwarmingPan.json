@@ -23,7 +23,7 @@
   },
   "CardImageWarpData": "BedwarmingPan",
   "CardImageWarpType": 3,
-  "WhenCreatedSoundsWarpData": ["Metal"],
+  "WhenCreatedSoundsWarpData": ["MetalAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
     "Active": false
@@ -67,9 +67,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [
-        "FireIgnite"
-      ],
+      "ActionSoundsWarpData": [],
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {
         "TriggerCards": [],

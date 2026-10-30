@@ -45,7 +45,7 @@
     "ToggleablePiling": false,
     "DoesNotPinAutomatically": false,
     "WhenCreatedSounds": [],
-    "WhenCreatedSoundsWarpData": [ "Metal" ],
+    "WhenCreatedSoundsWarpData": [ "MetalAppear" ],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": { "Active": false },
     "UsageDurability": { "Active": false },
@@ -111,7 +111,7 @@
             "ActionTags": [],
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
-            "ActionSoundsWarpData": [ "Metal" ],
+            "ActionSoundsWarpData": [ "MetalAppear" ],
             "ActionSoundsWarpType": 3,
             "ReceivingCardChanges": {
                 "ModType": 2,
@@ -139,7 +139,7 @@
             "ActionTags": [],
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
-            "ActionSoundsWarpData": [ "Metal" ],
+            "ActionSoundsWarpData": [ "MetalAppear" ],
             "ActionSoundsWarpType": 3,
             "ProducedCards": [
                 {

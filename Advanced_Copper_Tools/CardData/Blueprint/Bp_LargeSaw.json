@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_bp_large_saw",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_LargeSaw_CardDescription",
-    "DefaultText": "Assemble a large saw from 3 metal sheets of one metal, 2 copper nails, 2 wood, 1 tin solder and a hammer. The saw takes the sheets' metal. Takes copper, tin or bronze sheets, not iron: the Iron Large Saw is its own recipe."
+    "DefaultText": "Assemble a large saw from 3 metal sheets of one metal, 2 metal nails of that same metal, 2 wood, 1 tin solder and a hammer. The saw takes the sheets' metal: copper, ghost bronze, tin, tin bronze, white bronze or iron. A nail of another metal than the sheets is refused."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
@@ -19,6 +19,9 @@
   "BuildingStatConditions": [],
   "StartUnlocked": false,
   "IngredientDurabilityAveragesReplaceResultDurabilities": true,
+  "MatchAcross": [
+    { "Stat": "Special4", "Elements": [ "0.0", "0.2" ] }
+  ],
   "CardsOnBoard": [
     {
       "ObjectiveName": "HasMetalSheet",
@@ -63,9 +66,13 @@
           "FilterStackWithDurability": {
             "MaskValue": 256
           },
-          "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
-          "RequiredCardWarpType": 3,
-          "Special4": { "Active": true, "FloatValue": 0.0, "MaxValue": 140.0 }
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_FW_MetalSheet",
+          "RequiredTabGroupWarpType": 3,
+          "Special4": { "Active": true, "FloatValue": 0.0, "MaxValue": 200.0 }
         },
         {
           "RequiredCard": {
@@ -84,8 +91,12 @@
           },
           "RequiredQuantity": 2,
           "DontSpend": false,
-          "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
-          "RequiredCardWarpType": 3
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_FW_MetalNail",
+          "RequiredTabGroupWarpType": 3
         },
         {
           "RequiredCard": {
@@ -114,9 +125,20 @@
             "m_PathID": 0
           },
           "RequiredQuantity": 1,
-          "DontSpend": false,
-          "RequiredCardWarpData": "act_tin_solder",
-          "RequiredCardWarpType": 3
+          "DontSpend": true,
+          "EffectOnIngredient": {
+            "ModType": 1,
+            "Special1Change": {
+              "x": -1.0,
+              "y": -1.0
+            }
+          },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_FW_Solder",
+          "RequiredTabGroupWarpType": 3
         }
       ],
       "StepActionTags": [],
@@ -142,7 +164,7 @@
   ],
   "BlueprintStatModifications": [],
   "WhenCreatedSoundsWarpData": [
-    "Metal"
+    "MetalAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTagsWarpData": [

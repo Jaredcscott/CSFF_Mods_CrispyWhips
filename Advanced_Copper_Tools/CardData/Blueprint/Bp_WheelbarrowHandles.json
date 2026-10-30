@@ -90,8 +90,12 @@
           },
           "RequiredQuantity": 4,
           "DontSpend": false,
-          "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
-          "RequiredCardWarpType": 3
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_FW_MetalNail",
+          "RequiredTabGroupWarpType": 3
         },
         {
           "RequiredCard": {
@@ -159,7 +163,7 @@
   ],
   "BlueprintStatModifications": [],
   "WhenCreatedSoundsWarpData": [
-    "Wood"
+    "WoodAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTagsWarpData": [

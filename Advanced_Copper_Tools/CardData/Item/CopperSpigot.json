@@ -25,7 +25,7 @@
   "CardImageWarpData": "CopperSpigot",
   "CardImageWarpType": 3,
   "WhenCreatedSoundsWarpData": [
-    "Metal"
+    "MetalAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
@@ -68,7 +68,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Metal"
+        "MetalAppear"
       ],
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {
@@ -112,7 +112,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Metal"
+        "MetalAppear"
       ],
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {

@@ -12,8 +12,8 @@ Before anything else, smelt copper and get a hammer. Every recipe in this mod fl
 2. **Small Copper Stove** (better campfire with ash/charcoal output)
 3. **Wearable Metal Pan** (portable cooking + water purification)
 4. **Copper Tea Kettle** (boiling water on a fire or stove)
-5. **Large Copper Saw** (faster wood supply)
-6. **Metal Armor** (helmet, bracers, greaves, torso armor and shield), copper first, then the other metals
+5. **Large Saw** (faster wood supply)
+6. **Metal Armor** (helmet, bracers, gloves, greaves, torso armor and shield), copper first, then the other metals
 7. **Metal Lantern + Oil Chain** (portable night light)
 8. **Wheelbarrow** (haul more weight)
 9. **Copper Cauldron** (batch cooking)
@@ -31,16 +31,14 @@ The building blocks of everything else in the mod.
 
 | Item | Inputs | Build Time |
 |------|--------|:----------:|
-| **Metal Sheet** | 1 heated copper-grade metal bar + hammer (not consumed) | 2 ticks |
-| **Bronze Sheet** | 1 heated tin or bronze metal bar (Ghost Bronze, Tin, Tin Bronze or White Bronze) + hammer (not consumed) | 2 ticks |
-| **Copper Nail** | 1 heated copper, tin or bronze nugget + hammer (not consumed); the nail is the nugget's metal | 2 ticks |
+| **Metal Sheet** | 1 heated bar of copper, ghost bronze, tin, tin bronze or white bronze + hammer (not consumed); the sheet is the bar's metal | 2 ticks |
+| **Forged Metal Nail** | 1 copper, tin, bronze or iron nugget + hammer (not consumed); the nail is the nugget's metal | 2 ticks |
 | **Cast Copper Nails** | 1 heated copper, tin or bronze bar + 1 mud brick + 1 clay as the mould; 6 nails of the bar's metal | 3 ticks |
 | **Iron Sheet** | 6 iron nuggets + hammer (not consumed); a Metal Sheet of iron | 4 ticks |
-| **Forge Iron Nails** | 4 iron nuggets + hammer (not consumed); 4 Metal Nails of iron | 4 ticks |
 
-**One sheet card, one nail card:** every sheet is the one Metal Sheet card and every nail the one Metal Nail card, iron included: an Iron Sheet is a Metal Sheet of iron and an Iron Nail a Metal Nail of iron, each with its own name and picture. Iron recipes (iron armor, the Iron Shield, the Iron Large Saw) take only Iron Sheets. The recipes whose product takes the sheet's metal but has no iron form (Small Copper Stove, Large Saw, Copper Cauldron, Copper Oil Flask, Forged Pan Blank, Wheelbarrow Bucket) refuse Iron Sheets. The Lantern Oilwell and Metal Lantern take any sheet, iron included, and an Iron Sheet makes an Iron Lantern Oilwell or Iron Lantern. An Iron Sheet or Iron Nail from an older save turns into the new card by itself within a quarter of an hour, or at once with its **Reforge** button.
+**One sheet card, one nail card:** every sheet is the one Metal Sheet card and every nail the one Metal Nail card, iron included: an Iron Sheet is a Metal Sheet of iron and an Iron Nail a Metal Nail of iron, each with its own name and picture. Iron recipes (iron armor, the Iron Shield) take only Iron Sheets. The recipes whose product takes the sheet's metal but has no iron form (Small Copper Stove, Copper Cauldron, Copper Oil Flask, Forged Pan Blank, Wheelbarrow Bucket) refuse Iron Sheets. The Lantern Oilwell and Metal Lantern take any sheet, iron included, and an Iron Sheet makes an Iron Lantern Oilwell or Iron Lantern. An Iron Sheet or Iron Nail from an older save turns into the new card by itself within a quarter of an hour, or at once with its **Reforge** button.
 
-**Sheet metal types:** all three sheet recipes make the same Metal Sheet card, named for the metal it was hammered from (Copper Sheet, Ghost Bronze Sheet and so on). An armor piece takes the metal of its sheets, so it matters which one you pick up. Sheets of different metals pile together; use the pile's expand toggle to spread them out and drag the one you want. Nails take the metal of their nugget (Tin Nail, White Bronze Nail and so on), but a nail of any metal works the same in every recipe. Sheets, pan heads, pans, stove tops, cauldrons, nails, Large Saws and Small Stoves each show their own metal's picture (art by Chiwei), except that a pan head heated above 150 Temperature shows one glowing picture for every metal; the Stove Top Mold and the Oil Flask still show one picture for every metal.
+**Sheet metal types:** all the sheet recipes make the same Metal Sheet card, named for the metal it was hammered from (Copper Sheet, Ghost Bronze Sheet and so on). An armor piece takes the metal of its sheets, so it matters which one you pick up. Sheets of different metals pile together; use the pile's expand toggle to spread them out and drag the one you want. Nails take the metal of their nugget (Tin Nail, White Bronze Nail and so on), but a nail of any metal works the same in every recipe. Sheets, pan heads, pans, stove tops, cauldrons, nails, Large Saws and Small Stoves each show their own metal's picture (art by Chiwei), except that a pan head heated above 150 Temperature shows one glowing picture for every metal; the Stove Top Mold and the Oil Flask still show one picture for every metal.
 
 **Smelting back:** Most metal items melt back down to nuggets in a hot forge; see Smelting Recovery below.
 
@@ -97,11 +95,11 @@ A multi-metal frying pan that you can wear, cook in, and use to purify water.
 
 ---
 
-## Large Copper Saw
+## Large Saw
 
 A two-handed saw that fells large trees faster than any vanilla axe while it is sharp.
 
-**Recipe:** 3 metal sheets of one metal + 2 wood + 2 copper nails + hammer (not consumed) + 1 Tin Solder. The saw is the metal of its sheets.
+**Recipe:** 3 metal sheets of one metal (iron too) + 2 wood + 2 metal nails of that same metal + hammer (not consumed) + 1 Tin Solder. The saw is the metal of its sheets, and a nail of another metal than the sheets is refused.
 
 **How to use:** Drag the saw onto a tree (just like any cutting tool). On large trees (pine, oak, birch, willow) the saw adds extra damage on top of the vanilla −25, and how much, and how fast it wears, depends on its metal:
 
@@ -112,6 +110,7 @@ A two-handed saw that fells large trees faster than any vanilla axe while it is 
 | Tin | 2 pulls | 2 pulls | 3 pulls | 66 pulls |
 | Tin Bronze | 2 pulls | 3 pulls | 3 pulls | 200 pulls |
 | White Bronze | 1 pull | 2 pulls | 2 pulls | 80 pulls |
+| Iron | 1 pull | 2 pulls | 2 pulls | 150 pulls |
 
 These per-metal numbers may change in a later version.
 
@@ -121,26 +120,27 @@ These per-metal numbers may change in a later version.
 
 **Tags:** `tag_Axe` and `tag_AdvancedAxe`, so it works as an advanced axe for all tree interactions.
 
-### Iron Large Saw
+**Parts' quality:** the saw remembers how well its sheets and nails were smithed (the average of their Quality, which striking a heated sheet or nail with a hard hammer raises) and shows it under its description. It is a record of your smithing only: it does not change how the saw cuts or wears.
 
-**Recipe:** 2 Iron Sheets + 2 wood + 4 nails of any metal + hammer (not consumed). It unlocks once you hold an Iron Sheet and needs no Tin Solder.
+### Iron
 
-It adds **−25 Progress** while sharp, so −50 per swing: a large pine or willow falls in one swing and a large birch or oak in two. It blunts and sharpens like the copper saw. It lasts 150 uses against the copper saw's 100.
+A Large Saw built from Iron Sheets and Iron Nails is a Large Iron Saw; there is no separate recipe. It adds **−25 Progress** while sharp, so −50 per swing: a large pine or willow falls in one swing and a large birch or oak in two. It blunts and sharpens like the copper saw. It lasts about 150 pulls against the copper saw's 100, weighs 250 against 375, and rusts while you are wet unless it carries an Oil Coat (**Grease with Fat** and **Oil** show on an iron saw only). An Iron Large Saw from an older save turns into this saw by itself within a quarter of an hour (it keeps its wear and Dullness; oil it again), and so does the old recipe. The wear, weight, price and recipe figures are placeholders.
 
 ---
 
 ## Metal Armor
 
-Five armor recipes in **Construction → Metal Tools**: **Metal Helmet**, **Metal Armor**, **Metal Bracers**, **Metal Greaves** and **Metal Shield**. They unlock once you hold any Metal Sheet. Build one from sheets of a single metal and it comes out in that metal, with that metal's name, picture, protection, weight and extras: copper, tin, ghost bronze, tin bronze, white bronze or iron. Alloy sheets come from the **Bronze Sheet** blueprint (hammer a heated bar of that metal).
+Six armor recipes in **Tailoring → Equipment**: **Metal Helmet**, **Metal Armor**, **Metal Bracers**, **Metal Gloves**, **Metal Greaves** and **Metal Shield**. They unlock once you hold any Metal Sheet. Build one from sheets of a single metal and it comes out in that metal, with that metal's name, picture, protection, weight and extras: copper, tin, ghost bronze, tin bronze, white bronze or iron. Alloy sheets come from the **Bronze Sheet** blueprint (hammer a heated bar of that metal).
 
 | Piece | Protects (copper) | Requirements |
 |-------|----------|--------------|
 | **Metal Helmet** | Head 30 | 2 metal sheets of one metal + 4 metal nails + 1 small leather + 2 sinew + hammer |
 | **Metal Bracers** | Arms 15 each | 2 metal sheets of one metal + 4 metal nails + 1 small leather + 2 sinew + hammer |
+| **Metal Gloves** | Arms 2 each | 1 metal sheet + 2 metal nails + 1 small leather + 1 sinew + hammer |
 | **Metal Greaves** | Legs 15 each | 2 metal sheets of one metal + 4 metal nails + 1 small leather + 2 sinew + hammer |
 | **Metal Armor** | Torso 30 | 4 metal sheets of one metal + 4 metal nails + 1 medium leather + 4 sinew + hammer |
 
-The hammer is used as a tool and is not consumed, and no piece needs Tin Solder. Each piece melts back down to nuggets of its own metal in a forge (see Smelting Recovery), and dismantles into sheets and 4 nails of its own metal plus its leather and sinew. At full durability, a complete copper set fills the Armor stat when worn over the usual leather gloves, shoes, tunic, and trousers.
+The hammer is used as a tool and is not consumed, and no piece needs Tin Solder. Each piece melts back down to nuggets of its own metal in a forge (see Smelting Recovery), and dismantles into sheets and 4 nails of its own metal plus its leather and sinew. **Metal Gloves** go in the hands slot, beside Metal Bracers, in place of leather gloves. They keep the hand protection and hand damage reduction of leather gloves and add a little arm armor (2 copper, 2.2 ghost bronze, 2.1 tin, 2.3 tin bronze, 2.5 white bronze, 2.7 iron, each arm), but give no warmth or comfort, and carry no Fear, Courage or spiritual bonus. A pair weighs 140 to 175 carried and nothing worn, and melts into 6 nuggets of its metal. The picture is a recoloured copy of the vanilla leather gloves until Chiwei's art arrives. At full durability, a complete copper set fills the Armor stat when worn over the usual leather gloves, shoes, tunic, and trousers.
 
 | Metal (Metal Type) | Head / Torso | Arms / Legs (each) | Durability | Special |
 |---|---:|---:|---:|---|
@@ -271,10 +271,9 @@ Rendered animal fat produces **Oil**, a lamp fuel that also provides nutrition i
 
 | Blueprint | Recipe | Where |
 |-----------|--------|-------|
-| **Rendered Oil** | 2 animal fat + 1 clay bowl | Support tab |
-| **Rendered Fish Oil** | 2 fatty raw fish meat + 1 clay bowl | Support tab |
-| **Lantern Oilwell** | 1 metal sheet + 1 twine + hammer + 1 Tin Solder | Metal Tools tab |
-| **Copper Oil Flask** | 2 metal sheets + 1 medium leather + hammer + 1 Tin Solder | Metal Tools tab |
+| **Rendered Oil** | 2 animal fat or 2 fatty raw fish meat + 1 clay bowl | Support tab |
+| **Lantern Oilwell** | 1 metal sheet + 1 twine + hammer + 1 Tin Solder | Fire tab |
+| **Copper Oil Flask** | 2 metal sheets + 1 medium leather + hammer + 1 Tin Solder | Fire tab |
 
 **Copper Oil Flask:** Holds 4 bowls of oil (192 fuel). Drag the flask onto an unlit lantern, oilwell or brazier to pour in one bowl's worth: 48 out of the flask, and 55.2 into the Metal Lantern or 48 into the oilwell or brazier. A full flask refuels the lantern from empty to full twice over.
 
@@ -286,7 +285,7 @@ Rendered animal fat produces **Oil**, a lamp fuel that also provides nutrition i
 
 A lidded copper pan on a long handle that keeps you warm through one night.
 
-- **Craft it** in Construction → Metal Tools: 1 copper sheet + 1 long stick + 2 copper nails. The recipe appears once you hold a Metal Sheet.
+- **Craft it** in Survival → Fire: 1 copper sheet + 1 long stick + 2 copper nails. The recipe appears once you hold a Metal Sheet.
 - **Fill it:** drag the pan onto a burning campfire (or any fire) and choose Fill with Embers. You get a Hot Bedwarming Pan.
 - **Use it:** put the hot pan into your bed (a log bed or an improvised bed; a bedroll takes anything) and sleep. You feel 3 degrees warmer while asleep, a little more than a large cloth gives.
 - **By morning it is cold.** The embers last about ten hours, awake or asleep, and then it is an empty pan again. Fill it again the next evening.
@@ -299,7 +298,7 @@ The warmth and the ten hours are tunable placeholders.
 
 A leather belt with a copper buckle that carries your hammer, knives and chisel lighter than your pack.
 
-- **Craft it** in Construction → Metal Tools: 1 copper sheet + 1 medium leather + 4 copper nails, with a hammer. The recipe appears once you hold a Metal Sheet.
+- **Craft it** in Tailoring → Equipment: 1 copper sheet + 1 medium leather + 4 copper nails, with a hammer. The recipe appears once you hold a Metal Sheet.
 - **Wear it** on its own Tool Belt slot. It does not take the place of a knife sheath or a spear sheath, so you can wear all three.
 - **Put tools in it:** hammers, knives and the chisel go in; saws and everything else do not. What is inside weighs 200 less, and the worn belt itself weighs 250 less.
 - **Tools in it still count as on you** for actions that look for one in hand.
@@ -313,7 +312,7 @@ The weights are tunable placeholders.
 
 A copper rod with a flat oval head on a wooden handle. It closes an open cut with heat.
 
-- **Craft it** in Construction → Metal Tools: 1 copper bar + 1 long stick. The recipe appears once you hold a heated metal ingot.
+- **Craft it** in Survival → Medical: 1 copper bar + 1 long stick. The recipe appears once you hold a heated metal ingot.
 - **Heat it:** drag the iron onto a burning fire. You get a Hot Cautery Iron that stays hot for about an hour.
 - **Cauterize:** drag the hot iron onto an open laceration (an arm, a leg or a minor laceration) and choose Cauterize. The cut closes at once, no needle and thread, and you take one Fire Burn wound.
 - **The price:** the burn, a sharp pain that fades over the following hours, and some stress. Stitching with a needle stays painless, so cautery is for when you have no thread or no time.
@@ -350,7 +349,7 @@ A small copper bucket that hangs in a tapped tree.
 
 Three copper prongs on a coil of rope. Carry it and every climb is more likely to succeed.
 
-- **Craft it** in Construction → Metal Tools: 3 copper nuggets + 1 rope, with a hammer. The recipe appears once you hold a metal nugget.
+- **Craft it** in Tailoring → Equipment: 3 copper nuggets + 1 rope, with a hammer. The recipe appears once you hold a metal nugget.
 - **Use it:** keep it in your item row. While it sits there it raises your Climbing Aid by 72; on the ground, or packed inside a bag or basket, it does nothing.
 - It never wears out, and it works on every climb because it raises the stat the game already uses for climbing.
 
@@ -477,8 +476,8 @@ A sealed, insulated storage chest that keeps food fresh far longer than open sto
 
 ## Salt-Cured Meat and Salt-Cured Fish
 
-- **Craft:** hold some Salt and both recipes appear in Survival, Support. Meat takes 1 raw meat + 2 Salt; fish takes 1 raw lean fish + 2 Salt.
-- **Keeps:** both spoil far slower than the dried version (the fish lasts over twice as long as vanilla dried lean fish).
+- **Make:** these now come from CSFF Mod Framework (since ACT 1.18.15). Drop Salt on a Clay Bowl of water to make Brine, then put raw meat or raw lean fish in the bowl. With at least 100 Brine in it, the food becomes Meat in Brine (or Fish in Brine) and about two days later Salt-Cured Meat (or Fish). Take it out early and it stops curing; **Rinse off the Brine** turns it back into raw meat. The old 1 raw meat + 2 Salt recipes are gone.
+- **Keeps:** both spoil far slower than the dried version (the fish lasts over twice as long as vanilla dried lean fish), and newly cured ones slower again since they are salted (a piece made before ACT 1.18.15 is not).
 - **Eat:** the salt costs a little Hydration. The fish is lighter than the meat.
 - **Partners:** an allied Partner eats both, and rendered Oil, when hungry, since all three count as human food (not yet confirmed in play); it leaves teas and the Watering Can alone.
 
@@ -492,10 +491,11 @@ Most metal items in this mod melt back down to nuggets. Put the item in a heated
 | Metal Sheet (nuggets of its own metal, iron included) / Wheel Hub / Wheel Rim / Lantern Oilwell / Stove Top Mold / Copper-Rim Chamberpot | 6 |
 | Copper Watering Can | 10 |
 | Metal Bracers / Helmet / Greaves / Armor / Shield (nuggets of its own metal) | 13 / 17 / 17 / 26 / 25 |
+| Metal Gloves (nuggets of its own metal) | 6 |
 | Wheel Assembly | 12 |
-| Large Copper Saw | 16 |
+| Large Saw (any metal) | 16 |
 | Metal Lantern | 18 |
-| Iron Large Saw | 20 |
+| Iron Large Saw (old card, reforges itself into a Large Saw) | 20 |
 | Copper Brazier Kit | 22 |
 | Copper Chest / Small Copper Stove | 30 |
 | Copper Cauldron | 34 |

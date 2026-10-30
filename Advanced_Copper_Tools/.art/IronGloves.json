@@ -1,0 +1,27 @@
+{
+  "target": "IronGloves.png",
+  "sourceCard": "CardData/Item/CopperGloves.json",
+  "model": "none",
+  "mode": "recolour",
+  "credits": 0,
+  "generated": "2026-10-30",
+  "composition": {
+    "subject": "vanilla Gloves sprite (a pair of brown leather gloves)",
+    "change": "a hue-band recolour by Development_Tools/CardArt/metal_gloves_recolour.py: the glove body takes the hue, median saturation (capped at 0.60) and mean brightness of the shipped IronHelmet; ink, stitching, drop shadow and alpha kept",
+    "finish": "keyed, framed and palettised by Development_Tools/CardArt/trim_card_art.py --apply",
+    "use": "AlternateNames Art of the Metal Gloves (advanced_copper_tools_copper_gloves) at its Metal Type, fleet plan 5.7 (Prompt 27). A stand-in: Chiwei's glove texture can replace this PNG by name"
+  },
+  "references": [
+    {
+      "role": "subject",
+      "fragment": "Gloves (vanilla Sprite)",
+      "image": "extract_vanilla_sprites.py export <dir> Gloves"
+    },
+    {
+      "role": "colour",
+      "fragment": "IronHelmet",
+      "image": "Resource/Picture/IronHelmet.png"
+    }
+  ],
+  "verdict": "NOT YET JUDGED by a person (tracker row T2.2015)"
+}

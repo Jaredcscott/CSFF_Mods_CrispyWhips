@@ -18,33 +18,13 @@
     },
     "BuildingStatConditions": [],
     "StartUnlocked": false,
-    "CardsOnBoard": [
-        {
-            "ObjectiveName": "HasFattyFish",
-            "CompletionWeight": 1,
-            "Card": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "Quantity": 1,
-            "ConstantlyChecking": false,
-            "OnlyInEnvironment": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "OnlyIfEquipped": false,
-            "OnlyInContainer": {
-                "Target": {
-                    "m_FileID": 0,
-                    "m_PathID": 0
-                }
-            },
-            "CardWarpData": "3103c059d34608a4bb95c426d9ac77e0",
-            "CardWarpType": 3
-        }
-    ],
+    "CardsOnBoard": [],
     "TagsOnBoard": [],
     "StatValues": [],
+    "AlsoUnlocksWarpData": [
+        "advanced_copper_tools_bp_oil"
+    ],
+    "AlsoUnlocksWarpType": 3,
     "BlueprintStages": [
         {
             "CannotRevertToThisStage": false,

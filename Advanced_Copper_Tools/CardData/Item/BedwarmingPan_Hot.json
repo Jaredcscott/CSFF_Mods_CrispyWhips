@@ -23,7 +23,7 @@
   },
   "CardImageWarpData": "BedwarmingPan_Hot",
   "CardImageWarpType": 3,
-  "WhenCreatedSoundsWarpData": ["FireIgnite"],
+  "WhenCreatedSoundsWarpData": [],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
     "Active": false
@@ -66,9 +66,7 @@
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
-      "ActionSoundsWarpData": [
-        "FireExtinguish"
-      ],
+      "ActionSoundsWarpData": [],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
         "ModType": 2,

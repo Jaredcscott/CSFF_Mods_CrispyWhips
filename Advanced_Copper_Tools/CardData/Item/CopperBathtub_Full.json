@@ -31,7 +31,7 @@
   ],
   "CardTagsWarpType": 3,
   "WhenCreatedSoundsWarpData": [
-    "Water"
+    "Flowing1"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
@@ -232,9 +232,7 @@
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
-      "ActionSoundsWarpData": [
-        "FireIgniting"
-      ],
+      "ActionSoundsWarpData": [],
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {
         "TriggerCards": [],
@@ -303,7 +301,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Metal"
+        "MetalAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {

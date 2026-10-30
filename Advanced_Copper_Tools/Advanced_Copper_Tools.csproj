@@ -31,6 +31,7 @@
         <Content Include="ASSET_CREDITS.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ASSET_CREDITS.md')" />
         <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('BlueprintTabs.json')" />
         <Content Include="UidAliases.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('UidAliases.json')" />
+        <Content Include="TagGroups.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('TagGroups.json')" />
         <Content Include="SmeltingRecipes.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('SmeltingRecipes.json')" />
         <Content Include="GameStat\*.json" CopyToOutputDirectory="PreserveNewest" Link="GameStat\%(Filename)%(Extension)" />
         <Content Include="ScriptableObject\**\*.*" CopyToOutputDirectory="PreserveNewest" />

@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "advanced_copper_tools_bp_oil",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_Oil_CardDescription",
-        "DefaultText": "Render 2 animal fat in a clay bowl to produce cooking oil and lamp fuel."
+        "DefaultText": "Render 2 animal fat or fatty fish meat in a clay bowl to produce cooking oil and lamp fuel."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
@@ -56,8 +56,12 @@
                     },
                     "RequiredQuantity": 2,
                     "DontSpend": false,
-                    "RequiredCardWarpData": "0eb3634f696991b4d97b91626270e035",
-                    "RequiredCardWarpType": 3
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_ACT_RenderableFat",
+                    "RequiredTabGroupWarpType": 3
                 },
                 {
                     "RequiredCard": {

@@ -371,7 +371,7 @@
   "DoesNotPinAutomatically": false,
   "WhenCreatedSounds": [],
   "WhenCreatedSoundsWarpData": [
-    "Metal"
+    "MetalAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
@@ -574,9 +574,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [
-        "FireIgnite"
-      ],
+      "ActionSoundsWarpData": [],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {
         "RequiredFuelPercent": {

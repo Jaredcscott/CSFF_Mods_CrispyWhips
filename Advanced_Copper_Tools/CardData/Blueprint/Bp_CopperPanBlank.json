@@ -60,8 +60,12 @@
                     "AffectResultDurabilities": {
                         "MaskValue": 448
                     },
-                    "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
-                    "RequiredCardWarpType": 3,
+                    "RequiredTabGroup": {
+                      "m_FileID": 0,
+                      "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_FW_MetalSheet",
+                    "RequiredTabGroupWarpType": 3,
                     "Special4": { "Active": true, "FloatValue": 0.0, "MaxValue": 140.0 }
                 },
                 {
@@ -109,7 +113,7 @@
     ],
     "BlueprintStatModifications": [],
     "WhenCreatedSoundsWarpData": [
-        "Metal"
+        "MetalAppear"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "BlueprintActionTagsWarpData": [

@@ -43,8 +43,12 @@
           "RequiredQuantity": 6,
           "DontSpend": false,
           "AffectResultDurabilities": { "MaskValue": 448 },
-          "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
-          "RequiredCardWarpType": 3
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_FW_MetalSheet",
+          "RequiredTabGroupWarpType": 3
         },
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
@@ -57,8 +61,12 @@
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
           "RequiredQuantity": 8,
           "DontSpend": false,
-          "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
-          "RequiredCardWarpType": 3
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_FW_MetalNail",
+          "RequiredTabGroupWarpType": 3
         },
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
@@ -75,9 +83,20 @@
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
           "RequiredQuantity": 1,
-          "DontSpend": false,
-          "RequiredCardWarpData": "act_tin_solder",
-          "RequiredCardWarpType": 3
+          "DontSpend": true,
+          "EffectOnIngredient": {
+            "ModType": 1,
+            "Special1Change": {
+              "x": -1.0,
+              "y": -1.0
+            }
+          },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_FW_Solder",
+          "RequiredTabGroupWarpType": 3
         }
       ],
       "StepActionTags": [],
@@ -96,7 +115,7 @@
     }
   ],
   "BlueprintStatModifications": [],
-  "WhenCreatedSoundsWarpData": [ "Metal" ],
+  "WhenCreatedSoundsWarpData": [ "MetalAppear" ],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
   "BlueprintActionTagsWarpType": 3,

@@ -48,7 +48,7 @@
   "ToggleablePiling": false,
   "DoesNotPinAutomatically": false,
   "WhenCreatedSounds": [],
-  "WhenCreatedSoundsWarpData": [ "Water" ],
+  "WhenCreatedSoundsWarpData": [ "Flowing1" ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
     "Active": true,

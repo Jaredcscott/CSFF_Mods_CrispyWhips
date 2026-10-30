@@ -47,7 +47,7 @@
   "ToggleablePiling": false,
   "DoesNotPinAutomatically": false,
   "WhenCreatedSounds": [],
-  "WhenCreatedSoundsWarpData": [ "Clay" ],
+  "WhenCreatedSoundsWarpData": [ "SmallObject_A" ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": { "Active": false },
   "UsageDurability": { "Active": false },
@@ -106,9 +106,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [
-        "Clay"
-      ],
+      "ActionSoundsWarpData": [],
       "ActionSoundsWarpType": 3,
       "RequiredStatValues": [
         {
@@ -198,9 +196,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [
-        "Clay"
-      ],
+      "ActionSoundsWarpData": [],
       "ActionSoundsWarpType": 3,
       "RequiredStatValues": [
         {
@@ -305,7 +301,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Water"
+        "Flowing1"
       ],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {
@@ -376,7 +372,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Water"
+        "Flowing1"
       ],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {

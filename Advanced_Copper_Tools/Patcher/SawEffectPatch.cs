@@ -20,7 +20,9 @@ namespace Advanced_Copper_Tools.Patcher
     ///   Tin 120          -15 extra (40 per pull), wear 1.5  (~66 pulls)
     ///   Tin Bronze 130   -12 extra (37 per pull), wear 0.5  (200 pulls)
     ///   White Bronze 140 -25 extra (50 per pull), wear 1.25 (80 pulls)
-    /// The Iron saw (its own card, no Metal Type) has -25 extra and vanilla's wear of 1.
+    ///   Iron 200         -25 extra (50 per pull), wear 0.667 (150 pulls; ACT 1.18.15 merged the Iron Large Saw into this card)
+    /// The retired Iron Large Saw card (act_iron_large_saw, reforges into the Large Saw within a tick) keeps -25 extra
+    /// and vanilla's wear of 1.
     /// (ACT 1.18.9, ACT-B10: halved from -25 / -50 so a saw beats an axe without replacing it.)
     ///
     /// Dullness (SpecialDurability1, ACT 1.18.9): each pull that gets the extra adds 1; at
@@ -59,6 +61,7 @@ namespace Advanced_Copper_Tools.Patcher
             { 120, new SawMetal(-15f, -0.5f) },  // Tin: wear 1.5
             { 130, new SawMetal(-12f, 0.5f) },   // Tin Bronze: wear 0.5
             { 140, new SawMetal(-25f, -0.25f) }, // White Bronze: wear 1.25
+            { 200, new SawMetal(-25f, 0.3333f) }, // Iron: wear 0.667 (150 pulls on a Usage max of 100)
         };
 
         // Must equal SpecialDurability1.MaxValue on LargeSaw.json and IronLargeSaw.json.
@@ -139,8 +142,9 @@ namespace Advanced_Copper_Tools.Patcher
                 return Copper;
             }
             int rung = (int)Math.Round(sd4);
+            if (rung == 0) return Copper; // APE's fallback Metal Type; an aliased APE saw reads copper (W0.7)
             if (CopperSawByMetal.TryGetValue(rung, out var metal)) return metal;
-            WarnOnce("sd4-rung-" + rung, $"Large Copper Saw has Metal Type {sd4}, not a known rung (100-140); treating it as copper");
+            WarnOnce("sd4-rung-" + rung, $"Large Copper Saw has Metal Type {sd4}, not a known rung (100-140 or 200); treating it as copper");
             return Copper;
         }
 

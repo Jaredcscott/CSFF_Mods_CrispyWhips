@@ -12,7 +12,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.advanced_copper_tools";
     public const string PluginName = "Advanced_Copper_Tools";
-    public const string PluginVersion = "1.18.14";
+    public const string PluginVersion = "1.18.15";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }
@@ -38,6 +38,7 @@ internal class Plugin : ContentModPlugin
         TryApply("TeaStationPatch", () => Advanced_Copper_Tools.Patcher.TeaStationPatch.ApplyPatch(harmony));
         TryApply("GameLoadPatch", () => Advanced_Copper_Tools.Patcher.GameLoadPatch.ApplyPatch(harmony));
         TryApply("PartnerBlueprintGatePatch", () => Advanced_Copper_Tools.Patcher.PartnerBlueprintGatePatch.ApplyPatch(harmony));
+        TryApply("LargeSawPartQualityPatch", () => Advanced_Copper_Tools.Patcher.LargeSawPartQualityPatch.ApplyPatch(harmony));
         if (EnableLegacyStationLiquidHeater.Value)
         {
             TryApply("HeatHeldLiquidPatch", () => Advanced_Copper_Tools.Patcher.HeatHeldLiquidPatch.ApplyPatch(harmony));

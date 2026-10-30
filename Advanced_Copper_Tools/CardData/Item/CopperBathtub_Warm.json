@@ -32,9 +32,7 @@
     "tag_FireSource"
   ],
   "CardTagsWarpType": 3,
-  "WhenCreatedSoundsWarpData": [
-    "FireIgniting"
-  ],
+  "WhenCreatedSoundsWarpData": [],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
     "Active": false
@@ -215,7 +213,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Metal"
+        "MetalAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {

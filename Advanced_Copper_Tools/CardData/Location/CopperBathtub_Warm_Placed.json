@@ -37,9 +37,7 @@
     "tag_x_Bathtub"
   ],
   "CardTagsWarpType": 3,
-  "WhenCreatedSoundsWarpData": [
-    "FireIgniting"
-  ],
+  "WhenCreatedSoundsWarpData": [],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
     "Active": false
@@ -343,7 +341,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Wood"
+        "SticksAppear"
       ],
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {
@@ -386,7 +384,7 @@
       "ActionSounds": [],
       "ActionTags": [],
       "ActionSoundsWarpData": [
-        "Water"
+        "Flowing1"
       ],
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {
@@ -432,7 +430,7 @@
       "ActionSounds": [],
       "ActionTags": [],
       "ActionSoundsWarpData": [
-        "Water"
+        "DiveShort"
       ],
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {
@@ -547,7 +545,7 @@
       "ActionSounds": [],
       "ActionTags": [],
       "ActionSoundsWarpData": [
-        "Water"
+        "Flowing1"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
@@ -581,7 +579,7 @@
       ],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Water"
+        "DiveShort"
       ],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {
@@ -875,7 +873,7 @@
       ],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Water"
+        "DiveShort"
       ],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {
@@ -1024,7 +1022,7 @@
       "ActionSounds": [],
       "ActionTags": [],
       "ActionSoundsWarpData": [
-        "Metal"
+        "MetalAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
@@ -1060,7 +1058,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Charcoal"
+        "SmallObject_A"
       ],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {

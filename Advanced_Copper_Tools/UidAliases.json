@@ -3,5 +3,8 @@
   "actCopperCaveEnv": "17d6cfe8ff886b643afee74dc18760a7",
   "actIronCaveEnv": "17d6cfe8ff886b643afee74dc18760a7",
   "actSaltMineEnv": "17d6cfe8ff886b643afee74dc18760a7",
-  "actRockQuarryEnv": "17d6cfe8ff886b643afee74dc18760a7"
+  "actRockQuarryEnv": "17d6cfe8ff886b643afee74dc18760a7",
+  "APE_ToolOrWeapon_BigSaw_Metal": "advanced_copper_tools_large_saw",
+  "APE_ToolOrWeapon_BigSaw_Metal_Blunt": "advanced_copper_tools_large_saw",
+  "APE_Bp_ToolOrWeapon_BigSaw_Metal": "advanced_copper_tools_bp_large_saw"
 }

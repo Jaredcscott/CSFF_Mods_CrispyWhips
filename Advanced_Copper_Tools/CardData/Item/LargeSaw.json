@@ -291,6 +291,62 @@
         "CardImageWarpData": "ACT_LargeSaw_WhiteBronze",
         "CardImageWarpType": 3
       }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[5].Name",
+        "DefaultText": "Large Iron Saw"
+      },
+      "Description": {
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_AlternateNames[5].Description",
+        "DefaultText": "A large two-handled saw with a forged iron blade. Fells a large pine or willow in one pull and a large birch or oak in two, and lasts about 150 pulls. It rusts while you are wet unless you coat it with Fat or Oil."
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_LargeSaw_Iron",
+        "CardImageWarpType": 3
+      }
     }
   ],
   "LiquidSuffixName": {
@@ -301,7 +357,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_large_saw",
     "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From 3 metal sheets of one metal, 2 Wood, 2 copper nails and 1 tin solder using a hammer. The saw is the metal of its sheets.\n\n<b>Uses:</b> Cuts large trees faster than an axe while sharp. Copper, Ghost Bronze and Tin Bronze fell a large pine or willow in two pulls and a large birch or oak in three; White Bronze fells a pine or willow in one pull and a birch or oak in two; Tin takes two pulls for a pine, willow or birch and three for an oak. Each pull adds 1 Dullness; at 25 the saw is blunt and cuts like an axe until you drag a stone or whetstone onto it to sharpen it. A saw lasts about 100 pulls in copper, 166 in Ghost Bronze, 66 in Tin, 200 in Tin Bronze and 80 in White Bronze. Use as a cutting tool."
+    "DefaultText": "<b>Crafted:</b> From 3 metal sheets of one metal, 2 Wood, 2 metal nails of the same metal and 1 tin solder using a hammer. The saw is the metal of its sheets, copper, ghost bronze, tin, tin bronze, white bronze or iron; a nail of another metal than the sheets is refused.\n\n<b>Uses:</b> Cuts large trees faster than an axe while sharp. Copper, Ghost Bronze and Tin Bronze fell a large pine or willow in two pulls and a large birch or oak in three; White Bronze and Iron fell a pine or willow in one pull and a birch or oak in two; Tin takes two pulls for a pine, willow or birch and three for an oak. Each pull adds 1 Dullness; at 25 the saw is blunt and cuts like an axe until you drag a stone or whetstone onto it to sharpen it. A saw lasts about 100 pulls in copper, 166 in Ghost Bronze, 66 in Tin, 200 in Tin Bronze, 80 in White Bronze and 150 in Iron. An iron saw rusts while you are wet unless it carries an Oil Coat: drag Fat or any oil onto it. Use as a cutting tool."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -343,7 +399,7 @@
   "DoesNotPinAutomatically": false,
   "WhenCreatedSounds": [],
   "WhenCreatedSoundsWarpData": [
-    "Metal"
+    "MetalAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
@@ -419,7 +475,20 @@
     "Active": false
   },
   "SpecialDurability3": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_large_saw",
+      "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_SpecialDurability3.CardStatName",
+      "DefaultText": "Oil Coat"
+    },
+    "MaxValue": 288.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": false
   },
   "SpecialDurability4": {
     "Active": true,
@@ -436,7 +505,8 @@
       110.0,
       120.0,
       130.0,
-      140.0
+      140.0,
+      200.0
     ],
     "RatePerDaytimePoint": 0.0,
     "HidingOptions": 2,
@@ -444,7 +514,51 @@
     "NumberPrecision": 0,
     "HasActionOnZero": false,
     "HasActionOnFull": false,
-    "CountsForTradingValue": false
+    "CountsForTradingValue": true,
+    "TradingValueCustomRanges": [
+      {
+        "Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "Value": 0.0
+      },
+      {
+        "Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "Value": 0.0
+      },
+      {
+        "Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "Value": 0.0
+      },
+      {
+        "Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "Value": 0.0
+      },
+      {
+        "Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "Value": 0.0
+      },
+      {
+        "Range": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "Value": 150.0
+      }
+    ]
   },
   "CardInteractions": [
     {
@@ -584,11 +698,191 @@
           "y": -25.0
         }
       }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_Grease_ActionName",
+        "DefaultText": "Grease with Fat"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_Grease_ActionDescription",
+        "DefaultText": "Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "0eb3634f696991b4d97b91626270e035"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special3Change": {
+          "x": 288.0,
+          "y": 288.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.2,
+          "MaxValue": 0.2
+        },
+        "HideActionIfNotMet": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_Oil_ActionName",
+        "DefaultText": "Oil"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_Oil_ActionDescription",
+        "DefaultText": "Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_Oil"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special3Change": {
+          "x": 288.0,
+          "y": 288.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "FinishUnlocking": false,
+              "DropChance": {
+                "Active": false,
+                "BaseDropChance": 0.0
+              }
+            }
+          ]
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.2,
+          "MaxValue": 0.2
+        },
+        "HideActionIfNotMet": true
+      }
     }
   ],
   "DismantleActions": [],
   "PassiveStatEffects": [],
-  "PassiveEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Rust (wet, uncoated)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.9
+          },
+          "Special4Range": {
+            "x": 200.0,
+            "y": 200.0
+          }
+        },
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 51.0,
+              "y": 100.0
+            }
+          }
+        ]
+      },
+      "StatModifiers": [],
+      "UsageRateModifier": {
+        "Active": true,
+        "FloatValue": -0.0107
+      }
+    },
+    {
+      "EffectName": "Oil coat wear (wet)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special3Range": {
+            "x": 1.0,
+            "y": 288.0
+          },
+          "Special4Range": {
+            "x": 200.0,
+            "y": 200.0
+          }
+        },
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 51.0,
+              "y": 100.0
+            }
+          }
+        ]
+      },
+      "StatModifiers": [],
+      "Special3RateModifier": {
+        "Active": true,
+        "FloatValue": -1.0
+      }
+    }
+  ],
   "MaxLiquidCapacity": 0.0,
   "InventorySlots": [],
   "InventorySlotsWarpData": [],
@@ -596,5 +890,24 @@
   "BlueprintStages": [],
   "BlueprintResult": [],
   "IsWeapon": false,
-  "IsArmor": false
+  "IsArmor": false,
+  "AddedWeightFromDurabilities": [
+    {
+      "InputDurability": 256,
+      "InterpolateUsingPercentage": false,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "OutputValueRange": {
+          "x": -125.0,
+          "y": -125.0
+        },
+        "WhenOutOfRange": 0,
+        "OutOfRangeCustomValue": 0.0
+      }
+    }
+  ]
 }

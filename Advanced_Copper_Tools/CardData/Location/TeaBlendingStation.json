@@ -57,7 +57,7 @@
   "NeedsRoomInLocationToSpawn": false,
   "WhenCreatedSounds": [],
   "WhenCreatedSoundsWarpData": [
-    "Wood"
+    "WoodAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
@@ -223,7 +223,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Water"
+        "Flowing1"
       ],
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {
@@ -417,7 +417,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Wood"
+        "SticksAppear"
       ],
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {
@@ -460,9 +460,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [
-        "FireIgnite"
-      ],
+      "ActionSoundsWarpData": [],
       "ActionSoundsWarpType": 3,
       "RequiredStatValues": [],
       "RequiredReceivingDurabilities": {
@@ -527,7 +525,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Wood"
+        "WoodAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
@@ -565,7 +563,7 @@
       ],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Stone"
+        "GrindingLeaves"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
@@ -590,7 +588,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Wood"
+        "WoodAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ProducedCards": [
@@ -708,7 +706,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Charcoal"
+        "SmallObject_A"
       ],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {

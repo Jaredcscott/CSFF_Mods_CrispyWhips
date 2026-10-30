@@ -352,7 +352,7 @@
   "CardImageWarpData": "ACT_MetalLantern_Off_Copper",
   "CardImageWarpType": 3,
   "WhenCreatedSoundsWarpData": [
-    "Metal"
+    "MetalAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "FuelCapacity": {
@@ -573,9 +573,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [
-        "FireIgnite"
-      ],
+      "ActionSoundsWarpData": [],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {
         "RequiredFuelPercent": {
@@ -706,7 +704,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Metal"
+        "MetalAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {

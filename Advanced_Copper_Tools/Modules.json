@@ -4,14 +4,15 @@
     "Localization/*.csv",
     "BlueprintTabs.json",
     "SmeltingRecipes.json",
-    "UidAliases.json"
+    "UidAliases.json",
+    "TagGroups.json"
   ],
   "modules": [
     {
       "id": "armor",
       "name": "Armor and Shields",
-      "summary": "Helmet, Armor, Bracers, Greaves and Shield in every metal (merged cards, Metal Type in SpecialDurability4), the 23 retired per-metal cards that reforge into them, and the spiritual ward patch.",
-      "paths": ["**/*Helmet*", "**/*Gauntlets*", "**/*Greaves*", "**/*Breastplate*", "**/*Bracers*", "**/*Shield*", "**/*Armor*"]
+      "summary": "Helmet, Armor, Bracers, Gloves, Greaves and Shield in every metal (merged cards, Metal Type in SpecialDurability4), the 23 retired per-metal cards that reforge into them, and the spiritual ward patch.",
+      "paths": ["**/*Helmet*", "**/*Gauntlets*", "**/*Gloves*", "**/*Greaves*", "**/*Breastplate*", "**/*Bracers*", "**/*Shield*", "**/*Armor*"]
     },
     {
       "id": "lighting",
@@ -22,8 +23,8 @@
     {
       "id": "cookware",
       "name": "Cookware, Heating and Preserved Food",
-      "summary": "Copper Stove and stove top mold, Cauldron, Tea Kettle, Wearable Metal Pan, Tinned Storage Pot, Bedwarming Pan, salt-cured meat and fish, and the heat/melt-fat/kettle/hammer-slot patches.",
-      "paths": ["**/*Stove*", "**/*Cauldron*", "**/*TeaKettle*", "**/*Tea_Kettle*", "**/*MetalPan*", "**/*WearableCopperPan*", "**/*PanBlank*", "**/*TinnedPot*", "**/*TinnedStoragePot*", "**/*Bedwarming*", "**/*SaltCured*",
+      "summary": "Copper Stove and stove top mold, Cauldron, Tea Kettle, Wearable Metal Pan, Tinned Storage Pot, Bedwarming Pan, and the heat/melt-fat/kettle/hammer-slot patches.",
+      "paths": ["**/*Stove*", "**/*Cauldron*", "**/*TeaKettle*", "**/*Tea_Kettle*", "**/*MetalPan*", "**/*WearableCopperPan*", "**/*PanBlank*", "**/*TinnedPot*", "**/*TinnedStoragePot*", "**/*Bedwarming*",
                 "Patcher/HeatHeldLiquidPatch.cs", "Patcher/PanMeltFatPatch.cs", "Patcher/VanillaFireKettlePatch.cs", "Patcher/HammerGroupPatch.cs"]
     },
     {

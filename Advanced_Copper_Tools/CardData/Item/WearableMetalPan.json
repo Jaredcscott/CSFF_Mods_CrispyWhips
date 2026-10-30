@@ -523,9 +523,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [
-        "Fire_Generic_Large"
-      ],
+      "ActionSoundsWarpData": [],
       "ActionSoundsWarpType": 3,
       "RequiredCardsOnBoard": [
         { "TriggerCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c", "TriggerCardWarpType": 3 }
@@ -668,7 +666,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Leather"
+        "BigCloth"
       ],
       "ActionSoundsWarpType": 3,
       "ProducedCards": [

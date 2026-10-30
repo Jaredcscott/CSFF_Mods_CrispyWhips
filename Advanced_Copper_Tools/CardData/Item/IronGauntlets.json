@@ -46,7 +46,7 @@
   },
   "ArmorValueDurabilitiesMultiplier": [],
   "AlwaysUpdate": true,
-  "WhenCreatedSoundsWarpData": [ "Metal" ],
+  "WhenCreatedSoundsWarpData": [ "MetalAppear" ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": { "Active": false },
   "UsageDurability": {
@@ -287,7 +287,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Metal"
+        "Smithing"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
@@ -322,7 +322,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [ "Metal" ],
+      "ActionSoundsWarpData": [ "MetalAppear" ],
       "ActionSoundsWarpType": 3,
       "ProducedCards": [
         {

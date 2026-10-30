@@ -322,7 +322,7 @@
   "NeedsRoomInLocationToSpawn": false,
   "WhenCreatedSounds": [],
   "WhenCreatedSoundsWarpData": [
-    "Metal"
+    "MetalAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
@@ -519,9 +519,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [
-        "FireIgnite"
-      ],
+      "ActionSoundsWarpData": [],
       "ActionSoundsWarpType": 3,
       "RequiredStatValues": [],
       "RequiredReceivingDurabilities": {
@@ -583,7 +581,7 @@
       "ActionTagsWarpData": ["RefuelAction"],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Wood"
+        "SticksAppear"
       ],
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {
@@ -635,7 +633,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Metal"
+        "MetalAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
@@ -669,7 +667,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Charcoal"
+        "SmallObject_A"
       ],
       "ActionSoundsWarpType": 3,
       "RequiredReceivingDurabilities": {

@@ -84,12 +84,13 @@ namespace Advanced_Copper_Tools.Patcher
                 allData, MetalNailUid, RetiredIronNailUid, "ACT Metal Nail / retired Iron Nail");
         }
 
-        // The blueprints whose sheet slot admits Metal Type 200: the Iron Large Saw (gated to 200 exactly) and,
-        // since the armor merge, the five metal armor blueprints (any rung 100-200, the piece takes the sheets'
-        // metal). The six retired iron armor blueprints left this list with the merge: they are out of every
-        // tab and only hand their research on to the merged blueprint (AlsoUnlocks).
+        // The blueprints whose sheet slot admits Metal Type 200: the Large Saw (any rung 100-200 since the saw merge,
+        // fleet plan 5.6) and, since the armor merge, the five metal armor blueprints (any rung 100-200, the piece
+        // takes the sheets' metal). The retired iron armor blueprints and the retired Iron Large Saw blueprint left this
+        // list with their merges: they are out of every tab and only hand their research on to the merged blueprint
+        // (AlsoUnlocks).
         private static readonly string[] IronSheetBlueprintUids = {
-            "act_bp_iron_large_saw",
+            "advanced_copper_tools_bp_large_saw",
             "advanced_copper_tools_bp_copper_helmet",
             "advanced_copper_tools_bp_copper_breastplate",
             "advanced_copper_tools_bp_copper_gauntlets",
@@ -121,6 +122,7 @@ namespace Advanced_Copper_Tools.Patcher
             "advanced_copper_tools_copper_helmet",
             "advanced_copper_tools_copper_breastplate",
             "advanced_copper_tools_copper_gauntlets",
+            "advanced_copper_tools_copper_gloves",
             "advanced_copper_tools_copper_greaves",
             "act_bronze_helmet",
             "act_bronze_breastplate",
