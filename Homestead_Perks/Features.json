@@ -12,7 +12,7 @@
       "hasBlueprint": false,
       "registeredInBlueprintTabs": "N/A",
       "placeable": true,
-      "csharpHandler": "Patcher/HomesteadKitPatch.cs (HomesteadKitPatch.Initialize/SpawnHomesteadContents)",
+      "csharpHandler": "none since 1.3.10: KitContents.json, unpacked by CSFF Mod Framework 2.29.0+ (Injection/KitContentsService.cs; was Patcher/HomesteadKitPatch.cs)",
       "confidence": "HIGH",
       "evidence": "Retuned contents (1.3.5) harness PASS T2.1739 2026-10-18; nail branch with and without the Metal Nail card T1.133 (pass 2026-10-04) and T1.134 (confirmed 2026-10-05). The 1 Moon + 1 Star price (1.3.5) awaits T2.1738 (pending)"
     },

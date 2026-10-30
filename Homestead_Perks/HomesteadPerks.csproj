@@ -98,5 +98,6 @@
         <Content Include="Resource\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="Resource\%(RecursiveDir)%(Filename)%(Extension)" />
         <Content Include="GameSourceModify\*.json" CopyToOutputDirectory="PreserveNewest" Link="GameSourceModify\%(Filename)%(Extension)" />
         <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="KitContents.json" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 </Project>

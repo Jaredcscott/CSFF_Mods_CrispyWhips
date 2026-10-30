@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.10 (2026-10-30)
+
+- **Needs CSFF Mod Framework 2.29.0 or later: the framework now unpacks the Homestead Kit.** Placing the kit gives exactly what it gave before (the Cabin Kit, two Rain Cistern Kits, 15 oak Planks, 15 Mud Bricks, 20 Stone, 6 Heavy Stone, 6 oak Tree Logs, 10 worked Clay, 5 Rope, 9 copper Metal Nuggets and 20 Metal Nails), now from a list the framework reads instead of this mod's own code, the same way Community Mod Chest's Founders Kit works. On an older framework the kit is used up and gives nothing, so update the framework with this version.
+- Technical: `Patcher/HomesteadKitPatch.cs` and its `Plugin.cs` registration are deleted; the list is `KitContents.json` (kit `hsphomesteadkit`, action prefix `Place`, log tag `HomesteadKitPatch`, so the lines harness rows T1.134 and T2.1739 read are unchanged), read by the framework's `Injection/KitContentsService.cs` (fleet plan 6.7, `Documentation/Research/Fleet/APE_Port/W0.10_redundant_code.md` row 4 and its As built section). The order, counts, stat values and the Metal Nail card check are the deleted patch's; the skipped-nails line drops "(framework older than 2.28.0?)", since a framework that old cannot read the file. `HomesteadPerks.csproj` ships the file. The build compiles against the shared `HerbsAndFungi/lib/CSFFModFramework.dll` and calls no 2.29.0 member, so the requirement is the data file, not the DLL. `Development_Tools/Tests/HomesteadPerks-VanillaBalance.Tests.ps1` now reads the stockpile counts from `KitContents.json`; `Framework-KitContents.Tests.ps1` pins the planned spawn sequence to the deleted patch's.
+
 ## 1.3.9 (2026-10-22)
 
 - **The mod list description gets the Homestead's nails right.** It called them copper nails and gave no condition; they are 20 metal nails and need CSFF Mod Framework 2.28.0 or later, as the README says.

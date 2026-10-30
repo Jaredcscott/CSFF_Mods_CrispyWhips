@@ -1,6 +1,6 @@
 # Homestead Perks
 
-**Version:** 1.3.9
+**Version:** 1.3.10
 **Author:** Jared
 **Requires:** CSFFModFramework (soft dependency)
 **Language:** English, Simplified Chinese
@@ -19,7 +19,7 @@ Forty-five character-creation perks for Card Survival: Fantasy Forest. Most hand
 
 The mod has no settings and no console commands.
 
-**Install:** extract into `BepInEx/plugins/`, or use Mod Update Manager. CSFF Mod Framework 2.28.0 or later is needed for the Homestead Kit's materials and nails to be correct.
+**Install:** extract into `BepInEx/plugins/`, or use Mod Update Manager. CSFF Mod Framework 2.29.0 or later is needed: it unpacks the Homestead Kit (on an older framework the kit is used up and gives nothing).
 
 **Compatibility:** needs no other mod. Community Mod Chest has two overlapping perks (see Notes).
 
@@ -102,6 +102,7 @@ Carried items count toward the 4000 Encumbrance cap. At the cap, vanilla blocks 
 Full list in CHANGELOG.md.
 
 - 1.3.9: the mod list description says the Homestead's 20 metal nails need CSFF Mod Framework 2.28.0 or later.
+- 1.3.10: the framework unpacks the Homestead Kit (same contents); needs CSFF Mod Framework 2.29.0 or later.
 - 1.3.8: a game update can no longer lock the Path Kit: when the mod cannot read a location's road list, Build Path goes ahead and the log says why.
 - 1.3.7: the Well blueprint's Build works (vanilla's blueprint carried a condition no board could meet).
 - 1.3.6: vanilla's Well blueprint can be researched and built; new Smallholding perk; the Snow Shelter Kit places only where snow lies.

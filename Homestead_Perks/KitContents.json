@@ -1,0 +1,24 @@
+[
+  {
+    "_comment": "Homestead perk (hsptraitsperkhomestead) delivery: the perk grants one Homestead Kit (600 weight) instead of the cabin kit, two cistern kits and the stockpile, which would sum well past the 4000 Encumbrance cap. The kit's own Place DismantleAction destroys it; CSFF Mod Framework 2.29.0+ then spawns these on the current board (vanilla never processes CardsToCreate on a DismantleAction). Heavy Stone and Tree Log are viable because they land on the ground, never carried. Until HomesteadPerks 1.3.10 this list lived in Patcher/HomesteadKitPatch.cs.",
+    "Kit": "hsphomesteadkit",
+    "ActionNamePrefix": "Place",
+    "Name": "Homestead",
+    "LogTag": "HomesteadKitPatch",
+    "Items": [
+      { "_card": "Cabin Kit", "Card": "hspcabinkit", "Count": 1 },
+      { "_card": "Rain Cistern Kit", "Card": "hspraincisternkit", "Count": 2 },
+      { "_card": "Plank (oak: wood ID 1; a bare spawn is ID 0, no wood at all)", "Card": "57460207bbf77fa4fb6720aed5d84851", "Count": 15, "Stats": { "SpecialDurability4": 1 } },
+      { "_card": "Mud Brick", "Card": "6c2001f42a960db4583cdd65a47ecf3c", "Count": 15 },
+      { "_card": "Stone", "Card": "a7384e5147b23a642809451cc4ef24fb", "Count": 20 },
+      { "_card": "Heavy Stone", "Card": "8695a7aa22521aa45be582d3c1558f78", "Count": 6 },
+      { "_card": "Tree Log (vanilla's felled Large Oak: Fragrance 18, Fuel 35, Quality 96, ID 1, TreeLargeOak Progress.OnZero)", "Card": "0ab556ab6af1efc47a2cba5cdf4ace04", "Count": 6, "Stats": { "UsageDurability": 18, "FuelCapacity": 35, "SpecialDurability2": 96, "SpecialDurability4": 1 } },
+      { "_card": "Clay (quality 30 = 60% of its 50 cap; a bare spawn rolls 0-50, player report Chiwei 2026-09-27)", "Card": "68c14d265ea6c874ba79444d2e1ef7b3", "Count": 10, "Stats": { "SpecialDurability2": 30 } },
+      { "_card": "Rope", "Card": "a7a58aa687df66e47a42fc13e0fdbeaa", "Count": 5 },
+      { "_card": "Metal Nugget (copper, as vanilla's Pk_5_1_8_SmithingGear_CopperNugget: Temperature 0, Metal Quality 50, Metal Type 100; 9 match vanilla Smithing Gear, HSP 1.3.5)", "Card": "4b0f4937a5ecb90499428c8c10288afc", "Count": 9, "Stats": { "FuelCapacity": 0, "SpecialDurability2": 50, "SpecialDurability4": 100 } },
+      { "_card": "Metal Nail (shipped by CSFF Mod Framework 2.28.0+, so the grant asks whether the card exists, never whether ACT is installed; card defaults Fuel 0, Metal Type Copper; 20 pay one WDI build)", "Card": "advanced_copper_tools_copper_nails", "Count": 20, "OnlyIfCardExists": true,
+        "LogIfPresent": "Metal Nail card loaded: spawned 20 copper nails.",
+        "LogIfMissing": "Metal Nail card not loaded: nails skipped." }
+    ]
+  }
+]

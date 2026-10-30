@@ -1,0 +1,85 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). Every tracked file belongs to exactly one module, is a sharedTable (rows attributed by the UID or LocalizationKey they name), or is a picture/.art file owned by the module whose card names it. GameSourceModify patches are listed by file name, and the pictures only they name (Bookshelf, Rustic Stool) are caught by name globs, since GameSourceModify is not a card folder. `module_map.py check HomesteadPerks` must exit 0.",
+  "sharedTables": [
+    "Localization/*.csv",
+    "BlueprintTabs.json"
+  ],
+  "modules": [
+    {
+      "id": "homestead",
+      "name": "Homestead Kit",
+      "summary": "The Homestead perk, its single carried Homestead Kit and KitContents.json, the list the framework (2.29.0+) spawns on Place: the cabin kit, cistern kits and material stockpile.",
+      "paths": ["CharacterPerk/Perk_Homestead.json", "CardData/**/HSP_HomesteadKit.json", "KitContents.json"]
+    },
+    {
+      "id": "shelter",
+      "name": "Shelters and Beds",
+      "summary": "Cabin, Mud Hut, Cellar, Snow Shelter and Log Bed kits and their perks.",
+      "paths": ["**/*CabinKit*", "**/*MudHutKit*", "**/*CellarKit*", "**/*SnowShelterKit*", "**/*LogBedKit*"]
+    },
+    {
+      "id": "water",
+      "name": "Water Works",
+      "summary": "Well and Rain Cistern kits, the vanilla Well blueprint research fix, and the Levee and Log Boom kits, with their perks.",
+      "paths": ["**/*WellKit*", "**/*RainCisternKit*", "**/*LeveeKit*", "**/*LogBoomKit*", "GameSourceModify/ddc91498198124740b1c8f2f606f5d09.json"]
+    },
+    {
+      "id": "mines",
+      "name": "Mines",
+      "summary": "Copper, Flint and Witchstone Mine kits and their perks.",
+      "paths": ["**/*MineKit*"]
+    },
+    {
+      "id": "fire",
+      "name": "Fire and Smelting Stations",
+      "summary": "Forge, Furnace, Oven, Kiln, Bloomery and Charcoal Mound kits and their perks.",
+      "paths": ["**/*ForgeKit*", "**/*FurnaceKit*", "**/*OvenKit*", "**/*KilnKit*", "**/*BloomeryKit*", "**/*CharcoalMoundKit*"]
+    },
+    {
+      "id": "hides",
+      "name": "Hides and Textiles",
+      "summary": "Tanning Pit, Stretching Frame, Drying Rack, Weighted Loom, Weaver's Workshop and Fleshing Beam kits and their perks.",
+      "paths": ["**/*TanningPitKit*", "**/*StretchingFrameKit*", "**/*DryingRackKit*", "**/*WeightedLoomKit*", "**/*WeaverWorkshopKit*", "**/*FleshingBeamKit*"]
+    },
+    {
+      "id": "farming",
+      "name": "Farming and Livestock",
+      "summary": "Garden Plot, Tilled Field, Compost Bin, Mushroom Bed and Enclosure kits, and the Smallholding perk, with their perks.",
+      "paths": ["**/*GardenPlotKit*", "**/*TilledFieldKit*", "**/*CompostBinKit*", "**/*MushroomBedKit*", "**/*EnclosureKit*", "**/*Smallholding*"]
+    },
+    {
+      "id": "traps",
+      "name": "Traps",
+      "summary": "Pit Trap and Deadfall Trap kits and their perks.",
+      "paths": ["**/*TrapKit*"]
+    },
+    {
+      "id": "furnishings",
+      "name": "Furnishings and Workstations",
+      "summary": "Wall Shelf, Rustic Table (and the vanilla Stool art patches), Bookshelf (and its vanilla art patches), Workbench, Sawhorses, Pottery Wheel and Chest kit perks.",
+      "paths": ["**/*WallShelfKit*", "**/*RusticTable*", "**/*RusticStool*", "**/*Bookshelf*", "**/*WorkbenchKit*", "**/*SawhorsesKit*", "**/*PotteryWheelKit*", "**/*ChestKit*",
+                "GameSourceModify/1506c64cde08f3f44b47c15f1ac24684.json", "GameSourceModify/3a9ca5994f8fbd943a522670218663e3.json",
+                "GameSourceModify/b20f8d758e211da47ad594a05765085a.json", "GameSourceModify/e3af25c394ce2464782a287c05a16be2.json"]
+    },
+    {
+      "id": "travel",
+      "name": "Paths and Hauling",
+      "summary": "Path Kit and PathKitPatch (the Build Path spend guard), and the Sledge and Travois perks.",
+      "paths": ["**/*PathKit*", "**/*Sledge*", "**/*Travois*"]
+    },
+    {
+      "id": "shrines",
+      "name": "Ritual Sites",
+      "summary": "Ritual Pyre and Frost Shrine kits and their perks.",
+      "paths": ["**/*RitualPyreKit*", "**/*FrostShrineKit*"]
+    },
+    {
+      "id": "modwide",
+      "name": "Mod-wide",
+      "modWide": true,
+      "summary": "Plugin entry, project files, player docs, Features.json and art tooling state.",
+      "paths": ["Plugin.cs", "GlobalUsing.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore",
+                "Features.json", "Modules.json", ".art/RUN_LOG.md", ".art/review/**"]
+    }
+  ]
+}
