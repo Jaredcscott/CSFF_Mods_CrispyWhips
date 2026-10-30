@@ -19,7 +19,7 @@
     "CardTagsWarpData": [ "tag_Preservable" ],
     "CardTagsWarpType": 3,
     "WhenCreatedSoundsWarpData": [
-        "Herb"
+        "GrassAppear"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {

@@ -16,7 +16,7 @@
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardImageWarpData": "FishingRodFittings",
   "CardImageWarpType": 3,
-  "WhenCreatedSoundsWarpData": ["Metal"],
+  "WhenCreatedSoundsWarpData": ["MetalAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": { "Active": false },
   "UsageDurability": { "Active": false },

@@ -45,7 +45,8 @@
       "summary": "The Village world-map nodes and vanilla location edits, farm fields, River Bridge, Climbing Rope and the Skylit path, seasonal road blockages (snow drifts, deadfall, clay shoal flood, bramble thicket, plank causeway), river swimming, tree respawn, stray-improvement cleanup and wildlife encounter suppression.",
       "paths": ["WorldMap/**", "MapMod.json", "GameSourceModify/cmc*.json", "EncounterGuards/CMC_*", "**/*Imp_RiverBridge*", "CardData/Gif/RiverBridge.json", "Resource/GIF/VillageBridge.gif", "Resource/Picture/ForagingForest.png", "Resource/Picture/VillageFarm.png", "Resource/Picture/VillagePath.png", ".art/VillageBridge_gif.json",
                 "**/*ClimbingRope*", "**/*BrambleThicket*", "**/*SnowDrift*", "**/*Deadfall*", "**/*ClayShoal*", "**/*Causeway*", "**/*VillageField*",
-                "Patcher/TreeRespawnPatch.cs", "Patcher/WildlifeIndoorGuardPatch.cs", "Patcher/RiverSwimPatch.cs", "Patcher/RiverBridgeUnlockPatch.cs", "Patcher/StrayImprovementsPatch.cs"]
+                "Patcher/TreeRespawnPatch.cs", "Patcher/WildlifeIndoorGuardPatch.cs", "Patcher/RiverSwimPatch.cs", "Patcher/RiverBridgeUnlockPatch.cs", "Patcher/StrayImprovementsPatch.cs",
+                "Patcher/StrayLocationCardRepairPatch.cs", "Patcher/StrayLocationCardRules.cs"]
     },
     {
       "id": "civic",
@@ -106,7 +107,7 @@
       "name": "Cats and Companions",
       "summary": "Ash the cat and the lost-cat storyline, Shadow the tameable cat and the night hunts, Ash's boar hunt, stray and inn cats, cat bed, bowl and gifts, the dormant Ash partner and partner-NPC indoor following.",
       "paths": ["**/CMC_Ash*", "Patcher/Ash*.cs", "NPCAgent/Agent_AshPartner.json", "**/*ShadowCat*", "**/*ShadowHunt*", "**/*StrayCat*", "**/*LostCat*", "**/CMC_InnCat.json", "**/*CatBed*", "**/*CatBowl*",
-                "GameStat/CMC_CatGift*", "Patcher/CatGiftPatch.cs", "Patcher/PartnerIndoorFollowPatch.cs", "Patcher/CompanionFollowDiagnostics.cs"]
+                "GameStat/CMC_CatGift*", "Patcher/CatGiftPatch.cs", "Patcher/PartnerIndoorFollowPatch.cs"]
     },
     {
       "id": "traits",
@@ -115,7 +116,7 @@
       "paths": ["CharacterPerk/Perk_*", "CharacterPerk/Pk_Agoraphobia.json", "CharacterPerk/Pk_Angler.json", "CharacterPerk/Pk_Drunkard.json", "CharacterPerk/Pk_LactoseIntolerant.json", "CharacterPerk/Pk_Lunacy.json",
                 "CharacterPerk/Pk_Nyctophobia.json", "CharacterPerk/Pk_QuietVillage.json", "CharacterPerk/Pk_RainCisternKit.json", "CharacterPerk/Pk_VillagePathfinder.json", "PerkGroup/**",
                 "GameStat/CMC_Trait*", "GameStat/CMC_SpiritHarmonious.json", "GameStat/CMC_ClottingEffect.json", "SelfTriggeredAction/Tgr_*", "CardData/Event/**", "**/*Homestead*",
-                "GameSourceModify/Calories_Stomach.json", "GameSourceModify/Sunburn.json", "Patcher/HomesteadKitPatch.cs", "Patcher/TraitCompositeResyncPatch.cs", "Patcher/QuietVillagePerkPatch.cs", "Patcher/PerkItemInitPatch.cs"]
+                "GameSourceModify/Calories_Stomach.json", "GameSourceModify/Sunburn.json", "KitContents.json", "Patcher/TraitCompositeResyncPatch.cs", "Patcher/QuietVillagePerkPatch.cs", "Patcher/PerkItemInitPatch.cs"]
     },
     {
       "id": "modwide",
@@ -125,7 +126,7 @@
       "paths": ["Plugin.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "PLAYER_GUIDE.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore", "Features.json", "Modules.json",
                 "CardData/Motion/**", "GameStat/CMC_ComfortFixupDone.json",
                 "Patcher/HiddenStat.cs", "Patcher/CardVisualsRefresh.cs", "Patcher/NpcTileWalker.cs", "Patcher/NpcRottenRemainsCleanupPatch.cs", "Patcher/LuckBonus.cs", "Patcher/InteriorEnvSaveDataPatch.cs",
-                "Patcher/UniqueIdIndexFallbackPatch.cs", "Patcher/EnvImprovementTwinGuard.cs", "Patcher/StatTabInjectionPatch.cs", "Patcher/ComfortFixupPatch.cs",
+                "Patcher/UniqueIdIndexFallbackPatch.cs", "Patcher/EnvImprovementTwinGuard.cs", "Patcher/StatTabInjectionPatch.cs", "StatResets.json",
                 ".art/compositions.json", ".art/RUN_LOG.md", ".art/reference-uploads.json", ".art/review/**"]
     }
   ]

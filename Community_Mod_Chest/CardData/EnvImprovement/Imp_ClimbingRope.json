@@ -32,7 +32,7 @@
   "CardTagsWarpType": 3,
   "DoesNotPile": true,
   "CannotBeTrashed": true,
-  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpData": ["WoodAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": { "Active": false },
   "UsageDurability": { "Active": false },

@@ -24,7 +24,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.69.25";
+    public const string PluginVersion = "1.69.26";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }
@@ -127,6 +127,9 @@ internal class Plugin : ContentModPlugin
         // 2026-08-21 from a Village-only fix — the same stray-improvement inheritance also caused a
         // Pine Trail travel softlock) — see class doc comment for the reported bug this caused.
         TryApply("StrayImprovementsPatch", () => StrayImprovementsPatch.Initialize(harmony));
+        // Removes a village location card (CT8) saved on another environment's board, the board
+        // shape behind the Pine Trail / Village Path travel loops (1.69.26, Chiwei + TheFifthLorax).
+        TryApply("StrayLocationCardRepairPatch", () => StrayLocationCardRepairPatch.Initialize(harmony));
         TryApply("VillageCrimePatch", () => VillageCrimePatch.Initialize());
         // A Fugitive character is marked Suspected on their first village visit (1.69.0).
         TryApply("FugitiveWatchPatch", FugitiveWatchPatch.Initialize);
@@ -179,12 +182,8 @@ internal class Plugin : ContentModPlugin
         {
             Logger.LogDebug("[Plugin] Ash Partner spike disabled (EnableAshPartnerSpike=false).");
         }
-        // TEMPORARY — diagnosing "vanilla Partner never follows into the CMC map" (2026-08-10).
-        // Remove once CompanionFollowDiagnostics.cs's root cause is confirmed and fixed.
-        TryApply("CompanionFollowDiagnostics", () => CompanionFollowDiagnostics.Initialize());
         // Building interiors (Inn/Academy) are never WorldMap graph nodes, so the vanilla
-        // NPCDuty/MoveDutyAction follow mechanism can never route a Partner through their doors
-        // regardless of the outdoor-pathing question CompanionFollowDiagnostics is chasing —
+        // NPCDuty/MoveDutyAction follow mechanism can never route a Partner through their doors —
         // this bypasses pathfinding and mirrors an allied companion's env directly onto the
         // player's own Enter/Exit transitions for those two doors.
         TryApply("PartnerIndoorFollowPatch", () => PartnerIndoorFollowPatch.Initialize(harmony));
@@ -319,13 +318,11 @@ internal class Plugin : ContentModPlugin
         TryApply("VillageSeasonsPatch", () => VillageSeasonsPatch.Initialize());
         TryApply("AchievementTrackerPatch", () => AchievementTrackerPatch.Initialize());
         TryApply("AchievementKillEffectsPatch", () => AchievementKillEffectsPatch.Initialize());
-        // Founders Kit trait (formerly "Homestead") — the kit unpacks into a cabin kit, two
-        // cistern kits, and the full material stockpile on Place, instead of carrying it all
-        // from character creation.
-        TryApply("HomesteadKitPatch", () => HomesteadKitPatch.Initialize());
-        // Vanilla balance pass (1.69.17): reset the Comfort base older actions wrote permanently, once per save,
-        // and lift old armor pieces to their new Usage maximum on every board they turn up on.
-        TryApply("ComfortFixupPatch", () => ComfortFixupPatch.Initialize());
+        // Founders Kit trait (formerly "Homestead"): the kit's unpack (cabin kit, two cistern kits and the
+        // stockpile, on Place) is KitContents.json, read by CSFF Mod Framework 2.29.0+ (was Patcher/HomesteadKitPatch.cs).
+        // Vanilla balance pass (1.69.17): lift old armor pieces to their new Usage maximum on every board they turn
+        // up on. The one-time Comfort base reset is StatResets.json, read by CSFF Mod Framework 2.29.0+ (was
+        // Patcher/ComfortFixupPatch.cs).
         TryApply("ArmorUsageFixupPatch", () => ArmorUsageFixupPatch.Initialize());
     }
 }

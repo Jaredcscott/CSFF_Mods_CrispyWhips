@@ -1,0 +1,12 @@
+[
+  {
+    "_comment": "One-time Comfort reset (vanilla balance pass 1.69.17, plan Part II row 3.1.5, owner tile 5 'reset once on load'). Before 1.69.17 several CMC actions (the Clay Ocarina's Play a Tune, eating Herb Paste, Join the Table, the Snowed-In Supper, every resident's Chat) wrote vanilla Comfort directly, and Comfort's base rate is 0, so each write was permanent. This sets Comfort's BASE back to its default (0, vanilla's own base) once per save, whatever wrote it; worn garments, placed decor and statuses are modifiers and are untouched. Sirus23 ships its own row for the same stat with its own latch: whichever runs second finds the base at 0 and only latches. Read by CSFF Mod Framework 2.29.0+ (Injection/StatResetsService.cs); until 1.69.26 this was Patcher/ComfortFixupPatch.cs, whose log lines the tag and lines below keep.",
+    "Stat": "be10ed6d196f5d043b7a819f9f1fd1ff",
+    "Latch": "cmcStatComfortFixupDone",
+    "Target": "default",
+    "When": "FirstTick",
+    "LogTag": "ComfortFixupPatch",
+    "LogReset": "One-time Comfort reset: base {before} -> {target} (comfort written permanently by older CMC actions; garments and decor are not affected).",
+    "LogUnchanged": "Comfort base already {target}; latched."
+  }
+]

@@ -24,7 +24,7 @@
     "UniqueOnBoard": false,
     "CannotBeTrashed": true,
     "NeedsRoomInLocationToSpawn": false,
-    "WhenCreatedSoundsWarpData": ["Plant"],
+    "WhenCreatedSoundsWarpData": ["GrassAppear"],
     "WhenCreatedSoundsWarpType": 3,
     "UsageDurability": { "Active": false },
     "SpoilageTime": { "Active": false },

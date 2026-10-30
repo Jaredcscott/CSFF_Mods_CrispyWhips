@@ -27,7 +27,7 @@
     "CardImageWarpType": 3,
     "CardTagsWarpData": ["tag_Preservable", "tag_Structure", "tag_Furniture"],
     "CardTagsWarpType": 3,
-    "WhenCreatedSoundsWarpData": ["Plant"],
+    "WhenCreatedSoundsWarpData": ["GrassAppear"],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {
         "Active": true,
@@ -76,7 +76,7 @@
             },
             "DaytimeCost": 2,
             "UseMiniTicks": 0,
-            "ActionSoundsWarpData": ["Plant"],
+            "ActionSoundsWarpData": ["GrassAppear"],
             "ActionSoundsWarpType": 3,
             "ActionTagsWarpData": ["HandAction"],
             "ActionTagsWarpType": 3,

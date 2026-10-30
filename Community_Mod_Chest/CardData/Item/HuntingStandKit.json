@@ -23,7 +23,7 @@
     "tag_Structure"
   ],
   "CardTagsWarpType": 3,
-  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpData": ["WoodAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": { "Active": false },
   "UsageDurability": { "Active": false },
@@ -52,7 +52,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpData": ["WoodAppear"],
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {
         "ModType": 2,

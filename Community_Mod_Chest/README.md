@@ -1,10 +1,10 @@
 # Community Mod Chest
 
-**Version:** 1.69.25
+**Version:** 1.69.26
 
 **Language:** English, Simplified Chinese
 
-**Requires:** CSFFModFramework 2.28.0 or later. Advanced Copper Tools is optional (see Requirements).
+**Requires:** CSFFModFramework 2.29.0 or later. Advanced Copper Tools is optional (see Requirements).
 
 Community-suggested content for Card Survival: Fantasy Forest. The centrepiece is a village east of the River Clearing, with residents, a Town Watch, a jail, an Academy, boards and seasons, plus traits, apparel, decor and pets. Amounts marked as placeholders may change in later updates.
 
@@ -107,7 +107,7 @@ Twelve explorable locations east of the River Clearing. Build the **River Bridge
 - **Village Inn:** enter it like a cabin. Drop Salt, metal Nuggets or a Duros coin on the Inn Counter to fund an Inn Account (up to 500). **Purchase Meal** and **Stay the Night** cost 50 (60 while Wanted, 75 while Banished). **Purchase Meal** is a hearty bowl of stew, bread and water, about as filling as a good meal of your own. **Work Odd Jobs** is a 4-hour shift for 2 Salt, once a day, with no balance needed. While you have a Village Crime record, **Community Service** is 4 unpaid hours that take 6 off it. **Sell Firewood** pays a Salt for every fourth bundle. The fireplace is kept lit from the Town Wood Pile.
 - **Village Academy:** study opens after the Inn Keeper's introduction. Fund a Tuition Account (up to 1,000) at the lectern. Sessions are 2 hours and cost 100 (120 Wanted, 150 Banished; a Banished student is never turned away). Courses: Architecture (72 h), Metallurgy (60 h), Herbalism (30 h), Fishing, Armorer and Medicine (24 h each) and Carpentry (24 h). Every session, the final exam included, also teaches the course's skill +3, up to +15 from each course (Architecture: Crafting, Metallurgy: Smithing, Herbalism and Medicine: Herbalism, Fishing: Fishing, Armorer: Metalworking, Carpentry: Woodworking). Passing a Final Exam grants a hidden Graduate perk:
   - **Architecture** gives the Water-Driven Sawmill and Grinding Mill recipes with no research (anyone can still research them; with Metallurgy it also unlocks the Forge and Workshop Kit), all from Water-Driven Infrastructure, plus the Beaver Blessing.
-  - **Metallurgy** gives the Metal Sheet and Bronze Sheet recipes with no research.
+  - **Metallurgy** gives the Metal Sheet recipe (every metal, bronze included) with no research.
   - **Herbalism** gives each herb or mushroom you forage a one-in-four chance to come in double. **Fishing** unlocks the Iron Fishing Rod recipe and improves its catches.
   - **Armorer** gives every Advanced Copper Tools armor recipe with no research (since Advanced Copper Tools 1.18.13 that is five recipes, the Metal Helmet, Armor, Bracers, Greaves and Shield, each made in any metal); without the degree they stay in normal research. It needs Advanced Copper Tools and is hidden without it.
   - **Medicine** speeds clotting and pain recovery and unlocks the **Herb Poultice** and **Herb Tincture**, and lets you brew a **Spring Tonic** (two dried Heather Flowers and a dried Willow Bark, ground with a Mortar and Pestle you keep; for about a day it adds Comfort and slows upper respiratory infection, and the Apothecary stocks it too).
@@ -177,7 +177,7 @@ Twelve explorable locations east of the River Clearing. Build the **River Bridge
 ## Requirements
 
 - BepInEx 5.x.
-- **CSFFModFramework 2.28.0 or later.** It loads the content, places the village on the map and ships the Metal Sheet, Metal Nail and Tin Solder. On an older framework, dialogs may open nothing, graduate perks may appear at character creation and seasonal road blockers may not appear.
+- **CSFFModFramework 2.29.0 or later.** It loads the content, places the village on the map, ships the Metal Sheet, Metal Nail and Tin Solder, and since 1.69.26 unpacks the Founders Kit (on an older framework the kit is used up and gives nothing) and runs the one-time Comfort reset (on an older framework it does not run). On an older framework, dialogs may also open nothing, graduate perks may appear at character creation and seasonal road blockers may not appear.
 - **Advanced Copper Tools** (optional): its Copper Chest fits the Market Stall, its armor is handed over early by the Armorer course, and its teas, tools and armor join the Inn Keeper's pantry and the Professor's stock. Without it the Armorer course is hidden.
 - **DurosCoinage** (optional): a Duros coin becomes a third currency at the Inn Counter and Academy lectern, the Inn Keeper's chest adds one, and both Market Stalls offer **Collect as Coins**.
 - **Water-Driven Infrastructure** (optional): its Sawmill and Grinding Mill come early from the Architecture course and its Forge and Workshop Kit are unlocked by Architecture with Metallurgy, and the Professor's stock may offer its Small Copper Gear and Iron Wrench. His Metallurgy stock also offers a Metal Nail, which needs only the framework.
@@ -200,7 +200,7 @@ Pieces for modders, with the files that hold them:
 - **Armor and graduate perks:** `Patcher/ArmorCardsPatch.cs` applies bone-tier armor damage reduction through the framework's APIs. The seven graduate perks use `CharacterPerkPerkGroup: "None"`, so they are granted only at runtime.
 - **Water source tag:** the built Village Well carries the cross-mod tag `tag_x_WaterSource` by name (no CardTag file ships). Nothing in the suite reads it yet.
 - **Data patches** (`GameSourceModify/`): the Stomach stat's Digestion status text, a Sunburn rate change, the Spear Throw success log line and the `GpTag_SpiritHerb` group. `cmcEnvVillagePath.json` adds the Village Path's daytime sounds, and the twelve `cmcLoc*` files patch the cloned map locations.
-- **Debug-only code:** `Patcher/AshPartner*.cs` is an unfinished Partner-companion spike for Ash, spawned only when `EnableAshPartnerSpike` is on. `CompanionFollowDiagnostics.cs` and `GuardCombatDiagnosticPatch.cs` only add log output.
+- **Debug-only code:** `Patcher/AshPartner*.cs` is an unfinished Partner-companion spike for Ash, spawned only when `EnableAshPartnerSpike` is on. `GuardCombatDiagnosticPatch.cs` only adds log output.
 
 ## Configuration
 
@@ -236,4 +236,4 @@ Full history is in `CHANGELOG.md`.
 
 ## Install
 
-Copy the mod folder into `BepInEx/plugins/Community_Mod_Chest/`, with `Community_Mod_Chest.dll` inside it. A clean load logs `Community Mod Chest v1.69.25 loaded.`
+Copy the mod folder into `BepInEx/plugins/Community_Mod_Chest/`, with `Community_Mod_Chest.dll` inside it. A clean load logs `Community Mod Chest v1.69.26 loaded.`

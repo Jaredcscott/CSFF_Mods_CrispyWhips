@@ -79,7 +79,7 @@
     }
   ],
   "BlueprintStatModifications": [],
-  "WhenCreatedSoundsWarpData": ["Leather"],
+  "WhenCreatedSoundsWarpData": ["BigCloth"],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
   "BlueprintActionTagsWarpType": 3,

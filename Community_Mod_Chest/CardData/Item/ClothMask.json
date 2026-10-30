@@ -31,7 +31,7 @@
   "IsArmor": false,
   "AffectStatsOnlyWhenEquipped": true,
   "AlwaysUpdate": true,
-  "WhenCreatedSoundsWarpData": ["Leather"],
+  "WhenCreatedSoundsWarpData": ["BigCloth"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": { "Active": false },
   "UsageDurability": {
@@ -209,7 +209,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Leather"],
+      "ActionSoundsWarpData": ["BigCloth"],
       "ActionSoundsWarpType": 3,
       "ProducedCards": [
         {

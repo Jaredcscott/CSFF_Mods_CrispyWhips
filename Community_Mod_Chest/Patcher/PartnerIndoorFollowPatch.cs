@@ -14,15 +14,16 @@ namespace CommunityModChest.Patcher
     ///
     /// Vanilla's own follow mechanism for an allied NPC is <c>NPCDuty</c> +
     /// <c>MoveDutyAction(MoveToPlayer)</c>, which reaches its destination via
-    /// <c>WorldMapData.GetPathNonAlloc</c> — real A* pathfinding over the WorldMap graph
-    /// (<see cref="CompanionFollowDiagnostics"/> is the still-open investigation into whether
-    /// that duty can path across the base map into CMC's outdoor nodes at all). Building
-    /// interiors are never WorldMap graph nodes, though — <c>cmcInnInterior</c>/
+    /// <c>WorldMapData.GetPathNonAlloc</c> — real A* pathfinding over the WorldMap graph (tracker
+    /// <c>T2.237</c> confirmed, 2026-10-05 and again 2026-10-14, that this duty does path across
+    /// the base map into CMC's outdoor nodes after the framework's WorldMap pathfinding fix,
+    /// 2.23.1; the diagnostic that watched for it, <c>CompanionFollowDiagnostics</c>, is retired).
+    /// Building interiors are never WorldMap graph nodes, though — <c>cmcInnInterior</c>/
     /// <c>cmcAcademyInterior</c> sit behind a single instantaneous "Enter"/"Exit"
     /// DismantleAction hop off <c>cmcEnvVillage</c> (same shape as the player's own doors; see
     /// <c>NpcTileWalker</c>'s doc comment) — so no duty, however well-tuned, can ever route a
-    /// companion through them. That is a categorical gap, not a tuning problem, and it exists
-    /// independently of whatever CompanionFollowDiagnostics finds about outdoor pathing.
+    /// companion through them. That is a categorical gap, not a tuning problem, independent of
+    /// outdoor pathing.
     ///
     /// The fix bypasses pathfinding entirely and mirrors what CMC's own resident schedulers
     /// (Professor/Miller/Weaver/Apothecary/Inn Keeper — see <c>ProfessorSchedulePatch</c>'s

@@ -67,7 +67,7 @@
         }
     ],
     "BlueprintStatModifications": [],
-    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpData": ["WoodAppear"],
     "WhenCreatedSoundsWarpType": 3,
     "BlueprintActionTagsWarpData": ["HandAction"],
     "BlueprintActionTagsWarpType": 3,

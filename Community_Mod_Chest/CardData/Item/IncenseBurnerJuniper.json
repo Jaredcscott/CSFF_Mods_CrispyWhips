@@ -19,7 +19,7 @@
     "CardTagsWarpData": [],
     "CardTagsWarpType": 3,
     "WhenCreatedSoundsWarpData": [
-        "Stone"
+        "StoneAppear"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {
@@ -79,7 +79,7 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "ActionSoundsWarpData": [
-                "Herb"
+                "GrassAppear"
             ],
             "ActionSoundsWarpType": 3,
             "CompatibleCards": {
@@ -117,9 +117,7 @@
             "UseMiniTicks": 0,
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
-            "ActionSoundsWarpData": [
-                "FireIgnite"
-            ],
+            "ActionSoundsWarpData": [],
             "ActionSoundsWarpType": 3,
             "RequiredReceivingDurabilities": {
                 "RequiredFuelPercent": {
@@ -177,7 +175,7 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "ActionSoundsWarpData": [
-                "Herb"
+                "GrassAppear"
             ],
             "ActionSoundsWarpType": 3,
             "ReceivingCardChanges": {

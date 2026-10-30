@@ -35,7 +35,7 @@
   "AffectStatsOnlyWhenEquipped": true,
   "AlwaysUpdate": true,
   "WhenCreatedSoundsWarpData": [
-    "Leather"
+    "BigCloth"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
@@ -115,7 +115,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Leather"
+        "BigCloth"
       ],
       "ActionSoundsWarpType": 3,
       "ProducedCards": [

@@ -1,0 +1,23 @@
+[
+  {
+    "_comment": "Founders Kit trait (traits_perk_homestead) delivery: the perk grants one Homestead Kit (600 weight) instead of the cabin kit, two cistern kits and the stockpile, which summed well past the 4000 Encumbrance cap. The kit's own Place DismantleAction destroys it (CMC_HomesteadKit.json); CSFF Mod Framework 2.29.0+ then spawns these on the current board (vanilla never processes CardsToCreate on a DismantleAction). Heavy Stone and Tree Log are viable because they land on the ground, never carried. Counts from the vanilla balance pass (1.69.17, plan Part II CMC-V-B11), about half the old stockpile. This kit has no Metal Nuggets, unlike HomesteadPerks' (fleet plan 6.7 kept each kit's own list). Until CMC 1.69.26 this list lived in Patcher/HomesteadKitPatch.cs.",
+    "Kit": "cmchomesteadkit",
+    "ActionNamePrefix": "Place",
+    "Name": "Homestead",
+    "LogTag": "HomesteadKitPatch",
+    "Items": [
+      { "_card": "Cabin Kit", "Card": "cmchomesteadcabinkit", "Count": 1 },
+      { "_card": "Rain Cistern Kit", "Card": "cmchomesteadraincisternkit", "Count": 2 },
+      { "_card": "Plank (oak: wood ID 1; a bare spawn is ID 0, no wood at all)", "Card": "57460207bbf77fa4fb6720aed5d84851", "Count": 15, "Stats": { "SpecialDurability4": 1 } },
+      { "_card": "Mud Brick", "Card": "6c2001f42a960db4583cdd65a47ecf3c", "Count": 15 },
+      { "_card": "Stone", "Card": "a7384e5147b23a642809451cc4ef24fb", "Count": 20 },
+      { "_card": "Heavy Stone", "Card": "8695a7aa22521aa45be582d3c1558f78", "Count": 6 },
+      { "_card": "Tree Log (vanilla's felled Large Oak: Fragrance 18, Fuel 35, Quality 96, ID 1, TreeLargeOak Progress.OnZero)", "Card": "0ab556ab6af1efc47a2cba5cdf4ace04", "Count": 6, "Stats": { "UsageDurability": 18, "FuelCapacity": 35, "SpecialDurability2": 96, "SpecialDurability4": 1 } },
+      { "_card": "Clay (quality 30 = 60% of its 50 cap; a bare spawn rolls 0-50, player report Chiwei 2026-09-27)", "Card": "68c14d265ea6c874ba79444d2e1ef7b3", "Count": 10, "Stats": { "SpecialDurability2": 30 } },
+      { "_card": "Rope", "Card": "a7a58aa687df66e47a42fc13e0fdbeaa", "Count": 5 },
+      { "_card": "Metal Nail (shipped by CSFF Mod Framework 2.28.0+; checked first, as HomesteadPerks did since 1.3.1, so a missing card logs one line instead of 20 spawn errors)", "Card": "advanced_copper_tools_copper_nails", "Count": 20, "OnlyIfCardExists": true,
+        "LogIfPresent": "Metal Nail card loaded: spawned 20 copper nails.",
+        "LogIfMissing": "Metal Nail card not loaded: nails skipped." }
+    ]
+  }
+]

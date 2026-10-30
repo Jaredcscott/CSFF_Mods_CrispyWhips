@@ -17,7 +17,7 @@
     "CardImageWarpType": 3,
     "CardTagsWarpData": [],
     "CardTagsWarpType": 3,
-    "WhenCreatedSoundsWarpData": ["Cloth"],
+    "WhenCreatedSoundsWarpData": ["BigCloth"],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": { "Active": false },
     "UsageDurability": {

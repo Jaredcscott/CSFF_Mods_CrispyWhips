@@ -20,7 +20,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "WhenCreatedSoundsWarpData": ["Bone"],
+    "WhenCreatedSoundsWarpData": ["SmallObject_A"],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {
         "Active": false

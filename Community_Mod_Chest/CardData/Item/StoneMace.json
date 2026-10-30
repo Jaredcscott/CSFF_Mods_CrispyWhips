@@ -83,7 +83,7 @@
   ],
   "IsArmor": false,
   "AlwaysUpdate": false,
-  "WhenCreatedSoundsWarpData": ["Stone"],
+  "WhenCreatedSoundsWarpData": ["StoneAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": { "Active": false },
   "UsageDurability": {
@@ -137,7 +137,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Stone"],
+      "ActionSoundsWarpData": ["StoneAppear"],
       "ActionSoundsWarpType": 3,
       "ProducedCards": [
         {

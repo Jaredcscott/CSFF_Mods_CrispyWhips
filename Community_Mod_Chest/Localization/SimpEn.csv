@@ -733,7 +733,7 @@ CMC_AcademyLectern_DA_Herbalism_Desc,"A two-hour session among the herb gardens.
 CMC_AcademyLectern_DA_ArchitectureFinal,Final Exam: Architecture
 CMC_AcademyLectern_DA_ArchitectureFinal_Desc,"The final two-hour examination. Pass it to earn the Architecture degree and its steady Beaver Blessing; with Water-Driven Infrastructure installed, it also hands you the Water-Driven Sawmill and Grinding Mill blueprints outright, no research needed (without the degree they stay in normal research), and, together with a Metallurgy degree, unlocks the Water-Driven Forge and Workshop."
 CMC_AcademyLectern_DA_MetallurgyFinal,Final Exam: Metallurgy
-CMC_AcademyLectern_DA_MetallurgyFinal_Desc,"The final two-hour examination. Pass it to earn the Metallurgy degree: the Copper Sheet and Bronze Sheet recipes are handed to you outright, no research required, and, with Water-Driven Infrastructure installed and an Architecture degree, it also unlocks the Water-Driven Forge and Workshop."
+CMC_AcademyLectern_DA_MetallurgyFinal_Desc,"The final two-hour examination. Pass it to earn the Metallurgy degree: the Metal Sheet recipe (every metal, bronze included) is handed to you outright, no research required, and, with Water-Driven Infrastructure installed and an Architecture degree, it also unlocks the Water-Driven Forge and Workshop."
 CMC_AcademyLectern_DA_HerbalismFinal,Final Exam: Herbalism
 CMC_AcademyLectern_DA_HerbalismFinal_Desc,The final two-hour examination. Pass it to earn the Herbalism degree: from then on you gather twice as much whenever you forage.
 CMC_AcademyLectern_Prog_Architecture,Architecture
@@ -749,7 +749,7 @@ CharacterTraits_Perk_HigherEducation_PerkDescription,"Retired trait. The village
 CharacterTraits_Perk_GradArchitecture_PerkName,Architecture Graduate
 CharacterTraits_Perk_GradArchitecture_PerkDescription,"You completed the Academy's architecture course. With Water-Driven Infrastructure installed, the Water-Driven Sawmill and Grinding Mill blueprints are yours outright, no research needed, and together with a Metallurgy degree, the Water-Driven Forge and Workshop. You also keep a steady Beaver Blessing as strong as one spirit blessing."
 CharacterTraits_Perk_GradMetallurgy_PerkName,Metallurgy Graduate
-CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Copper Sheet and Bronze Sheet recipes are yours outright, with no research needed, and, with Water-Driven Infrastructure installed and an Architecture degree, the Water-Driven Forge and Workshop. Your Smithing counts 25 higher, so your metalwork comes out better."
+CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Metal Sheet recipe (every metal, bronze included) is yours outright, with no research needed, and, with Water-Driven Infrastructure installed and an Architecture degree, the Water-Driven Forge and Workshop. Your Smithing counts 25 higher, so your metalwork comes out better."
 CharacterTraits_Perk_GradHerbalism_PerkName,Herbalism Graduate
 CharacterTraits_Perk_GradHerbalism_PerkDescription,"You completed the Academy's herbalism course. Each herb or mushroom you forage has a one-in-four chance to come in double. The extra finds are added as you gather them, so they do not show up in any drop-chance list."
 CharacterTraits_Perk_GradFishing_PerkName,Fishing Graduate

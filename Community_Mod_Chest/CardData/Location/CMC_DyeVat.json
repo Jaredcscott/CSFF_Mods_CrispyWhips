@@ -28,7 +28,7 @@
     "CardImageWarpType": 3,
     "CardTagsWarpData": ["tag_Structure"],
     "CardTagsWarpType": 3,
-    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpData": ["WoodAppear"],
     "WhenCreatedSoundsWarpType": 3,
     "MaxWeightCapacity": 50000,
     "InventorySlots": [
@@ -116,7 +116,7 @@
             },
             "DaytimeCost": 3,
             "UseMiniTicks": 0,
-            "ActionSoundsWarpData": ["Wood"],
+            "ActionSoundsWarpData": ["WoodAppear"],
             "ActionSoundsWarpType": 3,
             "ActionTagsWarpData": ["HandAction"],
             "ActionTagsWarpType": 3,

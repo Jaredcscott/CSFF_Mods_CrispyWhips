@@ -20,7 +20,7 @@
     "UniqueOnBoard": true,
     "CannotBeTrashed": true,
     "NeedsRoomInLocationToSpawn": false,
-    "WhenCreatedSoundsWarpData": ["Cloth"],
+    "WhenCreatedSoundsWarpData": ["BigCloth"],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {
         "Active": true,

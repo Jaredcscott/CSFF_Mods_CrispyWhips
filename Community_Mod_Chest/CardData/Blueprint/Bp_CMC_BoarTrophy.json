@@ -64,7 +64,7 @@
         }
     ],
     "BlueprintStatModifications": [],
-    "WhenCreatedSoundsWarpData": ["Bone"],
+    "WhenCreatedSoundsWarpData": ["SmallObject_A"],
     "WhenCreatedSoundsWarpType": 3,
     "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
     "BlueprintActionTagsWarpType": 3,

@@ -23,7 +23,7 @@
     "IsMiniInventory": true,
     "MaxLiquidCapacity": 10.0,
     "WhenCreatedSoundsWarpData": [
-        "Stone"
+        "StoneAppear"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {

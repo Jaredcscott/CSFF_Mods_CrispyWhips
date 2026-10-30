@@ -19,7 +19,7 @@
     "CardTagsWarpData": [],
     "CardTagsWarpType": 3,
     "WhenCreatedSoundsWarpData": [
-        "Bone"
+        "SmallObject_A"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {

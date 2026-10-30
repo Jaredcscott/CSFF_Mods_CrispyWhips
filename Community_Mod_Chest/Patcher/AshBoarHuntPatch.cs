@@ -103,7 +103,7 @@ namespace CommunityModChest.Patcher
         private const string InnCatUid              = "cmcInnCat";
         private const string HuntersCrossingEnvUid  = "cmcEnvHuntersCrossing";
 
-        // Village_Master_Plan.md section 10.5 K8: one-shot epilogue flag for the Wooden Shield gate.
+        // Village_Master_As_Built.md section 10.5 K8: one-shot epilogue flag for the Wooden Shield gate.
         private const string BoarHuntResolvedStatUid = "cmcStatInnBoarHuntResolved";
         // Tracks Ash's hunt movement state (0=home, 1=departed, 2=placed at HC).
         private const string BoarHuntSpotStatUid    = "cmcStatAshBoarHuntSpot";

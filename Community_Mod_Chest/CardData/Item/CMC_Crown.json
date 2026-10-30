@@ -24,7 +24,7 @@
     "EquipmentTagsWarpData": ["eTag_Head"],
     "EquipmentTagsWarpType": 3,
     "AffectStatsOnlyWhenEquipped": true,
-    "WhenCreatedSoundsWarpData": ["Metal"],
+    "WhenCreatedSoundsWarpData": ["MetalAppear"],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": { "Active": false },
     "UsageDurability": { "Active": false },

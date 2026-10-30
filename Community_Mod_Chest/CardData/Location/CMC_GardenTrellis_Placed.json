@@ -20,7 +20,7 @@
     "UniqueOnBoard": false,
     "CannotBeTrashed": false,
     "NeedsRoomInLocationToSpawn": false,
-    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpData": ["WoodAppear"],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {
         "Active": true,

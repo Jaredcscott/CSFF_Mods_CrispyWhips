@@ -34,7 +34,7 @@
     },
     "AlwaysUpdate": true,
     "WhenCreatedSoundsWarpData": [
-        "Wood"
+        "WoodAppear"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "UsageDurability": {
@@ -157,7 +157,7 @@
             "DaytimeCost": 1,
             "UseMiniTicks": 0,
             "ActionSoundsWarpData": [
-                "Wood"
+                "WoodAppear"
             ],
             "ActionSoundsWarpType": 3,
             "ActionTagsWarpData": [],

@@ -43,7 +43,7 @@
   "WeaponMovesWarpType": 4,
   "IsArmor": false,
   "AlwaysUpdate": false,
-  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpData": ["WoodAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": { "Active": false },
   "UsageDurability": {
@@ -97,7 +97,7 @@
       "ActionTags": [],
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpData": ["WoodAppear"],
       "ActionSoundsWarpType": 3,
       "ProducedCards": [
         {

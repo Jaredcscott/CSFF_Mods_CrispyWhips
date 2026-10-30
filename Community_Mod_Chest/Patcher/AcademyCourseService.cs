@@ -241,7 +241,9 @@ namespace CommunityModChest.Patcher
             {
                 Label         = "Metallurgy",
                 RequiredPerks = new[] { GradMetallurgy },
-                Blueprints    = new[] { "advanced_copper_tools_bp_metal_sheet", "act_bp_bronze_sheet" }
+                // One sheet blueprint for every metal since framework 2.29.0: act_bp_bronze_sheet is a retired
+                // stub (no tab, AlsoUnlocks to this one), so granting it handed over nothing usable.
+                Blueprints    = new[] { "advanced_copper_tools_bp_metal_sheet" }
             },
             new CourseUnlock
             {

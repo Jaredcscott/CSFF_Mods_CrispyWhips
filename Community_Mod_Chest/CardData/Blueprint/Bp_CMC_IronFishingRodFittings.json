@@ -78,7 +78,7 @@
     }
   ],
   "BlueprintStatModifications": [],
-  "WhenCreatedSoundsWarpData": ["Metal"],
+  "WhenCreatedSoundsWarpData": ["MetalAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
   "BlueprintActionTagsWarpType": 3,

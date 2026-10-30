@@ -7,7 +7,7 @@ using CSFFModFramework.Util;
 namespace CommunityModChest.Patcher
 {
     /// <summary>
-    /// Shadow the Cat (Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md §3.6/§10.7) — a second,
+    /// Shadow the Cat (Documentation/Design/Village_Master_As_Built.md §3.6/§10.7) — a second,
     /// wholly independent companion-cat chain modeled on LostCatPatch.cs. Shares zero
     /// UIDs/files/state with Ash (cmcStrayCat/cmcInnCat/cmcStatLostCat) — Ash is untouchable
     /// (see memory: user_cat_ashton).

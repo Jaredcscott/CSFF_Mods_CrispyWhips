@@ -107,6 +107,8 @@
         <Content Include="DropInjections.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('DropInjections.json')" />
         <Content Include="InjectImprovementInto.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('InjectImprovementInto.json')" />
         <Content Include="TradingValues.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('TradingValues.json')" />
+        <Content Include="KitContents.json" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="StatResets.json" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="ScriptableObject\**\*.json" CopyToOutputDirectory="PreserveNewest" Link="ScriptableObject\%(RecursiveDir)%(Filename)%(Extension)" />
         <Content Include="GameSourceModify\*.json" CopyToOutputDirectory="PreserveNewest" Link="GameSourceModify\%(Filename)%(Extension)" />
         <Content Include="EncounterGuards\*.json" CopyToOutputDirectory="PreserveNewest" Link="EncounterGuards\%(Filename)%(Extension)" Condition="Exists('EncounterGuards')" />

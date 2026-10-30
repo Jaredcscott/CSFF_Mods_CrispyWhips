@@ -20,7 +20,7 @@
     "UniqueOnBoard": false,
     "CannotBeTrashed": false,
     "NeedsRoomInLocationToSpawn": false,
-    "WhenCreatedSoundsWarpData": ["Herb"],
+    "WhenCreatedSoundsWarpData": ["GrassAppear"],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {
         "Active": true,

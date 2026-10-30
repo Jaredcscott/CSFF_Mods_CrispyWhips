@@ -67,7 +67,7 @@
     }
   ],
   "BlueprintStatModifications": [],
-  "WhenCreatedSoundsWarpData": ["Stone"],
+  "WhenCreatedSoundsWarpData": ["StoneAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
   "BlueprintActionTagsWarpType": 3,

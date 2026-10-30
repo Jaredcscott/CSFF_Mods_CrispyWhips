@@ -360,7 +360,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_MetallurgyFinal_Desc",
-        "DefaultText": "The final two-hour examination. Pass it to earn the Metallurgy degree: the Copper Sheet and Bronze Sheet recipes are handed to you outright, no research required, and, with Water-Driven Infrastructure installed and an Architecture degree, it also unlocks the Water-Driven Forge and Workshop."
+        "DefaultText": "The final two-hour examination. Pass it to earn the Metallurgy degree: the Metal Sheet recipe (every metal, bronze included) is handed to you outright, no research required, and, with Water-Driven Infrastructure installed and an Architecture degree, it also unlocks the Water-Driven Forge and Workshop."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,

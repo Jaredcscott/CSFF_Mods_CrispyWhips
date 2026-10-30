@@ -81,7 +81,7 @@ No blocking work. The 2 yellow retros are human-verification debt, not code defe
 
 > Where CMC should be at v1.70+.
 
-CMC is a stable, mature content-and-simulation anchor for the fleet - in active-workspace maintenance, not feature expansion. Its natural endpoint is a village simulation whose every advertised loop is confirmed in-game, with the retro backlog closed, the civic/inn reliability breadcrumbs added, and the domain sub-audits refreshed. The biggest justified future work is retiring the diagnostic logging (`GuardCombatDiagnosticPatch`, `CompanionFollowDiagnostics`) once their open retros confirm.
+CMC is a stable, mature content-and-simulation anchor for the fleet - in active-workspace maintenance, not feature expansion. Its natural endpoint is a village simulation whose every advertised loop is confirmed in-game, with the retro backlog closed, the civic/inn reliability breadcrumbs added, and the domain sub-audits refreshed. `CompanionFollowDiagnostics` retired 2026-10-29 (companions module audit) once T2.237 confirmed the companion-follow fix (PASS 2026-10-05, reconfirmed 2026-10-14); the remaining justified future work is retiring `GuardCombatDiagnosticPatch` once its own open retro (`cmc-guard-combat-no-damage`) confirms.
 
 **Potential major additions** (not yet justified - revisit after the retro backlog closes):
 - A declarative `Modifiers.json` / `FlavourMatrix` pass if community suggestions call for food-synergy depth - fits the Inn/cooking theme.

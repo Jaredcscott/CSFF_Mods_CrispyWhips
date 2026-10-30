@@ -21,7 +21,7 @@
     "DoesNotPile": true,
     "CannotBeTrashed": true,
     "NeedsRoomInLocationToSpawn": false,
-    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpData": ["WoodAppear"],
     "WhenCreatedSoundsWarpType": 3,
     "ContainedBlueprintCardsWarpData": [
         "BpCMCWeaverRope",

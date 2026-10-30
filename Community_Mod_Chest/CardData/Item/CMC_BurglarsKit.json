@@ -19,7 +19,7 @@
     "CardImageWarpType": 3,
     "CardTagsWarpData": [],
     "CardTagsWarpType": 3,
-    "WhenCreatedSoundsWarpData": ["Stone"],
+    "WhenCreatedSoundsWarpData": ["StoneAppear"],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": { "Active": false },
     "UsageDurability": { "Active": false },

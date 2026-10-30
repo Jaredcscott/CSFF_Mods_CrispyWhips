@@ -71,7 +71,7 @@
   ],
   "AlwaysUpdate": true,
   "WhenCreatedSoundsWarpData": [
-    "Stone"
+    "StoneAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {
@@ -147,7 +147,7 @@
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [
-        "Stone"
+        "StoneAppear"
       ],
       "ActionSoundsWarpType": 3,
       "ProducedCards": [

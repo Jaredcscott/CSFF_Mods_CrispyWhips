@@ -41,9 +41,7 @@
         "LightFlickerFreq": 2.0,
         "LightFlickerStrength": 0.03
     },
-    "WhenCreatedSoundsWarpData": [
-        "FireIgnite"
-    ],
+    "WhenCreatedSoundsWarpData": [],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {
         "Active": false
@@ -84,9 +82,7 @@
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 0,
-            "ActionSoundsWarpData": [
-                "FireExtinguish"
-            ],
+            "ActionSoundsWarpData": [],
             "ActionSoundsWarpType": 3,
             "ReceivingCardChanges": {
                 "ModType": 2,
@@ -133,9 +129,7 @@
             "UseMiniTicks": 0,
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
-            "ActionSoundsWarpData": [
-                "FireExtinguish"
-            ],
+            "ActionSoundsWarpData": [],
             "ActionSoundsWarpType": 3,
             "ReceivingCardChanges": {
                 "ModType": 2,

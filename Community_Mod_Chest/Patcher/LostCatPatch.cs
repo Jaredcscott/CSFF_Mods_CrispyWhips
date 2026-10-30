@@ -8,7 +8,8 @@ using CSFFModFramework.Util;
 namespace CommunityModChest.Patcher
 {
     /// <summary>
-    /// The Inn Keeper's lost cat (Documentation/Design/Village_InnKeeper_Plan.md, Chat-dialog arc).
+    /// The Inn Keeper's lost cat (Documentation/Design/Village_Master_As_Built.md §3.6, merged from the
+    /// former standalone InnKeeper plan's Chat-dialog arc).
     ///
     /// State machine lives in the hidden GameStat cmcStatLostCat (GameStat/CMC_LostCat.json),
     /// written ONLY by authored JSON actions — this patch never writes it:

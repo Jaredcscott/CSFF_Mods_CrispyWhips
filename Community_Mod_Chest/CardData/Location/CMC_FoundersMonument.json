@@ -27,7 +27,7 @@
     "UniqueOnBoard": true,
     "CannotBeTrashed": true,
     "NeedsRoomInLocationToSpawn": false,
-    "WhenCreatedSoundsWarpData": ["Stone"],
+    "WhenCreatedSoundsWarpData": ["StoneAppear"],
     "WhenCreatedSoundsWarpType": 3,
     "UsageDurability": { "Active": false },
     "FuelCapacity": { "Active": false },
