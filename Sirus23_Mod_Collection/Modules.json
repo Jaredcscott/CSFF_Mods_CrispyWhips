@@ -20,8 +20,8 @@
     {
       "id": "textiles",
       "name": "Wool, Felt and Comfort",
-      "summary": "Wool, Washed Wool, Yarn, Felted Wool, Woven Cloth, the felt and wool clothing, bedroll, rug, blanket and Feather Pillow, Lanolin and Lanolin Salve, the comfort/outfit stats, the crafting-kit perk and the one-time Comfort fixup patch.",
-      "paths": ["**/*Wool*", "**/*Yarn*", "**/*Felt*", "**/*WovenCloth*", "**/*FeatherPillow*", "**/*Lanolin*", "GameStat/sh_stat_blanket_carried.json", "GameStat/sh_stat_comfort_fixup_done.json", "GameStat/sh_stat_soft_furnishing.json", "CharacterPerk/Pk_SH_CraftingKit.json", "Patcher/ComfortFixupPatch.cs"]
+      "summary": "Wool, Washed Wool, Yarn, Felted Wool, Woven Cloth, the felt and wool clothing, bedroll, rug, blanket and Feather Pillow, Lanolin and Lanolin Salve, the comfort/outfit stats, the crafting-kit perk and the one-time Comfort reset (StatResets.json).",
+      "paths": ["**/*Wool*", "**/*Yarn*", "**/*Felt*", "**/*WovenCloth*", "**/*FeatherPillow*", "**/*Lanolin*", "GameStat/sh_stat_blanket_carried.json", "GameStat/sh_stat_comfort_fixup_done.json", "GameStat/sh_stat_soft_furnishing.json", "CharacterPerk/Pk_SH_CraftingKit.json", "StatResets.json"]
     },
     {
       "id": "wolf",

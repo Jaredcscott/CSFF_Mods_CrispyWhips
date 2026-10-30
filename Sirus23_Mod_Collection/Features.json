@@ -340,7 +340,7 @@
     {
       "name": "Lanolin Salve",
       "status": "Implemented",
-      "_note": "Blueprint sh_bp_lanolin_salve (Survival>Medical, gated on sh_lanolin on board): 1 lanolin + 1 vanilla FrostleafPowder -> salve. DA 'Apply to Skin' ModType:3 restores +15 Comfort. 1.22.6 (S23-B6): it now sets sh_stat_lanolin_soothe to 96 (falls 1 a tick), whose status gives Comfort +15 while it lasts; Patcher/ComfortFixupPatch.cs clears the permanent Comfort older salves wrote, once per save.",
+      "_note": "Blueprint sh_bp_lanolin_salve (Survival>Medical, gated on sh_lanolin on board): 1 lanolin + 1 vanilla FrostleafPowder -> salve. DA 'Apply to Skin' ModType:3 restores +15 Comfort. 1.22.6 (S23-B6): it now sets sh_stat_lanolin_soothe to 96 (falls 1 a tick), whose status gives Comfort +15 while it lasts; StatResets.json (framework 2.29.0, was Patcher/ComfortFixupPatch.cs until 1.22.12) clears the permanent Comfort older salves wrote, once per save.",
       "cards": [
         "sh_lanolin_salve",
         "sh_bp_lanolin_salve"

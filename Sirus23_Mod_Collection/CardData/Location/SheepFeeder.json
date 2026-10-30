@@ -102,7 +102,7 @@
             "ActionTags": [],
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
-            "ActionSoundsWarpData": ["Wood"],
+            "ActionSoundsWarpData": ["WoodAppear"],
             "ActionSoundsWarpType": 3,
             "ReceivingCardChanges": {
                 "ModType": 2,

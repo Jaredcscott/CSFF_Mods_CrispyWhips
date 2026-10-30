@@ -56,7 +56,7 @@
     "DoesNotPinAutomatically": false,
     "WhenCreatedSounds": [],
     "WhenCreatedSoundsWarpData": [
-        "Wood"
+        "WoodAppear"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {

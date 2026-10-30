@@ -94,6 +94,7 @@
     <ItemGroup>
         <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('BlueprintTabs.json')" />
+        <Content Include="StatResets.json" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="CardData\**\*.json" CopyToOutputDirectory="PreserveNewest" Link="CardData\%(RecursiveDir)%(Filename)%(Extension)" />
         <Content Include="CharacterPerk\*.json" CopyToOutputDirectory="PreserveNewest" Link="CharacterPerk\%(Filename)%(Extension)" />
 <Content Include="EncounterGuards\*.json" CopyToOutputDirectory="PreserveNewest" Link="EncounterGuards\%(Filename)%(Extension)" />

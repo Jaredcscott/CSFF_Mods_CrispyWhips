@@ -5,6 +5,15 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.22.12] - 2026-10-30
+
+### Changed
+
+- **Actions that were silent now make a sound.** Chiwei raised that smithing made no sound. The cause was 40 sound references in this mod naming sounds the game does not have (`Wood`, `Fiber`, `Metal`), so those actions and newly made cards played nothing. Each now names a base-game sound: wooden things use the wood sound, fibre and woven things the grass sound, and metal things the metal sound. Which sound goes with which action is a matter of taste and can be tuned.
+- Technical: every name in a `*SoundsWarpData` list is now a base-game AudioClip, remapped by `Development_Tools/SpriteCheck/remap_sound_names.py` from one table (fleet plan 4.1, Prompt 12; finding `Documentation/Research/Fleet/APE_Port/W0.1_missing_audio.md`). The table is a taste call and tunable. `Development_Tools/Tests/Mods-SoundNamesAreClips.Tests.ps1` fails on any name that is not a clip.
+- **Needs CSFF Mod Framework 2.29.0 or later for the one-time Comfort reset.** The reset that clears the Comfort older Lanolin Salves wrote permanently into a save now runs in the framework, from a short list this mod ships, instead of this mod's own code. It still runs once per save, as the save loads, and a save that already had it does not get it again. It now also writes Comfort the way the game does, so Comfort's statuses update with it, and it marks the save done only after the reset is confirmed: if it cannot run at the load it tries again on each tick instead of waiting for the next load. On an older framework it does not run.
+- Technical: `Patcher/ComfortFixupPatch.cs` and its `Plugin.cs` registration are deleted; the reset is a `StatResets.json` row (stat Comfort `be10ed6d196f5d043b7a819f9f1fd1ff`, latch `sh_stat_comfort_fixup_done`, target `default`, `When` `RunStart`, log tag `ComfortFixup` with the same reset line), read by the framework's `Injection/StatResetsService.cs` (fleet plan 6.7, Prompt 26, `Documentation/Research/Fleet/APE_Port/W0.10_redundant_code.md` row 7 and its As built section). From Community Mod Chest's copy it takes the write through `StatAccess.Modify` checked before the latch, the per-tick retry and one warning per cause after 8 failures (the old copy warned on every failed load). `Sirus23_Mod_Collection.csproj` ships the file; `Modules.json` moves it into the textiles module. The build compiles against the shared `HerbsAndFungi/lib/CSFFModFramework.dll` and calls no 2.29.0 member, so the requirement is the data file, not the DLL. Gate: `Development_Tools/Tests/Framework-StatResets.Tests.ps1` pins the row's order and line.
+
 ## [1.22.11] - 2026-10-23
 
 ### Fixed

@@ -1,0 +1,11 @@
+[
+  {
+    "_comment": "S23-B6 (vanilla balance pass, 1.22.6): a one-time Comfort reset per save. Before 1.22.6 the Lanolin Salve wrote Comfort +15 straight into the stat's BASE value, and vanilla Comfort has no decay, so every salve ever applied stayed in the save. The salve now raises a one-day effect stat instead (sh_stat_lanolin_soothe). This clears Comfort's base back to the stat's own default once per save, as the save loads (RunStart), latched by the hidden saved stat sh_stat_comfort_fixup_done. Community Mod Chest ships its own row for the same stat with its own latch: whichever runs second finds nothing left to clear. Comfort from worn clothing is a modifier, not base, and is untouched. No LogUnchanged: the reset line is written once per save whatever the base held, as before. Read by CSFF Mod Framework 2.29.0+ (Injection/StatResetsService.cs); until 1.22.12 this was Patcher/ComfortFixupPatch.cs, whose log line the tag and line below keep.",
+    "Stat": "be10ed6d196f5d043b7a819f9f1fd1ff",
+    "Latch": "sh_stat_comfort_fixup_done",
+    "Target": "default",
+    "When": "RunStart",
+    "LogTag": "ComfortFixup",
+    "LogReset": "one-time Comfort reset for this save: base {before} -> {target} (clears the permanent Comfort older Lanolin Salves wrote)."
+  }
+]
