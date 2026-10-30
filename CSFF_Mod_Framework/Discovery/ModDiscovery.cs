@@ -289,6 +289,9 @@ internal static class ModDiscovery
             HasAnyFile(Path.Combine(dir, "FlavourMatrix"), new[] { "*.json" }, SearchOption.TopDirectoryOnly);
 
         mod.HasModifiers = File.Exists(Path.Combine(dir, "Modifiers.json"));
+        mod.HasLiquidConversions = File.Exists(Path.Combine(dir, "LiquidConversions.json"));
+        mod.HasKitContents = File.Exists(Path.Combine(dir, "KitContents.json"));
+        mod.HasStatResets = File.Exists(Path.Combine(dir, "StatResets.json"));
     }
 
     private static bool HasGSMBulkMatch(string modDir)

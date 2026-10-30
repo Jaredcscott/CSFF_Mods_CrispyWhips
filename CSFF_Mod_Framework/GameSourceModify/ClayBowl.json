@@ -1,0 +1,143 @@
+{
+  "UniqueID": "a968f3eaffc6b9743b82982b5af2ab8c",
+  "LiquidImagesWarpData": [
+    {
+      "LiquidCardsWarpData": [
+        "APE_LQ_LampOil"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "CSFFMFW_LQ_LampOil",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "APE_LQ_SaltWater"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "CSFFMFW_LQ_Brine",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "APE_LQ_SaltSyrup"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "CSFFMFW_LQ_ConcentratedBrine",
+      "LiquidImageWarpType": 3
+    }
+  ],
+  "LiquidImagesWarpType": 4,
+  "CookingRecipesWarpData": [
+    {
+      "ActionName": {
+        "ParentObjectID": "a968f3eaffc6b9743b82982b5af2ab8c",
+        "LocalizationKey": "CSFFMFW_ClayBowl_SoakMeatInBrine",
+        "DefaultText": "Soak in Brine"
+      },
+      "CompatibleCardsWarpData": [
+        "fe07d4d800bcc8646a0ff2513c78d5df"
+      ],
+      "CompatibleCardsWarpType": 3,
+      "Conditions": {
+        "RequiredTagsInInventoryWarpData": [
+          "tag_x_Brine"
+        ],
+        "RequiredTagsInInventoryWarpType": 3,
+        "ReceivingRequiredDurabilityRanges": {
+          "LiquidQuantityRange": {
+            "x": 100.0,
+            "y": 1000000000.0
+          }
+        }
+      },
+      "Duration": 1,
+      "IngredientChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "csffmfw_meat_in_brine",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferSpecial2": true,
+        "AddSpicesFromTargetCard": true,
+        "AddedSpiceTagsWarpData": [
+          "6dc5a4f564e72b0458cf0352e84f318d"
+        ],
+        "AddedSpiceTagsWarpType": 3,
+        "TransferSpecial3": true
+      },
+      "HideCookingProgress": true,
+      "Notification": 2
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "a968f3eaffc6b9743b82982b5af2ab8c",
+        "LocalizationKey": "CSFFMFW_ClayBowl_SoakFishInBrine",
+        "DefaultText": "Soak in Brine"
+      },
+      "CompatibleCardsWarpData": [
+        "272fe32c20eebef4d82290c7a31ac885"
+      ],
+      "CompatibleCardsWarpType": 3,
+      "Conditions": {
+        "RequiredTagsInInventoryWarpData": [
+          "tag_x_Brine"
+        ],
+        "RequiredTagsInInventoryWarpType": 3,
+        "ReceivingRequiredDurabilityRanges": {
+          "LiquidQuantityRange": {
+            "x": 100.0,
+            "y": 1000000000.0
+          }
+        }
+      },
+      "Duration": 1,
+      "IngredientChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "csffmfw_fish_in_brine",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferSpecial2": true,
+        "AddSpicesFromTargetCard": true,
+        "AddedSpiceTagsWarpData": [
+          "6dc5a4f564e72b0458cf0352e84f318d"
+        ],
+        "AddedSpiceTagsWarpType": 3
+      },
+      "HideCookingProgress": true,
+      "Notification": 2
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "a968f3eaffc6b9743b82982b5af2ab8c",
+        "LocalizationKey": "CSFFMFW_ClayBowl_CureInBrine",
+        "DefaultText": "Cure in Brine"
+      },
+      "CompatibleCardsWarpData": [
+        "csffmfw_meat_in_brine",
+        "csffmfw_fish_in_brine"
+      ],
+      "CompatibleCardsWarpType": 3,
+      "Conditions": {
+        "RequiredTagsInInventoryWarpData": [
+          "tag_x_Brine"
+        ],
+        "RequiredTagsInInventoryWarpType": 3,
+        "ReceivingRequiredDurabilityRanges": {
+          "LiquidQuantityRange": {
+            "x": 100.0,
+            "y": 1000000000.0
+          }
+        }
+      },
+      "Duration": 1,
+      "IngredientChanges": {
+        "ModType": 1,
+        "ChargesChange": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      },
+      "HideCookingProgress": true
+    }
+  ],
+  "CookingRecipesWarpType": 4
+}

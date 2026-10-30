@@ -1,0 +1,63 @@
+{
+  "UniqueID": "3103c059d34608a4bb95c426d9ac77e0",
+  "CardInteractionsWarpData": [
+    {
+      "GivenCardChanges": {
+        "ModType": 1,
+        "SpoilageChange": {
+          "x": -0.1,
+          "y": -0.1
+        },
+        "UsageChange": {
+          "x": -0.1,
+          "y": -0.1
+        }
+      },
+      "CompatibleCards": {
+        "TriggerTagsWarpData": [
+          "tag_Cutter"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "ActionName": {
+        "ParentObjectID": "fe07d4d800bcc8646a0ff2513c78d5df",
+        "LocalizationKey": "APE_Action_Mince",
+        "DefaultText": "Mince"
+      },
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [
+        "HandAction",
+        "SlowWithDullToolAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "LocksCardsForUse": true,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCardWarpData": "0eb3634f696991b4d97b91626270e035",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
+              }
+            },
+            {
+              "DroppedCardWarpData": "b25f1f9bfc2a0bc44a93079ed02cb43f",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 7,
+                "y": 7
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],
+  "CardInteractionsWarpType": 4
+}

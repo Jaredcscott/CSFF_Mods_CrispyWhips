@@ -15,18 +15,20 @@ CSFFMFW_Animal_Approach,Approach
 CSFFMFW_Animal_EncounterEventTitle,You see a {0}!
 CSFFMFW_Animal_EncounterEventTitleVowel,You see an {0}!
 Advanced_Copper_Tools_CopperNails_CardName,Metal Nail
-Advanced_Copper_Tools_CopperNails_CardDescription,"A small metal nail, perfect for joining wood. It is the metal it was made from: copper, ghost bronze, tin, tin bronze, white bronze or iron."
-Advanced_Copper_Tools_Bp_CopperNails_CardName,Forged Copper Nail
-Advanced_Copper_Tools_Bp_CopperNails_CardDescription,"Hammer a copper, tin or bronze nugget into a nail of the same metal."
-Advanced_Copper_Tools_Bp_CopperNails_UnlockConditionsDesc,Copper Nugget Needed
-Advanced_Copper_Tools_CopperNails_CardHelpSection,"<b>Crafted:</b> From a copper, tin or bronze nugget using a hammer, or six at a time by casting a heated copper, tin or bronze bar (one mud brick and one clay as the mould); iron nails are forged from 4 iron nuggets with a hammer (Forge Iron Nails, 4 nails). The nail is the metal of its nugget or bar.
+Advanced_Copper_Tools_CopperNails_CardDescription,"A small metal nail, perfect for joining wood. It is the metal it was made from: copper, ghost bronze, tin, tin bronze, white bronze or iron. Heat it and strike it with a hard hammer to raise its quality; each nail takes only a few strikes."
+Advanced_Copper_Tools_Bp_CopperNails_CardName,Forged Metal Nail
+Advanced_Copper_Tools_Bp_CopperNails_CardDescription,"Hammer a nugget of copper, tin, bronze or iron into a nail of the same metal."
+Advanced_Copper_Tools_Bp_CopperNails_UnlockConditionsDesc,Metal Nugget Needed
+Advanced_Copper_Tools_CopperNails_CardHelpSection,"<b>Crafted:</b> From a copper, tin, bronze or iron nugget using a hammer, or six at a time by casting a heated copper, tin or bronze bar (one mud brick and one clay as the mould). The nail is the metal of its nugget or bar.
+
+<b>Heat and smith:</b> In a fire or forge it heats up (shown as a Heated nail) and cools again outside it. A heated nail struck with a hard hammer gains quality from your Smithing skill; each nail takes only a few strikes.
 
 <b>Uses:</b> Construction and crafting. A nail of any metal works the same in every recipe, iron included.
 
 <b>Smelts:</b> Returns 1 nugget of its own metal in a furnace at 1100°C or hotter."
-Advanced_Copper_Tools_MetalSheet_CardDescription,"A flat metal sheet, hammered thin. It is the metal it was made from: copper, ghost bronze, tin, tin bronze, white bronze or iron."
+Advanced_Copper_Tools_MetalSheet_CardDescription,"A flat metal sheet, hammered thin. It is the metal it was made from: copper, ghost bronze, tin, tin bronze, white bronze or iron. Heat it and strike it with a hard hammer to raise its quality; each sheet takes only a few strikes."
 Advanced_Copper_Tools_MetalSheet_CardName,Metal Sheet
-Bp_MetalSheet_CardDescription,Hammer a heated lump of metal flat into a copper sheet.
+Bp_MetalSheet_CardDescription,"Hammer a heated bar of copper, ghost bronze, tin, tin bronze or white bronze flat with a hard hammer into a sheet of the same metal. Your Smithing skill adds to its quality."
 Bp_MetalSheet_CardName,Metal Sheet
 Bp_MetalSheet_UnlockConditionsDesc,Heated Lump of Metal Needed
 Advanced_Copper_Tools_CopperNails_FuelCapacity.CardStatName,Temperature
@@ -37,18 +39,18 @@ Advanced_Copper_Tools_MetalSheet_AlternateNames[3].Name,Tin Bronze Sheet
 Advanced_Copper_Tools_MetalSheet_AlternateNames[4].Name,White Bronze Sheet
 Advanced_Copper_Tools_MetalSheet_FuelCapacity.CardStatName,Temperature
 Advanced_Copper_Tools_TinSolder_CardName,Tin Solder
-Advanced_Copper_Tools_TinSolder_CardDescription,A tin solder stick. Useful for joining metal parts or sealing seams.
+Advanced_Copper_Tools_TinSolder_CardDescription,A tin solder stick for joining metal parts or sealing seams. A new stick lasts five recipes.
 Advanced_Copper_Tools_Bp_IronNails_CardName,Forge Iron Nails
 Advanced_Copper_Tools_Bp_IronNails_CardDescription,Forge 4 iron nuggets into 4 Iron Nails (Metal Nails of Metal Type 200).
 Advanced_Copper_Tools_Bp_IronNails_UnlockConditionsDesc,Dried Bog Iron Needed
 Advanced_Copper_Tools_Bp_TinSolder_CardName,Forge Tin Solder
-Advanced_Copper_Tools_Bp_TinSolder_CardDescription,Melt a tin-grade metal nugget into solder sticks.
+Advanced_Copper_Tools_Bp_TinSolder_CardDescription,Melt a tin-grade metal nugget into a solder stick that lasts five recipes.
 Advanced_Copper_Tools_Bp_TinSolder_UnlockConditionsDesc,Tin Nugget Needed
 Advanced_Copper_Tools_Bp_IronSheet_CardName,Iron Sheet
 Advanced_Copper_Tools_Bp_IronSheet_CardDescription,"Hammer 6 iron nuggets flat into an Iron Sheet (a Metal Sheet of Metal Type 200), ready for iron-grade tools and armor."
 Advanced_Copper_Tools_Bp_IronSheet_UnlockConditionsDesc,Iron Nugget Needed
 Advanced_Copper_Tools_Bp_BronzeSheet_CardName,Bronze Sheet
-Advanced_Copper_Tools_Bp_BronzeSheet_CardDescription,"Hammer a heated Ghost Bronze, Tin, Tin Bronze or White Bronze bar flat into a sheet of the same metal, ready for alloy armor."
+Advanced_Copper_Tools_Bp_BronzeSheet_CardDescription,"Hammer a heated Ghost Bronze, Tin, Tin Bronze or White Bronze bar flat with a hard hammer into a sheet of the same metal, ready for alloy armor. Your Smithing skill adds to its quality."
 Advanced_Copper_Tools_Bp_BronzeSheet_UnlockConditionsDesc,Heated Bronze-Grade Metal Bar Needed
 Advanced_Copper_Tools_MetalSheet_SpecialDurability2.CardStatName,Metal Quality
 Advanced_Copper_Tools_MetalSheet_SpecialDurability4.CardStatName,Metal Type
@@ -64,5 +66,102 @@ Advanced_Copper_Tools_Bp_CastCopperNails_UnlockConditionsDesc,Heated Metal Bar N
 Advanced_Copper_Tools_MetalSheet_AlternateNames[5].Name,Iron Sheet
 Advanced_Copper_Tools_CopperNails_AlternateNames[5].Name,Iron Nail
 CSFFMFW_GpTag_FW_Oil_TabName,Oil
+CSFFMFW_GpTag_FW_MetalSheet_TabName,Metal Sheet
+CSFFMFW_GpTag_FW_MetalNail_TabName,Metal Nail
+CSFFMFW_GpTag_FW_Solder_TabName,Solder
 CSFFMFW_Portal_TravelTo,Travel to {0}
 CSFFMFW_Portal_World_FantasyForest,Fantasy Forest
+APE_LQ_LampOil_CardName,Lamp Oil
+APE_LQ_LampOil_CardDescription,"A refined oil used for oil lamps.
+It's also fine to use it for frying food or as a seasoning."
+APE_Bp_LampOil_CardHelpSection,"<b>Operation steps:</b>
+1. Need to heat fat liquid. 
+2. Heat and melt 12 pieces of fat in a bowl to obtain a bowl of liquid fat."
+APE_Bp_LampOil_UnlockConditionsDesc,Cloth Needed
+APE_Action_Mince,Mince
+APE_Action_FeedFuel,Feed Fuel
+APE_Action_Add,Add
+APE_Action_Drink,Drink
+APE_Stat_LiquidTemperature,Liquid Temperature
+CSFFMFW_LampOil_FeedFuel_ActionDescription,Add lamp oil as fuel.
+APE_StearinCake_CardName,Stearin Cake
+APE_StearinCake_CardDescription,"A cake of stearin. Can be used as wax for making candles.
+It can be thrown directly into a fire, and it is also a very good waterproofing agent and lubricant."
+APE_Action_Seal,Seal
+APE_Action_AddFuel,Add Fuel
+APE_Action_Waterproof,Waterproof
+APE_Action_Treat,Treat
+APE_Action_TreatWithFat_Desc,Treat with Fat
+Advanced_Copper_Tools_MetalSheet_AlternateNames[6].Name,Heated Copper Sheet
+Advanced_Copper_Tools_MetalSheet_AlternateNames[7].Name,Heated Ghost Bronze Sheet
+Advanced_Copper_Tools_MetalSheet_AlternateNames[8].Name,Heated Tin Sheet
+Advanced_Copper_Tools_MetalSheet_AlternateNames[9].Name,Heated Tin Bronze Sheet
+Advanced_Copper_Tools_MetalSheet_AlternateNames[10].Name,Heated White Bronze Sheet
+Advanced_Copper_Tools_MetalSheet_AlternateNames[11].Name,Heated Iron Sheet
+Advanced_Copper_Tools_CopperNails_AlternateNames[6].Name,Heated Copper Nail
+Advanced_Copper_Tools_CopperNails_AlternateNames[7].Name,Heated Ghost Bronze Nail
+Advanced_Copper_Tools_CopperNails_AlternateNames[8].Name,Heated Tin Nail
+Advanced_Copper_Tools_CopperNails_AlternateNames[9].Name,Heated Tin Bronze Nail
+Advanced_Copper_Tools_CopperNails_AlternateNames[10].Name,Heated White Bronze Nail
+Advanced_Copper_Tools_CopperNails_AlternateNames[11].Name,Heated Iron Nail
+Advanced_Copper_Tools_MetalSheet_SpecialDurability1.CardStatName,Strikes
+Advanced_Copper_Tools_MetalSheet_SpecialDurability3.CardStatName,Quality
+Advanced_Copper_Tools_MetalSheet_Smith_ActionName,Smith
+Advanced_Copper_Tools_MetalSheet_Smith_ActionDescription,Strike the heated sheet with a hard hammer to raise its quality. Each strike uses one of its strikes.
+Advanced_Copper_Tools_CopperNails_SpecialDurability1.CardStatName,Strikes
+Advanced_Copper_Tools_CopperNails_SpecialDurability2.CardStatName,Metal Quality
+Advanced_Copper_Tools_CopperNails_SpecialDurability3.CardStatName,Quality
+Advanced_Copper_Tools_CopperNails_Smith_ActionName,Smith
+Advanced_Copper_Tools_CopperNails_Smith_ActionDescription,Strike the heated nail with a hard hammer to raise its quality. Each strike uses one of its strikes.
+Advanced_Copper_Tools_TinSolder_SpecialDurability1.CardStatName,Uses
+Advanced_Copper_Tools_TinSolder_SpecialDurability2.CardStatName,Metal Quality
+Advanced_Copper_Tools_TinSolder_SpecialDurability4.CardStatName,Metal Type
+Advanced_Copper_Tools_TinSolder_SpecialDurability1.OnZero.ActionDescription,The solder is used up.
+Advanced_Copper_Tools_Bp_CastMetalSheet_CardName,Cast Metal Sheet
+Advanced_Copper_Tools_Bp_CastMetalSheet_CardDescription,"Pour a small crucible of molten copper, tin or bronze into a mould of mud bricks and clay to cast one sheet of the same metal. Your Smithing skill adds to its quality."
+Advanced_Copper_Tools_Bp_CastMetalSheet_UnlockConditionsDesc,Small Molten Crucible Needed
+APE_LQ_SaltWater_CardName,Brine
+APE_LQ_SaltWater_CardDescription,"Salt dissolved in water, for pickling and salting food. Food soaking in it is salted, and raw meat or lean fish left in a clay bowl of it cures into Salt-Cured Meat or Fish. A Pickle Vat ferments food in it. Add more salt to make Concentrated Brine."
+APE_LQ_SaltWater_SpecialDurability1_CardStatName,Saltiness
+APE_LQ_SaltSyrup_CardName,Concentrated Brine
+APE_LQ_SaltSyrup_CardDescription,Very salty. Food left in it is salted.
+APE_LQ_SaltSyrup_SpecialDurability1_CardStatName,Dryness
+APE_Salt_Action_DissolveWater_Name,Dissolve in Water
+APE_Salt_Action_AddSaltWater_Name,Add to Brine
+CSFFMFW_Salt_DissolveWater_ActionDescription,Dissolve the salt in the water to make Brine.
+CSFFMFW_Salt_AddToBrine_ActionDescription,"Dissolve more salt in the brine. Salty enough, it becomes Concentrated Brine."
+CSFFMFW_GpTag_FW_Brine_TabName,Brine
+Advanced_Copper_Tools_SaltCuredMeat_CardName,Salt-Cured Meat
+Advanced_Copper_Tools_SaltCuredMeat_CardDescription,"Raw meat cured in brine. A filling, slow-spoiling travel ration - though the salt will leave you thirsty."
+Advanced_Copper_Tools_SaltCuredMeat_SpoilageTime_StatName,Spoilage
+Advanced_Copper_Tools_SaltCuredMeat_SpoilageTime_OnFull,The salt-cured meat has finally spoiled.
+Advanced_Copper_Tools_SaltCuredMeat_Eat,Eat
+Advanced_Copper_Tools_SaltCuredMeat_Eat_Desc,"Eat the salt-cured meat. Filling, but salty."
+Advanced_Copper_Tools_SaltCuredFish_CardName,Salt-Cured Fish
+Advanced_Copper_Tools_SaltCuredFish_CardDescription,"Lean fish cured in brine. A light, slow-spoiling travel ration that keeps far longer than dried fish - though the salt will leave you thirsty."
+Advanced_Copper_Tools_SaltCuredFish_SpoilageTime_StatName,Spoilage
+Advanced_Copper_Tools_SaltCuredFish_SpoilageTime_OnFull,The salt-cured fish has finally spoiled.
+Advanced_Copper_Tools_SaltCuredFish_Eat,Eat
+Advanced_Copper_Tools_SaltCuredFish_Eat_Desc,"Eat the salt-cured fish. Light, but salty."
+CSFFMFW_MeatInBrine_CardName,Meat in Brine
+CSFFMFW_MeatInBrine_CardDescription,Raw meat soaking in brine. About two days in the brine turn it into Salt-Cured Meat. Kept in a clay bowl holding at least 100 brine it cures; out of the brine it stops curing and spoils like raw meat. Rinse it to get the raw meat back.
+CSFFMFW_MeatInBrine_SpoilageTime_CardStatName,Spoilage
+CSFFMFW_MeatInBrine_SpoilageTime_OnFull,Meat in Brine spoiled!
+CSFFMFW_MeatInBrine_Progress_CardStatName,Curing
+CSFFMFW_MeatInBrine_Progress_OnFull,Salt-Cured Meat is ready!
+CSFFMFW_MeatInBrine_SpecialDurability2_CardStatName,Quality
+CSFFMFW_MeatInBrine_SpecialDurability3_CardStatName,Meat Type
+CSFFMFW_MeatInBrine_Rinse,Rinse off the Brine
+CSFFMFW_MeatInBrine_Rinse_Desc,Take it out of the brine. It is raw again and stops curing; it keeps the salt it soaked up.
+CSFFMFW_FishInBrine_CardName,Fish in Brine
+CSFFMFW_FishInBrine_CardDescription,Raw lean fish soaking in brine. About two days in the brine turn it into Salt-Cured Fish. Kept in a clay bowl holding at least 100 brine it cures; out of the brine it stops curing and spoils like raw fish. Rinse it to get the raw fish back.
+CSFFMFW_FishInBrine_SpoilageTime_CardStatName,Spoilage
+CSFFMFW_FishInBrine_SpoilageTime_OnFull,Fish in Brine spoiled!
+CSFFMFW_FishInBrine_Progress_CardStatName,Curing
+CSFFMFW_FishInBrine_Progress_OnFull,Salt-Cured Fish is ready!
+CSFFMFW_FishInBrine_SpecialDurability2_CardStatName,Quality
+CSFFMFW_FishInBrine_Rinse,Rinse off the Brine
+CSFFMFW_FishInBrine_Rinse_Desc,Take it out of the brine. It is raw again and stops curing; it keeps the salt it soaked up.
+CSFFMFW_ClayBowl_SoakMeatInBrine,Soak in Brine
+CSFFMFW_ClayBowl_SoakFishInBrine,Soak in Brine
+CSFFMFW_ClayBowl_CureInBrine,Cure in Brine

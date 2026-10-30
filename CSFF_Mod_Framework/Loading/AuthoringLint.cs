@@ -180,8 +180,10 @@ internal static class AuthoringLint
             "Scan the loaded mod JSON once at startup for shapes that load cleanly and then do nothing "
             + "(an out-of-range flavour Intensity, a bogus durability key, a flat drop list, another mod's "
             + "UniqueID in a structural field with no hard dependency on that mod, ...) and log "
-            + "one Warn line per affected mod. Silent when nothing is found; per-finding detail is Debug.",
-            "启动时扫描一次已加载的模组 JSON，查找能正常加载却不起作用的写法（超出范围的风味强度、无效的耐久度键、扁平的掉落列表、在结构字段中引用了未设为硬依赖的其他模组的 UniqueID 等），每个受影响的模组记录一条警告。没有发现问题时不输出；每项发现的详情为 Debug 级别。");
+            + "one Warn line per affected mod. Also warns once per field that two mods' GameSourceModify patches "
+            + "both replace, and per mod CardTabGroup file that matches a vanilla group. Silent when nothing is "
+            + "found; per-finding detail is Debug.",
+            "启动时扫描一次已加载的模组 JSON，查找能正常加载却不起作用的写法（超出范围的风味强度、无效的耐久度键、扁平的掉落列表、在结构字段中引用了未设为硬依赖的其他模组的 UniqueID 等），每个受影响的模组记录一条警告。另外，两个模组的 GameSourceModify 补丁替换同一字段时，每个字段警告一次；模组的 CardTabGroup 文件与原版分组同名或 ParentObjectID 相同时，每个文件警告一次。没有发现问题时不输出；每项发现的详情为 Debug 级别。");
     }
 
     /// <summary>Called by <see cref="JsonDataLoader"/> when a non-UID ScriptableObject name another mod's file holds is replaced.</summary>

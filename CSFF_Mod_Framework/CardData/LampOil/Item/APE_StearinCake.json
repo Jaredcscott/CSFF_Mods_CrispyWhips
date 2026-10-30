@@ -1,0 +1,610 @@
+{
+  "UniqueID": "APE_StearinCake",
+  "CardName": {
+    "ParentObjectID": "APE_StearinCake",
+    "LocalizationKey": "APE_StearinCake_CardName",
+    "DefaultText": "Stearin Cake"
+  },
+  "CardDescription": {
+    "ParentObjectID": "APE_StearinCake",
+    "LocalizationKey": "APE_StearinCake_CardDescription",
+    "DefaultText": "A cake of stearin. Can be used as wax for making candles.\nIt can be thrown directly into a fire, and it is also a very good waterproofing agent and lubricant."
+  },
+  "CardImageWarpData": "CSFFMFW_StearinCake",
+  "CardImageWarpType": 3,
+  "CardType": 0,
+  "ObjectWeight": 20,
+  "TradingValue": 24,
+  "WhenCreatedSoundsWarpData": [
+    "Conch"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false,
+    "RatePerDaytimePoint": -1,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3
+      }
+    },
+    "FloatValue": 2880
+  },
+  "UsageDurability": {
+    "Active": false,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    },
+    "FloatValue": 2
+  },
+  "InventorySlots": [],
+  "CardInteractions": [
+    {
+      "WorksBothWays": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "d31a1dd6772813444a0cb8370aa59464"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ActionName": {
+        "ParentObjectID": "d31a1dd6772813444a0cb8370aa59464",
+        "LocalizationKey": "APE_Action_Seal",
+        "DefaultText": "Seal"
+      },
+      "DaytimeCost": 1,
+      "StatModifications": [
+        {
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 10,
+            "y": 10
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2,
+            "y": 2
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -3,
+            "y": -3
+          },
+          "ApplyEachTick": true
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "3af3dec775f09ad47a5f73ddd13ed228",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true,
+        "TransferInventory": true,
+        "TransferLiquid": true
+      }
+    },
+    {
+      "WorksBothWays": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "894492bd12dcba94e8b6ababc67a58e7"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ActionName": {
+        "ParentObjectID": "894492bd12dcba94e8b6ababc67a58e7",
+        "LocalizationKey": "APE_Action_Seal",
+        "DefaultText": "Seal"
+      },
+      "DaytimeCost": 1,
+      "StatModifications": [
+        {
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 10,
+            "y": 10
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2,
+            "y": 2
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -3,
+            "y": -3
+          },
+          "ApplyEachTick": true
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "a3713cbe65bca38419b8f4119a3c186c",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true,
+        "TransferInventory": true,
+        "TransferLiquid": true
+      }
+    },
+    {
+      "WorksBothWays": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "3d31f07b8e1367744a1fad8a37338df6",
+          "9711230a851db104eab1438342b8f88a"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ActionName": {
+        "ParentObjectID": "3d31f07b8e1367744a1fad8a37338df6",
+        "LocalizationKey": "APE_Action_AddFuel",
+        "DefaultText": "Add Fuel"
+      },
+      "UseMiniTicks": 1,
+      "GivenCardChanges": {
+        "ModType": 1,
+        "ModifyDurability": true,
+        "Special2Change": {
+          "x": 96,
+          "y": 96
+        }
+      }
+    },
+    {
+      "WorksBothWays": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "917a547996effd640badc5add764950e"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ActionName": {
+        "ParentObjectID": "917a547996effd640badc5add764950e",
+        "LocalizationKey": "APE_Action_Waterproof",
+        "DefaultText": "Waterproof"
+      },
+      "DaytimeCost": 2,
+      "StatModifications": [
+        {
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2,
+            "y": 2
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 10,
+            "y": 10
+          }
+        },
+        {
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -5,
+            "y": 5
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2,
+            "y": 2
+          }
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "2674de0b486a266499d2edfc38f5148d",
+        "TransformIntoWarpType": 3,
+        "TransferFuel": true,
+        "TransferLiquid": true,
+        "ModifyDurability": true,
+        "UsageChange": {
+          "x": 5760,
+          "y": 5760
+        }
+      }
+    },
+    {
+      "WorksBothWays": true,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "2674de0b486a266499d2edfc38f5148d"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ActionName": {
+        "ParentObjectID": "2674de0b486a266499d2edfc38f5148d",
+        "LocalizationKey": "APE_Action_Waterproof",
+        "DefaultText": "Waterproof"
+      },
+      "DaytimeCost": 2,
+      "StatModifications": [
+        {
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2,
+            "y": 2
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 10,
+            "y": 10
+          }
+        },
+        {
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -5,
+            "y": 5
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2,
+            "y": 2
+          }
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 1,
+        "ModifyDurability": true,
+        "UsageChange": {
+          "x": 5760,
+          "y": 5760
+        }
+      }
+    },
+    {
+      "WorksBothWays": true,
+      "ReceivingCardChanges": {
+        "ModType": 3,
+        "UsageChange": {
+          "x": -1,
+          "y": -1
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "f90644358651b17498553570d880312a"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ActionName": {
+        "ParentObjectID": "f90644358651b17498553570d880312a",
+        "LocalizationKey": "APE_Action_Treat",
+        "DefaultText": "Treat"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "f90644358651b17498553570d880312a",
+        "LocalizationKey": "APE_Action_TreatWithFat_Desc",
+        "DefaultText": "Treat with Fat"
+      },
+      "DaytimeCost": 1,
+      "RequiredGivenDurabilities": {
+        "RequiredProgressPercent": {
+          "MaxValue": 0.990000009536743,
+          "Active": true
+        },
+        "RequiredSpecial1Percent": {
+          "MaxValue": 0.990000009536743
+        },
+        "RequiredSpecial4Percent": {
+          "MaxValue": 0.598999977111816,
+          "FloatValue": 0.5,
+          "Active": true
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "ModifyDurability": true,
+        "ChargesChange": {
+          "x": 1,
+          "y": 1
+        },
+        "Special2Change": {
+          "x": 2.25,
+          "y": 2.25
+        }
+      }
+    },
+    {
+      "WorksBothWays": true,
+      "ReceivingCardChanges": {
+        "ModType": 3,
+        "UsageChange": {
+          "x": -1,
+          "y": -1
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "7750f89a63e418a41b377b48e88646f1"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ActionName": {
+        "ParentObjectID": "7750f89a63e418a41b377b48e88646f1",
+        "LocalizationKey": "APE_Action_Treat",
+        "DefaultText": "Treat"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "7750f89a63e418a41b377b48e88646f1",
+        "LocalizationKey": "APE_Action_TreatWithFat_Desc",
+        "DefaultText": "Treat with Fat"
+      },
+      "DaytimeCost": 1,
+      "RequiredGivenDurabilities": {
+        "RequiredProgressPercent": {
+          "MaxValue": 0.990000009536743,
+          "Active": true
+        },
+        "RequiredSpecial1Percent": {
+          "MaxValue": 0.990000009536743
+        },
+        "RequiredSpecial4Percent": {
+          "MaxValue": 0.499000012874603,
+          "FloatValue": 0.400000005960464,
+          "Active": true
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "ModifyDurability": true,
+        "ChargesChange": {
+          "x": 2,
+          "y": 2
+        },
+        "Special2Change": {
+          "x": 4.5,
+          "y": 4.5
+        }
+      }
+    },
+    {
+      "WorksBothWays": true,
+      "ReceivingCardChanges": {
+        "ModType": 3,
+        "UsageChange": {
+          "x": -1,
+          "y": -1
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "f362a7ba3ad932244b1e9c18569ac98e"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ActionName": {
+        "ParentObjectID": "f362a7ba3ad932244b1e9c18569ac98e",
+        "LocalizationKey": "APE_Action_Treat",
+        "DefaultText": "Treat"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "f362a7ba3ad932244b1e9c18569ac98e",
+        "LocalizationKey": "APE_Action_TreatWithFat_Desc",
+        "DefaultText": "Treat with Fat"
+      },
+      "DaytimeCost": 1,
+      "RequiredGivenDurabilities": {
+        "RequiredProgressPercent": {
+          "MaxValue": 0.990000009536743,
+          "Active": true
+        },
+        "RequiredSpecial1Percent": {
+          "MaxValue": 0.990000009536743
+        },
+        "RequiredSpecial4Percent": {
+          "MaxValue": 0.398999989032745,
+          "FloatValue": 0.300000011920929,
+          "Active": true
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "ModifyDurability": true,
+        "ChargesChange": {
+          "x": 4,
+          "y": 4
+        },
+        "Special2Change": {
+          "x": 9,
+          "y": 9
+        }
+      }
+    },
+    {
+      "WorksBothWays": true,
+      "ReceivingCardChanges": {
+        "ModType": 3,
+        "UsageChange": {
+          "x": -1,
+          "y": -1
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "669497ecaa30b634c86bea6b61f31e63"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ActionName": {
+        "ParentObjectID": "669497ecaa30b634c86bea6b61f31e63",
+        "LocalizationKey": "APE_Action_Treat",
+        "DefaultText": "Treat"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "669497ecaa30b634c86bea6b61f31e63",
+        "LocalizationKey": "APE_Action_TreatWithFat_Desc",
+        "DefaultText": "Treat with Fat"
+      },
+      "DaytimeCost": 1,
+      "RequiredGivenDurabilities": {
+        "RequiredProgressPercent": {
+          "MaxValue": 0.990000009536743,
+          "Active": true
+        },
+        "RequiredSpecial1Percent": {
+          "MaxValue": 0.990000009536743
+        },
+        "RequiredSpecial4Percent": {
+          "MaxValue": 0.29899999499321,
+          "FloatValue": 0.200000002980232,
+          "Active": true
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "ModifyDurability": true,
+        "ChargesChange": {
+          "x": 8,
+          "y": 8
+        },
+        "Special2Change": {
+          "x": 18,
+          "y": 18
+        }
+      }
+    },
+    {
+      "WorksBothWays": true,
+      "ReceivingCardChanges": {
+        "ModType": 3,
+        "UsageChange": {
+          "x": -1,
+          "y": -1
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "a6a1c34a23599e449b975d6b86264376"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "ActionName": {
+        "ParentObjectID": "a6a1c34a23599e449b975d6b86264376",
+        "LocalizationKey": "APE_Action_Treat",
+        "DefaultText": "Treat"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "a6a1c34a23599e449b975d6b86264376",
+        "LocalizationKey": "APE_Action_TreatWithFat_Desc",
+        "DefaultText": "Treat with Fat"
+      },
+      "DaytimeCost": 1,
+      "RequiredGivenDurabilities": {
+        "RequiredProgressPercent": {
+          "MaxValue": 0.990000009536743,
+          "Active": true
+        },
+        "RequiredSpecial1Percent": {
+          "MaxValue": 0.990000009536743
+        },
+        "RequiredSpecial4Percent": {
+          "MaxValue": 0.199000000953674,
+          "FloatValue": 0.100000001490116,
+          "Active": true
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "ModifyDurability": true,
+        "ChargesChange": {
+          "x": 8,
+          "y": 8
+        },
+        "Special2Change": {
+          "x": 18,
+          "y": 18
+        }
+      }
+    }
+  ],
+  "BlueprintContainerCardChanges": {
+    "ModType": 0
+  },
+  "CardTagsWarpData": [
+    "tag_Preservable",
+    "tag_Fuel"
+  ],
+  "CardTagsWarpType": 3
+}

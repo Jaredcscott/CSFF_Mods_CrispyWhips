@@ -3,7 +3,8 @@
   "sharedTables": [
     "Localization/*.csv",
     "BlueprintTabs.json",
-    "SmeltingRecipes.json"
+    "SmeltingRecipes.json",
+    "UidAliases.json"
   ],
   "modules": [
     {
@@ -11,7 +12,7 @@
       "name": "Core and Mod-wide",
       "summary": "Plugin entry, ModInfo, csproj, docs and licenses, shared utilities (Util, ReflectionCache), the LitJSON stub, SafePatcher and art review state.",
       "modWide": true,
-      "paths": ["Plugin.cs", "GlobalUsing.cs", "ModInfo.json", "CSFFModFramework.csproj", "README.md", "CHANGELOG.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", "THIRD_PARTY_LICENSES.md", ".gitignore", "Modules.json", "Features.json",
+      "paths": ["Plugin.cs", "GlobalUsing.cs", "ModInfo.json", "CSFFModFramework.csproj", "README.md", "README.zh.md", "CHANGELOG.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", "THIRD_PARTY_LICENSES.md", ".gitignore", "Modules.json", "Features.json",
                 "Util/**", "Reflection/**", "Stubs/**", "Patching/SafePatcher.cs", ".art/review/**"]
     },
     {
@@ -31,7 +32,7 @@
       "name": "Load Pipeline and Data",
       "summary": "LoadOrchestrator and GameLoadPatch phases, JsonDataLoader, Data/ (Database, GameRegistry, DataMap, WarpResolver, GameSourceModifier, ExtraDataStore), UID aliases, clones, foreign-instance reconcile, normalizers, index repairs, stale-content cleanup, AlwaysUpdate, authoring lint and the VanillaIds registry.",
       "paths": ["Data/**", "Resources/VanillaIds.json", "Patching/GameLoadPatch.cs",
-                "Loading/LoadOrchestrator.cs", "Loading/JsonDataLoader.cs", "Loading/PhaseTimings.cs", "Loading/FrameworkDirtyTracker.cs", "Loading/AuthoringLint.cs",
+                "Loading/LoadOrchestrator.cs", "Loading/JsonDataLoader.cs", "Loading/PhaseTimings.cs", "Loading/FrameworkDirtyTracker.cs", "Loading/AuthoringLint.cs", "Loading/OverrideConflictLint.cs",
                 "Loading/UidAliasService.cs", "Loading/CardCloneService.cs", "Loading/ForeignInstanceReconciler.cs", "Loading/NullReferenceCompactor.cs", "Loading/PassiveEffectNormalizer.cs",
                 "Loading/ProducedCardService.cs", "Loading/TypedCacheAllDataSync.cs", "Loading/UniqueIdIndexRepair.cs", "Loading/StaleContentCleaner.cs", "Loading/AlwaysUpdateService.cs",
                 "Loading/SpawnStatDefaultsLoader.cs", "Loading/NPCActionDroppedCardsRepair.cs"]
@@ -46,9 +47,9 @@
     {
       "id": "injection",
       "name": "Declarative Content Injectors",
-      "summary": "Blueprint tabs and container fix, perks (injection, relocation, origin tag, starting stats), drops, improvements, smelting, tag groups (TagGroups.json), trading values, flavour matrix, modifier packages, quests, STA activation and the blueprint flag fix.",
+      "summary": "Blueprint tabs and container fix, perks (injection, relocation, origin tag, starting stats), drops, improvements, smelting, tag groups (TagGroups.json), cross-slot matching rules (MatchAcross), trading values, flavour matrix, modifier packages, quests, STA activation and the blueprint flag fix.",
       "paths": ["Injection/BlueprintInjector.cs", "Injection/PerkInjector.cs", "Injection/PerkStartingItemStats.cs", "Injection/DropInjector.cs", "Injection/ImprovementInjector.cs",
-                "Injection/SmeltingRecipeInjector.cs", "Injection/TagGroupService.cs", "Injection/TradingValueInjector.cs", "Injection/FlavourMatrixInjector.cs",
+                "Injection/SmeltingRecipeInjector.cs", "Injection/TagGroupService.cs", "Injection/LiquidConversionTable.cs", "Injection/LiquidConversionInjector.cs", "Injection/KitContentsTable.cs", "Injection/KitContentsService.cs", "Injection/StatResetsTable.cs", "Injection/StatResetsService.cs", "Injection/MatchAcrossRules.cs", "Injection/MatchAcrossService.cs", "Injection/TradingValueInjector.cs", "Injection/FlavourMatrixInjector.cs",
                 "Injection/ModifierPackageInjector.cs", "Injection/QuestInjector.cs", "Injection/StaActivationService.cs",
                 "Loading/PerkRelocationService.cs", "Loading/BlueprintContainerSaveLoadFix.cs", "Patching/PerkOriginTagPatch.cs", "Patching/BlueprintFlagFix.cs", "TagGroups.json"]
     },
@@ -105,7 +106,25 @@
       "id": "metalparts",
       "name": "Shared Metal Parts",
       "summary": "Metal Sheet, Metal Nails (copper, cast copper, iron) and Tin Solder cards and blueprints shared by content mods, with their metal-variant pictures and smelting rows.",
-      "paths": ["CardData/MetalParts/**"]
+      "paths": ["CardData/MetalParts/**", ".art/make_heated_metal.py"]
+    },
+    {
+      "id": "lampoil",
+      "name": "Lamp Oil and Stearin Cake",
+      "summary": "Lamp Oil (APE_LQ_LampOil), the Stearin Cake (APE_StearinCake) and the Lamp Oil blueprint hosted from Chiwei's Additional Processing Equipment, with the framework GameSourceModify patches they need (fish Mince actions, clay bowl picture, Fat or Wax and Waterproofing Agent groups) and their picture recipes.",
+      "paths": ["CardData/LampOil/**", "GameSourceModify/**", ".art/liquid_bowls.json", ".art/make_stearin_cake.py"]
+    },
+    {
+      "id": "brine",
+      "name": "Brine and Brine Curing",
+      "summary": "Brine (APE_LQ_SaltWater) and Concentrated Brine (APE_LQ_SaltSyrup) hosted from Chiwei's Additional Processing Equipment, the Brine's salting effect, the soaking cards Meat in Brine and Fish in Brine, and Salt-Cured Meat and Fish (moved from Advanced Copper Tools under its UIDs) with their pictures. The Salt and Clay Bowl GameSourceModify patches that make Brine and cure in it sit in the lampoil module's GameSourceModify/**.",
+      "paths": ["CardData/Brine/**", ".art/SaltCuredMeat.json", ".art/SaltCuredFish.json", "Resource/Picture/SaltCuredMeat.png", "Resource/Picture/SaltCuredFish.png"]
+    },
+    {
+      "id": "cardstate",
+      "name": "Per-Card Saved Values",
+      "summary": "Api.CardState (2.29.0, fleet plan 6.3): named float values on one in-game card, keyed by a random id in the card's DroppedCollections, saved in a sidecar per save file under the slot's CSFFModFramework folder, pruned to the ids each written save still holds, and carried through transforms and blueprints by a per-name policy. The public facade Api/CardState.cs sits in the api module.",
+      "paths": ["CardStates/**"]
     }
   ]
 }

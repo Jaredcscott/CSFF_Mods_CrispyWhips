@@ -127,6 +127,20 @@ internal static class LocalizationLoader
         }
     }
 
+    /// <summary>
+    /// Turns a literal backslash-n (and backslash-r backslash-n) in a MOD CSV value into a newline, so mod
+    /// text matches vanilla: vanilla's own LoadLanguage already does this for vanilla rows (backslash-n only,
+    /// regex over each CurrentTexts value as it loads), and mod rows are written afterwards so they used to
+    /// arrive as two characters. Applied only here, to mod and framework rows: never to vanilla text, and not
+    /// in ReadCsvRecords or SplitCsvLine, which also serve ReadEnglishKeys and the quote recovery. A lone
+    /// backslash-r is left alone, as in vanilla. There is no escape for a literal backslash-n.
+    /// </summary>
+    internal static string UnescapeModText(string value)
+    {
+        if (string.IsNullOrEmpty(value) || value.IndexOf('\\') < 0) return value;
+        return value.Replace("\\r\\n", "\n").Replace("\\n", "\n");
+    }
+
     // No header row — CSV format: Key,English[,Chinese]
     private static int LoadLocalizationDir(string locDir, string langSuffix, Dictionary<string, string> currentTexts)
     {
@@ -166,6 +180,7 @@ internal static class LocalizationLoader
                     var value = (valueCol < columns.Count && !string.IsNullOrEmpty(columns[valueCol].Trim()))
                         ? columns[valueCol].Trim()
                         : columns[1].Trim();
+                    value = UnescapeModText(value);
                     if (!string.IsNullOrEmpty(value))
                     {
                         currentTexts[key] = value;

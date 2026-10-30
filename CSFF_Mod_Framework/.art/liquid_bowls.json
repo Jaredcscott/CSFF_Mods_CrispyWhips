@@ -1,0 +1,23 @@
+{
+ "_note": "Liquid card pictures: vanilla Bowl_Clay_Water with the liquid recoloured (owner 2026-10-11). Build with Development_Tools/CardArt/liquid_bowl.py make CSFFModFramework --source <Bowl_Clay_Water.png> --link. The Lamp Oil blueprint (CardData/LampOil/Blueprint/APE_Bp_LampOil.json) draws the same bowl, and so does the Clay Bowl's LiquidImages append (GameSourceModify/ClayBowl.json); neither is a CT9 card, so only the liquid is a row here.",
+ "bowls": [
+  {
+   "image": "CSFFMFW_LQ_LampOil",
+   "card": "CardData/LampOil/Liquid/APE_LQ_LampOil.json",
+   "colour": "#d17d00",
+   "looks": "clear deep amber, the orange of Chiwei's own Lamp Oil bowl (median measured on APE 0.1.06 APE_LQ_LampOil.png)"
+  },
+  {
+   "image": "CSFFMFW_LQ_Brine",
+   "card": "CardData/Brine/Liquid/APE_LQ_SaltWater.json",
+   "colour": "#aaaa6e",
+   "looks": "cloudy yellow-green, the colour H&F's Pickle Brine had (HF_LQ_PickleBrine), so a pickle vat looks as it did before the merge"
+  },
+  {
+   "image": "CSFFMFW_LQ_ConcentratedBrine",
+   "card": "CardData/Brine/Liquid/APE_LQ_SaltSyrup.json",
+   "colour": "#d9d6c3",
+   "looks": "milky off-white, heavy with salt"
+  }
+ ]
+}

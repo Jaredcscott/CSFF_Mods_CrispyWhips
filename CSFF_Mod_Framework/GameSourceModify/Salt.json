@@ -1,0 +1,82 @@
+{
+  "UniqueID": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+  "CardInteractionsWarpData": [
+    {
+      "GivenCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "APE_LQ_SaltWater",
+        "TransformIntoWarpType": 3,
+        "TransferLiquid": true,
+        "ModifyDurability": true,
+        "Special1Change": {
+          "x": 10,
+          "y": 10
+        },
+        "ScaleChangesPerPortionOfLiquid": {
+          "FloatValue": 300,
+          "Active": true
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "425259cb06b869d45be2e7f1b5b54aff"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTagsWarpData": [
+          "tag_WaterSafe"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "WorksBothWays": true,
+      "ActionName": {
+        "ParentObjectID": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+        "LocalizationKey": "APE_Salt_Action_DissolveWater_Name",
+        "DefaultText": "Dissolve in Water"
+      },
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ActionDescription": {
+        "ParentObjectID": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+        "LocalizationKey": "CSFFMFW_Salt_DissolveWater_ActionDescription",
+        "DefaultText": "Dissolve the salt in the water to make Brine."
+      }
+    },
+    {
+      "GivenCardChanges": {
+        "ModType": 1,
+        "ModifyDurability": true,
+        "ModifyLiquid": true,
+        "Special1Change": {
+          "x": 10,
+          "y": 10
+        },
+        "ScaleChangesPerPortionOfLiquid": {
+          "FloatValue": 300,
+          "Active": true
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "APE_LQ_SaltWater"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "WorksBothWays": true,
+      "ActionName": {
+        "ParentObjectID": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+        "LocalizationKey": "APE_Salt_Action_AddSaltWater_Name",
+        "DefaultText": "Add to Brine"
+      },
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ActionDescription": {
+        "ParentObjectID": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+        "LocalizationKey": "CSFFMFW_Salt_AddToBrine_ActionDescription",
+        "DefaultText": "Dissolve more salt in the brine. Salty enough, it becomes Concentrated Brine."
+      }
+    }
+  ],
+  "CardInteractionsWarpType": 4
+}

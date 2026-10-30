@@ -876,17 +876,47 @@ public static class CardUtil
     /// Performs a complete in-place card model swap: resolves <paramref name="targetUniqueId"/>
     /// to a CardData, calls <see cref="TrySetCardModel"/>, then <see cref="ReinitCard"/>.
     /// Returns true on success.
+    /// A card that becomes a powder (a solid with a liquid version: vanilla salt and flour, or a pair from
+    /// any mod's <c>LiquidConversions.json</c>) also gets its pour quantity, as a freshly spawned one does
+    /// (2.29.0, <see cref="SetFreshPowderLiquidQuantity"/>).
     /// For transforms that also need placement restore or runtime-state reset (durabilities,
     /// latches), call the lower-level methods after this returns.
+    /// The card keeps its <see cref="Api.CardState"/> id; of its values, only names declared carried through
+    /// transforms (<see cref="Api.CardState.DeclareCarry"/>) stay (2.29.0).
     /// </summary>
     public static bool TransformCardInPlace(object card, string targetUniqueId)
     {
         if (card == null || string.IsNullOrEmpty(targetUniqueId)) return false;
         var targetData = GetCardDataById(targetUniqueId);
         if (targetData == null) return false;
+        long cardStateId = CardStates.CardStateStore.IdBeforeTransform(card);
         if (!TrySetCardModel(card, targetData)) return false;
         ReinitCard(card, targetData);
+        SetFreshPowderLiquidQuantity(card);
+        CardStates.CardStateStore.AfterTransformInPlace(card, cardStateId);
         return true;
+    }
+
+    /// <summary>
+    /// Gives a card that is now a powder the pour quantity vanilla's <c>InGameCardBase.Init</c> gives a fresh
+    /// one: <c>if (LiquidVersion) CurrentLiquidQuantity = SolidToLiquidInfo.LiquidQuantity</c>. <c>SetModel</c>
+    /// fills <c>SolidToLiquidInfo</c> but not the quantity, and the game's pour action destroys the solid and
+    /// adds exactly <c>CurrentLiquidQuantity</c>, so at 0 the powder vanishes when poured (root CLAUDE.md
+    /// "Runtime Card Removal"; the ACT Tea Station bug). Does nothing for a card with no liquid version.
+    /// </summary>
+    public static void SetFreshPowderLiquidQuantity(object card)
+    {
+        if (card is not InGameCardBase igc || !igc) return;
+        try
+        {
+            var info = igc.SolidToLiquidInfo;
+            if (info != null && igc.LiquidVersion) igc.CurrentLiquidQuantity = info.LiquidQuantity;
+        }
+        catch (Exception ex)
+        {
+            WarnLiquidOnce("fresh-powder-threw:" + Log.CauseKey(ex),
+                $"CardUtil.SetFreshPowderLiquidQuantity threw {ex.GetType().Name}, so a card turned into a powder may pour as nothing: {Log.ExceptionText(ex)}");
+        }
     }
 
     // ── Batch AllData queries ─────────────────────────────────────────────────

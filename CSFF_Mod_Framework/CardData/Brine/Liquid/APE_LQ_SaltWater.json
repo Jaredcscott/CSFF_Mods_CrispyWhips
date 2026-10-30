@@ -1,0 +1,280 @@
+{
+  "UniqueID": "APE_LQ_SaltWater",
+  "CardName": {
+    "ParentObjectID": "APE_LQ_SaltWater",
+    "LocalizationKey": "APE_LQ_SaltWater_CardName",
+    "DefaultText": "Brine"
+  },
+  "CardDescription": {
+    "ParentObjectID": "APE_LQ_SaltWater",
+    "LocalizationKey": "APE_LQ_SaltWater_CardDescription",
+    "DefaultText": "Salt dissolved in water, for pickling and salting food. Food soaking in it is salted, and raw meat or lean fish left in a clay bowl of it cures into Salt-Cured Meat or Fish. A Pickle Vat ferments food in it. Add more salt to make Concentrated Brine."
+  },
+  "CardImageWarpData": "CSFFMFW_LQ_Brine",
+  "CardImageWarpType": 3,
+  "CardType": 9,
+  "ObjectWeight": 0.330000013113022,
+  "CardTagsWarpData": [
+    "tag_Heatable",
+    "tag_x_Brine"
+  ],
+  "CardTagsWarpType": 3,
+  "AlwaysUpdate": true,
+  "ToggleablePiling": true,
+  "UsageDurability": {
+    "MaxValue": 1000,
+    "HidingOptions": 2,
+    "OverrideIconWarpData": "Shield",
+    "OverrideIconWarpType": 3,
+    "Active": false
+  },
+  "FuelCapacity": {
+    "CardStatName": {
+      "ParentObjectID": "b2fb62c8cee36434382f286f94d70b90",
+      "LocalizationKey": "APE_Stat_LiquidTemperature",
+      "DefaultText": "Liquid Temperature"
+    },
+    "MaxValue": 200,
+    "HidingOptions": 3,
+    "TextDisplay": 2,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3,
+    "Active": true
+  },
+  "SpecialDurability1": {
+    "CardStatName": {
+      "ParentObjectID": "APE_LQ_SaltWater",
+      "LocalizationKey": "APE_LQ_SaltWater_SpecialDurability1_CardStatName",
+      "DefaultText": "Saltiness"
+    },
+    "MaxValue": 100,
+    "HidingOptions": 1,
+    "OverrideIconWarpData": "Powder_Fairyweed",
+    "OverrideIconWarpType": 3,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "APE_LQ_SaltSyrup",
+        "TransformIntoWarpType": 3,
+        "TransferSpecial1": true,
+        "TransferLiquid": true
+      }
+    },
+    "Active": true
+  },
+  "PassiveEffects": [
+    {
+      "EffectName": "Boil down 200",
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "FuelRange": {
+            "x": 100,
+            "y": 200
+          },
+          "Special1Range": {
+            "x": 0,
+            "y": 80
+          },
+          "LiquidQuantityRange": {
+            "x": 1000,
+            "y": 0
+          }
+        }
+      },
+      "LiquidRateModifier": -200,
+      "UpdateDurabilityConcentrations": {
+        "MaskValue": 32
+      },
+      "GeneratedLiquid": {
+        "Durabilities": {
+          "SpoilageFrom": 1,
+          "UsageFrom": 1,
+          "FuelFrom": 1,
+          "ProgressFrom": 1,
+          "Special1From": 1,
+          "Special2From": 1,
+          "Special3From": 1,
+          "Special4From": 1
+        }
+      }
+    },
+    {
+      "EffectName": "Boil down 100",
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "FuelRange": {
+            "x": 100,
+            "y": 200
+          },
+          "Special1Range": {
+            "x": 0,
+            "y": 80
+          },
+          "LiquidQuantityRange": {
+            "x": 500,
+            "y": 999.989990234375
+          }
+        }
+      },
+      "LiquidRateModifier": -100,
+      "UpdateDurabilityConcentrations": {
+        "MaskValue": 32
+      },
+      "GeneratedLiquid": {
+        "Durabilities": {
+          "SpoilageFrom": 1,
+          "UsageFrom": 1,
+          "FuelFrom": 1,
+          "ProgressFrom": 1,
+          "Special1From": 1,
+          "Special2From": 1,
+          "Special3From": 1,
+          "Special4From": 1
+        }
+      }
+    },
+    {
+      "EffectName": "Boil down 60",
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "FuelRange": {
+            "x": 100,
+            "y": 200
+          },
+          "Special1Range": {
+            "x": 0,
+            "y": 80
+          },
+          "LiquidQuantityRange": {
+            "x": 300,
+            "y": 499.989990234375
+          }
+        }
+      },
+      "LiquidRateModifier": -60,
+      "UpdateDurabilityConcentrations": {
+        "MaskValue": 32
+      }
+    },
+    {
+      "EffectName": "Boil down 20",
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "FuelRange": {
+            "x": 100,
+            "y": 200
+          },
+          "Special1Range": {
+            "x": 0,
+            "y": 80
+          },
+          "LiquidQuantityRange": {
+            "x": 100,
+            "y": 299.989990234375
+          }
+        }
+      },
+      "LiquidRateModifier": -20,
+      "UpdateDurabilityConcentrations": {
+        "MaskValue": 32
+      }
+    },
+    {
+      "EffectName": "Boil down 10",
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "FuelRange": {
+            "x": 100,
+            "y": 200
+          },
+          "Special1Range": {
+            "x": 0,
+            "y": 80
+          },
+          "LiquidQuantityRange": {
+            "x": 50,
+            "y": 99.9899978637695
+          }
+        }
+      },
+      "LiquidRateModifier": -10,
+      "UpdateDurabilityConcentrations": {
+        "MaskValue": 32
+      }
+    },
+    {
+      "EffectName": "Boil down 5",
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "FuelRange": {
+            "x": 100,
+            "y": 200
+          },
+          "LiquidQuantityRange": {
+            "x": 6,
+            "y": 0
+          }
+        }
+      },
+      "LiquidRateModifier": -5,
+      "UpdateDurabilityConcentrations": {
+        "MaskValue": 32
+      }
+    },
+    {
+      "EffectName": "Cool",
+      "Conditions": {
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "FuelRange": {
+            "x": 0,
+            "y": 0.100000001490116
+          }
+        }
+      },
+      "FuelRateModifier": {
+        "FloatValue": -100,
+        "Active": true
+      }
+    }
+  ],
+  "DurabilityTransferEffects": [
+    {
+      "EffectName": "Salting",
+      "Targets": [
+        {
+          "TargetWarpData": "tag_Plateable",
+          "TargetWarpType": 3
+        }
+      ],
+      "PickTargetsInSameContainer": true,
+      "TargetSelection": 2,
+      "PerformEvenIfTransferIs0": true,
+      "Transfer": {
+        "TakeFrom": 1,
+        "SendTo": 16,
+        "TransferDirection": 1
+      },
+      "SelfDurabilityChanges": [
+        {
+          "Durability": 16,
+          "Value": {
+            "x": -0.5,
+            "y": -0.5
+          }
+        }
+      ],
+      "SelfCardChange": {
+        "ModType": 0
+      },
+      "TargetsAddedSpicesWarpData": [
+        "6dc5a4f564e72b0458cf0352e84f318d"
+      ],
+      "TargetsAddedSpicesWarpType": 3
+    }
+  ],
+  "InventorySlots": [],
+  "BlueprintContainerCardChanges": {
+    "ModType": 0
+  }
+}

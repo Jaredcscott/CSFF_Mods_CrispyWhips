@@ -6,7 +6,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.28.10";
+    public const string PluginVersion = "2.29.0";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -180,6 +180,12 @@ public class Plugin : BaseUnityPlugin
 
         // Core patches
         Patching.GameLoadPatch.ApplyPatch(Harmony);
+        // Api.CardState (2.29.0): per-card saved values. Writes a sidecar after each save file
+        // (GameLoad.SaveGameDataToFile) and carries values through blueprint builds (MoveNext of
+        // InGameCardBase.PerformBlueprintBuild). Installed before SaveStaleCardGuard compiles
+        // SaveGameByReference, the save file write's caller. Costs a field read per save write and
+        // per build step while no mod uses card values.
+        CardStates.CardStatePatch.ApplyPatch(Harmony);
         Loading.BlueprintContainerSaveLoadFix.ApplyFreshPlacementPatch(Harmony);
         Patching.LocalizationPatch.ApplyPatch(Harmony);
         Patching.BlueprintFlagFix.ApplyPatch(Harmony);
@@ -383,6 +389,7 @@ public class Plugin : BaseUnityPlugin
         Wildlife.WildlifeRaidService.PollUpdate();
         Triggers.TriggerService.PollUpdate();
         Api.TickEvents.PollUpdate();
+        CardStates.CardStatePatch.PollUpdate();
         Patching.Diagnostics.FrameTimingDiagnostics.OnFrame();
     }
 

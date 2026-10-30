@@ -19,22 +19,11 @@
   "BuildingStatConditions": [],
   "StartUnlocked": false,
   "IngredientDurabilityAveragesReplaceResultDurabilities": true,
-  "CardsOnBoard": [
-    {
-      "ObjectiveName": "HasIronOre",
-      "CompletionWeight": 1,
-      "Card": { "m_FileID": 0, "m_PathID": 0 },
-      "Quantity": 1,
-      "ConstantlyChecking": false,
-      "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
-      "OnlyIfEquipped": false,
-      "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
-      "CardWarpData": "b9845f4223861e44f96c7815f210f365",
-      "CardWarpType": 3
-    }
-  ],
+  "CardsOnBoard": [],
   "TagsOnBoard": [],
   "StatValues": [],
+  "AlsoUnlocksWarpData": [ "advanced_copper_tools_bp_copper_nails" ],
+  "AlsoUnlocksWarpType": 3,
   "BlueprintStages": [
     {
       "CannotRevertToThisStage": false,
@@ -77,7 +66,7 @@
     }
   ],
   "BlueprintStatModifications": [],
-  "WhenCreatedSoundsWarpData": [ "Metal" ],
+  "WhenCreatedSoundsWarpData": [ "MetalAppear" ],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
   "BlueprintActionTagsWarpType": 3,

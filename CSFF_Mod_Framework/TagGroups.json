@@ -4,7 +4,7 @@
         "Label": "Oil",
         "LabelKey": "CSFFMFW_GpTag_FW_Oil_TabName",
         "Tags": ["tag_Oil"],
-        "ExtraCards": ["39ef9375746c7c34493215126e9888ee"]
+        "ExtraCards": ["39ef9375746c7c34493215126e9888ee", "APE_LQ_LampOil"]
     },
     {
         "Name": "GpTag_FW_OilIngredient",
@@ -12,5 +12,33 @@
         "LabelKey": "CSFFMFW_GpTag_FW_Oil_TabName",
         "Tags": ["tag_Oil"],
         "ExcludeLiquids": true
+    },
+    {
+        "Name": "GpTag_FW_MetalSheet",
+        "Label": "Metal Sheet",
+        "LabelKey": "CSFFMFW_GpTag_FW_MetalSheet_TabName",
+        "Tags": ["tag_x_MetalSheet"],
+        "ExtraCards": ["advanced_copper_tools_metal_sheet"]
+    },
+    {
+        "Name": "GpTag_FW_MetalNail",
+        "Label": "Metal Nail",
+        "LabelKey": "CSFFMFW_GpTag_FW_MetalNail_TabName",
+        "Tags": ["tag_x_MetalNail"],
+        "ExtraCards": ["advanced_copper_tools_copper_nails"]
+    },
+    {
+        "Name": "GpTag_FW_Solder",
+        "Label": "Solder",
+        "LabelKey": "CSFFMFW_GpTag_FW_Solder_TabName",
+        "Tags": ["tag_x_Solder"],
+        "ExtraCards": ["act_tin_solder"]
+    },
+    {
+        "Name": "GpTag_FW_Brine",
+        "Label": "Brine",
+        "LabelKey": "CSFFMFW_GpTag_FW_Brine_TabName",
+        "Tags": ["tag_x_Brine"],
+        "ExtraCards": ["APE_LQ_SaltWater"]
     }
 ]

@@ -1,0 +1,163 @@
+{
+  "UniqueID": "APE_LQ_SaltSyrup",
+  "CardName": {
+    "ParentObjectID": "APE_LQ_SaltSyrup",
+    "LocalizationKey": "APE_LQ_SaltSyrup_CardName",
+    "DefaultText": "Concentrated Brine"
+  },
+  "CardDescription": {
+    "ParentObjectID": "APE_LQ_SaltSyrup",
+    "LocalizationKey": "APE_LQ_SaltSyrup_CardDescription",
+    "DefaultText": "Very salty. Food left in it is salted."
+  },
+  "CardImageWarpData": "CSFFMFW_LQ_ConcentratedBrine",
+  "CardImageWarpType": 3,
+  "CardType": 9,
+  "ObjectWeight": 0.330000013113022,
+  "CardTagsWarpData": [
+    "tag_Heatable",
+    "tag_Preservable",
+    "tag_Cookable"
+  ],
+  "CardTagsWarpType": 3,
+  "SpiceTagsWarpData": [
+    "6dc5a4f564e72b0458cf0352e84f318d"
+  ],
+  "SpiceTagsWarpType": 3,
+  "AlwaysUpdate": true,
+  "ToggleablePiling": true,
+  "UsageDurability": {
+    "MaxValue": 1000,
+    "HidingOptions": 2,
+    "OverrideIconWarpData": "Shield",
+    "OverrideIconWarpType": 3,
+    "Active": false
+  },
+  "FuelCapacity": {
+    "CardStatName": {
+      "ParentObjectID": "043d4244bda7e564abe14e2f9d942992",
+      "LocalizationKey": "APE_Stat_LiquidTemperature",
+      "DefaultText": "Liquid Temperature"
+    },
+    "MaxValue": 200,
+    "HidingOptions": 3,
+    "TextDisplay": 2,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3,
+    "Active": true
+  },
+  "SpecialDurability1": {
+    "CardStatName": {
+      "ParentObjectID": "APE_LQ_SaltSyrup",
+      "LocalizationKey": "APE_LQ_SaltSyrup_SpecialDurability1_CardStatName",
+      "DefaultText": "Dryness"
+    },
+    "MaxValue": 8,
+    "TextDisplay": 2,
+    "OverrideIconWarpData": "Powder_Fairyweed",
+    "OverrideIconWarpType": 3,
+    "OnZeroNotification": 2,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ProducedCards": [
+        {
+          "CollectionName": "1",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "TransferRules": {
+                "Spoilage": 1,
+                "Special2": 1
+              },
+              "DropsDurabilityMultipliers": [
+                {
+                  "InputDurability": 16,
+                  "Value": {
+                    "Active": true,
+                    "InputValueRange": {
+                      "x": 0,
+                      "y": 30000
+                    },
+                    "OutputValueRange": {
+                      "x": 0,
+                      "y": 1000
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    },
+    "Active": true
+  },
+  "PassiveEffects": [
+    {
+      "EffectName": "Cool",
+      "Conditions": {
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "FuelRange": {
+            "x": 0,
+            "y": 0.100000001490116
+          }
+        }
+      },
+      "FuelRateModifier": {
+        "FloatValue": -100,
+        "Active": true
+      }
+    }
+  ],
+  "DurabilityTransferEffects": [
+    {
+      "EffectName": "Salting",
+      "Targets": [
+        {
+          "TargetWarpData": "tag_Plateable",
+          "TargetWarpType": 3
+        }
+      ],
+      "PickTargetsInSameContainer": true,
+      "TargetSelection": 2,
+      "PerformEvenIfTransferIs0": true,
+      "Transfer": {
+        "TakeFrom": 1,
+        "SendTo": 16,
+        "TransferDirection": 1
+      },
+      "SelfDurabilityChanges": [
+        {
+          "Durability": 16,
+          "Value": {
+            "x": -15,
+            "y": -15
+          }
+        }
+      ],
+      "SelfCardChange": {
+        "ModType": 0
+      },
+      "TargetsAddedSpicesWarpData": [
+        "6dc5a4f564e72b0458cf0352e84f318d"
+      ],
+      "TargetsAddedSpicesWarpType": 3
+    }
+  ],
+  "InventorySlots": [],
+  "BlueprintContainerCardChanges": {
+    "ModType": 0
+  }
+}

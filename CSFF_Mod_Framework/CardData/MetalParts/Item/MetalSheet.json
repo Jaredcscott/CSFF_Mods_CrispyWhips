@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_metal_sheet",
     "LocalizationKey": "Advanced_Copper_Tools_MetalSheet_CardDescription",
-    "DefaultText": "A flat metal sheet, hammered thin. It is the metal it was made from: copper, ghost bronze, tin, tin bronze, white bronze or iron."
+    "DefaultText": "A flat metal sheet, hammered thin. It is the metal it was made from: copper, ghost bronze, tin, tin bronze, white bronze or iron. Heat it and strike it with a hard hammer to raise its quality; each sheet takes only a few strikes."
   },
   "CardType": 0,
   "ToggleablePiling": true,
@@ -18,7 +18,11 @@
   "CardTagsWarpData": [
     "tag_Metal",
     "tag_SmeltsAt1100",
-    "tag_CopperBig"
+    "tag_CopperBig",
+    "tag_Heatable",
+    "tag_ToolShape",
+    "tag_TraderInterestX2Metal",
+    "tag_x_MetalSheet"
   ],
   "CardTagsWarpType": 3,
   "SpecialDurability2": {
@@ -40,7 +44,23 @@
     "OverrideIconWarpType": 3
   },
   "SpecialDurability3": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_metal_sheet",
+      "LocalizationKey": "Advanced_Copper_Tools_MetalSheet_SpecialDurability3.CardStatName",
+      "DefaultText": "Quality"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Quality",
+    "OverrideIconWarpType": 3
   },
   "SpecialDurability4": {
     "Active": true,
@@ -95,7 +115,7 @@
         },
         "FuelRange": {
           "x": 0.0,
-          "y": 0.0
+          "y": 150.0
         },
         "ProgressRange": {
           "x": 0.0,
@@ -147,7 +167,7 @@
         },
         "FuelRange": {
           "x": 0.0,
-          "y": 0.0
+          "y": 150.0
         },
         "ProgressRange": {
           "x": 0.0,
@@ -199,7 +219,7 @@
         },
         "FuelRange": {
           "x": 0.0,
-          "y": 0.0
+          "y": 150.0
         },
         "ProgressRange": {
           "x": 0.0,
@@ -251,7 +271,7 @@
         },
         "FuelRange": {
           "x": 0.0,
-          "y": 0.0
+          "y": 150.0
         },
         "ProgressRange": {
           "x": 0.0,
@@ -303,7 +323,7 @@
         },
         "FuelRange": {
           "x": 0.0,
-          "y": 0.0
+          "y": 150.0
         },
         "ProgressRange": {
           "x": 0.0,
@@ -355,7 +375,7 @@
         },
         "FuelRange": {
           "x": 0.0,
-          "y": 0.0
+          "y": 150.0
         },
         "ProgressRange": {
           "x": 0.0,
@@ -394,6 +414,318 @@
         "CardImageWarpData": "ACT_MetalSheet_Iron",
         "CardImageWarpType": 3
       }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_MetalSheet_AlternateNames[6].Name",
+        "DefaultText": "Heated Copper Sheet"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalSheet_Copper_Heated",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_MetalSheet_AlternateNames[7].Name",
+        "DefaultText": "Heated Ghost Bronze Sheet"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalSheet_GhostBronze_Heated",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_MetalSheet_AlternateNames[8].Name",
+        "DefaultText": "Heated Tin Sheet"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalSheet_Copper_Heated",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_MetalSheet_AlternateNames[9].Name",
+        "DefaultText": "Heated Tin Bronze Sheet"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalSheet_Copper_Heated",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_MetalSheet_AlternateNames[10].Name",
+        "DefaultText": "Heated White Bronze Sheet"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalSheet_Copper_Heated",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_MetalSheet_AlternateNames[11].Name",
+        "DefaultText": "Heated Iron Sheet"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "ACT_MetalSheet_Copper_Heated",
+        "CardImageWarpType": 3
+      }
     }
   ],
   "CardImage": {
@@ -406,7 +738,21 @@
     "Active": false
   },
   "UsageDurability": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_metal_sheet",
+      "LocalizationKey": "IGNOREKEY",
+      "DefaultText": "Smithing set up"
+    },
+    "MaxValue": 1.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false
   },
   "FuelCapacity": {
     "Active": true,
@@ -416,7 +762,7 @@
       "LocalizationKey": "Advanced_Copper_Tools_MetalSheet_FuelCapacity.CardStatName",
       "DefaultText": "Temperature"
     },
-    "MaxValue": 1300.0,
+    "MaxValue": 300.0,
     "RatePerDaytimePoint": 0.0,
     "HidingOptions": 1,
     "TextDisplay": 2,
@@ -431,7 +777,720 @@
     "Active": false
   },
   "SpecialDurability1": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_metal_sheet",
+      "LocalizationKey": "Advanced_Copper_Tools_MetalSheet_SpecialDurability1.CardStatName",
+      "DefaultText": "Strikes"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 2,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Hammer",
+    "OverrideIconWarpType": 3
   },
-  "PassiveEffects": []
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_sheet",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalSheet_Smith_ActionName",
+        "DefaultText": "Smith"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_metal_sheet",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalSheet_Smith_ActionDescription",
+        "DefaultText": "Strike the heated sheet with a hard hammer to raise its quality. Each strike uses one of its strikes."
+      },
+      "CompatibleCards": {
+        "TriggerTagsWarpData": [
+          "tag_HammeringToolHard"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "ModifyLiquid": true,
+        "UsageChange": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 1,
+      "ActionSoundsWarpData": [
+        "Smithing"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction",
+        "HammeringActionHardSpecial3Receiving"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 10.0,
+            "y": 1000000000.0
+          },
+          "NotifyWhenNotMet": true
+        },
+        {
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 16.0,
+            "y": 1000000000.0
+          },
+          "NotifyWhenNotMet": true
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.5,
+          "MaxValue": 1.0
+        },
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        }
+      },
+      "StatModifications": [
+        {
+          "StatWarpData": "5e59f7e4d27b87e45b9c0b6b7bfcbf64",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.0,
+            "y": 1.0
+          }
+        },
+        {
+          "StatWarpData": "ba33a8566a73268498af987d98f045ae",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 10.0,
+            "y": 10.0
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -2.0,
+            "y": -2.0
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 10.0,
+            "y": 10.0
+          }
+        },
+        {
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -12.0,
+            "y": -12.0
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -183.0,
+            "y": -183.0
+          },
+          "ApplyEachTick": true
+        },
+        {
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.0,
+            "y": 1.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        },
+        "StatInterpolatedDurabilityChanges": [
+          {
+            "InputStatWarpData": "5e59f7e4d27b87e45b9c0b6b7bfcbf64",
+            "InputStatWarpType": 3,
+            "OutputDurability": 128,
+            "Value": {
+              "Active": true,
+              "InputValueRange": {
+                "x": 0.0,
+                "y": 150.0
+              },
+              "OutputValueRange": {
+                "x": 0.0,
+                "y": 2.0
+              },
+              "WhenOutOfRange": 1
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "OnStatsChangeActions": [
+    {
+      "RepeatOptions": 1,
+      "StatChangeTrigger": [
+        {
+          "StatWarpData": "a1a2efb9e793dbb4294f48220ff8f11b",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 1000000000.0
+          }
+        }
+      ],
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_sheet",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "FW metal part: iron (Metal Type 200) gets 4 strikes"
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.2,
+          "MaxValue": 0.2
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 4.0,
+          "y": 4.0
+        }
+      }
+    },
+    {
+      "RepeatOptions": 1,
+      "StatChangeTrigger": [
+        {
+          "StatWarpData": "a1a2efb9e793dbb4294f48220ff8f11b",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 1000000000.0
+          }
+        }
+      ],
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_sheet",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "FW metal part: iron of Metal Quality 30 or more gets 1 more strike"
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.2,
+          "MaxValue": 0.2
+        },
+        "RequiredSpecial2Percent": {
+          "Active": true,
+          "FloatValue": 0.3,
+          "MaxValue": 1.0
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      }
+    },
+    {
+      "RepeatOptions": 1,
+      "StatChangeTrigger": [
+        {
+          "StatWarpData": "a1a2efb9e793dbb4294f48220ff8f11b",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 1000000000.0
+          }
+        }
+      ],
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_sheet",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "FW metal part: iron of Metal Quality 50 or more gets 1 more strike"
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.2,
+          "MaxValue": 0.2
+        },
+        "RequiredSpecial2Percent": {
+          "Active": true,
+          "FloatValue": 0.5,
+          "MaxValue": 1.0
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      }
+    },
+    {
+      "RepeatOptions": 1,
+      "StatChangeTrigger": [
+        {
+          "StatWarpData": "a1a2efb9e793dbb4294f48220ff8f11b",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 1000000000.0
+          }
+        }
+      ],
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_sheet",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "FW metal part: copper (Metal Type 100) gets 2 strikes and up to 10 quality"
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.1,
+          "MaxValue": 0.1
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 2.0,
+          "y": 2.0
+        },
+        "StatInterpolatedDurabilityChanges": [
+          {
+            "InputStatWarpData": "5e59f7e4d27b87e45b9c0b6b7bfcbf64",
+            "InputStatWarpType": 3,
+            "OutputDurability": 128,
+            "Value": {
+              "Active": true,
+              "InputValueRange": {
+                "x": 0.0,
+                "y": 150.0
+              },
+              "OutputValueRange": {
+                "x": 0.0,
+                "y": 10.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "RepeatOptions": 1,
+      "StatChangeTrigger": [
+        {
+          "StatWarpData": "a1a2efb9e793dbb4294f48220ff8f11b",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 1000000000.0
+          }
+        }
+      ],
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_sheet",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "FW metal part: ghost bronze (Metal Type 110) gets 3 strikes and up to 6 quality"
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.11,
+          "MaxValue": 0.11
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 3.0,
+          "y": 3.0
+        },
+        "StatInterpolatedDurabilityChanges": [
+          {
+            "InputStatWarpData": "5e59f7e4d27b87e45b9c0b6b7bfcbf64",
+            "InputStatWarpType": 3,
+            "OutputDurability": 128,
+            "Value": {
+              "Active": true,
+              "InputValueRange": {
+                "x": 0.0,
+                "y": 150.0
+              },
+              "OutputValueRange": {
+                "x": 0.0,
+                "y": 6.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "RepeatOptions": 1,
+      "StatChangeTrigger": [
+        {
+          "StatWarpData": "a1a2efb9e793dbb4294f48220ff8f11b",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 1000000000.0
+          }
+        }
+      ],
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_sheet",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "FW metal part: tin (Metal Type 120) gets 1 strike and up to 14 quality"
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.12,
+          "MaxValue": 0.12
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "StatInterpolatedDurabilityChanges": [
+          {
+            "InputStatWarpData": "5e59f7e4d27b87e45b9c0b6b7bfcbf64",
+            "InputStatWarpType": 3,
+            "OutputDurability": 128,
+            "Value": {
+              "Active": true,
+              "InputValueRange": {
+                "x": 0.0,
+                "y": 150.0
+              },
+              "OutputValueRange": {
+                "x": 0.0,
+                "y": 14.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "RepeatOptions": 1,
+      "StatChangeTrigger": [
+        {
+          "StatWarpData": "a1a2efb9e793dbb4294f48220ff8f11b",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 1000000000.0
+          }
+        }
+      ],
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_sheet",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "FW metal part: tin bronze (Metal Type 130) gets 3 strikes and up to 6 quality"
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.13,
+          "MaxValue": 0.13
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 3.0,
+          "y": 3.0
+        },
+        "StatInterpolatedDurabilityChanges": [
+          {
+            "InputStatWarpData": "5e59f7e4d27b87e45b9c0b6b7bfcbf64",
+            "InputStatWarpType": 3,
+            "OutputDurability": 128,
+            "Value": {
+              "Active": true,
+              "InputValueRange": {
+                "x": 0.0,
+                "y": 150.0
+              },
+              "OutputValueRange": {
+                "x": 0.0,
+                "y": 6.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "RepeatOptions": 1,
+      "StatChangeTrigger": [
+        {
+          "StatWarpData": "a1a2efb9e793dbb4294f48220ff8f11b",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 1000000000.0
+          }
+        }
+      ],
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_sheet",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "FW metal part: white bronze (Metal Type 140) gets 2 strikes and up to 10 quality"
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.14,
+          "MaxValue": 0.14
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": 2.0,
+          "y": 2.0
+        },
+        "StatInterpolatedDurabilityChanges": [
+          {
+            "InputStatWarpData": "5e59f7e4d27b87e45b9c0b6b7bfcbf64",
+            "InputStatWarpType": 3,
+            "OutputDurability": 128,
+            "Value": {
+              "Active": true,
+              "InputValueRange": {
+                "x": 0.0,
+                "y": 150.0
+              },
+              "OutputValueRange": {
+                "x": 0.0,
+                "y": 10.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "RepeatOptions": 1,
+      "StatChangeTrigger": [
+        {
+          "StatWarpData": "a1a2efb9e793dbb4294f48220ff8f11b",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 1000000000.0
+          }
+        }
+      ],
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_sheet",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "FW metal part: set up done, marker set to 1"
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "UsageChange": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      }
+    },
+    {
+      "RepeatOptions": 1,
+      "StatChangeTrigger": [
+        {
+          "StatWarpData": "a1a2efb9e793dbb4294f48220ff8f11b",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 1000000000.0
+          }
+        }
+      ],
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_sheet",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "FW metal part: Metal Type 0 becomes copper 100"
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special4Change": {
+          "x": 100.0,
+          "y": 100.0
+        }
+      }
+    }
+  ],
+  "PassiveEffects": [
+    {
+      "EffectName": "Cool Down Fast (Iron, not in a container that holds 1000+)",
+      "OnlyWhenEquipped": false,
+      "OnlyWhenNOTEquipped": false,
+      "Conditions": {
+        "RequiredNOTContainerTagsWarpData": [
+          "tag_TemperatureOver1000Container"
+        ],
+        "RequiredNOTContainerTagsWarpType": 3,
+        "ReceivingRequiredDurabilityRanges": {
+          "Special4Range": {
+            "x": 200.0,
+            "y": 200.0
+          }
+        }
+      },
+      "StatChanges": [],
+      "FuelRateModifier": {
+        "Active": true,
+        "FloatValue": -300.0
+      }
+    },
+    {
+      "EffectName": "Cool Down Fast (Iron, 1000+ container below 1000)",
+      "OnlyWhenEquipped": false,
+      "OnlyWhenNOTEquipped": false,
+      "Conditions": {
+        "RequiredContainerTagsWarpData": [
+          "tag_TemperatureOver1000Container"
+        ],
+        "RequiredContainerTagsWarpType": 3,
+        "ReceivingRequiredDurabilityRanges": {
+          "Special4Range": {
+            "x": 200.0,
+            "y": 200.0
+          }
+        },
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 999.0
+          }
+        }
+      },
+      "StatChanges": [],
+      "FuelRateModifier": {
+        "Active": true,
+        "FloatValue": -300.0
+      }
+    },
+    {
+      "EffectName": "Cool Down Slow (Always)",
+      "OnlyWhenEquipped": false,
+      "OnlyWhenNOTEquipped": false,
+      "Conditions": {},
+      "StatChanges": [],
+      "FuelRateModifier": {
+        "Active": true,
+        "FloatValue": -100.0
+      }
+    }
+  ]
 }

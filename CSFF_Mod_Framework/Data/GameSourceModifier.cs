@@ -26,6 +26,8 @@ internal static class GameSourceModifier
         // supplied it, Debug when a missing partner mod explains it (UnresolvedUid.ExpectedPresent); all are
         // counted and named in one Info line (framework README "Unresolved references").
         _unresolved.Clear();
+        // Every field each applied patch replaces, for the cross-mod conflict warning (fleet plan 6.4).
+        Loading.OverrideConflictLint.BeginPatches();
 
         foreach (var mod in mods)
         {
@@ -109,6 +111,10 @@ internal static class GameSourceModifier
                    + $"{_unresolved.Count} reference(s) skipped for an unresolved UID: {UnresolvedUid.Sample(_unresolved)}");
         else
             Log.Debug($"GameSourceModify: applied {totalApplied} patches across {mods.Count} mod(s)");
+
+        // One Warn per object and field two or more mods replace (silent when none do).
+        if (Loading.AuthoringLint.IsEnabled)
+            Loading.OverrideConflictLint.ReportConflicts();
     }
 
     private static readonly List<string> _unresolved = new();
@@ -130,6 +136,15 @@ internal static class GameSourceModifier
         // erasure is visible instead of silently breaking vanilla behavior.
         if (root != null)
             WarnOnEmptyArrayZeroing(target, root, modName, filePath);
+
+        // Record which of the target's fields this patch replaces (not appends), keyed by the object
+        // it landed on, so two mods replacing one field are reported once (Loading.OverrideConflictLint).
+        if (root != null && Loading.AuthoringLint.IsEnabled)
+        {
+            var targetKey = target is UniqueIDScriptable uidObj && !string.IsNullOrEmpty(uidObj.UniqueID) ? uidObj.UniqueID : target.name;
+            var targetLabel = string.Equals(targetKey, target.name, StringComparison.Ordinal) ? target.name : $"{target.name} ({targetKey})";
+            Loading.OverrideConflictLint.RecordPatch(modName, targetKey, targetLabel, Path.GetFileName(filePath), root);
+        }
 
         // NullReferenceCompactor never walks vanilla objects (their shipped nulls carry meaning),
         // so a vanilla target is compacted here instead, keeping every collection that already

@@ -115,6 +115,9 @@ internal static class LoadOrchestrator
                 if (AuthoringLint.IsEnabled)
                     AuthoringLint.SetModPlugins(mods.Select(m => (m.Name, m.DirectoryPath)), PluginDependencyReader.Read());
                 AuthoringLint.RunAll();
+                // Mod CardTabGroup files that match a vanilla group (recorded by JsonDataLoader).
+                if (AuthoringLint.IsEnabled)
+                    OverrideConflictLint.ReportTabGroups();
             });
 
             // 4b. Supersede duplicate instances created by Pikachu ModLoader/ModCore for
@@ -246,6 +249,37 @@ internal static class LoadOrchestrator
             else
                 Log.Debug("[Skip] ModifierPackageInjector: no mod ships Modifiers.json");
 
+            // 5f5. Solid-to-liquid pairs (LiquidConversions.json, 2.29.0): resolve both UIDs of every pair now,
+            //      after WarpResolver, and install the LiquidTransferRules.LiquidConversion postfix that answers
+            //      for them when vanilla has no answer. Nothing is appended to vanilla's SolidToLiquid array
+            //      (see LiquidConversionInjector). No ordering dependency with 5f3/5f4.
+            if (mods.Any(m => m.HasLiquidConversions))
+            {
+                RunPhase(sw, "LiquidConversionInjector", () =>
+                {
+                    LiquidConversionInjector.LoadAll(mods);
+                    LiquidConversionInjector.ApplyPatch(Plugin.Harmony);
+                });
+            }
+            else
+                Log.Debug("[Skip] LiquidConversionInjector: no mod ships LiquidConversions.json");
+
+            // 5f6. Kit contents (KitContents.json, 2.29.0, fleet plan 6.7): check every kit and item UID against
+            //      the loaded cards (after WarpResolver) and register one AfterWrapped ActionRouter handler per kit,
+            //      which spawns the kit's items when its action ends. No ordering dependency with 5f3-5f5.
+            if (mods.Any(m => m.HasKitContents))
+                RunPhase(sw, "KitContentsService", () => KitContentsService.LoadAll(mods));
+            else
+                Log.Debug("[Skip] KitContentsService: no mod ships KitContents.json");
+
+            // 5f7. One-time stat resets (StatResets.json, 2.29.0, fleet plan 6.7): check every stat and latch UID
+            //      against the loaded GameStats (after WarpResolver) and arm the resets, tried on each DtpTick (and at
+            //      run start for a "RunStart" row) until each row's latch reads done. No ordering dependency with 5f3-5f6.
+            if (mods.Any(m => m.HasStatResets))
+                RunPhase(sw, "StatResetsService", () => StatResetsService.LoadAll(mods));
+            else
+                Log.Debug("[Skip] StatResetsService: no mod ships StatResets.json");
+
             // 5g. Validate mod SelfTriggeredActions and arm the run-start activation check.
             //     No injection needed: GameManager.InitializeStatsAndActions() discovers STAs
             //     by iterating DataBase.AllData, where JsonDataLoader already registered them.
@@ -372,6 +406,21 @@ internal static class LoadOrchestrator
             // 8b. Fill the tag groups declared at 4e from every loaded card's tags (after GameSourceModify,
             //     which can change tags; every mod's JSON is loaded by now, whatever its load order).
             RunPhase(sw, "TagGroupService.Fill", () => TagGroupService.FillAll(allData, "load"));
+
+            // 8c. Cross-slot matching rules (MatchAcross, 2.29.0, fleet plan 6.1): read each mod blueprint's
+            //     "MatchAcross" from its parsed JSON or .extras.json sidecar, resolve the slots against the
+            //     stages as GameSourceModify left them, and patch BlueprintElement.CompatibleInGameCard only when
+            //     some blueprint declared a rule (see MatchAcrossService).
+            if (MatchAcrossService.AnyDeclared())
+            {
+                RunPhase(sw, "MatchAcrossService", () =>
+                {
+                    MatchAcrossService.LoadAll();
+                    MatchAcrossService.ApplyPatch(Plugin.Harmony);
+                });
+            }
+            else
+                Log.Debug("[Skip] MatchAcrossService: no blueprint declares MatchAcross");
 
             // 8a. Resolve sprites for cards and perks
             RunPhase(sw, "SpriteResolver", () => SpriteResolver.ResolveAll(allData, mods));

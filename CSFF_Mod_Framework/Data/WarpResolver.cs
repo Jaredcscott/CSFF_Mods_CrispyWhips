@@ -41,7 +41,11 @@ internal static class WarpResolver
     private static int _runtimeCreatedCount;
     private static int _triggerResolveCount;
     private static readonly Dictionary<string, HashSet<string>> _unresolvedByMod = new(StringComparer.OrdinalIgnoreCase);
-    private static readonly HashSet<string> _unresolvedAudioClips = new(StringComparer.OrdinalIgnoreCase);
+    // Sound names that matched no AudioClip, keyed by the mod that used them (2.29.0, fleet plan 4.1). Reported as
+    // one Info line per mod through AudioMissReport; before 2.29.0 one pooled Debug line with no owner.
+    private static Dictionary<string, HashSet<string>> _audioMissesByMod = new(StringComparer.OrdinalIgnoreCase);
+    // Set while WalkForPatch runs: a GameSourceModify patch's misses are owned by "[mod] file -> target".
+    private static string _audioPatchContext;
     private static string _currentUid = "";
 
     // Non-empty *WarpData keys that Walk skips with nothing resolved: the sibling *WarpType is
@@ -80,7 +84,7 @@ internal static class WarpResolver
         _runtimeCreatedCount = 0;
         _triggerResolveCount = 0;
         _unresolvedByMod.Clear();
-        _unresolvedAudioClips.Clear();
+        _audioMissesByMod.Clear();
         _skippedNoWarpType.Clear();
         _skippedNoField.Clear();
         _currentUid = "";
@@ -165,8 +169,9 @@ internal static class WarpResolver
         ReportSkipped(_skippedNoWarpType, "have no *WarpType of 3, 4, 5 or 6 beside them");
         ReportSkipped(_skippedNoField, "name a field that does not exist on the object they sit in");
 
-        if (_unresolvedAudioClips.Count > 0)
-            Log.Debug($"WarpResolver: {_unresolvedAudioClips.Count} unique AudioClip refs deferred (bundle-loaded): {string.Join(", ", _unresolvedAudioClips)}");
+        // Sound names that match no clip: one Info line per mod. Resolution already runs after the vanilla scene
+        // loads, so every vanilla clip is in AudioClipDict here (W0.1); a miss is a wrong name, not a late clip.
+        ReportAudioMisses();
 
         int totalUnresolved = 0;
         foreach (var kv in _unresolvedByMod.OrderBy(x => x.Key))
@@ -189,8 +194,29 @@ internal static class WarpResolver
         _runtimeCreatedCount = 0;
         _triggerResolveCount = 0;
         _unresolvedByMod.Clear();
-        _unresolvedAudioClips.Clear();
+        _audioMissesByMod.Clear();
         _currentUid = "";
+    }
+
+    private static void ReportAudioMisses()
+    {
+        if (_audioMissesByMod.Count == 0) return;
+        foreach (var kv in AudioMissReport.MissesByMod(_audioMissesByMod, Database.AudioClipDict.Keys))
+            Log.Info(AudioMissReport.FormatLine(kv.Key, kv.Value));
+    }
+
+    private static void RecordAudioMiss(string id)
+    {
+        string owner = _audioPatchContext;
+        if (owner == null)
+            owner = !string.IsNullOrEmpty(_currentUid) && Loading.JsonDataLoader.UniqueIdToModName.TryGetValue(_currentUid, out var m)
+                ? m : AudioMissReport.UnknownMod;
+        if (!_audioMissesByMod.TryGetValue(owner, out var set))
+        {
+            set = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            _audioMissesByMod[owner] = set;
+        }
+        set.Add(id);
     }
 
     // Nested objects a walk could not create (their field stays null, so the element they sit in
@@ -210,6 +236,11 @@ internal static class WarpResolver
         _skippedNoWarpType.Clear();
         _skippedNoField.Clear();
         _createFailed.Clear();
+        // A patch runs after ResolveAll has reported, so its sound misses get their own scope and line.
+        var outerAudioMisses = _audioMissesByMod;
+        var prevAudioContext = _audioPatchContext;
+        _audioMissesByMod = new Dictionary<string, HashSet<string>>(StringComparer.OrdinalIgnoreCase);
+        _audioPatchContext = context;
         try { return Walk(rtObj, json); }
         finally
         {
@@ -217,6 +248,9 @@ internal static class WarpResolver
             ReportSkipped(_skippedNoField, "name a field that does not exist on the object they sit in");
             if (_createFailed.Count > 0)
                 Log.Warn($"GameSourceModify: {context}: {_createFailed.Count} nested object(s) could not be created, so those fields stay empty: {string.Join(", ", _createFailed)}");
+            ReportAudioMisses();
+            _audioMissesByMod = outerAudioMisses;
+            _audioPatchContext = prevAudioContext;
             _skippedNoWarpType.Clear();
             _skippedNoField.Clear();
             _createFailed.Clear();
@@ -852,8 +886,8 @@ internal static class WarpResolver
         }
 
         // --- AudioClip: check Database.AudioClipDict then Resources cache ---
-        // AudioClip references are typically not registered for explicit lookup;
-        // we try our best and downgrade to debug if not found.
+        // A miss is a name that is no clip (W0.1: 1,001 material words such as Metal or Wood in ten mods);
+        // it is recorded against the owning mod and reported at Info by ResolveAll (2.29.0).
         if (typeof(AudioClip).IsAssignableFrom(targetType))
         {
             if (Database.AudioClipDict.TryGetValue(id, out var dbClip))
@@ -862,7 +896,7 @@ internal static class WarpResolver
             if (clips.TryGetValue(id, out var clip))
                 return clip;
 
-            _unresolvedAudioClips.Add(id);
+            RecordAudioMiss(id);
             return null;
         }
 

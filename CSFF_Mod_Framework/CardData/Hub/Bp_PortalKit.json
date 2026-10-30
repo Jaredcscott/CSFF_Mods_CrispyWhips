@@ -83,7 +83,7 @@
     }
   ],
   "BlueprintStatModifications": [],
-  "WhenCreatedSoundsWarpData": ["Grass"],
+  "WhenCreatedSoundsWarpData": ["GrassAppear"],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
   "BlueprintActionTagsWarpType": 3,

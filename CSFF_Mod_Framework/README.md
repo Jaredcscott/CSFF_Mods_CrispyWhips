@@ -4,7 +4,7 @@ The shared base for Card Survival: Fantasy Forest mods. It loads mod content fro
 
 It also fixes several base-game bugs and speeds up travel to long-unvisited places.
 
-- **Version:** 2.28.10
+- **Version:** 2.29.0
 - **Game version:** EA 0.69c
 - **Requires:** BepInEx 5.x
 - **Languages:** English and Simplified Chinese
@@ -48,9 +48,21 @@ The **Arcane Wayfinder** perk starts a character with a Portal Kit. The perk and
 
 **Shared metal parts.** The Metal Sheet (named Copper, Ghost Bronze, Tin, Tin Bronze, White Bronze or Iron Sheet by its metal), the Metal Nail and Tin Solder.
 
-Seven blueprints make them, in Metal & Clay > Metal Crafts: Metal Sheet, Bronze Sheet, Iron Sheet, Forged Copper Nail, Cast Copper Nails, Forge Iron Nails and Forge Tin Solder.
+Six blueprints make them, in Metal & Clay > Metal Crafts: Metal Sheet (copper and every alloy), Iron Sheet, Cast Metal Sheet, Forged Metal Nail (every metal, iron included), Cast Copper Nails and Forge Tin Solder. The earlier Bronze Sheet and Forge Iron Nails recipes keep their UIDs as retired stubs that hand their research to the Metal Sheet and Forged Metal Nail.
+
+A sheet or nail heats up in a stove or forge (named Heated, with a glowing picture) and cools outside it. Each has a few strikes by its metal; a hard hammer on a heated one spends a strike and adds Quality from your Smithing skill. A Tin Solder stick lasts five recipes: a recipe that takes it spends one use and keeps the stick.
+
+A save from Chiwei's Additional Processing Equipment keeps its metal sheets, nails and solder when her mod is removed: `UidAliases.json` maps her IDs onto these cards.
 
 These parts moved here from Advanced Copper Tools in 2.28.0 under the same IDs, so saves keep them and other mods can use them without ACT. With an older ACT that still ships them, the framework uses ACT's copies instead.
+
+**Lamp Oil and Stearin Cake.** A liquid oil (`APE_LQ_LampOil`, Chiwei's ID) and eight Stearin Cakes (`APE_StearinCake`, her ID) made by the Lamp Oil blueprint in Survival > Fire: press a bowl of melted fat with a cloth and a heavy stone. A Stearin Cake seals, waterproofs and treats like fat and is added to the base game's Fat or Wax and Waterproofing Agent groups (candles, bows). It is in the framework's Oil group, so every lamp and flask that takes melted fat takes it (in proportion to the liquid), and it is not food. A knife on raw fatty or lean fish meat now also has a Mince action that gives fat and fish scraps. With an older Additional Processing Equipment that still ships Lamp Oil, the framework uses that mod's card and recipe instead.
+
+**Brine and Concentrated Brine.** Drop salt on a container of water (a bowl, a pot, a Herbs and Fungi pickle vat) and the water becomes Brine (`APE_LQ_SaltWater`, Chiwei's ID); more salt raises its Saltiness, and at full saltiness it becomes Concentrated Brine (`APE_LQ_SaltSyrup`), which salts food left in it. Brine is the one plain brine every mod shares: Herbs and Fungi pickles in it. A mod's own brine joins the framework's Brine group (`GpTag_FW_Brine`) by carrying the tag `tag_x_Brine`. With an older Additional Processing Equipment that still ships these liquids, the framework uses that mod's cards instead.
+
+**Curing in brine.** Food soaking in Brine is salted, so it spoils at three quarters of the speed. Raw meat or raw lean fish in a Clay Bowl holding at least 100 Brine becomes Meat in Brine or Fish in Brine and, about two days later, Salt-Cured Meat or Salt-Cured Fish (`advanced_copper_tools_salt_cured_meat`, `advanced_copper_tools_salt_cured_fish`: Advanced Copper Tools' IDs, which these cards keep since they moved here in 2.29.0). Taken out early it stops curing; Rinse off the Brine turns it back into raw meat. The cure time (192 ticks) and the brine it uses (half a unit a tick for each piece soaking) are placeholders.
+
+**Values kept on one card.** A mod can remember a number on a single card (where its metal came from, how well its parts were worked) and keep it in your save. The framework writes these beside each save, in a `CSFFModFramework` folder inside the save slot's own folder, one small file per save. Deleting the slot deletes them; a save without them simply starts with none. Advanced Copper Tools' Large Saw is the first to use it.
 
 **Perk origin tags.** Every perk a mod adds shows a short tag after its name, such as `Swimmer [CMC]`, so perks from different mods can be told apart. Vanilla perks get no tag.
 
@@ -138,7 +150,7 @@ Settings live in `BepInEx/config/crispywhips.CSFFModFramework.cfg`, created on f
 | Compatibility | `RescueStaleWikiModPatchAll` | `true` | Skips only the WikiMod patch that no longer fits, so the rest of WikiMod still loads |
 | Compatibility | `GuardWikiModChineseInEnglish` | `true` | Runs WikiMod's built-in Chinese stat names only when the game is in Chinese, so English stat labels (Quality, Freshness, Temperature) stay English |
 | CardScale | `SlotScaleFactor` | `0.75` | Base and location slot scale when CardSizeReduce is installed (0.25 to 1.0) |
-| Diagnostics | `AuthoringLint` | `true` | Logs one warning per mod that ships JSON which loads but does nothing. Silent when nothing is found; changes nothing |
+| Diagnostics | `AuthoringLint` | `true` | Logs one warning per mod that ships JSON which loads but does nothing, and one per field two mods both replace or per CardTabGroup file that matches a vanilla group. Silent when nothing is found; changes nothing |
 | Diagnostics | `LogAutoSaveCalls`, `LogBlueprintSearchMisses`, `LogTrackTiming`, `LogWildlifeStuck`, `LogFrameTiming`, `LogCatchUpEndState` | `false` | Extra log lines for bug reports: autosave call stacks, crafting-journal search misses, travel timing, wildlife stuck on one node, a frame-time summary every 60 seconds, and the state of cards after a travel replay. Each installs nothing unless set to `true` |
 
 ### Other mods by the same author
@@ -173,6 +185,8 @@ Quick Transfer and Skill Speed Boost use the framework for part of their feature
 
 Everything in this section happens automatically once a mod ships the file or folder named. Write C# only for logic of your own: custom action handling, vanilla card patching, or Harmony patches on gameplay methods.
 
+To share cards, tags and recipes with other mods, start at [Making mods work together](#making-mods-work-together) (Chinese: [README.zh.md](README.zh.md)).
+
 ### Content folders
 
 Each top-level folder name is the type it holds, matching the vanilla JSON export layout: `CardData`, `CharacterPerk`, `PerkGroup`, `GameStat`, `SpiceTag`, `FlavourTag`, `NPCStat`, `NPCDuty`, `NPCHidingGroup`, `NPCAgent`, `NPCCharacterPerk`, `Encounter`, `SelfTriggeredAction`, `Objective`, `QuestLog`, `GameModifierPackage`, `PlayerCharacter`, `CookingRecipeGroup`, `ConstructionCardGroup`, `BookmarkGroup` and `LocalTickCounter`.
@@ -185,7 +199,7 @@ Most of these types need nothing more, because the game itself picks them up at 
 
 ### WarpData
 
-A `*WarpData` key resolves a UniqueID, GUID, tag or sprite name into the field it names, in arrays and `List<T>` fields alike, and creates tags that do not exist yet. It also reaches a private base-class field, such as an action's `ActionSoundsWarpData`.
+A `*WarpData` key resolves a UniqueID, GUID, tag or sprite name into the field it names, in arrays and `List<T>` fields alike, and creates tags that do not exist yet. It also reaches a private base-class field, such as an action's `ActionSoundsWarpData`. A sound field (`ActionSoundsWarpData`, `WhenCreatedSoundsWarpData`, `BackgroundSoundWarpData`) takes the name of a sound the game has, such as `Smithing` or `WoodAppear`; material words such as `Metal` or `Wood` are not sounds. A name that matches no sound is dropped, and one Info line per mod lists such names.
 
 Every `*WarpData` key needs its `*WarpType` sibling: 3 Reference, 4 Add, 5 Modify or 6 AddReference. Without one the key resolves nothing, and a boot warning lists it with the mod it came from.
 
@@ -198,7 +212,10 @@ Every `*WarpData` key needs its `*WarpType` sibling: 3 Reference, 4 Add, 5 Modif
 | `DropInjections.json` | Adds drops to location card actions such as Forage, optionally by season |
 | `InjectImprovementInto.json` | `[{ "TargetEnvUID": "<CT8 UID>", "ImprovementUID": "<CT10 UID>" }]`. Makes an environment improvement buildable at a location |
 | `TradingValues.json` | `{ "<CardData UID>": <number> }` written onto `CardData.TradingValue`. Keys starting with `_` are comments. Later mods win a conflict (with a warning); a targeted `GameSourceModify` patch still wins over both |
-| `TagGroups.json` | `[{ "Name": "GpTag_...", "Label": "...", "LabelKey": "...", "Tags": ["tag_..."], "ExtraCards": ["<UID>"], "ExcludeLiquids": false }]`. A card group filled at load with every card that carries one of the tags (from any mod) plus the extra cards, for a blueprint slot's `RequiredTabGroupWarpData` or a liquid check's `RequiredGroupWarpData`, which cannot name a tag. The framework ships `GpTag_FW_Oil` (any oil, with vanilla rendered fat) and `GpTag_FW_OilIngredient` (any oil that is not a liquid) |
+| `TagGroups.json` | `[{ "Name": "GpTag_...", "Label": "...", "LabelKey": "...", "Tags": ["tag_..."], "ExtraCards": ["<UID>"], "ExcludeLiquids": false }]`. A card group filled at load with every card that carries one of the tags (from any mod) plus the extra cards, for a blueprint slot's `RequiredTabGroupWarpData` or a liquid check's `RequiredGroupWarpData`, which cannot name a tag. The framework ships `GpTag_FW_Oil` (any oil, with vanilla rendered fat), `GpTag_FW_OilIngredient` (any oil that is not a liquid) and `GpTag_FW_Brine` (`tag_x_Brine`, with the framework Brine) |
+| `LiquidConversions.json` | `[{ "Solid": "<CardData UID>", "Liquid": "<CT9 CardData UID>", "Quantity": 5 }]` (2.29.0). Lets a powder go into a jar, pouch or barrel as its liquid form and come back out with the liquid's Empty button, as vanilla salt and flour do. `Quantity` is the liquid units one solid card becomes (vanilla: 5 for a pinch-class powder, about 1.5 x `ObjectWeight` for bulk); it must be above 0. Give the liquid `tag_PowderLiquid`, as vanilla's powder liquids have, so a Pouch takes it. A card can be in one pair only: across mods the first in load order keeps it, a later row naming it is skipped with a warning naming both mods, and a pair naming a card vanilla already pairs is skipped. Vanilla's own pairs always win |
+| `KitContents.json` | `[{ "Kit": "<kit card UID>", "ActionNamePrefix": "Place", "Name": "...", "LogTag": "...", "Items": [{ "Card": "<UID>", "Count": 15, "Stats": { "SpecialDurability4": 1 }, "OnlyIfCardExists": false }] }]` (2.29.0). When the player's action on the kit card ends, each item spawns `Count` times (1 to 100) on the current board, in order, with its stat values. An `OnlyIfCardExists` item is skipped, with one Debug line (`LogIfMissing`), when its card is not loaded. A kit card can be declared once across all mods |
+| `StatResets.json` | `[{ "Stat": "<GameStat UID>", "Latch": "<hidden saved GameStat UID, 0..1>", "Target": "default", "When": "FirstTick", "LogTag": "...", "LogReset": "... {before} -> {target} ...", "LogUnchanged": "..." }]` (2.29.0). Resets a stat's base once per save, for a mod whose older versions wrote the stat permanently. The base goes to `Target` (`"default"`, the stat's own base value, or a number) through the game's own stat change, is checked, and only then is the latch set to 1, so a failed reset is tried again. `When`: `FirstTick` (on each in-game tick until done) or `RunStart` (as the save loads, then each tick until done). `LogReset` is written at Info, `LogUnchanged` at Debug when the base was already there (without it, `LogReset` either way). Two rows may reset one stat; a latch belongs to one row across all mods |
 | `CardData/Trigger/*.json` | Spawns a card on the player's board on a timer |
 | `SelfTriggeredAction/*.json` | Vanilla stat-triggered events. The game runs them; the framework checks them at load |
 | `EncounterGuards/*.json` | Stops encounters while a guard card or guard place is present |
@@ -298,7 +315,7 @@ The framework looks for `ModInfo.json` up to two folder levels deep under `BepIn
 
 When Pikachu ModLoader or ModCore is installed, a mod whose `ModInfo.json` has the `ModLoaderVerison` field is left to that loader. Leave the field out of a framework mod, along with `ModEditorVersion`.
 
-A mod with that field is still loaded by the framework when it ships a framework-only file: `BlueprintTabs.json`, `SmeltingRecipes.json`, `DropInjections.json`, `InjectImprovementInto.json`, `TradingValues.json`, `WorldMap/MapNodes.json`, `WorldMap/FullMap.json`, `EncounterGuards/*.json`, `Quests.json`, `Characters.json`, `MapMod.json`, `Modifiers.json`, `FlavourMatrix/*.json`, `Animals/*.json`, or a `GameSourceModify/` patch using `MatchTagWarpData` or `MatchTypeWarpData`.
+A mod with that field is still loaded by the framework when it ships a framework-only file: `BlueprintTabs.json`, `SmeltingRecipes.json`, `DropInjections.json`, `InjectImprovementInto.json`, `TradingValues.json`, `WorldMap/MapNodes.json`, `WorldMap/FullMap.json`, `EncounterGuards/*.json`, `Quests.json`, `Characters.json`, `MapMod.json`, `Modifiers.json`, `LiquidConversions.json`, `KitContents.json`, `StatResets.json`, `FlavourMatrix/*.json`, `Animals/*.json`, or a `GameSourceModify/` patch using `MatchTagWarpData` or `MatchTypeWarpData`.
 
 ### Unresolved references
 
@@ -306,7 +323,7 @@ A row in a declarative file that names a UID nothing loaded is skipped and logge
 
 The log level follows the likely cause. A UID from a partner mod that is not installed logs at Debug (drop injections, trading values, a `BlueprintAlternates` alternate), and an authoring error at Warn or Error.
 
-`GameSourceModify` and `InjectImprovementInto.json` choose per UID: Warn when a GUID, vanilla name or installed mod should have supplied it, Debug otherwise.
+`GameSourceModify`, `InjectImprovementInto.json`, `LiquidConversions.json`, `KitContents.json` and `StatResets.json` choose per UID: Warn when a GUID, vanilla name or installed mod should have supplied it, Debug otherwise.
 
 Three kinds keep the row, because dropping it would change what it protects. A gate condition naming a missing UID reads false (`ConnectionGates`, `SealableGates`, a `ConditionalDrops` condition), and an `EncounterGuards` `EncounterUids` or `AgentUids` entry stays so the list never empties into "every encounter".
 
@@ -326,6 +343,11 @@ After loading, the framework warns once per mod about JSON that loads cleanly an
 It also warns about another mod's UID in a structural field, such as a blueprint ingredient or a drop, when your plugin declares no hard dependency on that mod.
 
 Three cases are exempt: a card-on-board condition that is not `Inverted` (it just stays unmet), a drop in an NPC agent's own `AgentActions[].DroppedCards`, and the framework's own metal parts. The lint reports only. Switch it off with `AuthoringLint`.
+
+The same switch covers two conflict warnings (2.29.0):
+
+- **Two mods replacing one field.** A `GameSourceModify` patch replaces a field when it writes it as a plain key, or as `<Field>WarpData` with WarpType 3 or 5; it appends with `_appendArrays` or WarpType 4 or 6. When two mods replace the same field of the same object, the log names both mods, the object and the field once. Append instead wherever you can.
+- **A CardTabGroup file that matches a vanilla group.** A `ScriptableObject/CardTabGroup/` file named like a vanilla group, or carrying a vanilla group's `TabName.ParentObjectID`, gets one warning. Declare groups in `TagGroups.json` and place blueprints with `BlueprintTabs.json` instead.
 
 ### Adding a map location
 
@@ -436,6 +458,16 @@ Blueprints in its `AlsoUnlocks` unlock too, and a CT10 improvement is added to t
 
 A readable schematic is a consumable item whose "Read" action carries this field and `"ReceivingCardChanges": { "ModType": 3 }`, which destroys the item. Inside an NPC's `DialogAction` the blueprint is taught when the player picks that answer; inside `Objective.OnCompleteActions`, when the objective completes.
 
+### Matching parts across slots (`MatchAcross`, 2.29.0)
+
+A blueprint can require that the cards in several of its slots share one stat value, so sheets and nails are of one metal. Add the key to the blueprint JSON, or to its `.extras.json` sidecar:
+
+```json
+"MatchAcross": [{ "Stat": "Special4", "Elements": ["0.0", "0.2"] }]
+```
+
+`Stat` is `Spoilage`, `Usage`, `Fuel`, `Progress` or `Special1` to `Special4`. Each element is `"<stage>.<element>"` (zero-based positions in `BlueprintStages` and its `RequiredElements`) or `"<stage>.<uid>"` (the element's required card UID or tab group name). A card whose stat differs from a card already in a listed slot is refused the way the game refuses any card that does not fit. An earlier stage counts only through an element with `"Remember": true`. The full rules are in the CHANGELOG (2.29.0, For mod authors).
+
 ### NPC agents
 
 Mod `NPCAgent/*.json` files are loaded and checked at load: null `AgentStats`, `AgentDuties`, `Interactions` and `AgentActions` arrays become empty, and an empty `AgentName.DefaultText` warns.
@@ -481,6 +513,117 @@ A manifest in `Animals/` is live content the moment it ships, so never leave a t
 
 Examples: `Sirus23_Mod_Collection/Animals/Owl.json` (its `Ref` names a hand-written agent) and `Hawk.json`; Far Territory and Harsh Wilds ship more. The full field reference is `Documentation/Design/Animals_Schema.md` in the source repository.
 
+### Making mods work together
+
+Two mods can share a card, a recipe slot or a tag without knowing about each other, as long as neither needs the other installed. The steps below are the order the suite follows, each with the shape of a real shipped file. Every shared resource is listed in the suite's Interop Registry, kept in the author's development repo (not the public mod repo). A Chinese version of this page is [README.zh.md](README.zh.md).
+
+**1. Use a vanilla tag first.** When the base game already has a tag for what you share, put it on your card and stop: nothing to agree on, and it works in any load order. The suite does this for lamp oil (`tag_Oil`), burnables (`tag_Fuel`), safe water (`tag_WaterSafe`) and more. The vanilla names are in the extracted game data's `CardTag.txt` (`Documentation/GameData/CSFF-JsonData_Current/ScriptableObjectObjectName/CardTag.txt` in the source repository). Tags go in by name, beside a `*WarpType` of 3. This is the Tin Solder card (`CardData/MetalParts/Item/TinSolder.json`): three vanilla tags and one interop tag.
+
+```json
+"CardTagsWarpData": [ "tag_Metal", "tag_Preservable", "tag_TraderInterestX2Metal", "tag_x_Solder" ],
+"CardTagsWarpType": 3
+```
+
+**2. Use an interop tag `tag_x_<Name>` when no vanilla tag fits.** The `x_` marks a tag shared between mods and keeps it from ever colliding with a vanilla one. Name it in `CardTagsWarpData` as above and do not ship a `ScriptableObject/CardTag/` file for it: the first mod that names a missing tag creates it, and every other mod that names it gets the same tag. The framework's own are `tag_x_MetalSheet`, `tag_x_MetalNail`, `tag_x_Solder` and `tag_x_Brine`. A tag alone does not fill a recipe slot or a liquid check, because those name a card or a card group, not a tag. That is step 3.
+
+**3. Declare a group in `TagGroups.json` instead of shipping CardTabGroup files.** A group built here is refilled at load with every card that carries one of its tags, from any mod, plus the `ExtraCards` you list by UID (an extra card that is not installed is skipped). This is the framework's solder group:
+
+```json
+{
+  "Name": "GpTag_FW_Solder",
+  "Label": "Solder",
+  "LabelKey": "CSFFMFW_GpTag_FW_Solder_TabName",
+  "Tags": ["tag_x_Solder"],
+  "ExtraCards": ["act_tin_solder"]
+}
+```
+
+A blueprint slot takes the group by name (`CardData/Blueprint/Bp_LargeSaw.json` in Advanced Copper Tools):
+
+```json
+"RequiredTabGroupWarpData": "GpTag_FW_MetalSheet",
+"RequiredTabGroupWarpType": 3
+```
+
+A liquid check names a group in `RequiredGroupWarpData`. Several mods may declare one group `Name`; the declarations merge, so a mod adds a card of its own to someone else's group by declaring the same name with only its extras: `{ "Name": "GpTag_FW_MetalSheet", "ExtraCards": ["act_iron_sheet"] }` is the whole entry in Advanced Copper Tools' `TagGroups.json`. A group widens which cards fit a slot; the slot's own stat conditions still run on each card. Do not ship a `ScriptableObject/CardTabGroup/` file for this. One named like a base-game group, or carrying a base-game group's `TabName.ParentObjectID`, can take that group's place, and the framework warns once per such file (2.29.0). Put blueprints into crafting tabs with `BlueprintTabs.json`.
+
+**4. Metal Type bands.** The framework's Metal Sheet and Metal Nail keep their metal in `SpecialDurability4` (Metal Type), one of six values: 100 Copper, 110 Ghost Bronze, 120 Tin, 130 Tin Bronze, 140 White Bronze, 200 Iron. A slot that wants only some metals gates `Special4`; this one (the Large Saw's sheet slot) takes every metal from 0 to 200:
+
+```json
+"Special4": { "Active": true, "FloatValue": 0.0, "MaxValue": 200.0 }
+```
+
+A heated part is the same card in the Fuel band 151 to 300 (cold is 0 to 150), so never gate Fuel, Usage or Special1 to Special3 in a slot that takes these parts, or heated and cold parts stop filling it alike. A card from your mod joins the sheet, nail and solder groups by carrying `tag_x_MetalSheet`, `tag_x_MetalNail` or `tag_x_Solder`. Give it `SpecialDurability4` as Metal Type with the values above if slots should tell its metal: a card whose Special4 is inactive passes every Metal Type gate. A solder from your mod must carry `SpecialDurability1` as Uses, because the recipes keep the stick and spend one use, and a card without that stat is never used up.
+
+**5. `UidAliases.json` when you rename or merge a card.** Put `{ "old_uid": "new_uid" }` beside `ModInfo.json`. Any `*WarpData` naming the old UID, in your mod or another, then resolves to the new card, and a save that holds the old UID finds the new one (aliasing a removed environment to a live one also moves a save made inside it; the renamed-card half is not confirmed in a running game yet). Only UIDs that no longer exist are aliased, so an old UID that is still a real card is never shadowed. These are rows from the framework's own file, which maps Chiwei's metal part IDs onto the framework's cards:
+
+```json
+{
+  "APE_MetalSheet":       "advanced_copper_tools_metal_sheet",
+  "APE_MetalSolder_Ball": "4b0f4937a5ecb90499428c8c10288afc"
+}
+```
+
+If two mods alias one old UID to different targets, the first in load order keeps it and the log warns. If you ship a card under a UID the framework also ships, yours loads and the framework skips its own copy. When you merge two blueprints into one, keep the old file as a retired stub (out of `BlueprintTabs.json`, `CardsOnBoard` emptied, `AlsoUnlocksWarpData` naming the merged blueprint), so a half-built site of the old recipe still finishes and a save that learned it keeps the research.
+
+**6. `_appendArrays` instead of a replace.** A `GameSourceModify` patch replaces a field when it writes the plain key, or `<Field>WarpData` with WarpType 3 or 5; it appends with `_appendArrays` or WarpType 4 or 6. Replacing a list erases what base-game or another mod put there. This is the whole of the framework's patch that makes Stearin Cake a wax for vanilla candles (`GameSourceModify/GpTag_FatOrWax.json`, named for the group it patches):
+
+```json
+{
+  "_appendArrays": {
+    "IncludedCards": ["APE_StearinCake"]
+  }
+}
+```
+
+To add to a card's `CardInteractions`, write `CardInteractionsWarpData` with `"CardInteractionsWarpType": 4` (`GameSourceModify/FishMeatFattyRaw.json`). New in 2.29.0: when two mods replace the same field of the same object, the log carries one warning naming both mods, the object and the field, ending with the hint to append instead. The first 25 are warnings and the rest go to Debug under one counting warning. It runs under the `AuthoringLint` switch (see Authoring lint above).
+
+**7. PNG frames for animations.** A GIF pixel is either clear or solid, so a soft shadow or glow is lost. Put the frames in `Resource/GIF/<GifName>/` as PNG files and name `<GifName>` in `CardData/Gif/*.json` exactly as you would a GIF (this is the Portal's, `CardData/Gif/PortalHub.json`, whose animation is a GIF file):
+
+```json
+{
+  "CardUniqueId": "csffmfwportalplaced",
+  "CardGif": { "GifName": "Portal_Placed", "Loop": true }
+}
+```
+
+Frames play in the numeric order of the last number in each file name (`flame_2.png` before `flame_10.png`) and every frame keeps full transparency. Timing is 100 ms a frame unless the folder holds a `frames.json`: `{ "DelayMs": 80 }` for all frames or `{ "DelaysMs": [80, 80, 120] }` per frame (a short list repeats its last value). Keep every frame the same size. A GIF of the same name wins and the folder is skipped; GIF names are shared by all mods, so prefix yours. Guide: `Documentation/CSFF_GIF_Authoring.md` in the source repository. The framework ships no frame folder yet, so the `frames.json` shape comes from the loader (`Gif/GifLoader.cs`).
+
+**8. `LiquidConversions.json` for a powder that pours.** One file beside `ModInfo.json` lets a powder go into a jar, pouch or barrel as its liquid form and come back out with the liquid's Empty button, as vanilla salt and flour do. No released mod ships a pair yet; this is the test fixture (`Development_Tools/Tests/Fixtures/Framework_LiquidConversions/FW_LiquidConversions_FixtureA/LiquidConversions.json`):
+
+```json
+[
+    { "Solid": "fwlcfix_a_powder", "Liquid": "fwlcfix_a_lq_powder", "Quantity": 5 }
+]
+```
+
+`Quantity` is the liquid units one solid card becomes (vanilla uses 5 for a pinch of salt) and must be above 0. The liquid is a CT9 card; give it `tag_PowderLiquid` so a Pouch takes it. A card can be in one pair only: the first mod in load order keeps it, a later row naming it is skipped with a warning naming both mods, and vanilla's own pairs always win. See Declarative files above.
+
+**9. `MatchAcross` when parts must match.** A blueprint can require that the cards in several slots share one stat value, so the sheets and nails of a recipe are of one metal. This is the Large Saw (`CardData/Blueprint/Bp_LargeSaw.json`): the sheet slot (stage 0, element 0) and the nail slot (stage 0, element 2) must agree on `Special4`.
+
+```json
+"MatchAcross": [
+  { "Stat": "Special4", "Elements": [ "0.0", "0.2" ] }
+]
+```
+
+The full rules (element references, `Remember`, the load warnings) are in Matching parts across slots above.
+
+**10. `Api.CardState` for a number the card has no room for.** A card has eight stats and some are already taken; `CardState` keeps named numbers on one card in the save. Declare, once, that a value follows the card through a transform and is averaged over a blueprint's ingredients into its result. This is Advanced Copper Tools' Large Saw, which remembers the smithing quality of its parts:
+
+```csharp
+CardState.DeclareCarry("act.large_saw.part_quality", true, CardStateMerge.Average, "advanced_copper_tools_large_saw");
+CardState.DeclareBlueprintSeed("act.large_saw.part_quality", "SpecialDurability3",
+    "advanced_copper_tools_metal_sheet", "advanced_copper_tools_copper_nails");
+float quality = CardState.Get(card, "act.large_saw.part_quality");   // NaN when the card has none
+```
+
+Prefix every name with your mod; call `Set` from a running game, not at the main menu. The rest is in C# API below.
+
+**11. Escape sequences in mod CSVs.** A literal `\n` (and `\r\n`) in a value of a mod's `Localization/*.csv` now shows as a line break, in the English and the Chinese column, as it does in vanilla text. A `SimpCn.csv` row is Key, English, Chinese, so `Key,"First line.\nSecond line.",第一行。\n第二行。` is two lines in both languages. A real line break inside a quoted value still works, a lone `\r` is left alone, and there is no way to show a literal backslash-n. A Chinese column left empty shows the English text.
+
+**12. Ask for an Interop Registry row before you share something new.** The suite keeps an Interop Registry (in the author's development repo, not in the public mod repo) that lists every resource shared between mods, one row each (the R rows): the resource, its tier, its owner, its producers and its consumers. The tiers are V (a vanilla tag), X (an interop tag `tag_x_*`) and U (a card UID that is used only while the partner mod is present, for what a tag cannot say: a trade row, an alternate ingredient, a drop or recipe injection). R26 to R29, for example, are the metal part and brine tags above. The row's owner (a mod, not a person) defines what the resource means, such as units and which stat holds what. Producers tag their own cards without asking, and consumers ship the acceptance on their side. The S rows say which mod owns a stat, and the C rows are claims on concepts and UIDs so two mods do not make the same card; a UID belongs to whichever mod ships it, never by prefix. A content mod does not hard-depend on another: a partner mod's UID goes only where a missing card is skipped (a drop slot, a list), never into a required ingredient. To propose a row for your mod, post the resource, the tag or UID, what its owner defines, and who produces and consumes it on the framework's Nexus page; the author adds the row and the framework docs name it.
+
 ### C# API
 
 Public helpers live under `CSFFModFramework.Api` and `CSFFModFramework.Util.CardUtil`. They replace reflection scaffolding and Harmony patches that every mod used to write for itself, and that could not be combined across mods.
@@ -516,6 +659,7 @@ Public helpers live under `CSFFModFramework.Api` and `CSFFModFramework.Util.Card
 
 | API | What it does |
 |---|---|
+| `Api.CardState` (2.29.0) | Named numbers on ONE card in the game, kept in the save: `Set(card, "mymod.origin", 2)`, `Get(card, name)` (`NaN` when absent, or `Get(card, name, fallback)`), `Has`, `Remove`, `Names`. For a value the card's eight stats have no room for. Saved per checkpoint in `Games/Game_N/CSFFModFramework/<save>.cardstate`; a card that leaves the game takes its values with it at the next save; two slots never share values. `DeclareCarry(name, throughTransform, CardStateMerge.Average, onlyIntoResultUids...)` keeps a value through a transform (`CardUtil.TransformCardInPlace` and the game's own) and passes it from a blueprint's ingredients to its result (`First`, `Min`, `Max`, `Sum`, `Average`); undeclared names stay where they were set and a transform drops them. `DeclareBlueprintSeed(name, "SpecialDurability3", ingredientUids...)` lets a part with no value give one of its stats instead. Both declarations are idempotent. Not carried: a transform the game runs away from the player (it makes save data, not a card), a poured liquid, and ingredients a blueprint gives back. First user: ACT's Large Saw keeps its sheets' and nails' smithing quality |
 | `Api.CardFinder` | Cached lookup of in-game cards (`AllCards()`, `Find` / `FindAll` by UID or predicate). Refreshes when the card count changes; call `Invalidate()` after a model swap |
 | `Api.StatAccess` | By UID: `Resolve(uid)` returns this run's live `InGameStat`, `Get(uid)` its value (`NaN` on failure), and `Set(uid, value)` / `Modify(uid, delta)` write through the game's own stat change, so clamps, statuses and triggers behave as vanilla. `ResolveNpc(npc, uid)` returns an NPC's stat. Works for vanilla GUIDs and mod UIDs; do not keep a resolved stat across a reload. On a live `InGameStat` you hold: `GetCurrentValue`, `SetCurrentValue`, `ModifyCurrentValue`, `GetMaxValue`, `GetStatModel`, `GetUniqueId`. Pass the live stat, never the `GameStat` definition, which has no current value and logs a warning |
 | `Api.RecipeInjector` | Adds a `CookingRecipe` to a station's `CookingRecipes` from a `RecipeSpec` (compatible cards or tags, duration, cooker and ingredient changes) |

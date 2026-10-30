@@ -134,6 +134,7 @@ internal static class JsonDataLoader
         ExtraDataStore.Clear();
         _ourNonUidRegistrations.Clear();
         AuthoringLint.BeginLoad(VanillaCardTagNames());
+        OverrideConflictLint.BeginTabGroups(AuthoringLint.IsEnabled ? VanillaTabGroups() : null);
         _skippedTypes.Clear();
 
         var sw = Stopwatch.StartNew();
@@ -308,6 +309,11 @@ internal static class JsonDataLoader
                 _ourNonUidRegistrations[obj.name] = item.Mod.Name;
                 registerTicks += Stopwatch.GetTimestamp() - t0;
 
+                // A mod CardTabGroup file named like a vanilla group or carrying one's ParentObjectID
+                // (reported once by OverrideConflictLint.ReportTabGroups in the AuthoringLint phase).
+                if (obj is CardTabGroup && AuthoringLint.IsEnabled)
+                    OverrideConflictLint.RecordCardTabGroup(item.Mod.Name, obj.name, r.ParsedTree);
+
                 // Record for WarpResolver's non-UID pass so this SO's OWN *WarpData body fields
                 // (DialogScene.SceneLinesWarpData, DialogLine → NextLineWarpData, ...) get resolved.
                 // Registration by name above only makes it findable BY others; it does not resolve
@@ -410,6 +416,17 @@ internal static class JsonDataLoader
             if (so != null && !string.IsNullOrEmpty(so.name) && so.GetInstanceID() > 0)
                 names.Add(so.name);
         return names;
+    }
+
+    // CardTabGroups the typed cache holds before any mod object registers, each with its
+    // TabName.ParentObjectID, restricted to persistent game assets as VanillaCardTagNames is.
+    private static List<(string Name, string ParentObjectId)> VanillaTabGroups()
+    {
+        var groups = new List<(string Name, string ParentObjectId)>();
+        foreach (var so in Database.GetAllOfType(typeof(CardTabGroup)))
+            if (so is CardTabGroup g && !string.IsNullOrEmpty(g.name) && g.GetInstanceID() > 0)
+                groups.Add((g.name, g.TabName.ParentObjectID));
+        return groups;
     }
 
     /// <summary>Resolve a mod content dir, falling back to the nested <c>Data/&lt;subDir&gt;</c> layout.</summary>

@@ -1,0 +1,193 @@
+{
+  "UniqueID": "csffmfw_meat_in_brine",
+  "CardName": {
+    "ParentObjectID": "csffmfw_meat_in_brine",
+    "LocalizationKey": "CSFFMFW_MeatInBrine_CardName",
+    "DefaultText": "Meat in Brine"
+  },
+  "CardDescription": {
+    "ParentObjectID": "csffmfw_meat_in_brine",
+    "LocalizationKey": "CSFFMFW_MeatInBrine_CardDescription",
+    "DefaultText": "Raw meat soaking in brine. About two days in the brine turn it into Salt-Cured Meat. Kept in a clay bowl holding at least 100 brine it cures; out of the brine it stops curing and spoils like raw meat. Rinse it to get the raw meat back."
+  },
+  "CardImageWarpData": "Meat",
+  "CardImageWarpType": 3,
+  "CardType": 0,
+  "ObjectWeight": 100.0,
+  "TradingValue": 0,
+  "CardTagsWarpData": [
+    "tag_Plateable"
+  ],
+  "CardTagsWarpType": 3,
+  "SpiceTagsWarpData": [
+    "6dc5a4f564e72b0458cf0352e84f318d"
+  ],
+  "SpiceTagsWarpType": 3,
+  "SpoilageTime": {
+    "Active": true,
+    "CardStatName": {
+      "ParentObjectID": "csffmfw_meat_in_brine",
+      "LocalizationKey": "CSFFMFW_MeatInBrine_SpoilageTime_CardStatName",
+      "DefaultText": "Spoilage"
+    },
+    "MaxValue": 240.0,
+    "RatePerDaytimePoint": 1.0,
+    "HidingOptions": 1,
+    "OverrideIconWarpData": "Bacteria",
+    "OverrideIconWarpType": 3,
+    "HasActionOnFull": true,
+    "OnFullNotification": 1,
+    "OnFull": {
+      "ActionDescription": {
+        "ParentObjectID": "csffmfw_meat_in_brine",
+        "LocalizationKey": "CSFFMFW_MeatInBrine_SpoilageTime_OnFull",
+        "DefaultText": "Meat in Brine spoiled!"
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3
+      }
+    }
+  },
+  "Progress": {
+    "Active": true,
+    "CardStatName": {
+      "ParentObjectID": "csffmfw_meat_in_brine",
+      "LocalizationKey": "CSFFMFW_MeatInBrine_Progress_CardStatName",
+      "DefaultText": "Curing"
+    },
+    "FloatValue": 0.0,
+    "MaxValue": 192.0,
+    "RatePerDaytimePoint": 0.0,
+    "OverrideIconWarpData": "Cooking",
+    "OverrideIconWarpType": 3,
+    "HasActionOnFull": true,
+    "OnFullNotification": 1,
+    "OnFull": {
+      "ActionDescription": {
+        "ParentObjectID": "csffmfw_meat_in_brine",
+        "LocalizationKey": "CSFFMFW_MeatInBrine_Progress_OnFull",
+        "DefaultText": "Salt-Cured Meat is ready!"
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "advanced_copper_tools_salt_cured_meat",
+        "TransformIntoWarpType": 3,
+        "AddSpicesFromTargetCard": true,
+        "AddedSpiceTagsWarpData": [
+          "6dc5a4f564e72b0458cf0352e84f318d"
+        ],
+        "AddedSpiceTagsWarpType": 3
+      }
+    }
+  },
+  "SpecialDurability2": {
+    "Active": true,
+    "CardStatName": {
+      "ParentObjectID": "csffmfw_meat_in_brine",
+      "LocalizationKey": "CSFFMFW_MeatInBrine_SpecialDurability2_CardStatName",
+      "DefaultText": "Quality"
+    },
+    "MaxValue": 96.0,
+    "RatePerDaytimePoint": -0.4,
+    "OverrideIconWarpData": "Quality",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability3": {
+    "Active": true,
+    "CardStatName": {
+      "ParentObjectID": "csffmfw_meat_in_brine",
+      "LocalizationKey": "CSFFMFW_MeatInBrine_SpecialDurability3_CardStatName",
+      "DefaultText": "Meat Type"
+    },
+    "MaxValue": 100.0,
+    "HidingOptions": 2
+  },
+  "PassiveEffects": [
+    {
+      "EffectName": "Winter Preservation",
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 1.0,
+              "y": 2880.0
+            }
+          }
+        ]
+      },
+      "SpoilageRateModifier": {
+        "Active": true,
+        "FloatValue": 0.5
+      },
+      "MultiplySpoilageRate": true
+    },
+    {
+      "EffectName": "Summer Spoilage",
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 1.0,
+              "y": 2880.0
+            }
+          }
+        ]
+      },
+      "SpoilageRateModifier": {
+        "Active": true,
+        "FloatValue": 1.5
+      },
+      "MultiplySpoilageRate": true
+    },
+    {
+      "EffectName": "Salt Preservation",
+      "Conditions": {
+        "ReceivingCardSpices": [
+          {
+            "TagWarpData": "6dc5a4f564e72b0458cf0352e84f318d",
+            "TagWarpType": 3
+          }
+        ]
+      },
+      "SpoilageRateModifier": {
+        "Active": true,
+        "FloatValue": 0.75
+      },
+      "MultiplySpoilageRate": true
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "csffmfw_meat_in_brine",
+        "LocalizationKey": "CSFFMFW_MeatInBrine_Rinse",
+        "DefaultText": "Rinse off the Brine"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "csffmfw_meat_in_brine",
+        "LocalizationKey": "CSFFMFW_MeatInBrine_Rinse_Desc",
+        "DefaultText": "Take it out of the brine. It is raw again and stops curing; it keeps the salt it soaked up."
+      },
+      "DaytimeCost": 0,
+      "ActionSoundsWarpData": [
+        "Flowing1"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
+        "TransformIntoWarpType": 3,
+        "TransferSpoilage": true,
+        "TransferSpecial2": true,
+        "AddSpicesFromTargetCard": true,
+        "TransferSpecial3": true
+      }
+    }
+  ]
+}

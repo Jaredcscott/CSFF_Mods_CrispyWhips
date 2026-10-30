@@ -39,6 +39,13 @@ internal static class Log
         if (Verbose) _source?.Log(LogLevel.Info, Prefix + msg);
     }
 
+    /// <summary>
+    /// A line at BepInEx Debug level, written whatever <see cref="Verbose"/> says, as a mod's own
+    /// <c>Logger.LogDebug</c> is. For a line that took over from a mod's own Debug line and that a
+    /// TestHarness scenario asserts on (KitContentsService, 2.29.0); everything else uses <see cref="Debug"/>.
+    /// </summary>
+    public static void DebugAlways(string msg) => _source?.Log(LogLevel.Debug, Prefix + msg);
+
     private static readonly System.Collections.Generic.Dictionary<string, int> _sampleCounts = new();
     private const int SampleCap = 15;
 

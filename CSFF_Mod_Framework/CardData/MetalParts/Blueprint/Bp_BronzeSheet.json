@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "act_bp_bronze_sheet",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_BronzeSheet_CardDescription",
-    "DefaultText": "Hammer a heated bronze-grade metal bar flat into a sheet, ready for bronze armor."
+    "DefaultText": "Hammer a heated Ghost Bronze, Tin, Tin Bronze or White Bronze bar flat with a hard hammer into a sheet of the same metal, ready for alloy armor. Your Smithing skill adds to its quality."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
@@ -19,33 +19,11 @@
   "BuildingStatConditions": [],
   "StartUnlocked": false,
   "IngredientDurabilityAveragesReplaceResultDurabilities": true,
-  "CardsOnBoard": [
-    {
-      "ObjectiveName": "HasBronzeMetalBar",
-      "CompletionWeight": 1,
-      "Card": { "m_FileID": 0, "m_PathID": 0 },
-      "Quantity": 1,
-      "ConstantlyChecking": false,
-      "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
-      "OnlyIfEquipped": false,
-      "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
-      "WithDurabilities": {
-        "SpoilageRange": { "x": 0.0, "y": 0.0 },
-        "UsageRange": { "x": 0.0, "y": 0.0 },
-        "FuelRange": { "x": 0.0, "y": 0.0 },
-        "ProgressRange": { "x": 0.0, "y": 0.0 },
-        "Special1Range": { "x": 0.0, "y": 0.0 },
-        "Special2Range": { "x": 0.0, "y": 0.0 },
-        "Special3Range": { "x": 0.0, "y": 0.0 },
-        "Special4Range": { "x": 110.0, "y": 140.0 },
-        "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
-      },
-      "CardWarpData": "14f7ddfe60496b54881d5a25de8abb20",
-      "CardWarpType": 3
-    }
-  ],
+  "CardsOnBoard": [],
   "TagsOnBoard": [],
   "StatValues": [],
+  "AlsoUnlocksWarpData": [ "advanced_copper_tools_bp_metal_sheet" ],
+  "AlsoUnlocksWarpType": 3,
   "BlueprintStages": [
     {
       "CannotRevertToThisStage": false,
@@ -69,7 +47,7 @@
           "DontSpend": true,
           "EffectOnIngredient": { "ModType": 1, "UsageChange": { "x": -8.0, "y": -8.0 } },
           "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+          "RequiredTabGroupWarpData": "GpTag_HammeringToolHard",
           "RequiredTabGroupWarpType": 3
         }
       ],
@@ -80,6 +58,25 @@
   ],
   "BuildingDaytimeCost": 2,
   "DeconstructDaytimeCost": 0,
+  "ResultInterpolatedDurabilityModifiers": [
+    {
+      "InputStatWarpData": "5e59f7e4d27b87e45b9c0b6b7bfcbf64",
+      "InputStatWarpType": 3,
+      "OutputDurability": 128,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 0.0,
+          "y": 150.0
+        },
+        "OutputValueRange": {
+          "x": 0.0,
+          "y": 2.0
+        },
+        "WhenOutOfRange": 1
+      }
+    }
+  ],
   "BlueprintResult": [
     {
       "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
@@ -99,7 +96,7 @@
     }
   ],
   "BlueprintStatModifications": [],
-  "WhenCreatedSoundsWarpData": [ "Metal" ],
+  "WhenCreatedSoundsWarpData": [ "MetalAppear" ],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
   "BlueprintActionTagsWarpType": 3,

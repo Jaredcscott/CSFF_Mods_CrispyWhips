@@ -28,5 +28,8 @@ internal static class ExtraDataStore
 
     internal static int Count => _byUniqueId.Count;
 
+    /// <summary>Every sidecar, UniqueID to raw JSON (read-only use: <see cref="Injection.MatchAcrossService"/>).</summary>
+    internal static IEnumerable<KeyValuePair<string, string>> All => _byUniqueId;
+
     internal static void Clear() => _byUniqueId.Clear();
 }

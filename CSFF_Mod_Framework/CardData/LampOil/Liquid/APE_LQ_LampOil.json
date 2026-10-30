@@ -1,0 +1,273 @@
+{
+  "UniqueID": "APE_LQ_LampOil",
+  "CardName": {
+    "ParentObjectID": "APE_LQ_LampOil",
+    "LocalizationKey": "APE_LQ_LampOil_CardName",
+    "DefaultText": "Lamp Oil"
+  },
+  "CardDescription": {
+    "ParentObjectID": "APE_LQ_LampOil",
+    "LocalizationKey": "APE_LQ_LampOil_CardDescription",
+    "DefaultText": "A refined oil used for oil lamps.\nIt's also fine to use it for frying food or as a seasoning."
+  },
+  "CardImageWarpData": "CSFFMFW_LQ_LampOil",
+  "CardImageWarpType": 3,
+  "CardType": 9,
+  "ObjectWeight": 0.11,
+  "CardTagsWarpData": [
+    "tag_Preservable",
+    "tag_Heatable",
+    "tag_Boilable",
+    "tag_CookableLiquid"
+  ],
+  "CardTagsWarpType": 3,
+  "AlwaysUpdate": true,
+  "FuelCapacity": {
+    "CardStatName": {
+      "ParentObjectID": "39ef9375746c7c34493215126e9888ee",
+      "LocalizationKey": "APE_Stat_LiquidTemperature",
+      "DefaultText": "Liquid Temperature"
+    },
+    "MaxValue": 200,
+    "HidingOptions": 3,
+    "TextDisplay": 2,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3,
+    "OnZeroNotification": 2,
+    "Active": true
+  },
+  "CardInteractions": [
+    {
+      "GivenCardChanges": {
+        "ModType": 1,
+        "ModifyDurability": true,
+        "LiquidEffectScaling": 1,
+        "FuelChange": {
+          "x": 42,
+          "y": 42
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [],
+        "TriggerCardsWarpType": 3,
+        "TriggerTagsWarpData": [
+          "tag_FuelCapacity"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "WorksInverted": true,
+      "WorksBothWays": true,
+      "ActionName": {
+        "ParentObjectID": "APE_LQ_LampOil",
+        "LocalizationKey": "APE_Action_FeedFuel",
+        "DefaultText": "Feed Fuel"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "APE_LQ_LampOil",
+        "DefaultText": "Add lamp oil as fuel.",
+        "LocalizationKey": "CSFFMFW_LampOil_FeedFuel_ActionDescription"
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0,
+        "ModifyLiquid": true,
+        "LiquidEffectScaling": 1,
+        "LiquidQuantityChange": {
+          "x": -75,
+          "y": -75
+        }
+      }
+    },
+    {
+      "GivenCardChanges": {
+        "ModType": 1,
+        "AddedSpiceTagsWarpData": [
+          "a35683e6d413ce24ba8826b162683e1e"
+        ],
+        "AddedSpiceTagsWarpType": 3
+      },
+      "CompatibleCards": {
+        "TriggerTagsWarpData": [
+          "tag_Plateable"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "WorksInverted": true,
+      "ActionName": {
+        "ParentObjectID": "41de4f83549623a44810274a5980e80b",
+        "LocalizationKey": "APE_Action_Add",
+        "DefaultText": "Add"
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0,
+        "ModifyLiquid": true,
+        "AddedSpiceTagsWarpData": [],
+        "AddedSpiceTagsWarpType": 3,
+        "LiquidQuantityChange": {
+          "x": -12.5,
+          "y": -12.5
+        }
+      }
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "425259cb06b869d45be2e7f1b5b54aff",
+        "LocalizationKey": "APE_Action_Drink",
+        "DefaultText": "Drink"
+      },
+      "UseMiniTicks": 1,
+      "ActionSoundsWarpData": [
+        "Drink"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "DrinkingAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 60,
+            "y": 60
+          }
+        },
+        {
+          "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 60,
+            "y": 60
+          }
+        },
+        {
+          "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 72,
+            "y": 72
+          }
+        },
+        {
+          "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 6,
+            "y": 6
+          }
+        },
+        {
+          "StatWarpData": "1c65f54ccf62e6f448c6c18fa8a21337",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 60,
+            "y": 60
+          }
+        },
+        {
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 6,
+            "y": 6
+          }
+        },
+        {
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -3,
+            "y": -3
+          }
+        },
+        {
+          "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 6,
+            "y": 6
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0,
+        "TransformIntoWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+        "TransformIntoWarpType": 3,
+        "ModifyLiquid": true,
+        "LiquidEffectScaling": 2,
+        "SpoilageChange": {
+          "x": -250,
+          "y": -250
+        },
+        "LiquidQuantityChange": {
+          "x": -150,
+          "y": -150
+        }
+      }
+    }
+  ],
+  "PassiveEffects": [
+    {
+      "EffectName": "Cooling",
+      "Conditions": {
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "FuelRange": {
+            "x": 0,
+            "y": 0.100000001490116
+          }
+        }
+      },
+      "FuelRateModifier": {
+        "FloatValue": -100,
+        "Active": true
+      }
+    }
+  ],
+  "DurabilityTransferEffects": [
+    {
+      "EffectName": "Frying",
+      "Targets": [
+        {
+          "TargetWarpData": "tag_Plateable",
+          "TargetWarpType": 3
+        }
+      ],
+      "PickTargetsInSameContainer": true,
+      "TargetSelection": 2,
+      "SelfConditions": {
+        "FuelRange": {
+          "x": 100,
+          "y": 200
+        }
+      },
+      "PerformEvenIfTransferIs0": true,
+      "Transfer": {
+        "TakeFrom": 1,
+        "SendTo": 16,
+        "TransferDirection": 1
+      },
+      "SelfDurabilityChanges": [
+        {
+          "Durability": 16,
+          "Value": {
+            "x": -12.5,
+            "y": -12.5
+          }
+        }
+      ],
+      "SelfCardChange": {
+        "ModType": 0
+      },
+      "TargetsAddedSpicesWarpData": [
+        "a35683e6d413ce24ba8826b162683e1e"
+      ],
+      "TargetsAddedSpicesWarpType": 3
+    }
+  ],
+  "InventorySlots": [],
+  "BlueprintContainerCardChanges": {
+    "ModType": 0
+  }
+}

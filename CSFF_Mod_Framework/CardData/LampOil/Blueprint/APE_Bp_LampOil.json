@@ -1,0 +1,216 @@
+{
+  "UniqueID": "APE_Bp_LampOil",
+  "CardName": {
+    "ParentObjectID": "APE_Bp_LampOil",
+    "LocalizationKey": "APE_LQ_LampOil_CardName",
+    "DefaultText": "Lamp Oil"
+  },
+  "CardDescription": {
+    "ParentObjectID": "APE_Bp_LampOil",
+    "LocalizationKey": "APE_LQ_LampOil_CardDescription",
+    "DefaultText": "A refined oil used for oil lamps.\nIt's also fine to use it for frying food or as a seasoning."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "APE_Bp_LampOil",
+    "LocalizationKey": "APE_Bp_LampOil_CardHelpSection",
+    "DefaultText": "<b>Operation steps:</b>\n1. Need to heat fat liquid. \n2. Heat and melt 12 pieces of fat in a bowl to obtain a bowl of liquid fat."
+  },
+  "CardImageWarpData": "CSFFMFW_LQ_LampOil",
+  "CardImageWarpType": 3,
+  "CardType": 7,
+  "WhenCreatedSoundsWarpData": [
+    "SticksAppear"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "InventorySlots": [],
+  "CardsOnBoard": [
+    {
+      "CardWarpData": "35d6f2a46f2bbc84bbe33e917991c71d",
+      "CardWarpType": 3,
+      "Quantity": 1,
+      "ObjectiveName": "1",
+      "CompletionWeight": 1
+    }
+  ],
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "APE_Bp_LampOil",
+    "LocalizationKey": "APE_Bp_LampOil_UnlockConditionsDesc",
+    "DefaultText": "Cloth Needed"
+  },
+  "BlueprintUnlockTicksCost": 24,
+  "BuildingStatConditions": [
+    {
+      "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+      "StatWarpType": 3,
+      "TriggerRange": {
+        "x": 10,
+        "y": 100
+      },
+      "NotifyWhenNotMet": true
+    }
+  ],
+  "BlueprintStages": [
+    {
+      "RequiredElements": [
+        {
+          "RequiredTabGroupWarpData": "GpTag_Bowl",
+          "RequiredTabGroupWarpType": 3,
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "RequiredLiquidContent": {
+            "IsActive": true,
+            "RequiredQuantity": {
+              "x": 280,
+              "y": 0
+            },
+            "RequiredLiquidWarpData": "39ef9375746c7c34493215126e9888ee",
+            "RequiredLiquidWarpType": 3
+          },
+          "EffectOnIngredient": {
+            "ModType": 2,
+            "TransformIntoWarpData": "APE_LQ_LampOil",
+            "TransformIntoWarpType": 3,
+            "TransformToLiquidQuantity": 150,
+            "TransferLiquid": true,
+            "ModifyLiquid": true,
+            "LiquidQuantityChange": {
+              "x": 150,
+              "y": 150
+            }
+          },
+          "LiquidBecomesResult": true
+        },
+        {
+          "RequiredCardWarpData": "35d6f2a46f2bbc84bbe33e917991c71d",
+          "RequiredCardWarpType": 3,
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "RequiredLiquidContent": {
+            "RequiredQuantity": {
+              "x": 100,
+              "y": 0
+            }
+          },
+          "EffectOnIngredient": {
+            "ModType": 1,
+            "ModifyLiquid": true,
+            "UsageChange": {
+              "x": -1,
+              "y": -1
+            },
+            "LiquidQuantityChange": {
+              "x": -100,
+              "y": -100
+            }
+          }
+        },
+        {
+          "RequiredCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
+          "RequiredCardWarpType": 3,
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "RequiredLiquidContent": {
+            "RequiredQuantity": {
+              "x": 100,
+              "y": 0
+            }
+          },
+          "EffectOnIngredient": {
+            "ModType": 1,
+            "ModifyLiquid": true,
+            "UsageChange": {
+              "x": -1,
+              "y": -1
+            },
+            "LiquidQuantityChange": {
+              "x": -100,
+              "y": -100
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "BuildingDaytimeCost": 3,
+  "BlueprintActionTagsWarpData": [
+    "HandAction",
+    "CraftAction"
+  ],
+  "BlueprintActionTagsWarpType": 3,
+  "BlueprintResult": [
+    {
+      "DroppedCardWarpData": "APE_LQ_LampOil",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 150,
+        "y": 150
+      },
+      "TransferRules": {
+        "SpoilageFrom": 1,
+        "UsageFrom": 1,
+        "FuelFrom": 1,
+        "ProgressFrom": 1,
+        "Special1From": 1,
+        "Special2From": 1,
+        "Special3From": 1,
+        "Special4From": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "APE_StearinCake",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 8,
+        "y": 8
+      },
+      "TransferRules": {
+        "SpoilageFrom": 1,
+        "UsageFrom": 1,
+        "FuelFrom": 1,
+        "ProgressFrom": 1,
+        "Special1From": 1,
+        "Special2From": 1,
+        "Special3From": 1,
+        "Special4From": 1
+      }
+    }
+  ],
+  "BlueprintStatModifications": [
+    {
+      "StatWarpData": "d4b67ed3a92b283488db1554bb23270a",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+      "StatWarpType": 3,
+      "ApplyEachTick": true
+    },
+    {
+      "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 2,
+        "y": 2
+      },
+      "ApplyEachTick": true
+    },
+    {
+      "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+      "StatWarpType": 3,
+      "ApplyEachTick": true
+    },
+    {
+      "StatWarpData": "16af37a364285d14586629e3e0700e55",
+      "StatWarpType": 3,
+      "ApplyEachTick": true
+    }
+  ],
+  "BlueprintContainerCardChanges": {
+    "ModType": 0
+  },
+  "DurationTicks": 3
+}

@@ -1,0 +1,16 @@
+{
+  "APE_MetalSheet":            "advanced_copper_tools_metal_sheet",
+  "APE_MetalSheet_Blank":      "advanced_copper_tools_metal_sheet",
+  "APE_MetalSheet_Cast":       "advanced_copper_tools_metal_sheet",
+  "APE_MetalNails":            "advanced_copper_tools_copper_nails",
+  "APE_MetalNails_Blank":      "advanced_copper_tools_copper_nails",
+  "APE_MetalNails_Cast":       "advanced_copper_tools_copper_nails",
+  "APE_MetalSolder":           "act_tin_solder",
+  "APE_MetalSolder_Scrap":     "act_tin_solder",
+  "APE_MetalSolder_Ball":      "4b0f4937a5ecb90499428c8c10288afc",
+  "APE_Bp_MetalSheet_Smithed": "advanced_copper_tools_bp_metal_sheet",
+  "APE_Bp_MetalSheet_Cast":    "advanced_copper_tools_bp_cast_metal_sheet",
+  "APE_Bp_MetalNails_Smithed": "advanced_copper_tools_bp_copper_nails",
+  "APE_Bp_MetalNails_Cast":    "advanced_copper_tools_bp_cast_copper_nails",
+  "APE_Bp_MetalSolder":        "advanced_copper_tools_bp_tin_solder"
+}

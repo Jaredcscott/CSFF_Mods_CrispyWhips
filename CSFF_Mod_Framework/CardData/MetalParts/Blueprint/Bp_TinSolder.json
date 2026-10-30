@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_bp_tin_solder",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_TinSolder_CardDescription",
-    "DefaultText": "Melt a tin-grade metal nugget into solder sticks."
+    "DefaultText": "Melt a tin-grade metal nugget into a solder stick that lasts five recipes."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
@@ -114,17 +114,9 @@
         "x": 1,
         "y": 1
       },
-      "DroppedCardWarpData": "act_tin_solder",
-      "DroppedCardWarpType": 3
-    },
-    {
-      "DroppedCard": {
-        "m_FileID": 0,
-        "m_PathID": 0
-      },
-      "Quantity": {
-        "x": 1,
-        "y": 1
+      "TransferRules": {
+        "Special1": 3,
+        "Special1Value": 5.0
       },
       "DroppedCardWarpData": "act_tin_solder",
       "DroppedCardWarpType": 3
@@ -132,7 +124,7 @@
   ],
   "BlueprintStatModifications": [],
   "WhenCreatedSoundsWarpData": [
-    "Metal"
+    "MetalAppear"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTagsWarpData": [
