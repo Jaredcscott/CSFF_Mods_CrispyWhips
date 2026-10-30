@@ -1,7 +1,7 @@
 # Mod Update Manager - Implementation Summary
 
-Date: 2026-10-02
-Version: 2.1.63
+Date: 2026-10-29
+Version: 2.1.75
 
 ## Active Runtime Flow
 
@@ -24,7 +24,10 @@ Version: 2.1.63
 - `ConflictDetector`: conflict hints in two tiers, cached per mod scan: GUID-confirmed (two plugin DLLs register the same `[BepInPlugin]` GUID, read by `PluginMetadataReader` and paired by `PluginGuidCollisions`) and name-heuristic (name patterns and a hand-listed pair, labelled as such in the tab). Logs one summary line per scan.
 - `CompatibilityChip`: reads the "Compatible with ... EA x.y" build from a fetched Nexus changelog and rates it against the running game version for the inline "Tested: EA x.y" line.
 - `ModComparisonView`: simple update statistics from the current checked mod list.
-- `SuiteModRegistry`: registry of the 9 crispywhips mods bundled in the Install & Update tab (folder name, display name, category, a hand-typed fallback description for the details panel; the embedded-resource key derives from the folder name).
+- `SuiteModRegistry`: registry of the 15 crispywhips mods bundled in the Install & Update tab (folder name, display name, category, a hand-typed fallback description for the details panel; the embedded-resource key derives from the folder name) - grown from 9 at this doc's original writing by adding the pre-release mods (Partner Overhaul, Harsh Wilds, Far Territory, Forest Lore, Sirus23 Mod Collection, Utility Belt).
+- `VersionLedger`: records each mod's installed-version changes (and first sight) to one small text file, read back at launch to drive the NEW chips and each row's History list (up to 20 entries, startup scan or suite Apply).
+- `MumHandoff`: the upgrade note an older Mod Update Manager leaves for a newer one (`BepInEx/config/ModUpdateManager_Handoff.txt`) naming which suite mods Nexus had newer versions of; the newer MUM reads and deletes it on its first start and ticks the suite mods it updates on Install & Update.
+- `SuiteKeepPolicy` / `SuiteInstaller.Kept.cs`: the opt-in `KeepPreviousSuiteVersion` path - moves the copy Apply replaces to `BepInEx/mum_work/kept/<Folder>/<version>/` instead of deleting it, prunes down to `KeptVersions` (1-3, default 1), and drives the **Roll back** button.
 - `ModSuiteExtractor`: the in-game half of the suite installer - resolves `BepInEx/plugins/`, the work folder `BepInEx/mum_work/` beside it and the embedded ZIP, then runs `SuiteInstaller.InstallSteps` over them a step per `MoveNext` (`ExtractSteps`), which `UpdateManagerUI.ApplySuiteCoroutine` drains with one frame (`yield return null`) between steps.
 - `SuiteInstaller`: checks the whole archive, extracts it into `BepInEx/mum_work/staging/<Folder>`, verifies every file's size there, then renames the installed folder to `BepInEx/mum_work/old/<Folder>` and the staging folder into its place, carries `SpriteCache/` across by rename, and deletes the old copy (falling back to `<Folder>__mum_staging` and `<Folder>__mum_old` inside `plugins/` when the work folder cannot be renamed into it). `InstallSteps` does that in bounded steps (`FilesPerStep`, `BytesPerStep`, `EntriesPerCheckStep`, `FilesPerDeleteStep`, tunables from the W0-3 research record), the two renames inside one step; `Install` drains it in one call. Any failure before the renames leaves the installed folder untouched; a failed second rename is undone. Host-free, and driven by `Development_Tools/Tests/MUM-CompiledLogic.Tests.ps1`.
 - `MumLog`: the log sink the host-free classes use, pointed at BepInEx's logger by `Plugin.Awake`.

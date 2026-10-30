@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.76] - 2026-10-30
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds CSFF Mod Framework 2.29.0, Herbs and Fungi 1.14.18, Advanced Copper Tools 1.18.15, Water Driven Infrastructure 1.12.17, Community Mod Chest 1.69.26, Homestead Perks 1.3.10, Repeat Action 2.2.4, Quick Transfer 1.9.3, Skill Speed Boost 1.11.2, and the pre-release Partner Overhaul 1.1.7, Harsh Wilds 0.11.10, Far Territory 0.1.14, Forest Lore 0.1.9, Utility Belt 0.1.8 and Sirus23 Mod Collection 1.22.12. The framework now hosts Lamp Oil, the Stearin Cake, Brine and Concentrated Brine (salt dissolves in water, and brine cures meat and fish), metal sheets and nails that heat up and come out better under a hard hammer, a cast metal sheet, and a Tin Solder stick that lasts five recipes; a sheet, nail or solder from another mod fits the same recipe slots. The Homestead and Founders kits and the one-time Comfort reset now run in the framework, so Community Mod Chest, Homestead Perks and Sirus23 Mod Collection need framework 2.29.0, which this suite carries. Actions that made no sound in several suite mods now play a base-game sound. Advanced Copper Tools adds Metal Gloves and one Large Saw for every metal; Forest Lore's Homestead keeps everything stored in it when a save loads; a repeated pour leaves the drink in a locked bottle alone; the Metallurgy course hands over the one Metal Sheet recipe.
+
 ## [2.1.75] - 2026-10-29
 
 ### Changed

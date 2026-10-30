@@ -107,7 +107,7 @@ namespace mod_update_manager
 
             foreach (Match match in stringPattern.Matches(json))
             {
-                // Don't overwrite — first occurrence wins (root-level "name" beats nested "user.name")
+                // Don't overwrite - first occurrence wins (root-level "name" beats nested "user.name")
                 if (!result.ContainsKey(match.Groups[1].Value))
                     result[match.Groups[1].Value] = UnescapeString(match.Groups[2].Value);
             }
