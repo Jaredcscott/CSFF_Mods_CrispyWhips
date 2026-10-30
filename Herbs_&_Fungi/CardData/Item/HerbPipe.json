@@ -27,7 +27,7 @@
     "CardImageWarpType": 3,
     "CardTagsWarpData": ["tag_Preservable"],
     "CardTagsWarpType": 3,
-    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpData": ["WoodAppear"],
     "WhenCreatedSoundsWarpType": 3,
     "UsageDurability": {
         "Active": false

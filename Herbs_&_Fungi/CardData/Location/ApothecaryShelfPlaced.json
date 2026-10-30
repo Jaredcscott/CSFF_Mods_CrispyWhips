@@ -55,7 +55,7 @@
     "DoesNotPinAutomatically": false,
     "WhenCreatedSounds": [],
     "WhenCreatedSoundsWarpData": [
-        "Wood"
+        "WoodAppear"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {
@@ -211,7 +211,7 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "ActionSoundsWarpData": [
-                "Wood"
+                "WoodAppear"
             ],
             "ActionSoundsWarpType": 3,
             "ReceivingCardChanges": {
@@ -244,7 +244,7 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "ActionSoundsWarpData": [
-                "Wood"
+                "WoodAppear"
             ],
             "ActionSoundsWarpType": 3,
             "ProducedCards": [

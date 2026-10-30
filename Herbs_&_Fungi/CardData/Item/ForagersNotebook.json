@@ -27,7 +27,7 @@
     "CardTagsWarpData": [],
     "CardTagsWarpType": 3,
     "WhenCreatedSoundsWarpData": [
-        "Fiber"
+        "GrassAppear"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {

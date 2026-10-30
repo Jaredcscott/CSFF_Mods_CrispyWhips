@@ -9,7 +9,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_pickling_vat",
         "LocalizationKey": "Herbs_And_Fungi_PicklingVat_CardDescription",
-        "DefaultText": "A fired ceramic vat for brine pickling. Fill with water from any container, then drag salt to turn the water into pickle brine. Click the vat to access pickling recipes — each batch consumes 500 units of brine. Drag dried wild garlic or dried ginger onto a vat of plain brine to spice it for the Spiced Pickle recipes."
+        "DefaultText": "A fired ceramic vat for brine pickling. Fill it with water and drag salt onto it to make Brine. Click the vat to access pickling recipes: each batch consumes 500 units of Brine. Drag dried wild garlic or dried ginger onto a vat of Brine to spice it for the Spiced Pickle recipes."
     },
     "CardType": 0,
     "CardTags": [],
@@ -139,59 +139,13 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_pickling_vat",
-                "LocalizationKey": "Herbs_And_Fungi_PicklingVat_MakeBrine_ActionName",
-                "DefaultText": "Make Brine"
-            },
-            "ActionDescription": {
-                "ParentObjectID": "herbs_fungi_pickling_vat",
-                "LocalizationKey": "Herbs_And_Fungi_PicklingVat_MakeBrine_ActionDescription",
-                "DefaultText": "Dissolve salt into the water to form pickle brine."
-            },
-            "DaytimeCost": 0,
-            "UseMiniTicks": 1,
-            "ActionSounds": [],
-            "ActionTags": [],
-            "ActionTagsWarpData": ["HandAction"],
-            "ActionTagsWarpType": 3,
-            "RequiredReceivingDurabilities": {
-                "RequiredLiquidQuantity": 1.0,
-                "HideActionIfNotMet": true
-            },
-            "CompatibleCards": {
-                "TriggerCards": [],
-                "TriggerTags": [],
-                "TriggerCardsWarpData": [
-                    "f91b5676fc26c0e48a4ee6fd9dfc2ffa"
-                ],
-                "TriggerCardsWarpType": 3,
-                "TriggerTagsWarpData": [],
-                "TriggerTagsWarpType": 3
-            },
-            "NOTCompatibleCards": {
-                "TriggerCards": [],
-                "TriggerTags": []
-            },
-            "ReceivingCardChanges": {
-                "ModType": 1,
-                "ModifyLiquid": true,
-                "TransformIntoWarpData": "herbs_fungi_pickle_brine",
-                "TransformIntoWarpType": 3
-            },
-            "GivenCardChanges": {
-                "ModType": 3
-            },
-            "WorksBothWays": false
-        },
-        {
-            "ActionName": {
-                "ParentObjectID": "herbs_fungi_pickling_vat",
                 "LocalizationKey": "Herbs_And_Fungi_PicklingVat_SpiceBrine_ActionName",
                 "DefaultText": "Spice Brine"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_pickling_vat",
                 "LocalizationKey": "Herbs_And_Fungi_PicklingVat_SpiceBrine_ActionDescription",
-                "DefaultText": "Steep dried wild garlic or dried ginger in the pickle brine to make it spiced. Works only on plain pickle brine."
+                "DefaultText": "Steep dried wild garlic or dried ginger in the Brine to make it spiced. Works only on plain Brine."
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 1,
@@ -202,6 +156,14 @@
             "RequiredReceivingDurabilities": {
                 "RequiredLiquidQuantity": 1.0,
                 "HideActionIfNotMet": true
+            },
+            "RequiredReceivingLiquidContent": {
+                "IsActive": true,
+                "RequiredLiquid": { "m_FileID": 0, "m_PathID": 0 },
+                "RequiredGroup": { "m_FileID": 0, "m_PathID": 0 },
+                "RequiredGroupWarpData": "GpTag_FW_Brine",
+                "RequiredGroupWarpType": 3,
+                "RequiredQuantity": { "x": 1.0, "y": 1000000000.0 }
             },
             "CompatibleCards": {
                 "TriggerCards": [],

@@ -342,12 +342,12 @@ Preserves fermentable foods for about a month using salt brine.
 ### Making Brine
 
 1. Fill the pickle vat (item form) with water from any container.
-2. Drag **Salt** onto the water-filled vat → water transforms into **Pickle Brine** in-place.
+2. Drag **Salt** onto the water-filled vat → the water becomes **Brine** (CSFF Mod Framework's shared Brine; this mod's old Pickle Brine is retired, and a saved vat of it loads as Brine).
 
 ### Fermenting
 
 1. Add fermentable ingredients to the vat. Ginger, Turnroot, and Fireroot are tagged fermentable by this mod; pickle blueprints in the crafting journal gate specific content recipes (Pickled Vegetables, Pickled Meat, Pickled Mushrooms, Pickled Frogs).
-   - *Spiced version:* drag **Dried Wild Garlic** or **Dried Ginger** onto the vat of plain Pickle Brine (**Spice Brine**) to make **Spiced Pickle Brine**, then choose one of the four **Spiced Pickle** blueprints instead (they accept only spiced brine). The result has a stronger taste and is otherwise handled the same.
+   - *Spiced version:* drag **Dried Wild Garlic** or **Dried Ginger** onto the vat of plain Brine (**Spice Brine**) to make **Spiced Pickle Brine**, then choose one of the four **Spiced Pickle** blueprints instead (they accept only spiced brine). The result has a stronger taste and is otherwise handled the same.
 2. **Cap with Clay Bowl** → Closed Pickle Vat.
 3. Drag water onto the closed vat to **Seal** it → Sealed Pickle Vat (placed structure).
 4. Wait ~7 in-game days for fermentation to complete.

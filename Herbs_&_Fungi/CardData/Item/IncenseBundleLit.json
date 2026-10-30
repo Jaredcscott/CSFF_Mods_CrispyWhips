@@ -28,9 +28,7 @@
     "CardTags": [],
     "CardTagsWarpData": [],
     "CardTagsWarpType": 3,
-    "WhenCreatedSoundsWarpData": [
-        "FireIgnite"
-    ],
+    "WhenCreatedSoundsWarpData": [],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {
         "Active": false
@@ -69,9 +67,7 @@
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 0,
-            "ActionSoundsWarpData": [
-                "FireExtinguish"
-            ],
+            "ActionSoundsWarpData": [],
             "ActionSoundsWarpType": 3,
             "ReceivingCardChanges": {
                 "ModType": 3
@@ -112,9 +108,7 @@
             "ActionTags": [],
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
-            "ActionSoundsWarpData": [
-                "FireExtinguish"
-            ],
+            "ActionSoundsWarpData": [],
             "ActionSoundsWarpType": 3,
             "ReceivingCardChanges": {
                 "ModType": 2,

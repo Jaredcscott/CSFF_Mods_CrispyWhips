@@ -32,8 +32,8 @@
     ],
     "CardTagsWarpType": 3,
     "WhenCreatedSoundsWarpData": [
-        "Wax",
-        "PourWater"
+        "SmallObject_A",
+        "Flowing1"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {

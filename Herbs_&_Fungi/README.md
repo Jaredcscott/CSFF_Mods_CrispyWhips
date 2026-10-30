@@ -1,6 +1,6 @@
 # Herbs and Fungi: Player Guide
 
-**Version:** 1.14.17
+**Version:** 1.14.18
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -186,7 +186,6 @@ Blueprints are in the Cooking tab unless noted. No vanilla card changes.
 | **Pain Relief Powder** | A ground herbal painkiller |
 | **Death Cap Tincture** | A bitter extract that kills gut parasites |
 | **Mushroom Broth** | A broth of dried mushrooms simmered in a clay bowl of freshly boiled water; quenches thirst and feeds you a little |
-| **Pickle Brine** | The liquid for the pickle vat |
 
 **Herbal Tonic.** Some forms of ginseng, lion's mane, reishi and shiitake, Black Trumpet Powder, King Oyster Powder, Bowl of Truffle Oil, the Ginseng, Reishi and Lion's Mane teas, Reishi Broth, Chaga Tea, Herbal Ferment and Vigor Elixir strengthen your immune system through a **Herbal Tonic** status.
 
@@ -291,8 +290,8 @@ The **Oil Press** perk starts you with the Kit.
 
 ### Pickle Vat (Long Fermentation)
 1. Craft the **Unfired Pickle Vat** and fire it in a kiln.
-2. Fill the vat with water and drag salt onto it (**Make Brine**) to make Pickle Brine.
-3. Choose a pickle blueprint: **Pickle Frogs**, **Pickle Meat**, **Pickle Mushrooms** or **Pickle Vegetables**. Each uses 500 Pickle Brine, 5 of its raw food and a Clay Bowl as the lid.
+2. Fill the vat with water and drag salt onto it (**Dissolve in Water**) to make **Brine**. Brine is CSFF Mod Framework's card (2.29.0), shared with other mods; this mod's own Pickle Brine is retired, and a vat saved with it loads holding Brine.
+3. Choose a pickle blueprint: **Pickle Frogs**, **Pickle Meat**, **Pickle Mushrooms** or **Pickle Vegetables**. Each uses 500 Brine, 5 of its raw food and a Clay Bowl as the lid.
    - Frogs: raw frog.
    - Meat: raw meat, offal, fillings and raw fish.
    - Mushrooms: Golden Oyster, King Oyster, Morel Mushroom and Shiitake Mushroom.
@@ -301,7 +300,7 @@ The **Oil Press** perk starts you with the Kit.
 5. After 7 days it becomes **Pickled Frogs** (or Meat, Mushrooms or Vegetables) with **5 servings**. **Eat** them from the vat. A ready vat keeps for about a month.
 6. Emptying the last serving, or letting the pickles spoil, gives back the fired vat and an **Open Pickle Jar**. **Return Bowl** on the jar returns the clay bowl lid.
 
-**Spiced pickles.** Drag **Dried Wild Garlic** or **Dried Ginger** onto a vat of plain brine (**Spice Brine**) to make **Spiced Pickle Brine**. Four **Spiced Pickle** blueprints then appear. They accept only spiced brine, and the plain ones only plain brine.
+**Spiced pickles.** Drag **Dried Wild Garlic** or **Dried Ginger** onto a vat of Brine (**Spice Brine**) to make **Spiced Pickle Brine**. Four **Spiced Pickle** blueprints then appear. They accept only spiced brine, and the plain ones only plain brine.
 
 Spiced pickles taste stronger (Pungent Strong, Savoury Medium). Servings, spoilage and returns match the plain ones.
 
@@ -418,7 +417,7 @@ This needs CSFFModFramework 2.28.0 or later. The birch-area finds and the season
 
 ### Requirements
 - **BepInEx 5.x**
-- **CSFFModFramework** 2.28.6 or newer
+- **CSFFModFramework** 2.29.0 or newer
 - **Card Survival: Fantasy Forest** EA 0.69c
 
 ### Installation
@@ -454,7 +453,7 @@ The companion remedies carry `tag_x_AnimalRemedy`, every pressed oil carries `ta
 
 Patch classes in `Patcher/`:
 - **GameLoadPatch** adds Dig for Truffles at the 51 vanilla oak and alder locations (a `DropInjections.json` rule cannot create an action, and every forage drop is a rule). It also applies `ForageDropDensityScale`, tags Turnroot and Fireroot as fermentable, and fills the pickle-vat content tags.
-- **PickleVatRoutePatch** handles the in-place liquid swaps for Make Brine and Spice Brine, and the brine requirement on the pickle blueprints.
+- **PickleVatRoutePatch** handles the in-place liquid swap for Spice Brine and the brine requirement on the pickle blueprints. Plain brine means any member of the framework group `GpTag_FW_Brine` (the framework Brine `APE_LQ_SaltWater`, or a card carrying `tag_x_Brine`), never one UID.
 - **ApothecaryQuestGatePatch** unlocks the Stimulant Tea and Anti-Nausea Tea blueprints separately, when you obtain Ground Ginseng or Dried Ginger, instead of through Community Mod Chest's Apothecary quest.
 - **GpTagContentPatch** fills the pickle-vat `GpTag` content, called from `GameLoadPatch`.
 - **ForagersNotebookPatch** listens for newly created wild finds from this mod and rewrites the carried Forager's Notebook's saved description so each species is listed once, under the place it was first found (at most 12 place lines).
@@ -467,6 +466,7 @@ Patch classes in `Patcher/`:
 
 Full notes are in `CHANGELOG.md`.
 
+- **1.14.18** (unreleased): pickle vats use the CSFF Mod Framework's Brine, made by dissolving salt in water; Pickle Brine and Make Brine are retired and a saved vat keeps its brine; actions that were silent make a sound. Needs CSFF Mod Framework 2.29.0.
 - **1.14.15**: Turnroot Flatbread is a dense brick that nourishes like Dried Turnroot, a little less filling; Turnroot Chips can be eaten; both have their own pictures.
 - **1.14.14**: the mod list description names the six herb grow bags as well as Kale's.
 - **1.14.13**: Peanut Butter has its own picture; the pickling recipes say they need the open Pickle Vat; Forager's Seasoning and seven other recipes name their ingredients and unlocks by the cards' real names; clearer log warnings if a game update breaks one of the mod's patches.

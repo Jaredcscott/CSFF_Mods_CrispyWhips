@@ -16,7 +16,7 @@
     "BlueprintResult": [{ "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "Quantity": { "x": 1, "y": 1 }, "DroppedCardWarpData": "herbs_fungi_winter_grow_bag_kale_growing", "DroppedCardWarpType": 3 }],
     "BlueprintStatModifications": [],
     "BlueprintContainerCardChanges": { "ModType": 0 },
-    "WhenCreatedSoundsWarpData": ["Farming"],
+    "WhenCreatedSoundsWarpData": ["DigMud"],
     "WhenCreatedSoundsWarpType": 3,
     "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
     "BlueprintActionTagsWarpType": 3,

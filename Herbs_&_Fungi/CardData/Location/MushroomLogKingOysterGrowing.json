@@ -51,6 +51,6 @@
     "CardImageWarpType": 3,
     "CardTagsWarpData": [],
     "CardTagsWarpType": 3,
-    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpData": ["WoodAppear"],
     "WhenCreatedSoundsWarpType": 3
 }

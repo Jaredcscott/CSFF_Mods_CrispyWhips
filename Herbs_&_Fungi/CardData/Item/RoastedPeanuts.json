@@ -154,7 +154,7 @@
             "ActionTags": [],
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
-            "ActionSoundsWarpData": ["Stone"],
+            "ActionSoundsWarpData": ["GrindingLeaves"],
             "ActionSoundsWarpType": 3,
             "CompatibleCards": {
                 "TriggerCards": [],
@@ -191,7 +191,7 @@
             "ActionTags": [],
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
-            "ActionSoundsWarpData": ["Stone"],
+            "ActionSoundsWarpData": ["GrindingLeaves"],
             "ActionSoundsWarpType": 3,
             "CompatibleCards": {
                 "TriggerCards": [],

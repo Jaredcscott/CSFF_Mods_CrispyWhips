@@ -32,7 +32,7 @@
     ],
     "CardTagsWarpType": 3,
     "WhenCreatedSoundsWarpData": [
-        "Fiber"
+        "GrassAppear"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {
@@ -91,9 +91,7 @@
             "ActionTags": [],
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
-            "ActionSoundsWarpData": [
-                "FireIgnite"
-            ],
+            "ActionSoundsWarpData": [],
             "ActionSoundsWarpType": 3,
             "RequiredReceivingDurabilities": {
                 "RequiredFuelPercent": {

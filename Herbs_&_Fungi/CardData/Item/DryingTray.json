@@ -55,7 +55,7 @@
     "DoesNotPinAutomatically": false,
     "WhenCreatedSounds": [],
     "WhenCreatedSoundsWarpData": [
-        "Fiber"
+        "GrassAppear"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "SpoilageTime": {

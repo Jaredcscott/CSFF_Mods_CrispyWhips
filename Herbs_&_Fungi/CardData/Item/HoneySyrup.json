@@ -137,7 +137,7 @@
             "Intensity": 1
         }
     ],
-    "WhenCreatedSoundsWarpData": ["Clay"],
+    "WhenCreatedSoundsWarpData": ["SmallObject_A"],
     "WhenCreatedSoundsWarpType": 3,
     "ObjectWeight": 100.0,
     "MaxStack": 1,

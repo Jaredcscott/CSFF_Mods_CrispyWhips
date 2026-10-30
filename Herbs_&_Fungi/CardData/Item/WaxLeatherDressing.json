@@ -31,7 +31,7 @@
     "CardTagsWarpData": [],
     "CardTagsWarpType": 3,
     "WhenCreatedSoundsWarpData": [
-        "Clay"
+        "SmallObject_A"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "CardInteractions": [

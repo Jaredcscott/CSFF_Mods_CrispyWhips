@@ -174,7 +174,6 @@
       "evidence": "RESOLVED, upgraded from BROKEN. The 9-file flat-vs-nested DroppedOnDestroy defect (all 8 Ready/Sealed pickle vat variants plus OpenPickleJar.json) was fixed 1.10.18 (2026-09-05) and 1.13.5 (2026-09-19, the missing DropOnDestroyList:true flag). Core build/ferment/eat loop was VERIFIED via T2.19 (2026-07-21); the destroy-recovery sub-feature is now also VERIFIED: T2.117 (Uncap confirm popup), T2.118 (Ready vat destroy/spoil returns fired vat + Open Pickle Jar) and T2.172 (jar's Return Bowl returns a Clay Bowl) all PASS on 2026-09-25 (r41 harness review). Sealed vats have no removal path so their own drop was not separately exercised (DroppedOnDestroy-Reachable.Tests.ps1).",
       "cards": [
         "herbs_fungi_bp_pickling_vat", "herbs_fungi_unfired_pickle_vat", "herbs_fungi_pickling_vat",
-        "herbs_fungi_pickle_brine",
         "herbs_fungi_bp_pickle_frogs", "herbs_fungi_pickle_vat_closed_frogs", "herbs_fungi_pickle_vat_ready_frogs", "herbs_fungi_pickle_vat_sealed_frogs",
         "herbs_fungi_bp_pickle_meat", "herbs_fungi_pickle_vat_closed_meat", "herbs_fungi_pickle_vat_ready_meat", "herbs_fungi_pickle_vat_sealed_meat",
         "herbs_fungi_bp_pickle_mushrooms", "herbs_fungi_pickle_vat_closed_mushrooms", "herbs_fungi_pickle_vat_ready_mushrooms", "herbs_fungi_pickle_vat_sealed_mushrooms",

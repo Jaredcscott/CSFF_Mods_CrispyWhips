@@ -583,7 +583,7 @@ Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability1_CardStatName,Fired
 Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability1_OnFull_ActionDescription,Pickle Vat fired.
 Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability2_CardStatName,Quality
 Herbs_And_Fungi_PicklingVat_CardName,Pickle Vat
-Herbs_And_Fungi_PicklingVat_CardDescription,"A fired ceramic vat for brine pickling. Fill with water from any container, then drag salt to turn the water into pickle brine. Click the vat to access pickling recipes — each batch consumes 500 units of brine. Drag dried wild garlic or dried ginger onto a vat of plain brine to spice it for the Spiced Pickle recipes."
+Herbs_And_Fungi_PicklingVat_CardDescription,"A fired ceramic vat for brine pickling. Fill it with water and drag salt onto it to make Brine. Click the vat to access pickling recipes: each batch consumes 500 units of Brine. Drag dried wild garlic or dried ginger onto a vat of Brine to spice it for the Spiced Pickle recipes."
 Herbs_And_Fungi_PicklingVat_SpecialDurability2_CardStatName,Quality
 herbsfungioilpresslegs_CardName,Oil Press Legs
 herbsfungioilpresslegs_CardDescription,Sturdy wooden legs for an oil press. Part of a larger assembly.
@@ -640,10 +640,6 @@ Herbs_And_Fungi_Perk_FungalCultivator_PerkName,Fungal Cultivator
 Herbs_And_Fungi_Perk_FungalCultivator_PerkDescription,"Start with a cultivator's collection of specialty mushrooms: Chanterelles, Black Trumpets, Shiitake, and Puffballs, plus Ginseng. Ideal for those who love farming and rare fungi."
 Herbs_And_Fungi_Perk_MasterHerbalist_PerkName,Master Herbalist
 Herbs_And_Fungi_Perk_MasterHerbalist_PerkDescription,"Start as an experienced herbalist with a full collection of medicinal herbs and roots: Ginseng, Reishi, and Yarrow in both fresh and dried forms. Perfect for tea brewing and potion crafting."
-Herbs_And_Fungi_PickleBrine_CardName,Pickle Brine
-Herbs_And_Fungi_PickleBrine_CardDescription,A salt-water brine for fermenting and preserving fermentable foods. Items soaked in sealed brine will last for a long time.
-Herbs_And_Fungi_PicklingVat_MakeBrine_ActionName,Make Brine
-Herbs_And_Fungi_PicklingVat_MakeBrine_ActionDescription,Dissolve salt into the water to form pickle brine.
 Herbs_And_Fungi_HempSeedOil_CardName,Hemp Seed Oil
 Herbs_And_Fungi_HempSeedOil_CardDescription,"Cold-pressed oil extracted from hemp seeds, served in a clay bowl. Nutty and rich. Eat it, season food with it, or burn it in an oil lamp."
 Herbs_And_Fungi_HempSeedOil_CardHelpSection,"<b>Crafted:</b> By pressing 3 Hemp Seeds + Clay Bowl on a placed Oil Press.
@@ -2330,7 +2326,7 @@ Herbs_And_Fungi_SpicedPickleVatReadyVegetables_Eat_ActionDescription,Eat a servi
 Herbs_And_Fungi_SpicedPickleBrine_CardName,Spiced Pickle Brine
 Herbs_And_Fungi_SpicedPickleBrine_CardDescription,A salt-water brine steeped with dried wild garlic or dried ginger. Pickles fermented in it come out with a stronger taste. Only the Spiced Pickle blueprints accept it.
 Herbs_And_Fungi_PicklingVat_SpiceBrine_ActionName,Spice Brine
-Herbs_And_Fungi_PicklingVat_SpiceBrine_ActionDescription,Steep dried wild garlic or dried ginger in the pickle brine to make it spiced. Works only on plain pickle brine.
+Herbs_And_Fungi_PicklingVat_SpiceBrine_ActionDescription,Steep dried wild garlic or dried ginger in the Brine to make it spiced. Works only on plain Brine.
 Herbs_And_Fungi_BerryLeather_CardName,Berry Leather
 Herbs_And_Fungi_BerryLeather_CardDescription,"Mashed berries dried into a thin, chewy sheet. Light to carry, sweet and tart, and it keeps for weeks."
 Herbs_And_Fungi_BerryLeather_CardHelpSection,"<b>Made from:</b> Berry Pulp (3 fresh berries mashed), dried on a Drying Tray.

@@ -92,12 +92,6 @@
    "looks": "off-white cream"
   },
   {
-   "image": "HF_LQ_PickleBrine",
-   "card": "CardData/Liquid/PickleBrine.json",
-   "colour": "#aaaa6e",
-   "looks": "cloudy yellow-green"
-  },
-  {
    "image": "HF_LQ_ReishiTea",
    "card": "CardData/Liquid/ReishiTea.json",
    "colour": "#783223",

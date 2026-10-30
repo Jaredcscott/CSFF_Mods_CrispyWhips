@@ -605,7 +605,7 @@ Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability1_CardStatName,Fired,烧制度
 Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability1_OnFull_ActionDescription,Pickle Vat fired.,腌菜缸已烧制完成。
 Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability2_CardStatName,Quality,质量
 Herbs_And_Fungi_PicklingVat_CardName,Pickle Vat,腌菜缸
-Herbs_And_Fungi_PicklingVat_CardDescription,"A fired ceramic vat for brine pickling. Fill with water from any container, then drag salt to turn the water into pickle brine. Click the vat to access pickling recipes — each batch consumes 500 units of brine. Drag dried wild garlic or dried ginger onto a vat of plain brine to spice it for the Spiced Pickle recipes.",一个用于盐水腌制的烧制陶缸。向其中注水，然后拖动盐使水变成腌制卤水。点击缸以访问腌制配方——每批消耗500单位卤水。把干野蒜或干姜拖到装有普通卤水的缸上即可调成香料卤水，用于香料腌菜配方。
+Herbs_And_Fungi_PicklingVat_CardDescription,"A fired ceramic vat for brine pickling. Fill it with water and drag salt onto it to make Brine. Click the vat to access pickling recipes: each batch consumes 500 units of Brine. Drag dried wild garlic or dried ginger onto a vat of Brine to spice it for the Spiced Pickle recipes.",一个用于盐水腌制的烧制陶缸。向其中注水后拖入盐即可制成盐水。点击缸以访问腌制配方：每批消耗500单位盐水。把干野蒜或干姜拖到装有盐水的缸上即可调成香料卤水，用于香料腌菜配方。
 Herbs_And_Fungi_PicklingVat_SpecialDurability2_CardStatName,Quality,质量
 Herbs_And_Fungi_OilPressKit_Dismantle_ActionName,Dismantle,拆解
 Herbs_And_Fungi_OilPressKit_Dismantle_ActionDescription,Break down the oil press kit and recover all components.,拆解榨油套件并回收所有零件。
@@ -662,10 +662,6 @@ Herbs_And_Fungi_Perk_FungalCultivator_PerkName,Fungal Cultivator,真菌培育者
 Herbs_And_Fungi_Perk_FungalCultivator_PerkDescription,"Start with a cultivator's collection of specialty mushrooms: Chanterelles, Black Trumpets, Shiitake, and Puffballs, plus Ginseng. Ideal for those who love farming and rare fungi.",以培育者的身份开始，携带特色蘑菇收藏：鸡油菌、黑喇叭菌、香菇、马勃菌，以及人参。适合热爱种植稀有真菌的玩家。
 Herbs_And_Fungi_Perk_MasterHerbalist_PerkName,Master Herbalist,草药大师
 Herbs_And_Fungi_Perk_MasterHerbalist_PerkDescription,"Start as an experienced herbalist with a full collection of medicinal herbs and roots: Ginseng, Reishi, and Yarrow in both fresh and dried forms. Perfect for tea brewing and potion crafting.",以资深草药师的身份开始，携带完整的药用草药和根茎：新鲜和干燥的人参、灵芝、蓍草。适合泡茶和炼制药剂。
-Herbs_And_Fungi_PickleBrine_CardName,Pickle Brine,腌制卤水
-Herbs_And_Fungi_PickleBrine_CardDescription,A salt-water brine for fermenting and preserving fermentable foods. Items soaked in sealed brine will last for a long time.,用于发酵和保存食物的盐水卤水。浸泡在密封卤水中的食物可以长期保存。
-Herbs_And_Fungi_PicklingVat_MakeBrine_ActionName,Make Brine,制作卤水
-Herbs_And_Fungi_PicklingVat_MakeBrine_ActionDescription,Dissolve salt into the water to form pickle brine.,将盐溶于水中形成腌制卤水。
 Herbs_And_Fungi_HempSeedOil_CardName,Hemp Seed Oil,大麻籽油
 Herbs_And_Fungi_HempSeedOil_CardDescription,"Cold-pressed oil extracted from hemp seeds, served in a clay bowl. Nutty and rich. Eat it, season food with it, or burn it in an oil lamp.",从大麻籽冷榨的油，盛于陶碗中。坚果香浓郁。可直接食用、为食物调味，或放进油灯里当燃料。
 Herbs_And_Fungi_HempSeedOil_CardHelpSection,"<b>Crafted:</b> By pressing 3 Hemp Seeds + Clay Bowl on a placed Oil Press.
@@ -2639,7 +2635,7 @@ Herbs_And_Fungi_SpicedPickleVatReadyVegetables_Eat_ActionDescription,Eat a servi
 Herbs_And_Fungi_SpicedPickleBrine_CardName,Spiced Pickle Brine,香料腌制卤水
 Herbs_And_Fungi_SpicedPickleBrine_CardDescription,A salt-water brine steeped with dried wild garlic or dried ginger. Pickles fermented in it come out with a stronger taste. Only the Spiced Pickle blueprints accept it.,用干野蒜或干姜浸泡的盐水卤水。用它发酵的腌菜味道更浓烈。只有香料腌菜配方可以使用。
 Herbs_And_Fungi_PicklingVat_SpiceBrine_ActionName,Spice Brine,调制香料卤水
-Herbs_And_Fungi_PicklingVat_SpiceBrine_ActionDescription,Steep dried wild garlic or dried ginger in the pickle brine to make it spiced. Works only on plain pickle brine.,将干野蒜或干姜浸入腌制卤水中，使其带有香料味。仅对普通腌制卤水有效。
+Herbs_And_Fungi_PicklingVat_SpiceBrine_ActionDescription,Steep dried wild garlic or dried ginger in the Brine to make it spiced. Works only on plain Brine.,将干野蒜或干姜浸入盐水中，使其带有香料味。仅对普通盐水有效。
 Herbs_And_Fungi_BerryLeather_CardName,Berry Leather,浆果果干片
 Herbs_And_Fungi_BerryLeather_CardDescription,"Mashed berries dried into a thin, chewy sheet. Light to carry, sweet and tart, and it keeps for weeks.",捣碎的浆果晒成的薄而耐嚼的果干片，轻便，酸甜，可保存数周。
 Herbs_And_Fungi_BerryLeather_CardHelpSection,"<b>Made from:</b> Berry Pulp (3 fresh berries mashed), dried on a Drying Tray.

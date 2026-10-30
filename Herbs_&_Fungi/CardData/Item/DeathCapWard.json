@@ -86,7 +86,7 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "ActionSoundsWarpData": [
-                "Wood"
+                "WoodAppear"
             ],
             "ActionSoundsWarpType": 3,
             "ReceivingCardChanges": {

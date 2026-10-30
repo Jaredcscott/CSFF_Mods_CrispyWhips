@@ -64,6 +64,9 @@ namespace Herbs_And_Fungi.Patcher
 
         private static ManualLogSource Logger => Plugin.Logger;
 
+        /// <summary>The framework's GpTag_FW_Brine CardTabGroup instance, found during <see cref="Populate"/>; null before it runs or on a framework older than 2.29.0.</summary>
+        internal static object FrameworkBrineGroup;
+
         public static void Populate()
         {
             try
@@ -87,6 +90,10 @@ namespace Herbs_And_Fungi.Patcher
                 {
                     if (g is UnityEngine.Object uo && Spec.ContainsKey(uo.name))
                         byName[uo.name] = g;
+                    // The framework's brine group (2.29.0), kept for PickleVatRoutePatch's plain-brine gate so
+                    // that check needs no second FindObjectsOfTypeAll scan. The framework refills it in place.
+                    if (g is UnityEngine.Object bo && bo.name == PickleVatRoutePatch.BrineGroupName)
+                        FrameworkBrineGroup = g;
                 }
 
                 var includedField = AccessTools.Field(ctgType, "IncludedCards");

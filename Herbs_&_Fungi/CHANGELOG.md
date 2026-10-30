@@ -5,6 +5,22 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [1.14.18] - 2026-10-30
+
+Needs CSFF Mod Framework 2.29.0 or later.
+
+### Fixed
+
+- **Pickle recipes really need brine now.** The pickle recipes said they took only brine (plain or spiced), but a vat of 500 plain water, or of spiced brine for a plain recipe, built them just the same. A pickle recipe on the wrong liquid now does nothing when you press Build, and keeps its ingredients: salt the water first, or use the right brine.
+- Technical: the liquid check never ran on a build. It was an ActionRouter handler on the vat, but the game builds a blueprint in `InGameCardBase.PerformBlueprintBuild` on the blueprint card sitting in the vat, and that routine clears the ingredients and runs the vat's result itself, so even a handler on its inner Build action only half-stops it. `PickleVatRoutePatch` now prefixes `PerformBlueprintBuild` and replaces a refused build with an empty one. Measured on a harness rig 2026-10-30: Pickle Meat built the Closed meat vat on plain water with 1.14.17's gate and with a Build-action gate; with the prefix it is refused and the meat is kept (HF scenario T2.1568).
+
+### Changed
+
+- **Pickle vats use the framework's Brine.** There is now one plain brine across the mods, owned by CSFF Mod Framework: dissolve salt in water (in the vat or in any container of water) and it becomes **Brine**. This mod's Pickle Brine and its Make Brine action are retired. A vat saved holding Pickle Brine loads holding Brine and still pickles. The four plain pickle recipes and Spice Brine take Brine; Spiced Pickle Brine is still this mod's own, made from Brine. Adding more salt to Brine makes it saltier, and at full saltiness it becomes the framework's Concentrated Brine, which the pickle recipes do not take.
+- Technical: `CardData/Liquid/PickleBrine.json` is deleted and `UidAliases.json` maps the old Pickle Brine ID to `APE_LQ_SaltWater` (saves and every WarpData naming the old UID). `Patcher/PickleVatRoutePatch.cs` reads membership of the framework group `GpTag_FW_Brine` (or the tag `tag_x_Brine`) instead of comparing the liquid's UniqueID, which after the alias refused Spice Brine on the framework Brine (watched in the harness on the old code); its Make Brine handler is removed, because the framework's salt-on-water interaction is tried first on a vat of water and shadowed it. Spice Brine also gates in data on the group (`RequiredReceivingLiquidContent`). Fleet plan 5.4, owner decision K2; finding `Documentation/Research/Fleet/APE_Port/W0.8_curing_and_brine.md` Part B; Interop Registry R29.
+- **Actions that were silent now make a sound.** Chiwei raised that smithing made no sound. The cause was 186 sound references in this mod naming sounds the game does not have (`Wood`, `Clay`, `Fiber`, `Farming`, `Stone`, `Wax` and others), so those actions and newly made cards played nothing. Each now names a base-game sound: wooden, clay, fibre and wax things use their base-game sounds, grinding the grinding sound, planting a field or packing a grow bag the digging sound, and water the sound of flowing water. Lighting or putting out a fire stays silent: the game has no short sound for it. Which sound goes with which action is a matter of taste and can be tuned.
+- Technical: every name in a `*SoundsWarpData` list is now a base-game AudioClip, remapped by `Development_Tools/SpriteCheck/remap_sound_names.py` from one table (fleet plan 4.1, Prompt 12; finding `Documentation/Research/Fleet/APE_Port/W0.1_missing_audio.md`). The table is a taste call and tunable. `Development_Tools/Tests/Mods-SoundNamesAreClips.Tests.ps1` fails on any name that is not a clip.
+
 ## [1.14.17] - 2026-10-26
 
 ### Fixed
