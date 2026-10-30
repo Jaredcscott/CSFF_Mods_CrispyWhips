@@ -129,7 +129,7 @@ internal static class OverlayText
             // A translation's placeholders (CSV column, not this file) can drift from the English
             // template's {0}/{1}/... count without any build-time signal - breadcrumb it so a
             // silently-wrong localized string is diagnosable instead of just "feels off".
-            Plugin.Logger?.LogDebug($"[QT] Localized template for '{key}' has malformed placeholders ({ex.Message}); using the English default.");
+            Plugin.Logger?.LogWarning($"[QT] Localized template for '{key}' has malformed placeholders ({ex.Message}); using the English default.");
             return string.Format(englishDefault, args);
         }
     }

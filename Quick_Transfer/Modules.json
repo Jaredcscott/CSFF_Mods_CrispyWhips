@@ -1,0 +1,33 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). Small pure-C# utility mod (19 tracked files, no card JSON), so 4 modules following the code's responsibilities rather than 5-15. Localization CSVs name no card, so their rows attribute to the mod-wide module. `module_map.py check QuickTransfer` must exit 0.",
+  "sharedTables": [
+    "Localization/*.csv"
+  ],
+  "modules": [
+    {
+      "id": "transfer",
+      "name": "Batch Transfer",
+      "summary": "QuickTransferPatch (the click-to-move batch transfer) and BatchContext, the live SwapCard destination state it drives.",
+      "paths": ["Patcher/QuickTransferPatch.cs", "Patcher/BatchContext.cs"]
+    },
+    {
+      "id": "containers",
+      "name": "Container Settings and Last Batch",
+      "summary": "Per-container settings keyed on the open container's UniqueID, and BatchRecord, the newest batch's moved cards.",
+      "paths": ["Patcher/ContainerSettings.cs", "Patcher/BatchRecord.cs"]
+    },
+    {
+      "id": "bridges",
+      "name": "Cross-mod Bridges",
+      "summary": "RepeatActionBridge (stepping aside from Repeat Action's count keys) and UtilityBeltLockBridge (skipping cards Utility Belt has locked).",
+      "paths": ["RepeatActionBridge.cs", "UtilityBeltLockBridge.cs"]
+    },
+    {
+      "id": "modwide",
+      "name": "Mod-wide",
+      "modWide": true,
+      "summary": "Plugin entry and config (keys, mouse buttons), the overlay strings, project files and docs.",
+      "paths": ["Plugin.cs", "GlobalUsing.cs", "OverlayText.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore", "Modules.json"]
+    }
+  ]
+}

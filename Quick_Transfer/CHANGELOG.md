@@ -2,6 +2,12 @@
 
 All notable changes to this mod are documented here.
 
+## [1.9.3] - 2026-10-30
+
+### Fixed
+- **A broken translation now shows in the log.** When a translated notification text has placeholders that do not match the English one, Quick Transfer falls back to English as before, and now says so as a warning, which the default log keeps. It used to write a debug line the default log hides.
+- Technical: `OverlayText` logs the malformed-placeholder fallback with `LogWarning` (was `LogDebug`); found by the 63rd fleet review, QT modwide code-quality.
+
 ## [1.9.2] - 2026-10-22
 
 ### Fixed
