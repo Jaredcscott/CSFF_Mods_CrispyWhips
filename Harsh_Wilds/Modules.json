@@ -1,0 +1,112 @@
+{
+  "_comment": "Subsystem modules for module-scoped audits (Development_Tools/ModuleMap/module_map.py). Every tracked file belongs to exactly one module, is a sharedTable (rows attributed by the UID or LocalizationKey they name), or is a picture/.art file owned by the module whose card names it. A beast's name recurs across its spirit, charm and coat (lynx), so those globs are anchored by prefix (spirit_lynx, charm_, coat_). Animals/, Encounter/ and SelfTriggeredAction/ are not card folders, so their files are claimed by name globs. `module_map.py check HarshWilds` must exit 0.",
+  "sharedTables": [
+    "Localization/*.csv",
+    "BlueprintTabs.json",
+    "DropInjections.json"
+  ],
+  "modules": [
+    {
+      "id": "creatures",
+      "name": "Creatures",
+      "summary": "Lynx, wisent and musk ox: their Animals manifests, encounters, trapped and carcass cards (bled, skinned), and their threat switches.",
+      "paths": ["Animals/Lynx.json", "Animals/MuskOx*.json", "Animals/Wisent.json", "Encounter/hw_encounter_lynx.json", "Encounter/hw_encounter_muskox.json", "Encounter/hw_encounter_wisent.json",
+                "CardData/Item/hw_lynx_carcass.json", "CardData/Item/hw_lynx_trapped.json", "CardData/Item/hw_muskox_carcass*", "CardData/Item/hw_wisent_carcass*",
+                "GameStat/hw_switch_lynx.json", "GameStat/hw_switch_muskox.json", "GameStat/hw_switch_wisent.json"]
+    },
+    {
+      "id": "bandit",
+      "name": "Bandit",
+      "summary": "The bandit: Animals manifest, encounter, body card, age and robbed stats, the theft trigger and its fail-closed BanditTheftGuard.",
+      "paths": ["**/*bandit*"]
+    },
+    {
+      "id": "rarebeasts",
+      "name": "Rare Beasts",
+      "summary": "White wisent, lake beast, frost demon and lindwurm (with the Lindwurm Fang): manifests, encounters, carcasses, presence stats, switches and arrival triggers.",
+      "paths": ["**/*whitewisent*", "**/*lakebeast*", "**/*frostdemon*", "**/*lindwurm*"]
+    },
+    {
+      "id": "raids",
+      "name": "Raids",
+      "summary": "Eagle, black bear, wolverine and heron raid cards, their clocks, switches and triggers, the raid-pressure tune stat, and the fail-closed HeronRaidGuard.",
+      "paths": ["CardData/Event/hw_event_eagle.json", "GameStat/hw_eagle_clock.json", "GameStat/hw_switch_eagle.json", "SelfTriggeredAction/hw_tgr_eagle.json",
+                "**/*blackbear*", "GameStat/hw_bear_clock.json", "**/*wolverine*", "**/*heron*", "GameStat/hw_tune_raids.json"]
+    },
+    {
+      "id": "hazards",
+      "name": "Hazards",
+      "summary": "Adder (venom), smithing burns and foraging bites (their force stats, ActionRouter hooks and the shared HwNotice popup), and the mud volcano.",
+      "paths": ["**/*adder*", "GameStat/hw_stat_venom.json", "**/*mudvolcano*", "GameStat/hw_bite_force.json", "GameStat/hw_burn_force.json",
+                "GameStat/hw_switch_foragebites.json", "GameStat/hw_switch_smithingburns.json", "Patcher/ForageBiteHook.cs", "Patcher/SmithingBurnHook.cs", "Patcher/HwNotice.cs"]
+    },
+    {
+      "id": "events",
+      "name": "World Events",
+      "summary": "Drought and dry spell, insect plague (bug swarm, Bug Trap), crop blight and BlightSpreadGuard, blood moon (with its two extra lynxes), eclipse, aurora, cold snap and algae bloom.",
+      "paths": ["**/*drought*", "**/*dryspell*", "**/*insectplague*", "**/*bugswarm*", "**/*PlagueSwarm*", "**/*bugtrap*", "**/*blight*",
+                "**/*bloodmoon*", "**/*eclipse*", "**/*aurora*", "**/*coldsnap*", "**/*algaebloom*"]
+    },
+    {
+      "id": "afflictions",
+      "name": "Afflictions",
+      "summary": "Fleas and lice (Herbal Wash), tooth decay (Chewing Stick, Tooth Puller), spirit sickness (Exorcism Smudge) and dancing plague, with their stats, switches and triggers.",
+      "paths": ["**/*flea*", "**/*herbal_wash*", "**/*teeth*", "**/*tooth*", "**/*chewing_stick*", "**/*spiritsickness*", "SelfTriggeredAction/Tgr_HW_SpiritSwitchOff.json",
+                "**/*exorcism*", "**/*dancing*", "GameStat/hw_ring_dance.json"]
+    },
+    {
+      "id": "spirits",
+      "name": "Spirits",
+      "summary": "Lynx, Goat, Blood, Dragon and Ancestor Spirits: summoning and calling blueprints, essences, encounter/granted/angry/left events, bound and encountered stats, insight triggers, and the Stone Cairn.",
+      "paths": ["**/*spirit_blood*", "**/*spirit_dragon*", "**/*spirit_goat*", "**/*spirit_lynx*", "**/*blood_spirit*", "**/*dragon_spirit*", "**/*goat_spirit*", "**/*lynx_spirit*",
+                "**/*ancestor*", "CardData/**/*cairn*"]
+    },
+    {
+      "id": "rites",
+      "name": "Rites",
+      "summary": "Mistletoe and Bless the Grove, the Athame and its Let Blood / Call Rain rites with IncenseRiteGuard, and the Casting Bones with their omen cards.",
+      "paths": ["**/*mistletoe*", "**/*athame*", "Patcher/IncenseRiteGuard.cs", "**/*casting_bones*", "CardData/Event/hw_event_omen_*", "GameStat/hw_stat_rite_rain.json"]
+    },
+    {
+      "id": "brews",
+      "name": "Brews and Witchfire",
+      "summary": "Beast Brew, Earth Brew and Musclebrew (blueprints, liquids, effect stats) and the Witchfire (unlit, lit, spent).",
+      "paths": ["**/*brew_*", "**/*witchfire*"]
+    },
+    {
+      "id": "objects",
+      "name": "Ritual Objects",
+      "summary": "Spirit Jar, Spirit Mask, the four spirit charms, the Lynx, Musk Ox and Wisent Coats, the Lynx Cloak, and the Beast Totem.",
+      "paths": ["**/*spirit_jar*", "**/*spirit_mask*", "**/*charm_*", "**/*coat_*", "**/*cloak_*", "**/*totem*"]
+    },
+    {
+      "id": "fairfolk",
+      "name": "Fair Folk",
+      "summary": "Banshee, nixie, selkie and the Wild Hunt (events, clocks, switches, triggers), and the Threshold Stone with its offering stat.",
+      "paths": ["**/*banshee*", "**/*nixie*", "**/*selkie*", "**/*wildhunt*", "GameStat/hw_hunt_clock.json", "**/*threshold*", "GameStat/hw_stat_offering.json"]
+    },
+    {
+      "id": "realms",
+      "name": "Fairy Ring and Realms",
+      "summary": "Fairy Ring, Moon Basin and the Faerie, Moon and Underworld realms (envs, locations, exits, clocks, in-realm stats), the Fairy King and Queen with their bargains and dialogs, the three realm dangers, the realm encounter guard, and Forest Lore's Ancient Cairn door.",
+      "paths": ["CardData/Realm/**", "**/*fairy_ring*", "GameStat/hw_ring_picked.json", "**/*moon_basin*", "**/*faerie*", "**/*fairy_king*", "**/*fairy_queen*",
+                "GameStat/hw_moon_clock.json", "GameStat/hw_underworld_clock.json", "GameStat/hw_stat_in_*", "GameStat/hw_stat_*_bargain.json",
+                "**/*moonglamour*", "**/*moonstruck*", "**/*pixieled*", "**/*restlessdead*", "EncounterGuards/**", "GameSourceModify/**"]
+    },
+    {
+      "id": "shaman",
+      "name": "Wandering Shaman",
+      "summary": "The seasonal shaman visitor: Animals manifest, NPC agent, dialog scene and lines, and the taught-calling stat.",
+      "paths": ["**/*shaman*"]
+    },
+    {
+      "id": "modwide",
+      "name": "Mod-wide",
+      "modWide": true,
+      "summary": "Plugin entry, the threat Switchboard (config to hw_switch stats), ActionUser, the shared noon/dusk/daylight clocks, project files, player docs, card motion, and art tooling state.",
+      "paths": ["Plugin.cs", "GlobalUsing.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "PLAYER_GUIDE.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore",
+                "Features.json", "Modules.json", "Patcher/Switchboard.cs", "Patcher/ActionUser.cs", "GameStat/hw_clock_*.json", "CardData/Motion/**",
+                ".art/RUN_LOG.md", ".art/liquid_bowls.json", ".art/reference-uploads.json", ".art/review/**"]
+    }
+  ]
+}

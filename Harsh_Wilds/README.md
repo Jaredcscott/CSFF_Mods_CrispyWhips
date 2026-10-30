@@ -1,6 +1,6 @@
 # Harsh Wilds
 
-**Version:** 0.11.9
+**Version:** 0.11.10
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
 **Status:** pre-release. Rewards (meat, affinity, coats, rites) were tuned to their base-game equivalents in 0.11.6; the threats' chances, numbers and lengths are still first guesses not yet balanced against play. Where a feature is not yet confirmed in a running game, its section says so.
@@ -132,10 +132,10 @@ In summer, 09:00 to 18:00, outdoors in one of 24 open or rocky places, an **Adde
 - Caves, river and lake banks and wet clearings are left out. Which places count was judged from their names and has not been confirmed in play.
 
 ### Smithing burns (`SmithingBurns`)
-Finishing one of the 30 smithing recipes (blanks for axe, pick, hammer, knife and spear heads, metal bar, hook, needle, wire, torc, ring, and the iron remaking steps) with Smithing under 40 and bare hands gives about a one in seven chance of a Fire Burn wound. Leather gloves, fur mittens or Smithing 40 prevent it. It rolls only for your own builds. Casting moulds and handle-fitting steps never roll. Not yet confirmed in a running game.
+Finishing one of the 30 smithing recipes (blanks for axe, pick, hammer, knife and spear heads, metal bar, hook, needle, wire, torc, ring, and the iron remaking steps) with Smithing under 40 and bare hands gives about a one in seven chance of a Fire Burn wound. Leather gloves, fur mittens or Smithing 40 prevent it. It rolls only for your own builds. Casting moulds and handle-fitting steps never roll. Checked in a test harness, not yet in real play.
 
 ### Foraging bites (`ForageBites`)
-Outside winter, foraging one of the 25 thicket places (alder, oak and pine thickets, tangles, hag and muddy ways, cliff and needle slopes, riverbank thickets) may leave you bitten by insects: about one forage in four with nothing against it. One bite means Pain and lost comfort for about six hours. Shoes (Leather Shoes, Bark Sandals), gloves and bug-proof cloth (a Large Cloth, a Hoodie) together cut the odds to about a tenth. Only your own foraging rolls: a companion foraging a thicket for you does not get you bitten. Not yet confirmed in a running game.
+Outside winter, foraging one of the 25 thicket places (alder, oak and pine thickets, tangles, hag and muddy ways, cliff and needle slopes, riverbank thickets) may leave you bitten by insects: about one forage in four with nothing against it. One bite means Pain and lost comfort for about six hours. Shoes (Leather Shoes, Bark Sandals), gloves and bug-proof cloth (a Large Cloth, a Hoodie) together cut the odds to about a tenth. Only your own foraging rolls: a companion foraging a thicket for you does not get you bitten. Checked in a test harness, not yet in real play; the companion rule (new in 0.11.9) is not yet checked at all.
 
 ### Mud volcano (`MudVolcano`)
 With Forest Lore installed, its Mud Volcano may erupt while you stand outdoors in that place. A **The Mud Volcano Erupts** card appears; **Shield yourself** ends it. Rolled at most once every twelve hours, with about one roll in five bringing an eruption. An eruption always adds 30 Filth, and about two in five also burn you. Nothing else is touched.
@@ -145,13 +145,13 @@ With Forest Lore installed, its Mud Volcano may erupt while you stand outdoors i
 Each raises a Moderate alert when it begins and shows an icon in your status strip while it lasts. Each has its own switch.
 
 - **Drought** (`Drought`). Summer only, after at least four days without rain; about one such day in four. For about a week no rain falls, so rain catchers, cisterns, rain barrels and garden plots stop being refilled. Wells, ponds and rivers are unaffected. The Everrain perk prevents it.
-- **Insect plague** (`InsectPlague`). Summer only; about one day in twelve. For about three days, swarms outdoors bite you far more often, adding pain and lost comfort. They do not follow you indoors. Rain, a camp fire, snakegrass in a hearth and staying indoors thin them. A Large Cloth or Hoodie gives a little protection (not yet checked in play).
+- **Insect plague** (`InsectPlague`). Summer only; about one day in twelve. For about three days, swarms outdoors bite you far more often, adding pain and lost comfort. They do not follow you indoors. Rain, a camp fire, snakegrass in a hearth and staying indoors thin them. So does a **Bug Trap** (Survival > Support; one Cold Resin or one Cold Tar) set down in camp: it works only while you are in that camp and is spent after about a day. A Large Cloth or Hoodie gives a little protection (not yet checked in play).
 - **Crop blight** (`CropBlight`). Outside winter, while a garden plot stands where you are; about one such day in twelve. For about two days, fungus spreads through the planted crops in garden plots in the place you stand in, and damages them once the infection is high. Gardens you do not visit are untouched. Fungicide or garlic water ("Apply Fungicide") and not overwatering slow it. It ends by itself.
 - **Blood moon** (`BloodMoon`). At dusk on a full moon, about one full moon in three, and never in a new run's first week. The moon turns red and two extra lynxes prowl the lynx's four areas until dawn. A killed one stays dead until the moon ends. The extras need `Lynx` on too.
 - **Eclipse** (`Eclipse`). At noon on a new-moon day in the first ten days of summer, about an even chance. For about an hour the light falls sharply, and for one quarter hour it falls to nothing (Very Dark), so tasks that need light are refused then. Whether the screen dims is unmeasured.
 - **Aurora** (`Aurora`). On a dark winter night (new moon or waxing crescent), the first time you stand under the open sky; about one such night in three. For up to ten hours your mood rises a little every quarter hour while you are outside. It helps a low mood and does little above about 100.
-- **Cold snap** (`ColdSnap`). Mid-spring and mid-autumn only, never at the season's edges; about one day in eight. For about two days the base temperature drops by 10, so nights, mornings and evenings reach the freezing state. It is not cold enough to freeze ponds. Whether it changes how cold you feel, or turns rain to snow, is unconfirmed.
-- **Algae bloom** (`AlgaeBloom`). Summer only, after three dry days or during a drought; about one day in six. For about three days rivers and lakes turn green and only minnows bite: perch, eel, trout, char, pike and sturgeon cannot be caught. Water stays safe to drink, funnel traps are unaffected, and Water-Driven Infrastructure's fishponds are left alone. Not yet confirmed in play.
+- **Cold snap** (`ColdSnap`). Mid-spring and mid-autumn only, never at the season's edges; about one day in eight. For about two days the base temperature drops by 10, so nights, mornings and evenings reach the freezing state. It is not cold enough to freeze ponds. How cold you feel drops with it (checked in a test harness). Whether it turns rain to snow is unconfirmed.
+- **Algae bloom** (`AlgaeBloom`). Summer only, after three dry days or during a drought; about one day in six. For about three days rivers and lakes turn green and only minnows bite: perch, eel, trout, char, pike and sturgeon cannot be caught. Water stays safe to drink, funnel traps are unaffected, and Water-Driven Infrastructure's fishponds are left alone. Checked in a test harness, not yet in real play.
 
 A switched-off event stops new ones. For most, one already under way runs its course; insect plague, crop blight, blood moon and aurora stop at once.
 
@@ -174,20 +174,20 @@ Each is a status with an icon and an alert at each new stage. Each has a recipe 
 - **How you get it:** when you fail to bind the Lynx, Goat or Blood Spirit and it is angered, its angry card waits on the board until you press Continue. While it waits, a roll once a game day (two in three) may leave you spirit-sick. The base game's own spirits are never a source.
 - **Cost:** three stages (Uneasy, Spirit Sickness, Spirit-Ridden) take 10, 20 and 30 off Focus and make stress build faster by 0.25, 0.5 and 0.75 a quarter hour.
 - **Cure:** it never fades by itself. The Cleansing Smudge (bog myrtle and Dry Juniper Needles, Magic > Rituals) is burned at a lit campfire, fire pit, fireplace or hearth: **Burn the Smudge** takes half an hour and removes one stage.
-- Not yet confirmed in a running game. The smudge uses the Dry Bog Myrtle picture for now.
+- Checked in a test harness, not yet in real play. The smudge uses the Dry Bog Myrtle picture for now.
 
 ### Dancing plague (`DancingPlague`)
 - **How you get it:** **Dance in the Ring** at a fairy ring, at night (an hour). When the dance ends, one time in two you cannot stop.
 - **Cost:** two stages (Restless Feet, The Dancing Plague) drain stamina faster (about 1 then 2 a quarter hour) and use food energy faster (0.5 then 1). No stress.
 - **How it ends:** by itself, a quarter hour per point (a taken dance is about four hours; two can reach eight). **Burn the Smudge to Break the Dance** at a lit fire breaks it at once.
-- Switching it off hides Dance in the Ring. Not yet confirmed in a running game.
+- Switching it off hides Dance in the Ring. Checked in a test harness, not yet in real play.
 
 ### Both at once
 Infested fleas (+1.0 stress) and a Rotten Tooth (+0.75) together add more stress than the game removes near the top of the range, so stress keeps climbing toward Depression until one is treated. Either alone can do the same if something else already adds stress.
 
 ## Spirits
 
-These use the base game's own spirit system. You meet a spirit, bind it once with a Summoning Ritual, and call it again from Magic > Calling Rituals. Each is a copy of a base-game spirit's gates, costs and roll. You call spirits on purpose, so they have no switch. Held spirits last about a day and then leave. Spirits are not yet confirmed in a running game.
+These use the base game's own spirit system. You meet a spirit, bind it once with a Summoning Ritual, and call it again from Magic > Calling Rituals. Each is a copy of a base-game spirit's gates, costs and roll. You call spirits on purpose, so they have no switch. Held spirits last about a day and then leave. Spirits were checked in a test harness, not yet in real play.
 
 - **Lynx Spirit.** A lynx carcass (killed or caught) holds one. **Release the Spirit** gives Beast Affinity; the Summoning Ritual on the same carcass tries to bind it instead, with the Fox spirit's gates. Held, it raises Climbing Aid and Ambush Aid and feeds the Fox Urge. Its first binding and first meeting each give one Insight.
 - **Goat Spirit.** No carcass holds it. Its Summoning is listed in Magic > Calling Rituals once you have any Insight, and builds only while a goat you keep (the penned female) is on the board, with twelve fresh clover, meadow grass or heather stems and one spirit herb. It follows the Deer spirit's gates. Held, it raises Climbing Aid and Resilience and feeds the Deer Urge.
@@ -199,25 +199,25 @@ These use the base game's own spirit system. You meet a spirit, bind it once wit
 
 Done on purpose, with the base game's own magic. No switch.
 
-- **Mistletoe.** In winter only, foraging one of the fifteen oak places (twelve oak groves, three oak clearings) may turn up Mistletoe, about one forage in twelve. It works in saves you already have. Research **Bless the Grove with Mistletoe** (Magic > Rituals): it spends one Mistletoe in place of a Spirit Acorn and makes the base game's blessed grove, with the same requirements. The acorn rite still works. Not yet confirmed in a running game.
-- **Athame.** A bone-bladed ritual knife (Magic > Implements; a Bone Knife, charcoal and twine). It also butchers like a knife. Each rite costs one of its 40 uses. Not yet confirmed in a running game.
+- **Mistletoe.** In winter only, foraging one of the fifteen oak places (twelve oak groves, three oak clearings) may turn up Mistletoe, about one forage in twelve. It works in saves you already have. Research **Bless the Grove with Mistletoe** (Magic > Rituals): it spends one Mistletoe in place of a Spirit Acorn and makes the base game's blessed grove, with the same requirements. The acorn rite still works. Checked in a test harness, not yet in real play.
+- **Athame.** A bone-bladed ritual knife (Magic > Implements; a Bone Knife, charcoal and twine). It also butchers like a knife. Each rite costs one of its 40 uses. Checked in a test harness, not yet in real play.
   - **Let Blood** (an hour) gives you the Arm Laceration wound and Beast Affinity +100, fading over about two weeks. It is refused while an arm wound is open.
   - **Call Rain** (two hours, once every two days) thickens the clouds so the weather refreshes straight away. Rain is likely, never certain, and snow comes instead in the cold.
   - **Incense.** Beside a lit Herbs and Fungi Incense Bundle, or Community Mod Chest's lit Incense Burner, Heather Burner or Juniper Burner, each rite has an extra button that gives more (150 Beast Affinity, or 300 Clouds) and burns up one point of that incense's fuel. Without those mods, only the base buttons appear.
-- **Casting bones.** A handful of marked bones (Magic > Implements; three Bones and a Charcoal), good for 30 castings. **Cast the Bones** (half an hour) drops one card saying whether the eagle, the black bear, both or neither can come for your food within a day. The reading is always true, because it reads the same clocks and switches the raids wait on. A raid it names may still not come. The bones say nothing of the wolverine, heron, adder or world events. Not yet confirmed in a running game.
+- **Casting bones.** A handful of marked bones (Magic > Implements; three Bones and a Charcoal), good for 30 castings. **Cast the Bones** (half an hour) drops one card saying whether the eagle, the black bear, both or neither can come for your food within a day. The reading is always true, because it reads the same clocks and switches the raids wait on. A raid it names may still not come. The bones say nothing of the wolverine, heron, adder or world events. Checked in a test harness, not yet in real play.
 
 ## Brews and witchfire
 
-Made from base-game ingredients. No switch. Not yet confirmed in a running game.
+Made from base-game ingredients. No switch. Checked in a test harness, not yet in real play.
 
 - **Beast Brew** (bonemeal and fat), **Earth Brew** (ash and dry moss) and **Musclebrew** (a wild egg and dried pine nuts). Research each in Magic > Rituals and make it from a bowl of ordinary clean water; you keep the bowl.
 - Drinking one quenches some thirst and starts a timer of about half a day (a second draught makes it a day). Beast Brew and Earth Brew raise Beast or Earth Affinity by 0.5 a tick (about 24 over half a day), the pace of the base game's Sacred Oak; each takes 8 hours to research. Musclebrew makes hard work and heavy loads grow muscle sooner, and does nothing if you only sit. Each shows in the status strip.
 - **Witchfire** (Survival > Fire; witchstone dust and beeswax). Kindle it (a quarter hour) and it gives light for 12 hours while you carry it, then burns out to ash, which **Scatter the Ash** removes. It needs no fuel and gives no heat.
-- All pictures are base-game stand-ins for now.
+- The three brews have pictures of their own. Their recipes and the witchfire use base-game pictures for now.
 
 ## Ritual objects
 
-Made on purpose for the spirit path. No switch. Not yet confirmed in a running game.
+Made on purpose for the spirit path. No switch. Checked in a test harness, not yet in real play; the Beast Totem's Take Down (new in 0.11.9) is not yet checked at all.
 
 - **Spirit Jar** (Magic > Implements; a fired Clay Jar, a spirit herb and charcoal). Takes a spirit's essence (up to 150), which the base game's clay jars refuse, and keeps it. Pour an essence in from a bound spirit while your mind is open. Later pour it into an Amulet or one of the coats below.
 - **Spirit Mask** (Magic > Implements). Worn on the face. While your mind is open (altered mind 50 or more), Beast Affinity rises by 0.6 a tick. It wears out after about four weeks of wear.
@@ -230,7 +230,7 @@ Made on purpose for the spirit path. No switch. Not yet confirmed in a running g
 
 ## Fair folk
 
-Rare night threats, a stone that keeps them kinder, and the fairy king and queen. Not yet confirmed in a running game, except where noted.
+Rare night threats, a stone that keeps them kinder, and the fairy king and queen. Checked in a test harness, not yet in real play.
 
 - **Banshee** (`Banshee`). At night, while you bleed badly, she may keen: a card tells you to bind the wound, and stress rises for some hours. At most once every three days.
 - **Nixie** (`Nixie`). At night on a river or lake bank (27 places), a nixie may sing. Hold fast (Courage helps) or follow. Drawn in, you stay soaked, cold and uneasy for about four hours. At most once every four days.
@@ -263,13 +263,13 @@ There are three: the Faerie Realm, the Moon Realm and the Underworld. You go on 
 | Moon Realm | **Moon Basin** (Magic > Shrines; a clay bowl and two small stones; only beside a Moon Stone, one to a place): **Step into the Moonlight**, night under a full moon | 3 hours | **Search the Silver Shallows** (2 h): feathers; by chance moon moss, Niter Crystals, Flint | `MoonGlamour`: about hourly, one in five, **Moonstruck**; **Shake Off the Glamour** adds 20 Stress |
 | Underworld | Stone Cairn: **Descend Beneath the Cairn**, at night. With Forest Lore, its Ancient Cairn offers **Go Down the Tomb Stair** | 3 hours | **Search the Barrow Halls** (2 h): Bones; by chance Ash, Bird Bones, a Sulphurous Stone | `RestlessDead`: about hourly, one in five, **The Restless Dead**; **Break Free** costs 14 Stamina and adds 12 Stress |
 
-The realms were checked in a test harness (going in, the clock running out, save and reload, raids held back, finds, dangers), not yet in real play, and the Forest Lore door not yet with Forest Lore installed. Their pictures are mostly base-game stand-ins.
+The realms were checked in a test harness (going in, the clock running out, save and reload, raids held back, finds, dangers), not yet in real play. The Forest Lore door was checked the same way with Forest Lore installed. Their pictures are mostly base-game stand-ins.
 
 ## Wandering shaman
 
 A visiting trader, with no switch. He comes to the Green Glade on the eighth day of every season and stays one day, a week before the base game's own trader comes there in spring and autumn. Before each visit he restocks with dried spirit mushrooms, dried fairyweed, dried fly agaric, the three spirit charms and winter mistletoe, sold at half again their worth.
 
-Once you have bound the Lynx, Goat or Blood Spirit, talk to him and he teaches one calling for a spirit you have not bound yet, once a run. Not yet confirmed in a running game.
+Once you have bound the Lynx, Goat or Blood Spirit, talk to him and he teaches one calling for a spirit you have not bound yet, once a run. Checked in a test harness, not yet in real play.
 
 ## Config
 
