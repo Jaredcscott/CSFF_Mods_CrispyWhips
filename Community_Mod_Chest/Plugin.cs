@@ -24,7 +24,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.69.26";
+    public const string PluginVersion = "1.70.2";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }
@@ -59,7 +59,7 @@ internal class Plugin : ContentModPlugin
             "EnableJailSafetyNet",
             true,
             "Reactive emergency ration top-up if a jailed player's Weight or Hydration crosses a " +
-            "critical threshold (Village_Master_Plan.md Risk R9) -- defense-in-depth on top of the " +
+            "critical threshold (risk R9) -- defense-in-depth on top of the " +
             "daily ration, not a substitute for it. ON by default; turn OFF only to run the " +
             "safety-critical acceptance test that the baseline ration alone never lets Weight or " +
             "Hydration reach their GameOver floor across a full 8-day sentence.");
@@ -85,11 +85,6 @@ internal class Plugin : ContentModPlugin
         // the village side without the bridge (Portal Hub, Sett Warren climbing rope, an arrest)
         // is never stranded there. Nexus report 2026-09-15 (TheFifthLorax).
         TryApply("RiverSwimPatch", RiverSwimPatch.Initialize);
-        // Pre-creates GameManager.EnvironmentsData entries for the 7 non-instanced interior CT4
-        // envs at run start — without this, first entry fails ChangeEnvironment's
-        // EnvironmentsData.ContainsKey gate and leaks the outdoor Village CT8 onto the interior
-        // board (.audit/player-report-triage-2026-08-10.md finding 4, outdoor-leak half).
-        TryApply("InteriorEnvSaveDataPatch", InteriorEnvSaveDataPatch.Initialize);
         TryApply("ForageInjectionPatch", ForageInjectionPatch.Register);
         // Restores tree regrowth on all 12 CMC map locations — StripLegacyBoardUIDs (WorldMap/
         // MapNodes.json) removes the vanilla "Create X Tree if missing" actions along with the
@@ -130,6 +125,7 @@ internal class Plugin : ContentModPlugin
         // Removes a village location card (CT8) saved on another environment's board, the board
         // shape behind the Pine Trail / Village Path travel loops (1.69.26, Chiwei + TheFifthLorax).
         TryApply("StrayLocationCardRepairPatch", () => StrayLocationCardRepairPatch.Initialize(harmony));
+        TryApply("SeasonalObstacleCleanupPatch", () => SeasonalObstacleCleanupPatch.Initialize());
         TryApply("VillageCrimePatch", () => VillageCrimePatch.Initialize());
         // A Fugitive character is marked Suspected on their first village visit (1.69.0).
         TryApply("FugitiveWatchPatch", FugitiveWatchPatch.Initialize);
@@ -149,7 +145,7 @@ internal class Plugin : ContentModPlugin
         // A guarded crossing: pay the Town Watch Salt and predators are turned back on the outskirts for a while (N4).
         TryApply("OutskirtsEscortPatch", () => OutskirtsEscortPatch.Initialize());
         // The village's communal fuel stack. MUST initialize before VillageFireplacePatch, which
-        // debits its pool on every hearth top-off (Village_Master_Plan.md §10.11 Chunk G).
+        // debits its pool on every hearth top-off.
         TryApply("TownWoodPilePatch", () => TownWoodPilePatch.Initialize());
         // Keeps the six village interiors' built-in fireplaces fueled and lit, paid for out of the
         // Town Wood Pile above — warmth itself comes from vanilla's own Fireplace PassiveEffects,
@@ -195,8 +191,7 @@ internal class Plugin : ContentModPlugin
         // blocks the physical relocation itself.
         TryApply("WildlifeIndoorGuardPatch", () => WildlifeIndoorGuardPatch.Initialize(harmony));
         // Shadow the Cat — independent companion chain, spawn-gated on Herbalism graduation
-        // (AcademyCourseService.GradHerbalism) rather than a hidden GameStat. See
-        // Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md §3.6/§10.7.
+        // (AcademyCourseService.GradHerbalism) rather than a hidden GameStat.
         TryApply("ShadowCatPatch", () => ShadowCatPatch.Initialize());
         TryApply("IronRodFishingPatch", IronRodFishingPatch.Register);
         // Higher Education / Village Academy (perk-gated course system)
@@ -227,15 +222,15 @@ internal class Plugin : ContentModPlugin
         // engine duty, not this patch — see its own class doc). Apothecary keeps her own separate
         // commute scheduler.
         TryApply("CottageResidentSchedulePatch", () => CottageResidentSchedulePatch.Initialize(harmony));
-        // Miller's Copper Chest (Village_Master_Plan.md §10.8.3) — weekly accrual (retargeted from
+        // Miller's Copper Chest — weekly accrual (retargeted from
         // his satchel restock, above), "Sell to the Miller" afford-gated CI, and the "Search for
-        // valuables" burglary DA with its detection roll. Miller-only this pass per §10.8.3.7.
+        // valuables" burglary DA with its detection roll. Miller-only this pass.
         // Registered AFTER CottageResidentSchedulePatch, whose IsResidentHome query the theft
         // detection reads.
         TryApply("CopperChestPatch", () => CopperChestPatch.Initialize());
         // Village Apothecary — post-move-in stall spawn, cabin<->village commute, and trade restock.
         TryApply("ApothecarySchedulePatch", () => ApothecarySchedulePatch.Initialize(harmony));
-        // Village Guards (Village_Master_Plan.md §10.8.1) — the duty builder MUST initialize
+        // Village Guards — the duty builder MUST initialize
         // before the spawn patch: GuardSpawnPatch refuses to place any guard until
         // GuardDutyPatch.DutiesReady flips, because InGameNPC.Init snapshots AgentDuties once.
         TryApply("GuardDutyPatch", () => GuardDutyPatch.Initialize());
@@ -293,10 +288,10 @@ internal class Plugin : ContentModPlugin
         // schedulers' own perk checks; this only owns the Miller/Weaver work-duty weight sync, so
         // registration order relative to those patches doesn't matter.
         TryApply("QuietVillagePerkPatch", () => QuietVillagePerkPatch.Initialize());
-        // Quest-chain chassis (PR-2, Village_Master_Plan.md §3.4) — arms each villager's next
+        // Quest-chain chassis — arms each villager's next
         // main-chain quest one village-week after the last was thanked.
         TryApply("QuestChainSchedulePatch", () => QuestChainSchedulePatch.Initialize());
-        // Town Hall Boards (PR-3, Village_Master_Plan.md §3.5) — date-stamps each of the 7
+        // Town Hall Boards — date-stamps each of the 7
         // tracked village structures the tick it's found complete; read by the Town/Construction
         // Board's gated DA entries.
         TryApply("VillageChroniclePatch", () => VillageChroniclePatch.Initialize());

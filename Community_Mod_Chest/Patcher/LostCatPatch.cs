@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Linq;
-using System.Reflection;
 using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 
@@ -38,8 +36,6 @@ namespace CommunityModChest.Patcher
         private static bool _initialized;
 
         private static Type _gmType;
-        private static MethodInfo _getFromIdMethod; // UniqueIDScriptable.GetFromID(string)
-        private static object _questStat;           // GameStat SO
 
         public static void Initialize()
         {
@@ -51,16 +47,9 @@ namespace CommunityModChest.Patcher
 
         private static bool ResolveTypes()
         {
-            if (_gmType != null && _getFromIdMethod != null) return true;
-
+            if (_gmType != null) return true;
             _gmType = CardUtil.FindGameType("GameManager");
-            var uidType = CardUtil.FindGameType("UniqueIDScriptable");
-            if (_gmType == null || uidType == null) return false;
-
-            _getFromIdMethod = uidType.GetMethods(BindingFlags.Public | BindingFlags.Static)
-                .FirstOrDefault(m => m.Name == "GetFromID" && !m.IsGenericMethodDefinition
-                    && m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == typeof(string));
-            return _getFromIdMethod != null;
+            return _gmType != null;
         }
 
         private static void CheckAndSpawn()
@@ -97,16 +86,12 @@ namespace CommunityModChest.Patcher
             }
         }
 
+        // Delegates to the framework's StatAccess (fleet plan section 10, W0.10 row 1 READ side)
+        // instead of hand-rolling UniqueIDScriptable.GetFromID + GameManager.StatsDict here.
         private static float ReadQuestStat(object gm)
         {
-            _questStat ??= _getFromIdMethod.Invoke(null, new object[] { QuestStatUid });
-            if (_questStat == null) return -1f;
-
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return -1f;
-            if (!statsDict.Contains(_questStat)) return -1f;
-            var inGameStat = statsDict[_questStat];
-            if (inGameStat == null) return -1f;
-            return Reflect.GetMember(inGameStat, "SimpleCurrentValue") is float f ? f : -1f;
+            float value = StatAccess.Get(QuestStatUid);
+            return float.IsNaN(value) ? -1f : value;
         }
 
         private static bool CatExistsAnywhere(object gm)

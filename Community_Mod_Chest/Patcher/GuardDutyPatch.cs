@@ -768,8 +768,8 @@ namespace CommunityModChest.Patcher
             Reflect.SetMember(duty, "CanOnlyPerformAtHome", false);
             Reflect.SetMember(duty, "CannotPerformWhileHidden", true);
             Reflect.SetMember(duty, "CanPerformWhileInDialog", false);
-            SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
-            SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
+            NpcDuties.SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
+            NpcDuties.SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
 
             // Null-array hygiene — the engine indexes these without guards.
             Reflect.SetMember(duty, "DutyTags", Array.CreateInstance(_npcDutyTagType, 0));
@@ -779,11 +779,11 @@ namespace CommunityModChest.Patcher
             // shift, which belongs on ValidTimesOfDay (NPCDuty), NOT on the ref's
             // NPCDutyWeights.TimeOfDayWeightModifiers — the latter only nudges weight,
             // it cannot make a duty unselectable (§10.8.0.1, ValidTimesOfDay note).
-            Reflect.SetMember(duty, "DutyConditions", EmptyCondition());
+            Reflect.SetMember(duty, "DutyConditions", NpcDuties.EmptyCondition());
             Reflect.SetMember(duty, "ValidTimesOfDay", beat.NightOnly
-                ? BuildHourWindow(NightShiftStartHour, NightShiftEndHour)
+                ? NpcDuties.BuildHourWindow(NightShiftStartHour, NightShiftEndHour)
                 : beat.DayShiftOnly
-                    ? BuildHourWindow(DayShiftStartHour, DayShiftEndHour)
+                    ? NpcDuties.BuildHourWindow(DayShiftStartHour, DayShiftEndHour)
                     : Array.CreateInstance(_inGameTimeConditionType, 0));
 
             var move = NewMoveAction(beat.DutyUid + "_Move", envCards);
@@ -804,12 +804,12 @@ namespace CommunityModChest.Patcher
             // step 0 (which is always checked anyway).
             Reflect.SetMember(action, "RequiredForSelectingDuty", false);
 
-            SetEnumField(action, "MovementType", "Pathfind");
-            SetEnumField(action, "MoveDestination", "MoveToSpecificEnvironment");
+            NpcDuties.SetEnumField(action, "MovementType", "Pathfind");
+            NpcDuties.SetEnumField(action, "MoveDestination", "MoveToSpecificEnvironment");
             // Random, NOT Closest: with Closest, MoveDutyAction.FindDestination short-circuits
             // to the guard's CURRENT env the moment it is one of the listed beats
             // (.decomp/MoveDutyAction.cs:831-838) and the guard never walks anywhere again.
-            SetEnumField(action, "DestinationSelection", "Random");
+            NpcDuties.SetEnumField(action, "DestinationSelection", "Random");
             Reflect.SetMember(action, "MoveAwayFromDestination", false);
             Reflect.SetMember(action, "IgnoreCurrentLocation", false);
             Reflect.SetMember(action, "LeaveTracks", false);
@@ -825,7 +825,7 @@ namespace CommunityModChest.Patcher
             Reflect.SetMember(action, "MoveToItems", Array.CreateInstance(_cardOrTagRefWithDurabilitiesType, 0));
             Reflect.SetMember(action, "MoveToDutyCards", Array.CreateInstance(_npcDutyType, 0));
             Reflect.SetMember(action, "MoveCosts", Array.CreateInstance(_npcStatInstantModifierType, 0));
-            SetEnumField(action, "CostRequirements", "IgnoreCost");
+            NpcDuties.SetEnumField(action, "CostRequirements", "IgnoreCost");
 
             return action;
         }
@@ -836,10 +836,10 @@ namespace CommunityModChest.Patcher
             Reflect.SetMember(dutyRef, "TargetDuty", duty);
             // See the class doc: ActivateAutomatically (not AlwaysActive) is what
             // re-activates the patrol after a save/reload.
-            SetEnumField(dutyRef, "ActivatingMode", "ActivateAutomatically");
+            NpcDuties.SetEnumField(dutyRef, "ActivatingMode", "ActivateAutomatically");
             Reflect.SetMember(dutyRef, "StartActive", true);
-            Reflect.SetMember(dutyRef, "ActivatingConditions", activatingConditions ?? EmptyCondition());
-            Reflect.SetMember(dutyRef, "PreferenceWeights", EmptyWeights(baseWeight));
+            Reflect.SetMember(dutyRef, "ActivatingConditions", activatingConditions ?? NpcDuties.EmptyCondition());
+            Reflect.SetMember(dutyRef, "PreferenceWeights", NpcDuties.EmptyWeights(baseWeight));
             return dutyRef;
         }
 
@@ -881,15 +881,15 @@ namespace CommunityModChest.Patcher
             Reflect.SetMember(duty, "CanOnlyPerformAtHome", false);
             Reflect.SetMember(duty, "CannotPerformWhileHidden", true);
             Reflect.SetMember(duty, "CanPerformWhileInDialog", false);
-            SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
-            SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
+            NpcDuties.SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
+            NpcDuties.SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
 
             Reflect.SetMember(duty, "DutyTags", Array.CreateInstance(_npcDutyTagType, 0));
             Reflect.SetMember(duty, "OnCancelActions", Array.CreateInstance(_npcDutyActionType, 0));
             Reflect.SetMember(duty, "ValidTimesOfDay",
-                BuildHourWindow(beat.WardenShiftStartHour, beat.WardenShiftEndHour));
+                NpcDuties.BuildHourWindow(beat.WardenShiftStartHour, beat.WardenShiftEndHour));
 
-            var conditions = EmptyCondition();
+            var conditions = NpcDuties.EmptyCondition();
             if (_wardenGapStat != null)
             {
                 var trigger = Activator.CreateInstance(_statValueTriggerType);
@@ -957,8 +957,8 @@ namespace CommunityModChest.Patcher
             Reflect.SetMember(duty, "CanOnlyPerformAtHome", false);
             Reflect.SetMember(duty, "CannotPerformWhileHidden", true);
             Reflect.SetMember(duty, "CanPerformWhileInDialog", false);
-            SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
-            SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
+            NpcDuties.SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
+            NpcDuties.SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
 
             Reflect.SetMember(duty, "DutyTags", Array.CreateInstance(_npcDutyTagType, 0));
             Reflect.SetMember(duty, "OnCancelActions", Array.CreateInstance(_npcDutyActionType, 0));
@@ -990,7 +990,7 @@ namespace CommunityModChest.Patcher
             // call the rest of the Watch in instead of fighting (§10.8.11.2).
             var move = NewMoveAction(beat.ChaseDutyUid + "_Move", new List<object>());
             if (move == null) return null;
-            SetEnumField(move, "MoveDestination", "MoveToPlayer");
+            NpcDuties.SetEnumField(move, "MoveDestination", "MoveToPlayer");
             // MoveToPlayer ignores MoveToEnvironments entirely, so DestinationSelection is
             // irrelevant here; DontMoveToThisDuty likewise only applies to duty-card targets.
             Reflect.SetMember(move, "DontMoveToThisDuty", false);
@@ -1081,8 +1081,8 @@ namespace CommunityModChest.Patcher
             Reflect.SetMember(duty, "CanOnlyPerformAtHome", false);
             Reflect.SetMember(duty, "CannotPerformWhileHidden", true);
             Reflect.SetMember(duty, "CanPerformWhileInDialog", false);
-            SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
-            SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
+            NpcDuties.SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
+            NpcDuties.SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
 
             Reflect.SetMember(duty, "DutyTags", Array.CreateInstance(_npcDutyTagType, 0));
             Reflect.SetMember(duty, "OnCancelActions", Array.CreateInstance(_npcDutyActionType, 0));
@@ -1104,7 +1104,7 @@ namespace CommunityModChest.Patcher
 
             var move = NewMoveAction(dutyUid + "_Move", new List<object>());
             if (move == null) return null;
-            SetEnumField(move, "MoveDestination", "MoveToPlayer");
+            NpcDuties.SetEnumField(move, "MoveDestination", "MoveToPlayer");
             Reflect.SetMember(move, "DontMoveToThisDuty", false);
 
             var startEncounter = ScriptableObject.CreateInstance(_startEncounterDutyActionType);
@@ -1128,7 +1128,7 @@ namespace CommunityModChest.Patcher
         /// §10.8.11.9 mutually exclusive off a single shared summon stat.</summary>
         private static object TriggerStatGateCondition(object stat, object extraTrigger = null)
         {
-            var condition = EmptyCondition();
+            var condition = NpcDuties.EmptyCondition();
             var trigger = Activator.CreateInstance(_statValueTriggerType);
             Reflect.SetMember(trigger, "Stat", stat);
             Reflect.SetMember(trigger, "TriggerRange", new Vector2(0.5f, 1.5f));
@@ -1207,7 +1207,7 @@ namespace CommunityModChest.Patcher
         /// <summary>A <c>GeneralCondition</c> carrying only "player's Crime is in the Enemy band".</summary>
         private static object CrimeGateCondition()
         {
-            var condition = EmptyCondition();
+            var condition = NpcDuties.EmptyCondition();
             var trigger = Activator.CreateInstance(_statValueTriggerType);
             Reflect.SetMember(trigger, "Stat", _crimeStat);
             Reflect.SetMember(trigger, "TriggerRange", new Vector2(EnemyCrimeThreshold, CrimeRangeMax));
@@ -1309,65 +1309,14 @@ namespace CommunityModChest.Patcher
             Plugin.Logger.LogInfo($"[GuardDutyPatch] '{VillageTerritoryTagName}' stamped onto {stamped} village map cards — guards will not pursue past them.");
         }
 
-        // ── shared struct builders ──────────────────────────────────────────────
-
-        /// <summary>
-        /// A single wrap-around hour window (TimeType = HourIs). Start &gt; End is read by
-        /// the engine as "overnight" — 20 to 5 means 20:00-04:59.
-        /// </summary>
-        private static Array BuildHourWindow(int startHour, int endHour)
-        {
-            object condition = Activator.CreateInstance(_inGameTimeConditionType);
-            SetEnumField(condition, "TimeType", "HourIs");
-            Reflect.SetMember(condition, "StartValue", startHour);
-            Reflect.SetMember(condition, "EndValue", endHour);
-            var arr = Array.CreateInstance(_inGameTimeConditionType, 1);
-            arr.SetValue(condition, 0);
-            return arr;
-        }
-
-        private static object EmptyCondition()
-        {
-            object boxed = Activator.CreateInstance(_generalConditionType);
-            foreach (var field in _generalConditionType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
-            {
-                if (!field.FieldType.IsArray) continue;
-                field.SetValue(boxed, Array.CreateInstance(field.FieldType.GetElementType(), 0));
-            }
-            return boxed;
-        }
-
-        private static object EmptyWeights(int baseWeight)
-        {
-            object boxed = Activator.CreateInstance(_npcDutyWeightsType);
-            foreach (var field in _npcDutyWeightsType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
-            {
-                if (!field.FieldType.IsArray) continue;
-                field.SetValue(boxed, Array.CreateInstance(field.FieldType.GetElementType(), 0));
-            }
-            // §10.8.0.1 rule 3 — TotalWeight <= 0 is permanently unselectable, silently.
-            var baseWeightField = _npcDutyWeightsType.GetField("BaseWeight", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            baseWeightField?.SetValue(boxed, baseWeight);
-            return boxed;
-        }
-
-        private static void SetEnumField(object instance, string fieldName, string enumValueName)
-        {
-            var field = instance.GetType().GetField(fieldName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            if (field == null)
-            {
-                Plugin.Logger.LogWarning($"[GuardDutyPatch] Enum field '{fieldName}' not found on {instance.GetType().Name}.");
-                return;
-            }
-            try
-            {
-                field.SetValue(instance, Enum.Parse(field.FieldType, enumValueName));
-            }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogWarning($"[GuardDutyPatch] Failed to set {instance.GetType().Name}.{fieldName} = {enumValueName}: {ex.Message}");
-            }
-        }
+        // BuildHourWindow, EmptyCondition, EmptyWeights and SetEnumField moved onto the framework's
+        // Api.NpcDuties (Fleet APE Port row 2, Prompt 44 step 4): byte-identical (resp. log-prefix-only)
+        // copies that AshPartnerDutyPatch.cs, CottageResidentWorkDutyPatch.cs and
+        // WaterDrivenInfrastructure's MillDutyPatch.cs each also carried. BuildPatrolDuty, NewMoveAction,
+        // BuildDutyRef (which this file's own activatingConditions override needs), BuildWardenDuty,
+        // BuildChaseDuty and BuildSummonDuty keep their own construction untouched - this file's chase/
+        // summon/warden sub-systems are not a plain duplicate of anything Api.NpcDuties exposes, and the
+        // research doc flags this file High risk; only the four proven-identical struct/enum helpers moved.
 
         // ── diagnostics ─────────────────────────────────────────────────────────
 

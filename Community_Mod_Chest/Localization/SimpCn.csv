@@ -49,6 +49,13 @@ apparel_cloth_coat_CardDescription,"A full-length coat of woven cloth. Lighter t
 apparel_cloth_scarf_DA_RipUp,Rip up,撕破
 apparel_foot_wraps_DA_RipUp,Rip up,撕破
 apparel_hand_wraps_DA_RipUp,Rip up,撕破
+cmc_reed_hand_wraps_CardName,Reed Hand Wraps,芦苇裹手
+cmc_reed_hand_wraps_CardDescription,"Strips of woven reed and plant fiber wound around the hands, bound with twine. Offer minimal protection against cuts and cold.
+
+<b>MUST BE EQUIPPED TO WORK</b>","用芦苇与植物纤维编成、以麻线捆扎的条带，缠绕在双手上，能提供些许防割伤和防寒的保护。
+
+<b>必须装备后才能生效</b>"
+cmc_reed_hand_wraps_DA_RipUp,Rip up,撕破
 apparel_chaperon_DA_RipUp,Rip up,撕破
 apparel_straw_hat_DA_Dismantle,Dismantle,拆解
 apparel_leather_apron_DA_Dismantle,Dismantle,拆解
@@ -63,6 +70,9 @@ apparel_bp_foot_wraps_UnlockConditionsDesc,Reeds Needed,需要芦苇
 apparel_bp_hand_wraps_CardName,Hand Wraps,裹手布
 apparel_bp_hand_wraps_CardDescription,"Strips of cloth wound around the hands, bound with twine. Minimal but better than nothing.",用布条缠绕双手、以麻线捆扎，聊胜于无。
 apparel_bp_hand_wraps_UnlockConditionsDesc,Cloth Needed,需要布料
+cmc_bp_reed_hand_wraps_CardName,Reed Hand Wraps,芦苇裹手
+cmc_bp_reed_hand_wraps_CardDescription,"Woven strips of reed and plant fiber wound around the hands, bound with twine. Needs no loom: crude improvised gloves.",用芦苇与植物纤维编成、以麻线捆扎的条带，缠绕双手。无需织布机：简陋的临时手套。
+cmc_bp_reed_hand_wraps_UnlockConditionsDesc,Reeds Needed,需要芦苇
 apparel_bp_chaperon_CardName,Chaperon,兜帽披肩
 apparel_bp_chaperon_CardDescription,A cloth hood with a short cape covering the head and shoulders.,一顶带有短披肩的布兜帽，遮住头部和肩膀。
 apparel_bp_chaperon_UnlockConditionsDesc,"Show the Weaver a scarf you've sewn, and earn her trust",向织工展示你缝制的围巾，并赢得她的信任
@@ -314,13 +324,13 @@ CMC_ForagingForest_CardHelpSection,"<b>Pine Grove, Pond:</b>
 
 <b>Conditions:</b> Acidic soil.
 
-<b>Flora:</b> Pines, Healer's Moss, Fireroot, Bilberries (summer), and Pine Nuts (autumn) ring a still pond. This is the richest foraging ground in the valley: bracket fungus, forest caps, spirit mushrooms, fairyweed, wolfsbane, and wild garlic turn up regularly, with the occasional acorn cache or bird nest.
+<b>Flora:</b> Pines, Healer's Moss, Fireroot, Bilberries (summer), and Pine Nuts (autumn) ring a still pond. Old Growth Bark and wild garlic turn up in the undergrowth, with the occasional bird nest, and the rare Silverwort Blossom and Hollow Sage grow here too.
 
 <b>Fauna:</b> Partridges, Foxes, Does, Stags, and Wolves range through the trees, with frogs at the pond's edge. A stray cat is sometimes seen prowling here around dusk.","<b>松木林地，池塘：</b>
 
 <b>环境条件：</b>酸性土壤。
 
-<b>植物：</b>松树、疗伤地衣、火根、越橘（夏季）和松子（秋季）环绕着一汪静谧的池塘。这里是山谷中最富饶的采集地：树舌、森伞菇、灵魂菇、仙灵草、乌头和野蒜时常可见，偶尔还能找到橡子藏匿处或鸟巢。
+<b>植物：</b>松树、疗伤地衣、火根、越橘（夏季）和松子（秋季）环绕着一汪静谧的池塘。林下可以找到古树皮和野蒜，偶尔还有鸟巢，稀有的银草花和幽谷鼠尾草也生长在这里。
 
 <b>动物：</b>灰山鹑、狐狸、母鹿、公鹿和狼群在林间出没，青蛙则栖息在池塘边缘。黄昏时分，偶尔能看见一只流浪猫在此徘徊。"
 CMC_HuntersCrossing_CardName,Hunter's Crossing,猎人岔口
@@ -674,11 +684,17 @@ CMC_InnExit_CardName,Inn Door,旅店大门
 CMC_InnExit_DA_Exit,Exit,离开
 CMC_InnExit_DA_Exit_Fade,Leaving the inn...,正在离开旅店……
 CMC_InnCounter_CardName,Inn Counter,旅店柜台
-CMC_InnCounter_CardDescription,"The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it: every fourth bundle earns a Salt. There is usually odd work available too, paid in Salt. From first snow to thaw the Inn sells no meals and the Inn Keeper takes no commissions; the Snowed-In Supper is a social evening, not a meal.",旅店老板在这个柜台后供应热食、出租床铺。将盐、金属块或杜洛斯硬币拖到柜台上即可为你的旅店账户充值（上限500）；一顿饭或一晚住宿会从余额中扣除50（被通缉或被放逐期间会更多）。将木柴拖到柜台上出售：每四捆换一份盐。这里通常也有些零工可做，报酬以盐支付。从初雪到解冻期间，旅店不售饭菜，旅店老板也不接委托；雪困晚宴是一场社交聚会，不提供饭食。
+CMC_InnCounter_CardDescription,"The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal draws 30 and a night's stay 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it: every fourth bundle earns a Salt. There is usually odd work available too, paid in Salt. From first snow to thaw the Inn sells no meals and the Inn Keeper takes no commissions; the Snowed-In Supper is a social evening, not a meal.",旅店老板在这个柜台后供应热食、出租床铺。将盐、金属块或杜洛斯硬币拖到柜台上即可为你的旅店账户充值（上限500）；一顿饭扣除30，一晚住宿扣除50（被通缉或被放逐期间会更多）。将木柴拖到柜台上出售：每四捆换一份盐。这里通常也有些零工可做，报酬以盐支付。从初雪到解冻期间，旅店不售饭菜，旅店老板也不接委托；雪困晚宴是一场社交聚会，不提供饭食。
 CMC_InnCounter_DA_Meal,Purchase Meal,购买餐食
-CMC_InnCounter_DA_Meal_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). A hearty bowl of stew, bread and a cup of water: about what a good meal of your own would give you. Closed from first snow to thaw: the roads are shut and the Inn sells no food (the Snowed-In Supper is a social evening, not a meal).",从你的旅店账户中扣除50（被通缉或被放逐期间会更多）。一大碗炖菜、面包和一杯水：大约相当于你自己做的一顿好饭。从初雪到解冻期间不供应：道路封闭，旅店不售食物（雪困晚宴是一场社交聚会，不提供饭食）。
+CMC_InnCounter_DA_Meal_Desc,"Draws 30 from your Inn Account (more while you are Wanted or Banished). A hearty bowl of stew, bread and a cup of water: about what a good meal of your own would give you. Closed from first snow to thaw: the roads are shut and the Inn sells no food (the Snowed-In Supper is a social evening, not a meal).",从你的旅店账户中扣除30（被通缉或被放逐期间会更多）。一大碗炖菜、面包和一杯水：大约相当于你自己做的一顿好饭。从初雪到解冻期间不供应：道路封闭，旅店不售食物（雪困晚宴是一场社交聚会，不提供饭食）。
 CMC_InnCounter_DA_Sleep,Stay the Night,留宿一晚
-CMC_InnCounter_DA_Sleep_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). Rest for up to 6 hours, restoring Wakefulness and Energy. You'll wake early if your vitals reach a critical warning (thirst, temperature, bleeding, illness, or nature's call).",从你的旅店账户中扣除50（被通缉或被放逐期间会更多）。最多休息6小时，恢复清醒度和精力。若生命体征达到危急警报（口渴、体温、出血、疾病或如厕需求），你会提前醒来。
+CMC_InnCounter_DA_Sleep_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished) for a room: a Rented Bed appears here for the next 6 hours. Sleep in it when you are ready, and if something wakes you, lie down again while the time lasts. One room at a time.",从你的旅店账户中扣除50（被通缉或被放逐期间会更多）租一间房：这里会出现一张租来的床，供你使用接下来的6小时。准备好了就去睡，如果中途被吵醒，只要时间还没到，可以再躺下继续睡。一次只能租一间。
+CMC_InnRentedBed_CardName,Rented Bed,租来的床
+CMC_InnRentedBed_CardDescription,"A made-up bed in one of the Inn's rooms, yours for the next 6 hours. Sleep in it, and if something wakes you, lie down again while the time lasts. When the time runs out the Inn Keeper takes the room back.",旅店客房里一张铺好的床，接下来6小时归你使用。可以在上面睡觉，如果中途被吵醒，只要时间还没到，就可以再躺下。时间一到，旅店老板就会收回房间。
+CMC_InnRentedBed_RentalTime,Room Time Left,剩余租房时间
+CMC_InnRentedBed_TimeUp,"Your time in the room is up, and the Inn Keeper takes the bed back.",你的租房时间到了，旅店老板收回了这张床。
+CMC_InnRentedBed_DA_Sleep,Sleep,睡觉
+CMC_InnRentedBed_DA_Sleep_Desc,"Rest for up to 6 hours, restoring Wakefulness and Energy. You'll wake early if your vitals reach a critical warning (thirst, temperature, bleeding, illness, or nature's call). Woken early, you can lie down again while the room is still yours.",最多休息6小时，恢复清醒度和精力。若生命体征达到危急警报（口渴、体温、出血、疾病或如厕需求），你会提前醒来。提前醒来后，只要房间还归你，就可以再躺下。
 CMC_InnCounter_DA_Sleep_Interrupt_Thirsty,I'm too thirsty to sleep...,太渴了，睡不着……
 CMC_InnCounter_DA_Sleep_Interrupt_Hot,I'm too hot to sleep...,太热了，睡不着……
 CMC_InnCounter_DA_Sleep_Interrupt_Cold,I'm too cold to sleep...,太冷了，睡不着……
@@ -955,7 +971,7 @@ CMC_ClayFlats_CardHelpSection,"<b>Alder Clearing, Wetlands, Riverbank:</b>
 
 <b>Fauna:</b> Frogs, Mosquitoes.
 
-<b>Also:</b> A clay-rich mound along the bank can be dug for raw clay.","<b>桤木林隙，湿地，河岸：</b>
+<b>Also:</b> A clay-rich mound along the bank can be dug for raw clay, and a patch of bog iron ore sits nearby for those who go looking.","<b>桤木林隙，湿地，河岸：</b>
 
 <b>环境条件：</b>酸性潮湿土壤。
 
@@ -963,7 +979,7 @@ CMC_ClayFlats_CardHelpSection,"<b>Alder Clearing, Wetlands, Riverbank:</b>
 
 <b>动物：</b>青蛙、蚊子。
 
-<b>另外：</b>河岸边一处富含粘土的土丘可挖掘出生粘土。"
+<b>另外：</b>河岸边一处富含粘土的土丘可挖掘出生粘土，附近还有一处沼铁矿脉，留意的人便能找到。"
 CMC_MarshHollow_CardName,Sodden Hollow,泥泞洼地
 CMC_Env_MarshHollow_CardName,Sodden Hollow,泥泞洼地
 CMC_MarshHollow_CardDescription,"A boggy depression filled with marsh plants, willows, and alder growth, with standing pools of water.",一处泥泞的洼地，长满沼泽植物、柳树和桤木，散布着积水的水洼。
@@ -1908,21 +1924,21 @@ CMC_QuestRenownMarketStallSales_StatDescription,"Hidden one-shot flag: 1 once th
 CMC_SnowDriftNorth_CardName,Snow Drift,雪堆
 CMC_SnowDriftNorth_CardDescription,"Deep winter snow has drifted across the northern road to Stillwater Meadow, burying the path. Dig through it with a shovel to clear the way quickly, or claw through it with your bare hands if you have no tool — slower, but it works. Once cleared, it stays open for the rest of the winter.",深冬的积雪堆满了通往静水草甸的北面道路，将小径彻底掩埋。用铲子挖开积雪可以更快地清出道路，若没有工具，也可以徒手刨挖——速度较慢，但同样可行。一旦清理完毕，这条路将在整个冬季保持畅通。
 CMC_SnowDriftNorth_CI_Dig_ByHand_ActionName,Dig Through the Snow Drift by Hand,徒手挖开雪堆
-CMC_SnowDriftNorth_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands. Slower and more exhausting than a shovel, but it clears the road to Stillwater Meadow all the same.",徒手刨挖雪堆。比用铲子更慢更累，但同样能清出通往静水草甸的道路。
+CMC_SnowDriftNorth_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands for 2 hours. Six goes clear the road to Stillwater Meadow, slower than a shovel but just as sure.",徒手刨挖雪堆2小时。挖六次即可清出通往静水草甸的道路，比用铲子慢，但同样可靠。
 CMC_SnowDriftNorth_CI_Dig_ActionName,Dig Through the Snow Drift,挖开积雪
-CMC_SnowDriftNorth_CI_Dig_ActionDescription,Shovel a path through the drift. Clears the road to Stillwater Meadow once fully dug through.,铲开一条穿过雪堆的通路。完全挖通后，通往静水草甸的道路便会畅通。
+CMC_SnowDriftNorth_CI_Dig_ActionDescription,Shovel at the drift for 1 hour. Six goes clear the road to Stillwater Meadow.,用铲子铲雪堆1小时。铲六次即可清出通往静水草甸的道路。
 CMC_SnowDriftSouth_CardName,Snow Drift,雪堆
 CMC_SnowDriftSouth_CardDescription,"Deep winter snow has drifted across the southern road to Pine Trail, burying the path. Dig through it with a shovel to clear the way quickly, or claw through it with your bare hands if you have no tool — slower, but it works. Once cleared, it stays open for the rest of the winter.",深冬的积雪堆满了通往松林小径的南面道路，将小径彻底掩埋。用铲子挖开积雪可以更快地清出道路，若没有工具，也可以徒手刨挖——速度较慢，但同样可行。一旦清理完毕，这条路将在整个冬季保持畅通。
 CMC_SnowDriftSouth_CI_Dig_ByHand_ActionName,Dig Through the Snow Drift by Hand,徒手挖开雪堆
-CMC_SnowDriftSouth_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands. Slower and more exhausting than a shovel, but it clears the road to Pine Trail all the same.",徒手刨挖雪堆。比用铲子更慢更累，但同样能清出通往松林小径的道路。
+CMC_SnowDriftSouth_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands for 2 hours. Six goes clear the road to Pine Trail, slower than a shovel but just as sure.",徒手刨挖雪堆2小时。挖六次即可清出通往松林小径的道路，比用铲子慢，但同样可靠。
 CMC_SnowDriftSouth_CI_Dig_ActionName,Dig Through the Snow Drift,挖开积雪
-CMC_SnowDriftSouth_CI_Dig_ActionDescription,Shovel a path through the drift. Clears the road to Pine Trail once fully dug through.,铲开一条穿过雪堆的通路。完全挖通后，通往松林小径的道路便会畅通。
+CMC_SnowDriftSouth_CI_Dig_ActionDescription,Shovel at the drift for 1 hour. Six goes clear the road to Pine Trail.,用铲子铲雪堆1小时。铲六次即可清出通往松林小径的道路。
 CMC_SnowDriftEast_CardName,Snow Drift,雪堆
 CMC_SnowDriftEast_CardDescription,"Deep winter snow has drifted across the eastern road to the Village Farm, burying the path. Dig through it with a shovel to clear the way quickly, or claw through it with your bare hands if you have no tool — slower, but it works. Once cleared, it stays open for the rest of the winter.",深冬的积雪堆满了通往村庄农田的东面道路，将小径彻底掩埋。用铲子挖开积雪可以更快地清出道路，若没有工具，也可以徒手刨挖——速度较慢，但同样可行。一旦清理完毕，这条路将在整个冬季保持畅通。
 CMC_SnowDriftEast_CI_Dig_ByHand_ActionName,Dig Through the Snow Drift by Hand,徒手挖开雪堆
-CMC_SnowDriftEast_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands. Slower and more exhausting than a shovel, but it clears the road to the Village Farm all the same.",徒手刨挖雪堆。比用铲子更慢更累，但同样能清出通往村庄农田的道路。
+CMC_SnowDriftEast_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands for 2 hours. Six goes clear the road to the Village Farm, slower than a shovel but just as sure.",徒手刨挖雪堆2小时。挖六次即可清出通往村庄农田的道路，比用铲子慢，但同样可靠。
 CMC_SnowDriftEast_CI_Dig_ActionName,Dig Through the Snow Drift,挖开积雪
-CMC_SnowDriftEast_CI_Dig_ActionDescription,Shovel a path through the drift. Clears the road to the Village Farm once fully dug through.,铲开一条穿过雪堆的通路。完全挖通后，通往村庄农田的道路便会畅通。
+CMC_SnowDriftEast_CI_Dig_ActionDescription,Shovel at the drift for 1 hour. Six goes clear the road to the Village Farm.,用铲子铲雪堆1小时。铲六次即可清出通往村庄农田的道路。
 CMC_BrambleThicket_CardName,Bramble Thicket,荆棘丛
 CMC_BrambleThicket_CardDescription,"In the heat of summer the brambles have run wild across the trail between Stillwater Meadow and Sett Warren, a wall of thorny canes too dense to walk through. Cut a way through with a sickle to clear the path quickly, or tear through it with your bare hands if you have no blade - slower, but it works. Once cut back, the trail stays open for the rest of the summer.",盛夏时节，荆棘在静水草甸与獾巢地之间的小径上疯长，密密麻麻的带刺藤蔓织成一堵墙，根本无法穿行。用镰刀砍开可以更快地清出道路，若没有刀具，也可以徒手撕扯开路——速度较慢，但同样可行。一旦砍开，这条小径将在整个夏季保持畅通。
 CMC_BrambleThicket_CI_Cut_Sickle_ActionName,Cut Back the Bramble Thicket,砍开荆棘丛
@@ -1930,7 +1946,7 @@ CMC_BrambleThicket_CI_Cut_Sickle_ActionDescription,"Hack a path through the bram
 CMC_BrambleThicket_CI_Cut_ByHand_ActionName,Tear Through the Bramble Thicket by Hand,徒手撕开荆棘丛
 CMC_BrambleThicket_CI_Cut_ByHand_ActionDescription,"Wrestle through the brambles with your bare hands. Slower and more tiring than a sickle, but it clears the trail to Sett Warren all the same.",徒手撕扯荆棘开路。比用镰刀更慢更累，但同样能清出通往獾巢地的小径。
 CharacterTraits_Perk_Homestead_PerkName,Founders Kit,奠基者套件
-CharacterTraits_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Founders Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (15 planks, 15 mud bricks, 20 stones, 6 heavy stones, 6 tree logs, 10 clay, 5 rope, 20 copper nails) all at once, then Place each kit to raise it. Everything can only be placed once.",你有备而来，准备就此安家落户。开局携带一个「奠基者套件」，已打包好方便携带。放到你想建立家园的地方，然后使用「放置」一次性拆开，取出一个小屋套件、两个集雨桶套件，以及一批建筑材料（15块木板、15块泥砖、20块石头、6块沉重石块、6根原木、10块黏土、5段绳子、20根铜钉），之后再对每个套件使用「放置」将其搭建起来。所有物品都只能放置一次。
+CharacterTraits_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Founders Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (15 planks, 15 mud bricks, 20 stones, 6 heavy stones, 6 tree logs, 10 clay, 5 rope, 9 metal nuggets and 20 copper nails) all at once, then Place each kit to raise it. Everything can only be placed once.",你有备而来，准备就此安家落户。开局携带一个「奠基者套件」，已打包好方便携带。放到你想建立家园的地方，然后使用「放置」一次性拆开，取出一个小屋套件、两个集雨桶套件，以及一批建筑材料（15块木板、15块泥砖、20块石头、6块沉重石块、6根原木、10块黏土、5段绳子、9块金属块、20根铜钉），之后再对每个套件使用「放置」将其搭建起来。所有物品都只能放置一次。
 CMC_ProfessorGreeting_CourseAckArchitecture_Line,"Architecture, passed with a design I'll admit I stole a diagram from for next term's lecture. Water doesn't forgive a bad angle the way earth does, but you found the right one. With Water-Driven Infrastructure installed, a water-driven sawmill and grinding mill are within your skill now, real ones, not the toy models I sketch on the board, and with a Metallurgy degree beside it you'll be casting your own forge fittings before the season turns.",建筑学，通过了，我得承认，你的设计图我打算偷去用在下学期的讲课里。水流可不像土地那样，会原谅一个糟糕的角度，可你找对了那个角度。若已安装水力基础设施（Water-Driven Infrastructure），如今水力锯木厂和水力磨坊都在你的能力范围之内了，是真正的实物，不是我在黑板上画的那种玩具模型；再拿下一个冶金学学位，用不了一季，你就能自己铸造锻炉配件了。
 CMC_ProfessorGreeting_CourseAckArmorer_Line,"Armorer, passed, and passed properly, no student of mine gets a breastplate pattern without proving they understand why the rivets go where they go. Copper will do in a pinch, but iron will actually keep you alive out past the tree line, helm, greaves, gauntlets, the full set is yours to make now. I'd rather you never need it. I'd rather you have it anyway.",制甲，通过了，而且是货真价实地通过。我的学生想拿到胸甲的花样，就必须先证明自己明白铆钉为什么要钉在那些位置上。铜制的凑合一下还行，可真正能在林线之外保住你性命的是铁——头盔、护胫、护手，整套装备现在都在你的制作能力范围之内了。我宁愿你永远用不上它。我也宁愿你无论如何都拥有它。
 CMC_ProfessorGreeting_CourseAckFishing_Line,"You passed Fishing, and unlike most of my courses this one I actually enjoy grading, mostly because it involves an afternoon by the water instead of a stack of essays. The iron fittings for a proper rod are yours to build now, sturdier than anything whittled from green wood. My uncle's mythical river monster is still out there uncaught, incidentally, should you fancy a rematch on his behalf.",你通过了钓鱼课，跟我大多数课程不同，这门课的评分我是真心喜欢，主要是因为它意味着在水边度过一个下午，而不是批改一摞论文。如今你已经能制作一副像样鱼竿所需的铁制配件了，比任何用生木削出来的都结实。顺带一提，我叔叔那条传说中的河怪至今还没被钓上来过，你要是愿意替他打一场复仇之战，我不反对。
@@ -2555,19 +2571,19 @@ CMC_VillageHomeSignCarved_DA_Plane_ActionName,Plane the Face Smooth,创平牌面
 CMC_VillageHomeSignCarved_DA_Plane_ActionDescription,"Work the relief and the border back off the board, leaving the plain rustic face.",把浮雕与边框从板上创去，只留下素朴的牌面。
 CMC_VillageHomeSignCarved_DA_Dismantle,Take Down Sign,拆下门牌
 CMC_TownWoodPile_CardName,Town Wood Pile,镇上柴堆
-CMC_TownWoodPile_CardDesc,"The village's communal fuel stack, kept beside the square. Drag twigs, long sticks, wood or firewood onto it to add to the Wood Stockpile. The hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin all tend themselves from this pile - when it runs dry they stop being tended and burn down, though any of them can still be fed and lit by hand like any other fireplace. The village also keeps a running Player's Pay balance for what you've fed in, built at the same rate as the Wood Stockpile; withdraw it any time as copper nuggets (250 pay each) or salt (15 pay each) with Collect as Copper/Collect as Salt - a reward for the fuel you contributed that never draws against what the hearths need.",村里的公共燃料堆，就放在广场旁边。把细枝、长木棍、木头或柴火拖到上面，即可增加木柴储量。旅馆、学堂、村政厅、磨坊主与织工的小屋以及药剂师木屋里的炉火，都会自行从这堆柴中取用——柴堆见底时，它们便不再自行续燃而逐渐烧尽，不过你仍可像对待任何壁炉那样亲手添柴点火。村子还会为你投入的柴薪记一笔“工钱”，累积速度与木柴储量相同；随时可用“以铜块形式收取”/“以盐形式收取”取走，铜块每次250工钱、盐每次15工钱——这是给你所投柴薪的酬劳，绝不会动用炉火所需的柴堆。
+CMC_TownWoodPile_CardDesc,"The village's communal fuel stack, kept beside the square. Drag twigs, long sticks, wood or firewood onto it to add to the Wood Stockpile. The villagers burn from it steadily, about one hearth's worth a day, whatever you add. The hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin are kept lit by their owners and never go out for want of it. The village also keeps a running Player's Pay balance for what you've fed in, built at the same rate as the Wood Stockpile; withdraw it any time as copper nuggets (250 pay each) or salt (15 pay each) with Collect as Copper/Collect as Salt.",村里的公共燃料堆，就放在广场旁边。把细枝、长木棍、木头或柴火拖到上面，即可增加木柴储量。无论你添了多少，村民都会稳定地从中取柴烧火，大约每天烧掉一炉的量。旅店、学院、村公所、磨坊主和织工的小屋以及药剂师小屋里的炉火都由主人照看，不会因为柴堆空了而熄灭。村里还会为你添的柴记一笔“玩家报酬”，累积速度与木柴储量相同；随时可以用“领取铜块”或“领取盐”把它换成铜块或盐，铜块每次250工钱、盐每次15工钱。
 CMC_TownWoodPile_CardHelpSection,Town Wood Pile,镇上柴堆
 CMC_TownWoodPile_SD1_Name,Wood Stockpile,木柴储量
 CMC_TownWoodPile_SD2_Name,Player's Pay,工钱
 CMC_TownWoodPile_CI_Stock,Stock the Wood Pile,向柴堆添柴
 CMC_TownWoodPile_CI_Stock_Desc,"Add the dragged fuel to the village's communal stockpile. Each piece is worth exactly what it would have given a fire: a log of wood about 35, pine or alder about 21, twigs 7, a long stick 4. Part-burnt fuel is worth what is left of it. The same value also builds your Player's Pay balance, withdrawable any time as copper or salt.",把拖入的燃料加入村里的公共柴堆。每份燃料的价值与它能供炉火燃烧的量完全相同：一根木头约35，松木或桓木约21，细枝7，长木棍4。烧过一部分的燃料按剩余部分计价。同样的数值也会累积进你的“工钱”，可随时兑换为铜块或盐。
 CMC_TownWoodPileFuel_StatName,Town Wood Pile,镇上柴堆
-CMC_TownWoodPileFuel_StatDescription,"Hidden fuel pool for the village's communal wood pile, measured in the same units the vanilla Fireplace burns (1 per tick, 96 for a full hearth). Rises when fuel is stacked on the Town Wood Pile in the village, falls whenever one of the six village hearths is automatically topped off or re-lit. Starts at 96 - one full hearth's worth - so a run that has never seen the pile still gets a grace period before the village fires start going out. This is the canonical store: the pile's own Wood Stockpile bar is a display mirror of it, because the hearths that draw on it sit in interiors where the pile card is not on the board.",村中公共柴堆的隐藏燃料池，单位与原版壁炉燃烧的单位相同（每刻1点，96点为一炉满量）。向镇上柴堆添柴时上升；六处村中炉火中任意一处被自动续燃或重新点燃时下降。初始为96——即一炉满量——因此从未见过柴堆的存档也有缓冲期，村中炉火不会立刻熄灭。这是权威存储：柴堆自身的木柴储量条只是它的显示镜像，因为取用它的炉火位于室内环境，而柴堆卡牌并不在那些场景的板面上。
+CMC_TownWoodPileFuel_StatDescription,"Hidden fuel pool for the village's communal wood pile, measured in the same units the vanilla Fireplace burns (96 for a full hearth). Rises when fuel is stacked on the Town Wood Pile and burns down by a fixed 1 a tick (one hearth's worth a day), whatever the player does. The six village hearths no longer draw on it. The pile's own Wood Stockpile bar is a display mirror of it.",村中公共柴堆的隐藏燃料池，单位与原版壁炉燃烧的单位相同（一炉满量为96点）。向镇上柴堆添柴时上升，并且无论玩家做什么，每刻固定减少1点（每天约一炉的量）。六处村中炉火不再从中取柴。柴堆自身的木柴储量条只是它的显示镜像。
 CMC_TownWoodPile_CI_Stock_Full,The wood pile is already stacked as high as it will go.,柴堆已经堆到不能再高了。
 CMC_TownWoodPile_DA_CollectCopper,Collect as Copper,以铜块形式收取
-CMC_TownWoodPile_DA_CollectCopper_Desc,"Withdraw your Player's Pay balance as copper nuggets, 250 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on.",以铜块形式提取你的工钱余额，每个铜块消250工钱。仅动用工钱，从不动用炉火赖以维持的木柴储量。
+CMC_TownWoodPile_DA_CollectCopper_Desc,"Withdraw your Player's Pay balance as copper nuggets, 250 pay each. Draws only on Player's Pay, never on the Wood Stockpile.",以铜块形式提取你的工钱余额，每个铜块消250工钱。仅动用工钱，从不动用木柴储量。
 CMC_TownWoodPile_DA_CollectSalt,Collect as Salt,以盐形式收取
-CMC_TownWoodPile_DA_CollectSalt_Desc,"Withdraw your Player's Pay balance as salt, 15 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on.",以盐的形式提取你的工钱余额，每份盐消15工钱。仅动用工钱，从不动用炉火赖以维持的木柴储量。
+CMC_TownWoodPile_DA_CollectSalt_Desc,"Withdraw your Player's Pay balance as salt, 15 pay each. Draws only on Player's Pay, never on the Wood Stockpile.",以盐的形式提取你的工钱余额，每份盐消15工钱。仅动用工钱，从不动用木柴储量。
 CMC_CarpentryBench_CardName,Carpentry Bench (retired),木工台（已停用）
 CMC_CarpentryBench_CardDescription,"This bench was retired when the Carpentry course moved onto the Lecture Hall lectern, which now holds a single Tuition Account for every course. Anything still banked here can be carried over: Transfer to Lecture Hall moves this bench's Tuition Account balance (as much as the lectern's account can hold) and any Carpentry study hours onto the lectern, then clears the bench away. If the lectern's account is full, the remainder stays here until you transfer again.",木工课程并入讲堂讲台后，此工作台已停用；现在所有课程共用讲台上的一个学费账户。这里仍存有的东西可以转移：「转入讲堂」会把此工作台的学费账户余额（以讲台账户能容纳的数额为限）和已完成的木工学时转到讲台上，然后清走此工作台。若讲台账户已满，剩余部分会留在这里，之后可再次转移。
 CMC_CarpentryBench_Prog_Tuition,Tuition Account,学费账户
@@ -3002,7 +3018,7 @@ CMC_SterlingTalk_ServiceDone_Line,"The work is done, and done properly. I wrote 
 CMC_SterlingTalk_ServiceDone_Answer_Thanks,"Thank you, Captain.",谢谢您，队长。
 CMC_SterlingTalk_Deputy_Line,"Three jobs done and a clean slate to show for them. I have had worse deputies sworn in by the Watch itself. Consider yourself one of mine: the square will know you, and I will vouch for you where it counts.",三件差事做完，案底也清白了。守卫队自己宣誓入队的副手，有些还不如你。从今往后你算我的人：广场上的人会认得你，要紧的地方我替你作保。
 CMC_SterlingTalk_Deputy_Answer_Honoured,"I am honoured, Captain.",承蒙抬举，队长。
-CMC_SterlingTalk_ServiceOffer_Line,"The Watch does not hand out pardons, but it can use honest hands. Carry firewood to the Town Wood Pile, so the village hearths do not go cold. Or, when the snow has closed a road, dig a drift clear. Come and tell me when it is done, and I will take it off your record.",守卫队不发赦免，但正缺踏实肯干的人手。把柴火送到镇上的柴堆，别让村里的炉火熄了；或者在大雪封路时，把雪堆挖开。干完了来告诉我，我就从你的记录里划掉一笔。
+CMC_SterlingTalk_ServiceOffer_Line,"The Watch does not hand out pardons, but it can use honest hands. Carry firewood to the Town Wood Pile, so the village does not run short. Or, when the snow has closed a road, dig a drift clear. Come and tell me when it is done, and I will take it off your record.",守卫队不发赦免，但正缺踏实肯干的人手。把柴火送到镇上的柴堆，别让村里缺柴；或者在大雪封路时，把雪堆挖开。干完了来告诉我，我就从你的记录里划掉一笔。
 CMC_SterlingTalk_ServiceOffer_Answer_Firewood,I will carry firewood to the Wood Pile.,我去把柴火送到柴堆。
 CMC_SterlingTalk_ServiceOffer_Answer_Drift,I will dig a snow drift clear.,我去把雪堆挖开。
 CMC_SterlingTalk_ServiceOffer_Answer_Later,Not just now.,现在不行。
@@ -3454,7 +3470,7 @@ CMC_FishingNet_DA_CastIce,Cast Net Through the Ice,从冰窟擒网
 CMC_FishingNet_DA_CastIce_Description,"Lower the net through the ice hole. In a hard frost the twine stiffens and the net wears twice as fast.",把网从冰窟放下去。严寒中麻绳变硬，渔网的磨损加倍。
 CMC_FishingNet_DA_CastIceThaw,Cast Net Through the Ice,从冰窟擒网
 CMC_FishingNet_DA_CastIceThaw_Description,Lower the net through the ice hole and haul it back.,把网从冰窟放下去，再拉回来。
-CMC_InnCounter_DA_Work_Desc,"Four hours of chores around the Inn (Energy -20, Stamina -15) for 2 Salt. One paid shift a day.",在旅店里干四小时杂活（精力 -20，体力 -15），报酬为2份盐。每天只有一班有报酬。
+CMC_InnCounter_DA_Work_Desc,"Four hours of chores around the Inn (Energy -20, Stamina -15) for 4 to 8 Salt. One paid shift a day.",在旅店里干四小时杂活（精力 -20，体力 -15），报酬为4到8份盐。每天只有一班有报酬。
 CMC_InnCounter_DA_Service,Community Service,社区服务
 CMC_InnCounter_DA_Service_Desc,"Four hours of unpaid work for the village (Energy -20, Stamina -15). Pays nothing, but takes 6 off your Village Crime. Only while you have a record; no daily limit.",为村庄做四小时无偿劳动（精力 -20，体力 -15）。没有报酬，但会让你的村庄犯罪值降低6。仅在你有案底时可用；没有每日次数限制。
 CMC_InnGlow_StatName,Warm Evening,温暖夜晚

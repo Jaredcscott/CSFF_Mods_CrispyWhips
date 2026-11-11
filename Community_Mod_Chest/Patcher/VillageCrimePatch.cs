@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Linq;
-using System.Reflection;
 using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 
@@ -65,8 +62,6 @@ namespace CommunityModChest.Patcher
         internal enum CrimeBand { Clean, Suspected, Wanted, Banished }
 
         private static bool _initialized;
-        private static MethodInfo _getFromIdMethod;
-        private static object _crimeStat;
         private static bool _loggedOverride;
 
         public static void Initialize()
@@ -300,27 +295,9 @@ namespace CommunityModChest.Patcher
 
         // ── Stat access (the proven StatsDict idiom, as in VillageRenownPatch) ────
 
-        private static bool ResolveGetFromId()
-        {
-            if (_getFromIdMethod != null) return true;
-            var uidType = CardUtil.FindGameType("UniqueIDScriptable");
-            if (uidType == null) return false;
-            _getFromIdMethod = uidType.GetMethods(BindingFlags.Public | BindingFlags.Static)
-                .FirstOrDefault(m => m.Name == "GetFromID" && !m.IsGenericMethodDefinition
-                    && m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == typeof(string));
-            return _getFromIdMethod != null;
-        }
-
-        private static object ResolveStatInstance(object gm)
-        {
-            if (!ResolveGetFromId()) return null;
-            _crimeStat ??= _getFromIdMethod.Invoke(null, new object[] { CrimeStatUid });
-            if (_crimeStat == null) return null;
-
-            if (CardUtil.GetCachedField(gm.GetType(), "StatsDict")?.GetValue(gm) is not IDictionary statsDict) return null;
-            if (!statsDict.Contains(_crimeStat)) return null;
-            return statsDict[_crimeStat];
-        }
+        // Delegates to the framework's own by-run cache (fleet plan section 10, W0.10 row 1 READ side)
+        // instead of hand-rolling UniqueIDScriptable.GetFromID + GameManager.StatsDict here.
+        private static object ResolveStatInstance(object gm) => StatAccess.Resolve(CrimeStatUid);
 
         /// <summary>Current crime value, or -1 when the stat is not readable yet (stat SO missing,
         /// StatsDict not built, or the stat not materialized for this run).</summary>

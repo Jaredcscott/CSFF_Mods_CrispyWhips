@@ -221,8 +221,6 @@ namespace CommunityModChest.Patcher
         private static readonly Dictionary<string, object> _npcStatCache = new(StringComparer.OrdinalIgnoreCase);
 
         // Captured once per session (instanced envs — see the P0 citation trail).
-        private static object _academyEnvId;
-        private static object _innEnvId;
         private static bool _academyCaptured;
         private static bool _innCaptured;
 
@@ -236,11 +234,6 @@ namespace CommunityModChest.Patcher
         // Per ActionID: a drifted forage ID must not silence a different one (G5, one latch per cause).
         private static readonly HashSet<string> _fireActionMissWarned = new HashSet<string>(StringComparer.Ordinal);
         private static int _lastPortrait; // 0 = not yet synced this run
-
-        // Commission diagnostics (temporary — owner reported "commissions only work at the Inn";
-        // logs on change so a single play session captures the state transition without spam).
-        private static string _lastLoggedCommissionEnv;
-        private static bool? _lastLoggedHasVisibleCommissions;
 
         // Once-true caches (graduations and the bridge cannot revert mid-run). Reset per run
         // in RestoreOnLoad_Postfix so a different save loaded in the same session cannot
@@ -263,14 +256,12 @@ namespace CommunityModChest.Patcher
         private static MethodInfo _initMethod;       // InGameNPC.Init(NPCAgentSaveDataByReference, EnvID)
         private static MethodInfo _getNpcDataMethod; // GameSaveDataByReference.GetNPCData(NPCAgent) -> NPCAgentSaveDataByReference
         private static MethodInfo _assignOrCreateCardsMethod; // GameManager.AssignOrCreateNPCCards() (private, no args)
-        private static MethodInfo _moveNpcMethod;    // GameManager.MoveNPC(InGameNPC, EnvID)
         private static MethodInfo _getStatValueMethod; // InGameNPC.GetStatValue(NPCStat)
         private static MethodInfo _setStatValueMethod; // InGameNPCStat.SetStatValueFromEditor(float) — resolved lazily (per-instance type)
         private static bool _setStatValueMissingWarned;
         private static MethodInfo _setCardImageMethod; // CardData.SetCardImage(Sprite)
         private static MethodInfo _refreshVisualsMethod; // CardGraphics.RefreshCookingStatus() — resolved lazily (per-instance type)
         private static bool _refreshVisualsFailureLogged;
-        private static ConstructorInfo _envIdFromCardCtor; // EnvID(CardData, bool)
         private static object _envIdEmpty;           // default(EnvID)
 
         // Forage/specialty firing (mirrors InnKeeperSpawnPatch.FireAgentAction) — the proven
@@ -337,11 +328,9 @@ namespace CommunityModChest.Patcher
             _initMethod = AccessTools.Method(_inGameNpcType, "Init", new[] { _saveDataByRefType, _envIdType });
             _getNpcDataMethod = AccessTools.Method(_gameSaveDataByRefType, "GetNPCData", new[] { _npcAgentType });
             _assignOrCreateCardsMethod = AccessTools.Method(_gmType, "AssignOrCreateNPCCards");
-            _moveNpcMethod = AccessTools.Method(_gmType, "MoveNPC", new[] { _inGameNpcType, _envIdType });
             _getStatValueMethod = AccessTools.Method(_inGameNpcType, "GetStatValue", new[] { _npcStatType });
             // Optional — portrait tracking degrades gracefully if absent (art just stays static).
             _setCardImageMethod = AccessTools.Method(_cardDataType, "SetCardImage", new[] { typeof(Sprite) });
-            _envIdFromCardCtor = _envIdType.GetConstructor(new[] { _cardDataType, typeof(bool) });
             _envIdEmpty = Activator.CreateInstance(_envIdType);
 
             // Optional — forage/specialty stock degrades gracefully (logged once) if absent.
@@ -358,7 +347,7 @@ namespace CommunityModChest.Patcher
 
             return _getFromIdMethod != null && _createNpcMethod != null && _initMethod != null
                 && _getNpcDataMethod != null && _assignOrCreateCardsMethod != null
-                && _moveNpcMethod != null && _getStatValueMethod != null && _envIdFromCardCtor != null;
+                && _getStatValueMethod != null;
         }
 
         private static bool _refsUnresolvedWarned;
@@ -423,15 +412,29 @@ namespace CommunityModChest.Patcher
             if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
         }
 
+        // Reflection read for the room checks, roster scans and spawn checks (G5). Reflect.GetMember
+        // returns null with no log when a member name stops resolving, which these callers would read
+        // as "not in that room" or "not spawned" forever. TryGetMember tells a missing or unreadable
+        // member from a legitimate value, so that case warns once per type and member; the returned
+        // value is what GetMember would have returned, and a normal miss stays silent.
+        private static object ReadOrWarn(object instance, string member)
+        {
+            if (instance == null) return null;
+            if (Reflect.TryGetMember(instance, member, out var value)) return value;
+            string owner = instance.GetType().Name;
+            WarnOnce("member-unresolved:" + owner + "." + member, $"[ProfessorSchedulePatch] {owner}.{member} did not resolve or could not be read; the Professor's location, roster and spawn checks that read it fall back to 'not there' until it does. Logged once.");
+            return null;
+        }
+
         // ── Spawn / residency (P1, unchanged behavior) ───────────────────────────
 
         private static bool AlreadySpawned(object gm)
         {
-            if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs) return false;
+            if (ReadOrWarn(gm, "AllNPCs") is not IEnumerable allNpcs) return false;
             foreach (var npc in allNpcs)
             {
                 if (npc == null) continue;
-                if (ReferenceEquals(Reflect.GetMember(npc, "NPCModel"), _agent)) return true;
+                if (ReferenceEquals(ReadOrWarn(npc, "NPCModel"), _agent)) return true;
             }
             return false;
         }
@@ -441,14 +444,14 @@ namespace CommunityModChest.Patcher
         // spawned and stable this avoids re-scanning the whole NPC roster every tick.
         private static object FindProfessorNpc(object gm)
         {
-            if (Reflect.IsAlive(_liveNpc) && ReferenceEquals(Reflect.GetMember(_liveNpc, "NPCModel"), _agent))
+            if (Reflect.IsAlive(_liveNpc) && ReferenceEquals(ReadOrWarn(_liveNpc, "NPCModel"), _agent))
                 return _liveNpc;
 
-            if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs) return null;
+            if (ReadOrWarn(gm, "AllNPCs") is not IEnumerable allNpcs) return null;
             foreach (var npc in allNpcs)
             {
                 if (npc == null) continue;
-                if (ReferenceEquals(Reflect.GetMember(npc, "NPCModel"), _agent))
+                if (ReferenceEquals(ReadOrWarn(npc, "NPCModel"), _agent))
                 {
                     _liveNpc = npc;
                     return npc;
@@ -522,13 +525,13 @@ namespace CommunityModChest.Patcher
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null) return;
 
-                var currentEnv = Reflect.GetMember(gm, "CurrentEnvironment");
+                var currentEnv = ReadOrWarn(gm, "CurrentEnvironment");
                 if (currentEnv == null) return;
-                if (Reflect.GetMember(currentEnv, "IsNull") is true) return;
+                if (ReadOrWarn(currentEnv, "IsNull") is true) return;
 
                 if (!ResolveRefs()) return;
 
-                var envCard = Reflect.GetMember(currentEnv, "EnvCard");
+                var envCard = ReadOrWarn(currentEnv, "EnvCard");
                 if (!ReferenceEquals(envCard, _academyInterior)) return;
                 if (AlreadySpawned(gm)) return;
 
@@ -566,7 +569,7 @@ namespace CommunityModChest.Patcher
                 var npc = FindProfessorNpc(gm);
                 if (npc == null) return; // not spawned yet this session
 
-                var associatedCard = Reflect.GetMember(npc, "AssociatedCard");
+                var associatedCard = ReadOrWarn(npc, "AssociatedCard");
                 if (associatedCard == null) return;
 
                 // Copper Chest accrual (Village_Master_Plan.md §10.8.3.3) — a genuinely NEW weekly
@@ -602,7 +605,6 @@ namespace CommunityModChest.Patcher
 
                 SyncCourseEligibility(npc, associatedCard, phase);
                 SyncNarrativeStats(npc);
-                LogCommissionDiagnostics(npc, associatedCard);
 
                 if (QuietVillagePerkPatch.IsActive())
                 {
@@ -613,7 +615,7 @@ namespace CommunityModChest.Patcher
                     if (phase < 0.5f) SetNpcStatValue(npc, _phaseStat, PhaseResident);
                     _wanderTargetUid = null;
                     if (_academyCaptured && !SharesPlayerEnv(npc))
-                        WalkTowards(gm, npc, VillageEnvUid, _academyEnvId);
+                        WalkTowards(gm, npc, VillageEnvUid, AcademyInteriorUid);
                 }
                 else if (phase < 0.5f)
                     RunForagingPhase(gm, npc, associatedCard, heldCount, isNight);
@@ -634,20 +636,18 @@ namespace CommunityModChest.Patcher
         {
             if (_academyCaptured && _innCaptured) return;
 
-            var currentEnv = Reflect.GetMember(gm, "CurrentEnvironment");
+            var currentEnv = ReadOrWarn(gm, "CurrentEnvironment");
             if (currentEnv == null) return;
-            if (Reflect.GetMember(currentEnv, "IsNull") is true) return;
-            var envCard = Reflect.GetMember(currentEnv, "EnvCard");
+            if (ReadOrWarn(currentEnv, "IsNull") is true) return;
+            var envCard = ReadOrWarn(currentEnv, "EnvCard");
 
             if (!_academyCaptured && ReferenceEquals(envCard, _academyInterior))
             {
-                _academyEnvId = currentEnv;
                 _academyCaptured = true;
                 Plugin.Logger.LogInfo("[ProfessorSchedulePatch] Captured Academy EnvID for the Foraging Arc scheduler.");
             }
             else if (!_innCaptured && ReferenceEquals(envCard, _innInterior))
             {
-                _innEnvId = currentEnv;
                 _innCaptured = true;
                 Plugin.Logger.LogInfo("[ProfessorSchedulePatch] Captured Inn EnvID for the Foraging Arc scheduler.");
             }
@@ -666,7 +666,7 @@ namespace CommunityModChest.Patcher
                 if (!withPlayer)
                 {
                     _wanderTargetUid = null; // abandon any wander-in-progress — he's committed to the Academy/Inn now
-                    WalkTowards(gm, npc, VillageEnvUid, isNight && _innCaptured ? _innEnvId : _academyEnvId);
+                    WalkTowards(gm, npc, VillageEnvUid, isNight && _innCaptured ? InnInteriorUid : AcademyInteriorUid);
                 }
                 return;
             }
@@ -682,7 +682,7 @@ namespace CommunityModChest.Patcher
             if (isNight)
             {
                 _wanderTargetUid = null; // abandon any wander-in-progress — he's heading in for the night
-                if (_innCaptured) WalkTowards(gm, npc, VillageEnvUid, _innEnvId);
+                if (_innCaptured) WalkTowards(gm, npc, VillageEnvUid, InnInteriorUid);
                 return;
             }
 
@@ -690,8 +690,7 @@ namespace CommunityModChest.Patcher
             // (one outdoor tile at a time) and forage only once he's actually arrived.
             if (_wanderTargetUid != null)
             {
-                var targetCard = CardUtil.GetCardDataById(_wanderTargetUid);
-                WalkTowards(gm, npc, _wanderTargetUid, BuildOutdoorEnvId(targetCard));
+                WalkTowards(gm, npc, _wanderTargetUid, _wanderTargetUid);
 
                 int arrivedIndex = CurrentOutdoorNodeIndex(npc);
                 if (arrivedIndex >= 0 && string.Equals(OutdoorNodeUids[arrivedIndex], _wanderTargetUid, StringComparison.OrdinalIgnoreCase))
@@ -724,11 +723,11 @@ namespace CommunityModChest.Patcher
 
             if (isNight)
             {
-                if (_innCaptured && !withPlayer) WalkTowards(gm, npc, VillageEnvUid, _innEnvId);
+                if (_innCaptured && !withPlayer) WalkTowards(gm, npc, VillageEnvUid, InnInteriorUid);
                 return;
             }
 
-            if (_academyCaptured && !withPlayer) WalkTowards(gm, npc, VillageEnvUid, _academyEnvId);
+            if (_academyCaptured && !withPlayer) WalkTowards(gm, npc, VillageEnvUid, AcademyInteriorUid);
 
             // Rarer specialty stock for graduated courses, once per day, only at the Academy.
             if (IsAtAcademy(npc)) FireSpecialtyStock(npc, associatedCard);
@@ -861,45 +860,6 @@ namespace CommunityModChest.Patcher
         }
 
         /// <summary>
-        /// Temporary diagnostic (owner report 2026-07-30: "the Professor appears to only accept
-        /// commissions in the Inn"). Logs, on change only, the NPC's own tracked environment vs.
-        /// where his visible board card AND his separate invisible CommissionsAssociatedCard
-        /// actually sit (these are two distinct native cards — see InGameNPC.CommissionsAssociatedCard
-        /// / GameManager.MoveNPC — and only vanilla's own MoveNPC keeps them in sync when he
-        /// walks), plus HasVisibleCommissions and the raw stat values every commission BP's
-        /// BlueprintNPCStatConditions reads. Raised to LogInfo 2026-10-23: the report was never
-        /// confirmed closed (no tracker row), so the line must reach LogOutput.log without
-        /// VerboseLogging. Delete it once the Professor is seen taking commissions at the Academy.
-        /// </summary>
-        private static void LogCommissionDiagnostics(object npc, object associatedCard)
-        {
-            string envLabel = EnvLabel(Reflect.GetMember(npc, "CurrentEnvironment"));
-            bool hasVisible = Reflect.GetMember(npc, "HasVisibleCommissions") is true;
-
-            if (envLabel == _lastLoggedCommissionEnv && hasVisible == _lastLoggedHasVisibleCommissions) return;
-            _lastLoggedCommissionEnv = envLabel;
-            _lastLoggedHasVisibleCommissions = hasVisible;
-
-            var commissionsCard = Reflect.GetMember(npc, "CommissionsAssociatedCard");
-            string commissionsCardEnv = commissionsCard != null ? EnvLabel(Reflect.GetMember(commissionsCard, "CardEnvironment")) : "null";
-            string associatedCardEnv = EnvLabel(Reflect.GetMember(associatedCard, "CardEnvironment"));
-
-            float phaseVal = GetNpcStatValue(npc, _phaseStat);
-            float specimenReady = GetNpcStatValue(npc, ResolveNpcStat(SpecimenReadyStatUid));
-            float fieldReady = GetNpcStatValue(npc, ResolveNpcStat(FieldSamplesReadyStatUid));
-            float fieldClaimed = GetNpcStatValue(npc, ResolveNpcStat("cmcStatProfFieldSamplesClaimed"));
-            float herbEligible = GetNpcStatValue(npc, ResolveNpcStat("cmcStatProfEligibleHerbalism"));
-            float herbClaimed = GetNpcStatValue(npc, ResolveNpcStat("cmcStatProfAppliedHerbalismClaimed"));
-
-            Plugin.Logger.LogInfo("[ProfessorSchedulePatch][CommissionDiag] "
-                + $"npcEnv={envLabel} associatedCardEnv={associatedCardEnv} "
-                + $"commissionsCard={(commissionsCard != null ? "present" : "MISSING")} commissionsCardEnv={commissionsCardEnv} "
-                + $"HasVisibleCommissions={hasVisible} phase={phaseVal} "
-                + $"specimenReady={specimenReady} fieldReady={fieldReady} fieldClaimed={fieldClaimed} "
-                + $"herbEligible={herbEligible} herbClaimed={herbClaimed}");
-        }
-
-        /// <summary>
         /// Points the Professor's art at wherever he currently is: Academy interior →
         /// Professor_Indoors, the 4 outdoor forage nodes → Professor_Outdoors, Inn interior →
         /// Professor_Inn (Academy art until that PNG exists). Swaps NPCModel.AgentImage (the
@@ -911,9 +871,9 @@ namespace CommunityModChest.Patcher
         {
             if (_setCardImageMethod == null) return;
 
-            var currentEnv = Reflect.GetMember(npc, "CurrentEnvironment");
-            if (currentEnv == null || Reflect.GetMember(currentEnv, "IsNull") is true) return;
-            var envCard = Reflect.GetMember(currentEnv, "EnvCard");
+            var currentEnv = ReadOrWarn(npc, "CurrentEnvironment");
+            if (currentEnv == null || ReadOrWarn(currentEnv, "IsNull") is true) return;
+            var envCard = ReadOrWarn(currentEnv, "EnvCard");
             if (envCard == null) return;
 
             int portrait;
@@ -926,7 +886,15 @@ namespace CommunityModChest.Patcher
 
             Plugin.Logger.LogDebug($"[ProfessorSchedulePatch] SyncPortrait: switching to portrait {portrait}.");
             var sprite = ResolvePortraitSprite(portrait);
-            if (sprite == null) return;
+            if (sprite == null)
+            {
+                // Non-throwing exit on a resolution path (G5): without a breadcrumb a renamed or
+                // removed portrait PNG would silently freeze the Professor's art with no log, and
+                // _lastPortrait is left unadvanced so this re-enters every tick. One warn per
+                // portrait names the cause; the normal "art unchanged" path stays silent.
+                WarnOnce("portrait-sprite-unresolved:" + portrait, $"[ProfessorSchedulePatch] no portrait sprite resolved for portrait {portrait} - the Professor's art will not update for this location until it does. Logged once.");
+                return;
+            }
 
             Reflect.SetMember(_agent, "AgentImage", sprite);
             ApplyCardImage(Reflect.GetMember(npc, "ModelCard"), sprite);
@@ -1027,62 +995,38 @@ namespace CommunityModChest.Patcher
             return GameQuery.CurrentDay * 96 + (96 - dtp);
         }
 
-        private static object BuildOutdoorEnvId(object cardData)
-        {
-            if (cardData == null) return null;
-            try { return _envIdFromCardCtor.Invoke(new object[] { cardData, false }); }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogWarning($"[ProfessorSchedulePatch] BuildOutdoorEnvId failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-                return null;
-            }
-        }
-
-        private static void MoveNpcTo(object gm, object npc, object envId)
-        {
-            if (envId == null) return;
-            try
-            {
-                _moveNpcMethod.Invoke(gm, new object[] { npc, envId });
-            }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogWarning($"[ProfessorSchedulePatch] MoveNpcTo failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-            }
-        }
-
         // ── Location helpers ─────────────────────────────────────────────────────
 
         // True when the Professor is standing in the player's current environment — used to
         // keep him from wandering off (or flipping his portrait) while the player is with him.
         private static bool SharesPlayerEnv(object npc)
         {
-            var env = Reflect.GetMember(npc, "CurrentEnvironment");
+            var env = ReadOrWarn(npc, "CurrentEnvironment");
             if (env == null) return false;
-            return Reflect.GetMember(env, "MatchesPlayerEnv") is true;
+            return ReadOrWarn(env, "MatchesPlayerEnv") is true;
         }
 
         // Index into OutdoorNodeUids/ForageActionIds of the node he's currently on, or -1.
         private static int CurrentOutdoorNodeIndex(object npc)
         {
-            var env = Reflect.GetMember(npc, "CurrentEnvironment");
-            if (env == null || Reflect.GetMember(env, "IsNull") is true) return -1;
-            var envCard = Reflect.GetMember(env, "EnvCard");
+            var env = ReadOrWarn(npc, "CurrentEnvironment");
+            if (env == null || ReadOrWarn(env, "IsNull") is true) return -1;
+            var envCard = ReadOrWarn(env, "EnvCard");
             return envCard == null ? -1 : Array.IndexOf(_outdoorNodes, envCard);
         }
 
         private static bool IsAtAcademy(object npc)
         {
-            var env = Reflect.GetMember(npc, "CurrentEnvironment");
-            if (env == null || Reflect.GetMember(env, "IsNull") is true) return false;
-            return ReferenceEquals(Reflect.GetMember(env, "EnvCard"), _academyInterior);
+            var env = ReadOrWarn(npc, "CurrentEnvironment");
+            if (env == null || ReadOrWarn(env, "IsNull") is true) return false;
+            return ReferenceEquals(ReadOrWarn(env, "EnvCard"), _academyInterior);
         }
 
         private static bool IsAtInn(object npc)
         {
-            var env = Reflect.GetMember(npc, "CurrentEnvironment");
-            if (env == null || Reflect.GetMember(env, "IsNull") is true) return false;
-            return ReferenceEquals(Reflect.GetMember(env, "EnvCard"), _innInterior);
+            var env = ReadOrWarn(npc, "CurrentEnvironment");
+            if (env == null || ReadOrWarn(env, "IsNull") is true) return false;
+            return ReferenceEquals(ReadOrWarn(env, "EnvCard"), _innInterior);
         }
 
         // The outdoor tile the Professor is standing on right now, for tile-walking purposes —
@@ -1101,12 +1045,12 @@ namespace CommunityModChest.Patcher
         // destOutdoorUid (including the Academy<->Inn case, which share the Village tile as
         // their front door — a same-tile hop needs no walking at all), the final hop fires
         // immediately, matching the previous one-shot behavior for that case.
-        private static void WalkTowards(object gm, object npc, string destOutdoorUid, object finalEnvId)
+        private static void WalkTowards(object gm, object npc, string destOutdoorUid, string finalEnvUid)
         {
             string currentUid = CurrentOutdoorUidOf(npc);
             if (currentUid == null || string.Equals(currentUid, destOutdoorUid, StringComparison.OrdinalIgnoreCase))
             {
-                MoveNpcTo(gm, npc, finalEnvId);
+                Npc.MoveTo(npc, finalEnvUid);
                 return;
             }
 
@@ -1115,18 +1059,11 @@ namespace CommunityModChest.Patcher
 
             if (string.Equals(nextUid, destOutdoorUid, StringComparison.OrdinalIgnoreCase))
             {
-                MoveNpcTo(gm, npc, finalEnvId);
+                Npc.MoveTo(npc, finalEnvUid);
                 return;
             }
 
-            var stepCard = CardUtil.GetCardDataById(nextUid);
-            if (stepCard == null)
-            {
-                Plugin.Logger.LogWarning($"[ProfessorSchedulePatch] WalkTowards: intermediate tile '{nextUid}' has no CardData — jumping straight to the destination instead.");
-                MoveNpcTo(gm, npc, finalEnvId);
-                return;
-            }
-            MoveNpcTo(gm, npc, BuildOutdoorEnvId(stepCard));
+            Npc.MoveTo(npc, nextUid);
         }
 
         // ── C#-fired forage / specialty stock (into his own satchel) ─────────────

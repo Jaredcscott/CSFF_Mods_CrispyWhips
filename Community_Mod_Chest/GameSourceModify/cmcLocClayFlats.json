@@ -5,6 +5,6 @@
   },
   "CardHelpSection": {
     "LocalizationKey": "CMC_ClayFlats_CardHelpSection",
-    "DefaultText": "<b>Alder Clearing, Wetlands, Riverbank:</b>\n\n<b>Conditions:</b> Acidic and humid soil.\n\n<b>Flora:</b> Alders, Bog Myrtle, Kingcup, Forest Caps, Spirit Mushrooms.\n\n<b>Fauna:</b> Frogs, Mosquitoes.\n\n<b>Also:</b> A clay-rich mound along the bank can be dug for raw clay."
+    "DefaultText": "<b>Alder Clearing, Wetlands, Riverbank:</b>\n\n<b>Conditions:</b> Acidic and humid soil.\n\n<b>Flora:</b> Alders, Bog Myrtle, Kingcup, Forest Caps, Spirit Mushrooms.\n\n<b>Fauna:</b> Frogs, Mosquitoes.\n\n<b>Also:</b> A clay-rich mound along the bank can be dug for raw clay, and a patch of bog iron ore sits nearby for those who go looking."
   }
 }

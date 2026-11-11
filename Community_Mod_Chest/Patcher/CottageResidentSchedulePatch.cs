@@ -130,7 +130,6 @@ namespace CommunityModChest.Patcher
             public object Agent;                // NPCAgent, resolved lazily
             public object LiveNpc;              // cached InGameNPC, validated by FindLiveNpc before trusting it
             public object CottageInteriorCard;   // CardData (own cottage interior); its EnvID is built per move, see EnvIdOf
-            public object AcademyTodayStat;      // GameStat SO, resolved lazily
             public Portrait LastPortrait;        // 0 = not yet synced this run
             public int LastProduceDay = int.MinValue; // session-scoped throttle, like ProfessorSchedulePatch's _lastSpecialtyDay
         }
@@ -180,12 +179,9 @@ namespace CommunityModChest.Patcher
 
         // Reflection handles, resolved once.
         private static Type _gmType;
-        private static Type _envIdType;
         private static Type _inGameNpcType;
         private static Type _cardDataType;
         private static MethodInfo _getFromIdMethod; // UniqueIDScriptable.GetFromID(string)
-        private static MethodInfo _moveNpcMethod;   // GameManager.MoveNPC(InGameNPC, EnvID)
-        private static ConstructorInfo _envIdFromCardCtor; // EnvID(CardData, bool)
 
         // Portrait application (optional — degrades gracefully if the game's SetCardImage/refresh
         // signatures shift; art just stays static rather than following a resident around).
@@ -225,9 +221,9 @@ namespace CommunityModChest.Patcher
             Plugin.Logger.LogDebug("[CottageResidentSchedulePatch] initialized.");
         }
 
-        // The destination EnvIDs are built per move (EnvIdOf) and the CardData references ResolveRefs
-        // caches are stable, so only the portrait/walk state that genuinely is session-scoped needs
-        // resetting on reload.
+        // The destination EnvIDs are built per move by Npc.MoveTo, and the CardData references
+        // ResolveRefs caches are stable, so only the portrait/walk state that genuinely is
+        // session-scoped needs resetting on reload.
         private static void ResetSessionState_Postfix()
         {
             foreach (var resident in Residents)
@@ -243,19 +239,16 @@ namespace CommunityModChest.Patcher
             if (_gmType != null) return true;
 
             _gmType = CardUtil.FindGameType("GameManager");
-            _envIdType = CardUtil.FindGameType("EnvID");
             _inGameNpcType = CardUtil.FindGameType("InGameNPC");
             _cardDataType = CardUtil.FindGameType("CardData");
             var uidType = CardUtil.FindGameType("UniqueIDScriptable");
 
-            if (_gmType == null || _envIdType == null || _inGameNpcType == null || _cardDataType == null || uidType == null)
+            if (_gmType == null || _inGameNpcType == null || _cardDataType == null || uidType == null)
                 return false;
 
             _getFromIdMethod = uidType.GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .FirstOrDefault(m => m.Name == "GetFromID" && !m.IsGenericMethodDefinition
                     && m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == typeof(string));
-            _moveNpcMethod = AccessTools.Method(_gmType, "MoveNPC", new[] { _inGameNpcType, _envIdType });
-            _envIdFromCardCtor = _envIdType.GetConstructor(new[] { _cardDataType, typeof(bool) });
 
             // Optional — portrait tracking degrades gracefully if absent.
             _setCardImageMethod = AccessTools.Method(_cardDataType, "SetCardImage", new[] { typeof(Sprite) });
@@ -272,7 +265,7 @@ namespace CommunityModChest.Patcher
                 _inGameNpcOrPlayerCtor = _inGameNpcOrPlayerType.GetConstructor(new[] { _inGameNpcType });
             }
 
-            return _getFromIdMethod != null && _moveNpcMethod != null && _envIdFromCardCtor != null;
+            return _getFromIdMethod != null;
         }
 
         private static bool ResolveRefs()
@@ -286,9 +279,6 @@ namespace CommunityModChest.Patcher
             {
                 resident.Agent ??= _getFromIdMethod.Invoke(null, new object[] { resident.AgentUid });
                 resident.CottageInteriorCard ??= CardUtil.GetCardDataById(resident.CottageInteriorUid);
-                // Optional — see SetAcademyTodayStat; CottageResidentWorkDutyPatch's own build
-                // poll is what actually gates on this stat existing, not this file.
-                resident.AcademyTodayStat ??= _getFromIdMethod.Invoke(null, new object[] { resident.AcademyTodayStatUid });
                 if (resident.Agent == null || resident.CottageInteriorCard == null) residentsOk = false;
             }
 
@@ -392,15 +382,15 @@ namespace CommunityModChest.Patcher
                     // No "already there" shortcut needed (mirrors ApothecarySchedulePatch's own
                     // cabin-interior homing) — WalkTowards' CurrentOutdoorUidOf/IsAtEnv checks
                     // already short-circuit once the resident has arrived.
-                    WalkTowards(gm, npc, resident, VillageEnvUid, EnvIdOf(resident.CottageInteriorCard));
+                    WalkTowards(gm, npc, resident, VillageEnvUid, resident.CottageInteriorUid);
                     return;
 
                 case Dest.Inn:
-                    WalkTowards(gm, npc, resident, VillageEnvUid, EnvIdOf(_innInteriorCard));
+                    WalkTowards(gm, npc, resident, VillageEnvUid, InnInteriorUid);
                     return;
 
                 case Dest.Academy:
-                    WalkTowards(gm, npc, resident, VillageEnvUid, EnvIdOf(_academyInteriorCard));
+                    WalkTowards(gm, npc, resident, VillageEnvUid, AcademyInteriorUid);
                     return;
 
                 case Dest.Work:
@@ -415,11 +405,11 @@ namespace CommunityModChest.Patcher
                     // same hop Dest.Village uses), after which the engine duty owns them again.
                     if (IsAtEnv(npc, resident.CottageInteriorCard) || IsAtEnv(npc, _innInteriorCard)
                         || IsAtEnv(npc, _academyInteriorCard))
-                        WalkTowards(gm, npc, resident, VillageEnvUid, BuildOutdoorEnvId(_villageEnvCard));
+                        WalkTowards(gm, npc, resident, VillageEnvUid, VillageEnvUid);
                     return;
 
                 default: // Dest.Village
-                    WalkTowards(gm, npc, resident, VillageEnvUid, BuildOutdoorEnvId(_villageEnvCard));
+                    WalkTowards(gm, npc, resident, VillageEnvUid, VillageEnvUid);
                     return;
             }
         }
@@ -440,12 +430,12 @@ namespace CommunityModChest.Patcher
         // Walks one outdoor tile per call toward destOutdoorUid, then takes the (possibly
         // interior) finalEnvId hop once that tile is reached — same pattern as
         // ProfessorSchedulePatch.WalkTowards / ApothecarySchedulePatch.WalkTowards.
-        private static void WalkTowards(object gm, object npc, Resident resident, string destOutdoorUid, object finalEnvId)
+        private static void WalkTowards(object gm, object npc, Resident resident, string destOutdoorUid, string finalEnvUid)
         {
             string currentUid = CurrentOutdoorUidOf(npc, resident);
             if (currentUid == null || string.Equals(currentUid, destOutdoorUid, StringComparison.OrdinalIgnoreCase))
             {
-                MoveNpcTo(gm, npc, finalEnvId);
+                Npc.MoveTo(npc, finalEnvUid);
                 return;
             }
 
@@ -454,18 +444,10 @@ namespace CommunityModChest.Patcher
 
             if (string.Equals(nextUid, destOutdoorUid, StringComparison.OrdinalIgnoreCase))
             {
-                MoveNpcTo(gm, npc, finalEnvId);
+                Npc.MoveTo(npc, finalEnvUid);
                 return;
             }
-
-            var stepCard = CardUtil.GetCardDataById(nextUid);
-            if (stepCard == null)
-            {
-                Plugin.Logger.LogWarning($"[CottageResidentSchedulePatch] WalkTowards: intermediate tile '{nextUid}' has no CardData for {resident.Name} — jumping straight to the destination instead.");
-                MoveNpcTo(gm, npc, finalEnvId);
-                return;
-            }
-            MoveNpcTo(gm, npc, BuildOutdoorEnvId(stepCard));
+            Npc.MoveTo(npc, nextUid);
         }
 
         private static int CurrentTotalTick()
@@ -569,23 +551,11 @@ namespace CommunityModChest.Patcher
 
         // ── AcademyToday stat + produce stock ─────────────────────────────────────
 
-        // Read/write idiom copied from CottageResidentSpawnPatch's own move-in-day stat
-        // (GetMoveInDay/SetMoveInDay/ResolveMoveInStatInstance) — the sanctioned "GameStat direct
-        // C# write" exception (reference_gamestat_direct_csharp_write): SimpleCurrentValue is the
-        // live per-player value, CurrentBaseValue is what a direct write actually has to touch.
+        // Delegates to the framework's StatAccess (fleet plan section 10, W0.10 row 1 WRITE side)
+        // instead of hand-rolling GameManager.StatsDict here.
         private static void SetAcademyTodayStat(object gm, Resident resident, bool isAcademyDay)
         {
-            var inGameStat = ResolveAcademyTodayStatInstance(gm, resident);
-            if (inGameStat == null) return;
-            Reflect.SetMember(inGameStat, "CurrentBaseValue", isAcademyDay ? 1f : 0f);
-        }
-
-        private static object ResolveAcademyTodayStatInstance(object gm, Resident resident)
-        {
-            if (resident.AcademyTodayStat == null) return null;
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return null;
-            if (!statsDict.Contains(resident.AcademyTodayStat)) return null;
-            return statsDict[resident.AcademyTodayStat];
+            StatAccess.Set(resident.AcademyTodayStatUid, isAcademyDay ? 1f : 0f);
         }
 
         // Fires the resident's produce-stock AgentAction once per in-game day, only once they are
@@ -693,32 +663,6 @@ namespace CommunityModChest.Patcher
             var env = Reflect.GetMember(npc, "CurrentEnvironment");
             if (env == null || Reflect.GetMember(env, "IsNull") is true) return false;
             return ReferenceEquals(Reflect.GetMember(env, "EnvCard"), envCard);
-        }
-
-        // A destination EnvID built now, so its key carries the card's CURRENT UniqueIDIndex (see the
-        // note above the reflection handles). Same (CardData, false) ctor as every outdoor tile:
-        // InstancedEnvironment is false on the Inn, Academy and both cottage interiors.
-        private static object EnvIdOf(object envCard) => BuildOutdoorEnvId(envCard);
-
-        private static object BuildOutdoorEnvId(object cardData)
-        {
-            if (cardData == null) return null;
-            try { return _envIdFromCardCtor.Invoke(new object[] { cardData, false }); }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogWarning($"[CottageResidentSchedulePatch] BuildOutdoorEnvId failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-                return null;
-            }
-        }
-
-        private static void MoveNpcTo(object gm, object npc, object envId)
-        {
-            if (envId == null) return;
-            try { _moveNpcMethod.Invoke(gm, new object[] { npc, envId }); }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogWarning($"[CottageResidentSchedulePatch] MoveNpcTo failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-            }
         }
 
         // ── Portrait sync ─────────────────────────────────────────────────────────

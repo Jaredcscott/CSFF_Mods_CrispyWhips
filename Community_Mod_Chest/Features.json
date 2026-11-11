@@ -401,13 +401,13 @@
     {
       "name": "Garden Trellis",
       "status": "Tested",
-      "notes": "Quest reward: hidden from the crafting journal (no tab entry, empty UnlockConditionsDesc) until the Miller's grain-errand quest completes, then unlocked via BlueprintsFullUnlockWarpData on CMC_MillerTalk_QuestThanks. CT2 placed. _Playtest 2026-07-21 (T1.6): still visible pre-quest - same open issue as Straw Mat, see that entry._ _CONFIRMED FIXED 2026-07-22 (T1.6 Spike-1 re-test, playthrough-results-2026-07-22_1836.json): fresh-run journal check passed - blueprint correctly Hidden pre-quest. The 07-21 \"still visible\" report is now understood as a stale observation (game process not restarted after the 1.23.0 deploy) rather than a real regression; CMC 1.23.0's fixed BlueprintVisibilityDiagnostic + prior JSON corrections hold up in-game._",
+      "notes": "Quest reward: hidden from the crafting journal (empty UnlockConditionsDesc; listed in BlueprintTabs.json Furniture, because a blueprint in no tab is never displayed even once Available, and it was unlisted from 1.22.2 until the 2026-11-07 fix) until the Miller's grain-errand quest completes, then unlocked via BlueprintsFullUnlockWarpData on CMC_MillerTalk_QuestThanks. CT2 placed. _Playtest 2026-07-21 (T1.6): still visible pre-quest - same open issue as Straw Mat, see that entry._ _CONFIRMED FIXED 2026-07-22 (T1.6 Spike-1 re-test, playthrough-results-2026-07-22_1836.json): fresh-run journal check passed - blueprint correctly Hidden pre-quest. The 07-21 \"still visible\" report is now understood as a stale observation (game process not restarted after the 1.23.0 deploy) rather than a real regression; CMC 1.23.0's fixed BlueprintVisibilityDiagnostic + prior JSON corrections hold up in-game._",
       "cards": [
         "BpCMCGardenTrellis",
         "cmcgardentrellisplaced"
       ],
-      "confidence": "VERIFIED",
-      "evidence": "T1.6 Spike-1 CONFIRMED FIXED 2026-07-22, same Hidden-blueprint mechanism as Straw Mat"
+      "confidence": "HIGH",
+      "evidence": "Hidden pre-quest CONFIRMED (T1.6 Spike-1, 2026-07-22). The post-quest build has never been observed in-game: the blueprint sat in no tab from 1.22.2 until the 2026-11-07 fix, so it could not be shown once unlocked"
     },
     {
       "name": "Iron Fishing Rod",
@@ -842,7 +842,7 @@
         "hunterscachehuntingstandkit",
         "hunterscachehuntingstand"
       ],
-      "notes": "NOT registered in BlueprintTabs.json - by design, same Hidden-until-quest pattern as Garden Trellis (unlocked via the Miller's grain-errand thanks dialog, BlueprintsFullUnlockWarpData). Kit item (3 Planks + 4 Long Sticks + 2 Rope) has a 'Set Up' DA producing the placed CT2 stand; the stand carries 'Take Down' (returns kit) and 'Dismantle' (returns raw materials) DAs. Declarative EncounterGuards/HuntingStandGuard.json gives a 25% chance (45% before 1.69.17) to suppress wildlife encounters started with no NPC while stationed there; since 1.69.3 Patcher/WildlifeIndoorGuardPatch.cs also refuses a hostile agent's move onto the board with the same chance (HuntingStandRefuseChance 0.45, rolled once per agent per day; see Wildlife Indoor & Village Encounter Suppression)."
+      "notes": "Registered in BlueprintTabs.json (Hunting, Trapping subtab, its pre-1.22.2 key) again since the 2026-11-07 fix: from 1.22.2 it sat in no tab and could not be shown even after the quest. Hidden until the quest through its empty UnlockConditionsDesc, same pattern as Garden Trellis (unlocked via the Miller's grain-errand thanks dialog, BlueprintsFullUnlockWarpData). Kit item (3 Planks + 4 Long Sticks + 2 Rope) has a 'Set Up' DA producing the placed CT2 stand; the stand carries 'Take Down' (returns kit) and 'Dismantle' (returns raw materials) DAs. Declarative EncounterGuards/HuntingStandGuard.json gives a 25% chance (45% before 1.69.17) to suppress wildlife encounters started with no NPC while stationed there; since 1.69.3 Patcher/WildlifeIndoorGuardPatch.cs also refuses a hostile agent's move onto the board with the same chance (HuntingStandRefuseChance 0.45, rolled once per agent per day; see Wildlife Indoor & Village Encounter Suppression)."
     },
     {
       "name": "Homestead / Founders Kit Perks",
@@ -1137,7 +1137,7 @@
         "bpcmcplankcauseway",
         "cmccausewaykit"
       ],
-      "notes": "4 seasonal SealableGates on the Village's 3 roads: Winter Snow Drift x3 (shovel CI, 3-hit clear, 20-DTP by-hand DA alternative added 1.66.0), Autumn Deadfall on Pine Trail<->Highland Pines (axe CI), Spring flood at Clay Shoal<->Sodden Hollow (either wait 3x8h for water to fall, or research+build a Plank Causeway - 16-tick research, 10 DTP, only stageable while physically at Clay Shoal). All ResealCondition TimerRegrowth 60 days."
+      "notes": "4 seasonal SealableGates on the Village's 3 roads: Winter Snow Drift x3 (shovel CI, 6-hit clear at 4 DTP a hit, 8-DTP by-hand DA alternative (added 1.66.0; times cut to Chiwei's numbers 2026-10-31)), Autumn Deadfall on Pine Trail<->Highland Pines (axe CI), Spring flood at Clay Shoal<->Sodden Hollow (either wait 3x8h for water to fall, or research+build a Plank Causeway - 16-tick research, 10 DTP, only stageable while physically at Clay Shoal). All ResealCondition TimerRegrowth 60 days."
     },
     {
       "name": "Village Academy - Carpentry Course & Outfit Wardrobe",

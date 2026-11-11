@@ -41,10 +41,10 @@
   "SpoilageTime": { "Active": false },
   "UsageDurability": {
     "Active": true,
-    "FloatValue": 3.0,
+    "FloatValue": 6.0,
     "CardStatName": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
     "RandomStartingOffset": 0.0,
-    "MaxValue": 3.0,
+    "MaxValue": 6.0,
     "RatePerDaytimePoint": 0.0,
     "HidingOptions": 0,
     "TextDisplay": 0,
@@ -84,9 +84,9 @@
       "ActionDescription": {
         "ParentObjectID": "cmcSnowDriftSouth",
         "LocalizationKey": "CMC_SnowDriftSouth_CI_Dig_ActionDescription",
-        "DefaultText": "Shovel a path through the drift. Clears the road to Pine Trail once fully dug through."
+        "DefaultText": "Shovel at the drift for 1 hour. Six goes clear the road to Pine Trail."
       },
-      "DaytimeCost": 8,
+      "DaytimeCost": 4,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -107,7 +107,7 @@
       },
       "GivenCardChanges": {
         "ModType": 1,
-        "UsageChange": { "x": -2.0, "y": -2.0 }
+        "UsageChange": { "x": -1.0, "y": -1.0 }
       },
       "ReceivingCardChanges": {
         "ModType": 1,
@@ -118,9 +118,9 @@
           "DroppedCards": [
             {
               "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-              "DroppedCardWarpData": "ba39a8f65c6b02745bab30888ca1ee19",
+              "DroppedCardWarpData": "b03abb769b4b67b4ead7cca6bdd60c67",
               "DroppedCardWarpType": 3,
-              "Quantity": { "x": 1, "y": 2 },
+              "Quantity": { "x": 1, "y": 1 },
               "DropChance": { "Active": true, "BaseDropChance": 100.0 }
             }
           ]
@@ -138,9 +138,9 @@
       "ActionDescription": {
         "ParentObjectID": "cmcSnowDriftSouth",
         "LocalizationKey": "CMC_SnowDriftSouth_CI_Dig_ByHand_ActionDescription",
-        "DefaultText": "Claw through the drift with your bare hands. Slower and more exhausting than a shovel, but it clears the road to Pine Trail all the same."
+        "DefaultText": "Claw through the drift with your bare hands for 2 hours. Six goes clear the road to Pine Trail, slower than a shovel but just as sure."
       },
-      "DaytimeCost": 20,
+      "DaytimeCost": 8,
       "UseMiniTicks": 0,
       "ActionSounds": [],
       "ActionTags": [],
@@ -156,9 +156,9 @@
           "DroppedCards": [
             {
               "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-              "DroppedCardWarpData": "ba39a8f65c6b02745bab30888ca1ee19",
+              "DroppedCardWarpData": "b03abb769b4b67b4ead7cca6bdd60c67",
               "DroppedCardWarpType": 3,
-              "Quantity": { "x": 1, "y": 2 },
+              "Quantity": { "x": 1, "y": 1 },
               "DropChance": { "Active": true, "BaseDropChance": 100.0 }
             }
           ]

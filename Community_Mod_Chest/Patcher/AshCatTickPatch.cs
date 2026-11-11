@@ -10,9 +10,12 @@ namespace CommunityModChest.Patcher
     /// Auto-drink for Ash the Cat and Shadow.
     ///
     /// Fires every DTP tick. When a cat's thirst (UsageDurability) falls below 20% and a
-    /// water source is on the current board, drains 100 liquid from the nearest container
-    /// and restores thirst to full — at the cost of a Care (SpecialDurability3) chunk, per
-    /// CHANGELOG's "at the cost of your bond" design: self-serve is a convenience, not free.
+    /// water source on the board actually holds water (vanilla tag_WaterAny on its contained
+    /// liquid - a brine vat, a cauldron of medicine or a kettle of tea is never drunk from,
+    /// same as Sirus23's wolf), drains 100 liquid from the nearest one through
+    /// CardUtil.GetLiquidQuantity/ModifyLiquid and restores thirst to full - at the cost of a
+    /// Care (SpecialDurability3) chunk, per CHANGELOG's "at the cost of your bond" design:
+    /// self-serve is a convenience, not free.
     ///
     /// Mirrors Sirus23's WolfTickPatch auto-drink pattern. Uses FindObjectsOfType with an
     /// AllCards-count cache to avoid calling the scan every tick when nothing has changed.
@@ -22,6 +25,7 @@ namespace CommunityModChest.Patcher
         private const string InnCatUid       = "cmcInnCat";
         private const string ShadowCatUid    = "cmcShadowCatTamed";
         private const float  ThirstThreshold = 0.20f;
+        private const string WaterLiquidTag  = "tag_WaterAny";
 
         // Care (SpecialDurability3, 0-100) lost per auto-drink. At the 20% thirst threshold,
         // full-reliance drink interval is 3*(1-0.20) = 2.4 in-game days (Thirst MaxValue 288,
@@ -38,8 +42,8 @@ namespace CommunityModChest.Patcher
             "536f722edbb5e9e4b959b1f3ad25f648",  // RainCistern (vanilla)
         };
 
-        private static readonly string[] LiquidMemberNames =
-            { "CurrentLiquidQuantity", "LiquidQuantity", "CurrentLiquid" };
+        private static readonly Dictionary<UnityEngine.Object, bool> _waterLiquidModelCache = new();
+        private static readonly HashSet<string> _warnedCauses = new(StringComparer.Ordinal);
 
         private static HashSet<string> _waterIds;
         private static Type   _cardBaseType;
@@ -125,14 +129,17 @@ namespace CommunityModChest.Patcher
             float bestDist = float.MaxValue;
             foreach (var w in waters)
             {
-                if (GetLiquidQuantity(w) <= 0f) continue;
+                if (!HoldsWater(w)) continue;
+                float qty = CardUtil.GetLiquidQuantity((InGameCardBase)w);
+                if (float.IsNaN(qty) || qty <= 0f) continue;
                 float d = DistSq(cat, w);
                 if (d < bestDist) { bestDist = d; source = w; }
             }
             if (source == null) return;
 
             if (!CardUtil.SetDurability(cat, "UsageDurability", max)) return;
-            AdjustLiquidQuantity(source, -100f);
+            if (!CardUtil.ModifyLiquid((InGameCardBase)source, -100f))
+                WarnOnce("drink-liquid-write", $"[AshCatTickPatch] {CardUtil.GetCardUniqueId(source)}'s water could not be reduced after a cat drank from it, so the drink was free.");
             ApplyCareLoss(cat);
             Plugin.Logger.LogDebug($"[AshCatTickPatch] {CardUtil.GetCardUniqueId(cat)} auto-drank (thirst {cur:F0}->{max:F0})");
         }
@@ -155,26 +162,47 @@ namespace CommunityModChest.Patcher
             return (ca.transform.position - cb.transform.position).sqrMagnitude;
         }
 
-        private static object ResolveLiquidHolder(object card)
+        /// <summary>
+        /// True when the container's contained liquid card carries tag_WaterAny. Mirrors
+        /// Sirus23's WolfTickPatch.HoldsWater: a container with no contained liquid holds
+        /// nothing drinkable, and a liquid that is not water (brine, medicine, tea) is never
+        /// auto-drunk even though it sits in a water-tagged container.
+        /// </summary>
+        private static bool HoldsWater(object container)
         {
-            var contained = Reflect.GetMember(card, "ContainedLiquid");
-            if (contained is UnityEngine.Object uo && uo != null) return contained;
-            return card;
+            var contained = Reflect.GetMember(container, "ContainedLiquid");
+            if (contained is not UnityEngine.Object uo || uo == null) return false;
+            return ModelHasTag(contained, WaterLiquidTag, _waterLiquidModelCache);
         }
 
-        private static float GetLiquidQuantity(object card)
+        private static bool ModelHasTag(object card, string tagName, Dictionary<UnityEngine.Object, bool> cache)
         {
-            var v = Reflect.GetMember(ResolveLiquidHolder(card), LiquidMemberNames);
-            return v != null ? CardUtil.ToFloat(v) : 0f;
+            if (CardUtil.GetCardData(card) is not UnityEngine.Object model || model == null)
+            {
+                WarnOnce("model-unreadable", $"[AshCatTickPatch] a card's CardModel could not be read; it is not treated as {tagName}.");
+                return false;
+            }
+            if (cache.TryGetValue(model, out bool hit)) return hit;
+
+            hit = false;
+            if (Reflect.GetMember(model, "CardTags") is System.Collections.IEnumerable tags)
+            {
+                foreach (var tag in tags)
+                    if (tag is UnityEngine.Object t && t != null
+                        && string.Equals(t.name, tagName, StringComparison.Ordinal))
+                    { hit = true; break; }
+            }
+            else
+            {
+                WarnOnce("cardtags-unreadable", $"[AshCatTickPatch] CardData.CardTags could not be read on '{model.name}'; the water check falls back to false.");
+            }
+            cache[model] = hit;
+            return hit;
         }
 
-        private static void AdjustLiquidQuantity(object card, float delta)
+        private static void WarnOnce(string cause, string message)
         {
-            var holder = ResolveLiquidHolder(card);
-            var v = Reflect.GetMember(holder, LiquidMemberNames);
-            if (v == null) return;
-            float next = Math.Max(0f, CardUtil.ToFloat(v) + delta);
-            Reflect.SetMemberAny(holder, next, LiquidMemberNames);
+            if (_warnedCauses.Add(cause)) Plugin.Logger.LogWarning(message);
         }
     }
 }

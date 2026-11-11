@@ -276,8 +276,6 @@ namespace CommunityModChest.Patcher
         private static FieldInfo _lsCachedTextField;
         private static MethodInfo _updateDescriptionMethod;
         private static MethodInfo _matchesEncounterMethod;
-        private static FieldInfo _localizationTextsField;
-        private static bool _resolvedLocalizationTextsField;
         private static bool _loggedTellUnavailable;
 
         // ── Extension point for the arrest-and-sentence chunk (§10.8.7.2) ─────────
@@ -679,12 +677,12 @@ namespace CommunityModChest.Patcher
         /// <see cref="FindLiveNpc(object,string)"/> can no longer find this NPC, and the next poll
         /// will not try to remove it again.
         /// </summary>
-        private static void RemoveGuardNpc(object gm, object npc, string label)
+        internal static bool RemoveGuardNpc(object gm, object npc, string label)
         {
             if (gm is not MonoBehaviour gmBehaviour)
             {
-                Plugin.Logger.LogWarning($"[GuardOutcomePatch] GameManager instance is not a MonoBehaviour — cannot despawn {label}.");
-                return;
+                Plugin.Logger.LogWarning($"[GuardOutcomePatch] GameManager instance is not a MonoBehaviour: cannot despawn {label}.");
+                return false;
             }
 
             if (_removeNpcMethod == null)
@@ -696,20 +694,21 @@ namespace CommunityModChest.Patcher
                     if (!_loggedRemoveNpcMissing)
                     {
                         _loggedRemoveNpcMissing = true;
-                        Plugin.Logger.LogWarning("[GuardOutcomePatch] GameManager.RemoveNPC(InGameNPC) not found — killed guards will stay standing on the board.");
+                        Plugin.Logger.LogWarning("[GuardOutcomePatch] GameManager.RemoveNPC(InGameNPC) not found: killed or stood-down guards will stay standing on the board.");
                     }
-                    return;
+                    return false;
                 }
             }
 
             if (_removeNpcMethod.Invoke(gm, new[] { npc }) is not IEnumerator routine)
             {
-                Plugin.Logger.LogWarning($"[GuardOutcomePatch] RemoveNPC did not return a coroutine for {label} — despawn skipped.");
-                return;
+                Plugin.Logger.LogWarning($"[GuardOutcomePatch] RemoveNPC did not return a coroutine for {label}: despawn skipped.");
+                return false;
             }
 
             gmBehaviour.StartCoroutine(routine);
-            Plugin.Logger.LogInfo($"[GuardOutcomePatch] {label}'s body is removed from the board.");
+            Plugin.Logger.LogInfo($"[GuardOutcomePatch] {label} is removed from the board.");
+            return true;
         }
 
         /// <summary>
@@ -985,29 +984,9 @@ namespace CommunityModChest.Patcher
         }
 
         /// <summary>Current-language text for a CMC localization key, falling back to the shipped
-        /// English. Same <c>LocalizationManager.CurrentTexts</c> lookup
-        /// <c>OutfitWardrobeSectionsPatch.OutfitLabel</c> already uses.</summary>
-        private static string Localized(string key, string fallback)
-        {
-            try
-            {
-                if (!_resolvedLocalizationTextsField)
-                {
-                    _resolvedLocalizationTextsField = true;
-                    var locType = CardUtil.FindGameType("LocalizationManager");
-                    _localizationTextsField = locType?.GetField("CurrentTexts",
-                        BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
-                }
-                if (_localizationTextsField?.GetValue(null) is Dictionary<string, string> texts
-                    && texts.TryGetValue(key, out var text) && !string.IsNullOrEmpty(text))
-                    return text;
-            }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogDebug($"[GuardOutcomePatch] localization lookup failed for '{key}': {ex.Message}");
-            }
-            return fallback;
-        }
+        /// English. Delegates to the framework's own lookup (fleet plan section 10, W0.10 row 5)
+        /// instead of hand-rolling the LocalizationManager.CurrentTexts reflection here.</summary>
+        private static string Localized(string key, string fallback) => CSFFModFramework.Api.Localized.Text(key, fallback);
 
         // ── NPCStat access on a live guard ────────────────────────────────────────
 

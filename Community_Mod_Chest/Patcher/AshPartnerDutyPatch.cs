@@ -40,11 +40,10 @@ namespace CommunityModChest.Patcher
         private static bool _initialized;
         private static bool _dutiesBuilt;
 
-        // ── reflection handles, resolved once ──────────────────────────────────
-        private static Type _uidType, _npcDutyType, _npcDutyActionType, _moveDutyActionType,
-            _npcDutyRefType, _generalConditionType, _statValueTriggerType, _npcDutyWeightsType,
-            _cardDataType, _cardTagType, _cardOrTagRefWithDurabilitiesType, _npcStatInstantModifierType,
-            _localizedStringType;
+        // ── reflection handles, resolved once: NpcDuties owns NPCDuty/NPCDutyAction/MoveDutyAction/
+        // NPCDutyRef/GeneralCondition/NPCDutyWeights/LocalizedString construction now; only the
+        // destination CardData array type still needs resolving here. ─────────────────────────
+        private static Type _uidType, _statValueTriggerType, _cardDataType;
         private static MethodInfo _getFromIdMethod;
 
         /// <summary>True once AgentDuties has been attached — AshPartnerSpawnPatch gates its
@@ -62,27 +61,13 @@ namespace CommunityModChest.Patcher
 
         private static bool ResolveTypes()
         {
-            if (_npcDutyType != null) return true;
+            if (_uidType != null) return true;
 
             _uidType = CardUtil.FindGameType("UniqueIDScriptable");
-            _npcDutyType = CardUtil.FindGameType("NPCDuty");
-            _npcDutyActionType = CardUtil.FindGameType("NPCDutyAction");
-            _moveDutyActionType = CardUtil.FindGameType("MoveDutyAction");
-            _npcDutyRefType = CardUtil.FindGameType("NPCDutyRef");
-            _generalConditionType = CardUtil.FindGameType("GeneralCondition");
             _statValueTriggerType = CardUtil.FindGameType("StatValueTrigger");
-            _npcDutyWeightsType = CardUtil.FindGameType("NPCDutyWeights");
             _cardDataType = CardUtil.FindGameType("CardData");
-            _cardTagType = CardUtil.FindGameType("CardTag");
-            _cardOrTagRefWithDurabilitiesType = CardUtil.FindGameType("CardOrTagRefWithDurabilities");
-            _npcStatInstantModifierType = CardUtil.FindGameType("NPCStatInstantModifier");
-            _localizedStringType = CardUtil.FindGameType("LocalizedString");
 
-            if (_uidType == null || _npcDutyType == null || _npcDutyActionType == null
-                || _moveDutyActionType == null || _npcDutyRefType == null || _generalConditionType == null
-                || _statValueTriggerType == null || _npcDutyWeightsType == null || _cardDataType == null
-                || _cardTagType == null || _cardOrTagRefWithDurabilitiesType == null
-                || _npcStatInstantModifierType == null || _localizedStringType == null)
+            if (_uidType == null || _statValueTriggerType == null || _cardDataType == null)
                 return false;
 
             _getFromIdMethod = _uidType.GetMethods(BindingFlags.Public | BindingFlags.Static)
@@ -120,9 +105,9 @@ namespace CommunityModChest.Patcher
                 // Wander outranks Follow — whichever duty's own DutyConditions currently
                 // matches cmcStatAshNeglected is the only one actually selectable, so the
                 // weight only matters as a tie-breaker/fallback.
-                var refs = Array.CreateInstance(_npcDutyRefType, 2);
-                refs.SetValue(BuildDutyRef(wanderDuty, baseWeight: 20), 0);
-                refs.SetValue(BuildDutyRef(followDuty, baseWeight: 10), 1);
+                var refs = NpcDuties.ToDutyRefArray(
+                    NpcDuties.BuildDutyRef(wanderDuty, baseWeight: 20),
+                    NpcDuties.BuildDutyRef(followDuty, baseWeight: 10));
 
                 if (Reflect.SetMember(agent, "AgentDuties", refs))
                 {
@@ -147,12 +132,11 @@ namespace CommunityModChest.Patcher
             var duty = NewDuty("cmcAshFollowPlayer_Duty", "Following", neglectedStat, gateRange: new Vector2(-0.5f, 0.5f));
             if (duty == null) return null;
 
-            var move = NewMoveAction("cmcAshFollowPlayer_Move");
-            if (move == null) return null;
-            SetEnumField(move, "MovementType", "Pathfind");
-            SetEnumField(move, "MoveDestination", "MoveToPlayer");
+            var move = NpcDuties.NewMoveAction("cmcAshFollowPlayer_Move");
+            NpcDuties.SetEnumField(move, "MovementType", "Pathfind");
+            NpcDuties.SetEnumField(move, "MoveDestination", "MoveToPlayer");
 
-            SetActionSequence(duty, move);
+            NpcDuties.SetActionSequence(duty, move);
             return duty;
         }
 
@@ -161,37 +145,24 @@ namespace CommunityModChest.Patcher
             var duty = NewDuty("cmcAshWander_Duty", "Wandering off", neglectedStat, gateRange: new Vector2(0.5f, 1.5f));
             if (duty == null) return null;
 
-            var move = NewMoveAction("cmcAshWander_Move");
-            if (move == null) return null;
-            SetEnumField(move, "MovementType", "Pathfind");
-            SetEnumField(move, "MoveDestination", "MoveToSpecificEnvironment");
-            SetEnumField(move, "DestinationSelection", "Closest");
+            var move = NpcDuties.NewMoveAction("cmcAshWander_Move");
+            NpcDuties.SetEnumField(move, "MovementType", "Pathfind");
+            NpcDuties.SetEnumField(move, "MoveDestination", "MoveToSpecificEnvironment");
+            NpcDuties.SetEnumField(move, "DestinationSelection", "Closest");
 
             var envArray = Array.CreateInstance(_cardDataType, 1);
             envArray.SetValue(wanderEnv, 0);
             Reflect.SetMember(move, "MoveToEnvironments", envArray);
 
-            SetActionSequence(duty, move);
+            NpcDuties.SetActionSequence(duty, move);
             return duty;
         }
 
         private static object NewDuty(string soName, string displayText, object gateStat, Vector2 gateRange)
         {
-            var duty = ScriptableObject.CreateInstance(_npcDutyType);
-            duty.name = soName;
-            Reflect.SetMemberAny(duty, soName, "UniqueID", "uniqueID", "m_UniqueID");
+            var duty = NpcDuties.NewDuty(soName, soName, displayText);
 
-            var localizedName = Activator.CreateInstance(_localizedStringType);
-            Reflect.SetMember(localizedName, "ParentObjectID", "");
-            Reflect.SetMember(localizedName, "LocalizationKey", "IGNOREKEY");
-            Reflect.SetMember(localizedName, "DefaultText", displayText);
-            Reflect.SetMember(duty, "DutyName", localizedName);
-
-            Reflect.SetMember(duty, "MaxPerformPerDay", 0);
-            SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
-            SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
-
-            var condition = EmptyCondition();
+            var condition = NpcDuties.EmptyCondition();
             var trigger = Activator.CreateInstance(_statValueTriggerType);
             Reflect.SetMember(trigger, "Stat", gateStat);
             Reflect.SetMember(trigger, "TriggerRange", gateRange);
@@ -199,93 +170,12 @@ namespace CommunityModChest.Patcher
             triggerArray.SetValue(trigger, 0);
             Reflect.SetMember(condition, "RequiredStatValues", triggerArray);
 
-            // NPCDuty.DutyConditions is a private field — same reflection idiom the
-            // framework's own AnimalAssetFactory.SetPrivateCondition uses.
-            if (!Reflect.SetMember(duty, "DutyConditions", condition))
+            if (!NpcDuties.SetDutyConditions(duty, condition))
             {
                 Plugin.Logger.LogWarning($"[AshPartnerDutyPatch] NPCDuty.DutyConditions not found on {soName} — duty will be ungated.");
             }
 
             return duty;
-        }
-
-        private static object NewMoveAction(string soName)
-        {
-            var action = ScriptableObject.CreateInstance(_moveDutyActionType);
-            action.name = soName;
-            Reflect.SetMember(action, "RequiredForSelectingDuty", false);
-
-            // Null-array hygiene — the engine iterates these without guards (mirrors
-            // DutyBuilder.NewAction<T>).
-            Reflect.SetMember(action, "MoveToEnvironments", Array.CreateInstance(_cardDataType, 0));
-            Reflect.SetMember(action, "MoveToTags", Array.CreateInstance(_cardTagType, 0));
-            Reflect.SetMember(action, "MoveToItems", Array.CreateInstance(_cardOrTagRefWithDurabilitiesType, 0));
-            Reflect.SetMember(action, "MoveCosts", Array.CreateInstance(_npcStatInstantModifierType, 0));
-            SetEnumField(action, "CostRequirements", "IgnoreCost");
-
-            return action;
-        }
-
-        private static void SetActionSequence(object duty, object moveAction)
-        {
-            var sequence = Array.CreateInstance(_npcDutyActionType, 1);
-            sequence.SetValue(moveAction, 0);
-            Reflect.SetMember(duty, "ActionSequence", sequence);
-        }
-
-        private static object BuildDutyRef(object duty, int baseWeight)
-        {
-            var dutyRef = Activator.CreateInstance(_npcDutyRefType);
-            Reflect.SetMember(dutyRef, "TargetDuty", duty);
-            SetEnumField(dutyRef, "ActivatingMode", "ActivateAutomatically");
-            Reflect.SetMember(dutyRef, "StartActive", true);
-            Reflect.SetMember(dutyRef, "ActivatingConditions", EmptyCondition());
-            Reflect.SetMember(dutyRef, "PreferenceWeights", EmptyWeights(baseWeight));
-            return dutyRef;
-        }
-
-        // ── shared struct builders ──────────────────────────────────────────────
-
-        private static object EmptyCondition()
-        {
-            object boxed = Activator.CreateInstance(_generalConditionType);
-            foreach (var field in _generalConditionType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
-            {
-                if (!field.FieldType.IsArray) continue;
-                field.SetValue(boxed, Array.CreateInstance(field.FieldType.GetElementType(), 0));
-            }
-            return boxed;
-        }
-
-        private static object EmptyWeights(int baseWeight)
-        {
-            object boxed = Activator.CreateInstance(_npcDutyWeightsType);
-            foreach (var field in _npcDutyWeightsType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
-            {
-                if (!field.FieldType.IsArray) continue;
-                field.SetValue(boxed, Array.CreateInstance(field.FieldType.GetElementType(), 0));
-            }
-            var baseWeightField = _npcDutyWeightsType.GetField("BaseWeight", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            baseWeightField?.SetValue(boxed, baseWeight);
-            return boxed;
-        }
-
-        private static void SetEnumField(object instance, string fieldName, string enumValueName)
-        {
-            var field = instance.GetType().GetField(fieldName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            if (field == null)
-            {
-                Plugin.Logger.LogWarning($"[AshPartnerDutyPatch] Enum field '{fieldName}' not found on {instance.GetType().Name}.");
-                return;
-            }
-            try
-            {
-                field.SetValue(instance, Enum.Parse(field.FieldType, enumValueName));
-            }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogWarning($"[AshPartnerDutyPatch] Failed to set {instance.GetType().Name}.{fieldName} = {enumValueName}: {ex.Message}");
-            }
         }
     }
 }

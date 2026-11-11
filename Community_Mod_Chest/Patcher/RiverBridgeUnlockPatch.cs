@@ -42,7 +42,6 @@ internal static class RiverBridgeUnlockPatch
     private const string MinFrameworkVersion = "2.17.0";
 
     private static bool _subscribed;
-    private static Action _gmInitializedHandler;
 
     public static void Initialize()
     {
@@ -50,30 +49,16 @@ internal static class RiverBridgeUnlockPatch
 
         if (!RequiredCapabilitiesPresent()) return;
 
-        var gmType = CardUtil.FindGameType("GameManager");
-        if (gmType == null)
-        {
-            Plugin.Logger.LogWarning("[RiverBridgeUnlock] GameManager type not found — inactive.");
-            return;
-        }
-
         // Must run AFTER GameManager.LoadCards() has restored the saved EnvironmentsData.
         // Marking the bridge built earlier (e.g. an InitializeStatsAndActions postfix, which
         // runs before LoadCards) makes MarkImprovementBuilt's create-if-missing fallback
         // pre-create a phantom River Clearing env entry; LoadCards then reports it as
         // "already registered as an environment" and discards the saved home-base env data.
-        // OnGMInitialized fires at the end of FinishInitializing, well after LoadCards, and
-        // once per load — preserving the per-load re-apply of the runtime unlock below.
-        var field = gmType.GetField("OnGMInitialized", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
-        if (field == null || field.FieldType != typeof(Action))
-        {
-            Plugin.Logger.LogWarning("[RiverBridgeUnlock] GameManager.OnGMInitialized not found — inactive.");
-            return;
-        }
-
-        _gmInitializedHandler = OnRunStart;
-        var current = (Action)field.GetValue(null);
-        field.SetValue(null, (Action)Delegate.Combine(current, _gmInitializedHandler));
+        // FrameworkEvents.RunStarted fires at the same point GameManager.OnGMInitialized does
+        // (end of FinishInitializing), once per load: preserving the per-load re-apply of the
+        // runtime unlock below (fleet plan section 10, W0.10 row 6).
+        CSFFModFramework.Api.FrameworkEvents.RunStarted -= OnRunStart;
+        CSFFModFramework.Api.FrameworkEvents.RunStarted += OnRunStart;
         _subscribed = true;
     }
 

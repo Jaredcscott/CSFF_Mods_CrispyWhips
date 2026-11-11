@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 
@@ -71,8 +67,6 @@ namespace CommunityModChest.Patcher
             "cmcStatQuestRenownProfSpecimen",
         };
 
-        private static MethodInfo _getFromIdMethod;
-        private static readonly Dictionary<string, object> _statCache = new(StringComparer.Ordinal);
         private static bool _loggedPhaseUnreadable;
 
         // ── The poll body (called from InnKeeperDialogSchedulePatch.RunSchedule) ──
@@ -81,7 +75,7 @@ namespace CommunityModChest.Patcher
         /// three stat reads on settled runs, a few more only while phase is still 0.</summary>
         public static void Tick(object gm)
         {
-            if (gm == null || !ResolveGetFromId()) return;
+            if (gm == null) return;
 
             float phase = ReadStat(gm, PhaseStatUid);
             if (phase < 0f) return; // stats not materialized yet (boot) — try again next poll
@@ -144,7 +138,7 @@ namespace CommunityModChest.Patcher
         public static bool PhaseAtLeast(float min)
         {
             var gm = CardUtil.GetGameManagerInstance();
-            if (gm == null || !ResolveGetFromId()) return true;
+            if (gm == null) return true;
 
             float phase = ReadStat(gm, PhaseStatUid);
             if (phase < 0f)
@@ -163,7 +157,7 @@ namespace CommunityModChest.Patcher
         /// or while the clock is unreadable.</summary>
         public static int WeeksSinceIntro(object gm)
         {
-            if (gm == null || !ResolveGetFromId()) return 0;
+            if (gm == null) return 0;
             float epoch = ReadStat(gm, EpochDayStatUid);
             if (epoch < 1f) return 0;
             return WeekFromEpoch(epoch);
@@ -187,64 +181,21 @@ namespace CommunityModChest.Patcher
 
         // ── Player-GameStat access (the proven StatsDict/CurrentBaseValue idiom) ──
 
-        private static bool ResolveGetFromId()
-        {
-            if (_getFromIdMethod != null) return true;
-            var uidType = CardUtil.FindGameType("UniqueIDScriptable");
-            if (uidType == null) return false;
-            _getFromIdMethod = uidType.GetMethods(BindingFlags.Public | BindingFlags.Static)
-                .FirstOrDefault(m => m.Name == "GetFromID" && !m.IsGenericMethodDefinition
-                    && m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == typeof(string));
-            return _getFromIdMethod != null;
-        }
-
-        private static object StatRef(string uid)
-        {
-            if (_statCache.TryGetValue(uid, out var cached)) return cached;
-            var stat = _getFromIdMethod.Invoke(null, new object[] { uid });
-            if (stat != null) _statCache[uid] = stat; // SOs persist across saves — safe to cache
-            return stat;
-        }
-
         /// <summary>Current value of a player GameStat, or -1 when unreadable (stat SO missing,
-        /// StatsDict not built yet, or the stat not materialized for this run).</summary>
+        /// StatsDict not built yet, or the stat not materialized for this run). gm is unused now:
+        /// StatAccess.Get resolves the current run's GameManager itself (fleet plan section 10,
+        /// W0.10 row 1 READ side). Kept for this file's and other files' cross-file callers.</summary>
         internal static float ReadStat(object gm, string uid)
         {
-            var stat = StatRef(uid);
-            if (stat == null) return -1f;
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return -1f;
-            if (!statsDict.Contains(stat)) return -1f;
-            var inGameStat = statsDict[stat];
-            if (inGameStat == null) return -1f;
-            return Reflect.GetMember(inGameStat, "SimpleCurrentValue") is float f ? f : -1f;
+            float value = StatAccess.Get(uid);
+            return float.IsNaN(value) ? -1f : value;
         }
 
-        /// <summary>Sets a player GameStat's base value; false when it did not take. The two permanent
-        /// faults (no such stat, the write refused) warn once per stat; the StatsDict misses a run's
-        /// boot can produce stay quiet, and Tick retries on the next poll either way.</summary>
-        internal static bool WriteStat(object gm, string uid, float value)
-        {
-            var stat = StatRef(uid);
-            if (stat == null)
-            {
-                WarnOnce("stat-missing-" + uid, $"[VillageClock] GameStat {uid} does not exist - the village clock cannot set it.");
-                return false;
-            }
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return false;
-            if (!statsDict.Contains(stat)) return false;
-            var inGameStat = statsDict[stat];
-            if (inGameStat == null) return false;
-            if (Reflect.SetMember(inGameStat, "CurrentBaseValue", value)) return true;
-            WarnOnce("write-failed-" + uid, $"[VillageClock] {uid} did not take the write of {value} - retried every poll.");
-            return false;
-        }
-
-        // One latch per cause (CLAUDE.md Silent Catch Blocks, G5).
-        private static readonly HashSet<string> _warned = new(StringComparer.Ordinal);
-
-        private static void WarnOnce(string cause, string message)
-        {
-            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
-        }
+        /// <summary>Sets a player GameStat's current value through the game's own permanent stat
+        /// change (fleet plan section 10, W0.10 row 1 WRITE side); false when it did not take, with
+        /// StatAccess's own one-warning-per-stat-and-cause reporting. gm is unused now: StatAccess.Set
+        /// resolves the current run's GameManager itself. Kept for this file's and other files' cross-file
+        /// callers.</summary>
+        internal static bool WriteStat(object gm, string uid, float value) => StatAccess.Set(uid, value);
     }
 }

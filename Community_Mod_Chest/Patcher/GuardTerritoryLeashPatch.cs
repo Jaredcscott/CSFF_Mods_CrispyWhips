@@ -29,11 +29,11 @@ namespace CommunityModChest.Patcher
     /// Two refusals, both scoped to the territory-gated chase duties
     /// (<see cref="GuardDutyPatch.IsTerritoryGatedChase"/>; Vane, the unrestricted seeker, and Sterling's
     /// summon duties are untouched):
-    ///   1. a prefix on <c>GameManager.MoveNPC</c> refuses a hop whose destination is not a territory
-    ///      environment while the guard's current duty is such a chase. A refused hop leaves the move
-    ///      step incomplete (<c>MoveDutyAction.ActionComplete</c> is false until she stands at the
-    ///      target), so she waits on the edge, still hunting, and steps out only if the player comes
-    ///      back inside.
+    ///   1. a predicate registered through <c>Api.Npc.RegisterMoveGuard</c> (the framework's shared
+    ///      MoveNPC-refusal registry) refuses a hop whose destination is not a territory environment
+    ///      while the guard's current duty is such a chase. A refused hop leaves the move step
+    ///      incomplete (<c>MoveDutyAction.ActionComplete</c> is false until she stands at the target), so
+    ///      she waits on the edge, still hunting, and steps out only if the player comes back inside.
     ///   2. a postfix on <c>StartEncounterDutyAction.CanBePerformed</c> refuses the fight step of such a
     ///      chase while the guard stands outside the territory (a save from before this fix, or any
     ///      route onto that node this prefix did not see). The engine then gives the duty up
@@ -54,21 +54,14 @@ namespace CommunityModChest.Patcher
             if (_initialized) return;
             _initialized = true;
 
-            var gmType = CardUtil.FindGameType("GameManager");
-            var inGameNpcType = CardUtil.FindGameType("InGameNPC");
-            var envIdType = CardUtil.FindGameType("EnvID");
+            Npc.RegisterMoveGuard(MoveRefuse);
+
             var encounterStepType = CardUtil.FindGameType("StartEncounterDutyAction");
-            if (gmType == null || inGameNpcType == null || envIdType == null || encounterStepType == null)
+            if (encounterStepType == null)
             {
-                Plugin.Logger.LogWarning("[GuardTerritoryLeashPatch] Required game types not found, so Thorne and Corrin can follow you out of the village territory and fight there.");
+                Plugin.Logger.LogWarning("[GuardTerritoryLeashPatch] StartEncounterDutyAction type not found, so a guard already outside the village territory can still start her chase fight there.");
                 return;
             }
-
-            var moveNpc = AccessTools.Method(gmType, "MoveNPC", new[] { inGameNpcType, envIdType });
-            if (moveNpc == null)
-                Plugin.Logger.LogWarning("[GuardTerritoryLeashPatch] GameManager.MoveNPC(InGameNPC, EnvID) not found, so a chasing guard can step out of the village territory.");
-            else
-                harmony.Patch(moveNpc, prefix: new HarmonyMethod(typeof(GuardTerritoryLeashPatch), nameof(MoveNpcPrefix)));
 
             var canBePerformed = AccessTools.Method(encounterStepType, "CanBePerformed");
             if (canBePerformed == null)
@@ -80,35 +73,35 @@ namespace CommunityModChest.Patcher
         }
 
         /// <summary>Refuses a territory-gated chase's hop onto a node outside the village territory.</summary>
-        private static bool MoveNpcPrefix(object __0, object __1)
+        private static bool MoveRefuse(object npc, object destEnvId)
         {
             try
             {
-                if (__0 == null) return true;
-                string chase = TerritoryGatedChaseOf(__0);
-                if (chase == null) return true;
+                if (npc == null) return false;
+                string chase = TerritoryGatedChaseOf(npc);
+                if (chase == null) return false;
 
-                if (!Reflect.TryGetMember(__1, "EnvCard", out var envCard))
+                if (!Reflect.TryGetMember(destEnvId, "EnvCard", out var envCard))
                 {
                     WarnOnce("dest-envcard", "[GuardTerritoryLeashPatch] EnvID.EnvCard could not be read on a chase move's destination, so that move was allowed.");
-                    return true;
+                    return false;
                 }
-                if (envCard == null) return true; // an empty EnvID: vanilla MoveNPC ignores it too
+                if (envCard == null) return false; // an empty EnvID: vanilla MoveNPC ignores it too
                 string destUid = CardUtil.GetCardUniqueId(envCard);
                 if (destUid == null)
                 {
                     WarnOnce("dest-uid", "[GuardTerritoryLeashPatch] A chase move's destination UniqueID could not be read, so that move was allowed.");
-                    return true;
+                    return false;
                 }
-                if (GuardDutyPatch.IsVillageTerritoryEnv(destUid)) return true;
+                if (GuardDutyPatch.IsVillageTerritoryEnv(destUid)) return false;
 
                 Plugin.Logger.LogDebug($"[GuardTerritoryLeashPatch] '{chase}' held at the edge: refused the hop to '{destUid}' (outside the village territory).");
-                return false;
+                return true;
             }
             catch (Exception ex)
             {
                 WarnOnce("move-" + ex.GetType().Name, $"[GuardTerritoryLeashPatch] The move check threw, so this move was allowed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-                return true;
+                return false;
             }
         }
 

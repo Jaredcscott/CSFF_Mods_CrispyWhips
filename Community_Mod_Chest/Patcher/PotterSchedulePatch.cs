@@ -98,10 +98,8 @@ namespace CommunityModChest.Patcher
         private static MethodInfo _initMethod;
         private static MethodInfo _getNpcDataMethod;
         private static MethodInfo _assignOrCreateCardsMethod;
-        private static MethodInfo _moveNpcMethod;
         private static MethodInfo _setCardImageMethod;
         private static MethodInfo _refreshVisualsMethod;
-        private static ConstructorInfo _envIdFromCardCtor;
         private static object _envIdEmpty;
         private static MethodInfo _toActionMethod;
         private static MethodInfo _performActionMethod;
@@ -162,9 +160,7 @@ namespace CommunityModChest.Patcher
             _initMethod = AccessTools.Method(_inGameNpcType, "Init", new[] { _saveDataByRefType, _envIdType });
             _getNpcDataMethod = AccessTools.Method(_gameSaveDataByRefType, "GetNPCData", new[] { _npcAgentType });
             _assignOrCreateCardsMethod = AccessTools.Method(_gmType, "AssignOrCreateNPCCards");
-            _moveNpcMethod = AccessTools.Method(_gmType, "MoveNPC", new[] { _inGameNpcType, _envIdType });
             _setCardImageMethod = AccessTools.Method(_cardDataType, "SetCardImage", new[] { typeof(Sprite) });
-            _envIdFromCardCtor = _envIdType.GetConstructor(new[] { _cardDataType, typeof(bool) });
             _envIdEmpty = Activator.CreateInstance(_envIdType);
 
             // Optional: without these he still lodges and keeps his market day, he only never restocks.
@@ -180,8 +176,7 @@ namespace CommunityModChest.Patcher
             }
 
             return _getFromIdMethod != null && _createNpcMethod != null && _initMethod != null
-                && _getNpcDataMethod != null && _assignOrCreateCardsMethod != null
-                && _moveNpcMethod != null && _envIdFromCardCtor != null;
+                && _getNpcDataMethod != null && _assignOrCreateCardsMethod != null;
         }
 
         private static bool ResolveRefs()
@@ -326,8 +321,9 @@ namespace CommunityModChest.Patcher
 
                 bool wantsStall = WantsStall();
                 object destCard = wantsStall ? _villageCard : _innInterior;
+                string destUid = wantsStall ? VillageEnvUid : InnInteriorUid;
                 if (!IsAt(npc, destCard) && !SharesPlayerEnv(npc))
-                    MoveNpcTo(gm, npc, EnvIdOf(destCard));
+                    Npc.MoveTo(npc, destUid);
 
                 if (IsAt(npc, _innInterior)) StockSatchel(npc, associatedCard);
 
@@ -432,28 +428,6 @@ namespace CommunityModChest.Patcher
             var env = Reflect.GetMember(npc, "CurrentEnvironment");
             if (env == null) return false;
             return Reflect.GetMember(env, "MatchesPlayerEnv") is true;
-        }
-
-        // Built at the moment of use, never cached (see the class doc).
-        private static object EnvIdOf(object cardData)
-        {
-            if (cardData == null) return null;
-            try { return _envIdFromCardCtor.Invoke(new object[] { cardData, false }); }
-            catch (Exception ex)
-            {
-                WarnOnce("envid", $"building an EnvID failed, so the Potter cannot move: {ex.InnerException?.ToString() ?? ex.ToString()}");
-                return null;
-            }
-        }
-
-        private static void MoveNpcTo(object gm, object npc, object envId)
-        {
-            if (envId == null) return;
-            try { _moveNpcMethod.Invoke(gm, new object[] { npc, envId }); }
-            catch (Exception ex)
-            {
-                WarnOnce("move", $"MoveNPC failed, so the Potter stays where he is: {ex.InnerException?.ToString() ?? ex.ToString()}");
-            }
         }
 
         // -- Portrait --------------------------------------------------------------------------

@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Reflection;
 using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 using HarmonyLib;
@@ -45,14 +44,6 @@ namespace CommunityModChest.Patcher
         // Reflection handles, resolved once.
         private static bool _typesResolved;
         private static Type _gmType;
-        private static Type _envIdType;
-        private static Type _cardDataType;
-        private static MethodInfo _moveNpcMethod;          // GameManager.MoveNPC(InGameNPC, EnvID)
-        private static ConstructorInfo _envIdFromCardCtor; // EnvID(CardData, bool)
-
-        // Cached refs, resolved once the mod's own CardData/EnvIDs exist.
-        private static object _villageCard, _innCard, _academyCard;
-        private static object _villageEnvId, _innEnvId, _academyEnvId;
 
         public static void Initialize(Harmony harmony)
         {
@@ -77,56 +68,17 @@ namespace CommunityModChest.Patcher
 
         private static bool ResolveTypes()
         {
-            if (_typesResolved) return _moveNpcMethod != null && _envIdFromCardCtor != null;
+            if (_typesResolved) return _gmType != null;
             _typesResolved = true;
 
             _gmType = CardUtil.FindGameType("GameManager");
-            _envIdType = CardUtil.FindGameType("EnvID");
-            _cardDataType = CardUtil.FindGameType("CardData");
-            var inGameNpcType = CardUtil.FindGameType("InGameNPC");
-
-            if (_gmType == null || _envIdType == null || _cardDataType == null || inGameNpcType == null)
+            if (_gmType == null)
             {
                 Plugin.Logger.LogWarning("[PartnerIndoorFollowPatch] Required game types not found — indoor follow inactive.");
                 return false;
             }
 
-            _moveNpcMethod = AccessTools.Method(_gmType, "MoveNPC", new[] { inGameNpcType, _envIdType });
-            _envIdFromCardCtor = _envIdType.GetConstructor(new[] { _cardDataType, typeof(bool) });
-
-            if (_moveNpcMethod == null || _envIdFromCardCtor == null)
-            {
-                Plugin.Logger.LogWarning("[PartnerIndoorFollowPatch] MoveNPC method or EnvID constructor not found — indoor follow inactive.");
-                return false;
-            }
-
             return true;
-        }
-
-        private static bool ResolveRefs()
-        {
-            if (_villageEnvId != null && _innEnvId != null && _academyEnvId != null) return true;
-
-            _villageCard ??= CardUtil.GetCardDataById(VillageEnvUid);
-            _innCard ??= CardUtil.GetCardDataById(InnInteriorUid);
-            _academyCard ??= CardUtil.GetCardDataById(AcademyInteriorUid);
-            if (_villageCard == null || _innCard == null || _academyCard == null) return false;
-
-            try
-            {
-                // Non-instanced outdoor/interior envs both use the (CardData, false) ctor —
-                // cmcInnInterior/cmcAcademyInterior are InstancedEnvironment:false (1.44.x+).
-                _villageEnvId ??= _envIdFromCardCtor.Invoke(new object[] { _villageCard, false });
-                _innEnvId ??= _envIdFromCardCtor.Invoke(new object[] { _innCard, false });
-                _academyEnvId ??= _envIdFromCardCtor.Invoke(new object[] { _academyCard, false });
-            }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogWarning($"[PartnerIndoorFollowPatch] Building EnvIDs failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-                return false;
-            }
-
-            return _villageEnvId != null && _innEnvId != null && _academyEnvId != null;
         }
 
         private static void ResetOnLoad_Postfix()
@@ -163,12 +115,6 @@ namespace CommunityModChest.Patcher
                 string label = enteringInn ? "the Inn" : enteringAcademy ? "the Academy" : "the village";
                 Plugin.Logger.LogInfo($"[PartnerIndoorFollowPatch] boundary crossed: '{fromEnv}' -> '{currentEnv}' (heading into {label}).");
 
-                if (!ResolveRefs())
-                {
-                    Plugin.Logger.LogWarning("[PartnerIndoorFollowPatch] ResolveRefs failed — cannot relocate partners for this crossing.");
-                    return;
-                }
-
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null)
                 {
@@ -176,8 +122,8 @@ namespace CommunityModChest.Patcher
                     return;
                 }
 
-                object targetEnvId = enteringInn ? _innEnvId : enteringAcademy ? _academyEnvId : _villageEnvId;
-                MoveFollowingPartners(gm, fromEnv, targetEnvId, label);
+                string targetEnvUid = enteringInn ? InnInteriorUid : enteringAcademy ? AcademyInteriorUid : VillageEnvUid;
+                MoveFollowingPartners(gm, fromEnv, targetEnvUid, label);
             }
             catch (Exception ex)
             {
@@ -187,7 +133,7 @@ namespace CommunityModChest.Patcher
 
         private static bool Is(string a, string b) => string.Equals(a, b, StringComparison.OrdinalIgnoreCase);
 
-        private static void MoveFollowingPartners(object gm, string fromEnvUid, object targetEnvId, string label)
+        private static void MoveFollowingPartners(object gm, string fromEnvUid, string targetEnvUid, string label)
         {
             if (Reflect.GetMember(gm, "AlliedNPCs") is not IEnumerable allied)
             {
@@ -208,15 +154,14 @@ namespace CommunityModChest.Patcher
                     continue;
                 }
 
-                try
+                if (Npc.MoveTo(npc, targetEnvUid))
                 {
-                    _moveNpcMethod.Invoke(gm, new object[] { npc, targetEnvId });
                     movedCount++;
                     Plugin.Logger.LogInfo($"[PartnerIndoorFollowPatch] {npcUid} followed the player into {label}.");
                 }
-                catch (Exception ex)
+                else
                 {
-                    Plugin.Logger.LogWarning($"[PartnerIndoorFollowPatch] MoveNPC failed for {npcUid}: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                    Plugin.Logger.LogWarning($"[PartnerIndoorFollowPatch] MoveTo failed for {npcUid} (see Npc.MoveTo's own warning for the cause).");
                 }
             }
 

@@ -92,7 +92,6 @@ namespace CommunityModChest.Patcher
         };
 
         private static bool _initialized;
-        private static Action _gmInitializedHandler;
 
         public static void Initialize(Harmony harmony)
         {
@@ -116,17 +115,10 @@ namespace CommunityModChest.Patcher
                 Plugin.Logger.LogWarning("[StrayImprovementsPatch] GameManager.InitializeStatsAndActions not found — stray improvements will remain buildable.");
             }
 
-            var onGmInitField = gmType.GetField("OnGMInitialized", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
-            if (onGmInitField != null && onGmInitField.FieldType == typeof(Action))
-            {
-                _gmInitializedHandler = OnRunStart_UnmarkBuiltStrays;
-                var current = (Action)onGmInitField.GetValue(null);
-                onGmInitField.SetValue(null, (Action)Delegate.Combine(current, _gmInitializedHandler));
-            }
-            else
-            {
-                Plugin.Logger.LogWarning("[StrayImprovementsPatch] GameManager.OnGMInitialized not found — already-built stray improvements on existing saves will not be cleared.");
-            }
+            // FrameworkEvents.RunStarted fires at the same point GameManager.OnGMInitialized does
+            // (fleet plan section 10, W0.10 row 6).
+            CSFFModFramework.Api.FrameworkEvents.RunStarted -= OnRunStart_UnmarkBuiltStrays;
+            CSFFModFramework.Api.FrameworkEvents.RunStarted += OnRunStart_UnmarkBuiltStrays;
 
             Plugin.Logger.LogDebug("[StrayImprovementsPatch] initialized.");
         }

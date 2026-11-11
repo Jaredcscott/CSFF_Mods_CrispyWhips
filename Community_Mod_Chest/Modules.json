@@ -46,7 +46,8 @@
       "paths": ["WorldMap/**", "MapMod.json", "GameSourceModify/cmc*.json", "EncounterGuards/CMC_*", "**/*Imp_RiverBridge*", "CardData/Gif/RiverBridge.json", "Resource/GIF/VillageBridge.gif", "Resource/Picture/ForagingForest.png", "Resource/Picture/VillageFarm.png", "Resource/Picture/VillagePath.png", ".art/VillageBridge_gif.json",
                 "**/*ClimbingRope*", "**/*BrambleThicket*", "**/*SnowDrift*", "**/*Deadfall*", "**/*ClayShoal*", "**/*Causeway*", "**/*VillageField*",
                 "Patcher/TreeRespawnPatch.cs", "Patcher/WildlifeIndoorGuardPatch.cs", "Patcher/RiverSwimPatch.cs", "Patcher/RiverBridgeUnlockPatch.cs", "Patcher/StrayImprovementsPatch.cs",
-                "Patcher/StrayLocationCardRepairPatch.cs", "Patcher/StrayLocationCardRules.cs"]
+                "Patcher/StrayLocationCardRepairPatch.cs", "Patcher/StrayLocationCardRules.cs",
+                "Patcher/SeasonalObstacleCleanupPatch.cs", "Patcher/SeasonalObstacleRules.cs"]
     },
     {
       "id": "civic",
@@ -125,7 +126,7 @@
       "summary": "Plugin entry, project files, player docs, card motion, shared helpers serving every subsystem (hidden stats, card visuals refresh, NPC tile walker, rotten-remains cleanup, luck readers, interior save data, UID index fallback, env-improvement twin guard, stat tab injection, comfort fixup) and art tooling state.",
       "paths": ["Plugin.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "PLAYER_GUIDE.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore", "Features.json", "Modules.json",
                 "CardData/Motion/**", "GameStat/CMC_ComfortFixupDone.json",
-                "Patcher/HiddenStat.cs", "Patcher/CardVisualsRefresh.cs", "Patcher/NpcTileWalker.cs", "Patcher/NpcRottenRemainsCleanupPatch.cs", "Patcher/LuckBonus.cs", "Patcher/InteriorEnvSaveDataPatch.cs",
+                "Patcher/HiddenStat.cs", "Patcher/CardVisualsRefresh.cs", "Patcher/NpcTileWalker.cs", "Patcher/NpcRottenRemainsCleanupPatch.cs", "Patcher/LuckBonus.cs", "EnvPreCreate.json",
                 "Patcher/UniqueIdIndexFallbackPatch.cs", "Patcher/EnvImprovementTwinGuard.cs", "Patcher/StatTabInjectionPatch.cs", "StatResets.json",
                 ".art/compositions.json", ".art/RUN_LOG.md", ".art/reference-uploads.json", ".art/review/**"]
     }

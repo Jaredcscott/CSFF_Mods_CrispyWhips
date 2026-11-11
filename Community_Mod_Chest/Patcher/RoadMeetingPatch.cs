@@ -71,7 +71,6 @@ namespace CommunityModChest.Patcher
         };
 
         private static bool _initialized;
-        private static FieldInfo _localizationTextsField;
         private static readonly HashSet<string> _warned = new(StringComparer.Ordinal);
 
         public static void Initialize()
@@ -208,25 +207,11 @@ namespace CommunityModChest.Patcher
             setup.Invoke(popup, new object[] { string.IsNullOrWhiteSpace(title) ? "" : title.Trim(), line.Trim(), null });
         }
 
-        /// <summary>The current-language text of a CMC localization key (LocalizationManager.CurrentTexts, the
-        /// lookup VillageHallBoardsPatch makes), with no English copy kept here: the CSV row is the only text.</summary>
-        internal static string LocalizedText(string key)
-        {
-            if (_localizationTextsField == null)
-            {
-                var locType = CardUtil.FindGameType("LocalizationManager");
-                _localizationTextsField = locType?.GetField("CurrentTexts",
-                    BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
-                if (_localizationTextsField == null)
-                {
-                    WarnOnce("texts-field", "[RoadMeetingPatch] LocalizationManager.CurrentTexts was not found, so road meetings show no line.");
-                    return null;
-                }
-            }
-            return _localizationTextsField.GetValue(null) is Dictionary<string, string> texts && texts.TryGetValue(key, out var text)
-                ? text
-                : null;
-        }
+        /// <summary>The current-language text of a CMC localization key, with no English copy kept here:
+        /// the CSV row is the only text, so a miss returns null (never shown) rather than falling back.
+        /// Delegates to the framework's own lookup (fleet plan section 10, W0.10 row 5) instead of
+        /// hand-rolling the LocalizationManager.CurrentTexts reflection here.</summary>
+        internal static string LocalizedText(string key) => CSFFModFramework.Api.Localized.Text(key, null);
 
         private static void WarnOnce(string cause, string message)
         {

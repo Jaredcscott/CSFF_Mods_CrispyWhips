@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 using UnityEngine;
@@ -38,7 +36,10 @@ namespace CommunityModChest.Patcher
     ///     ORIGINAL version of this feature, which pointed the same two actions at the Fuel pool —
     ///     every nugget cashed out was fuel the six hearths no longer had. Player's Pay is a
     ///     completely separate balance, so cashing out can never put a hearth out.
-    ///   - Spending: <see cref="TryConsume"/> is what VillageFireplacePatch calls before every
+    ///   - Spending (RETIRED 2026-10-31, plan 1.5): the pool now burns down at a fixed 1 a tick through
+    ///     its GameStat's BaseRatePerTick, and VillageFireplacePatch no longer calls <see cref="TryConsume"/>
+    ///     or reads the pool, so the six hearths stay lit whatever the pile holds. What follows is history.
+    ///     <see cref="TryConsume"/> was what VillageFireplacePatch called before every
     ///     top-off/revive. All-or-nothing by design (§10.11 Chunk G item 6): a top-off the pool
     ///     cannot fully cover is SKIPPED, not partially filled, so the hearth cools on its own
     ///     normal FuelCapacity schedule instead of being held at a permanent trickle.
@@ -136,7 +137,6 @@ namespace CommunityModChest.Patcher
                                                         //   consumed for literally nothing.
         };
 
-        private static MethodInfo _getFromIdMethod;
         private static bool _initialized;
 
         // One latch per cause (CLAUDE.md Silent Catch Blocks, G5).
@@ -484,22 +484,10 @@ namespace CommunityModChest.Patcher
             {
                 if (card == null) continue;
                 if (CardUtil.GetCardUniqueId(card) != PileUid) continue;
-                if (!IsInCurrentEnv(card)) continue;
+                if (!GameQuery.IsInPlayerEnv(card)) continue;
                 found.Add(card);
             }
             return found;
-        }
-
-        /// <summary>
-        /// True when the card is on the player's current board. Same two-step read the framework's
-        /// own <c>GameQuery.IsInPlayerEnv</c> uses (that one is private, so this mirrors it rather
-        /// than calling it): <c>CardEnvironment</c> then its <c>MatchesPlayerEnv</c> property.
-        /// </summary>
-        private static bool IsInCurrentEnv(object card)
-        {
-            var env = CardUtil.GetMemberValue(card, "CardEnvironment");
-            if (env == null) return false;
-            return CardUtil.GetMemberValue(env, "MatchesPlayerEnv") is bool inEnv && inEnv;
         }
 
         // ── Fuel valuation ────────────────────────────────────────────────────────
@@ -525,37 +513,13 @@ namespace CommunityModChest.Patcher
             return FallbackFuelValues.TryGetValue(uid, out float value) ? value : 0f;
         }
 
-        // ── Stat access (the proven StatsDict idiom, as in VillageCrimePatch) ─────
+        // ── Stat access ────────────────────────────────────────────────────────
 
-        private static bool ResolveGetFromId()
-        {
-            if (_getFromIdMethod != null) return true;
-            var uidType = CardUtil.FindGameType("UniqueIDScriptable");
-            if (uidType == null) return false;
-            _getFromIdMethod = uidType.GetMethods(BindingFlags.Public | BindingFlags.Static)
-                .FirstOrDefault(m => m.Name == "GetFromID" && !m.IsGenericMethodDefinition
-                    && m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == typeof(string));
-            return _getFromIdMethod != null;
-        }
-
-        /// <summary>Keyed by stat UID — currently only <see cref="FuelStatUid"/> resolves through
-        /// here; Player's Pay lives directly on the card (see class summary), not a GameStat.</summary>
-        private static readonly Dictionary<string, object> _statSoCache = new Dictionary<string, object>();
-
-        private static object ResolveStatInstance(object gm, string statUid)
-        {
-            if (!ResolveGetFromId()) return null;
-            if (!_statSoCache.TryGetValue(statUid, out object statSo) || statSo == null)
-            {
-                statSo = _getFromIdMethod.Invoke(null, new object[] { statUid });
-                if (statSo == null) return null;
-                _statSoCache[statUid] = statSo;
-            }
-
-            if (CardUtil.GetCachedField(gm.GetType(), "StatsDict")?.GetValue(gm) is not IDictionary statsDict) return null;
-            if (!statsDict.Contains(statSo)) return null;
-            return statsDict[statSo];
-        }
+        /// <summary>Currently only <see cref="FuelStatUid"/> resolves through here; Player's Pay
+        /// lives directly on the card (see class summary), not a GameStat. Delegates to the
+        /// framework's own by-run cache (fleet plan section 10, W0.10 row 1 READ side) instead of
+        /// hand-rolling UniqueIDScriptable.GetFromID + GameManager.StatsDict here.</summary>
+        private static object ResolveStatInstance(object gm, string statUid) => StatAccess.Resolve(statUid);
 
         private static float ReadStat(object gm, string statUid)
         {

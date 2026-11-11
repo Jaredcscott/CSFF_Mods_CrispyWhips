@@ -69,29 +69,12 @@ namespace CommunityModChest.Patcher
         }
 
         /// <summary>
-        /// Reads the current-language text for "CMC_OutfitWardrobe_Section{N}" the same way
-        /// the game's own LocalizationManager resolves any other LocalizedString at runtime,
-        /// falling back to the English default if the key isn't found (e.g. a stale deploy).
+        /// Reads the current-language text for "CMC_OutfitWardrobe_Section{N}", falling back to the
+        /// English default if the key isn't found (e.g. a stale deploy). Delegates to the framework's
+        /// own lookup (fleet plan section 10, W0.10 row 5) instead of hand-rolling the
+        /// LocalizationManager.CurrentTexts reflection here.
         /// </summary>
-        private static string OutfitLabel(int outfitNumber)
-        {
-            string key = $"CMC_OutfitWardrobe_Section{outfitNumber}";
-            string fallback = $"Outfit {outfitNumber}";
-            try
-            {
-                var locMgrType = AccessTools.TypeByName("LocalizationManager");
-                var field = locMgrType != null ? AccessTools.Field(locMgrType, "CurrentTexts") : null;
-                if (field?.GetValue(null) is Dictionary<string, string> texts &&
-                    texts.TryGetValue(key, out var text) && !string.IsNullOrEmpty(text))
-                {
-                    return text;
-                }
-            }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogDebug($"[OutfitWardrobeSectionsPatch] OutfitLabel lookup failed for '{key}': {ex.Message}");
-            }
-            return fallback;
-        }
+        private static string OutfitLabel(int outfitNumber) =>
+            CSFFModFramework.Api.Localized.Text($"CMC_OutfitWardrobe_Section{outfitNumber}", $"Outfit {outfitNumber}");
     }
 }

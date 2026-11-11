@@ -663,20 +663,22 @@ namespace CommunityModChest.Patcher
             if (cfg == null || string.IsNullOrEmpty(cfg.TrustStatUid)) return false;
             try
             {
+                // The Inn Keeper's player GameStat case goes through the framework's own by-run cache
+                // (fleet plan section 10, W0.10 row 1 READ side) instead of hand-rolling
+                // GameManager.StatsDict here; the NPCStat case below is unaffected (StatAccess has no
+                // reflection-free path for an NPCStat resolved only as `object` here).
+                if (!cfg.TrustIsNpcStat)
+                {
+                    float gameValue = StatAccess.Get(cfg.TrustStatUid);
+                    if (float.IsNaN(gameValue)) return false;
+                    value = gameValue;
+                    return true;
+                }
+
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null) return false;
                 var stat = TrustStatRef(cfg.TrustStatUid);
                 if (stat == null) return false;
-
-                if (!cfg.TrustIsNpcStat)
-                {
-                    if (Reflect.GetMember(gm, "StatsDict") is not IDictionary gameStats || !gameStats.Contains(stat)) return false;
-                    var gameStat = gameStats[stat];
-                    if (gameStat == null) return false;
-                    if (Reflect.GetMember(gameStat, "SimpleCurrentValue") is not float gameValue) return false;
-                    value = gameValue;
-                    return true;
-                }
 
                 var npc = FindLiveNpc(gm, cfg.AgentUid);
                 if (npc == null) return false;
@@ -696,7 +698,7 @@ namespace CommunityModChest.Patcher
 
         /// <summary>Sets the resident's Trust to <paramref name="value"/>, clamped to 0..TrustMaxValue. An NPCStat goes
         /// through the live InGameNPCStat's public SetStatValueFromEditor (never ProfessorSchedulePatch's lookup, see
-        /// <see cref="AddResidentTrust"/>); the Inn Keeper's GameStat goes through CurrentBaseValue. False when nothing was
+        /// <see cref="AddResidentTrust"/>); the Inn Keeper's GameStat goes through StatAccess.Set. False when nothing was
         /// written.</summary>
         internal static bool TryWriteResidentTrust(ChestConfig cfg, float value)
         {
@@ -704,18 +706,17 @@ namespace CommunityModChest.Patcher
             try
             {
                 float clamped = Math.Max(0f, Math.Min(cfg.TrustMaxValue, value));
+
+                // The Inn Keeper's player GameStat case goes through the framework's StatAccess.Set
+                // (fleet plan section 10, W0.10 row 1 WRITE side) instead of hand-rolling
+                // GameManager.StatsDict here; the NPCStat case below is unaffected (StatAccess has no
+                // reflection-free path for an NPCStat resolved only as `object` here).
+                if (!cfg.TrustIsNpcStat) return StatAccess.Set(cfg.TrustStatUid, clamped);
+
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null) return false;
                 var stat = TrustStatRef(cfg.TrustStatUid);
                 if (stat == null) return false;
-
-                if (!cfg.TrustIsNpcStat)
-                {
-                    if (Reflect.GetMember(gm, "StatsDict") is not IDictionary gameStats || !gameStats.Contains(stat)) return false;
-                    var gameStat = gameStats[stat];
-                    if (gameStat == null) return false;
-                    return Reflect.SetMember(gameStat, "CurrentBaseValue", clamped);
-                }
 
                 var npc = FindLiveNpc(gm, cfg.AgentUid);
                 if (npc == null) return false;

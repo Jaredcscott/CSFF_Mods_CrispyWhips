@@ -33,6 +33,11 @@ apparel_cloth_coat_CardDescription,"A full-length coat of woven cloth. Lighter t
 apparel_cloth_scarf_DA_RipUp,Rip up
 apparel_foot_wraps_DA_RipUp,Rip up
 apparel_hand_wraps_DA_RipUp,Rip up
+cmc_reed_hand_wraps_CardName,Reed Hand Wraps
+cmc_reed_hand_wraps_CardDescription,"Strips of woven reed and plant fiber wound around the hands, bound with twine. Offer minimal protection against cuts and cold.
+
+<b>MUST BE EQUIPPED TO WORK</b>"
+cmc_reed_hand_wraps_DA_RipUp,Rip up
 apparel_chaperon_DA_RipUp,Rip up
 apparel_straw_hat_DA_Dismantle,Dismantle
 apparel_leather_apron_DA_Dismantle,Dismantle
@@ -47,6 +52,9 @@ apparel_bp_foot_wraps_UnlockConditionsDesc,Reeds Needed
 apparel_bp_hand_wraps_CardName,Hand Wraps
 apparel_bp_hand_wraps_CardDescription,"Strips of cloth wound around the hands, bound with twine. Minimal but better than nothing."
 apparel_bp_hand_wraps_UnlockConditionsDesc,Cloth Needed
+cmc_bp_reed_hand_wraps_CardName,Reed Hand Wraps
+cmc_bp_reed_hand_wraps_CardDescription,"Woven strips of reed and plant fiber wound around the hands, bound with twine. Needs no loom: crude improvised gloves."
+cmc_bp_reed_hand_wraps_UnlockConditionsDesc,Reeds Needed
 apparel_bp_chaperon_CardName,Chaperon
 apparel_bp_chaperon_CardDescription,A cloth hood with a short cape covering the head and shoulders.
 apparel_bp_chaperon_UnlockConditionsDesc,"Show the Weaver a scarf you've sewn, and earn her trust"
@@ -278,7 +286,7 @@ CMC_ForagingForest_CardHelpSection,"<b>Pine Grove, Pond:</b>
 
 <b>Conditions:</b> Acidic soil.
 
-<b>Flora:</b> Pines, Healer's Moss, Fireroot, Bilberries (summer), and Pine Nuts (autumn) ring a still pond. This is the richest foraging ground in the valley: bracket fungus, forest caps, spirit mushrooms, fairyweed, wolfsbane, and wild garlic turn up regularly, with the occasional acorn cache or bird nest.
+<b>Flora:</b> Pines, Healer's Moss, Fireroot, Bilberries (summer), and Pine Nuts (autumn) ring a still pond. Old Growth Bark and wild garlic turn up in the undergrowth, with the occasional bird nest, and the rare Silverwort Blossom and Hollow Sage grow here too.
 
 <b>Fauna:</b> Partridges, Foxes, Does, Stags, and Wolves range through the trees, with frogs at the pond's edge. A stray cat is sometimes seen prowling here around dusk."
 CMC_HuntersCrossing_CardName,Hunter's Crossing
@@ -614,11 +622,17 @@ CMC_InnExit_CardName,Inn Door
 CMC_InnExit_DA_Exit,Exit
 CMC_InnExit_DA_Exit_Fade,Leaving the inn...
 CMC_InnCounter_CardName,Inn Counter
-CMC_InnCounter_CardDescription,"The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it: every fourth bundle earns a Salt. There is usually odd work available too, paid in Salt. From first snow to thaw the Inn sells no meals and the Inn Keeper takes no commissions; the Snowed-In Supper is a social evening, not a meal."
+CMC_InnCounter_CardDescription,"The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal draws 30 and a night's stay 50 from that balance (more while you are Wanted or Banished). Drag Firewood onto the counter to sell it: every fourth bundle earns a Salt. There is usually odd work available too, paid in Salt. From first snow to thaw the Inn sells no meals and the Inn Keeper takes no commissions; the Snowed-In Supper is a social evening, not a meal."
 CMC_InnCounter_DA_Meal,Purchase Meal
-CMC_InnCounter_DA_Meal_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). A hearty bowl of stew, bread and a cup of water: about what a good meal of your own would give you. Closed from first snow to thaw: the roads are shut and the Inn sells no food (the Snowed-In Supper is a social evening, not a meal)."
+CMC_InnCounter_DA_Meal_Desc,"Draws 30 from your Inn Account (more while you are Wanted or Banished). A hearty bowl of stew, bread and a cup of water: about what a good meal of your own would give you. Closed from first snow to thaw: the roads are shut and the Inn sells no food (the Snowed-In Supper is a social evening, not a meal)."
 CMC_InnCounter_DA_Sleep,Stay the Night
-CMC_InnCounter_DA_Sleep_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished). Rest for up to 6 hours, restoring Wakefulness and Energy. You'll wake early if your vitals reach a critical warning (thirst, temperature, bleeding, illness, or nature's call)."
+CMC_InnCounter_DA_Sleep_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished) for a room: a Rented Bed appears here for the next 6 hours. Sleep in it when you are ready, and if something wakes you, lie down again while the time lasts. One room at a time."
+CMC_InnRentedBed_CardName,Rented Bed
+CMC_InnRentedBed_CardDescription,"A made-up bed in one of the Inn's rooms, yours for the next 6 hours. Sleep in it, and if something wakes you, lie down again while the time lasts. When the time runs out the Inn Keeper takes the room back."
+CMC_InnRentedBed_RentalTime,Room Time Left
+CMC_InnRentedBed_TimeUp,"Your time in the room is up, and the Inn Keeper takes the bed back."
+CMC_InnRentedBed_DA_Sleep,Sleep
+CMC_InnRentedBed_DA_Sleep_Desc,"Rest for up to 6 hours, restoring Wakefulness and Energy. You'll wake early if your vitals reach a critical warning (thirst, temperature, bleeding, illness, or nature's call). Woken early, you can lie down again while the room is still yours."
 CMC_InnCounter_DA_Sleep_Interrupt_Thirsty,I'm too thirsty to sleep...
 CMC_InnCounter_DA_Sleep_Interrupt_Hot,I'm too hot to sleep...
 CMC_InnCounter_DA_Sleep_Interrupt_Cold,I'm too cold to sleep...
@@ -895,7 +909,7 @@ CMC_ClayFlats_CardHelpSection,"<b>Alder Clearing, Wetlands, Riverbank:</b>
 
 <b>Fauna:</b> Frogs, Mosquitoes.
 
-<b>Also:</b> A clay-rich mound along the bank can be dug for raw clay."
+<b>Also:</b> A clay-rich mound along the bank can be dug for raw clay, and a patch of bog iron ore sits nearby for those who go looking."
 CMC_MarshHollow_CardName,Sodden Hollow
 CMC_Env_MarshHollow_CardName,Sodden Hollow
 CMC_MarshHollow_CardDescription,"A boggy depression filled with marsh plants, willows, and alder growth, with standing pools of water."
@@ -1816,21 +1830,21 @@ CMC_QuestRenownMarketStallSales_StatDescription,"Hidden one-shot flag: 1 once th
 CMC_SnowDriftNorth_CardName,Snow Drift
 CMC_SnowDriftNorth_CardDescription,"Deep winter snow has drifted across the northern road to Stillwater Meadow, burying the path. Dig through it with a shovel to clear the way quickly, or claw through it with your bare hands if you have no tool — slower, but it works. Once cleared, it stays open for the rest of the winter."
 CMC_SnowDriftNorth_CI_Dig_ByHand_ActionName,Dig Through the Snow Drift by Hand
-CMC_SnowDriftNorth_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands. Slower and more exhausting than a shovel, but it clears the road to Stillwater Meadow all the same."
+CMC_SnowDriftNorth_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands for 2 hours. Six goes clear the road to Stillwater Meadow, slower than a shovel but just as sure."
 CMC_SnowDriftNorth_CI_Dig_ActionName,Dig Through the Snow Drift
-CMC_SnowDriftNorth_CI_Dig_ActionDescription,Shovel a path through the drift. Clears the road to Stillwater Meadow once fully dug through.
+CMC_SnowDriftNorth_CI_Dig_ActionDescription,Shovel at the drift for 1 hour. Six goes clear the road to Stillwater Meadow.
 CMC_SnowDriftSouth_CardName,Snow Drift
 CMC_SnowDriftSouth_CardDescription,"Deep winter snow has drifted across the southern road to Pine Trail, burying the path. Dig through it with a shovel to clear the way quickly, or claw through it with your bare hands if you have no tool — slower, but it works. Once cleared, it stays open for the rest of the winter."
 CMC_SnowDriftSouth_CI_Dig_ByHand_ActionName,Dig Through the Snow Drift by Hand
-CMC_SnowDriftSouth_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands. Slower and more exhausting than a shovel, but it clears the road to Pine Trail all the same."
+CMC_SnowDriftSouth_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands for 2 hours. Six goes clear the road to Pine Trail, slower than a shovel but just as sure."
 CMC_SnowDriftSouth_CI_Dig_ActionName,Dig Through the Snow Drift
-CMC_SnowDriftSouth_CI_Dig_ActionDescription,Shovel a path through the drift. Clears the road to Pine Trail once fully dug through.
+CMC_SnowDriftSouth_CI_Dig_ActionDescription,Shovel at the drift for 1 hour. Six goes clear the road to Pine Trail.
 CMC_SnowDriftEast_CardName,Snow Drift
 CMC_SnowDriftEast_CardDescription,"Deep winter snow has drifted across the eastern road to the Village Farm, burying the path. Dig through it with a shovel to clear the way quickly, or claw through it with your bare hands if you have no tool — slower, but it works. Once cleared, it stays open for the rest of the winter."
 CMC_SnowDriftEast_CI_Dig_ByHand_ActionName,Dig Through the Snow Drift by Hand
-CMC_SnowDriftEast_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands. Slower and more exhausting than a shovel, but it clears the road to the Village Farm all the same."
+CMC_SnowDriftEast_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands for 2 hours. Six goes clear the road to the Village Farm, slower than a shovel but just as sure."
 CMC_SnowDriftEast_CI_Dig_ActionName,Dig Through the Snow Drift
-CMC_SnowDriftEast_CI_Dig_ActionDescription,Shovel a path through the drift. Clears the road to the Village Farm once fully dug through.
+CMC_SnowDriftEast_CI_Dig_ActionDescription,Shovel at the drift for 1 hour. Six goes clear the road to the Village Farm.
 CMC_BrambleThicket_CardName,Bramble Thicket
 CMC_BrambleThicket_CardDescription,"In the heat of summer the brambles have run wild across the trail between Stillwater Meadow and Sett Warren, a wall of thorny canes too dense to walk through. Cut a way through with a sickle to clear the path quickly, or tear through it with your bare hands if you have no blade - slower, but it works. Once cut back, the trail stays open for the rest of the summer."
 CMC_BrambleThicket_CI_Cut_Sickle_ActionName,Cut Back the Bramble Thicket
@@ -1838,7 +1852,7 @@ CMC_BrambleThicket_CI_Cut_Sickle_ActionDescription,"Hack a path through the bram
 CMC_BrambleThicket_CI_Cut_ByHand_ActionName,Tear Through the Bramble Thicket by Hand
 CMC_BrambleThicket_CI_Cut_ByHand_ActionDescription,"Wrestle through the brambles with your bare hands. Slower and more tiring than a sickle, but it clears the trail to Sett Warren all the same."
 CharacterTraits_Perk_Homestead_PerkName,Founders Kit
-CharacterTraits_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Founders Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (15 planks, 15 mud bricks, 20 stones, 6 heavy stones, 6 tree logs, 10 clay, 5 rope, 20 copper nails) all at once, then Place each kit to raise it. Everything can only be placed once."
+CharacterTraits_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Founders Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (15 planks, 15 mud bricks, 20 stones, 6 heavy stones, 6 tree logs, 10 clay, 5 rope, 9 metal nuggets and 20 copper nails) all at once, then Place each kit to raise it. Everything can only be placed once."
 CMC_ProfessorGreeting_CourseAckArchitecture_Line,"Architecture, passed with a design I'll admit I stole a diagram from for next term's lecture. Water doesn't forgive a bad angle the way earth does, but you found the right one. With Water-Driven Infrastructure installed, a water-driven sawmill and grinding mill are within your skill now, real ones, not the toy models I sketch on the board, and with a Metallurgy degree beside it you'll be casting your own forge fittings before the season turns."
 CMC_ProfessorGreeting_CourseAckArmorer_Line,"Armorer, passed, and passed properly, no student of mine gets a breastplate pattern without proving they understand why the rivets go where they go. Copper will do in a pinch, but iron will actually keep you alive out past the tree line, helm, greaves, gauntlets, the full set is yours to make now. I'd rather you never need it. I'd rather you have it anyway."
 CMC_ProfessorGreeting_CourseAckFishing_Line,"You passed Fishing, and unlike most of my courses this one I actually enjoy grading, mostly because it involves an afternoon by the water instead of a stack of essays. The iron fittings for a proper rod are yours to build now, sturdier than anything whittled from green wood. My uncle's mythical river monster is still out there uncaught, incidentally, should you fancy a rematch on his behalf."
@@ -2454,19 +2468,19 @@ CMC_VillageHomeSignCarved_DA_Plane_ActionName,Plane the Face Smooth
 CMC_VillageHomeSignCarved_DA_Plane_ActionDescription,"Work the relief and the border back off the board, leaving the plain rustic face."
 CMC_VillageHomeSignCarved_DA_Dismantle,Take Down Sign
 CMC_TownWoodPile_CardName,Town Wood Pile
-CMC_TownWoodPile_CardDesc,"The village's communal fuel stack, kept beside the square. Drag twigs, long sticks, wood or firewood onto it to add to the Wood Stockpile. The hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin all tend themselves from this pile - when it runs dry they stop being tended and burn down, though any of them can still be fed and lit by hand like any other fireplace. The village also keeps a running Player's Pay balance for what you've fed in, built at the same rate as the Wood Stockpile; withdraw it any time as copper nuggets (250 pay each) or salt (15 pay each) with Collect as Copper/Collect as Salt - a reward for the fuel you contributed that never draws against what the hearths need."
+CMC_TownWoodPile_CardDesc,"The village's communal fuel stack, kept beside the square. Drag twigs, long sticks, wood or firewood onto it to add to the Wood Stockpile. The villagers burn from it steadily, about one hearth's worth a day, whatever you add. The hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin are kept lit by their owners and never go out for want of it. The village also keeps a running Player's Pay balance for what you've fed in, built at the same rate as the Wood Stockpile; withdraw it any time as copper nuggets (250 pay each) or salt (15 pay each) with Collect as Copper/Collect as Salt."
 CMC_TownWoodPile_CardHelpSection,Town Wood Pile
 CMC_TownWoodPile_SD1_Name,Wood Stockpile
 CMC_TownWoodPile_SD2_Name,Player's Pay
 CMC_TownWoodPile_CI_Stock,Stock the Wood Pile
 CMC_TownWoodPile_CI_Stock_Desc,"Add the dragged fuel to the village's communal stockpile. Each piece is worth exactly what it would have given a fire: a log of wood about 35, pine or alder about 21, twigs 7, a long stick 4. Part-burnt fuel is worth what is left of it. The same value also builds your Player's Pay balance, withdrawable any time as copper or salt."
 CMC_TownWoodPileFuel_StatName,Town Wood Pile
-CMC_TownWoodPileFuel_StatDescription,"Hidden fuel pool for the village's communal wood pile, measured in the same units the vanilla Fireplace burns (1 per tick, 96 for a full hearth). Rises when fuel is stacked on the Town Wood Pile in the village, falls whenever one of the six village hearths is automatically topped off or re-lit. Starts at 96 - one full hearth's worth - so a run that has never seen the pile still gets a grace period before the village fires start going out. This is the canonical store: the pile's own Wood Stockpile bar is a display mirror of it, because the hearths that draw on it sit in interiors where the pile card is not on the board."
+CMC_TownWoodPileFuel_StatDescription,"Hidden fuel pool for the village's communal wood pile, measured in the same units the vanilla Fireplace burns (96 for a full hearth). Rises when fuel is stacked on the Town Wood Pile and burns down by a fixed 1 a tick (one hearth's worth a day), whatever the player does. The six village hearths no longer draw on it. The pile's own Wood Stockpile bar is a display mirror of it."
 CMC_TownWoodPile_CI_Stock_Full,The wood pile is already stacked as high as it will go.
 CMC_TownWoodPile_DA_CollectCopper,Collect as Copper
-CMC_TownWoodPile_DA_CollectCopper_Desc,"Withdraw your Player's Pay balance as copper nuggets, 250 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on."
+CMC_TownWoodPile_DA_CollectCopper_Desc,"Withdraw your Player's Pay balance as copper nuggets, 250 pay each. Draws only on Player's Pay, never on the Wood Stockpile."
 CMC_TownWoodPile_DA_CollectSalt,Collect as Salt
-CMC_TownWoodPile_DA_CollectSalt_Desc,"Withdraw your Player's Pay balance as salt, 15 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on."
+CMC_TownWoodPile_DA_CollectSalt_Desc,"Withdraw your Player's Pay balance as salt, 15 pay each. Draws only on Player's Pay, never on the Wood Stockpile."
 CMC_CarpentryBench_CardName,Carpentry Bench (retired)
 CMC_CarpentryBench_CardDescription,"This bench was retired when the Carpentry course moved onto the Lecture Hall lectern, which now holds a single Tuition Account for every course. Anything still banked here can be carried over: Transfer to Lecture Hall moves this bench's Tuition Account balance (as much as the lectern's account can hold) and any Carpentry study hours onto the lectern, then clears the bench away. If the lectern's account is full, the remainder stays here until you transfer again."
 CMC_CarpentryBench_Prog_Tuition,Tuition Account
@@ -2875,7 +2889,7 @@ CMC_SterlingTalk_ServiceDone_Line,"The work is done, and done properly. I wrote 
 CMC_SterlingTalk_ServiceDone_Answer_Thanks,"Thank you, Captain."
 CMC_SterlingTalk_Deputy_Line,"Three jobs done and a clean slate to show for them. I have had worse deputies sworn in by the Watch itself. Consider yourself one of mine: the square will know you, and I will vouch for you where it counts."
 CMC_SterlingTalk_Deputy_Answer_Honoured,"I am honoured, Captain."
-CMC_SterlingTalk_ServiceOffer_Line,"The Watch does not hand out pardons, but it can use honest hands. Carry firewood to the Town Wood Pile, so the village hearths do not go cold. Or, when the snow has closed a road, dig a drift clear. Come and tell me when it is done, and I will take it off your record."
+CMC_SterlingTalk_ServiceOffer_Line,"The Watch does not hand out pardons, but it can use honest hands. Carry firewood to the Town Wood Pile, so the village does not run short. Or, when the snow has closed a road, dig a drift clear. Come and tell me when it is done, and I will take it off your record."
 CMC_SterlingTalk_ServiceOffer_Answer_Firewood,I will carry firewood to the Wood Pile.
 CMC_SterlingTalk_ServiceOffer_Answer_Drift,I will dig a snow drift clear.
 CMC_SterlingTalk_ServiceOffer_Answer_Later,Not just now.
@@ -3327,7 +3341,7 @@ CMC_FishingNet_DA_CastIce,Cast Net Through the Ice
 CMC_FishingNet_DA_CastIce_Description,"Lower the net through the ice hole. In a hard frost the twine stiffens and the net wears twice as fast."
 CMC_FishingNet_DA_CastIceThaw,Cast Net Through the Ice
 CMC_FishingNet_DA_CastIceThaw_Description,Lower the net through the ice hole and haul it back.
-CMC_InnCounter_DA_Work_Desc,"Four hours of chores around the Inn (Energy -20, Stamina -15) for 2 Salt. One paid shift a day."
+CMC_InnCounter_DA_Work_Desc,"Four hours of chores around the Inn (Energy -20, Stamina -15) for 4 to 8 Salt. One paid shift a day."
 CMC_InnCounter_DA_Service,Community Service
 CMC_InnCounter_DA_Service_Desc,"Four hours of unpaid work for the village (Energy -20, Stamina -15). Pays nothing, but takes 6 off your Village Crime. Only while you have a record; no daily limit."
 CMC_InnGlow_StatName,Warm Evening

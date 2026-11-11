@@ -109,17 +109,21 @@
         <Content Include="TradingValues.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('TradingValues.json')" />
         <Content Include="KitContents.json" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="StatResets.json" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="EnvPreCreate.json" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="ScriptableObject\**\*.json" CopyToOutputDirectory="PreserveNewest" Link="ScriptableObject\%(RecursiveDir)%(Filename)%(Extension)" />
         <Content Include="GameSourceModify\*.json" CopyToOutputDirectory="PreserveNewest" Link="GameSourceModify\%(Filename)%(Extension)" />
         <Content Include="EncounterGuards\*.json" CopyToOutputDirectory="PreserveNewest" Link="EncounterGuards\%(Filename)%(Extension)" Condition="Exists('EncounterGuards')" />
         <Content Include="Encounter\*.json" CopyToOutputDirectory="PreserveNewest" Link="Encounter\%(Filename)%(Extension)" Condition="Exists('Encounter')" />
         <Content Include="FlavourTag\*.json" CopyToOutputDirectory="PreserveNewest" Link="FlavourTag\%(Filename)%(Extension)" Condition="Exists('FlavourTag')" />
         <Content Include="FlavourMatrix\*.json" CopyToOutputDirectory="PreserveNewest" Link="FlavourMatrix\%(Filename)%(Extension)" Condition="Exists('FlavourMatrix')" />
-        <!-- QuestLog/ and Objective/ are intentionally NOT shipped. The Wisp's deeds use a
-             self-contained C# tracker (Deeds/) instead of vanilla QuestLogs, because vanilla
-             quests serialize into the save that reconstructs blueprint research on load and
-             reset it ("research progress lost", 2026-06-17). The source JSON is kept as
-             reference data for deed completion conditions (tool/stat/encounter GUIDs). -->
+        <!-- QuestLog/ and Objective/ are intentionally NOT shipped. This mod tracks quest-like
+             progress through hidden GameStats (see the Miller/Weaver/Inn Keeper/Professor/
+             Apothecary quest-chain and commission patchers) instead of vanilla QuestLogs, because
+             vanilla quests serialize into the save that reconstructs blueprint research on load
+             and reset it ("research progress lost", 2026-06-17). The Wisp's Cabin/deed questline
+             this policy was first written for is on hold (README "Known limits"); its old
+             Deeds/ tracker (WispDeeds.cs, WispQuestMenu.cs) was removed 2026-06-19 and is not
+             currently tracked in any Documentation/Plans/ entry. -->
         <Content Include="Resource\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="Resource\%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
 </Project>

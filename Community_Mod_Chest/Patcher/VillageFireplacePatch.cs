@@ -24,6 +24,10 @@ namespace CommunityModChest.Patcher
     /// §10.11 Chunk C) — no unconditional RateModifier was reintroduced, only the same proven
     /// mechanism extended to three more interiors.
     ///
+    /// FUEL GATE RETIRED 2026-10-31 (Chiwei, Nexus c178551927; plan 1.5): every top-off and re-light
+    /// below is free again and nothing here reads or debits the Town Wood Pile, which now drains at
+    /// a fixed rate of its own. The paragraph that follows is the 1.68.8 history.
+    ///
     /// FUEL GATE (CMC 1.68.8, Village_Master_Plan.md §10.11 Chunk G): the auto-maintenance below
     /// is no longer free. Every ONGOING top-off and every re-light of a hearth that actually
     /// burned down through real play is paid for out of the Town Wood Pile's shared pool (<see
@@ -221,7 +225,7 @@ namespace CommunityModChest.Patcher
                 // dead-on-arrival spawn was confirmed as the real branch, so it is now a
                 // LogDebug breadcrumb. RunMaintenance runs every DTP tick AND every environment
                 // change across six hearths, so this must never return to LogInfo.
-                Plugin.Logger.LogDebug($"[VillageFireplacePatch] RunMaintenance('{envUid}'): lit={litCards.Count}, extinguished={extinguishedCards.Count}, pool={TownWoodPilePatch.CurrentFuel():0}");
+                Plugin.Logger.LogDebug($"[VillageFireplacePatch] RunMaintenance('{envUid}'): lit={litCards.Count}, extinguished={extinguishedCards.Count}");
 
                 int total = litCards.Count + extinguishedCards.Count;
 
@@ -328,38 +332,21 @@ namespace CommunityModChest.Patcher
                 return;
             }
 
-            // The fuel comes out of the Town Wood Pile's shared pool, in the same FuelCapacity
-            // units. All-or-nothing: if the pile cannot cover the whole top-off we skip entirely
-            // and let the hearth burn down on its normal schedule, rather than holding it at a
-            // permanent trickle (Village_Master_Plan.md §10.11 Chunk G item 6).
-            //
-            // ORDER IS LOAD-BEARING, and matches Revive below: PEEK the pool, apply the refill,
-            // and only debit once SetDurability has actually reported success. Debiting first (the
-            // first version) and then discarding SetDurability's bool return meant a failed refill
-            // still burned the village's fuel — the player pays and the hearth stays cold.
+            // FREE SINCE 2026-10-31 (Chiwei, Nexus c178551927; plan 1.5): the building's own hearth no
+            // longer draws on the Town Wood Pile. The pool debit made the Inn Keeper's fire go out when
+            // the pile ran dry and charged the pile only when the player happened to walk in, which
+            // read as random consumption. The pile now burns down at a fixed rate on its own
+            // (GameStat/CMC_TownWoodPileFuel.json BaseRatePerTick), and the hearths stay lit.
             float needed = max - current;
-            float pool = TownWoodPilePatch.CurrentFuel();
-            Plugin.Logger.LogDebug($"[VillageFireplacePatch] TopOffIfLow('{envUid}'): needed={needed:0}, pool={pool:0}");
-            // The pile being too short to pay is the single most player-visible way this system
-            // "does nothing", and it was previously only reported at Debug — invisible in a default
-            // install, which is why this failure survived multiple reports undiagnosed. Verdict-
-            // gated so a hearth sitting unaffordable for days still costs exactly one line.
-            if (pool >= 0f && pool < needed)
-            {
-                LogVerdict(envUid, $"left to burn down — the Town Wood Pile holds {pool:0} but a full top-off needs {needed:0}. Stock the pile to resume auto-tending.");
-                return;
-            }
-
             if (!CardUtil.SetDurability(card, FuelStat, max))
             {
-                LogVerdict(envUid, "refill FAILED — SetDurability refused the write; pool NOT debited.");
+                LogVerdict(envUid, "refill FAILED: SetDurability refused the write.");
                 return;
             }
-            TownWoodPilePatch.TryConsume(needed, $"top off the '{envUid}' hearth");
             CardVisualsRefresh.RefreshDurabilityVisuals(card);
             CardVisualsRefresh.RefreshOpenInventoryPopup();
             _lastVerdict.Remove(envUid);
-            Plugin.Logger.LogDebug($"[VillageFireplacePatch] Topped off '{envUid}' fireplace fuel ({current:0} -> {max:0}).");
+            Plugin.Logger.LogDebug($"[VillageFireplacePatch] Topped off '{envUid}' fireplace fuel ({current:0} -> {max:0}, +{needed:0}).");
         }
 
         private static void Revive(object card, string envUid)
@@ -367,31 +354,19 @@ namespace CommunityModChest.Patcher
             float max = CardUtil.GetDurabilityMax(card, FuelStat);
             if (float.IsNaN(max) || max <= 0f) max = 96f;
 
-            // A revive re-lights from cold, so it costs a FULL hearth's worth of pool fuel. The
-            // pool is PEEKED (not debited) before the transform so a pile that cannot pay leaves
-            // the card as FireplaceExtinguished for the player to re-light by hand — never a lit
-            // fireplace with no fuel behind it. A negative reading means the stat is unreadable;
-            // that fails open, matching TryConsume's own stance. The debit lands only after the
-            // transform actually succeeded, so a failed transform never silently burns pool fuel.
-            float pool = TownWoodPilePatch.CurrentFuel();
-            Plugin.Logger.LogDebug($"[VillageFireplacePatch] Revive('{envUid}'): max={max:0}, pool={pool:0}");
-            if (pool >= 0f && pool < max)
-            {
-                LogVerdict(envUid, $"left extinguished — the Town Wood Pile holds {pool:0} but a re-light from cold costs a full {max:0}. Stock the pile, or feed this hearth by hand.");
-                return;
-            }
-
+            // FREE SINCE 2026-10-31 (plan 1.5): a building's hearth that burned out between visits is
+            // re-lit at no cost to the Town Wood Pile (see TopOffIfLow).
+            Plugin.Logger.LogDebug($"[VillageFireplacePatch] Revive('{envUid}'): max={max:0}");
             if (!CardUtil.TransformCardInPlace(card, FireplaceLitUid))
             {
-                LogVerdict(envUid, "re-light FAILED — TransformCardInPlace returned false; pool NOT debited.");
+                LogVerdict(envUid, "re-light FAILED: TransformCardInPlace returned false.");
                 return;
             }
             if (!CardUtil.SetDurability(card, FuelStat, max))
             {
-                LogVerdict(envUid, "re-light transformed the card but FAILED to set fuel — pool NOT debited.");
+                LogVerdict(envUid, "re-light transformed the card but FAILED to set fuel.");
                 return;
             }
-            TownWoodPilePatch.TryConsume(max, $"re-light the '{envUid}' hearth");
             CardVisualsRefresh.RefreshDurabilityVisuals(card);
             CardVisualsRefresh.RefreshOpenInventoryPopup();
             _lastVerdict.Remove(envUid);
@@ -420,23 +395,10 @@ namespace CommunityModChest.Patcher
             {
                 if (card == null) continue;
                 if (CardUtil.GetCardUniqueId(card) != uid) continue;
-                if (!IsInCurrentEnv(card)) continue;
+                if (!GameQuery.IsInPlayerEnv(card)) continue;
                 found.Add(card);
             }
             return found;
-        }
-
-        /// <summary>
-        /// True when the card is on the player's current board. Same two-step read the framework's
-        /// own <c>GameQuery.IsInPlayerEnv</c> uses: <c>CardEnvironment</c> (an <c>EnvID</c>) then
-        /// its <c>MatchesPlayerEnv</c> property, which resolves to
-        /// <c>MatchesEnv(GameManager.Instance.CurrentEnvironment)</c>.
-        /// </summary>
-        private static bool IsInCurrentEnv(object card)
-        {
-            var env = CardUtil.GetMemberValue(card, "CardEnvironment");
-            if (env == null) return false;
-            return CardUtil.GetMemberValue(env, "MatchesPlayerEnv") is bool inEnv && inEnv;
         }
     }
 }

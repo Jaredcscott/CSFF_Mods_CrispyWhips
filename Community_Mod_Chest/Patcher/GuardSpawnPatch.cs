@@ -132,6 +132,20 @@ namespace CommunityModChest.Patcher
 
         private static readonly HashSet<string> _agentUnresolvedWarned = new(StringComparer.Ordinal);
 
+        /// <summary>
+        /// Whether this guard should stand in the village right now (plan 1.1, Nexus c174400692):
+        /// Captain Sterling always, the three patrolling guards only while the player has a Village
+        /// Crime record, a sentence or a pending arrest. The rule is <see cref="GuardPresenceRules"/>;
+        /// an unreadable crime stat keeps the guard (the old behaviour).
+        /// </summary>
+        private static bool PresenceRequired(Guard guard)
+        {
+            bool readable = VillageCrimePatch.TryCurrentCrime(out float crime, out _);
+            float sentence = HiddenStat.Get(JailPatch.SentenceRemainingStatUid);
+            return GuardPresenceRules.ShouldBePresent(guard.AgentUid, QuietVillagePerkPatch.IsActive(),
+                crime, readable, sentence, GuardOutcomePatch.ArrestPending);
+        }
+
         private static bool ResolveAgent(Guard guard)
         {
             guard.Agent ??= _getFromIdMethod.Invoke(null, new object[] { guard.AgentUid });
@@ -212,6 +226,9 @@ namespace CommunityModChest.Patcher
                 {
                     if (!ResolveAgent(guard)) continue;
                     if (FindLiveNpc(__instance, guard) != null) continue;
+                    // Off duty while the player has no Village Crime record: not restored now; the
+                    // arrival poll restores her from this same save data once a record appears.
+                    if (!PresenceRequired(guard)) continue;
 
                     // A killed guard's entry in CurrentSaveData is a stale load/new-game snapshot
                     // (never refreshed mid-session — see GuardOutcomePatch's class doc) that still
@@ -268,7 +285,18 @@ namespace CommunityModChest.Patcher
                 foreach (var guard in Guards)
                 {
                     if (!ResolveAgent(guard)) continue;
-                    if (FindLiveNpc(gm, guard) != null) continue;
+                    bool required = PresenceRequired(guard);
+                    var live = FindLiveNpc(gm, guard);
+                    if (live != null)
+                    {
+                        // Crime back to 0 (and no sentence or pending arrest): the patrol stands down
+                        // and leaves the village, the way vanilla removes a conditionally spawned animal
+                        // once its condition ends (plan 1.1). Removed with the game's own RemoveNPC.
+                        if (!required && GuardOutcomePatch.RemoveGuardNpc(gm, live, guard.Label + " (stood down: no Village Crime record)"))
+                            guard.LiveNpc = null;
+                        continue;
+                    }
+                    if (!required) continue;
 
                     bool killFlagged = GuardOutcomePatch.WasLastDownKilled(guard.AgentUid);
 

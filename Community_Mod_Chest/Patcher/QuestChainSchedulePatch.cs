@@ -309,26 +309,16 @@ namespace CommunityModChest.Patcher
             return stat;
         }
 
+        // gm is unused now: StatAccess.Get resolves the current run's GameManager itself (fleet
+        // plan section 10, W0.10 row 1 READ side).
         private static float ReadStat(object gm, string uid)
         {
-            var stat = StatRef(uid);
-            if (stat == null) return -1f;
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return -1f;
-            if (!statsDict.Contains(stat)) return -1f;
-            var inGameStat = statsDict[stat];
-            if (inGameStat == null) return -1f;
-            return Reflect.GetMember(inGameStat, "SimpleCurrentValue") is float f ? f : -1f;
+            float value = StatAccess.Get(uid);
+            return float.IsNaN(value) ? -1f : value;
         }
 
-        private static bool WriteStat(object gm, string uid, float value)
-        {
-            var stat = StatRef(uid);
-            if (stat == null) return false;
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return false;
-            if (!statsDict.Contains(stat)) return false;
-            var inGameStat = statsDict[stat];
-            if (inGameStat == null) return false;
-            return Reflect.SetMember(inGameStat, "CurrentBaseValue", value);
-        }
+        // gm is unused now: StatAccess.Set resolves the current run's GameManager itself (fleet
+        // plan section 10, W0.10 row 1 WRITE side).
+        private static bool WriteStat(object gm, string uid, float value) => StatAccess.Set(uid, value);
     }
 }

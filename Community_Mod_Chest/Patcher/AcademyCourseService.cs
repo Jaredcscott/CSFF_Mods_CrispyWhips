@@ -321,14 +321,12 @@ namespace CommunityModChest.Patcher
         private static bool _crownHideLogged;
 
         private static bool _subscribed;
-        private static Action _gmInitializedHandler;
         private static MethodInfo _getFromIdCardData;
         // One latch: both early exits mean "GetFromID<CardData> cannot be built", and every caller
         // then no-ops course gating, so one breadcrumb names the cause (CLAUDE.md Silent Catch Blocks, G5).
         private static bool _getFromIdUnavailableWarned;
         private static MethodInfo _makeBlueprintAvailable;
         private static FieldInfo _disabledField;
-        private static bool _inRunPerkCheckFailureLogged;
 
         // ── Registration ─────────────────────────────────────────────────────
 
@@ -336,23 +334,10 @@ namespace CommunityModChest.Patcher
         {
             if (_subscribed) return;
 
-            var gmType = CardUtil.FindGameType("GameManager");
-            if (gmType == null)
-            {
-                Plugin.Logger.LogWarning("[AcademyCourseService] GameManager type not found — course gating inactive.");
-                return;
-            }
-
-            var field = gmType.GetField("OnGMInitialized", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
-            if (field == null || field.FieldType != typeof(Action))
-            {
-                Plugin.Logger.LogWarning("[AcademyCourseService] GameManager.OnGMInitialized not found — course gating inactive.");
-                return;
-            }
-
-            _gmInitializedHandler = OnRunStart;
-            var current = (Action)field.GetValue(null);
-            field.SetValue(null, (Action)Delegate.Combine(current, _gmInitializedHandler));
+            // FrameworkEvents.RunStarted fires at the same point GameManager.OnGMInitialized does
+            // (fleet plan section 10, W0.10 row 6).
+            CSFFModFramework.Api.FrameworkEvents.RunStarted -= OnRunStart;
+            CSFFModFramework.Api.FrameworkEvents.RunStarted += OnRunStart;
             _subscribed = true;
 
             // OnGMInitialized can fire before GameManager.InRunAddedPerks finishes being
@@ -363,7 +348,7 @@ namespace CommunityModChest.Patcher
             // later re-runs the same idempotent pass once InRunAddedPerks has settled.
             _deferredRecheckHandle = TickEvents.Interval(5f, DeferredRecheck, "AcademyCourseServiceDeferredRecheck");
 
-            Plugin.Logger.LogDebug("[AcademyCourseService] subscribed to GameManager.OnGMInitialized.");
+            Plugin.Logger.LogDebug("[AcademyCourseService] subscribed to FrameworkEvents.RunStarted.");
         }
 
         // ── Run-start / post-course gating pass ───────────────────────────────
@@ -594,7 +579,7 @@ namespace CommunityModChest.Patcher
             int locked = 0, unlocked = 0;
             foreach (var course in table)
             {
-                bool earned = AllPerksHeld(gm, course.RequiredPerks);
+                bool earned = AllPerksHeld(course.RequiredPerks);
                 foreach (var bpUid in course.Blueprints)
                 {
                     var bp = FindCardData(bpUid);
@@ -644,7 +629,7 @@ namespace CommunityModChest.Patcher
             int granted = 0;
             foreach (var course in table)
             {
-                if (!AllPerksHeld(gm, course.RequiredPerks)) continue; // degree not earned - leave it in research
+                if (!AllPerksHeld(course.RequiredPerks)) continue; // degree not earned - leave it in research
 
                 foreach (var bpUid in course.Blueprints)
                 {
@@ -667,44 +652,18 @@ namespace CommunityModChest.Patcher
 
         /// <summary>True if the given course-graduate (or any) perk is held: chosen at
         /// creation or granted in-run by a Study action.</summary>
-        public static bool HasCourse(string perkUid)
-        {
-            if (CardUtil.IsPerkEquipped(perkUid)) return true;
-            var gm = CardUtil.GetGameManagerInstance();
-            return gm != null && InRunPerkHeld(gm, perkUid);
-        }
+        // CardUtil.IsPerkHeld already answers "equipped OR granted in-run" (fleet plan section 10,
+        // W0.10 row 10); it resolves GameManager itself, so neither of these needs one passed in.
+        public static bool HasCourse(string perkUid) => CardUtil.IsPerkHeld(perkUid);
 
-        private static bool AllPerksHeld(object gm, string[] perkUids)
+        private static bool AllPerksHeld(string[] perkUids)
         {
             foreach (var uid in perkUids)
             {
-                if (!CardUtil.IsPerkEquipped(uid) && !InRunPerkHeld(gm, uid))
+                if (!CardUtil.IsPerkHeld(uid))
                     return false;
             }
             return true;
-        }
-
-        private static bool InRunPerkHeld(object gm, string perkUid)
-        {
-            try
-            {
-                if (CardUtil.GetMemberValue(gm, "InRunAddedPerks") is not IEnumerable perks) return false;
-                foreach (var perk in perks)
-                {
-                    if (perk == null) continue;
-                    if (perkUid.Equals(CardUtil.GetMemberValue(perk, "UniqueID") as string, StringComparison.Ordinal))
-                        return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                if (!_inRunPerkCheckFailureLogged)
-                {
-                    _inRunPerkCheckFailureLogged = true;
-                    Plugin.Logger.LogWarning($"[AcademyCourseService] InRunPerkHeld reflection failed (perk-possession checks will silently report false): {ex.InnerException?.ToString() ?? ex.ToString()}");
-                }
-            }
-            return false;
         }
 
         // ── Game-side helpers (cached reflection) ─────────────────────────────
@@ -780,7 +739,15 @@ namespace CommunityModChest.Patcher
 
         private static void DisableUnlockConditions(IList unlockables, object bp)
         {
-            if (unlockables == null) return;
+            if (unlockables == null)
+            {
+                // Non-throwing exit on the lock path: GetMemberValue returns null (never throws) for a
+                // renamed/unreadable UnlockableCards, so without this breadcrumb a drifted member would
+                // leave every course-gated blueprint researchable without the course, with no log (G5).
+                // Mirrors the BlueprintModelStates-null warning in GateTable.
+                WarnOnce("unlockables-unreadable", "[AcademyCourseService] GameManager.UnlockableCards is not readable - a hidden course blueprint keeps its own research condition and can still be researched without the course. Logged once.");
+                return;
+            }
             foreach (var entry in unlockables)
             {
                 if (entry == null) continue;

@@ -2,6 +2,7 @@
     "Tab_4_Tailoring_Subtab_1_Improvised_TabName": [
         "apparelbpfootwraps",
         "apparelbphandwraps",
+        "apparelbpreedhandwraps",
         "apparelbpstrawhat",
         "comfortbpbedroll",
         "comfortbpdownmattress",
@@ -19,6 +20,9 @@
     "Tab_4_Tailoring_Subtab_3_Leather_TabName": [
         "apparelbpleatherapron",
         "apparelbpleathersandals"
+    ],
+    "Tab_3_Hunting_Subtab_2_Trapping_TabName": [
+        "hunterscachebphuntingstand"
     ],
     "Tab_3_Hunting_Subtab_3_CloseCombat_TabName": [
         "combatandarmorbpstonemace",
@@ -71,6 +75,7 @@
     ],
     "Tab_2_Construction_Subtab_4_Furniture_TabName": [
         "comfortbpbedrollplace",
+        "BpCMCGardenTrellis",
         "bpcmcmarketstall",
         "comfortbpincenseburner",
         "comfortbpcomfortablebed",

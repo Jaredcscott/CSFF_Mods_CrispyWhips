@@ -143,13 +143,10 @@ namespace CommunityModChest.Patcher
         private static object _giftedStat;        // GameStat SO
         private static object _potionCraftStat;   // GameStat SO
 
-        // Instanced-env EnvID capture (same prerequisite as ProfessorSchedulePatch's Academy/Inn
-        // homing — an instanced env needs a live EnvID instance from an actual player visit
-        // before C# can MoveNPC an NPC into it).
-        private static object _cabinInteriorEnvId;
+        // Gates her first move into each interior until the player has visited it at least once
+        // this session (same prerequisite as ProfessorSchedulePatch's Academy/Inn homing) — the
+        // move itself is Npc.MoveTo(npc, uid), which builds its own EnvID fresh from the card.
         private static bool _cabinInteriorCaptured;
-        private static object _academyEnvId;
-        private static object _innEnvId;
         private static bool _academyCaptured;
         private static bool _innCaptured;
 
@@ -175,18 +172,15 @@ namespace CommunityModChest.Patcher
         // Reflection handles, resolved once.
         private static Type _gmType;
         private static Type _npcAgentType;
-        private static Type _envIdType;
         private static Type _inGameNpcType;
         private static Type _cardDataType;
         private static Type _npcActionType;         // NPCAction (declares ToAction)
         private static Type _inGameCardBaseType;    // InGameCardBase
         private static Type _inGameNpcOrPlayerType; // InGameNPCOrPlayer (struct)
         private static MethodInfo _getFromIdMethod; // UniqueIDScriptable.GetFromID(string)
-        private static MethodInfo _moveNpcMethod;   // GameManager.MoveNPC(InGameNPC, EnvID)
         private static MethodInfo _toActionMethod;      // NPCAction.ToAction(InGameNPC, InGameCardBase)
         private static MethodInfo _performActionMethod; // GameManager.PerformAction(CardAction, InGameCardBase, bool, InGameNPCOrPlayer)
         private static ConstructorInfo _inGameNpcOrPlayerCtor; // InGameNPCOrPlayer(InGameNPC)
-        private static ConstructorInfo _envIdFromCardCtor;     // EnvID(CardData, bool)
 
         // Portrait application (optional — degrades gracefully if the game's SetCardImage/refresh
         // signatures shift; art just stays static rather than following her around).
@@ -222,11 +216,8 @@ namespace CommunityModChest.Patcher
             _stallOnVillageBoard = null;
             _stallAbsentReads = 0;
             _cabinInteriorCaptured = false;
-            _cabinInteriorEnvId = null;
             _academyCaptured = false;
             _innCaptured = false;
-            _academyEnvId = null;
-            _innEnvId = null;
             _lastRestockDay = int.MinValue;
             _missingRestockActionWarned = false;
             NpcTileWalker.ResetAll();
@@ -238,7 +229,6 @@ namespace CommunityModChest.Patcher
 
             _gmType = CardUtil.FindGameType("GameManager");
             _npcAgentType = CardUtil.FindGameType("NPCAgent");
-            _envIdType = CardUtil.FindGameType("EnvID");
             _inGameNpcType = CardUtil.FindGameType("InGameNPC");
             _cardDataType = CardUtil.FindGameType("CardData");
             _npcActionType = CardUtil.FindGameType("NPCAction");
@@ -246,7 +236,7 @@ namespace CommunityModChest.Patcher
             _inGameNpcOrPlayerType = CardUtil.FindGameType("InGameNPCOrPlayer");
             var uidType = CardUtil.FindGameType("UniqueIDScriptable");
 
-            if (_gmType == null || _npcAgentType == null || _envIdType == null || _inGameNpcType == null
+            if (_gmType == null || _npcAgentType == null || _inGameNpcType == null
                 || _cardDataType == null || _npcActionType == null || _inGameCardBaseType == null
                 || _inGameNpcOrPlayerType == null || uidType == null)
                 return false;
@@ -254,18 +244,16 @@ namespace CommunityModChest.Patcher
             _getFromIdMethod = uidType.GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .FirstOrDefault(m => m.Name == "GetFromID" && !m.IsGenericMethodDefinition
                     && m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == typeof(string));
-            _moveNpcMethod = AccessTools.Method(_gmType, "MoveNPC", new[] { _inGameNpcType, _envIdType });
             _toActionMethod = AccessTools.Method(_npcActionType, "ToAction", new[] { _inGameNpcType, _inGameCardBaseType });
             _performActionMethod = _gmType.GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .FirstOrDefault(m => m.Name == "PerformAction" && m.GetParameters().Length == 4);
             _inGameNpcOrPlayerCtor = _inGameNpcOrPlayerType.GetConstructor(new[] { _inGameNpcType });
-            _envIdFromCardCtor = _envIdType.GetConstructor(new[] { _cardDataType, typeof(bool) });
 
             // Optional — portrait tracking degrades gracefully if absent.
             _setCardImageMethod = AccessTools.Method(_cardDataType, "SetCardImage", new[] { typeof(Sprite) });
 
-            return _getFromIdMethod != null && _moveNpcMethod != null && _toActionMethod != null
-                && _performActionMethod != null && _inGameNpcOrPlayerCtor != null && _envIdFromCardCtor != null;
+            return _getFromIdMethod != null && _toActionMethod != null
+                && _performActionMethod != null && _inGameNpcOrPlayerCtor != null;
         }
 
         private static bool _refsUnresolvedWarned;
@@ -573,12 +561,12 @@ namespace CommunityModChest.Patcher
                 {
                     // Can't send her inside until the player has visited the interior at least
                     // once this session (instanced-env EnvID capture prerequisite) — wait outside.
-                    WalkTowards(gm, npc, forestUid, BuildEnvId(_commuteNodes[DestForagingForest]));
+                    WalkTowards(gm, npc, forestUid, forestUid);
                     return;
                 }
                 // Walk to the cabin's front door (the Foraging Forest tile) if she isn't there
                 // yet, then take the single instantaneous "step inside" hop.
-                WalkTowards(gm, npc, forestUid, _cabinInteriorEnvId);
+                WalkTowards(gm, npc, forestUid, CabinInteriorUid);
                 return;
             }
 
@@ -586,10 +574,10 @@ namespace CommunityModChest.Patcher
             {
                 if (!_academyCaptured)
                 {
-                    WalkTowards(gm, npc, villageUid, BuildEnvId(_commuteNodes[DestVillage]));
+                    WalkTowards(gm, npc, villageUid, villageUid);
                     return;
                 }
-                WalkTowards(gm, npc, villageUid, _academyEnvId);
+                WalkTowards(gm, npc, villageUid, AcademyInteriorUid);
                 return;
             }
 
@@ -597,14 +585,14 @@ namespace CommunityModChest.Patcher
             {
                 if (!_innCaptured)
                 {
-                    WalkTowards(gm, npc, villageUid, BuildEnvId(_commuteNodes[DestVillage]));
+                    WalkTowards(gm, npc, villageUid, villageUid);
                     return;
                 }
-                WalkTowards(gm, npc, villageUid, _innEnvId);
+                WalkTowards(gm, npc, villageUid, InnInteriorUid);
                 return;
             }
 
-            WalkTowards(gm, npc, CommuteNodeUids[destIndex], BuildEnvId(_commuteNodes[destIndex]));
+            WalkTowards(gm, npc, CommuteNodeUids[destIndex], CommuteNodeUids[destIndex]);
         }
 
         // The outdoor tile she's standing on right now, for tile-walking purposes — one of the 5
@@ -629,13 +617,11 @@ namespace CommunityModChest.Patcher
 
             if (!_academyCaptured && ReferenceEquals(envCard, _academyInteriorCard))
             {
-                _academyEnvId = currentEnv;
                 _academyCaptured = true;
                 Plugin.Logger.LogInfo("[ApothecarySchedulePatch] Captured Academy EnvID for the Apothecary's weekly visit.");
             }
             else if (!_innCaptured && ReferenceEquals(envCard, _innInteriorCard))
             {
-                _innEnvId = currentEnv;
                 _innCaptured = true;
                 Plugin.Logger.LogInfo("[ApothecarySchedulePatch] Captured Inn EnvID for the Apothecary's evening visit.");
             }
@@ -648,12 +634,12 @@ namespace CommunityModChest.Patcher
         // tile-stepped rather than a direct jump, so a big time-skip (e.g. sleeping through the
         // night) makes her visibly catch up tile by tile on subsequent ticks instead of
         // teleporting straight to the far end.
-        private static void WalkTowards(object gm, object npc, string destOutdoorUid, object finalEnvId)
+        private static void WalkTowards(object gm, object npc, string destOutdoorUid, string finalEnvUid)
         {
             string currentUid = CurrentOutdoorUidOf(npc);
             if (currentUid == null || string.Equals(currentUid, destOutdoorUid, StringComparison.OrdinalIgnoreCase))
             {
-                MoveNpcTo(gm, npc, finalEnvId);
+                Npc.MoveTo(npc, finalEnvUid);
                 return;
             }
 
@@ -662,18 +648,10 @@ namespace CommunityModChest.Patcher
 
             if (string.Equals(nextUid, destOutdoorUid, StringComparison.OrdinalIgnoreCase))
             {
-                MoveNpcTo(gm, npc, finalEnvId);
+                Npc.MoveTo(npc, finalEnvUid);
                 return;
             }
-
-            var stepCard = CardUtil.GetCardDataById(nextUid);
-            if (stepCard == null)
-            {
-                Plugin.Logger.LogWarning($"[ApothecarySchedulePatch] WalkTowards: intermediate tile '{nextUid}' has no CardData — jumping straight to the destination instead.");
-                MoveNpcTo(gm, npc, finalEnvId);
-                return;
-            }
-            MoveNpcTo(gm, npc, BuildEnvId(stepCard));
+            Npc.MoveTo(npc, nextUid);
         }
 
         private static int CurrentTotalTick()
@@ -691,7 +669,6 @@ namespace CommunityModChest.Patcher
             if (currentEnv == null || Reflect.GetMember(currentEnv, "IsNull") is true) return;
             if (!ReferenceEquals(Reflect.GetMember(currentEnv, "EnvCard"), _cabinInteriorCard)) return;
 
-            _cabinInteriorEnvId = currentEnv;
             _cabinInteriorCaptured = true;
             Plugin.Logger.LogInfo("[ApothecarySchedulePatch] Captured the cabin interior EnvID for the commute scheduler.");
         }
@@ -731,9 +708,17 @@ namespace CommunityModChest.Patcher
             return true; // still brewing
         }
 
-        private static float GetCraftDay(object gm) => ReadLiveStat(gm, _potionCraftStat);
+        // Delegates to the framework's StatAccess (fleet plan section 10, W0.10 row 1 READ side)
+        // instead of hand-rolling GameManager.StatsDict here; same -1-on-failure sentinel.
+        private static float GetCraftDay(object gm)
+        {
+            float value = StatAccess.Get(PotionCraftStatUid);
+            return float.IsNaN(value) ? -1f : value;
+        }
 
-        private static void SetCraftDay(object gm, float value) => WriteLiveStat(gm, _potionCraftStat, value);
+        // Delegates to the framework's StatAccess (fleet plan section 10, W0.10 row 1 WRITE side)
+        // instead of hand-rolling GameManager.StatsDict here.
+        private static void SetCraftDay(object gm, float value) => StatAccess.Set(PotionCraftStatUid, value);
 
         // ── NPC / stat lookup ─────────────────────────────────────────────────────
 
@@ -759,27 +744,11 @@ namespace CommunityModChest.Patcher
             return null;
         }
 
-        // Reads/writes a GameStat off the live InGameStat in GameManager.StatsDict (same idiom as
-        // CottageResidentSpawnPatch's move-in timer). Returns -1 when unresolvable yet.
-        private static float ReadLiveStat(object gm, object stat)
+        private static float GetGiftedFlag(object gm)
         {
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return -1f;
-            if (!statsDict.Contains(stat)) return -1f;
-            var inGameStat = statsDict[stat];
-            if (inGameStat == null) return -1f;
-            return Reflect.GetMember(inGameStat, "SimpleCurrentValue") is float f ? f : -1f;
+            float value = StatAccess.Get(GiftedStatUid);
+            return float.IsNaN(value) ? -1f : value;
         }
-
-        private static void WriteLiveStat(object gm, object stat, float value)
-        {
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return;
-            if (!statsDict.Contains(stat)) return;
-            var inGameStat = statsDict[stat];
-            if (inGameStat == null) return;
-            Reflect.SetMember(inGameStat, "CurrentBaseValue", value);
-        }
-
-        private static float GetGiftedFlag(object gm) => ReadLiveStat(gm, _giftedStat);
 
         // ── Location helpers ─────────────────────────────────────────────────────
 
@@ -795,27 +764,6 @@ namespace CommunityModChest.Patcher
             var env = Reflect.GetMember(npc, "CurrentEnvironment");
             if (env == null || Reflect.GetMember(env, "IsNull") is true) return false;
             return ReferenceEquals(Reflect.GetMember(env, "EnvCard"), envCard);
-        }
-
-        private static object BuildEnvId(object envCard)
-        {
-            if (envCard == null) return null;
-            try { return _envIdFromCardCtor.Invoke(new object[] { envCard, false }); }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogWarning($"[ApothecarySchedulePatch] BuildEnvId failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-                return null;
-            }
-        }
-
-        private static void MoveNpcTo(object gm, object npc, object envId)
-        {
-            if (envId == null) return;
-            try { _moveNpcMethod.Invoke(gm, new object[] { npc, envId }); }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogWarning($"[ApothecarySchedulePatch] MoveNpcTo failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-            }
         }
 
         // ── Portrait sync ─────────────────────────────────────────────────────────

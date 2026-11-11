@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using CSFFModFramework.Api;
 using CSFFModFramework.Util;
@@ -26,9 +24,6 @@ namespace CommunityModChest.Patcher
     /// </summary>
     internal static class HiddenStat
     {
-        private static MethodInfo _getFromIdMethod;
-        private static readonly Dictionary<string, object> _statModels = new(StringComparer.OrdinalIgnoreCase);
-
         /// <summary>Current value of the stat, or -1 when it is not readable yet.</summary>
         public static float Get(string statUid)
         {
@@ -170,46 +165,12 @@ namespace CommunityModChest.Patcher
             return Set(statUid, value);
         }
 
+        // Delegates to the framework's own by-run cache (fleet plan section 10, W0.10 row 1 READ side)
+        // instead of hand-rolling UniqueIDScriptable.GetFromID + GameManager.StatsDict here.
         private static object ResolveInstance(string statUid)
         {
             if (string.IsNullOrEmpty(statUid)) return null;
-            try
-            {
-                var gm = CardUtil.GetGameManagerInstance();
-                if (gm == null) return null;
-
-                if (!_statModels.TryGetValue(statUid, out var model) || model == null)
-                {
-                    if (!ResolveGetFromId()) return null;
-                    model = _getFromIdMethod.Invoke(null, new object[] { statUid });
-                    if (model == null)
-                    {
-                        Plugin.Logger.LogDebug($"[HiddenStat] GameStat '{statUid}' not found in AllData.");
-                        return null;
-                    }
-                    _statModels[statUid] = model;
-                }
-
-                if (CardUtil.GetCachedField(gm.GetType(), "StatsDict")?.GetValue(gm) is not IDictionary statsDict) return null;
-                if (!statsDict.Contains(model)) return null;
-                return statsDict[model];
-            }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogDebug($"[HiddenStat] ResolveInstance('{statUid}') failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-                return null;
-            }
-        }
-
-        private static bool ResolveGetFromId()
-        {
-            if (_getFromIdMethod != null) return true;
-            var uidType = CardUtil.FindGameType("UniqueIDScriptable");
-            if (uidType == null) return false;
-            _getFromIdMethod = uidType.GetMethods(BindingFlags.Public | BindingFlags.Static)
-                .FirstOrDefault(m => m.Name == "GetFromID" && !m.IsGenericMethodDefinition
-                    && m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == typeof(string));
-            return _getFromIdMethod != null;
+            return StatAccess.Resolve(statUid);
         }
     }
 }

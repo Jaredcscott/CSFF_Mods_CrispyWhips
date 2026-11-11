@@ -230,9 +230,6 @@ namespace CommunityModChest.Patcher
 
         private static bool _initialized;
         private static bool _tripsInitialized;
-        private static MethodInfo _getFromIdMethod;
-        // GameStat SOs by UniqueID, cached once resolved (a null lookup is retried on the next call).
-        private static readonly Dictionary<string, object> _statSos = new Dictionary<string, object>(StringComparer.Ordinal);
         private static readonly HashSet<string> _warned = new HashSet<string>(StringComparer.Ordinal);
 
         private static void WarnOnce(CatHuntRoute route, string cause, string message)
@@ -362,14 +359,11 @@ namespace CommunityModChest.Patcher
         {
             try
             {
-                if (!ResolveGetFromId()) return;
-                var spotStat = StatSo(route.SpotStatUid);
-
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null) return;
 
-                float spotState = ReadStat(gm, spotStat);
-                if (spotState < 0f) return;
+                float spotState = StatAccess.Get(route.SpotStatUid);
+                if (float.IsNaN(spotState)) return;
 
                 if (spotState < 0.5f)
                 {
@@ -396,10 +390,22 @@ namespace CommunityModChest.Patcher
                     var trackingCard = FindCardByUid(gm, route.AwayCardUid);
                     if (trackingCard == null) return;
 
+                    // FindCardByUid scans the raw AllCards (carried inventory included, root
+                    // CLAUDE.md "AllCards UID scan is NOT 'the cards in this room'"), and the
+                    // cat's own JSON timer that produced this card does not know whether he was
+                    // set down when it fired. Acting on him while carried would swap him in place
+                    // for the CT13 invisible trail-cleanup helper INSIDE the container: no trail is
+                    // ever placed at the village (that only happens once the player's current
+                    // environment is TrailEnvUid), the helper later self-destructs on its own
+                    // SpoilageTime, and the hunt can never resolve: Ash is lost for good with no
+                    // recovery path. Defer until he is set down; retried every poll (same IsSetDown
+                    // guard Shadow's cooldown route already uses below).
+                    if (!IsSetDown(route, trackingCard)) return;
+
                     // Remove the tracking card from wherever it appeared; trail will be placed at the village.
                     if (CardUtil.TransformCardInPlace(trackingCard, BeastTracksInvisibleUid))
                     {
-                        WriteStat(gm, spotStat, 1f);
+                        StatAccess.Set(route.SpotStatUid, 1f);
                         Plugin.Logger.LogInfo(route.LogTag + route.MsgDeparted);
                     }
                     else
@@ -432,7 +438,7 @@ namespace CommunityModChest.Patcher
                     if (FindCardByUid(gm, route.AwayCardUid) != null)
                     {
                         // Already present (e.g. after a save/reload while at HC): just latch.
-                        WriteStat(gm, spotStat, 2f);
+                        StatAccess.Set(route.SpotStatUid, 2f);
                         return;
                     }
 
@@ -442,7 +448,7 @@ namespace CommunityModChest.Patcher
                     SpawnService.Spawn(route.AwayCardUid);
                     if (FindCardByUid(gm, route.AwayCardUid) != null)
                     {
-                        WriteStat(gm, spotStat, 2f);
+                        StatAccess.Set(route.SpotStatUid, 2f);
                         Plugin.Logger.LogInfo(route.LogTag + route.MsgAtQuarry);
                     }
                     else
@@ -513,17 +519,14 @@ namespace CommunityModChest.Patcher
         private static void MarkBoarHuntEpilogueResolved(object gm, CatHuntRoute route)
         {
             if (route.EpilogueStatUid == null) return;
-            if (!ResolveGetFromId()) return;
-            var resolvedStat = StatSo(route.EpilogueStatUid);
-            if (ReadStat(gm, resolvedStat) >= 0.5f) return; // already set
-            if (WriteStat(gm, resolvedStat, 1f))
+            if (StatAccess.Get(route.EpilogueStatUid) >= 0.5f) return; // already set
+            if (StatAccess.Set(route.EpilogueStatUid, 1f))
                 Plugin.Logger.LogInfo(route.LogTag + route.MsgEpilogue);
         }
 
         private static void ResetHuntSpotStat(object gm, CatHuntRoute route)
         {
-            if (!ResolveGetFromId()) return;
-            WriteStat(gm, StatSo(route.SpotStatUid), 0f);
+            StatAccess.Set(route.SpotStatUid, 0f);
         }
 
         // ================= cooldown routes (Shadow) =================
@@ -660,20 +663,21 @@ namespace CommunityModChest.Patcher
         }
 
         // Set down on the board: in no container, in the board's Item or Base row, never in the hand or equipped. An
-        // unreadable slot counts as not set down (he does not leave), so a carried cat is never swapped for a trail.
+        // unreadable slot counts as not set down, so a carried cat is never swapped for a trail (TryDepart) nor
+        // swapped from his quarry form into the trail-cleanup helper while carried (CheckAndMove).
         private static bool IsSetDown(CatHuntRoute route, object card)
         {
             if (Reflect.GetMember(card, "CurrentContainer") is UnityEngine.Object container && container != null) return false;
             var slotInfo = Reflect.GetMember(card, "CurrentSlotInfo");
             if (slotInfo == null)
             {
-                WarnOnce(route, "slot-unreadable", route.Name + "'s CurrentSlotInfo is unreadable, so he did not leave on a hunt.");
+                WarnOnce(route, "slot-unreadable", route.Name + "'s CurrentSlotInfo is unreadable, so this poll treats him as carried and leaves him alone.");
                 return false;
             }
             var slotType = Reflect.GetMember(slotInfo, "SlotType");
             if (slotType == null)
             {
-                WarnOnce(route, "slot-type-unreadable", route.Name + "'s SlotType is unreadable, so he did not leave on a hunt.");
+                WarnOnce(route, "slot-type-unreadable", route.Name + "'s SlotType is unreadable, so this poll treats him as carried and leaves him alone.");
                 return false;
             }
             string name = slotType.ToString();
@@ -681,45 +685,6 @@ namespace CommunityModChest.Patcher
         }
 
         // ================= shared =================
-
-        private static bool ResolveGetFromId()
-        {
-            if (_getFromIdMethod != null) return true;
-            var uidType = CardUtil.FindGameType("UniqueIDScriptable");
-            if (uidType == null) return false;
-            _getFromIdMethod = uidType.GetMethods(BindingFlags.Public | BindingFlags.Static)
-                .FirstOrDefault(m => m.Name == "GetFromID" && !m.IsGenericMethodDefinition
-                    && m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == typeof(string));
-            return _getFromIdMethod != null;
-        }
-
-        private static object StatSo(string uid)
-        {
-            if (_statSos.TryGetValue(uid, out var so) && so != null) return so;
-            so = _getFromIdMethod.Invoke(null, new object[] { uid });
-            if (so != null) _statSos[uid] = so;
-            return so;
-        }
-
-        private static float ReadStat(object gm, object statSo)
-        {
-            if (statSo == null) return -1f;
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return -1f;
-            if (!statsDict.Contains(statSo)) return -1f;
-            var inGameStat = statsDict[statSo];
-            if (inGameStat == null) return -1f;
-            return Reflect.GetMember(inGameStat, "SimpleCurrentValue") is float f ? f : -1f;
-        }
-
-        private static bool WriteStat(object gm, object statSo, float value)
-        {
-            if (statSo == null) return false;
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return false;
-            if (!statsDict.Contains(statSo)) return false;
-            var inGameStat = statsDict[statSo];
-            if (inGameStat == null) return false;
-            return Reflect.SetMember(inGameStat, "CurrentBaseValue", value);
-        }
 
         private static object FindCardByUid(object gm, string uid)
         {

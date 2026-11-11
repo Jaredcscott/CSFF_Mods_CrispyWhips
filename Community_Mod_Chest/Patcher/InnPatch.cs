@@ -13,8 +13,9 @@ namespace CommunityModChest.Patcher
     ///     "Deposit Currency" CI) to add its value to the balance — see
     ///     <see cref="CurrencyValue"/>. A deposit is rejected outright (item untouched)
     ///     if the account has no headroom left at all.
-    ///   - "Purchase Meal" (DaytimeCost 2) and "Stay the Night" (DaytimeCost 32) each
-    ///     draw 50 from the balance, marked up while Wanted or Banished (BalanceGate,
+    ///   - "Purchase Meal" (DaytimeCost 2) and "Stay the Night" (DaytimeCost 1; it rents a
+    ///     cmcInnRentedBed for 6 hours rather than sleeping, plan 1.6) draw 30 and 50
+    ///     from the balance (<see cref="InnPrices"/>), marked up while Wanted or Banished (BalanceGate,
     ///     DeductBalance and the tooltip all price through VillagePricing.Apply); stat
     ///     effects are applied via JSON StatModifications.
     ///   - "Work Odd Jobs" DA is deliberately NOT gated or paid from the account — it
@@ -35,8 +36,8 @@ namespace CommunityModChest.Patcher
     {
         private const string CounterUid   = "cmcInnCounter";
         private const string BalanceStat   = "SpecialDurability1";
-        private const float  MealPrice     = 50f;
-        private const float  SleepPrice    = 50f;
+        private const float  MealPrice     = InnPrices.MealPrice;   // 30 (Chiwei, c178573716)
+        private const float  SleepPrice    = InnPrices.SleepPrice;  // 50
         private const float  AccountMax    = 500f;
         private const string SaltGuid      = "f91b5676fc26c0e48a4ee6fd9dfc2ffa";
         internal const string FirewoodCountStatUid = "cmcStatInnFirewoodCount";
@@ -76,7 +77,8 @@ namespace CommunityModChest.Patcher
                 Name          = "InnSleepGate",
                 CardPredicate = ctx => ctx.CardUid == CounterUid && IsSleepAction(ctx.ActionName),
                 Timing        = ActionTiming.Cancel,
-                Before        = ctx => BalanceGate(ctx, SleepPrice),
+                // One room at a time: a Rented Bed already on this board refuses a second rental.
+                Before        = ctx => RentedBedOnBoard() || BalanceGate(ctx, SleepPrice),
             });
 
             ActionRouter.Register(new ActionHandler
@@ -144,6 +146,19 @@ namespace CommunityModChest.Patcher
 
         private static bool IsSleepAction(string name) =>
             name != null && name.Contains("Night");
+
+        // "Stay the Night" rents a room (plan 1.6, Nexus c178551927): it drops this bed on the Inn board for
+        // 6 hours (its own SpoilageTime, destroyed at 0) instead of starting a sleep, so an interrupted
+        // sleep can be taken up again while the room lasts.
+        internal const string RentedBedUid = "cmcInnRentedBed";
+        private const string RoomAlreadyRentedMessage = "You already have a room: sleep in the Rented Bed.";
+
+        private static bool RentedBedOnBoard()
+        {
+            foreach (var card in GameQuery.CardsInPlayerEnv())
+                if (CardUtil.GetCardUniqueId(card) == RentedBedUid) return true;
+            return false;
+        }
 
         private static bool IsMealAction(string name) =>
             name != null && name.Contains("Meal");
@@ -226,6 +241,12 @@ namespace CommunityModChest.Patcher
                 bool isMeal = IsMealAction(actionName);
                 bool isSleep = IsSleepAction(actionName);
                 if (!isMeal && !isSleep) return;
+
+                if (isSleep && RentedBedOnBoard())
+                {
+                    Reflect.SetMember(__instance, "ActionBlockedMessage", RoomAlreadyRentedMessage);
+                    return;
+                }
 
                 float price = VillagePricing.Apply(isMeal ? MealPrice : SleepPrice);
                 float balance = CardUtil.GetDurability(__0, BalanceStat);

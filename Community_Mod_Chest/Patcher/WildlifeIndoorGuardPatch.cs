@@ -14,7 +14,9 @@ namespace CommunityModChest.Patcher
     /// First built 1.68.14 for the seven village interiors (reported 2026-08-28: a Sirus23 screenshot
     /// of a Bear standing at the Inn Counter and in the Academy). Every one of these agents' "approach
     /// the player" AgentActions sets <c>MoveToPlayerEnvironment: true</c>, which ends in
-    /// <c>GameManager.MoveNPC(this, GM.CurrentEnvironment)</c> with no map or indoor check.
+    /// <c>GameManager.MoveNPC(this, GM.CurrentEnvironment)</c> with no map or indoor check. Registers
+    /// through <c>Api.Npc.RegisterMoveGuard</c>, the framework's shared MoveNPC-refusal registry,
+    /// rather than patching that method itself.
     ///
     /// Extended in round 2 (Documentation/Design/CMC_Round2_As_Built.md A1) to the seven
     /// outdoor village tiles and the Hunting Stand, because on EA 0.68b the JSON guards cannot stop an
@@ -151,71 +153,55 @@ namespace CommunityModChest.Patcher
             if (_initialized) return;
             _initialized = true;
 
-            var gmType = CardUtil.FindGameType("GameManager");
-            var inGameNpcType = CardUtil.FindGameType("InGameNPC");
-            var envIdType = CardUtil.FindGameType("EnvID");
-            if (gmType == null || inGameNpcType == null || envIdType == null)
-            {
-                Plugin.Logger.LogWarning("[WildlifeIndoorGuardPatch] Required game types not found, so the guard is inactive and predators can walk into the village and its buildings.");
-                return;
-            }
-
-            var moveNpcMethod = AccessTools.Method(gmType, "MoveNPC", new[] { inGameNpcType, envIdType });
-            if (moveNpcMethod == null)
-            {
-                Plugin.Logger.LogWarning("[WildlifeIndoorGuardPatch] GameManager.MoveNPC(InGameNPC, EnvID) not found, so the guard is inactive and predators can walk into the village and its buildings.");
-                return;
-            }
-
-            harmony.Patch(moveNpcMethod, prefix: new HarmonyMethod(typeof(WildlifeIndoorGuardPatch), nameof(Prefix)));
+            Npc.RegisterMoveGuard(MoveRefuse);
             var sets = new List<string>();
             foreach (var set in ProtectedSets)
                 sets.Add($"{set.Cause} ({set.EnvUids.Count} envs, chance {set.RefuseChance:0.##}, mirrors {set.MirrorsGuardFile})");
             Plugin.Logger.LogDebug($"[WildlifeIndoorGuardPatch] initialized: {string.Join("; ", sets)}; Hunting Stand chance {HuntingStandRefuseChance:0.##}.");
         }
 
-        private static bool Prefix(object __0, object __1)
+        private static bool MoveRefuse(object npc, object destEnvId)
         {
             try
             {
-                if (__0 == null)
+                if (npc == null)
                 {
                     WarnOnce("npc-null", "[WildlifeIndoorGuardPatch] MoveNPC was called with a null NPC; that move is not guarded.");
-                    return true;
+                    return false;
                 }
 
-                var npcModel = Reflect.GetMember(__0, "NPCModel");
+                var npcModel = Reflect.GetMember(npc, "NPCModel");
                 if (npcModel == null)
                 {
-                    WarnOnce("npc-model", $"[WildlifeIndoorGuardPatch] {__0.GetType().Name}.NPCModel could not be read, so no wildlife move is guarded.");
-                    return true;
+                    WarnOnce("npc-model", $"[WildlifeIndoorGuardPatch] {npc.GetType().Name}.NPCModel could not be read, so no wildlife move is guarded.");
+                    return false;
                 }
 
                 string npcUid = CardUtil.GetCardUniqueId(npcModel);
                 if (npcUid == null)
                 {
                     WarnOnce("npc-uid", $"[WildlifeIndoorGuardPatch] The UniqueID of an NPC model ({npcModel.GetType().Name}) could not be read, so that NPC's moves are not guarded.");
-                    return true;
+                    return false;
                 }
-                if (!HostileWildlifeUids.Contains(npcUid)) return true;
+                if (!HostileWildlifeUids.Contains(npcUid)) return false;
 
-                if (!Reflect.TryGetMember(__1, "EnvCard", out var envCard))
+                if (!Reflect.TryGetMember(destEnvId, "EnvCard", out var envCard))
                 {
-                    WarnOnce("dest-envcard", $"[WildlifeIndoorGuardPatch] EnvID.EnvCard could not be read on the destination ({__1?.GetType().Name ?? "null"}), so no wildlife move is guarded.");
-                    return true;
+                    WarnOnce("dest-envcard", $"[WildlifeIndoorGuardPatch] EnvID.EnvCard could not be read on the destination ({destEnvId?.GetType().Name ?? "null"}), so no wildlife move is guarded.");
+                    return false;
                 }
                 // An empty EnvID: vanilla MoveNPC does nothing with it either.
-                if (envCard == null) return true;
+                if (envCard == null) return false;
 
                 string destUid = CardUtil.GetCardUniqueId(envCard);
                 if (destUid == null)
                 {
                     WarnOnce("dest-uid", $"[WildlifeIndoorGuardPatch] The destination env card's UniqueID could not be read ({envCard.GetType().Name}), so no wildlife move is guarded.");
-                    return true;
+                    return false;
                 }
 
                 string destKey = null;
-                if (Reflect.TryGetMember(__1, "StringDictionnaryKey", out var destKeyValue))
+                if (Reflect.TryGetMember(destEnvId, "StringDictionnaryKey", out var destKeyValue))
                     destKey = destKeyValue as string;
                 if (string.IsNullOrEmpty(destKey))
                 {
@@ -225,22 +211,22 @@ namespace CommunityModChest.Patcher
 
                 // Already standing there: vanilla MoveNPC is a no-op, so there is nothing to refuse and
                 // no day's roll to spend on it.
-                if (!Reflect.TryGetMember(__0, "CurrentEnvironment", out var npcEnv) || npcEnv == null
+                if (!Reflect.TryGetMember(npc, "CurrentEnvironment", out var npcEnv) || npcEnv == null
                     || !Reflect.TryGetMember(npcEnv, "StringDictionnaryKey", out var npcKeyValue))
                 {
                     WarnOnce("npc-env", "[WildlifeIndoorGuardPatch] InGameNPC.CurrentEnvironment's key could not be read, so a move onto the board an agent already stands on is judged like an arrival.");
                 }
                 else if (npcKeyValue is string npcKey && string.Equals(npcKey, destKey, StringComparison.Ordinal))
                 {
-                    return true;
+                    return false;
                 }
 
                 foreach (var set in ProtectedSets)
                 {
                     if (!set.EnvUids.Contains(destUid)) continue;
                     // A paid Town Watch escort (plan N4) makes the outskirts' half chance a certainty while it
-                    // lasts. Not routed through Refuse: its per-day verdict cache would keep refusing after the
-                    // escort ends. The roll below still runs once the escort has worn off.
+                    // lasts. Not routed through DailyRefuse: its per-day verdict cache would keep refusing after
+                    // the escort ends. The roll below still runs once the escort has worn off.
                     if (set.Cause == "outskirts" && OutskirtsEscortPatch.IsEscorted())
                     {
                         if (!_escortLogged)
@@ -248,25 +234,25 @@ namespace CommunityModChest.Patcher
                             _escortLogged = true;
                             Plugin.Logger.LogInfo($"[WildlifeIndoorGuardPatch] A paid escort turned '{npcUid}' back from '{destUid}' (logged once per session).");
                         }
-                        return false;
+                        return true;
                     }
-                    if (Refuse(set.Cause, set.RefuseChance, npcUid, destUid, destKey)) return false;
+                    if (DailyRefuse(set.Cause, set.RefuseChance, npcUid, destUid, destKey)) return true;
                 }
 
-                if (!(Reflect.GetMember(__1, "MatchesPlayerEnv") is bool toPlayerBoard))
+                if (!(Reflect.GetMember(destEnvId, "MatchesPlayerEnv") is bool toPlayerBoard))
                 {
                     WarnOnce("dest-matchesplayerenv", "[WildlifeIndoorGuardPatch] EnvID.MatchesPlayerEnv could not be read, so a Hunting Stand turns no predator back.");
-                    return true;
+                    return false;
                 }
-                if (!toPlayerBoard) return true;
-                if (!HuntingStandOnPlayerBoard()) return true;
+                if (!toPlayerBoard) return false;
+                if (!HuntingStandOnPlayerBoard()) return false;
 
-                return !Refuse("stand", HuntingStandRefuseChance, npcUid, destUid, destKey);
+                return DailyRefuse("stand", HuntingStandRefuseChance, npcUid, destUid, destKey);
             }
             catch (Exception ex)
             {
                 WarnOnce("exception-" + ex.GetType().Name, $"[WildlifeIndoorGuardPatch] The guard threw, so this move was allowed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-                return true;
+                return false;
             }
         }
 
@@ -302,7 +288,7 @@ namespace CommunityModChest.Patcher
         /// (cause, agent, destination, day) and repeated for every retry that day. The first verdict of
         /// each key per day is logged at Info; the per-tick retries are silent.
         /// </summary>
-        private static bool Refuse(string cause, float chance, string npcUid, string destUid, string destKey)
+        private static bool DailyRefuse(string cause, float chance, string npcUid, string destUid, string destKey)
         {
             if (chance <= 0f) return false;
 

@@ -99,12 +99,11 @@ namespace CommunityModChest.Patcher
         private static bool _dutiesBuilt;
         private static object _villageEnvCard; // CardData
 
-        // Reflection handles, resolved once — same type set GuardDutyPatch resolves, minus the
-        // chase/warden/summon-only types this single-duty chassis never needs.
-        private static Type _uidType, _npcDutyType, _npcDutyActionType, _moveDutyActionType,
-            _npcDutyRefType, _generalConditionType, _npcDutyWeightsType, _cardDataType,
-            _cardTagType, _cardOrTagRefWithDurabilitiesType, _npcStatInstantModifierType,
-            _localizedStringType, _inGameTimeConditionType, _npcDutyTagType, _statValueTriggerType;
+        // Reflection handles, resolved once: NpcDuties owns NPCDuty/NPCDutyAction/MoveDutyAction/
+        // NPCDutyRef/GeneralCondition/NPCDutyWeights/LocalizedString/InGameTimeCondition construction
+        // now; only the destination CardData array type and this file's own DutyTags/gate-stat types
+        // still need resolving here.
+        private static Type _uidType, _cardDataType, _npcDutyActionType, _npcDutyTagType, _statValueTriggerType;
         private static MethodInfo _getFromIdMethod;
 
         /// <summary>
@@ -132,29 +131,15 @@ namespace CommunityModChest.Patcher
 
         private static bool ResolveTypes()
         {
-            if (_npcDutyType != null) return true;
+            if (_uidType != null) return true;
 
             _uidType = CardUtil.FindGameType("UniqueIDScriptable");
-            _npcDutyType = CardUtil.FindGameType("NPCDuty");
-            _npcDutyActionType = CardUtil.FindGameType("NPCDutyAction");
-            _moveDutyActionType = CardUtil.FindGameType("MoveDutyAction");
-            _npcDutyRefType = CardUtil.FindGameType("NPCDutyRef");
-            _generalConditionType = CardUtil.FindGameType("GeneralCondition");
-            _npcDutyWeightsType = CardUtil.FindGameType("NPCDutyWeights");
             _cardDataType = CardUtil.FindGameType("CardData");
-            _cardTagType = CardUtil.FindGameType("CardTag");
-            _cardOrTagRefWithDurabilitiesType = CardUtil.FindGameType("CardOrTagRefWithDurabilities");
-            _npcStatInstantModifierType = CardUtil.FindGameType("NPCStatInstantModifier");
-            _localizedStringType = CardUtil.FindGameType("LocalizedString");
-            _inGameTimeConditionType = CardUtil.FindGameType("InGameTimeCondition");
+            _npcDutyActionType = CardUtil.FindGameType("NPCDutyAction");
             _npcDutyTagType = CardUtil.FindGameType("NPCDutyTag");
             _statValueTriggerType = CardUtil.FindGameType("StatValueTrigger");
 
-            if (_uidType == null || _npcDutyType == null || _npcDutyActionType == null
-                || _moveDutyActionType == null || _npcDutyRefType == null || _generalConditionType == null
-                || _npcDutyWeightsType == null || _cardDataType == null || _cardTagType == null
-                || _cardOrTagRefWithDurabilitiesType == null || _npcStatInstantModifierType == null
-                || _localizedStringType == null || _inGameTimeConditionType == null
+            if (_uidType == null || _cardDataType == null || _npcDutyActionType == null
                 || _npcDutyTagType == null || _statValueTriggerType == null)
                 return false;
 
@@ -200,9 +185,8 @@ namespace CommunityModChest.Patcher
                         return;
                     }
 
-                    var dutyRef = BuildDutyRef(duty, WorkBaseWeight);
-                    var refs = Array.CreateInstance(_npcDutyRefType, 1);
-                    refs.SetValue(dutyRef, 0);
+                    var dutyRef = NpcDuties.BuildDutyRef(duty, WorkBaseWeight);
+                    var refs = NpcDuties.ToDutyRefArray(dutyRef);
                     built.Add((beat, refs));
                 }
 
@@ -228,43 +212,27 @@ namespace CommunityModChest.Patcher
 
         private static object BuildWorkDuty(WorkerBeat beat)
         {
-            var duty = ScriptableObject.CreateInstance(_npcDutyType);
-            duty.name = beat.DutyUid;
-            Reflect.SetMemberAny(duty, beat.DutyUid, "UniqueID", "uniqueID", "m_UniqueID");
+            var duty = NpcDuties.NewDuty(beat.DutyUid, beat.DutyUid, beat.DutyDisplayText);
 
-            var localizedName = Activator.CreateInstance(_localizedStringType);
-            Reflect.SetMember(localizedName, "ParentObjectID", "");
-            Reflect.SetMember(localizedName, "LocalizationKey", "IGNOREKEY");
-            Reflect.SetMember(localizedName, "DefaultText", beat.DutyDisplayText);
-            Reflect.SetMember(duty, "DutyName", localizedName);
-
-            Reflect.SetMember(duty, "MaxPerformPerDay", 0);
-            Reflect.SetMember(duty, "CanOnlyPerformAtHome", false);
             Reflect.SetMember(duty, "CannotPerformWhileHidden", true);
             // Engine-native equivalent of the hand-rolled system's SharesPlayerEnv guard — never
             // yank a resident out of a live conversation.
             Reflect.SetMember(duty, "CanPerformWhileInDialog", false);
-            SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
-            SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
 
             // Null-array hygiene — the engine indexes these without guards.
             Reflect.SetMember(duty, "DutyTags", Array.CreateInstance(_npcDutyTagType, 0));
             Reflect.SetMember(duty, "OnCancelActions", Array.CreateInstance(_npcDutyActionType, 0));
-            Reflect.SetMember(duty, "ValidTimesOfDay", BuildHourWindow(WorkStartHour, WorkEndHour));
+            Reflect.SetMember(duty, "ValidTimesOfDay", NpcDuties.BuildHourWindow(WorkStartHour, WorkEndHour));
 
             var conditions = AcademyOffCondition(beat);
-            if (!Reflect.SetMember(duty, "DutyConditions", conditions))
+            if (!NpcDuties.SetDutyConditions(duty, conditions))
             {
                 Plugin.Logger.LogWarning($"[CottageResidentWorkDutyPatch] NPCDuty.DutyConditions not found on {beat.DutyUid} — the work duty would be UNGATED against their Academy day. Refusing to build it.");
                 return null;
             }
 
             var move = NewMoveAction(beat.DutyUid + "_Move", new List<object> { _villageEnvCard });
-            if (move == null) return null;
-
-            var sequence = Array.CreateInstance(_npcDutyActionType, 1);
-            sequence.SetValue(move, 0);
-            Reflect.SetMember(duty, "ActionSequence", sequence);
+            NpcDuties.SetActionSequence(duty, move);
             return duty;
         }
 
@@ -273,7 +241,7 @@ namespace CommunityModChest.Patcher
         /// idiom GuardDutyPatch.BuildWardenDuty uses for its own WardenGapStatUid gate.</summary>
         private static object AcademyOffCondition(WorkerBeat beat)
         {
-            var condition = EmptyCondition();
+            var condition = NpcDuties.EmptyCondition();
             var trigger = Activator.CreateInstance(_statValueTriggerType);
             Reflect.SetMember(trigger, "Stat", beat.AcademyTodayStat);
             Reflect.SetMember(trigger, "TriggerRange", new Vector2(-0.5f, 0.5f));
@@ -285,19 +253,16 @@ namespace CommunityModChest.Patcher
 
         private static object NewMoveAction(string soName, List<object> envCards)
         {
-            var action = ScriptableObject.CreateInstance(_moveDutyActionType);
-            action.name = soName;
+            var action = NpcDuties.NewMoveAction(soName);
 
-            Reflect.SetMember(action, "RequiredForSelectingDuty", false);
-
-            SetEnumField(action, "MovementType", "Pathfind");
-            SetEnumField(action, "MoveDestination", "MoveToSpecificEnvironment");
+            NpcDuties.SetEnumField(action, "MovementType", "Pathfind");
+            NpcDuties.SetEnumField(action, "MoveDestination", "MoveToSpecificEnvironment");
             // Random, NOT Closest: with Closest, MoveDutyAction.FindDestination short-circuits to
             // the resident's CURRENT env the moment it is the listed destination
             // (.decomp/MoveDutyAction.cs:831-838) and they never walk anywhere again — same
             // footgun GuardDutyPatch.NewMoveAction documents, even though there's only one
             // candidate env here.
-            SetEnumField(action, "DestinationSelection", "Random");
+            NpcDuties.SetEnumField(action, "DestinationSelection", "Random");
             Reflect.SetMember(action, "MoveAwayFromDestination", false);
             Reflect.SetMember(action, "IgnoreCurrentLocation", false);
             Reflect.SetMember(action, "LeaveTracks", false);
@@ -307,83 +272,7 @@ namespace CommunityModChest.Patcher
             for (int i = 0; i < envCards.Count; i++) envArray.SetValue(envCards[i], i);
             Reflect.SetMember(action, "MoveToEnvironments", envArray);
 
-            Reflect.SetMember(action, "MoveToTags", Array.CreateInstance(_cardTagType, 0));
-            Reflect.SetMember(action, "MoveToItems", Array.CreateInstance(_cardOrTagRefWithDurabilitiesType, 0));
-            Reflect.SetMember(action, "MoveToDutyCards", Array.CreateInstance(_npcDutyType, 0));
-            Reflect.SetMember(action, "MoveCosts", Array.CreateInstance(_npcStatInstantModifierType, 0));
-            SetEnumField(action, "CostRequirements", "IgnoreCost");
-
             return action;
-        }
-
-        private static object BuildDutyRef(object duty, int baseWeight)
-        {
-            var dutyRef = Activator.CreateInstance(_npcDutyRefType);
-            Reflect.SetMember(dutyRef, "TargetDuty", duty);
-            // ActivateAutomatically (not AlwaysActive) is what re-activates this duty after a
-            // save/reload — see class doc.
-            SetEnumField(dutyRef, "ActivatingMode", "ActivateAutomatically");
-            Reflect.SetMember(dutyRef, "StartActive", true);
-            Reflect.SetMember(dutyRef, "ActivatingConditions", EmptyCondition());
-            Reflect.SetMember(dutyRef, "PreferenceWeights", EmptyWeights(baseWeight));
-            return dutyRef;
-        }
-
-        // ── shared struct builders (own copies — GuardDutyPatch.cs and AshPartnerDutyPatch.cs
-        // each already carry independent copies of this same helper set; no shared DutyBuilder
-        // utility exists in this repo to reuse instead) ─────────────────────────
-
-        private static Array BuildHourWindow(int startHour, int endHour)
-        {
-            object condition = Activator.CreateInstance(_inGameTimeConditionType);
-            SetEnumField(condition, "TimeType", "HourIs");
-            Reflect.SetMember(condition, "StartValue", startHour);
-            Reflect.SetMember(condition, "EndValue", endHour);
-            var arr = Array.CreateInstance(_inGameTimeConditionType, 1);
-            arr.SetValue(condition, 0);
-            return arr;
-        }
-
-        private static object EmptyCondition()
-        {
-            object boxed = Activator.CreateInstance(_generalConditionType);
-            foreach (var field in _generalConditionType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
-            {
-                if (!field.FieldType.IsArray) continue;
-                field.SetValue(boxed, Array.CreateInstance(field.FieldType.GetElementType(), 0));
-            }
-            return boxed;
-        }
-
-        private static object EmptyWeights(int baseWeight)
-        {
-            object boxed = Activator.CreateInstance(_npcDutyWeightsType);
-            foreach (var field in _npcDutyWeightsType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
-            {
-                if (!field.FieldType.IsArray) continue;
-                field.SetValue(boxed, Array.CreateInstance(field.FieldType.GetElementType(), 0));
-            }
-            var baseWeightField = _npcDutyWeightsType.GetField("BaseWeight", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            baseWeightField?.SetValue(boxed, baseWeight);
-            return boxed;
-        }
-
-        private static void SetEnumField(object instance, string fieldName, string enumValueName)
-        {
-            var field = instance.GetType().GetField(fieldName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            if (field == null)
-            {
-                Plugin.Logger.LogWarning($"[CottageResidentWorkDutyPatch] Enum field '{fieldName}' not found on {instance.GetType().Name}.");
-                return;
-            }
-            try
-            {
-                field.SetValue(instance, Enum.Parse(field.FieldType, enumValueName));
-            }
-            catch (Exception ex)
-            {
-                Plugin.Logger.LogWarning($"[CottageResidentWorkDutyPatch] Failed to set {instance.GetType().Name}.{fieldName} = {enumValueName}: {ex.Message}");
-            }
         }
     }
 }

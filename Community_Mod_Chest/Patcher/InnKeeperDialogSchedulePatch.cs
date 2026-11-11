@@ -196,46 +196,20 @@ namespace CommunityModChest.Patcher
             return 0;
         }
 
+        // gm and cachedStat are unused now: StatAccess.Get resolves and caches per-run itself
+        // (fleet plan section 10, W0.10 row 1 READ side). Signature kept as-is since SetStat
+        // still shares cachedStat's backing field with this method's callers.
         private static float ReadStat(object gm, ref object cachedStat, string statUid)
         {
-            cachedStat ??= _getFromIdMethod.Invoke(null, new object[] { statUid });
-            if (cachedStat == null) return -1f;
-
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return -1f;
-            if (!statsDict.Contains(cachedStat)) return -1f;
-            var inGameStat = statsDict[cachedStat];
-            if (inGameStat == null) return -1f;
-            return Reflect.GetMember(inGameStat, "SimpleCurrentValue") is float f ? f : -1f;
+            float value = StatAccess.Get(statUid);
+            return float.IsNaN(value) ? -1f : value;
         }
 
-        /// <summary>False, with one warning per stat and cause, when the stat does not resolve or does not take
-        /// the write. Callers only write after <see cref="ReadStat"/> found the stat, so a miss here is real.</summary>
-        private static bool SetStat(object gm, ref object cachedStat, string statUid, float value)
-        {
-            cachedStat ??= _getFromIdMethod.Invoke(null, new object[] { statUid });
-            if (cachedStat == null)
-            {
-                WarnOnce(statUid + ":unresolved", $"[InnKeeperDialogSchedulePatch] {statUid} did not resolve - it was not written.");
-                return false;
-            }
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict)
-            {
-                WarnOnce("statsdict-null", "[InnKeeperDialogSchedulePatch] GameManager.StatsDict is not readable - Inn Keeper stats are not written.");
-                return false;
-            }
-            var inGameStat = statsDict.Contains(cachedStat) ? statsDict[cachedStat] : null;
-            if (inGameStat == null)
-            {
-                WarnOnce(statUid + ":missing", $"[InnKeeperDialogSchedulePatch] {statUid} is not in GameManager.StatsDict - it was not written.");
-                return false;
-            }
-            if (!Reflect.SetMember(inGameStat, "CurrentBaseValue", value))
-            {
-                WarnOnce(statUid + ":write", $"[InnKeeperDialogSchedulePatch] {statUid} did not take the write (InGameStat.CurrentBaseValue).");
-                return false;
-            }
-            return true;
-        }
+        // gm and cachedStat are unused now: StatAccess.Set resolves the current run's GameManager
+        // and the stat itself (fleet plan section 10, W0.10 row 1 WRITE side), with its own
+        // one-warning-per-stat-and-cause reporting. Signature kept as-is since ReadStat still
+        // shares cachedStat's backing field with this method's callers.
+        private static bool SetStat(object gm, ref object cachedStat, string statUid, float value) => StatAccess.Set(statUid, value);
 
         /// <summary>True when a card of <paramref name="uid"/> is in GameManager.AllCards. An unreadable AllCards,
         /// or cards whose model or UniqueID never read, warn once: either looks like "not built" to the caller.</summary>

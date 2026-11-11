@@ -2,7 +2,7 @@
     "StartingPoint": false,
     "Line": {
         "LocalizationKey": "CMC_SterlingTalk_ServiceOffer_Line",
-        "DefaultText": "The Watch does not hand out pardons, but it can use honest hands. Carry firewood to the Town Wood Pile, so the village hearths do not go cold. Or, when the snow has closed a road, dig a drift clear. Come and tell me when it is done, and I will take it off your record."
+        "DefaultText": "The Watch does not hand out pardons, but it can use honest hands. Carry firewood to the Town Wood Pile, so the village does not run short. Or, when the snow has closed a road, dig a drift clear. Come and tell me when it is done, and I will take it off your record."
     },
     "PossibleAnswers": [
         {

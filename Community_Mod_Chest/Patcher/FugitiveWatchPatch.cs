@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 using HarmonyLib;
@@ -34,8 +31,6 @@ namespace CommunityModChest.Patcher
         internal const float SeedCrime = 12f;
 
         private static bool _initialized;
-        private static MethodInfo _getFromIdMethod;
-        private static object _seededStat;
         private static readonly HashSet<string> _warned = new(StringComparer.Ordinal);
 
         public static void Initialize()
@@ -90,34 +85,9 @@ namespace CommunityModChest.Patcher
             }
         }
 
-        private static object SeededStat()
-        {
-            if (_seededStat != null) return _seededStat;
-            if (_getFromIdMethod == null)
-            {
-                var uidType = CardUtil.FindGameType("UniqueIDScriptable");
-                _getFromIdMethod = uidType?.GetMethods(BindingFlags.Public | BindingFlags.Static)
-                    .FirstOrDefault(m => m.Name == "GetFromID" && !m.IsGenericMethodDefinition
-                        && m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == typeof(string));
-                if (_getFromIdMethod == null)
-                {
-                    WarnOnce("getfromid-null", "[FugitiveWatchPatch] UniqueIDScriptable.GetFromID(string) not found - Fugitive mark inactive.");
-                    return null;
-                }
-            }
-            _seededStat = _getFromIdMethod.Invoke(null, new object[] { SeededStatUid });
-            if (_seededStat == null)
-                WarnOnce("latch-missing", $"[FugitiveWatchPatch] {SeededStatUid} did not resolve - Fugitive mark inactive.");
-            return _seededStat;
-        }
-
-        private static object LatchEntry(object gm)
-        {
-            var stat = SeededStat();
-            if (stat == null) return null;
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict || !statsDict.Contains(stat)) return null;
-            return statsDict[stat];
-        }
+        // Delegates to the framework's own by-run cache (fleet plan section 10, W0.10 row 1 READ side)
+        // instead of hand-rolling UniqueIDScriptable.GetFromID + GameManager.StatsDict here.
+        private static object LatchEntry(object gm) => StatAccess.Resolve(SeededStatUid);
 
         private static float ReadLatch(object gm)
         {
@@ -126,11 +96,9 @@ namespace CommunityModChest.Patcher
             return Reflect.GetMember(entry, "SimpleCurrentValue") is float f ? f : -1f;
         }
 
-        private static bool WriteLatch(object gm, float value)
-        {
-            var entry = LatchEntry(gm);
-            return entry != null && Reflect.SetMember(entry, "CurrentBaseValue", value);
-        }
+        // Delegates to the framework's StatAccess (fleet plan section 10, W0.10 row 1 WRITE side)
+        // instead of hand-rolling GameManager.StatsDict here.
+        private static bool WriteLatch(object gm, float value) => StatAccess.Set(SeededStatUid, value);
 
         private static void WarnOnce(string cause, string message)
         {

@@ -338,7 +338,7 @@
       "bd614575807e6b54488493417146f749"
     ],
     "CapacityStats": {
-      "Foraging": { "MaxValue": 1440.0, "InitialValue": 1440.0, "RatePerDTP": -1.0 }
+      "Foraging": { "MaxValue": 720.0, "InitialValue": 720.0, "RatePerDTP": -1.0 }
     },
     "Connections": [
       {

@@ -1,0 +1,507 @@
+{
+    "UniqueID": "cmcInnRentedBed",
+    "CardType": 2,
+    "UniqueOnBoard": true,
+    "AlwaysUpdate": false,
+    "DoesNotPile": true,
+    "CannotBeTransferred": true,
+    "CannotBeTrashed": true,
+    "CardName": {
+        "ParentObjectID": "cmcInnRentedBed",
+        "LocalizationKey": "CMC_InnRentedBed_CardName",
+        "DefaultText": "Rented Bed"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcInnRentedBed",
+        "LocalizationKey": "CMC_InnRentedBed_CardDescription",
+        "DefaultText": "A made-up bed in one of the Inn's rooms, yours for the next 6 hours. Sleep in it, and if something wakes you, lie down again while the time lasts. When the time runs out the Inn Keeper takes the room back."
+    },
+    "CardImageWarpData": "BedrollPlaced",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 0,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 24.0,
+        "MaxValue": 24.0,
+        "CardStatName": {
+            "ParentObjectID": "cmcInnRentedBed",
+            "LocalizationKey": "CMC_InnRentedBed_RentalTime",
+            "DefaultText": "Room Time Left"
+        },
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 0,
+        "OverrideIconWarpData": "Spoilage",
+        "OverrideIconWarpType": 3,
+        "HasActionOnZero": true,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "cmcInnRentedBed",
+                "LocalizationKey": "CMC_InnRentedBed_TimeUp",
+                "DefaultText": "Your time in the room is up, and the Inn Keeper takes the bed back."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcInnRentedBed",
+                "LocalizationKey": "CMC_InnRentedBed_DA_Sleep",
+                "DefaultText": "Sleep"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcInnRentedBed",
+                "LocalizationKey": "CMC_InnRentedBed_DA_Sleep_Desc",
+                "DefaultText": "Rest for up to 6 hours, restoring Wakefulness and Energy. You'll wake early if your vitals reach a critical warning (thirst, temperature, bleeding, illness, or nature's call). Woken early, you can lie down again while the room is still yours."
+            },
+            "DaytimeCost": 24,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [
+                "SleepAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "ecb835c85d6df5447a38548588f4c9d6",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatInterruptions": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "10f8c7a1337ed46449f22f24013d26c3",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "Notification": {
+                        "LocalizationKey": "",
+                        "DefaultText": ""
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 30.0
+                    },
+                    "Notification": {
+                        "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Thirsty",
+                        "DefaultText": "I'm too thirsty to sleep..."
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 150.0,
+                        "y": 200.0
+                    },
+                    "Notification": {
+                        "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Hot",
+                        "DefaultText": "I'm too hot to sleep..."
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": -100.0,
+                        "y": 50.0
+                    },
+                    "Notification": {
+                        "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Cold",
+                        "DefaultText": "I'm too cold to sleep..."
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "94bafb3c1f1d4ae41894051ca1c5c54a",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 30.0
+                    },
+                    "Notification": {
+                        "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Bleeding",
+                        "DefaultText": "I'm losing too much blood..."
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 20.0,
+                        "y": 24.0
+                    },
+                    "Notification": {
+                        "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Nauseous",
+                        "DefaultText": "I'm not feeling well..."
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "16af37a364285d14586629e3e0700e55",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 74.0
+                    },
+                    "Notification": {
+                        "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Underweight",
+                        "DefaultText": "I'm not feeling well..."
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "ecb835c85d6df5447a38548588f4c9d6",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 12.0,
+                        "y": 24.0
+                    },
+                    "Notification": {
+                        "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Storm",
+                        "DefaultText": "I can't sleep in the middle of a storm!"
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "6463ed10fe0942e4993dbdab67c0c5a1",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 43.0,
+                        "y": 48.0
+                    },
+                    "Notification": {
+                        "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Bladder",
+                        "DefaultText": "I really need to Pee!"
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e75e3b618f3185d4ba088108d39023a2",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 336.0,
+                        "y": 384.0
+                    },
+                    "Notification": {
+                        "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Bowel",
+                        "DefaultText": "I really need to Poop!"
+                    }
+                }
+            ],
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "10f8c7a1337ed46449f22f24013d26c3",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -1.0,
+                        "y": -1.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": true
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 23.0,
+                        "y": 23.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": true
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -0.5,
+                        "y": -0.5
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "c672b35248e9f2349a084e1514d6c9f8",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -1.25,
+                        "y": -1.25
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "07f59e0f9e41a214c85ffa3078273264",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 4.0,
+                        "y": 4.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "92aae542f8489f643bd9498cc8e077bc",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -4.0,
+                        "y": -4.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "15cc9a2e63deafa4185a6344a22c442e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -5.0,
+                        "y": -5.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "a21c27d9d22cb4b4285157bfe6b3535b",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -6.5,
+                        "y": -6.5
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "e5f80e034c362b04eb782384fbdccc78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -9.0,
+                        "y": -9.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.5,
+                        "y": 1.5
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": true
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5.0,
+                        "y": 5.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": true
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "5c42aacf9a2584f4fb44e69e4da8e369",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -1.0,
+                        "y": -1.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "ApplyEachTick": true,
+                    "InstantModifier": false
+                }
+            ],
+            "ProducedCards": [],
+            "ReceivingCardChanges": {
+                "ModType": 0
+            }
+        }
+    ]
+}

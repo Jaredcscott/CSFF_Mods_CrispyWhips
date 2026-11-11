@@ -37,9 +37,9 @@ namespace CommunityModChest.Patcher
 
         /// <summary>Charge multiplier while Suspected (1-24 crime). 1 means no markup: the Fugitive trait starts here.</summary>
         internal const float SuspectedMarkup = 1.00f;
-        /// <summary>Charge multiplier while Wanted (25-59 crime): a meal or bed 50 becomes 60, tuition 100 becomes 120.</summary>
+        /// <summary>Charge multiplier while Wanted (25-59 crime): a bed 50 becomes 60, a meal 30 becomes 36, tuition 100 becomes 120.</summary>
         internal const float WantedMarkup = 1.20f;
-        /// <summary>Charge multiplier while Banished (60+ crime): 50 becomes 75, 100 becomes 150.</summary>
+        /// <summary>Charge multiplier while Banished (60+ crime): 50 becomes 75, 30 becomes 45, 100 becomes 150.</summary>
         internal const float BanishedMarkup = 1.50f;
 
         /// <summary>Earn factor while Wanted. 1 means the stall is unaffected until Banished.</summary>

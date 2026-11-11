@@ -81,7 +81,6 @@ namespace CommunityModChest.Patcher
 
             public object Agent;        // NPCAgent, resolved lazily
             public object LiveNpc;      // cached InGameNPC, validated by FindLiveNpc before trusting it
-            public object MoveInStat;   // GameStat SO, resolved lazily
         }
 
         private static readonly Resident[] Residents =
@@ -214,12 +213,10 @@ namespace CommunityModChest.Patcher
             return true;
         }
 
-        // Move-in stat read/write — the InnKeeperDialogSchedulePatch idiom: read
-        // SimpleCurrentValue, write CurrentBaseValue, both on the live InGameStat pulled from
-        // GameManager.StatsDict. The read half is runtime-verified (LostCatPatch, InnKeeper
-        // Phase 1 acid test); the CurrentBaseValue write half is authored-per-memory
-        // (reference_gamestat_direct_csharp_write) but still awaits its own in-game
-        // verification. Returns -1 when the stat isn't resolvable yet (pre-init).
+        // Move-in stat read via SimpleCurrentValue on the live InGameStat StatAccess.Resolve
+        // resolves (fleet plan section 10, W0.10 row 1 READ side); the write half goes through
+        // StatAccess.Set (row 1 WRITE side, below). Returns -1 when the stat isn't resolvable
+        // yet (pre-init).
         private static float GetMoveInDay(object gm, Resident resident)
         {
             var inGameStat = ResolveMoveInStatInstance(gm, resident);
@@ -227,22 +224,13 @@ namespace CommunityModChest.Patcher
             return Reflect.GetMember(inGameStat, "SimpleCurrentValue") is float f ? f : -1f;
         }
 
-        private static void SetMoveInDay(object gm, Resident resident, float value)
-        {
-            var inGameStat = ResolveMoveInStatInstance(gm, resident);
-            if (inGameStat == null) return;
-            Reflect.SetMember(inGameStat, "CurrentBaseValue", value);
-        }
+        // Delegates to the framework's StatAccess (fleet plan section 10, W0.10 row 1 WRITE side)
+        // instead of hand-rolling GameManager.StatsDict here.
+        private static void SetMoveInDay(object gm, Resident resident, float value) => StatAccess.Set(resident.MoveInStatUid, value);
 
-        private static object ResolveMoveInStatInstance(object gm, Resident resident)
-        {
-            resident.MoveInStat ??= _getFromIdMethod.Invoke(null, new object[] { resident.MoveInStatUid });
-            if (resident.MoveInStat == null) return null;
-
-            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict) return null;
-            if (!statsDict.Contains(resident.MoveInStat)) return null;
-            return statsDict[resident.MoveInStat];
-        }
+        // Delegates to the framework's own by-run cache (fleet plan section 10, W0.10 row 1 READ side)
+        // instead of hand-rolling UniqueIDScriptable.GetFromID + GameManager.StatsDict here.
+        private static object ResolveMoveInStatInstance(object gm, Resident resident) => StatAccess.Resolve(resident.MoveInStatUid);
 
         // Global built-state check over GameManager.AllCards (every environment, not just the
         // current board) — same idiom as InnKeeperDialogSchedulePatch.CardExistsAnywhere.

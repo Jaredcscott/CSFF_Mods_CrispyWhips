@@ -1,41 +1,52 @@
 # Roadmap: Community Mod Chest
-Version at time of writing: 1.69.24
-Date: 2026-10-27
-Audit score: 10/10 - PASS (0 CRITICAL)
+Version at time of writing: 1.70.2
+Date: 2026-11-07
+Audit score: 9/10 - PASS (0 CRITICAL)
 
 ## Current State
 
-**Theme**: A broad community-suggested content collection for Card Survival: Fantasy Forest - apparel/armor, character traits, pottery and sculpting, camp decor, fishing gear, and a full east-of-the-river village simulation (Inn with an achievement board, Academy with seven courses, residents with errands and schedules, guards, clay digging, a market stall) plus disciplined optional cross-mod interop. Audited module-by-module (`Modules.json`: 15 modules + a mod-wide bucket).
+**Theme**: A broad community-suggested content collection for Card Survival: Fantasy Forest - apparel/armor, character traits, pottery and sculpting, camp decor, fishing gear, cats/companions, and a full east-of-the-river village simulation (Inn with an achievement board, Academy with seven courses, residents with errands and schedules, a Town Watch with crime/jail/escape, clay digging, a market stall) plus disciplined optional cross-mod interop. Audited module-by-module (`Modules.json`: 14 content modules + a mod-wide bucket).
 
-**Content**: 117 items / 108 blueprints / 97 locations / 9 CT4 environments / 7 CT10 improvements / 60 perks / 256 custom images / 363 GameStats / 95 C# patcher files.
+**Content**: 118 items / 109 blueprints / 98 locations / 60 perks / 256 custom images / 363 GameStats / 2 STA / 97 C# patcher files.
 
-**Stability**: 10/10 - 0 CRITICAL (3 X1 cross-mod refs are HIDE/STRIP-covered), 0 open Design Gap, 4 counted low WARNING (civic `VillageReputationPatch`/`VillageClock` and inn `InnKeeperDialogSchedulePatch`: silent fail-closed stat read/write exits; 4 < the 5-warning dock, so the mod stays 10/10 while the civic and inn modules themselves are each 10/10). The academy module's two prior warnings (G5 diploma-latch key, G2 stale diagnostics) are closed in source and it is back to 10/10. K33 x4 and A10 diagnostics are by design; 1 open MINOR (S-M2, documentation scope). 13 of 15 modules SOLID with zero open findings.
+**Stability**: 9/10 - 0 CRITICAL (3 X1 cross-mod refs HIDE/STRIP-covered; the B7b version mismatch is resolved, all three strings 1.70.2), 0 open Design Gap, 0 red retrospectives. The one-point dock is the 69th-pass module re-audits crossing the 5-warning threshold: seven module critical-analyses read SHIPS WITH CAVEATS (academy, apothecary, companions, forage, gear, home, modwide) and two code-quality modules score 9/10 (companions, inn). None is progression-blocking; every advertised loop is wired. Two prior defects closed this pass (companions W1/W2 silent stat helpers; home G3 Garden Trellis unbuildable). Score unchanged from the 2026-11-04 consolidation.
 
-**Open work**: No red retrospectives. 2 CMC-scoped yellow Pending Verification rows, each needing a live in-game confirmation rather than code: `cmc-guard-combat-no-damage` (law, T4.35), `guard-kill-despawn` (law, not re-verified since 1.54.3). Plus the four civic/inn code-quality warnings (Phase 1). `cmc-village-hearth-fuel-not-refilling` and `CMC-HSP-compat` graduated since the last roadmap.
+**Open work**:
+- 1 CMC yellow Pending Verification retro: `cmc-guard-combat-no-damage` (law, T4.35) - a live in-game read, not code. This retro also pins the modwide A10 fix (its diagnostic is the confirmation signal).
+- Reliability/mechanical fixes surfaced by the module re-audits (Phase 1): academy G3 (satchel-contaminated eligibility stat hides Professor dialog/commission - now reaches ALL installs); companions Ash-loss G5 + A10; gear G5/M5; apothecary MC1/MC2; modwide A10; inn W1; law G5/F1; text fixes (forage Silverwort, home rope/twine, Wicker Chair); a low defensive cluster across most modules.
+- Unshipped built work: `Documentation/Design/Community_Mod_Chest_Nexus_Requests_As_Built.md` rows 1.1-1.9 (archived 2026-11-06; Nexus player requests) are built and in `CHANGELOG.md`, not released - and must batch with `CSFFModFramework` 2.29.0 to Nexus (framework-batching rule; Nexus serves CMC 1.69.26).
 
-**Framework compliance**: Tier 2. ~72 C# files use `ActionRouter` / `SpawnService` / `TickEvents` / `ContentModPlugin`. `ContentModPlugin` base with `SoftDependency` and per-patch `TryApply` (no `PatchAll`), no ModCore/ModLoader/Pikachu dependency, no deprecated `DropCollectionGuardPatch`, no unfiltered hot-path prefixes. Already on the proven H&F architecture.
+**Framework compliance**: Tier 2. ~78 C# files use `ActionRouter` / `SpawnService` / `TickEvents` / `ContentModPlugin` / `Api.*`. `ContentModPlugin` base with `SoftDependency` and per-patch `TryApply` (no `PatchAll`), no ModCore/ModLoader/Pikachu dependency, no deprecated `DropCollectionGuardPatch`, no unfiltered hot-path prefixes. On the proven H&F architecture. The Fleet StatAccess migration (69th pass) moved several modules' hand-rolled stat reads onto `StatAccess.Get/Set`, which `WarnOnce`s per cause - this is what closed companions W1/W2.
 
 ---
 
-## Phase 0: Stabilize  *(skipped - audit score 10/10, no red retrospectives)*
+## Phase 0: Stabilize  *(no blocking work - audit score 9/10, 0 red retrospectives)*
 
-No blocking work. The 2 yellow retros are human-verification debt, not code defects; they live in the playthrough tracker, not a code phase.
+No CRITICAL, no Design Gap, no red retro. The open items are reliability polish and an unshipped release, not blockers; they live in Phase 1. The one yellow retro (`cmc-guard-combat-no-damage`) is human-verification debt in the playthrough tracker, not a code phase.
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes maintenance. The four civic/inn G5 breadcrumbs are the only live code items; the rest are satisfied and listed for the maintenance record.
+> The live code items this pass. All are one-line breadcrumbs, a stat-split, a log demotion, a dialog-gate reword, a signpost edit, a Sanctuary-passive parity, or release hygiene - none architectural.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **Civic G5 x2**: add a `WarnOnce(uid, ...)` breadcrumb at `VillageReputationPatch.GetStatValue` unresolved return (`:343`) and at each of `VillageClock.WriteStat`'s five silent failure exits (`:221`). Same silent-fail-closed class the academy module just closed | Reliability | P1 | Quick |
-| **Inn G5 x2**: breadcrumb `InnKeeperDialogSchedulePatch.ResolveTypes` miss (`:86`) and the `ReadStat` unresolved/dict-miss return (`:155`). The 1.69.24 pass hardened other inn write sites but left these read/resolve exits silent | Reliability | P1 | Quick |
-| ~~Academy G5 / G2~~ | Reliability/Maintainability | - | Done: `deb65a230` (diploma-latch own key), `3fcb41fd9`/`feeed34cd` (write checks), `34eed4b10` (August diagnostics deleted); academy module 10/10 |
-| Versions synced across ModInfo/Plugin.cs/README (1.69.24 x3) | Version hygiene | - | Done |
-| Chinese localization parity (CLEAN 3442+/3442+) | Localization | - | Done |
-| Framework Tier 2 adoption (~72 C# files) | Framework | - | Done |
-| Unquoted-internal-comma detection | Localization hardening | - | Done: `Check-LocalizationParity.ps1` row E24 |
+| **Academy G3**: split the satchel-contaminated `cmcStatProfEligible<Course>` - give the six course-acknowledgment dialog options and the Applied Herbalism commission a graduation-only NPCStat (no `held < cap` term), keep `cmcStatProfEligible<Course>` for the specialty-stock AgentAction. `ProfessorSchedulePatch.cs:763`. **Reaches all installs** (five of six pools resolve a vanilla/CMC card); hides a one-time line + the Herbalism commission | Mechanical fix | P1 | Medium |
+| **Companions Ash silent-loss (G5)**: capture the combined `SetDurability` bool across `ResolveQuarry`'s `ReturnStats` loop (and the `:381` trail write) and `WarnOnce` on a dropped `false` - today a silently-failed write brings Ash home at 0 stats and loses him with only a Debug line. Match the sibling Shadow `WriteReturnStats`. `AshBoarHuntPatch.cs:487-488` | Reliability | P1 | Quick |
+| **Companions A10**: demote `PartnerIndoorFollowPatch`'s Info lines on the Inn/Academy door path (`:116,153,170,174`) to `LogDebug`; keep the real-relocation line + the MoveTo-failed warning | Log hygiene | P1 | Quick |
+| **Gear G5 + M5**: warn-once before each null/`is not` return in `ArmorCardsPatch` (armor silently stops reducing damage on a game-update rename); set the Iron Fishing Rod's `UnlockConditionsDesc` + both CSV rows to name the Academy Fishing course (as `Bp_CMC_TrainingPost` does) | Reliability + player clarity | P1 | Quick |
+| **Apothecary MC1 + MC2**: reword the Herb Quest offer/thanks (+ CSV) to "three forest herbs" (or sub-counter each ingredient) so the "all three" line is true; gate the three quest-thanks lines on `cmcStatVillageCrime [0,59]` (NOT `[0,24]` - they carry the `BlueprintsFullUnlock`) or make them tone-neutral toward a Wanted player | Narrative/mechanic | P1 | Quick |
+| **Modwide A10**: gate `GuardCombatDiagnosticPatch`'s `TryApply` behind `EnableGuardDiagnostics` and/or demote its per-round `LogDamage` line - **but only in step with retiring retro `cmc-guard-combat-no-damage`, which names that Info line as its confirmation signal** | Log hygiene (retro-gated) | P1 | Quick |
+| **Inn W1 + law G5/F1**: prefer exact `ActionKeyPrefix` over substring `Contains` in `InnPatch`; `WarnOnce` on `GuardOutcomePatch`'s reflection-miss combat-tell exit and cache its per-poll `GetStatValue` MethodInfo | Reliability + maintainability | P1 | Quick |
+| **Text fixes**: drop "only" from Silverwort Blossom's description (or remove its High Grove drop); change "rope" -> "twine" in the Garden Trellis BP + `SimpEn.csv:360` + `SimpCn.csv:422`; give the Wicker Chair a Sanctuary passive or drop its no-op "Sit" | Description/content | P2 | Quick |
+| **Defensive cluster**: warn-once breadcrumbs on the non-throwing reflection-miss exits (modwide A2/G5x2, world, residents x2, achievements, apothecary SyncPortrait, apparel falsy-zero + F2, companions AshPartnerDuty, traits x2). All below each module's own dock; batch them | Reliability (low) | P2 | Quick |
+| **Tooling (not a mod change)**: teach `Development_Tools/Audit-Mod-Preflight.ps1` to read GameStat `Statuses[].IconWarpData` for M11 and to treat `KitContents.json` `Items[].Card` as a producer for acquisition coverage - the M11 trait-art and K33 landmark rows are pre-flight false positives | Tooling | P2 | Quick |
+| **Release the built Nexus-fix work** (rows 1.1-1.9) with a version bump + CHANGELOG lines, batched with `CSFFModFramework` 2.29.0 to Nexus | Release hygiene | P1 | Medium |
+| Versions synced across ModInfo/Plugin.cs/README (1.70.2); B7b mismatch resolved | Version hygiene | - | Done |
+| Chinese localization parity (CLEAN 3456/3456) | Localization | - | Done |
+| Framework Tier 2 adoption (~78 C# files; StatAccess migration) | Framework | - | Done |
+| Companions W1/W2 (silent stat helpers); home G3 (trellis unbuildable); civic/inn G5; academy G5/G2/room-check | Reliability | - | Done (StatAccess / `4c2fdf998` / 1.69.25 / `a782767567`) |
 
 ---
 
@@ -43,9 +54,9 @@ No blocking work. The 2 yellow retros are human-verification debt, not code defe
 
 > CMC is already very broad; there is no obvious core-loop gap. Expansion should be demand-driven (new community suggestions), not invented here.
 
-### Refresh the remaining domain sub-audits
-**What**: `items-report` and `perks-report` were fully re-run 2026-10-20 (both 0 CRITICAL / 0 WARNING / 0 Design Gaps). The blueprints, structures, environments and images reports still date 2026-09-05 to 2026-09-12 and the feature map to v1.68.16; all predate the latest source commit (`4565f8d609`, CMC 1.69.24). Re-run `/audit-blueprints`, `/audit-structures`, `/audit-environments`, `/audit-images` and `/feature-map Community_Mod_Chest`, then `/consolidate-audit Community_Mod_Chest`.
-**Why**: every finding they carry was re-checked by hand and none is open but S-M2, so the reports over-report; `/audit-structures` also replaces S-M2's out-of-date tag table.
+### Refresh the stale domain sub-audits
+**What**: `items-report` and `perks-report` were fully re-run 2026-10-20 (both clean). The blueprints, structures, environments and images reports still date 2026-09-05 to 2026-09-12 and the feature map to v1.68.16; all predate the latest source commit (`bd2c2b701`). Re-run `/audit-blueprints`, `/audit-structures`, `/audit-environments`, `/audit-images` and `/feature-map Community_Mod_Chest`, then `/consolidate-audit Community_Mod_Chest`.
+**Why**: every finding they carry was re-checked by hand and none is open but S-M2, so they over-report; `/audit-structures` also replaces S-M2's out-of-date tag table.
 **Requires**: none.
 **Complexity**: Medium.
 
@@ -53,13 +64,21 @@ No blocking work. The 2 yellow retros are human-verification debt, not code defe
 
 ## Phase 3: Integration & Depth
 
-> Cross-mod interop is already wired and HIDE-gated; depth here is maintenance, not new build.
+> Cross-mod interop is already wired and HIDE-gated; depth here is maintenance plus one pending contribution.
 
 ### Keep the four interop partners healthy
-**What**: HerbsAndFungi (hemp, Inn foods), Sirus23 (wool apparel, Inn cheese), AdvancedCopperTools (Inn teas, Armorer course grants five ACT armor recipes), DurosCoinage (Market Stall coins). Each foreign UID is HIDE/STRIP-gated per `Interop_Registry.md` (`Patcher/AcademyCourseService.cs`) and re-arms if the partner installs later.
+**What**: HerbsAndFungi (hemp, Inn foods, forage), Sirus23 (wool apparel, Inn cheese), AdvancedCopperTools (Inn teas, Armorer course grants five ACT armor recipes), DurosCoinage (Market Stall coins). Each foreign UID is HIDE/STRIP-gated per `Interop_Registry.md` (`Patcher/AcademyCourseService.cs`) and re-arms if the partner installs later.
 **Why**: a partner-mod data rename silently breaks the gated content; the X1 preflight pins (`Preflight-CrossModRefs.Tests.ps1:51-53`) catch structural drift.
 **Requires**: coordination with each partner mod's release.
 **Complexity**: Medium (only when a partner changes).
+
+### Fold Chiwei's CustomMouse + AudioFixes into a common-patches mod (Nexus c178551927; parked 2026-11-06 from the archived plan's row 1.8)
+**What**: Chiwei offered their CustomMouse and AudioFixes mods, with source, for a new common-patches mod.
+**Why**: a community contribution; the owner accepted the direction.
+**Requires**: Chiwei's source upload + licence/credit terms agreed (as with the Lamp Oil port); check overlap with framework 2.29.0's sound-name fix.
+**Waiting on**: Chiwei's upload of the source ("I will upload the mod's source code"); nothing to read until then. When it lands, write a new plan under `Documentation/Plans/Community_Mod_Chest/`.
+**Unknown**: which "new mod" Chiwei means.
+**Complexity**: Medium (blocked on the upload).
 
 ---
 
@@ -69,11 +88,9 @@ No blocking work. The 2 yellow retros are human-verification debt, not code defe
 
 | Item | What | Complexity |
 |------|------|------------|
-| Verify the 2 yellow retros in-game | Guard-combat damage (T4.35), guard-kill despawn; results recorded via `/playthrough-test-plan record` | Medium (human) |
-| S-M2 tag-vocabulary scope line | Next `/audit-structures` pass writes the measured non-vanilla tag counts (2026-10-20: `tag_Structure` 65, `tag_Furniture` 17, `tag_Wood` 2, `tag_x_WaterSource` 2 across CT2/CT10). Documentation only; the tags stay | Quick |
-| ~~Village Hall README cost~~ | Resolved at HEAD (`README.md:124` now states the full 7-stage total) | Done |
-| ~~Academy warnings~~ | G5 + G2 closed in source; academy module 10/10 | Done |
-| ~~Perk description CSV/JSON alignment~~ | Resolved (P-F1, 1.68.35 onward) | Done |
+| Verify the yellow retro in-game | Guard-combat damage for Thorne/Corrin/Vane (T4.35); results recorded via `/playthrough-test-plan record`. Closing it unblocks the modwide A10 diagnostic demotion | Medium (human) |
+| Wicker Chair | Give the placed chair a Sanctuary passive (Log Bench parity) or drop the no-op "Sit" - a buildable seat that does nothing (home G8) | Quick |
+| S-M2 tag-vocabulary scope line | Next `/audit-structures` pass writes the measured non-vanilla tag counts (2026-10-20: `tag_Structure` 65, `tag_Furniture` 17, `tag_Wood` 2, `tag_x_WaterSource` 2). Documentation only; the tags stay | Quick |
 
 ---
 
@@ -81,13 +98,13 @@ No blocking work. The 2 yellow retros are human-verification debt, not code defe
 
 > Where CMC should be at v1.70+.
 
-CMC is a stable, mature content-and-simulation anchor for the fleet - in active-workspace maintenance, not feature expansion. Its natural endpoint is a village simulation whose every advertised loop is confirmed in-game, with the retro backlog closed, the civic/inn reliability breadcrumbs added, and the domain sub-audits refreshed. `CompanionFollowDiagnostics` retired 2026-10-29 (companions module audit) once T2.237 confirmed the companion-follow fix (PASS 2026-10-05, reconfirmed 2026-10-14); the remaining justified future work is retiring `GuardCombatDiagnosticPatch` once its own open retro (`cmc-guard-combat-no-damage`) confirms.
+CMC is a stable, mature content-and-simulation anchor for the fleet - in active-workspace maintenance, not feature expansion. Its natural endpoint is a village simulation whose every advertised loop is confirmed in-game, with the one yellow retro closed, the module reliability breadcrumbs added (the Ash silent-loss path first), the built Nexus-fix release shipped (batched with framework 2.29.0), and the stale domain sub-audits refreshed. `CompanionFollowDiagnostics` retired 2026-10-29; the remaining justified diagnostic retirement is `GuardCombatDiagnosticPatch`, once its own retro (`cmc-guard-combat-no-damage`) confirms.
 
-**Potential major additions** (not yet justified - revisit after the retro backlog closes):
+**Potential major additions** (not yet justified - revisit after the reliability pass and the Nexus-fix release):
 - A declarative `Modifiers.json` / `FlavourMatrix` pass if community suggestions call for food-synergy depth - fits the Inn/cooking theme.
 - Further Academy courses only if a concrete community request arrives - the seven-course frame is complete as shipped.
 
-Anything worth building belongs in a `Documentation/Plans/Community_Mod_Chest/MASTER_PLAN.md` (the plan library is currently drained); never a stub under `Documentation/Ideas/`.
+Anything worth building belongs in a plan under `Documentation/Plans/Community_Mod_Chest/` (none open since 2026-11-06, when the Nexus-request plan was archived to `Documentation/Design/Community_Mod_Chest_Nexus_Requests_As_Built.md`); never a stub under `Documentation/Ideas/`.
 
 ---
 
@@ -100,6 +117,7 @@ Anything worth building belongs in a `Documentation/Plans/Community_Mod_Chest/MA
 | After fixing a defect | Run `/critical-analysis Community_Mod_Chest` to verify |
 | Partner-mod release | Re-check the X1 HIDE/STRIP pins in `Preflight-CrossModRefs.Tests.ps1` |
 | A yellow retro confirmed in-game | `/resolve-retro <slug>`, then demote its diagnostic logging |
+| Before a Nexus upload | Confirm the framework-batching constraint (CMC 1.69.26+ needs framework 2.29.0 live) and run `python Development_Tools/Check-KnownReds.py check` |
 
 ---
 
@@ -113,7 +131,7 @@ Anything worth building belongs in a `Documentation/Plans/Community_Mod_Chest/MA
 /repair-blueprints Community_Mod_Chest  - auto-fix blueprint JSON issues
 /build-mod Community_Mod_Chest          - build Release DLL
 /deploy-mods Community_Mod_Chest        - build + deploy to game
-/playthrough-test-plan                  - file/record the 2 yellow-retro checks
+/playthrough-test-plan                  - file/record the yellow-retro check
 /export-to-repo Community_Mod_Chest     - push to public repo
 ```
 
@@ -586,3 +604,44 @@ Anything worth building belongs in a `Documentation/Plans/Community_Mod_Chest/MA
 - **Pruned:** every prompt-shaped instruction in the plan (section 1.6 open-question defaults, 1.8 Waves 0-2, Part II section 4 owner-first list, section 7 build note, section 8 pointer, the 2026-10-15 status banner); the whole pack (Prompts 1-24 and the 3 OPEN-DECISION lines). The plan's own Execution Status journal is kept in the as-built record.
 - **Evidence:** every prompt's landing commit is an ancestor of HEAD (checked with `git merge-base --is-ancestor`, 31 commits: Wave 0 `4082d5014` `ee9b20288` `d1bfb5bf2` `4a330bd3b`; Wave 1 `2604a0915` `4482f105d` `4635c93ba` `69e6e5c51` `0a4d4799f` `c5a4e463d` `f1f53df16` `e0b09bebc` `43f787871` `fe9c3b9ae` `cf0a07482`; closeout `6b1b25b5f`; Wave 2 `8e2ee0099` `4947a2835` `f6374213d`; Part II `fc7503360` `83f7e8100` `7c46bf00a` `3a22abd56` `ce2773158` `6bc370183` `adbf07cc6` `2764bb143` `6cbe3453e` `33618fbde` `80ddb1915`), and the post-closeout fixes and owner calls `77d22f098` `64b67dd83` `d2c46f2b1` `2763cb129` `249502074` `7c2d62315` `232d3e9bc` `aab4968c1` `c004180a2` `63b6fd676`. Escape measured with `TestHarness/client/bench_cmc_escape_timing.py`: 5.4 to 7.1 in-game days on the first tuning (`f6374213d`), 3.5 to 4.8 over four runs after the retune (`232d3e9bc`, raw files under `Documentation/Research/Community_Mod_Chest/escape_timing_2026-10-18*`). Gates as recorded by the builders: the full CMC Pester set 1143 passed at `80ddb1915`; harness PASS on the final DLL in rig 2 for 16 rows (`85a7d08d9`: T2.947, T2.1452, T2.904, T2.1461, T2.1462, T2.1464-T2.1468, T2.1469-T2.1472, T4.26, T2.1735). Tracker ids re-read in `.claude/playthrough-test-status.json` by their `id` field (a first read keyed on the row name found none; the control T2.1456 was then found by grep and every id below resolved).
 - **Verification debt:** pending, a human in a window: T2.1454 (cave and ledge read right), T2.1455 (ladder in the project panel), T2.1456 (full escape length judged), T2.1457 (Professor's nuggets smelt as copper), T2.1458 (winter scarcity), T2.1459 (net through the Ice Hole), T2.1461 (escort), T2.1462 (amends) and its four per-resident halves T2.1469-T2.1472 (Weaver, Apothecary, Inn Keeper, Professor), T2.1463 (course teaches a skill), T2.919 (Apothecary's Road window), and the Part II rows T2.1726, T2.1727, T2.1731, T2.1733, T2.1735. Already confirmed: T2.941, T2.1460, T2.1464-T2.1468, T2.1724, T2.1725, T2.1728-T2.1730, T2.1732, T2.1734, T2.1736, T2.1737. Release not done: CMC 1.69.19 is built and harness-tested but not deployed to the real install or published (Nexus holds 1.69.18).
+
+
+### 2026-11-06 - Fleet_APE_Port
+Scope: Fleet
+- **Verdict:** Fully landed. Section 10 (W0.10) rows 11 and 14 - the plan's last two open code
+  rows - built, build-verified across every affected mod, and gate-verified in Prompts 45 and
+  46 (`Api.Npc.RegisterMoveGuard`/`MoveGuardPatch` for row 11; `GameQuery.IsInPlayerEnv` made
+  public plus 3 call-site migrations for row 14). Every other section (1, 2, 3, 4.1, 5.1, 5.7,
+  6.4, 6.5, 8, 9) was already reduced to as-built lines in earlier prompts. 0 open code rows
+  remain in the plan or its pack.
+- **Disposition:** ARCHIVE - plan doc moved to `Documentation/Design/Fleet_APE_Port_As_Built.md`
+  (full history preserved, nothing summarized away). Pack
+  (`MASTER_PLAN_Implementation_Prompts.md`) DELETED per policy (packs are always deleted, never
+  archived); its citations elsewhere were repointed to the landing commit of the row each one
+  names, since no archive exists for it.
+- **Pruned:** `Documentation/Plans/Fleet/MASTER_PLAN.md` and
+  `Documentation/Plans/Fleet/MASTER_PLAN_Implementation_Prompts.md`, both now removed from
+  `Documentation/Plans/Fleet/`.
+- **Evidence:** Row 11 commit `9a5305424` (Prompt 45, `Api.Npc.RegisterMoveGuard` +
+  `MoveGuardPatch`, collapsed into the pack by `a3c7ab227`); row 14 commit `5c28c03e4` (Prompt
+  46, `GameQuery.IsInPlayerEnv` public plus the 3 call-site migrations in one commit, collapsed
+  into the pack by `e01e911ef`); unrelated pre-existing gate fix found during verification,
+  commit `6f0a0bc91` (`CMC-SilentExits.Tests.ps1`, 3 stale rows from the earlier StatAccess
+  migration); citation sweep commits `6567bc510` (`.claude/playthrough-test-status.json`
+  private-index fix) and `e01776032` (gate comment + `AUTHORING.md`). `python3 -c` count against
+  `.claude/playthrough-test-status.json`'s `items` bucket for rows citing
+  `Fleet_APE_Port_As_Built.md`: 4 pending, 0 dropped; `confirmedItems` bucket: 25 already
+  confirmed. `git status --porcelain -- Documentation/Plans/Fleet/` empty after the move.
+- **Verification debt:** 4 rows still `pending` in `.claude/playthrough-test-status.json`
+  `items` as of this sweep: `cmc_homestead_kit_metal_nuggets`,
+  `fw_mod_action_sounds_resolve_smithing_heard`, `fw_heated_metal_art_look_person`,
+  `act_metal_gloves_art_look_person`. Per CLAUDE.md "code work never waits on a human
+  playthrough," these do not block this archival; they remain open tracker rows for a future
+  human playthrough pass to confirm.
+
+### 2026-11-06 - MASTER_PLAN (Nexus player requests, plan closed)
+- **Verdict:** counts: 9 plan rows (1.1 to 1.9): 8 built (1.1-1.7, 1.9), 0 open code rows, 1 parked by owner decision (1.8). Of the 11 runtime rows cited below, 7 are confirmed and 4 pending.
+- **Disposition:** ARCHIVE - `Documentation/Plans/Community_Mod_Chest/MASTER_PLAN.md` moved to `Documentation/Design/Community_Mod_Chest_Nexus_Requests_As_Built.md`. Rows 1.1-1.7 and 1.9 BUILT; 1.3's eight owner calls decided 2026-11-05 and built (commit `a79da9926`); row 1.9's missing runtime row filed as T2.2211 (`a17052230`). Row 1.8 parked in Phase 3 above by owner decision 2026-11-06 (no code can be written before Chiwei's upload).
+- **Evidence:** commits `a79da9926`, `a17052230` and `d6bb493ae` resolve (`git cat-file -e`, 3 of 3; control `deadbeef1` rejected); `Documentation/Design/Community_Mod_Chest_Nexus_Requests_As_Built.md` exists and `Documentation/Plans/Community_Mod_Chest/` does not; all 11 tracker ids are present in HEAD's `.claude/playthrough-test-status.json` (Verdict and Evidence lines added 2026-11-06 in a later pass, which also found T2.2148-T2.2153 and T2.2155 already in `confirmedItems`, confirmed 2026-11-03).
+- **Verification debt:** runtime rows T2.2170-T2.2172 and T2.2211 stay `pending` in `.claude/playthrough-test-status.json` (T2.2148-T2.2153 and T2.2155 were confirmed 2026-11-03); per CLAUDE.md "code work never waits on a human playthrough" they do not block this archival.
+- **Release:** the rows are in `CHANGELOG.md` (1.70.0 and `[Unreleased]`); nothing here was pushed or uploaded.

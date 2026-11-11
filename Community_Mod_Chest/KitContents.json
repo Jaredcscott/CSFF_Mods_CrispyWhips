@@ -1,6 +1,6 @@
 [
   {
-    "_comment": "Founders Kit trait (traits_perk_homestead) delivery: the perk grants one Homestead Kit (600 weight) instead of the cabin kit, two cistern kits and the stockpile, which summed well past the 4000 Encumbrance cap. The kit's own Place DismantleAction destroys it (CMC_HomesteadKit.json); CSFF Mod Framework 2.29.0+ then spawns these on the current board (vanilla never processes CardsToCreate on a DismantleAction). Heavy Stone and Tree Log are viable because they land on the ground, never carried. Counts from the vanilla balance pass (1.69.17, plan Part II CMC-V-B11), about half the old stockpile. This kit has no Metal Nuggets, unlike HomesteadPerks' (fleet plan 6.7 kept each kit's own list). Until CMC 1.69.26 this list lived in Patcher/HomesteadKitPatch.cs.",
+    "_comment": "Founders Kit trait (traits_perk_homestead) delivery: the perk grants one Homestead Kit (600 weight) instead of the cabin kit, two cistern kits and the stockpile, which summed well past the 4000 Encumbrance cap. The kit's own Place DismantleAction destroys it (CMC_HomesteadKit.json); CSFF Mod Framework 2.29.0+ then spawns these on the current board (vanilla never processes CardsToCreate on a DismantleAction). Heavy Stone and Tree Log are viable because they land on the ground, never carried. Counts from the vanilla balance pass (1.69.17, plan Part II CMC-V-B11), about half the old stockpile. This kit now also grants 9 Metal Nuggets, matching HomesteadPerks' (owner decision K6, fleet plan 7, 2026-11-05). Until CMC 1.69.26 this list lived in Patcher/HomesteadKitPatch.cs.",
     "Kit": "cmchomesteadkit",
     "ActionNamePrefix": "Place",
     "Name": "Homestead",
@@ -15,6 +15,7 @@
       { "_card": "Tree Log (vanilla's felled Large Oak: Fragrance 18, Fuel 35, Quality 96, ID 1, TreeLargeOak Progress.OnZero)", "Card": "0ab556ab6af1efc47a2cba5cdf4ace04", "Count": 6, "Stats": { "UsageDurability": 18, "FuelCapacity": 35, "SpecialDurability2": 96, "SpecialDurability4": 1 } },
       { "_card": "Clay (quality 30 = 60% of its 50 cap; a bare spawn rolls 0-50, player report Chiwei 2026-09-27)", "Card": "68c14d265ea6c874ba79444d2e1ef7b3", "Count": 10, "Stats": { "SpecialDurability2": 30 } },
       { "_card": "Rope", "Card": "a7a58aa687df66e47a42fc13e0fdbeaa", "Count": 5 },
+      { "_card": "Metal Nugget (copper, as vanilla's Pk_5_1_8_SmithingGear_CopperNugget: Temperature 0, Metal Quality 50, Metal Type 100; 9 to match HomesteadPerks' kit, owner decision K6)", "Card": "4b0f4937a5ecb90499428c8c10288afc", "Count": 9, "Stats": { "FuelCapacity": 0, "SpecialDurability2": 50, "SpecialDurability4": 100 } },
       { "_card": "Metal Nail (shipped by CSFF Mod Framework 2.28.0+; checked first, as HomesteadPerks did since 1.3.1, so a missing card logs one line instead of 20 spawn errors)", "Card": "advanced_copper_tools_copper_nails", "Count": 20, "OnlyIfCardExists": true,
         "LogIfPresent": "Metal Nail card loaded: spawned 20 copper nails.",
         "LogIfMissing": "Metal Nail card not loaded: nails skipped." }

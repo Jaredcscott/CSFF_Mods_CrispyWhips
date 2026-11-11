@@ -7,9 +7,9 @@ using CSFFModFramework.Util;
 namespace CommunityModChest.Patcher
 {
     /// <summary>
-    /// Shadow the Cat (Documentation/Design/Village_Master_As_Built.md §3.6/§10.7) — a second,
+    /// Shadow the Cat (Documentation/Design/Village_Master_As_Built.md §3.6/§10.7) - a second,
     /// wholly independent companion-cat chain modeled on LostCatPatch.cs. Shares zero
-    /// UIDs/files/state with Ash (cmcStrayCat/cmcInnCat/cmcStatLostCat) — Ash is untouchable
+    /// UIDs/files/state with Ash (cmcStrayCat/cmcInnCat/cmcStatLostCat) - Ash is untouchable
     /// (see memory: user_cat_ashton).
     ///
     /// <para>The spawn gate is AcademyCourseService.HasCourse(GradHerbalism), which returns true
@@ -52,7 +52,7 @@ namespace CommunityModChest.Patcher
         private const string ApothecaryCabinUid = "cmcApothecaryCabin";
         internal const string PresentStatUid = "cmcStatShadowCatPresent";
 
-        // Same forest as Ash (cmcEnvForagingForest) — deliberate design tension, flagged in
+        // Same forest as Ash (cmcEnvForagingForest) - deliberate design tension, flagged in
         // the master plan §9.7: differentiate narratively (nocturnal/pitch-black) rather than
         // by hour window, since both prowl dusk-to-dawn.
         private const string TargetEnvUid = "cmcEnvForagingForest";
@@ -157,7 +157,7 @@ namespace CommunityModChest.Patcher
                 }
 
                 // SpawnService.Spawn returns null on success (GiveCard is void this game
-                // version) — verify by re-querying the board, not the return value.
+                // version) - verify by re-querying the board, not the return value.
                 SpawnService.Spawn(UntamedUid);
                 if (!ShadowExistsAnywhere(gm, out _))
                     Plugin.Logger.LogWarning("[ShadowCatPatch] Shadow cat did not appear after spawn — is cmcShadowCat loaded?");

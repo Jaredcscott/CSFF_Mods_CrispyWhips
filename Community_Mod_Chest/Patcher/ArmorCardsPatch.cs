@@ -36,6 +36,25 @@ public static class ArmorCardsPatch
         "apparelleatherapron",
         "apparelleathersandals",
         "apparelstrawhat",
+        // Reed Hand Wraps (Nexus c174134808) and the dyed variants and Long Johns, which carry
+        // ArmorValues but were never listed, so their armour did nothing in combat.
+        "apparelreedhandwraps",
+        "apparellongjohns",
+        "apparelchaperondyed",
+        "apparelchaperondyedbillberry",
+        "apparelchaperondyedochre",
+        "apparelclothcoatdyed",
+        "apparelclothcoatdyedbillberry",
+        "apparelclothcoatdyedochre",
+        "apparelleatheraprondyedbillberry",
+        "apparelleatheraprondyedcharcoal",
+        "apparelleatheraprondyedochre",
+        "apparelstrawhatdyedbillberry",
+        "apparelstrawhatdyedcharcoal",
+        "apparelstrawhatdyedochre",
+        "combatandarmorquiltedcapdyedbillberry",
+        "combatandarmorquiltedcapdyedcharcoal",
+        "combatandarmorquiltedcapdyedochre",
     };
 
     private static bool _loggedError;
