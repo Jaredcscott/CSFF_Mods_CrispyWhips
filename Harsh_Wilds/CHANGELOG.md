@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.11.11 (2026-11-11)
+
+### Changed
+
+- Now requires CSFFModFramework 2.29.1 or later (was 2.28.0). The on-screen notices read their text through the framework's `Api.Localized`, which older frameworks do not have.
+- Technical: `Patcher/HwNotice.cs`'s `Show` now reads its line through the framework's `Api.Localized.Text`, and the mod's own `Lookup` (reflection on `LocalizationManager.CurrentTexts`) is removed (fleet plan section 10, W0.10 row 5). Same current-language-with-English-fallback behaviour. Gate: `Development_Tools/Tests/Framework-Localized.Tests.ps1`.
+
+### Fixed
+
+- The `[Threats] Wolverine` setting's description now names the White Wisent carcass too. The wolverine already came to one; only the description left it out.
+
 ## 0.11.10 (2026-10-30)
 
 ### Changed

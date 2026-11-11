@@ -1,74 +1,92 @@
 # Roadmap: Harsh Wilds
-Version at time of writing: 0.11.9
-Date: 2026-10-21
-Audit score: 10/10
+Version at time of writing: 0.11.10
+Date: 2026-11-07
+Audit score: 5/10 - FAIL (1 CRITICAL at the shipping layer; source tree clean). That CRITICAL was cleared 2026-11-10; the score waits for the next consolidation.
 
 ## Current State
 
-**Theme**: optional, switchable threats for a harder forest (beasts, raids, hazards, world events, afflictions, fair folk) plus the forest's old powers (spirits, rites, brews, charms, three realms), for players who want the base game harsher and stranger.
+**Theme**: Optional threats for a harder forest (creatures, raids, hazards, world events, afflictions, fair folk) plus the forest's old powers - spirits, rites, brews, ritual objects and three timed realms - each danger behind its own config switch. For players who want a rougher, more mythic survival run.
 
-**Content**: 46 items / 36 blueprints / 3 location + 11 realm cards / 8 liquids / 0 perks / 62 custom images (plus 57 self-triggered actions, 13 animal manifests, 8 encounters and 108 GameStats; placed structures ship as CT2 item cards).
+**Content**: 46 items / 36 blueprints / 3 placed Locations (CT2) + 11 Realm env/location/exit cards (CT4/CT8) / 0 perks / 62 custom images. Plus 57 SelfTriggeredActions, 13 Animal manifests, 8 Encounters.
 
-**Stability**: 10/10 - 0 critical, 0 design gaps, 0 open warnings; critical-analysis SOLID (2026-10-21). The five blueprint-lock CRITICALs raised 2026-10-11 are fixed (commit `956583ca4`). The prior cycle's six warnings are all resolved on disk: the Bug Trap background-effect flag (`16bf18ba3`), the Beast Totem dismantle (`16bf18ba3`), the Bug Trap art (`cec6690b9`) and code-quality W1-W5 (`16bf18ba3`), re-verified not-open by mod-report.md this pass.
+**Stability**: the 2026-11-07 audit scored 5/10 - FAIL on one CRITICAL (`.audit/summary.md` C1: stale build output kept shipping the golden-hind content cut in 0.11.5). C1 was cleared on 2026-11-10 (Plan Reconciliation Log, 2026-11-11); the score is not re-run yet. The tracked **source tree is clean** (build 0/0, localization + Chinese parity + acquisition all clean). Also 2 warnings (README species-agent contract omits the shaman; owner confirmation pending on the HandAction-only ritual blueprint convention) and 7 minor polish items.
 
-**Open work**: no open retrospectives. Runtime debt only: pending HarshWilds tracker rows (incl. T2.1811-T2.1814 verifying the 0.11.9 audit fixes) and a threat-tuning pass remain. The README still carries "not yet confirmed in a running game" caveats on many features by design.
+**Open work**: No open or pending retrospective in `Documentation/Retrospectives/INDEX.md` names HarshWilds, its abbreviation, or its plugin GUID.
 
-**Framework compliance**: Tier 2 - `ContentModPlugin`, `ActionRouter` (SmithingBurnHook, ForageBiteHook, ActionUser), `SpawnService`, `StatAccess.Set` (Switchboard); no DropCollectionGuardPatch, no unfiltered hot-path prefix (BlightSpreadGuard filters by reference), no `ModLoaderVerison`/`ModEditorVersion`.
+**Framework compliance**: Tier 2 - the mod routes everything through framework services (ActionRouter via `ActionUser`/`SmithingBurnHook`/`ForageBiteHook`, EncounterGuards for the heron/realm/owl guards, declarative Animals/Encounter/SelfTriggeredAction loading, `ContentModPlugin` base). No deprecated patterns: no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`, no manual perk/blueprint injection. Requires CSFFModFramework 2.28.0+.
+
+---
+
+## Phase 0: Stabilize
+
+> Fix before any new content lands or any upload. The source is clean; this phase is build-output hygiene and two docs fixes.
+
+| Item | Type | Priority | Complexity |
+|------|------|----------|------------|
+| ~~Clear the golden-hind build-output orphans (C1), verify the live Nexus 0.11.10 file, extend the preflight orphan scan~~ **Done 2026-11-10.** The installed copy and its release zip were rebuilt at 0.11.11 with none of the five files; the live Nexus 0.11.10 file never carried them; the preflight now scans every build-output folder (`dec663077`). See the Plan Reconciliation Log, 2026-11-11. | CRITICAL fix (build/deploy) | Done | - |
+| ~~README species-agent contract (W1)~~ **Done** in `699e6be8a`: the README lists the shaman's agent UID. | Docs accuracy | Done | - |
+| **Two stale rarebeasts comments (m1, m2).** `hw_lindwurm_fang.json` `//LindwurmFang` still claims the art is the `Hook_Bone` stand-in; `Tgr_HW_Lindwurm.json` `//Roll` names "LakeBeast" instead of "Lindwurm". | Comment fix | P1 | Quick |
 
 ---
 
 ## Phase 1: Foundation
 
-> Verification debt and hygiene. No code defect is open; these close the gap between shipped and confirmed.
+> Mostly already in place - recorded here as the maintained baseline, not new work.
 
-| Item | Type | Priority | Complexity |
-|------|------|----------|------------|
-| Record the pending in-game rows, incl. T2.1811-T2.1814 (verify the 0.11.9 fixes: lindwurm meat, camp-scoped Bug Trap, totem take-down, own-foraging bites) | Verification | P1 | Quick |
-| Clear the broader HarshWilds `pending` tracker backlog so the README "not yet confirmed" caveats can come out | Verification | P2 | Medium |
-
-Versions are synced (0.11.9 x3), Chinese parity is clean (1162/1162) and the build is clean (0 warnings). No hygiene item is open.
+| Item | Type | State |
+|------|------|-------|
+| Versions synchronized across ModInfo.json / Plugin.cs / README.md at 0.11.10 | Version hygiene | DONE - keep synced via `/update-mod-version` |
+| Chinese localization parity (`SimpCn.csv`, 1162/1162, no stale/no-CJK/extra) | Localization | DONE - keep rows paired per commit |
+| Framework Tier 2 adoption (ActionRouter / EncounterGuards / declarative loaders) | Framework | DONE |
+| Close pending in-game verification rows (`.claude/playthrough-test-status.json`): the heron-feel row T2.1327 and T2.1811-T2.1814, then drop the matching "not yet confirmed in a running game" caveats from the README in the same commit | Verification | P1, ongoing |
 
 ---
 
 ## Phase 2: Core Expansion
 
-### Threat balance pass
-**What**: tune the threats' chances, counts and durations (raids, events, fair folk, afflictions) from recorded harness and person runs.
-**Why**: README and ModInfo state they are first guesses; rewards were already tuned in 0.11.6.
-**Requires**: Phase 1 rows reported.
-**Complexity**: Complex
+> The mod's two archived plans are drained; its remaining substance is tuning, not new systems.
+
+### Threat-balance tuning pass
+**What**: tune the threats' chances, numbers and lengths (raids, world events, afflictions, hazards, rare-beast arrival rolls) from recorded harness and person runs. ModInfo and README both disclose these as "first guesses not yet balanced against play".
+**Why**: every threat is wired and honest, but un-tuned; this is the single largest lever on how the mod actually feels.
+**Requires**: Phase 0 (ship a clean build first) + the pending tracker rows reporting.
+**Complexity**: Complex (spans sessions; feed from the Benches/measurement discipline, not ad-hoc probes).
+
+### Owner decision - HandAction-only ritual/shrine/calling blueprints (W2)
+**What**: a one-time yes/no on whether 13 ritual/shrine/calling blueprints shipping `BlueprintActionTagsWarpData: ["HandAction"]` with no `CraftAction` is deliberate ("a rite, not a craft").
+**Why**: if confirmed, note it so audits stop re-flagging it; if not, add the appropriate `CraftAction` tags.
+**Requires**: none.
+**Complexity**: Quick (decision) / Medium (if tags must be added).
 
 ---
 
 ## Phase 3: Integration & Depth
 
-No new integration is proposed: the H&F/CMC incense, WDI heron, Forest Lore mud volcano + Ancient Cairn door, Far Territory selkie, ACT bait and Sirus23 owl/wolf/fox hooks are all shipped and guarded. The parked rows (manifest black bear, animal beacon) stay in the archived plan's Considered table.
+> Cross-mod ties are already shipped and guarded. No open plan proposes new ones; revisit only if a sibling mod opens a natural hook.
+
+Shipped integrations (keep working on game/framework updates): H&F/CMC lit incense for athame rites (IncenseRiteGuard), WDI heron raids on fishponds (HeronRaidGuard), ForestLore mud volcano + Ancient Cairn Underworld door, FarTerritory selkie on the Driftwood Shore, ACT salt-cured meat as black-bear bait, Sirus23 owl/wolf/fox interplay. All optional and no-op when the partner mod is absent.
 
 ---
 
 ## Phase 4: Polish
 
-> Art for the ritual/realm cards still on base-game stand-ins. The 0.11.9 pass already gave own art to ten borrowed-picture cards (Lindwurm Fang, Dragon Charm, Lynx Cloak, Bug Trap, Mistletoe, Lynx Spirit, White Wisent carcasses, Wolverine at the Kill), so those are done.
-
 | Item | What | Complexity |
 |------|------|------------|
-| Cleansing Smudge art | Replace the Dry Bog Myrtle stand-in (README line 177) | Quick |
-| Witchfire / brews / ritual-object art | "All pictures are base-game stand-ins for now" (README line 216) | Medium |
-| Ancestor Enchantment art | Shows the cairn picture for now (README line 196) | Quick |
-| Faerie / Moon / Underworld realm card art | Realm pictures mostly base-game stand-ins (README line 266) | Medium |
+| Own art for stand-in ritual/realm cards (m5) | Replace base-game stand-ins: Cleansing Smudge (Dry Bog Myrtle picture), witchfire/brews/ritual-object group, Ancestor Enchantment (cairn picture), the three realm cards. Use `/create-image-refs` for cards that must match a shipped sibling. | Medium |
+| Completion sounds on crafted items/structures (m3) | 24 blueprints ship no `WhenCreatedSoundsWarpData`. Add a real vanilla AudioClip (check the clip fixture; a material word is not a clip) or `[]` where nothing fits. | Quick |
+| Description / caveat pass | Once Phase 1 verification rows close, drop the "not yet confirmed" caveats from the README in the same commit as each confirmation. | Quick |
 
 ---
 
 ## Long-term Vision
 
-> Where this mod should be at v1.0.0.
+Harsh Wilds is feature-complete against both of its archived plans: the threat/powers content update and the vanilla-balance/niche pass are built and shipped. Its natural endpoint at v1.0 is a **balanced, fully-illustrated** version of the current scope - every threat's numbers tuned against real play, every card on its own art, and every "not yet confirmed" caveat retired as its tracker row passes. The role it fills is the studio's "harder, more mythic forest" layer, composed of optional switches so a player tunes their own difficulty.
 
-Harsh Wilds is feature complete against both archived plans; its 1.0 is the same content balanced against play and confirmed in a running game, after which it belongs in `Stable/`.
+**Potential major additions** (not yet justified - revisit after the tuning pass):
+- A difficulty "preset" meta-switch that sets several threat switches at once - fits the config-switch architecture if players find per-threat tuning fiddly.
+- Deeper realm progression (a reason to return to a realm beyond the one-bargain-a-run limit) - fits the realms theme but needs a designed loop before it earns a slot.
 
-**Potential major additions** (not yet justified - revisit after Phase 2):
-- none beyond the archived Considered rows
-
-Any of these worth building belongs in the mod's plan under `Documentation/Plans/HarshWilds/` (or its Considered table, with the reason, if it is not); never create a stub under `Documentation/Ideas/`.
+Anything worth building belongs in a fresh `Documentation/Plans/HarshWilds/MASTER_PLAN.md` (or its Considered table, with the reason, if ruled out). The C1 remediation plan is done and archived at `Documentation/Design/Harsh_Wilds_Audit_Remediation_2026-11_As_Built.md`. Never create a stub under `Documentation/Ideas/`.
 
 ---
 
@@ -77,22 +95,27 @@ Any of these worth building belongs in the mod's plan under `Documentation/Plans
 | Trigger | Action |
 |---------|--------|
 | After any new content phase | Run `/audit-mod HarshWilds` and update this roadmap |
-| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
+| Before any Nexus upload | Confirm the release zip carries no removed-content orphans (the C1 class); `dotnet clean -c Release` if in doubt |
+| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log`; refresh `lib/Assembly-CSharp.dll` |
 | After fixing a critical issue | Run `/critical-analysis HarshWilds` to verify the fix |
-| After Phase 2 complete | Run `/export-to-repo HarshWilds` and bump minor version |
+| After Phase 2 tuning | Run `/export-to-repo HarshWilds` and bump version |
 
 ---
 
 ## Skill Cheatsheet for This Mod
 
-    /audit-mod HarshWilds         - full health check, updates .audit/
-    /critical-analysis HarshWilds - adversarial review
-    /build-mod HarshWilds         - build Release DLL
-    /deploy-mods HarshWilds       - build + deploy to game
-    /update-mod-version HarshWilds <ver> - bump version in all 3 files
-    /export-to-repo HarshWilds    - push to public repo
+```
+/audit-mod HarshWilds           - full health check, updates .audit/
+/critical-analysis HarshWilds   - adversarial review
+/repair-items HarshWilds        - auto-fix item JSON issues
+/repair-blueprints HarshWilds   - auto-fix blueprint JSON issues
+/build-mod HarshWilds           - build Release DLL
+/deploy-mods HarshWilds         - build + deploy to game
+/package-mod-suite              - rebuild MUM suite (HW is a suite mod)
+/update-mod-version HarshWilds <ver> - bump version in all 3 files
+/export-to-repo HarshWilds      - push to public repo
+```
 
----
 ## Plan Reconciliation Log
 
 ### 2026-10-04 - MASTER_PLAN
@@ -136,3 +159,44 @@ Any of these worth building belongs in the mod's plan under `Documentation/Plans
 - **Pruned:** the section 2 idea table became as-built lines. Four live citations repointed (the N1 trigger's `//Decision`, the Coats and BalanceGates test headers, a `Deploy-Mods.ps1` comment); dated records left as written.
 - **Evidence:** on the integrated tree, `dotnet build -c Release` 0 warnings 0 errors and `Development_Tools/Run-Gates.py` over every `HarshWilds-*` gate plus the localization, card-art, sprite, drop, blueprint, version, plans, encounter-guard and UID gates: 40 gates, 0 red. Two mutation cases that threw under `Set-StrictMode -Version 3.0` were fixed first (`5add5f379`; BalanceGates B4 was red on master under Run-Gates since 0.11.6).
 - **Verification debt:** T2.1749 to T2.1754 (0.11.6) and T2.1800, T2.1802, T2.1804 to T2.1810 (0.11.8) pending. Card art for the Lynx Cloak, Lindwurm Fang, Dragon Charm and Wolverine at the Kill is a stand-in (no OpenArt access in the build session).
+
+
+### 2026-11-06 - Fleet_APE_Port
+Scope: Fleet
+- **Verdict:** Fully landed. Section 10 (W0.10) rows 11 and 14 - the plan's last two open code
+  rows - built, build-verified across every affected mod, and gate-verified in Prompts 45 and
+  46 (`Api.Npc.RegisterMoveGuard`/`MoveGuardPatch` for row 11; `GameQuery.IsInPlayerEnv` made
+  public plus 3 call-site migrations for row 14). Every other section (1, 2, 3, 4.1, 5.1, 5.7,
+  6.4, 6.5, 8, 9) was already reduced to as-built lines in earlier prompts. 0 open code rows
+  remain in the plan or its pack.
+- **Disposition:** ARCHIVE - plan doc moved to `Documentation/Design/Fleet_APE_Port_As_Built.md`
+  (full history preserved, nothing summarized away). Pack
+  (`MASTER_PLAN_Implementation_Prompts.md`) DELETED per policy (packs are always deleted, never
+  archived); its citations elsewhere were repointed to the landing commit of the row each one
+  names, since no archive exists for it.
+- **Pruned:** `Documentation/Plans/Fleet/MASTER_PLAN.md` and
+  `Documentation/Plans/Fleet/MASTER_PLAN_Implementation_Prompts.md`, both now removed from
+  `Documentation/Plans/Fleet/`.
+- **Evidence:** Row 11 commit `9a5305424` (Prompt 45, `Api.Npc.RegisterMoveGuard` +
+  `MoveGuardPatch`, collapsed into the pack by `a3c7ab227`); row 14 commit `5c28c03e4` (Prompt
+  46, `GameQuery.IsInPlayerEnv` public plus the 3 call-site migrations in one commit, collapsed
+  into the pack by `e01e911ef`); unrelated pre-existing gate fix found during verification,
+  commit `6f0a0bc91` (`CMC-SilentExits.Tests.ps1`, 3 stale rows from the earlier StatAccess
+  migration); citation sweep commits `6567bc510` (`.claude/playthrough-test-status.json`
+  private-index fix) and `e01776032` (gate comment + `AUTHORING.md`). `python3 -c` count against
+  `.claude/playthrough-test-status.json`'s `items` bucket for rows citing
+  `Fleet_APE_Port_As_Built.md`: 4 pending, 0 dropped; `confirmedItems` bucket: 25 already
+  confirmed. `git status --porcelain -- Documentation/Plans/Fleet/` empty after the move.
+- **Verification debt:** 4 rows still `pending` in `.claude/playthrough-test-status.json`
+  `items` as of this sweep: `cmc_homestead_kit_metal_nuggets`,
+  `fw_mod_action_sounds_resolve_smithing_heard`, `fw_heated_metal_art_look_person`,
+  `act_metal_gloves_art_look_person`. Per CLAUDE.md "code work never waits on a human
+  playthrough," these do not block this archival; they remain open tracker rows for a future
+  human playthrough pass to confirm.
+
+### 2026-11-11 - MASTER_PLAN (audit remediation AF1), drained and archived
+- **Verdict:** DRAINED. The plan held one row (AF1, the golden-hind build-output orphans), 0 feature rows and no pack. Checked part by part against disk on 2026-11-10 and 2026-11-11: build output clean, installed copy and release zip rebuilt clean at 0.11.11, both embedded suite zips and both Mod Update Manager DLLs clean, the live Nexus 0.11.10 file clean, the preflight orphan scan built (`dec663077`). 1 STALE-CLAIM corrected: the row's "unresolved `hw_encounter_goldenhind` reference" (no such card ever existed; the hind had no encounter by design).
+- **Disposition:** ARCHIVE to `Documentation/Design/Harsh_Wilds_Audit_Remediation_2026-11_As_Built.md`. `Documentation/Plans/HarshWilds/` no longer exists.
+- **Pruned:** this roadmap's three Phase 0 rows for C1 collapsed to one done line. `Documentation/Ideas/IDEAS_OVERVIEW.md` repointed; `.audit/summary.md`, `.audit/ideas.md` and the modwide critical-analysis given dated resolution lines; four `Documentation/Fleet_Review_Queue.md` checkboxes ticked. Dated records left as written.
+- **Evidence:** `Documentation/Benches/HW_GoldenHind_Shipping_2026-11-10/` (two read-only scan scripts, raw results, a generated `SUMMARY.md`): installed folder 415 files, 0 golden-hind files; `Harsh_Wilds_0-11-11.zip` 416 entries, 0; the Nexus MAIN 0.11.10 manifest 416 paths, 0, its archive md5 equal to the recorded upload, with the control that the archived 0.11.2 to 0.11.4 manifests each list all five; HarshWilds `bin/Release` 409 files under subfolders, 0 with no source. Deploy: `Deploy-Mods.ps1 -CSFFMFW -HarshWilds`, 2026-11-10 10:48, the framework with it because 0.11.11 calls `Api.Localized` and the installed framework build lacked it. A four-agent read-only sweep on 2026-11-11 (local artifacts and rigs, git and the public repo, the Mothership and Harman over ssh, runtime residue) found nothing that ships still carrying the files; what it found and left is in the bench README. Rig 2's game log of 2026-11-11 01:52 loads 0.11.11 with no hind line. Preflight on HarshWilds with G20d: 0 CRITICAL, 0 WARNING.
+- **Verification debt:** none added. The row named no in-game acceptance check; its runtime check was the Nexus file read. The `.audit/items-report.md` and `.audit/images-report.md` bodies still describe the removed files; re-running them is on the next `/fleet-review` pass item in `Documentation/Fleet_Review_Queue.md`.

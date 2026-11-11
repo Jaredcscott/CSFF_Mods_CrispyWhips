@@ -70,7 +70,7 @@ internal static class Switchboard
         Add(config, "Wolverine", "hw_switch_wolverine",
             "Wolverine: in winter a wolverine now and then robs your traps and carries off one catch (a fox, badger, boar, deer or wolf " +
             "carcass, or a tied boar) from a sprung trap, or from any placed store in the place you are in, such as a chest. " +
-            "It also comes to a musk ox or wisent carcass left on the ground: drive it off (tiring, and it may bite) or let it " +
+            "It also comes to a musk ox, wisent or white wisent carcass left on the ground: drive it off (tiring, and it may bite) or let it " +
             "feed (the carcass keeps for less time, and may be spoiled outright). " +
             "It never appears as an animal on the board. Set to false to stop it from ever coming. " +
             "Takes effect after a full game restart.");

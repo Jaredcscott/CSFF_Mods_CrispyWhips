@@ -1,8 +1,8 @@
 # Harsh Wilds
 
-**Version:** 0.11.10
+**Version:** 0.11.11
 **Author:** Jared
-**Requires:** CSFFModFramework 2.28.0 or later
+**Requires:** CSFFModFramework 2.29.1 or later
 **Status:** pre-release. Rewards (meat, affinity, coats, rites) were tuned to their base-game equivalents in 0.11.6; the threats' chances, numbers and lengths are still first guesses not yet balanced against play. Where a feature is not yet confirmed in a running game, its section says so.
 
 Harsh Wilds makes the forest harder and older. It adds optional threats for players who find the base game's wilderness too tame, plus the forest's old powers: spirits to call, rites and brews, rare beasts, the fair folk, and realms beyond the forest.
@@ -326,7 +326,8 @@ These UniqueIDs are a contract: Harsh Wilds will not rename or remove one withou
   - `hw_lakebeast`: `d9a558a7d39e26cb7f468b59b95caf46`
   - `hw_frostdemon`: `c443b4053a7413294b5b01e252b80044`
   - `hw_lindwurm`: `bc8c1c79f001823ce106881987ee028e`
-- Switch stats (1 while that threat is switched on, 0 when off; a reader may check them): `hw_switch_lynx`, `hw_switch_wisent`, `hw_switch_muskox`, `hw_switch_eagle`, `hw_switch_blackbear`, `hw_switch_wolverine`, `hw_switch_bandits`, `hw_switch_drought`, `hw_switch_insectplague`, `hw_switch_cropblight`, `hw_switch_bloodmoon`, `hw_switch_eclipse`, `hw_switch_aurora`, `hw_switch_fleasandlice`, `hw_switch_toothdecay`, `hw_switch_heron`, `hw_switch_adder`, `hw_switch_coldsnap`, `hw_switch_algaebloom`, `hw_switch_smithingburns`, `hw_switch_foragebites`, `hw_switch_mudvolcano`, `hw_switch_whitewisent`, `hw_switch_lakebeast`, `hw_switch_frostdemon`, `hw_switch_lindwurm`, `hw_switch_spiritsickness`, `hw_switch_dancingplague`.
+  - `hw_shaman`: `hw_agent_shaman` (a hand-authored agent named through `Agent.Ref`, so it keeps its own UniqueID instead of the MD5)
+- Switch stats (1 while that threat is switched on, 0 when off; a reader may check them): `hw_switch_lynx`, `hw_switch_wisent`, `hw_switch_muskox`, `hw_switch_eagle`, `hw_switch_blackbear`, `hw_switch_wolverine`, `hw_switch_bandits`, `hw_switch_drought`, `hw_switch_insectplague`, `hw_switch_cropblight`, `hw_switch_bloodmoon`, `hw_switch_eclipse`, `hw_switch_aurora`, `hw_switch_fleasandlice`, `hw_switch_toothdecay`, `hw_switch_heron`, `hw_switch_adder`, `hw_switch_coldsnap`, `hw_switch_algaebloom`, `hw_switch_smithingburns`, `hw_switch_foragebites`, `hw_switch_mudvolcano`, `hw_switch_whitewisent`, `hw_switch_lakebeast`, `hw_switch_frostdemon`, `hw_switch_lindwurm`, `hw_switch_spiritsickness`, `hw_switch_dancingplague`, `hw_switch_banshee`, `hw_switch_nixie`, `hw_switch_selkie`, `hw_switch_wildhunt`.
 - Spirit stats (each 0 to 1, set to 1 the first time and never reset, as the base game's are): `hw_stat_lynx_spirit_bound`, `hw_stat_lynx_spirit_encountered`, `hw_stat_goat_spirit_bound`, `hw_stat_goat_spirit_encountered`, `hw_stat_blood_spirit_bound`, `hw_stat_blood_spirit_encountered`, `hw_stat_dragon_spirit_bound`, `hw_stat_dragon_spirit_encountered`. The bound spirit cards are `hw_spirit_lynx`, `hw_spirit_goat`, `hw_spirit_blood` and `hw_spirit_dragon`. The Ancestor Spirit's, in the West Stone's shape: `hw_stat_ancestor_magic` (0 to 3, hidden; 2 once the Ancestors have answered), `hw_stat_ancestor_propinquity` (hidden, rises at the cairn) and `hw_stat_ancestor_blessing` (0 to 288, the blessing's effect stat); the cairn is `hw_cairn`.
 - Realms: the three realm environments `hwenvfaerierealm`, `hwenvmoonrealm` and `hwenvunderworld`, their location cards `hwlocfaerierealm`, `hwlocmoonrealm` and `hwlocunderworld`, and the exits `hw_faerie_exit`, `hw_moon_exit` and `hw_underworld_exit`. Presence flags (hidden, 1 while the player is in that realm, 0 elsewhere): `hw_stat_in_realm` for any realm, and `hw_stat_in_faerie`, `hw_stat_in_moon` and `hw_stat_in_underworld` for one. Danger switch stats: `hw_switch_faerietricks`, `hw_switch_moonglamour` and `hw_switch_restlessdead`. A realm is an instanced environment and never a map node.
 - A guard stops a Harsh Wilds fight only if it names that encounter or animal: through the encounter's UniqueID, or through the animal's agent UniqueID in its agent list. A guard that names neither does not stop the lynx or the bandit.
@@ -335,6 +336,8 @@ These UniqueIDs are a contract: Harsh Wilds will not rename or remove one withou
 
 Full notes in `CHANGELOG.md`. Latest:
 
+- **0.11.11:** needs CSFF Mod Framework 2.29.1 or later; no change in play.
+- **0.11.10:** actions that were silent now make a sound (every mod sound name is a real base-game clip, not a material word).
 - **0.11.9:** a lindwurm gives its full 150 meat, the Bug Trap works only in the camp where you are, the Beast Totem can be taken down, only your own foraging bites you, and ten cards that borrowed a picture have their own.
 - **0.11.8:** niche content: a light Lynx Cloak, a Lindwurm Fang and the Dragon Charm it makes, a Fairy Stone offering at the Fairy Ring, and the wolverine contesting a big carcass in winter.
 - **0.11.7:** the Tooth Puller is metal tongs made from a Heated Metal Bar, and the selkie can now rise on Far Territory's shore.
