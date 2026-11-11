@@ -5,8 +5,8 @@
     {
       "id": "replay",
       "name": "Action Replay",
-      "summary": "ActionPatch (the v2 native-dispatch repeat loop) and RunHooks, what a run hands a requirements-unmet subscriber.",
-      "paths": ["Patcher/ActionPatch.cs", "Patcher/RunHooks.cs"]
+      "summary": "ActionPatch (the v2 native-dispatch repeat loop), RunHooks, what a run hands a requirements-unmet subscriber, and AnimalStop, the stop on a wild animal's arrival.",
+      "paths": ["Patcher/ActionPatch.cs", "Patcher/RunHooks.cs", "Patcher/AnimalStop.cs"]
     },
     {
       "id": "sequences",

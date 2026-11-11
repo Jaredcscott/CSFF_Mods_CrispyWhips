@@ -823,6 +823,7 @@ namespace Repeat_Action.Patcher
                     Logger.LogInfo($"[Repeat] Starting: '{display}' {target} ({steps[0].Kind}{(fromPin ? ", pinned" : "")})");
                 }
                 ReportUnknownQuantityCards();
+                ResetAnimalWatch();
 
                 for (int i = 0; i < limit; i++)
                 {
@@ -900,6 +901,11 @@ namespace Repeat_Action.Patcher
                             RunLog($"iteration {completed + 1}: not dispatched, an encounter interrupted this run (Stop After Encounter)");
                             break;
                         }
+
+                        // Stop When An Animal Arrives (AnimalStop.cs), beside Stop After Encounter: a watched animal that walked
+                        // onto this board since the previous look stops the run before the next dispatch, so it is still here.
+                        string animalStop = CheckAnimalArrival(completed + 1, "before the dispatch");
+                        if (animalStop != null) { stopReason = animalStop; break; }
 
                         if (Plugin.StopOnLowStats.Value && GameManager.Instance.AnyActionBlockers)
                         {
@@ -1087,6 +1093,11 @@ namespace Repeat_Action.Patcher
                         // the tool check: when both happen at once, having enough is what the run was for.
                         string quantityDone = CheckQuantityStops(doneIteration, "after it finished");
                         if (quantityDone != null) { stopReason = quantityDone; break; }
+
+                        // Stop When An Animal Arrives as soon as the iteration finishes too, so the run ends without its
+                        // Iteration Delay and a last iteration says which animal came.
+                        string animalDone = CheckAnimalArrival(doneIteration, "after it finished");
+                        if (animalDone != null) { stopReason = animalDone; break; }
 
                         if (cap.Kind == FunnelKind.CardOnCard && Plugin.StopOnToolBreak.Value && GivenToolBroke(cap, out string brokeHow))
                         {

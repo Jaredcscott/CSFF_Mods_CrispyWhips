@@ -12,7 +12,7 @@ public class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.repeat_action";
     public const string PluginName = "Repeat_Action";
-    public const string PluginVersion = "2.2.4";
+    public const string PluginVersion = "2.2.5";
 
     internal new static ManualLogSource Logger;
     private static Harmony _harmony;
@@ -58,6 +58,8 @@ public class Plugin : BaseUnityPlugin
     public static ConfigEntry<bool> StopAtNightfall { get; private set; }
     public static ConfigEntry<bool> StopAtSeasonChange { get; private set; }
     public static ConfigEntry<bool> StopAfterEncounter { get; private set; }
+    public static ConfigEntry<bool> StopWhenAnimalArrives { get; private set; }
+    public static ConfigEntry<string> AnimalsThatStopARun { get; private set; }
     public static ConfigEntry<float> StopAfterInGameHours { get; private set; }
     public static ConfigEntry<int> StaminaStopThreshold { get; private set; }
     public static ConfigEntry<int> SatiationStopThreshold { get; private set; }
@@ -75,6 +77,10 @@ public class Plugin : BaseUnityPlugin
     // repeat until a safety stop, a requirement failure, cancel, or the
     // MaxUnboundedIterations cap fires.
     public static int CurrentRepeatCount { get; set; } = 5;
+
+    /// <summary>Animals That Stop A Run's default: the vanilla wild animal agents' English names (Agent_*.json AgentName).</summary>
+    public const string DefaultAnimalsThatStopARun =
+        "Badger, Bear, Beaver, Boar, Doe, Ducks, Fox, Hare, Partridge, Squirrel, Stag, White Stag, Wolf, Wolf Pack, Primeval Wolf";
 
     public const int UnlimitedCount = 0;
     public static bool IsUnlimited => CurrentRepeatCount <= UnlimitedCount;
@@ -263,7 +269,7 @@ public class Plugin : BaseUnityPlugin
             "Repeat Settings",
             "Repeat Presets",
             "",
-            "Named sets of settings that Next Preset Key loads one after another. Format: name: key=value, key=value; name: key=value. For example \"Chop: count=20, Stop At Nightfall=true; Snack: count=3, Lock To Original Target=true\". 'count' sets the repeat count (0 is Unlimited, capped by Maximum Repeat Count). Any other key is the name of a true/false, whole-number or decimal setting of this mod outside Keybindings (the names in this file); its value is checked against the setting's own limits. Settings that hold lists (Extra Stat Thresholds, Extra Blocked Actions, Extra Rest-Like Actions, Stop At Quantity) cannot be set by a preset. A preset writes over values you set by hand, and a pair that cannot be applied is skipped (breadcrumb in the log) while the rest of the preset still applies. Empty = no presets.");
+            "Named sets of settings that Next Preset Key loads one after another. Format: name: key=value, key=value; name: key=value. For example \"Chop: count=20, Stop At Nightfall=true; Snack: count=3, Lock To Original Target=true\". 'count' sets the repeat count (0 is Unlimited, capped by Maximum Repeat Count). Any other key is the name of a true/false, whole-number or decimal setting of this mod outside Keybindings (the names in this file); its value is checked against the setting's own limits. Settings that hold lists (Extra Stat Thresholds, Extra Blocked Actions, Extra Rest-Like Actions, Stop At Quantity, Animals That Stop A Run) cannot be set by a preset. A preset writes over values you set by hand, and a pair that cannot be applied is skipped (breadcrumb in the log) while the rest of the preset still applies. Empty = no presets.");
 
         MaxUnboundedIterations = Config.Bind(
             "Repeat Settings",
@@ -378,6 +384,21 @@ public class Plugin : BaseUnityPlugin
             "Stop After Encounter",
             false,
             "Stop a run before its next iteration once an encounter (an animal or a visitor confronting you) has interrupted it, instead of carrying on after you deal with it. The encounter itself is never skipped or answered for you: the run waits until it is over, then stops with \"an encounter interrupted the run\". Off, a run carries on as before once the encounter ends.");
+
+        // Nexus request c178705767 (plan 1.1). The default list is every vanilla wild animal agent by its English name
+        // (Documentation/GameData/CSFF-JsonData_Current/UniqueIDScriptableJsonDataWithWarpLitAllInOne/NPCAgent/Agent_*.json
+        // AgentName.DefaultText), leaving out the traders, the Partner and the forest's monsters.
+        StopWhenAnimalArrives = Config.Bind(
+            "Safety",
+            "Stop When An Animal Arrives",
+            true,
+            "Stop a run before its next iteration when an animal from Animals That Stop A Run walks onto the board where you are, so you can deal with it before it leaves. Checked before every iteration and as soon as one finishes. An animal already here when the run starts never stops it; only one that arrives during the run does (one that leaves and comes back arrives again), and on a travel repeat an animal at the new location counts as arriving. A hiding animal you cannot see does not count. The notification names it (\"Fox arrived\").");
+
+        AnimalsThatStopARun = Config.Bind(
+            "Safety",
+            "Animals That Stop A Run",
+            DefaultAnimalsThatStopARun,
+            "The animals Stop When An Animal Arrives watches for: comma-separated names, as the game shows them in English or in your game language, or agent UniqueIDs (case does not matter). A modded animal works by the name it shows. '*' adds every creature that is not your ally and does not trade, which also takes in the forest's monsters. Empty = never stops. The default is every vanilla wild animal.");
 
         StopAfterInGameHours = Config.Bind(
             "Safety",
@@ -515,6 +536,13 @@ public class Plugin : BaseUnityPlugin
     // reference) and its isFocused property.
     private static System.Reflection.FieldInfo _typingInputField;
     private static System.Reflection.PropertyInfo _typingIsFocused;
+    // Per-cause breadcrumb latches for the two NON-throwing reflection-resolution failures in
+    // ReadPlayerIsTyping (a renamed CurrentTypingInput field, a changed input type with no isFocused).
+    // GetField/GetProperty return null without throwing, so the outer PlayerIsTyping try/catch (and its
+    // _typingProbeFailedOnce latch) never sees them; without these the Enter-confirmed-rename refinement
+    // degrades to vanilla behaviour silently on a game update.
+    private static bool _typingFieldMissingWarned;
+    private static bool _typingFocusedMissingWarned;
 
     /// <summary>
     /// The game's flag is "a text box was selected and not yet deselected". Enter in a single-line box ends
@@ -528,13 +556,33 @@ public class Plugin : BaseUnityPlugin
     {
         if (!GraphicsManager.PlayerIsTyping) return false;
         if (_typingInputField == null)
+        {
             _typingInputField = typeof(GraphicsManager).GetField("CurrentTypingInput",
                 System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
-        object input = _typingInputField?.GetValue(null);
-        if (input == null) return true;
+            if (_typingInputField == null)
+            {
+                // Field-not-found (a renamed member), NOT the normal "no box focused" value-null below.
+                if (!_typingFieldMissingWarned)
+                {
+                    _typingFieldMissingWarned = true;
+                    Logger?.LogWarning("[Typing] GraphicsManager.CurrentTypingInput not found; the Enter-confirmed-rename refinement is off, so the Repeat hotkeys follow the game's raw typing flag.");
+                }
+                return true;
+            }
+        }
+        object input = _typingInputField.GetValue(null);
+        if (input == null) return true;  // no text box focused right now - normal, stays silent
         if (_typingIsFocused == null || !_typingIsFocused.DeclaringType.IsInstanceOfType(input))
             _typingIsFocused = input.GetType().GetProperty("isFocused");
-        if (_typingIsFocused == null) return true;
+        if (_typingIsFocused == null)
+        {
+            if (!_typingFocusedMissingWarned)
+            {
+                _typingFocusedMissingWarned = true;
+                Logger?.LogWarning("[Typing] isFocused not found on the typing input type; the Enter-confirmed-rename refinement is off, so the Repeat hotkeys follow the game's raw typing flag.");
+            }
+            return true;
+        }
         return _typingIsFocused.GetValue(input, null) is bool focused ? focused : true;
     }
 

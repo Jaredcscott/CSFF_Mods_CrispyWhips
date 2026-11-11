@@ -1,61 +1,47 @@
 # Roadmap: RepeatAction
-Version at time of writing: 2.2.2
-Date: 2026-10-20
-Audit score: 10/10 - release-ready (consolidated 2026-10-20; critical-analysis SOLID 2026-10-20, code-quality 10/10 2026-10-20)
+Version at time of writing: 2.2.5
+Date: 2026-11-04
+Audit score: 10/10 - PASS (consolidated 2026-11-04 from the module union; replay SOLID 10/10 2026-11-03, modwide SOLID 10/10 2026-11-04 at the 2.2.5 state). 0 CRITICAL, 0 DESIGN GAP, 0 WARNING.
 
-> **2026-10-20 - consolidated audit refresh.** 10/10 PASS. 0 CRITICAL, 0 DESIGN GAP, 2 WARNING (both
-> housekeeping: D17 silent-catch false positives re-confirmed benign; the MUM embed trails source at
-> 2.2.1 / 0.1.1, resolved by the next suite repack). The MASTER_PLAN has **drained and been archived** -
-> round 2 closeout (`122290fb9`) moved it to `Documentation/Design/RepeatAction_Content_Update_Round_2_As_Built.md`
-> and removed the pack, so `Documentation/Plans/RepeatAction/` no longer exists. All advertised features
-> are built. What remains is release plumbing (CHANGELOG fold of the `[Unreleased]` liquid-lock fix,
-> deploy, MUM repack) plus person-lane in-game verifications (T2.734 liquid-lock, and the earlier
-> text-field-Enter hotkey-stall row). Shipping waits on the owner's ask (owner, 2026-10-10: stop before
-> shipping).
+> **2026-11-04 - consolidated audit refresh (module-scoped).** 10/10 PASS, 0 open findings. The prior pass's one open warning (W1: "2.2.4" named two different builds - the Nexus-published 2.2.4 had only the pour fix; "Stop When An Animal Arrives" was then added on top without a version bump, filed `[Unreleased]`) is RESOLVED in source at `6034450be` ("RepeatAction 2.2.5: one version per build"): all three version strings synced at 2.2.5, the `[Unreleased]` CHANGELOG block dated `## [2.2.5] - 2026-11-04`, the README "Recent versions" 2.2.5 line added. The modwide module was re-audited at the 2.2.5 state (`80ea48e58`/`814ac3a07`, SOLID / 10/10). v2.2.4 shipped the Utility-Belt locked-container pour fix (T2.734, harness PASS 2026-11-03) and 2.2.5 adds the new `AnimalStop.cs` animal-arrival stop (T2.2141, harness PASS 2026-11-03). What remains is release-only: deploy (framework -> content -> MUM repack), publish 2.2.5 to Nexus (2.2.4 is the live version), plus one person-lane in-game row (the text-field-Enter hotkey-stall question). Shipping waits on the owner's ask (owner, 2026-10-10: stop before shipping).
 
 ## Current State
 
-**Theme**: A standalone quality-of-life utility that repeats your last player-initiated action (Forage, Chop, Travel, Eat, drag-drop crafting, stack actions, group harvests) N times (or Unlimited) with a single keypress, with pinned actions, recorded sequences, presets, pause/resume, and a wide range of safety stops - halting cleanly the moment the game's own requirement checks stop passing and reporting the game's own reason.
+**Theme**: A standalone quality-of-life utility that repeats your last player-initiated action (Forage, Chop, Travel, Eat, drag-drop crafting, stack actions, group harvests) N times (or Unlimited) with a single keypress, with pinned actions, recorded sequences, presets, pause/resume, and a wide set of safety stops - halting cleanly the moment the game's own requirement checks stop passing and reporting the game's own reason.
 
-**Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom images - a pure C# utility (`Plugin.cs`, `Patcher/ActionPatch.cs`, `Patcher/Sequences.cs`, `Patcher/RunHooks.cs`, `Presets.cs`, `Messages.cs`, `UtilityBeltLockBridge.cs`).
+**Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom images - a pure C# utility (`Plugin.cs`, `Messages.cs`, `Presets.cs`, `UtilityBeltLockBridge.cs`, `Patcher/ActionPatch.cs`, `Patcher/RunHooks.cs`, `Patcher/Sequences.cs`, `Patcher/AnimalStop.cs`). Four audit modules (`Modules.json`): replay, sequences, bridges, modwide.
 
-**Stability**: 10/10 - 0 CRITICAL, 0 DESIGN GAP, 2 WARNING (both housekeeping, no code defect). Clean Release build 0/0. Version parity 2.2.2 across ModInfo.json / Plugin.cs / README.md; BinSync clean. The 2.0.0 native-dispatch architecture is soundly engineered: capture via non-mutating, try/catch-wrapped prefixes on the game's public dispatch funnels; timeScale-safe coroutines; re-entrancy-guarded with `isRepeating` reset in `finally`; Harmony targets resolved at compile time via `typeof(GameManager)`. The one reflection path (`CurrentActionBlockers`, `GraphicsManager` typing state) is cached, null-guarded and breadcrumbed, degrading gracefully if a game field is renamed. `lib/Assembly-CSharp.dll` byte-matches the framework canonical. Reflection read-paths (`CurrentSeasonId`, `IsNightNow`, `CurrentGlobalTick`, `TicksPerHour`, ...) fail open with a caller breadcrumb. Per-run handler registration is subscribe-once / tear-down-in-OnDestroy with an unsubscribe-before-subscribe guard (`OnGMInitialized` re-fire reasoned about at `ActionPatch.cs:320-331`).
+**Stability**: 10/10 - 0 CRITICAL, 0 DESIGN GAP, 0 WARNING. Clean Release build 0/0. The 2.0.0 native-dispatch architecture is soundly engineered: capture via non-mutating, try/catch-wrapped prefixes on the game's public dispatch funnels; timeScale-safe coroutines (hand-driven `yield return null` waits, not `WaitForSeconds`); re-entrancy-guarded with `isRepeating` reset in `finally`; Harmony targets resolved at compile time via `typeof(GameManager)`. Reflection read-paths (`CurrentSeasonId`, `IsNightNow`, `CurrentGlobalTick`, `TicksPerHour`, `ReadPlayerIsTyping`) fail open with one-shot per-cause breadcrumbs - the prior G5 and Messages.cs D17 gaps are both closed in committed source (`d2811f6ae`, `dcbc5b19d`). The new `AnimalStop.cs` is board-scoped by each agent's own `CurrentEnvironment.MatchesPlayerEnv` + `InBackground`, not a bare `AllCards`/`AllNPCs` scan. Per-run handler registration is subscribe-once / tear-down-in-OnDestroy with an unsubscribe-before-subscribe guard.
 
-**Open work**: No code defects. The `[Unreleased]` CHANGELOG entry (a repeated pour no longer draws from a Utility-Belt-locked container) is real and present in source, folded into a version header at the next ship. Two person-lane in-game verifications remain (T2.734 liquid-lock; the text-field-Enter hotkey-stall question from 2.2.0), both already code-fixed per "Code work never waits on a human playthrough". No open or pending retrospectives for RepeatAction (only a graduated `foraging-RA`).
+**Open work**: None in code or audit. Release-only tail: deploy 2.2.5, repack MUM, publish to Nexus (2.2.4 is live) - waits on the owner's ask. One person-lane in-game verification remains (`ra_2_2_0_hotkeys_after_rename_enter`, the text-field-Enter hotkey-stall question), already code-fixed per "Code work never waits on a human playthrough". No open or pending retrospectives for RepeatAction (only a graduated `foraging-RA`).
 
-**Framework compliance**: N/A by design - RepeatAction 2.0.0+ is intentionally **standalone** (no `[BepInDependency]`, no CSFFModFramework reference). It drives the game's own public `GameManager` funnels directly rather than through framework Tier 2 services, and resolves Utility Belt lazily through `Chainloader.PluginInfos` + reflection (no dependency cycle). This is correct for its architecture, not a compliance gap. Reusing `Api.ActionRouter` is a future option explicitly weighed against the standalone stance, not a requirement.
+**Framework compliance**: N/A by design - RepeatAction 2.0.0+ is intentionally **standalone** (no `[BepInDependency]`, no CSFFModFramework reference). It drives the game's own public `GameManager` funnels directly rather than through framework Tier 2 services, and resolves Utility Belt lazily through `Chainloader.PluginInfos` + reflection (no dependency cycle). The animal-stop feature keeps its own hardcoded wild-animal list for the same reason (ruled against reading the framework's `Animals/*.json`, MASTER_PLAN section 2). This is correct for its architecture, not a compliance gap.
 
 ---
 
-## Phase 0: Stabilize  *(skipped - audit score 10/10, no open retrospectives)*
+## Phase 0: Stabilize  *(skipped - 10/10, no open retrospectives, no CRITICAL)*
 
-Nothing to stabilize.
+Nothing to stabilize. The prior pass's one warning (W1, version/changelog drift) is resolved in source at `6034450be`.
 
 ---
 
 ## Phase 1: Foundation  *(COMPLETE)*
 
-Version hygiene synced at 2.2.2; BinSync clean; localization N/A (0 CSV by design - toasts are code-drawn in `Messages.cs`, EN + zh-CN); framework Tier 2 N/A by design (standalone). All 2026-08-24 warnings and hygiene items closed in v2.1.0.
+Version hygiene synced at 2.2.5 (W1 closed); BinSync clean; localization N/A (0 CSV by design - toasts are code-drawn in `Messages.cs`, EN + zh-CN); framework Tier 2 N/A by design (standalone). All hygiene items closed.
 
 ---
 
-## Phase 2-E: Core & Run-Control Features  *(BUILT - plan drained, release tail only)*
+## Phase 2-E: Core & Run-Control Features  *(BUILT - release tail only)*
 
-> The mod's feature scope has drained: the MASTER_PLAN is archived to
-> `Documentation/Design/RepeatAction_Content_Update_Round_2_As_Built.md` and
-> `Documentation/Plans/RepeatAction/` no longer exists. Every advertised feature is built (count +/-/wheel,
-> Unlimited + backstop, dual keybinds, bindable count keys, stat floors/ceilings, nightfall/season/encounter/
-> in-game-hours/quantity stops, pin/fire, refuel-from-pin, spare-tool-on-break, durability floor, pause/resume,
-> presets, recorded sequences, per-card group mode, progress bar, count indicator, verbose diagnostics,
-> completion sound, lock-to-target, iteration delay, Utility Belt lock bridge, modder API events). What is
-> left is not new features - it is the release.
+> Every advertised feature is built (count +/-/wheel, Unlimited + backstop, dual keybinds, bindable count keys, stat floors/ceilings, nightfall/season/encounter/in-game-hours/quantity stops, **animal-arrival stop**, pin/fire, refuel-from-pin, spare-tool-on-break, durability floor, pause/resume, presets, recorded sequences, per-card group mode, progress bar, count indicator, verbose diagnostics, completion sound, lock-to-target, iteration delay, Utility Belt lock bridge incl. locked-container pour, modder API events). What is left is the release.
 
 | Item | Type | Status |
 |------|------|--------|
-| Ship: fold `[Unreleased]` liquid-lock fix into a version header, deploy, MUM repack (2.2.1->2.2.2, 0.1.1->0.1.2) | Release | Open - waits on the owner's ask |
-| Closeout: audit refresh, roadmap, as-built record already filed; move to `Stable/` once nothing is left | Release | Open - deps Ship |
+| **W1 fix:** bump to 2.2.5, date the `[Unreleased]` block, add the README "Recent versions" line | Release hygiene | DONE (`6034450be`) - all three version strings 2.2.5, CHANGELOG `## [2.2.5] - 2026-11-04`, README line present |
+| Ship: deploy (framework -> content -> MUM repack), publish 2.2.5 to Nexus | Release | Open - waits on the owner's ask (owner 2026-10-10: stop before shipping). 2.2.4 is the live Nexus version; 2.2.5 is unpublished, so the next upload is a fresh version |
+| Closeout: audit refresh, roadmap, as-built record filed; move to `Stable/` once nothing is left | Release | Open - deps Ship |
 
-Person-lane in-game verification (no code work): **T2.734** (a repeated pour leaves a locked container's liquid alone) and the 2.2.0 text-field-Enter hotkey-stall question. Both are already code-fixed; the rows only confirm behaviour a person must see.
+Person-lane in-game verification (no code work): the 2.2.0 text-field-Enter hotkey-stall question (`ra_2_2_0_hotkeys_after_rename_enter`, pending). Already code-fixed; the row only confirms behaviour a person must see. The animal-arrival stop (T2.2141) and the locked-container pour (T2.734) were confirmed by harness autoplay on 2026-11-03.
 
 ---
 
@@ -69,7 +55,7 @@ Person-lane in-game verification (no code work): **T2.734** (a repeated pour lea
 
 ## Phase 4: Polish  *(COMPLETE)*
 
-Progress bar, count indicator, verbose diagnostics and completion sound all shipped (v2.1.2-v2.2.0). No open polish items.
+Progress bar, count indicator, verbose diagnostics and completion sound all shipped. No open polish items. No art or localization gaps (UTILITY mod, code-drawn toasts).
 
 ---
 
@@ -77,10 +63,10 @@ Progress bar, count indicator, verbose diagnostics and completion sound all ship
 
 > Where RepeatAction should be at v3.0.
 
-A small, reliable **action-automation layer** that never surprises the player: it repeats any single action honestly (with the game's own stop reason), scales from a fixed count to Unlimited-with-a-backstop, pins and fires deferred actions, records and replays short sequences, carries named presets, and is proven to stop cleanly against every repetitive loop the sibling mods add. The remaining design frontier is a **rest-and-retry-once on a recoverable stat block** (design pending - weighed against refuel-from-pin, which already covers the common Eat/Drink case) and continued breadth of recorded-sequence ergonomics. The plan has drained; its full feature history lives in `Documentation/Design/RepeatAction_Content_Update_Round_2_As_Built.md` (and the earlier as-built records). Any revival of rest-and-retry must re-read the archived Considered-table reason before re-opening it; it is ruled against the refuel-from-pin overlap, not a standing backlog item. RA ships zero content by design.
+A small, reliable **action-automation layer** that never surprises the player: it repeats any single action honestly (with the game's own stop reason), scales from a fixed count to Unlimited-with-a-backstop, pins and fires deferred actions, records and replays short sequences, carries named presets, stops cleanly against every repetitive loop the sibling mods add, and bows out the moment a watched wild animal walks onto the board. The remaining design frontier is a **rest-and-retry-once on a recoverable stat block** (design pending - weighed against refuel-from-pin, which already covers the common Eat/Drink case) and continued breadth of recorded-sequence ergonomics. The feature scope has drained twice to `Documentation/Design/RepeatAction_*_As_Built.md`; `/audit-plan` (2026-11-05) verified and pruned the animal-arrival feature from `Documentation/Plans/RepeatAction/MASTER_PLAN.md` too (built, tested, harness row T2.2141 PASS), so that plan now holds only its `> Status:` history, pending the owner's call on the file itself. RA ships zero content by design.
 
 **Potential major additions** (not yet justified - revisit only on owner request):
-- Rest-and-retry-once on a recoverable non-food stat floor - fits the "stop cleanly, recover honestly" theme, but overlaps refuel-from-pin; held in the archived Considered table with its reason.
+- Rest-and-retry-once on a recoverable non-food stat floor - fits the "stop cleanly, recover honestly" theme, but overlaps refuel-from-pin; held in the archived Considered table with its reason. Any revival must re-read that reason first.
 - Deeper recorded-sequence ergonomics (naming, reordering, per-step counts) - fits the macro recorder already built, but open-ended; file a specific ask first.
 
 ---
@@ -89,10 +75,10 @@ A small, reliable **action-automation layer** that never surprises the player: i
 
 | Trigger | Action |
 |---------|--------|
-| Owner asks to ship | Fold the `[Unreleased]` liquid-lock fix into a version header, deploy (framework -> content -> repack -> MUM), repack the suite so the MUM embed matches source |
-| After Ship | Run the closeout once T2.734 and the hotkey-stall row are filed; move to `Stable/` |
+| Owner asks to ship | Deploy (framework -> content -> repack -> MUM), repack the suite so the MUM embed matches source, publish 2.2.5 to Nexus (2.2.4 is live) |
+| After Ship | Run the closeout once the hotkey-stall row is filed; move to `Stable/` |
 | Game version update | Refresh `lib/Assembly-CSharp.dll` (byte-copy from framework canonical - non-nstrip, plain copy), rebuild, watch the boot-time funnel signature log for drift, run `/diagnose-log` |
-| After any feature or fix | Run `/audit-mod RepeatAction` and update this roadmap |
+| After any feature or fix | Run `/audit-mod RepeatAction` (module-scoped where it fits) and update this roadmap |
 | After a public release | Run `/export-to-repo RepeatAction`; record the build it compiled against in `CHANGELOG.md` |
 
 ---
@@ -100,7 +86,7 @@ A small, reliable **action-automation layer** that never surprises the player: i
 ## Skill Cheatsheet for This Mod
 
 ```
-/audit-mod RepeatAction            - full health check, updates .audit/
+/audit-mod RepeatAction            - full health check, updates .audit/ (takes a module: replay|sequences|bridges|modwide)
 /critical-analysis RepeatAction    - adversarial review
 /code-quality RepeatAction         - C# reliability/maintainability scan
 /build-mod RepeatAction            - build Release DLL
@@ -109,8 +95,6 @@ A small, reliable **action-automation layer** that never surprises the player: i
 /update-mod-version RepeatAction <ver> - bump version in all 3 files
 /export-to-repo RepeatAction       - push to public repo
 ```
-
----
 
 ## Plan Reconciliation Log
 
@@ -207,3 +191,10 @@ A small, reliable **action-automation layer** that never surprises the player: i
 - **Pruned:** from the pack, the Awaiting verification entries for Features 19 and 21 (T2.720 and T2.721 confirmed in `51641ef64`) and the step in Prompt 6 that reran T2.701 and T2.717; the Feature 13 and Feature 16 entries were rewritten to their person-lane rows. From the plan, the "awaiting verification as T2.720 and T2.721" sentence in the Phase E intro and the T2.714, T2.717, T2.720 and T2.721 entries of the Remaining-table awaiting line; no plan section was deleted. Pack Prompt 6 was refreshed with the 2026-10-09 readings (T2.164's capture drop that does nothing and its exact ==80 float compare; T2.264's rejected PASS; the T2.265 and T2.455 walk stopping "requirements no longer met" at Shady Bank). No commit made by this pass; the working-tree edits await the sweep's commit.
 - **Evidence:** tracker read by id with python: T2.700, T2.702 to T2.704 pass; T2.713, T2.714, T2.717, T2.719, T2.720, T2.721 and T2.708 carry `confirmedOn` (T2.714, T2.717, T2.720, T2.721 on 2026-10-09); T2.701, T2.718, T2.1379, T2.1380, T2.1381, T2.218, T2.219, T2.264, T2.265 and T2.455 pending; T2.164 skip. Reports under `TestHarness/client/reports/` of 2026-10-09: T2.164 `...-062507` FAIL (steps 32 and 38 read 80.00001 against ==80; step 49 "Dropping 'Birch Wine' onto 'Clay Bowl' does nothing") and `...-003056` FAIL (step 45, the same drop); T2.265 `...-055154` and `...-003656` FAIL at steps 14, 16 and 35; T2.455 `...-054612` and `...-004952` FAIL at steps 30, 31 ("Stopped after 2/3: requirements no longer met") and 33. Builds: md5 `6581b6d218d2318e3541342ab2484b55` for the deployed `Repeat_Action.dll` (mtime 2026-10-06 12:34), `RepeatAction/bin/Release` and `UtilityBelt/bin/Release`; the MUM embed's DLL `7c955099628efccd182bf7277237782c` with ModInfo 2.2.0. Version 2.2.1 in `ModInfo.json` and `Plugin.cs`; CHANGELOG heads `[2.2.1]` then `[2.2.0]`. `git log 189f8b99e..HEAD -- RepeatAction/` prints only `56ef680ed` (the last sweep's ROADMAP entry). Code: a grep of `RepeatAction/*.cs` and `Patcher/*.cs` for `SavedSequences`, `RecordSequence`, `ReceivingCardCeilings` and `RunSequence` returned 0 hits, while `DispatchAndWait` and `ExtraStatThresholds` returned 11 hits across the same two files (the control that the probe can hit).
 - **Verification debt:** T2.701, T2.718 and T2.1381 (built features, person lane); T2.164, T2.264, T2.265 and T2.455 (Feature 18, pack Prompt 6); T2.218, T2.219, T2.1379 and T2.1380 (2.1.3 and 2.1.4 regression rows the ship step reruns).
+
+### 2026-11-05 - MASTER_PLAN (Nexus player requests), drained and deleted
+- **Verdict:** 1 of 1 claim (item 1.1, auto-stop on a watched wild animal's arrival) VERIFIED-DONE by `/audit-plan`: built in `0d5505803`, version-bumped to 2.2.5 in `6034450be` (CHANGELOG [2.2.5] - 2026-11-04), confirmed in-game via harness row T2.2141 (`auto-2026-11-02 PASS`, `confirmedOn` 2026-11-03T02:39:43Z). 0 OPEN, 0 FAILED, 0 OBSOLETE. The doc's "Considered, not selected" table (two rejected alternatives) was already judged non-load-bearing and deleted by the same `/audit-plan` pass, leaving only the title and `> Status:` history - nothing with lasting reference value beyond what `CHANGELOG.md`, this ROADMAP's Phase 2-E table and git history already carry.
+- **Disposition:** DELETE. Unlike this mod's two prior drained plans (both ARCHIVEd: `RepeatAction_v2.1.5_As_Built.md`, `RepeatAction_Content_Update_2_2_0_As_Built.md`, each with multiple features and documented deliberate departures from their plan text), this single-claim plan carries no such design rationale once its Considered table was pruned - the As-Built convention is for content worth a standalone record, and none is left here.
+- **Pruned:** the whole plan doc removed from `Documentation/Plans/`; nothing left as a stub.
+- **Evidence:** per the `/audit-plan` pass's own citations (`RepeatAction/Patcher/AnimalStop.cs` matching the plan's description, wired into `ActionPatch.cs` `RunSteps` at `ResetAnimalWatch()`/`CheckAnimalArrival()`); `Development_Tools/Tests/RepeatAction-AnimalArrivalStop.Tests.ps1` re-run 21/21 green with a watched-fail self-demonstration; the plan's own "pending a rig run" note confirmed stale against the tracker (T2.2141 already PASS, recorded on the Mothership's rigs 2-3 - `TestHarness/client/reports/` is gitignored, which is why no report file sits on this checkout). Citation sweep (repo, excluding `bin/`/`obj/`, plus the memory dir) for `Documentation/Plans/RepeatAction/MASTER_PLAN` found and fixed: `.claude/playthrough-test-status.json` row T2.2141's `source` field (repointed to this entry, since there is no archive file to repoint to); this file's own Long-term Vision paragraph; `RepeatAction/.audit/ideas.md` lines 3, 15 and 21 (the "one live plan" claim corrected to "no live plan"); `RepeatAction/Patcher/AnimalStop.cs` line 9's comment; `Development_Tools/Tests/RepeatAction-AnimalArrivalStop.Tests.ps1` line 4's header comment. Left alone as pre-existing, unrelated staleness (citing an older feature-numbering generation of this plan, already stale before this pass): `WaterDrivenInfrastructure_Round2_As_Built.md` line 206 ("feature 18"), `AdvancedCopperTools_Content_Update_As_Built.md` line 249 ("feature 24"). Left alone as dated: `Documentation/PlayerFeedback/Nexus/drafts/replies-2026-10-31.md`; every `git show <sha>:...MASTER_PLAN.md` citation inside `RepeatAction_Content_Update_Round_2_As_Built.md` and this file's own earlier Plan Reconciliation Log entries (sha-pinned, stays resolvable via git).
+- **Verification debt:** none - T2.2141 is already PASS/confirmed.

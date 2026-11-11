@@ -1,5 +1,15 @@
 # Repeat Action: Changelog
 
+## [2.2.5] - 2026-11-11
+
+### Added
+
+- **Stop When An Animal Arrives** (on; `Animals That Stop A Run`). A run now stops before its next iteration when a wild animal walks onto the board where you are, so it is still there when you look up ("Fox arrived"). Thanks to Chiwei for the request. The default list is every vanilla wild animal (Badger, Bear, Beaver, Boar, Doe, Ducks, Fox, Hare, Partridge, Squirrel, Stag, White Stag, Wolf, Wolf Pack, Primeval Wolf). Add a modded animal by the name it shows, in English or your game language, or write `*` to stop for any creature that is not your ally and does not trade (that includes the forest's monsters). An animal already there when the run starts never stops it, only one that arrives, and a hiding animal you cannot see does not count. On by default, so turn it off if you would rather keep working while animals pass.
+
+### Changed
+
+- Technical: three more one-time warnings in the BepInEx log, nothing you see in play. When the game's text-field state cannot be read, the hotkey check says so once for each cause (`Plugin.cs` `ReadPlayerIsTyping`). When a notification's English text cannot be formatted either, it says so once and shows the text as written (`Messages.cs` `Format`).
+
 ## [2.2.4] - 2026-10-30
 
 ### Fixed

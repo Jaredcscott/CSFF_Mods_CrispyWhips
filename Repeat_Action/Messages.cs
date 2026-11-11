@@ -89,6 +89,7 @@ internal static class Messages
         { "{0} above {1}%", "{0}高于 {1}%" },
         { "{0} below {1}%", "{0}低于 {1}%" },
         { "{0} reached {1}", "{0}已达到 {1}" },
+        { "{0} arrived", "{0}出现了" },
         // Refuel From Pinned Action (Feature 17): the toast when it fires, and the two stops around a stat floor
         { "Refuelling: {0}", "补给：{0}" },
         { "{0} (refuel did not help)", "{0}（补给无效）" },
@@ -193,7 +194,11 @@ internal static class Messages
         {
             WarnOnce("format:" + english, $"[Messages] '{template}' did not format; shown in English.");
             try { return string.Format(english, args); }
-            catch (FormatException) { return english; }
+            catch (FormatException)
+            {
+                WarnOnce("format-en:" + english, $"[Messages] '{english}' did not format either; shown unformatted.");
+                return english;
+            }
         }
     }
 

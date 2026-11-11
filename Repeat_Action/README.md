@@ -1,6 +1,6 @@
 # Repeat Action
 
-**Version:** 2.2.4
+**Version:** 2.2.5
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (Early Access)
 
@@ -61,7 +61,7 @@ Any action you click in a card's popup or do by drag-and-drop: Forage, Chop, Eat
 Repeat Presets = Chop: count=20, Stop At Nightfall=true; Snack: count=3, Lock To Original Target=true
 ```
 
-  `count` sets the repeat count (0 is Unlimited). Any other key is the name of a true/false, whole-number or decimal setting outside `Keybindings`, held to that setting's own limits. List settings (`Extra Stat Thresholds`, `Extra Blocked Actions`, `Extra Rest-Like Actions`, `Stop At Quantity`) cannot be set by a preset. A preset overwrites values you set by hand. A pair that cannot be applied is skipped and noted in the log.
+  `count` sets the repeat count (0 is Unlimited). Any other key is the name of a true/false, whole-number or decimal setting outside `Keybindings`, held to that setting's own limits. List settings (`Extra Stat Thresholds`, `Extra Blocked Actions`, `Extra Rest-Like Actions`, `Stop At Quantity`, `Animals That Stop A Run`) cannot be set by a preset. A preset overwrites values you set by hand. A pair that cannot be applied is skipped and noted in the log.
 
 ## Stop conditions
 
@@ -79,6 +79,7 @@ All of these end a run cleanly. Everything below is off unless noted.
 | `Stop At Nightfall` | Dusk falls (17:00, or 19:00 in summer). Only a run that has been in daylight stops, so one started at night runs on |
 | `Stop At Season Change` | The season changes during the run |
 | `Stop After Encounter` | An encounter interrupted the run. The run stops before its next iteration |
+| `Stop When An Animal Arrives` (on) | A wild animal from `Animals That Stop A Run` walks onto the board where you are (see below). The run stops before its next iteration, so the animal is still there |
 | `Stop After In-Game Hours` (0 = off) | The run has used that much game time. It counts whole 15-minute ticks and judges the next iteration by the longest so far, so a run with uneven iterations can stop one early |
 | `Stop At Quantity` | Your location holds enough of a card (see below) |
 
@@ -148,6 +149,18 @@ To find a card's UniqueID, open its `CardData/**/*.json` (for a modded card, in 
 | Rye Bread Slice | `a1620f9713805d941b515c2b60a04169` |
 | Wheat Bread Slice | `1cc70e04beedcc14c9308c0122d4e011` |
 
+### Stop when an animal arrives
+
+`Stop When An Animal Arrives` is on by default. Between iterations, and as soon as one finishes, the run looks at the creatures on the board where you are. One from `Animals That Stop A Run` that was not there at the last look stops the run, and the notification names it ("Fox arrived"). An animal already there when the run starts never stops it; one that leaves and comes back arrives again. On a travel repeat, an animal at the new location counts as arriving. A hiding animal you cannot see does not count.
+
+`Animals That Stop A Run` takes comma-separated names, as the game shows them in English or in your game language (case does not matter), or agent UniqueIDs. The default is every vanilla wild animal:
+
+```ini
+Animals That Stop A Run = Badger, Bear, Beaver, Boar, Doe, Ducks, Fox, Hare, Partridge, Squirrel, Stag, White Stag, Wolf, Wolf Pack, Primeval Wolf
+```
+
+A name must match whole, so `Stag` does not include the White Stag. Add a modded animal by the name it shows (`Moose`, `Lynx`). Write `*` to stop for any creature that is not your ally and does not trade; that also includes the forest's monsters. An empty list never stops.
+
 ## Feedback and display
 
 - **Notifications** show the kind of action being repeated and its progress. They name actions and cards in your game language. `Show Notifications` turns them off.
@@ -174,14 +187,15 @@ Or change them in game with the optional [BepInEx ConfigurationManager](https://
 | `Stamina`, `Satiation`, `Hydration Stop Threshold (%)` (0 to 100) | 0 |
 | `Stop Below Tool Durability (%)` (0 to 99) | 0 |
 | `Maximum Refuels Per Run` (1 to 20) | 3 |
-| `Stop On Low Stats`, `Stop On Tool Break`, `Show Notifications`, `Show Progress Bar` | on |
+| `Stop On Low Stats`, `Stop On Tool Break`, `Stop When An Animal Arrives`, `Show Notifications`, `Show Progress Bar` | on |
+| `Animals That Stop A Run` | every vanilla wild animal |
 | Every other true/false setting above | off |
 | `Last Count` and `Saved Sequences` | managed by the mod, do not edit |
 
 ## Compatibility
 
 - **Quick Transfer.** Version 1.9.0 and later steps aside from this mod's keys, so `Shift+Plus` and `Shift+Minus` change only the repeat count. Quick Transfer's own Shift preset is then nudged with `Alt+Plus` and `Alt+Minus`. With `Ctrl+Shift+Plus` or `Minus`, Quick Transfer changes nothing while this mod still counts. Quick Transfer's `Yield Count Keys To Repeat Action` (on by default) controls this, and 1.9.0 follows rebound count keys. Version 1.8.1 and earlier also react to Shift+Plus and Shift+Minus, so one press changes both mods' settings: update Quick Transfer, or turn off its `Enable Modifier Presets`. Quick Transfer's on-screen amount hint shows whenever Shift is held; it is only a hint.
-- **Utility Belt.** A run never picks up a card you locked there (its `L` key) as a target, ingredient or tool. The card you used for the first repeat stays eligible. A repeated pour also leaves alone the liquid inside a container you locked (not yet confirmed in a running game). Utility Belt's `RepeatAction` options work with this mod: `Auto-Pull Materials` fetches a card the game wants in your hand and retries the repeat once, `Store Products In` moves what a run makes into a container you picked, and `Equip Spare Tool On Break` puts on a spare when a worn tool breaks. Without a worn-tool spare, a run whose worn tool breaks stops with "requirements no longer met". Repeat Action does not depend on Utility Belt.
+- **Utility Belt.** A run never picks up a card you locked there (its `L` key) as a target, ingredient or tool. The card you used for the first repeat stays eligible. A repeated pour also leaves alone the liquid inside a container you locked. Utility Belt's `RepeatAction` options work with this mod: `Auto-Pull Materials` fetches a card the game wants in your hand and retries the repeat once, `Store Products In` moves what a run makes into a container you picked, and `Equip Spare Tool On Break` puts on a spare when a worn tool breaks. Without a worn-tool spare, a run whose worn tool breaks stops with "requirements no longer met". Repeat Action does not depend on Utility Belt.
 - **Other mods:** should work with most. Please report problems.
 
 ## Troubleshooting
@@ -202,6 +216,8 @@ Repeat Action raises public events other mods can subscribe to. With no subscrib
 
 Full history in `CHANGELOG.md`.
 
+- **2.2.5:** a run stops when a wild animal arrives (Stop When An Animal Arrives).
+- **2.2.4:** a repeated pour no longer takes the drink out of a bottle you locked with Utility Belt by way of the liquid card.
 - **2.2.3:** a repeated pour no longer takes water from a container you locked with Utility Belt.
 - **2.2.2:** version number only.
 - **2.2.1:** repeat presets, recorded sequences, bindable count keys, Chinese notifications, Refuel From Pinned Action, spare-tool and pour fixes.
