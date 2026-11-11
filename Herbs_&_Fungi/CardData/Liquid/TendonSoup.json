@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_tendon_soup",
         "LocalizationKey": "Herbs_And_Fungi_TendonSoup_CardHelpSection",
-        "DefaultText": "<b>Made by:</b> Blueprint: Tendon Soup (2 Tendon, a Clay Bowl and Dried Yarrow).\n\n<b>Uses:</b> Drink for hydration and a solid meal (values are tunable placeholders).\n\n<b>Benefits:</b> Hydrating and filling, mildly calming. Savoury and bitter."
+        "DefaultText": "<b>Made by:</b> Blueprint: Tendon Soup (2 Tendon, a Clay Bowl and Dried Yarrow).\n\n<b>Uses:</b> Drink for hydration and a solid meal.\n\n<b>Benefits:</b> Hydrating and filling, mildly calming. Savoury and bitter."
     },
     "CardType": 0,
     "CardTagsWarpData": [
@@ -92,6 +92,7 @@
                 "DrinkingAction"
             ],
             "ActionTagsWarpType": 3,
+            "ReceivingCardFlavourBonus": true,
             "ReceivingCardChanges": {
                 "ModType": 3
             },

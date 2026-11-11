@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_herb_pipe",
         "LocalizationKey": "Herbs_And_Fungi_HerbPipe_CardHelpSection",
-        "DefaultText": "<b>Loading:</b> Add herbal powders (hemp, fairyweed, appleweed, frostleaf) to load the pipe.\n\n<b>Smoking:</b> Drag lit tinder or candle onto pipe to smoke. Reusable.\n\n<b>Benefits:</b> Discreet, no room smoke, portable relaxation."
+        "DefaultText": "<b>Loading:</b> Add herbal powders (hemp, fairyweed, appleweed, frostleaf) to load the pipe.\n\n<b>Smoking:</b> Drag lit tinder or candle onto pipe to smoke. Reusable.\n\n<b>Benefits:</b> Discreet, portable relaxation."
     },
     "CardType": 0,
     "ObjectWeight": 50.0,

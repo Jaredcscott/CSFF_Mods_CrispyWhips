@@ -139,8 +139,26 @@ namespace Herbs_And_Fungi.Patcher
             return null;
         }
 
-        // Refuses a pickle blueprint build in a vat whose liquid is not the brine the recipe needs: the
-        // build routine is replaced by an empty one, so nothing is spent, cleared or produced.
+        // Refuses a pickle blueprint build in a vat whose liquid is not the brine the recipe needs, or
+        // whose ingredients/quantity are not actually ready: the build routine is replaced by an empty
+        // one, so nothing is spent, cleared or produced. Three checks, in order:
+        // 1) liquid TYPE (this gate's own reason for existing: vanilla's readiness check below never
+        //    looks at liquid identity at all).
+        // 2) InGameCardBase.ReadyToBuildBlueprint - vanilla's own per-slot compatibility/quantity check
+        //    (what the Build button's clickability reads). PerformBlueprintBuild itself never re-checks
+        //    this; it trusts the caller. A caller that reaches this prefix without it being true (a stale
+        //    UI state, a bypassed click, a direct call) would otherwise run the full build unconditionally.
+        // 3) CardModel.BuildingContainerDurabilitiesConditions (the vat's own required liquid QUANTITY,
+        //    e.g. 500 for Pickle Meat) - ReadyToBuildBlueprint does NOT check this (it only validates the
+        //    blueprint's own inventory slots, never the container it sits in), and PerformBlueprintBuild's
+        //    container-transform step (BlueprintContainerCardChanges, which drains this exact liquid) runs
+        //    unconditionally once the stage advances - it carries no durability requirement of its own.
+        //    This is the actual root of "salting a vat that holds a refused, half-filled pickle recipe
+        //    leaves Brine at 0" (fleet plan section 10, Prompt 39): a vat holding less than the required
+        //    quantity can still reach PerformBlueprintBuild, which synchronously advances the stage and
+        //    unconditionally drains the vat's liquid for the transform, while the separate ingredient-
+        //    clearing/result action (which DOES carry a durability check) refuses - so the build visibly
+        //    fails with the Brine already gone.
         private static bool PerformBlueprintBuild_Prefix(InGameCardBase __instance, ref IEnumerator __result)
         {
             try
@@ -150,8 +168,16 @@ namespace Herbs_And_Fungi.Patcher
                 var vat = __instance.CurrentContainer;
                 if (vat == null || CardUtil.GetCardUniqueId(vat) != PicklingVatID) return true;
                 var liquid = GetContainedLiquid(vat);
-                if (LiquidMeets(required, liquid)) return true;
-                Logger?.LogInfo($"[PickleBpGate] Refused {CardUtil.GetCardUniqueId(__instance)}: the vat holds '{CardUtil.GetCardUniqueId(liquid) ?? "nothing"}', this recipe needs '{required}'.");
+                string refusedBecause = null;
+                if (!LiquidMeets(required, liquid))
+                    refusedBecause = $"the vat holds '{CardUtil.GetCardUniqueId(liquid) ?? "nothing"}', this recipe needs '{required}'";
+                else if (!__instance.ReadyToBuildBlueprint)
+                    refusedBecause = "the blueprint's own ingredients (card or quantity in a slot) are not ready";
+                else if (__instance.CardModel != null && !__instance.CardModel.BuildingContainerDurabilitiesConditions.IsEmpty
+                    && !__instance.CardModel.BuildingContainerDurabilitiesConditions.CheckDurabilities(vat, out var failMessage))
+                    refusedBecause = $"the vat does not meet its required liquid quantity ({failMessage})";
+                if (refusedBecause == null) return true;
+                Logger?.LogInfo($"[PickleBpGate] Refused {CardUtil.GetCardUniqueId(__instance)}: {refusedBecause}.");
                 __result = NoBuild();
                 // The popup reads LastBlueprintBuildCost right after starting the build to animate its bar;
                 // the original routine zeroes it first. Best effort: a miss only animates the last cost.
@@ -186,7 +212,11 @@ namespace Herbs_And_Fungi.Patcher
         {
             if (liquid == null) return false;
             var model = CardUtil.GetCardData(liquid);
-            if (model == null) return false;
+            if (model == null)
+            {
+                WarnOnce("no-card-data", $"a contained liquid ({liquid.GetType().Name}) has no readable CardData (a game update may have renamed it); every plain-brine pickle blueprint and Spice Brine will stay blocked.");
+                return false;
+            }
             if (CardUtil.GetMemberValue(model, "CardTags") is IList tags)
             {
                 foreach (var t in tags)

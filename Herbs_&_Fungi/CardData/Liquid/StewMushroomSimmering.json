@@ -1,0 +1,186 @@
+{
+    "UniqueID": "herbs_fungi_lq_mushroom_stew_simmering",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_lq_mushroom_stew_simmering",
+        "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomSimmering_CardName",
+        "DefaultText": "Simmering Mushroom Stew"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_lq_mushroom_stew_simmering",
+        "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomSimmering_CardDescription",
+        "DefaultText": "The mushroom and leek mix simmering in hot water. Keep the bowl on a fire for about half an hour (2 ticks, while it stays at least half hot) and it becomes Mushroom Stew Base."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_lq_mushroom_stew_simmering",
+        "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomSimmering_CardHelpSection",
+        "DefaultText": "<b>Step 3 of 4:</b> Keep it hot. On a fire the bowl stays hot; off the fire it cools within half an hour and stops simmering until it is hot again.\n\n<b>Next:</b> it turns into Mushroom Stew Base, then add Kale."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_LQ_StewMushroomSimmering",
+    "CardImageWarpType": 3,
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "ShowImageAboveTitle": false,
+    "CardType": 9,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 0.33,
+    "TradingValue": 6,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Heatable"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "AlwaysUpdate": true,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": true,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lq_mushroom_stew_simmering",
+            "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomSimmering_SpoilageTime_CardStatName",
+            "DefaultText": "Bacteria"
+        },
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_lq_mushroom_stew_simmering",
+                "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomSimmering_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "Simmering Mushroom Stew spoiled!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "aa33d3104cc682c4e9a163e7df9a7e13",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 100.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lq_mushroom_stew_simmering",
+            "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomSimmering_FuelCapacity_CardStatName",
+            "DefaultText": "Liquid Temperature"
+        },
+        "MaxValue": 200.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 3,
+        "TextDisplay": 2,
+        "HasActionOnZero": false,
+        "HasActionOnFull": false,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lq_mushroom_stew_simmering",
+            "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomSimmering_SpecialDurability1_CardStatName",
+            "DefaultText": "Simmered"
+        },
+        "MaxValue": 100.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_lq_mushroom_stew_simmering",
+                "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomSimmering_SpecialDurability1_OnFull_ActionDescription",
+                "DefaultText": "The stew has simmered. Add the last ingredient while it is hot."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_lq_mushroom_stew_base",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true,
+                "TransferSpoilage": true
+            }
+        },
+        "OverrideIconWarpData": "SaturationCauldron",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Cool Down",
+            "FuelRateModifier": {
+                "Active": true,
+                "FloatValue": -100.0
+            }
+        },
+        {
+            "EffectName": "Simmer while hot",
+            "Conditions": {
+                "ReceivingRequiredDurabilityRanges": {
+                    "FuelRange": {
+                        "x": 100.0,
+                        "y": 200.0
+                    }
+                }
+            },
+            "Special1RateModifier": {
+                "Active": true,
+                "FloatValue": 50.0
+            }
+        }
+    ],
+    "MaxLiquidCapacity": 0.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1,
+    "FlavourTags": []
+}

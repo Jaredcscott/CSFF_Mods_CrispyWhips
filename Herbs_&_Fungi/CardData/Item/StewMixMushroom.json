@@ -1,0 +1,228 @@
+{
+    "UniqueID": "herbs_fungi_stew_mix_mushroom",
+    "TradingValue": 8,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_stew_mix_mushroom",
+        "LocalizationKey": "Herbs_And_Fungi_StewMushroomMix_CardName",
+        "DefaultText": "Mushroom and Leek Mix"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_stew_mix_mushroom",
+        "LocalizationKey": "Herbs_And_Fungi_StewMushroomMix_CardDescription",
+        "DefaultText": "A sliced leek tossed with a fresh mushroom, ready for the pot. The first step of a Forager's Mushroom Stew."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_Leek",
+    "CardImageWarpType": 3,
+    "AlwaysUpdate": true,
+    "SpoilageTime": {
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_stew_mix_mushroom",
+            "LocalizationKey": "Herbs_And_Fungi_StewMushroomMix_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_stew_mix_mushroom",
+                "LocalizationKey": "Herbs_And_Fungi_StewMushroomMix_SpoilageTime_OnFull",
+                "DefaultText": "The stew mix has gone off."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "ObjectWeight": 25,
+    "MaxStack": 20,
+    "DroppedCardShadow": 1,
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_stew_mix_mushroom",
+        "LocalizationKey": "Herbs_And_Fungi_StewMushroomMix_CardHelpSection",
+        "DefaultText": "<b>Step 2 of 4:</b> drop it into a Clay Bowl holding at least 290 of water that is at least half hot (boil it on a fire first). The water becomes Simmering Mushroom Stew.\n\n<b>A four-step stew:</b> chop, heat, simmer half an hour on the fire, then add Kale."
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_stew_mix_mushroom",
+                "LocalizationKey": "Herbs_And_Fungi_StewMushroomMix_Heat_ActionName",
+                "DefaultText": "Put in the Pot"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_stew_mix_mushroom",
+                "LocalizationKey": "Herbs_And_Fungi_StewMushroomMix_Heat_ActionDescription",
+                "DefaultText": "Tip the mix into a clay bowl of hot water (at least 290, at least half hot). The water starts simmering into Simmering Mushroom Stew."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSoundsWarpData": [
+                "Flowing1"
+            ],
+            "ActionSoundsWarpType": 3,
+            "WorksInverted": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "a0e1cf6d47685a741b5cd9889fb39227"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "RequiredGivenContainerTagWarpData": [
+                "tag_ContainerBowl"
+            ],
+            "RequiredGivenContainerTagWarpType": 3,
+            "RequiredGivenDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.5,
+                    "MaxValue": 1.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": true,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.05,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 290.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": [
+                    {
+                        "Durabilities": {
+                            "MaskValue": 16
+                        },
+                        "Message": {
+                            "ParentObjectID": "herbs_fungi_stew_mix_mushroom",
+                            "LocalizationKey": "Herbs_And_Fungi_StewMushroomMix_Heat_NotEnough",
+                            "DefaultText": "Not enough water"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 8
+                        },
+                        "Message": {
+                            "ParentObjectID": "herbs_fungi_stew_mix_mushroom",
+                            "LocalizationKey": "Herbs_And_Fungi_StewMushroomMix_Heat_TooThick",
+                            "DefaultText": "Too thick: use fresh water"
+                        }
+                    },
+                    {
+                        "Durabilities": {
+                            "MaskValue": 4
+                        },
+                        "Message": {
+                            "ParentObjectID": "herbs_fungi_stew_mix_mushroom",
+                            "LocalizationKey": "Herbs_And_Fungi_StewMushroomMix_Heat_NotHot",
+                            "DefaultText": "Not hot enough"
+                        }
+                    }
+                ]
+            },
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_lq_mushroom_stew_simmering",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "DismantleActions": [],
+    "FlavourTags": []
+}

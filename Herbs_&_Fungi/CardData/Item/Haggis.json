@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_haggis",
         "LocalizationKey": "Herbs_And_Fungi_Haggis_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> A Raw Haggis cooked over a fire.\n\n<b>Uses:</b> Eat it for a heavy meat meal (values are tunable placeholders). Counts as a meat meal for meat boredom."
+        "DefaultText": "<b>Made from:</b> A Raw Haggis cooked over a fire.\n\n<b>Uses:</b> Eat it for a heavy meat meal. Counts as a meat meal for meat boredom."
     },
     "CardType": 0,
     "CardImage": {

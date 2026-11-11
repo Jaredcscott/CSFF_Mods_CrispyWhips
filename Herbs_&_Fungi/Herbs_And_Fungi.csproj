@@ -94,7 +94,6 @@
         <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="UidAliases.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('UidAliases.json')" />
         <Content Include="TagGroups.json" CopyToOutputDirectory="PreserveNewest" />
-        <Content Include="WorldMap\*.json" CopyToOutputDirectory="PreserveNewest" Link="WorldMap\%(Filename)%(Extension)" />
         <Content Include="LICENSE" CopyToOutputDirectory="PreserveNewest" Condition="Exists('LICENSE')" />
         <Content Include="ASSET_CREDITS.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ASSET_CREDITS.md')" />
         <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('BlueprintTabs.json')" />
@@ -106,7 +105,6 @@
         <Content Include="SpiceTag\*.json" CopyToOutputDirectory="PreserveNewest" Link="SpiceTag\%(Filename)%(Extension)" />
         <Content Include="GameSourceModify\*.json" CopyToOutputDirectory="PreserveNewest" Link="GameSourceModify\%(Filename)%(Extension)" />
         <Content Include="EncounterGuards\*.json" CopyToOutputDirectory="PreserveNewest" Link="EncounterGuards\%(Filename)%(Extension)" />
-        <Content Include="SelfTriggeredAction\*.json" CopyToOutputDirectory="PreserveNewest" Link="SelfTriggeredAction\%(Filename)%(Extension)" />
         <Content Include="Resource\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="Resource\%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
 </Project>

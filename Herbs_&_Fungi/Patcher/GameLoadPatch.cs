@@ -406,7 +406,8 @@ namespace Herbs_And_Fungi.Patcher
         private static void ScaleFlushModifiers(object chanceBox, float scale, float scaledBase)
         {
             var modsField = CachedField(chanceBox.GetType(), "StatsModifiers");
-            if (!(modsField?.GetValue(chanceBox) is Array mods) || mods.Length == 0) return;
+            if (modsField == null) { WarnDensityOnce("statsmodifiers", "CardDropChance.StatsModifiers is missing; season flushes left unscaled (a game update may have renamed it)."); return; }
+            if (!(modsField.GetValue(chanceBox) is Array mods) || mods.Length == 0) return;
             var modType = mods.GetType().GetElementType();
             var valueField = CachedField(modType, "Value");
             if (valueField == null) { WarnDensityOnce("value", "StatInterpolatedValue.Value is missing; season flushes left unscaled."); return; }
@@ -629,6 +630,10 @@ namespace Herbs_And_Fungi.Patcher
                     if (turnroot != null && fireroot != null) break;
                 }
 
+                // Turnroot/Fireroot are core vanilla cards; a null here is version drift, not an optional
+                // card being absent, so warn loudly (AppendFermentableTag's own Debug line is invisible by default).
+                if (turnroot == null) Logger?.LogWarning($"[FermentableTag] vanilla TurnrootFresh ({TurnrootGuid}) not found in AllData; it will not be fermentable in the pickle vat (a game update may have changed its GUID).");
+                if (fireroot == null) Logger?.LogWarning($"[FermentableTag] vanilla FirerootFresh ({FirerootGuid}) not found in AllData; it will not be fermentable in the pickle vat (a game update may have changed its GUID).");
                 AppendFermentableTag(turnroot, fermentableTag, "TurnrootFresh");
                 AppendFermentableTag(fireroot, fermentableTag, "FirerootFresh");
             }

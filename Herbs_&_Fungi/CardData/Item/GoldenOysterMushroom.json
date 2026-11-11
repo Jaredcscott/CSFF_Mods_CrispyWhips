@@ -20,7 +20,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_golden_oyster",
         "LocalizationKey": "Herbs_And_Fungi_GoldenOyster_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Year-round\n\n<b>Habitat:</b> Hardwood logs and stumps.\n\n<b>Flavor:</b> Unique cashew-like nutty taste."
+        "DefaultText": "<b>Season:</b> Year-round, in oak, alder, pine and willow woods and at the Secret Grove, the Mossy Clearing and the Alder Grove\n\n<b>Habitat:</b> Hardwood logs and stumps.\n\n<b>Flavor:</b> Unique cashew-like nutty taste."
     },
     "CardImage": {
         "m_FileID": 0,

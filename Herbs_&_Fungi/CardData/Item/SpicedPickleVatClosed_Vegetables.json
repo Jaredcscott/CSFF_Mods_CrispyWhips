@@ -170,7 +170,27 @@
                 "TransferInventory": true,
                 "TransferLiquid": true,
                 "SpawnTransformAtSource": true
-            }
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "PassiveStatEffects": [],

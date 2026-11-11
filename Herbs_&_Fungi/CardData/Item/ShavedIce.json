@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_shaved_ice",
         "LocalizationKey": "Herbs_And_Fungi_ShavedIce_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> An Ice Block and a Berry Preserve (Cooking tab); makes two bowls.\n\n<b>Uses:</b> Eat it to cool down: a little food and water, and a Cooled status that makes the weather feel milder for a few hours (all values are tunable placeholders). It melts away in about 6 hours, so eat it at once."
+        "DefaultText": "<b>Made from:</b> An Ice Block and a Berry Preserve (Cooking tab); makes two bowls.\n\n<b>Uses:</b> Eat it to cool down: a little food and water, and a Cooled status that makes the weather feel milder for a few hours. It melts away in about 6 hours, so eat it at once."
     },
     "CardType": 0,
     "CardImage": {

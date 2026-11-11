@@ -1,0 +1,271 @@
+{
+    "UniqueID": "herbs_fungi_lq_mushroom_stew_base",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_lq_mushroom_stew_base",
+        "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomBase_CardName",
+        "DefaultText": "Mushroom Stew Base"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_lq_mushroom_stew_base",
+        "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomBase_CardDescription",
+        "DefaultText": "A simmered stew base, still missing its last ingredient. While it is still hot, add Kale to finish it into Forager's Mushroom Stew."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_lq_mushroom_stew_base",
+        "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomBase_CardHelpSection",
+        "DefaultText": "<b>Step 4 of 4:</b> drag Kale onto the bowl while the stew is at least half hot."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HF_LQ_StewMushroomBase",
+    "CardImageWarpType": 3,
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "ShowImageAboveTitle": false,
+    "CardType": 9,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 0.33,
+    "TradingValue": 8,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Heatable"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "AlwaysUpdate": true,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": true,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lq_mushroom_stew_base",
+            "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomBase_SpoilageTime_CardStatName",
+            "DefaultText": "Bacteria"
+        },
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionName": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_lq_mushroom_stew_base",
+                "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomBase_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "Mushroom Stew Base spoiled!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "aa33d3104cc682c4e9a163e7df9a7e13",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 100.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lq_mushroom_stew_base",
+            "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomBase_FuelCapacity_CardStatName",
+            "DefaultText": "Liquid Temperature"
+        },
+        "MaxValue": 200.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 3,
+        "TextDisplay": 2,
+        "HasActionOnZero": false,
+        "HasActionOnFull": false,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_lq_mushroom_stew_base",
+                "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomBase_Finish_ActionName",
+                "DefaultText": "Add and Finish the Stew"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_lq_mushroom_stew_base",
+                "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomBase_Finish_ActionDescription",
+                "DefaultText": "Stir in Kale to finish the Forager's Mushroom Stew."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSoundsWarpData": [
+                "Flowing1"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "herbs_fungi_kale"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.5,
+                    "MaxValue": 1.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": [
+                    {
+                        "Durabilities": {
+                            "MaskValue": 4
+                        },
+                        "Message": {
+                            "ParentObjectID": "herbs_fungi_lq_mushroom_stew_base",
+                            "LocalizationKey": "Herbs_And_Fungi_LQ_StewMushroomBase_Finish_NotHot",
+                            "DefaultText": "Not hot enough"
+                        }
+                    }
+                ]
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_lq_mushroom_stew",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true,
+                "TransferSpoilage": false
+            }
+        }
+    ],
+    "DismantleActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Cool Down",
+            "FuelRateModifier": {
+                "Active": true,
+                "FloatValue": -100.0
+            }
+        }
+    ],
+    "MaxLiquidCapacity": 0.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1,
+    "FlavourTags": []
+}

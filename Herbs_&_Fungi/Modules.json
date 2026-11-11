@@ -5,16 +5,17 @@
     "BlueprintTabs.json",
     "DropInjections.json",
     "UidAliases.json",
-    "TagGroups.json"
+    "TagGroups.json",
+    "GameSourceModify/ClayBowl_LiquidImages.json"
   ],
   "modules": [
     {
       "id": "fungi",
       "name": "Wild Mushrooms and Truffles",
-      "summary": "Foraged mushrooms (Chanterelle and its look-alikes, Chicken of the Woods, Puffball, Black Trumpet, Morel, Shiitake, Lion's Mane, Golden and King Oyster, Velvet Shank, Reishi, Death Cap, Chaga) cooked/dried/ground, the truffle chain, toxin tolerance, and the Academy herbalism identify bridge.",
+      "summary": "Foraged mushrooms (Chanterelle and its look-alikes, Chicken of the Woods, Puffball, Black Trumpet, Morel, Shiitake, Lion's Mane, Golden and King Oyster, Reishi, Death Cap, Chaga) cooked/dried/ground, the truffle chain, toxin tolerance, and the Academy herbalism identify bridge.",
       "paths": ["CardData/Item/*Chanterelle*", "CardData/Item/ChickenOfWoods.json", "CardData/Item/CookedChickenOfWoods.json", "CardData/Item/DriedChickenOfWoods.json",
                 "CardData/Item/*Puffball*", "CardData/Item/BlackTrumpet*", "CardData/Item/Morel*", "CardData/Item/Shiitake*", "CardData/Item/LionsMane*",
-                "CardData/Item/GoldenOyster*", "CardData/Item/VelvetShank*", "CardData/Item/KingOyster*", "CardData/Item/Reishi*", "CardData/Item/DriedReishi.json",
+                "CardData/Item/GoldenOyster*", "CardData/Item/KingOyster*", "CardData/Item/Reishi*", "CardData/Item/DriedReishi.json",
                 "CardData/Item/DeathCap.json", "CardData/Item/DeathCapDried.json", "CardData/Item/Chaga*", "CardData/Item/*Truffle*",
                 "GameStat/HF_ToxinTolerance.json", "GameStat/HF_AcademyHerbalism.json", "Patcher/AcademyHerbalismBridgePatch.cs"]
     },
@@ -45,11 +46,11 @@
     {
       "id": "forage",
       "name": "Wild Fruit, Nuts, Roots and Greens",
-      "summary": "Foraged berries (currants, lingonberry, cloudberry, elderberry) with mashes, preserves, berry leather and honeyed nuts/berries, crabapple, pear, plum, sloe, elderflower, chestnut, hazelnut, fiddleheads, goosefoot, thistle, watercress, horseradish, water lily and mustard.",
-      "paths": ["CardData/**/*currant*", "CardData/**/*Lingonberr*", "CardData/**/*Cloudberr*", "CardData/**/Berry*", "CardData/**/Bp_Berry*", "CardData/**/*Honeyed*", "CardData/**/*Elderberr*",
-                "CardData/Item/Elderflower*", "CardData/**/*Crabapple*", "CardData/Item/Pear*", "CardData/Item/Plum*", "CardData/Blueprint/Bp_PlumPreserve.json", "CardData/Item/Sloe.json",
-                "CardData/Item/Chestnut.json", "CardData/Item/RoastedChestnut.json", "CardData/**/*Hazelnut*", "CardData/**/*Fiddlehead*", "CardData/**/*Goosefoot*", "GameStat/HF_GoosefootPurge.json",
-                "CardData/**/*Thistle*", "CardData/Item/Watercress*", "**/*Horseradish*", "CardData/**/*WaterLily*", "CardData/Item/MustardSeeds.json", "SpiceTag/Spice_Mustard.json"]
+      "summary": "Foraged berries (currants, lingonberry, cloudberry) with mashes, preserves, berry leather and honeyed nuts/berries, plum, sloe, elderflower, chestnut, fiddleheads, goosefoot, watercress, horseradish and mustard.",
+      "paths": ["CardData/**/*currant*", "CardData/**/*Lingonberr*", "CardData/**/*Cloudberr*", "CardData/**/Berry*", "CardData/**/Bp_Berry*", "CardData/**/*Honeyed*",
+                "CardData/Item/Elderflower*", "CardData/Item/Plum*", "CardData/Blueprint/Bp_PlumPreserve.json", "CardData/Item/Sloe.json",
+                "CardData/Item/Chestnut.json", "CardData/Item/RoastedChestnut.json", "CardData/**/*Fiddlehead*", "CardData/**/*Goosefoot*", "GameStat/HF_GoosefootPurge.json",
+                "CardData/Item/Watercress*", "**/*Horseradish*", "CardData/Item/MustardSeeds.json", "SpiceTag/Spice_Mustard.json"]
     },
     {
       "id": "breads",
@@ -62,10 +63,10 @@
     {
       "id": "kitchen",
       "name": "Fish, Meat and Savoury Kitchen",
-      "summary": "Fish mash and fishcakes, haggis, liver sausage, lye-cured fish and lutefisk, fish sauce, tendon soup, herb butter and cheese, forager seasoning, and maggots from rotten remains.",
+      "summary": "Fish mash and fishcakes, haggis, liver sausage, lye-cured fish and lutefisk, fish sauce, tendon soup, the two staged stews (mixes and stew stages), herb butter and cheese, forager seasoning, and maggots from rotten remains.",
       "paths": ["CardData/**/*FishMash*", "CardData/**/*Fishcake*", "CardData/**/*Haggis*", "CardData/**/*LiverSausage*", "CardData/**/*Lutefisk*", "CardData/**/*Lye*",
                 "**/*FishSauce*", "CardData/**/*TendonSoup*", "CardData/**/*HerbButter*", "CardData/**/*HerbCheese*", "**/*ForagerSeasoning*", "CardData/Item/Maggots.json",
-                "GameSourceModify/RottenRemains.json"]
+                "CardData/Item/StewMix*.json", "CardData/Liquid/Stew*.json", "GameSourceModify/RottenRemains.json"]
     },
     {
       "id": "hemp",

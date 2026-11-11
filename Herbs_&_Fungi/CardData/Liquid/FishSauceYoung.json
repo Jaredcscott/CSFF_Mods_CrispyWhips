@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_lq_fish_sauce_young",
         "LocalizationKey": "Herbs_And_Fungi_FishSauceYoung_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> Drag Salted Fish Mash onto water.\n\n<b>Next:</b> After about five days (a tunable placeholder) it turns into Fish Sauce."
+        "DefaultText": "<b>Made from:</b> Drag Salted Fish Mash onto water.\n\n<b>Next:</b> After about five days it turns into Fish Sauce."
     },
     "CardType": 9,
     "CardImage": {

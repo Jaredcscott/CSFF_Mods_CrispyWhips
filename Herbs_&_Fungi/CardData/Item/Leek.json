@@ -70,6 +70,55 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_leek",
+                "LocalizationKey": "Herbs_And_Fungi_Leek_StewCombine_ActionName",
+                "DefaultText": "Chop Together (Stew)"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_leek",
+                "LocalizationKey": "Herbs_And_Fungi_Leek_StewCombine_ActionDescription",
+                "DefaultText": "Slice the leek and toss it with a fresh Chanterelle, Shiitake, King Oyster, Golden Oyster or Black Trumpet: the first step of a Forager's Mushroom Stew."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSoundsWarpData": [
+                "GrindingLeaves"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "herbs_fungi_chanterelle",
+                    "herbs_fungi_shiitake",
+                    "herbs_fungi_king_oyster",
+                    "herbs_fungi_golden_oyster",
+                    "herbs_fungi_black_trumpet"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksBothWays": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_stew_mix_mushroom",
+                "TransformIntoWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_leek",
                 "LocalizationKey": "",
                 "DefaultText": "Add to Stew"
             },

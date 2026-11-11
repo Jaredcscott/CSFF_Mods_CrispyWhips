@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_liver_sausage_dried",
         "LocalizationKey": "Herbs_And_Fungi_LiverSausageDried_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> A Raw Liver Sausage or a Liver Sausage dried on a drying rack.\n\n<b>Uses:</b> Eat it for a meat meal (values are tunable placeholders, copied from the vanilla Dried Sausage with more iron). Keeps far longer than the fresh sausage."
+        "DefaultText": "<b>Made from:</b> A Raw Liver Sausage or a Liver Sausage dried on a drying rack.\n\n<b>Uses:</b> Eat it for a meat meal. Keeps far longer than the fresh sausage."
     },
     "CardType": 0,
     "CardImage": {

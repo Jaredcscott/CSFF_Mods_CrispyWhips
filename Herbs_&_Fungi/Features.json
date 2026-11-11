@@ -15,7 +15,6 @@
         "herbs_fungi_shiitake", "herbs_fungi_shiitake_cooked", "herbs_fungi_shiitake_dried", "herbs_fungi_shiitake_ground",
         "herbs_fungi_lions_mane", "herbs_fungi_lions_mane_cooked", "herbs_fungi_lions_mane_dried", "herbs_fungi_lions_mane_ground",
         "herbs_fungi_golden_oyster", "herbs_fungi_golden_oyster_cooked", "herbs_fungi_golden_oyster_dried",
-        "herbs_fungi_velvet_shank", "herbs_fungi_velvet_shank_cooked", "herbs_fungi_velvet_shank_dried",
         "herbs_fungi_king_oyster", "herbs_fungi_king_oyster_cooked", "herbs_fungi_king_oyster_dried", "herbs_fungi_king_oyster_ground",
         "herbs_fungi_reishi", "herbs_fungi_reishi_ground", "herbs_fungi_dried_reishi",
         "herbs_fungi_death_cap", "herbs_fungi_death_cap_dried",
@@ -278,6 +277,17 @@
         "herbs_fungi_perk_seed_bag",
         "herbs_fungi_perk_smoke_kit",
         "herbs_fungi_perk_stoner"
+      ]
+    },
+    {
+      "name": "Staged Stews",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "Unreleased (mission csff-nexus-fix-hf-2026-10-31, H&F plan 1.2, Nexus c170331725). Two four-step stews in card JSON only: chop (Leek + culinary mushroom, Carrot + Ginger), pot (the mix on hot water in a Clay Bowl), simmer (Special1 fills only while the liquid's Fuel is 100 to 200), finish (Kale, or Yarrow). Data gate Development_Tools/Tests/HerbsAndFungi-StagedStew.Tests.ps1 green; never run in game: T2.2146 (mushroom) and T2.2147 (root, plus the Cooking Pot refusal) pending. Whether a fire reheats the simmering liquid in a Clay Bowl is inferred, not measured.",
+      "cards": [
+        "herbs_fungi_stew_mix_mushroom", "herbs_fungi_stew_mix_root",
+        "herbs_fungi_lq_mushroom_stew_simmering", "herbs_fungi_lq_mushroom_stew_base", "herbs_fungi_lq_mushroom_stew",
+        "herbs_fungi_lq_root_stew_simmering", "herbs_fungi_lq_root_stew_base", "herbs_fungi_lq_root_stew"
       ]
     }
   ]

@@ -70,6 +70,52 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_carrot",
+                "LocalizationKey": "Herbs_And_Fungi_Carrot_StewCombine_ActionName",
+                "DefaultText": "Chop Together (Stew)"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_carrot",
+                "LocalizationKey": "Herbs_And_Fungi_Carrot_StewCombine_ActionDescription",
+                "DefaultText": "Chop the carrot together with Ginger or Cut Ginger: the first step of a Herbalist's Root Stew."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSoundsWarpData": [
+                "GrindingLeaves"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "herbs_fungi_ginger",
+                    "herbs_fungi_ginger_cut"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksBothWays": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_stew_mix_root",
+                "TransformIntoWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_carrot",
                 "LocalizationKey": "",
                 "DefaultText": "Add to Stew"
             },

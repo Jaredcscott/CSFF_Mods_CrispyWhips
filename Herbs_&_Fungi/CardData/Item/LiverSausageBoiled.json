@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_liver_sausage_boiled",
         "LocalizationKey": "Herbs_And_Fungi_LiverSausageBoiled_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> A Raw Liver Sausage boiled in a pot of water.\n\n<b>Uses:</b> Eat it for a meat meal (values are tunable placeholders, copied from the vanilla Boiled Sausage with more iron)."
+        "DefaultText": "<b>Made from:</b> A Raw Liver Sausage boiled in a pot of water.\n\n<b>Uses:</b> Eat it for a meat meal."
     },
     "CardType": 0,
     "CardImage": {

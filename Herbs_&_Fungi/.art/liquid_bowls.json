@@ -156,6 +156,42 @@
    "card": "CardData/Liquid/YarrowTea.json",
    "colour": "#b9af5f",
    "looks": "pale yellow-green"
+  },
+  {
+   "image": "HF_LQ_StewMushroomSimmering",
+   "card": "CardData/Liquid/StewMushroomSimmering.json",
+   "colour": "#8c6c48",
+   "looks": "thin brown broth"
+  },
+  {
+   "image": "HF_LQ_StewMushroomBase",
+   "card": "CardData/Liquid/StewMushroomBase.json",
+   "colour": "#7a5636",
+   "looks": "brown broth"
+  },
+  {
+   "image": "HF_LQ_StewMushroom",
+   "card": "CardData/Liquid/StewMushroom.json",
+   "colour": "#664228",
+   "looks": "rich dark brown"
+  },
+  {
+   "image": "HF_LQ_StewRootSimmering",
+   "card": "CardData/Liquid/StewRootSimmering.json",
+   "colour": "#c48e44",
+   "looks": "thin golden broth"
+  },
+  {
+   "image": "HF_LQ_StewRootBase",
+   "card": "CardData/Liquid/StewRootBase.json",
+   "colour": "#b4782e",
+   "looks": "golden-orange broth"
+  },
+  {
+   "image": "HF_LQ_StewRoot",
+   "card": "CardData/Liquid/StewRoot.json",
+   "colour": "#a3621f",
+   "looks": "deep orange"
   }
  ]
 }

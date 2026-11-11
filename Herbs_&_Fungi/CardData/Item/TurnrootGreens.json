@@ -428,6 +428,6 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_turnroot_greens",
         "LocalizationKey": "herbsfungiturnrootgreens_CardHelpSection",
-        "DefaultText": "<b>Found:</b> Sometimes when you harvest a mature turnroot field by hand (not with a sickle).\n\n<b>Uses:</b> Eat it raw, or add it to a stew."
+        "DefaultText": "<b>Found:</b> Foraging from spring to autumn at the Secret Grove and Pine Meadows, and sometimes when you harvest a mature turnroot field by hand (not with a sickle).\n\n<b>Uses:</b> Eat it raw, or add it to a stew."
     }
 }

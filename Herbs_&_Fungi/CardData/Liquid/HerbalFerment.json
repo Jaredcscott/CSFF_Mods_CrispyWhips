@@ -64,6 +64,7 @@
             "ActionTags": [],
             "ActionTagsWarpData": ["DrinkingAction"],
             "ActionTagsWarpType": 3,
+            "ReceivingCardFlavourBonus": true,
             "StatModifications": [
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},

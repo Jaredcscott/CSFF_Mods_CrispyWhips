@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_ful",
         "LocalizationKey": "Herbs_And_Fungi_Ful_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> Blueprint: Ful (Cooking tab, 3 Broad Beans and 1 Peanut Oil; the clay bowl comes back).\n\n<b>Uses:</b> Eat it (values are tunable placeholders)."
+        "DefaultText": "<b>Made from:</b> Blueprint: Ful (Cooking tab, 3 Broad Beans and 1 Peanut Oil; the clay bowl comes back).\n\n<b>Uses:</b> Eat it."
     },
     "CardType": 0,
     "CardImage": {

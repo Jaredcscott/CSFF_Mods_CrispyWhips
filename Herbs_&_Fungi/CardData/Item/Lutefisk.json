@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_lutefisk",
         "LocalizationKey": "Herbs_And_Fungi_Lutefisk_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> Dried fish soaked in lye (about two days), rinsed in water, then cooked over a fire.\n\n<b>Uses:</b> Eat it for a filling fish meal (values are tunable placeholders). Counts as a fish meal for fish boredom."
+        "DefaultText": "<b>Made from:</b> Dried fish soaked in lye (about two days), rinsed in water, then cooked over a fire.\n\n<b>Uses:</b> Eat it for a filling fish meal. Counts as a fish meal for fish boredom."
     },
     "CardType": 0,
     "CardImage": {

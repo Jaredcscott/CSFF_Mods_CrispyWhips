@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_sprout_bread",
         "LocalizationKey": "Herbs_And_Fungi_SproutBread_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> Raw Sprouted Rye Bread baked near a fire.\n\n<b>Uses:</b> Eat it for a filling meal (values are tunable placeholders, copied from the vanilla rye flatbread)."
+        "DefaultText": "<b>Made from:</b> Raw Sprouted Rye Bread baked near a fire.\n\n<b>Uses:</b> Eat it for a filling meal."
     },
     "CardType": 0,
     "CardImage": {

@@ -40,7 +40,7 @@
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_herb_pipe_frostleaf",
             "LocalizationKey": "Herbs_And_Fungi_HerbPipeFrostleaf_SpecialDurability2_CardStatName",
-            "DefaultText": "Quality"
+            "DefaultText": "Charge"
         },
         "MaxValue": 99.0,
         "RatePerDaytimePoint": 0.0,

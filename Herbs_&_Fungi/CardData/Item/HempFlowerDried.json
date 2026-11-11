@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hemp_flower_dried",
         "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_CardHelpSection",
-        "DefaultText": "<b>Processing:</b> Grind with rock for premium quality (+50), or use axes/knives/quern/mortar for standard quality (+25).\n\n<b>Burning:</b> Burn on any fire to create smoke that improves mood and reduces anxiety. Each flower adds 5% smoke to indoor spaces.\n\n<b>Warning:</b> Too much smoke (3+ flowers) becomes harmful despite mental benefits."
+        "DefaultText": "<b>Processing:</b> Grind with rock for premium quality (+50), or use axes/knives/quern/mortar for standard quality (+25).\n\n<b>Burning:</b> Burn it on any fire for Morale +10 to 12 and Altered Mindstate +10 to 15, while your Morale is 70 or lower. Each burn uses up one flower."
     },
     "ObjectWeight": 50,
     "TradingValue": 25.0,
@@ -325,7 +325,7 @@
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_dried",
                 "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_CardInteractions[2]_ActionDescription",
-                "DefaultText": "Burn on fire to create aromatic smoke. Improves mood and reduces anxiety. Outdoors: repels mosquitoes but alerts all animals in the area, preventing sneak attacks. Indoors: adds 5% smoke to enclosed spaces."
+                "DefaultText": "Burn it on a fire and breathe the smoke: Morale +10 to 12 and Altered Mindstate +10 to 15. Only while your Morale is 70 or lower. The flower is used up."
             },
             "DaytimeCost": 1,
             "HungerCost": 0,

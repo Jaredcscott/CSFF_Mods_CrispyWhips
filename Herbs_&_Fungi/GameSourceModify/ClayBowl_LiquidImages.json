@@ -1,0 +1,262 @@
+{
+  "UniqueID": "a968f3eaffc6b9743b82982b5af2ab8c",
+  "LiquidImagesWarpData": [
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_chaga_tea"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_ChagaTea",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_chicory_tea"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_ChicoryTea",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_fish_sauce"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_FishSauce",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_fish_sauce_young"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_FishSauceYoung",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_ginseng_tea"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_GinsengTea",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_grape_must"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_GrapeMust",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_grape_wine"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_GrapeWine",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_gruit_ale"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_GruitAle",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_herbal_ferment"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_HerbalFerment",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_herbal_ferment_young"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_HerbalFermentYoung",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_hopped_ale"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_HoppedAle",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lions_mane_tea"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_LionsManeTea",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_mandrake_draught"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_MandrakeDraught",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_needle_ale"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_NeedleAle",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_nut_milk"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_NutMilk",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_reishi_tea"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_ReishiTea",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_sloe_must"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_SloeMust",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_sloe_wine"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_SloeWine",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_spiced_billberry_wine"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_SpicedBillberryWine",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_spiced_birch_wine"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_SpicedBirchWine",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_spiced_pickle_brine"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_SpicedPickleBrine",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_spiced_rye_ale"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_SpicedRyeAle",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_spiced_springberry_wine"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_SpicedSpringberryWine",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_spiced_wheat_ale"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_SpicedWheatAle",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_mushroom_stew"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_StewMushroom",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_mushroom_stew_base"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_StewMushroomBase",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_mushroom_stew_simmering"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_StewMushroomSimmering",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_root_stew"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_StewRoot",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_root_stew_base"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_StewRootBase",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_lq_root_stew_simmering"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_StewRootSimmering",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_vigor_elixir"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_VigorElixir",
+      "LiquidImageWarpType": 3
+    },
+    {
+      "LiquidCardsWarpData": [
+        "herbs_fungi_yarrow_tea"
+      ],
+      "LiquidCardsWarpType": 3,
+      "LiquidImageWarpData": "HF_LQ_YarrowTea",
+      "LiquidImageWarpType": 3
+    }
+  ],
+  "LiquidImagesWarpType": 4
+}

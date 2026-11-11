@@ -85,6 +85,7 @@
                 "DrinkingAction"
             ],
             "ActionTagsWarpType": 3,
+            "ReceivingCardFlavourBonus": true,
             "ReceivingCardChanges": {
                 "ModType": 3
             },

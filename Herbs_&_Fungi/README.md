@@ -1,6 +1,6 @@
 # Herbs and Fungi: Player Guide
 
-**Version:** 1.14.18
+**Version:** 1.14.19
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -10,7 +10,7 @@
 
 Herbs and Fungi adds foraged mushrooms, medicinal herbs, wild fruit and vegetables, hemp farming, mushroom logs, oil pressing, pickling and drying. You forage, grow and dry, press oils, brew medicinal teas and seal pickles in clay vats.
 
-It ships 507 cards (267 items, 27 liquids, 80 placed structures and growth stages, 133 blueprints), 16 character perks, 11 custom stats, 16 flavour spices and 2 encounter guards. It adds no map locations: everything is foraged at the vanilla woods, groves, clearings and meadows.
+It ships 500 cards (237 items, 50 liquids, 80 placed structures and growth stages, 133 blueprints), 16 character perks, 11 custom stats, 16 flavour spices and 2 encounter guards. It adds no map locations: everything is foraged at the vanilla woods, groves, clearings and meadows.
 
 Many numbers added since 1.14.0 are starting values and may change, and a few cards still share another card's picture. Features marked "not yet confirmed in game" have not been played through by a person.
 
@@ -32,8 +32,7 @@ Many numbers added since 1.14.0 are starting values and may change, and a few ca
 | **Ripe Puffball** | Not food. **Dust a Wound** raises Yarrow Clotting by 24 (half of Ground Yarrow's Apply to Wound), slowing bleeding for a while. It gives 3 dustings and rots away after twice as long as the fresh puffball took to ripen |
 | **Black Trumpet** | Gourmet, smoky truffle flavour |
 | **King Oyster** | Dense and meaty |
-| **Golden Oyster** | Nutty |
-| **Velvet Shank** | Winter only. Found foraging oak, alder and willow woods (7% a forage). Cook it, or let it dry on the card |
+| **Golden Oyster** | Nutty. Found all year, winter included, at oak, alder, pine and willow woods |
 | **Morel Mushroom** | Rare delicacy. Food poisoning raw, so cook it |
 | **Lion's Mane Mushroom** | Medicinal. Chew it raw or grind it for tea |
 | **Reishi Mushroom** | Medicinal. Chew it raw or grind it for tea |
@@ -61,27 +60,27 @@ Eat them raw, stew them or dry them. They stack to 20 and spoil in about 6 days 
 - **Wild Flowers**: dry them and make a Flower Garland.
 
 ### Wild Foods of the Vanilla Woods and Meadows
-Each is a forage find at 1.5 to 5% a forage. Allied Partners eat the foods listed as safe and leave the rest alone (see Allied Partners).
+Each is a forage find at 1.5 to 7.5% a forage. Allied Partners eat the foods listed as safe and leave the rest alone (see Allied Partners).
 
 | Find | Season and places | What to do with it |
 |------|-------------------|--------------------|
 | **Fiddleheads** | Spring. Alder Grove, Mossy Clearing | Raw gives food poisoning (+8). Cook into Cooked Fiddleheads |
-| **Thistle Greens** | Spring, summer. Secret Grove, Pine Meadows | Eat raw |
-| **Camas Bulb** | Spring, summer. Pine Meadows, Secret Grove | Roast into Roasted Camas. The **Camas Cake** blueprint (2 Roasted Camas) grinds into Camas Flour |
+| **Camas Bulb** | Spring to autumn. Pine Meadows, Secret Grove, every river place | Roast into Roasted Camas. The **Camas Cake** blueprint (2 Roasted Camas) grinds into Camas Flour |
 | **Mandrake Root** | Summer, autumn. Mossy Clearing, Old Grove | Not food. Drag hot water onto it (**Steep in Hot Water**) for a Mandrake Draught. Its **Drink** gives vanilla Fairy Tea's sleepy effect (+60) |
 | **Rhubarb** | Spring, summer. Alder Grove, Secret Grove | Eat raw or stew it. **Rhubarb Preserve** (3 Rhubarb, 2 Honeycomb) keeps long. **Plant Rhubarb** (2 Rhubarb, hoe) gives 2 to 3 after 15 days |
 | **Mustard Seeds** | Summer, autumn. Pine Meadows, Secret Grove | Not food. Drag onto a plateable food (**Add**) to season it. A handful seasons two plates |
 | **Horseradish Root** | Spring, autumn. Pine Clearing, Alder Grove | Not food. **Cut** it into Sliced Horseradish, then **Add** it to a plateable food (Pungent, Spicy), or dry it into Dried Horseradish, which seasons three plates |
 | **Chicory Root** | Summer, autumn. Pine Meadows, Secret Grove | Not food. Roast it, then **Steep in Hot Water** for Chicory Brew. Its **Drink** quenches thirst and gives **Chicory Lift** (12 of 24, fading 1 every 15 minutes): you tire more slowly and stress rises a little faster. A second cup doubles both |
 | **Goosefoot Greens** | Spring, summer. Secret Grove, Mossy Clearing | Eat raw or stew. Eating gives **Goosefoot Purge** (24 of 48, fading 1 every 15 minutes), lowering gut parasites by 5 every 15 minutes, or 10 after a second helping, with no nausea. In a stew they give only food |
-| **Water Lily Rhizome** | Spring to autumn. Every river place | Cook by a fire before eating |
-| **Turnroot Greens** | Spring to autumn | Come about half the time when you harvest a mature turnroot field by hand, not with a sickle. Eat raw |
-| **Crabapples, Wild Pears, Wild Plums** | Autumn (pears also summer). Crabapples at the Secret Grove and Mossy Clearing, pears at the Mossy Clearing and Alder Grove, plums at the Secret Grove and Pine Clearing | Eat fresh, dry for long keeping, or stew. **Plum Preserve** (3 Wild Plums, 2 Honeycomb) |
-| **Chestnuts, Hazelnuts** | Autumn. Chestnuts at the Secret Grove and Mossy Clearing, hazelnuts at the Secret Grove and Alder Grove | Eat raw or roast on a fire. Grind Roasted Chestnuts into Chestnut Flour, soak it into Chestnut Dough and bake Chestnut Flatbread |
+| **Turnroot Greens** | Spring to autumn. Secret Grove, Pine Meadows | Foraged, and about half the time you harvest a mature turnroot field by hand, not with a sickle. Eat raw |
+| **Wild Plums** | Summer, autumn. Secret Grove, Mossy Clearing, Pine Clearing, Alder Grove | Eat fresh, dry for long keeping, or stew. **Plum Preserve** (3 Wild Plums, 2 Honeycomb) |
+| **Chestnuts** | Autumn. Secret Grove, Mossy Clearing, Alder Grove | Eat raw or roast on a fire. Grind Roasted Chestnuts into Chestnut Flour, soak it into Chestnut Dough and bake Chestnut Flatbread |
 | **Sloes** | Autumn. Secret Grove, Pine Meadows | Crush into water for Sloe Must, which ferments into **Sloe Wine** in four days |
-| **Elderflowers, Elderberries** | Flowers spring and summer, berries autumn. Secret Grove, Alder Grove | Dry the flowers and steep in hot water for **Elderflower Cordial**. Eat, dry or stew the berries |
+| **Elderflowers** | Spring, summer. Secret Grove, Alder Grove | Dry the flowers and steep in hot water for **Elderflower Cordial** |
 
 Everything above goes into a stew.
+
+**Fewer look-alikes.** Wild Pears, Crabapples and Elderberries are now Wild Plums, Hazelnuts are Chestnuts, Thistle Greens are Turnroot Greens, Velvet Shank is Golden Oyster and Water Lily Rhizome is Camas Bulb: each pair did exactly the same things. The keeper is found everywhere the retired one was, and a saved game keeps the old cards as the new ones.
 
 ### Garden Vegetables and Crops
 - **Kale, Carrot and Leek** are found foraging from spring to autumn (2 to 2.5% a forage). Kale at the Secret Grove and Pine Meadows, Carrot at the Alder Grove and Pine Meadows, Leek at the Secret Grove and Alder Grove.
@@ -117,7 +116,7 @@ Everything above goes into a stew.
 ### Crafted Items and Structures
 - **Drying Tray**: a 6-slot tray for drying herbs, mushrooms, hemp flower or meat. Meat, fish, organs and sausages dry at a quarter of the speed (about a day for Bird Meat).
 - **Drying Stack**: furniture that holds up to 3 trays.
-- **Wooden Pantry**: cool storage that slows spoilage to 75% of normal. Wild animals can break into it.
+- **Wooden Pantry**: cool storage that slows spoilage to 75% of normal. With the framework's optional wildlife raids turned on (`WildlifeRaidsEnabled` in the CSFF Mod Framework config, off by default), animals can break into it and spoil food.
 - **Apothecary Shelf**: filtered storage for herbs, fungi, powders and medicines, slowing spoilage as much as the pantry (to 75%) but safe from raiding animals. Wild Ginseng and Wild Flowers count as herbs. The Herbal Incense Bundle does not go on it.
 - **Herb Pipe**: a carved wooden pipe, reusable with herbal powders.
 - **Herbal Incense Bundle**: dried flowers and herbs you burn to ease stress and raise Sanctuary across your board for about three hours. You can snuff it out to keep the rest.
@@ -130,7 +129,7 @@ Everything above goes into a stew.
   - Its death caps rot in about ten days, placed or carried, and the ward rots with them.
 - **Forager's Notebook**: 3 Hemp Paper and Twine (Support tab). Carried in your inventory, it records each wild plant or mushroom from this mod the first time one turns up, under the place you found it.
   - Open the card to read the list. Confirmed in a scripted run.
-- **Hemp Paper and the Botanical Field Guide**: Hemp Stalks make Hemp Pulp, which soaks for about a day and presses into Hemp Paper. 6 paper and Twine bind the Field Guide, whose **Read** action lists every plant this mod adds with its seasons and places.
+- **Hemp Paper and the Botanical Field Guide**: Hemp Stalks make Hemp Pulp, which soaks for about a day and presses into Hemp Paper. 6 paper and Twine bind the Field Guide. Hover over any of its five **Read** buttons (Places, Mushrooms, Herbs and Flowers, Fruit and Nuts, Roots and Greens) to see that page, which gives every wild plant this mod adds with its seasons and places.
 - **Oil Press**: a multi-stage workstation that presses oils from seeds, truffles and herbs.
 - **Pickle Vat**: a clay vessel for long preservation.
 
@@ -296,7 +295,7 @@ The **Oil Press** perk starts you with the Kit.
    - Meat: raw meat, offal, fillings and raw fish.
    - Mushrooms: Golden Oyster, King Oyster, Morel Mushroom and Shiitake Mushroom.
    - Vegetables: Ginger, Wild Ginseng and vanilla fireroot and turnroot.
-4. The vat becomes, for example, **Pickled Frogs (Closed)**. Drag water onto it (**Seal**). **Uncap** asks before it throws away the packed food.
+4. The vat becomes, for example, **Pickled Frogs (Closed)**. Drag water onto it (**Seal**). **Uncap** asks before it throws away the packed food, and gives the clay bowl lid back.
 5. After 7 days it becomes **Pickled Frogs** (or Meat, Mushrooms or Vegetables) with **5 servings**. **Eat** them from the vat. A ready vat keeps for about a month.
 6. Emptying the last serving, or letting the pickles spoil, gives back the fired vat and an **Open Pickle Jar**. **Return Bowl** on the jar returns the clay bowl lid.
 
@@ -314,7 +313,7 @@ It regrows about every 3 days, faster in spring and not in winter, and Harvest b
 - Put raw mushrooms on any heat source (campfire, stove or copper stove). Watch the cook stat and take them off before they overcook. Cooked mushrooms are more nourishing.
 - Morel Mushroom and Chicken of the Woods give a short bout of food poisoning raw, and the morel adds nausea, so cook them. An Unknown or False Chanterelle eaten as it is does the same. Identify the unknown one first.
 - **Pasties**: drag a culinary mushroom (not Reishi, Chaga, Death Cap or Truffle) or a berry onto greased rye or wheat dough in daylight, then bake it in an oven (heat gauge 178 or more, one cooking step). Take it out before it burns.
-- **Stew**: 92 cards from this mod have **Add to Stew**. They cover fresh, cooked, dried and ground forms of the mushrooms, berries, herbs, roots and vegetables, plus the powders, Oatmeal, Truffle Butter and Truffle Salt.
+- **Stew**: 80 cards from this mod have **Add to Stew**. They cover fresh, cooked, dried and ground forms of the mushrooms, berries, herbs, roots and vegetables, plus the powders, Oatmeal, Truffle Butter and Truffle Salt.
   - Drop one onto a Cooking Pot, Clay Cauldron, Clay Bowl or Advanced Copper Tools' Copper Cauldron holding at least 290 units of water at Liquid Temperature 100 or more and not yet at full thickness.
   - It is stirred in at once, and the stew takes on the card's flavours.
 
@@ -322,9 +321,9 @@ It regrows about every 3 days, faster in spring and not in winter, and Harvest b
 
   | Ingredient | Vanilla match | Thickness | Calories | Other |
   |---|---|---|---|---|
-  | Mushroom (also Camas, Fiddleheads, Water Lily, Watercress, Truffle Salt) | Forest Caps | 16.66 | 10 | 24 Vitamins |
-  | Berry or wild fruit (also crabapples, wild pears, wild plums, elderberries) | bilberry | 25 | 26 | 96 Vitamins |
-  | Leafy herb or vegetable (chamomile, dandelion, yarrow, elderflowers, carrot, kale, leek, rhubarb, broad beans, goosefoot, thistle, turnroot greens) | bog myrtle | 33.3 | 2 | 44 Vitamins |
+  | Mushroom (also Camas, Fiddleheads, Watercress, Truffle Salt) | Forest Caps | 16.66 | 10 | 24 Vitamins |
+  | Berry or wild fruit (also wild plums) | bilberry | 25 | 26 | 96 Vitamins |
+  | Leafy herb or vegetable (chamomile, dandelion, yarrow, elderflowers, carrot, kale, leek, rhubarb, broad beans, goosefoot, turnroot greens) | bog myrtle | 33.3 | 2 | 44 Vitamins |
   | Oatmeal | | 33.3 | 2 | 60 Vitamins |
   | Root (ginger, ginseng) | fireroot | 33.3 | 10 | 24 Vitamins |
   | Truffle Butter | vanilla fat | 6.66 | 12 | 48 Proteins |
@@ -333,6 +332,20 @@ It regrows about every 3 days, faster in spring and not in winter, and Harvest b
   Cold, too thick or too shallow water says "Not hot enough", "Too thick" or "Not enough liquid". Reishi, Lion's Mane, Chaga and Ginseng (every form) also add Herbal Tonic, and Yarrow adds Herbal Analgesic and Clotting.
 
   Each adds +8 per full 300-unit portion, less than a tea's dose, and a stew holds one dose of each kind.
+
+- **Staged stews**: two four-step stews, cooked in a **Clay Bowl** on a fire.
+
+  | Step | Forager's Mushroom Stew | Herbalist's Root Stew |
+  |---|---|---|
+  | 1. Chop (drag one onto the other) | Leek and a fresh Chanterelle, Shiitake, King Oyster, Golden Oyster or Black Trumpet: **Mushroom and Leek Mix** | Carrot and Ginger or Cut Ginger: **Carrot and Ginger Mix** |
+  | 2. Into the pot | Drop the mix into a Clay Bowl holding at least 290 of water that is at least half hot | Same |
+  | 3. Simmer | Keep the bowl hot for 2 ticks (half an hour). Off the fire it cools and waits | Same |
+  | 4. Finish, while hot | Add Kale | Add Yarrow or Dried Yarrow |
+  | Result | Two servings (**Eat a Serving**), filling, plus Herbal Tonic (+24). Savoury, earthy, herbal and green with a hint of leek | Two servings, plus Herbal Analgesic (+24). Sweet, herbal and green with a little ginger |
+
+  Both stews **taste great**: each serving shows the game's "Tastes great!" and lifts Gratification by 50, the game's own reward for a well-flavoured dish. Mushroom Broth, the other broths, Tendon Soup, Fish Sauce, Nut Milk, Herbal Ferment, Truffle Oil and Herbal Honey Syrup are tasted the same way when eaten.
+
+  Each stage's card names the next step. Only a Clay Bowl takes the mix, so a big pot cannot make endless servings. The values are starting values, not yet tuned, and the two mixes borrow the Leek and Carrot pictures.
 
 ### Truffle Condiments
 - **Cooked Truffle**: **Coat with Fat** on **Dried Truffle Slices** (drag Fat, a Fat Chunk, a Butter Chunk or Butter onto them) makes Fat-Coated Dried Truffle Slices, which finish as a Cooked Truffle when heated. Uncoated slices char to ash.
@@ -372,7 +385,7 @@ With Sirus23's Mod Collection, the Herbal Salve also takes Lanolin in place of t
 ## Allied Partners Eat Herbs and Fungi Food
 
 An allied Partner, the companion a Partner perk gives you, eats this mod's food and drinks its plain drinks as it does vanilla food. Hand it the card or leave it where it can reach it.
-- When hungry it will **Eat** any of 107 foods: berries, cooked and dried mushrooms, vegetables, breads, pasties, sausages, oils, butters and other dishes.
+- When hungry it will **Eat** any of 95 foods: berries, cooked and dried mushrooms, vegetables, breads, pasties, sausages, oils, butters and other dishes.
 - When thirsty it will **Drink** any of 18 drinks: Chamomile and Dandelion Tea, the Chanterelle, Lion's Mane and Mushroom Broths, Tendon Soup, Nut Milk, Elderflower Cordial, and the ales and wines (Gruit, Hopped and Needle Ale, Grape Wine, Sloe Wine and the five herb-spiced ales and wines).
 
 This uses vanilla's own Partner duties, so it works with or without Partner Overhaul. 25 foods and 7 drinks gained the human food or drink tag for it.
@@ -440,9 +453,10 @@ One option, in `BepInEx/config/` after the first launch:
 - **Advanced Copper Tools:** with ACT 1.17.0 or later, every oil this mod presses, Hemp Seed Oil included, fuels ACT's Metal Lantern, Copper Brazier and Copper Oil Flask as it is. ACT 1.18.13 retired its Render Hemp Seed Oil recipe, since the oil already burns without it. Neither mod needs the other.
 
 ### For Modders
-Three patches ship in `GameSourceModify/`:
+Four patches ship in `GameSourceModify/`:
 - vanilla **Rotten Remains** gains Collect Maggots;
 - the **Clay Cauldron** gains the medicine-brew-station tag that the Vigor Elixir reads;
+- the vanilla **Clay Bowl** (`ClayBowl_LiquidImages.json`) gains a picture for each of this mod's liquids, so a bowl of one no longer draws as water;
 - vanilla **Honeycomb** (`33cf4067563dac649b026a87ba0766bd.json`) gains the **Stir into Tea to Ferment** interaction behind Herbal Ferment.
 
 The mod adds forage and dig actions to vanilla locations and tags vanilla Turnroot and Fireroot `tag_Fermentable`. `GameLoadPatch` also gives the vanilla Drying Rack a Tendon drying recipe and lets the vanilla Pouch hold powders. The Herbal Salve's oil slot also takes Sirus23's Lanolin when that mod is installed: `TagGroups.json` lists it in `GpTag_HnF_SalveBase`, and the framework (2.28.9 or later) fills the group.
@@ -466,7 +480,8 @@ Patch classes in `Patcher/`:
 
 Full notes are in `CHANGELOG.md`.
 
-- **1.14.18** (unreleased): pickle vats use the CSFF Mod Framework's Brine, made by dissolving salt in water; Pickle Brine and Make Brine are retired and a saved vat keeps its brine; actions that were silent make a sound. Needs CSFF Mod Framework 2.29.0.
+- **1.14.19** (2026-11-11): two four-step stews cooked in a Clay Bowl, Forager's Mushroom Stew and Herbalist's Root Stew; stews and broths show the game's taste line when eaten; look-alike plants are folded into Wild Plums, Chestnuts, Turnroot Greens, Golden Oyster and Camas Bulb, and saves keep working; each of this mod's drinks has its own picture in a Clay Bowl; Uncap gives the clay bowl back; a refused pickle build no longer empties the vat's Brine; the Botanical Field Guide reads in five pages; the Drying Tray's Finish Drying step runs; honest text for burning hemp and the Wooden Pantry.
+- **1.14.18** (2026-10-30): pickle vats use the CSFF Mod Framework's Brine, made by dissolving salt in water; Pickle Brine and Make Brine are retired and a saved vat keeps its brine; actions that were silent make a sound. Needs CSFF Mod Framework 2.29.0.
 - **1.14.15**: Turnroot Flatbread is a dense brick that nourishes like Dried Turnroot, a little less filling; Turnroot Chips can be eaten; both have their own pictures.
 - **1.14.14**: the mod list description names the six herb grow bags as well as Kale's.
 - **1.14.13**: Peanut Butter has its own picture; the pickling recipes say they need the open Pickle Vat; Forager's Seasoning and seven other recipes name their ingredients and unlocks by the cards' real names; clearer log warnings if a game update breaks one of the mod's patches.

@@ -78,6 +78,7 @@
                 "EatingAction"
             ],
             "ActionTagsWarpType": 3,
+            "ReceivingCardFlavourBonus": true,
             "ActionSoundsWarpData": [
                 "Drink"
             ],

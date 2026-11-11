@@ -11,7 +11,7 @@
     },
     "CardHelpSection": {
         "LocalizationKey": "herbsfungiplum_CardHelpSection",
-        "DefaultText": "<b>Season:</b> Autumn\n\n<b>Found:</b> The Secret Grove and the Pine Clearing.\n\n<b>Uses:</b> Eat raw, dry into prunes, cook into a Plum Preserve (Cooking tab), or add to a stew."
+        "DefaultText": "<b>Season:</b> Summer and autumn\n\n<b>Found:</b> The Secret Grove, the Mossy Clearing, the Pine Clearing and the Alder Grove.\n\n<b>Uses:</b> Eat raw, dry into prunes, cook into a Plum Preserve (Cooking tab), or add to a stew."
     },
     "CardType": 0,
     "AlwaysUpdate": true,

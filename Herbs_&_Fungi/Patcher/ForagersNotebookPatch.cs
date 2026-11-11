@@ -28,15 +28,18 @@ internal static class ForagersNotebookPatch
         "herbs_fungi_morel_mushroom", "herbs_fungi_lions_mane", "herbs_fungi_king_oyster", "herbs_fungi_golden_oyster",
         "herbs_fungi_chanterelle", "herbs_fungi_reishi", "herbs_fungi_puffball", "herbs_fungi_chicken_of_woods",
         "herbs_fungi_black_trumpet", "herbs_fungi_shiitake", "herbs_fungi_chaga", "herbs_fungi_death_cap",
-        "herbs_fungi_velvet_shank", "herbs_fungi_truffle", "herbs_fungi_ginseng", "herbs_fungi_ginger",
+        "herbs_fungi_truffle", "herbs_fungi_ginseng", "herbs_fungi_ginger",
         "herbs_fungi_yarrow", "herbs_fungi_wild_flowers", "herbs_fungi_dandelion", "herbs_fungi_common_plantain",
         "herbs_fungi_chamomile", "herbs_fungi_blackcurrant", "herbs_fungi_redcurrant", "herbs_fungi_lingonberry",
         "herbs_fungi_cloudberry", "herbs_fungi_watercress",
-        "herbs_fungi_camas_bulb", "herbs_fungi_fiddleheads", "herbs_fungi_thistle",
+        "herbs_fungi_camas_bulb", "herbs_fungi_fiddleheads",
         "herbs_fungi_mandrake_root", "herbs_fungi_rhubarb", "herbs_fungi_mustard_seeds",
         "herbs_fungi_horseradish_root", "herbs_fungi_chicory_root", "herbs_fungi_goosefoot",
-        "herbs_fungi_water_lily_rhizome", "herbs_fungi_crabapple", "herbs_fungi_pear", "herbs_fungi_plum",
-        "herbs_fungi_chestnut", "herbs_fungi_hazelnut", "herbs_fungi_sloe", "herbs_fungi_elderflower", "herbs_fungi_elderberry",
+        "herbs_fungi_plum",
+        "herbs_fungi_chestnut", "herbs_fungi_sloe", "herbs_fungi_elderflower",
+        "herbs_fungi_carrot", "herbs_fungi_leek", "herbs_fungi_oats", "herbs_fungi_hops",
+        "herbs_fungi_kale", "herbs_fungi_grapes", "herbs_fungi_broad_beans",
+        "herbs_fungi_peanut_pod", "herbs_fungi_turnroot_greens", "herbs_fungi_hemp_seeds",
     };
 
     // Tunable placeholder: the inspection pane cuts its tail at about 15 lines, so after this many place lines

@@ -127,6 +127,7 @@
                 "DrinkingAction"
             ],
             "ActionTagsWarpType": 3,
+            "ReceivingCardFlavourBonus": true,
             "StatModifications": [
                 {
                     "Stat": {

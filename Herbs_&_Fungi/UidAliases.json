@@ -6,5 +6,19 @@
   "hfEnvMistyFalls": "0c7cd381f10689b49b2ca9ec8819380c",
   "hfEnvAlderWoods": "adff595fdf6158747a05f4fcd7c2f672",
   "hfEnvOldGrowthGrove": "43848cba2ea28554da29bf5996c1f4dd",
-  "herbs_fungi_pickle_brine": "APE_LQ_SaltWater"
+  "herbs_fungi_pickle_brine": "APE_LQ_SaltWater",
+  "herbs_fungi_pear": "herbs_fungi_plum",
+  "herbs_fungi_pear_dried": "herbs_fungi_plum_dried",
+  "herbs_fungi_crabapple": "herbs_fungi_plum",
+  "herbs_fungi_crabapple_dried": "herbs_fungi_plum_dried",
+  "herbs_fungi_elderberry": "herbs_fungi_plum",
+  "herbs_fungi_elderberry_dried": "herbs_fungi_plum_dried",
+  "herbs_fungi_hazelnut": "herbs_fungi_chestnut",
+  "herbs_fungi_roasted_hazelnut": "herbs_fungi_roasted_chestnut",
+  "herbs_fungi_thistle": "herbs_fungi_turnroot_greens",
+  "herbs_fungi_velvet_shank": "herbs_fungi_golden_oyster",
+  "herbs_fungi_velvet_shank_cooked": "herbs_fungi_golden_oyster_cooked",
+  "herbs_fungi_velvet_shank_dried": "herbs_fungi_golden_oyster_dried",
+  "herbs_fungi_water_lily_rhizome": "herbs_fungi_camas_bulb",
+  "herbs_fungi_water_lily_cooked": "herbs_fungi_camas_roasted"
 }

@@ -14,7 +14,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_botanical_field_guide",
         "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> six sheets of Hemp Paper and twine, from the Support tab.\n\n<b>Uses:</b> Choose Read to see where and when each plant can be found. The guide is not used up."
+        "DefaultText": "<b>Made from:</b> six sheets of Hemp Paper and twine, from the Support tab.\n\n<b>Uses:</b> Hover over one of its five Read buttons to see that page: Places, Mushrooms, Herbs and Flowers, Fruit and Nuts, Roots and Greens. Each plant's line says where and when it turns up. The guide is not used up."
     },
     "ObjectWeight": 40.0,
     "TradingValue": 60,
@@ -60,12 +60,108 @@
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_botanical_field_guide",
                 "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_Read_ActionName",
-                "DefaultText": "Read"
+                "DefaultText": "Read: Places"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_botanical_field_guide",
                 "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_Read_ActionDescription",
-                "DefaultText": "Where and when each plant of the forest turns up. Unless a line says otherwise, a plant is found by foraging from spring to autumn and never in winter.\n\nPlaces\nOak woods: oak groves, thickets and clearings\nAlder woods: alder groves, thickets and clearings\nPine woods: pine groves, thickets and clearings\nClearings: other clearings\nPine meadows: pine meadows\nNorth: the northern places above Grenfell Falls\nRiver banks: river places, Lake Island\nWillow places: willow groves and thickets\nBirch stands: 17 birch-tree places\n\nPlants\nMorel Mushroom: all year. Oak woods, alder woods, river banks, Pine Meadows, Old Grove.\nLion's Mane Mushroom: oak woods, alder woods.\nKing Oyster: all year. Oak woods, alder woods, pine woods.\nGolden Oyster: all year. Oak woods, alder woods, pine woods.\nChanterelle: oak woods, alder woods, Pine Meadows, birch stands.\nReishi Mushroom: oak woods, alder woods, pine woods.\nGiant Puffball: clearings, Secret Grove, Alder Grove.\nChicken of the Woods: willow places, oak woods, alder woods.\nBlack Trumpet: oak woods, alder woods, Pine Meadows.\nShiitake Mushroom: oak woods, alder woods, Primeval Woods, Pine Meadows.\nChaga: all year. Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows, birch stands.\nDeath Cap (deadly): north, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing.\nTruffle: spring to autumn, rarely, by digging up mud at a river, and by foraging the Old Grove; in any season with Dig for Truffles at the oak and alder groves, thickets and clearings.\nWild Ginseng: Primeval Woods, Lost Woods, Green Grove, Green Glade, Oaken Grove, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows.\nGinger: river banks, willow places, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows.\nYarrow: commonest in pine meadows. Other clearings, Secret Grove, Alder Grove.\nWolfsbane (poisonous): river banks.\nWild Flowers: clearings, pine meadows, river banks, Secret Grove, Alder Grove.\nDandelion: clearings, river banks, oak woods, alder woods.\nCommon Plantain: clearings, river banks, Secret Grove, Alder Grove, 13 of the birch stands.\nChamomile: pine meadows, clearings, Secret Grove, Alder Grove, 16 of the birch stands.\nBlackcurrants: summer only. River banks, oak woods, alder woods, Pine Meadows, birch stands.\nRedcurrants: summer only. Oak woods, alder woods, clearings other than pine meadows, 12 of the birch stands.\nLingonberries: summer and autumn. Pine meadows, pine woods, north, Secret Grove, Mossy Clearing, Alder Grove.\nCloudberries: north, pine meadows, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Old Grove.\nHemp Seeds and Hemp Plants: Primeval Woods, Lake Island. Seeds also come from clearing the ground in Primeval Woods.\nPeanut Pods: oak woods, alder woods, clearings, pine woods.\nVelvet Shank: winter only. Oak woods, alder woods, willow places, Secret Grove, Mossy Clearing, Alder Grove.\nWatercress: any place with a river.\nWater Lily Rhizome: any place with a river.\nCamas Bulb: spring and summer. Secret Grove, Pine Meadows.\nFiddleheads: spring only. Mossy Clearing, Alder Grove.\nThistle Greens: spring and summer. Secret Grove, Pine Meadows.\nGoosefoot Greens: spring and summer. Secret Grove, Mossy Clearing.\nRhubarb: spring and summer. Secret Grove, Alder Grove.\nHorseradish Root: spring and autumn. Alder Grove, Pine Clearing.\nMustard Seeds: summer and autumn. Secret Grove, Pine Meadows.\nChicory Root: summer and autumn. Secret Grove, Pine Meadows.\nMandrake Root: summer and autumn. Mossy Clearing, Old Grove.\nTurnroot Greens: not foraged. About half the times you harvest a mature turnroot field by hand, spring to autumn.\nCrabapples: autumn only. Secret Grove, Mossy Clearing.\nWild Pears: summer and autumn. Mossy Clearing, Alder Grove.\nWild Plums: autumn only. Secret Grove, Pine Clearing.\nChestnuts: autumn only. Secret Grove, Mossy Clearing.\nHazelnuts: autumn only. Secret Grove, Alder Grove.\nSloes: autumn only. Secret Grove, Pine Meadows.\nElderflowers: spring and summer. Secret Grove, Alder Grove.\nElderberries: autumn only. Secret Grove, Alder Grove.\nKale: Secret Grove, Pine Meadows.\nLeek: Secret Grove, Alder Grove.\nCarrot: Alder Grove, Pine Meadows.\nBroad Beans: spring and summer. Alder Grove, Pine Meadows.\nHops: summer and autumn. Mossy Clearing, Alder Grove.\nGrapes: summer and autumn. Secret Grove, Mossy Clearing.\nOats: summer and autumn. Secret Grove, Pine Meadows."
+                "DefaultText": "Where and when each plant of the forest turns up. The other four Read pages list the plants by these place names.\n\nPlaces\nOak woods: oak groves, thickets and clearings\nAlder woods: alder groves, thickets and clearings\nPine woods: pine groves, thickets and clearings\nClearings: other clearings\nPine meadows: pine meadows\nNorth: the northern places above Grenfell Falls\nRiver banks: river places, Lake Island\nWillow places: willow groves and thickets\nBirch stands: 17 birch-tree places"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "AlwaysShow": true
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_botanical_field_guide",
+                "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadMushrooms_ActionName",
+                "DefaultText": "Read: Mushrooms"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_botanical_field_guide",
+                "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadMushrooms_ActionDescription",
+                "DefaultText": "Unless a line says otherwise, a plant is found by foraging from spring to autumn and never in winter. The Read: Places page explains the place names.\n\nMorel Mushroom: all year. Oak woods, alder woods, river banks, Pine Meadows, Old Grove.\nLion's Mane Mushroom: oak woods, alder woods.\nKing Oyster: all year. Oak woods, alder woods, pine woods.\nGolden Oyster: all year. Oak woods, alder woods, pine woods, willow places, Secret Grove, Mossy Clearing, Alder Grove.\nChanterelle: oak woods, alder woods, Pine Meadows, birch stands.\nReishi Mushroom: oak woods, alder woods, pine woods.\nGiant Puffball: clearings, Secret Grove, Alder Grove.\nChicken of the Woods: willow places, oak woods, alder woods.\nBlack Trumpet: oak woods, alder woods, Pine Meadows.\nShiitake Mushroom: oak woods, alder woods, Primeval Woods, Pine Meadows.\nChaga: all year. Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows, birch stands.\nDeath Cap (deadly): north, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing.\nTruffle: spring to autumn, rarely, by digging up mud at a river, and by foraging the Old Grove; in any season with Dig for Truffles at the oak and alder groves, thickets and clearings."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "AlwaysShow": true
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_botanical_field_guide",
+                "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadHerbs_ActionName",
+                "DefaultText": "Read: Herbs and Flowers"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_botanical_field_guide",
+                "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadHerbs_ActionDescription",
+                "DefaultText": "Unless a line says otherwise, a plant is found by foraging from spring to autumn and never in winter. The Read: Places page explains the place names.\n\nWild Ginseng: Primeval Woods, Lost Woods, Green Grove, Green Glade, Oaken Grove, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows.\nGinger: river banks, willow places, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows.\nYarrow: commonest in pine meadows. Other clearings, Secret Grove, Alder Grove.\nWolfsbane (poisonous): river banks.\nWild Flowers: clearings, pine meadows, river banks, Secret Grove, Alder Grove.\nDandelion: clearings, river banks, oak woods, alder woods.\nCommon Plantain: clearings, river banks, Secret Grove, Alder Grove, 13 of the birch stands.\nChamomile: pine meadows, clearings, Secret Grove, Alder Grove, 16 of the birch stands.\nElderflowers: spring and summer. Secret Grove, Alder Grove.\nHops: summer and autumn. Mossy Clearing, Alder Grove.\nMustard Seeds: summer and autumn. Secret Grove, Pine Meadows.\nHemp Seeds and Hemp Plants: Primeval Woods, Lake Island. Seeds also come from clearing the ground in Primeval Woods."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "AlwaysShow": true
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_botanical_field_guide",
+                "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadFruit_ActionName",
+                "DefaultText": "Read: Fruit and Nuts"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_botanical_field_guide",
+                "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadFruit_ActionDescription",
+                "DefaultText": "Unless a line says otherwise, a plant is found by foraging from spring to autumn and never in winter. The Read: Places page explains the place names.\n\nBlackcurrants: summer only. River banks, oak woods, alder woods, Pine Meadows, birch stands.\nRedcurrants: summer only. Oak woods, alder woods, clearings other than pine meadows, 12 of the birch stands.\nLingonberries: summer and autumn. Pine meadows, pine woods, north, Secret Grove, Mossy Clearing, Alder Grove.\nCloudberries: north, pine meadows, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Old Grove.\nWild Plums: summer and autumn. Secret Grove, Mossy Clearing, Pine Clearing, Alder Grove.\nSloes: autumn only. Secret Grove, Pine Meadows.\nGrapes: summer and autumn. Secret Grove, Mossy Clearing.\nChestnuts: autumn only. Secret Grove, Mossy Clearing, Alder Grove.\nPeanut Pods: oak woods, alder woods, clearings, pine woods."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "AlwaysShow": true
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_botanical_field_guide",
+                "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadRoots_ActionName",
+                "DefaultText": "Read: Roots and Greens"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_botanical_field_guide",
+                "LocalizationKey": "Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadRoots_ActionDescription",
+                "DefaultText": "Unless a line says otherwise, a plant is found by foraging from spring to autumn and never in winter. The Read: Places page explains the place names.\n\nWatercress: any place with a river.\nCamas Bulb: Secret Grove, Pine Meadows, any place with a river.\nFiddleheads: spring only. Mossy Clearing, Alder Grove.\nGoosefoot Greens: spring and summer. Secret Grove, Mossy Clearing.\nRhubarb: spring and summer. Secret Grove, Alder Grove.\nHorseradish Root: spring and autumn. Alder Grove, Pine Clearing.\nChicory Root: summer and autumn. Secret Grove, Pine Meadows.\nMandrake Root: summer and autumn. Mossy Clearing, Old Grove.\nTurnroot Greens: Secret Grove, Pine Meadows. Also about half the times you harvest a mature turnroot field by hand.\nKale: Secret Grove, Pine Meadows.\nLeek: Secret Grove, Alder Grove.\nCarrot: Alder Grove, Pine Meadows.\nBroad Beans: spring and summer. Alder Grove, Pine Meadows.\nOats: summer and autumn. Secret Grove, Pine Meadows."
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 1,

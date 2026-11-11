@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_bp_oat_field",
         "LocalizationKey": "Herbs_Fungi_Bp_OatField_CardDescription",
-        "DefaultText": "Sow 6 oats in fertile ground to grow a field of oats that is ready after 9 days."
+        "DefaultText": "Sow 6 oats in fertile ground to grow a field of oats that is ready after 27 days."
     },
     "CanBeRenamed": false,
     "CardType": 7,

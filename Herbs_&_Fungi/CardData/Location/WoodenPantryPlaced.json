@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_wooden_pantry_placed",
         "LocalizationKey": "Herbs_And_Fungi_WoodenPantry_CardDescription",
-        "DefaultText": "A plank-built food pantry. Slows food spoilage, but wild animals can break in and eat what's inside."
+        "DefaultText": "A plank-built food pantry. Slows food spoilage. With the framework's optional wildlife raids turned on, animals can break in and spoil the food inside."
     },
     "CanBeRenamed": true,
     "AlternateNames": [],
@@ -20,7 +20,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_wooden_pantry_placed",
         "LocalizationKey": "Herbs_And_Fungi_WoodenPantry_Placed_CardHelpSection",
-        "DefaultText": "<b>Spoilage:</b> Slows to 75% of normal rate.\n\n<b>Animal-safe:</b> No. Passing wildlife (foxes, hares, badgers, and larger beasts) can raid this pantry."
+        "DefaultText": "<b>Spoilage:</b> Slows to 75% of normal rate.\n\n<b>Animal-safe:</b> No, but only with the framework's optional wildlife raids turned on (WildlifeRaidsEnabled in the CSFF Mod Framework config, off by default). Then each in-game day there is a 35% chance (the default) that animals spoil one food item in an open container like this one where you are, adding a little stress. A bear encounter can also raid it."
     },
     "CardImage": {
         "m_FileID": 0,

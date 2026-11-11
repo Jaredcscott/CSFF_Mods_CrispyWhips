@@ -1,88 +1,101 @@
 # Roadmap: Herbs and Fungi
-Version at time of writing: 1.14.17
-Date: 2026-10-27
-Audit score: 10/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 1 open balance WARNING + sub-threshold notes, 0 open MINOR) - see [.audit/summary.md](.audit/summary.md)
+Version at time of writing: 1.14.18
+Date: 2026-11-05
+Audit score: 8/10 - PASS (0 confirmed CRITICAL, 0 broken promises; one disputed-severity mechanical contradiction + a warning cluster) - see [.audit/summary.md](.audit/summary.md)
 
 ## Current State
 
-**Theme**: The repo's gold-standard DATA mod - a deep foraging, herbalism and preservation system: 14 mushrooms, 9 berries/wild fruits, 7 medicinal herbs, teas and a mushroom broth, drying/pickling/fermentation chains, an Oil Press, an Apothecary Shelf, a Death Cap Ward, and 16 character-creation perks. Pairs with Community Mod Chest (Academy Herbalism course identifies Unknown Chanterelles).
+**Theme**: The repo's deep foraging, herbalism and preservation DATA mod - foraged mushrooms, berries and wild foods, medicinal herbs and teas, hemp, garden crops, drying/pickling/fermentation chains, an Oil Press, two four-step staged stews, an Apothecary Shelf, a Death Cap Ward, and 16 character-creation perks. Pairs with Community Mod Chest (Academy Herbalism identifies Unknown Chanterelles), Advanced Copper Tools (oils fuel its lamps), Sirus23 (companion remedies) and the vanilla/Partner-Overhaul Partner.
 
-**Content**: 507 cards by CardType (267 items CT0, 27 liquids CT9, 80 structures CT2, 133 blueprints CT7), per the 2026-10-23 mod-report sweep (folder layout differs from CardType) / 16 perks / 292 image references all resolving / 11 GameStats / 16 SpiceTags / 2 EncounterGuards / 3 GameSourceModify patches / 0 SelfTriggeredActions. No map locations: all forage is injected into vanilla locations. Organized into 15 audit modules (`Modules.json`).
+**Content** (folder counts, 1.14.18): 237 items / 50 liquids / 80 structures+growth stages / 133 blueprints / 16 perks / 237 custom images / 0 SelfTriggeredActions / 0 Triggers. 11 GameStats, 16 SpiceTags, 2 EncounterGuards, 3 GameSourceModify patches. No map locations - all forage is injected into vanilla locations. Organized into 15 audit modules (`Modules.json`).
 
-**Stability**: 10/10 - minor issues only, still PASS. 0 CRITICAL, 0 blocking DESIGN GAP. The three player-facing text-vs-behavior misses surfaced by the 2026-10-23 per-module runs (W11 ElderflowerCordial cooling, W12 HempFlower "Harvest Seeds", W13 OilPress pipe claim) all shipped FIXED in 1.14.15 (`8f28dae633`/`8ee35982b2`) and were re-verified at HEAD on 2026-10-27. The one open warning is now W5 (perk starting-kit weight, a human feel check under T4.41); the remainder are sub-threshold notes (W14 a README attribution nit, G2 a CMC-drift breadcrumb at Debug, A10 a second startup Info line). Well under the rubric's 5+ threshold, so no point is lost. Earlier code-quality warnings (W1-W4, M1) shipped fixed in `61d1b7e62` (1.14.4); the G5 breadcrumb gaps (W6-W10) and 7 loose blueprint gate names (M5) in `00eeafb74` (1.14.13). Versions synced 1.14.17 across ModInfo.json, Plugin.cs and README.md; localization EN/CN parity clean at 3187/3187; build 0/0; `bin/` is not tracked. The whole-mod critical-analysis.md (2026-10-21) is predated by the 2026-10-26 source commit; the per-module critical-analysis runs (all CURRENT, modwide re-run 2026-10-27 SOLID) supersede it, so a whole-mod re-run is optional.
+**Stability**: **8/10 - PASS.** The honesty cluster that held the prior pass at 8/10 - M1 (Wooden Pantry raid wording) and M2 (Drying Tray "willow twigs") - is **resolved in `f8beca73c`** (2026-11-05): the pantry keeps `tag_NotSafeFromAnimals` and the raid is documented as conditional on the framework's optional `WildlifeRaidsEnabled` (pantry + shelf contrast + README/PLAYER_GUIDE, EN+CN), the TextHonesty gate is reconciled, and "or willow twigs" is gone from the Drying Tray blueprint and both CSV rows. With those closed the committed tree is 9/10. It lands at **8/10** because the working tree carries an **uncommitted storage mod-report** (stamped `f8beca73c`, not in HEAD, no live owner) raising **X1**: DryingTray's 13 species-specific "Finish Drying" recipes are unreachable (the generic `tag_Dryable` recipe sits first in `CookingRecipes[]` and wins first-match every tick), so the tray's advertised "+0.25 Quality" never reaches the dried product. The recipe-ordering mechanism was independently re-verified this pass; the drying LOOP is NOT broken (each item's own `OnFull` transforms it), so it is a lost-benefit + dead-recipe-tier + misleading-label issue, severity disputed (mod-report CRITICAL vs committed storage CA SOLID). No crash, no corrupt save; every gameplay loop resolves. Versions synced 1.14.18; build 0/0; parity clean (3187/3187). 12 of 15 modules are SOLID with zero open findings.
 
-**Open work**: No open retrospectives name this mod (`sealablegates-portal-hardening-2026-07-02` is Graduated). The round-2 MASTER_PLAN was drained and archived 2026-10-12 to `Documentation/Design/HerbsAndFungi_Content_Update_1_14_1_As_Built.md`; the vanilla-balance MASTER_PLAN that followed was drained and archived 2026-10-18 to `Documentation/Design/HerbsAndFungi_Vanilla_Balance_As_Built.md`, so `Documentation/Plans/HerbsAndFungi/` does not exist; `/audit-to-plan` has nothing to promote this pass (W5 is a human check; W14/G2/A10 are sub-threshold hygiene). 8 H&F rows are still `pending` in `.claude/playthrough-test-status.json` (T2.1034, T2.1094, T2.1359, T2.1360, T2.1363, T2.1365, T2.1755, T2.1764) - code work is done; those need a human at a running build. T4.41 sits in `confirmedItems` (harness PASS, 2026-10-14). The mod sits at the repo root pending full human testing before any `Stable/` move (owner rule, 2026-10-12).
+**Open work**: No open retrospective names this mod (`sealablegates-portal-hardening-2026-07-02` is Graduated). `Documentation/Plans/HerbsAndFungi/MASTER_PLAN.md` holds three built-and-unreleased player-request rows; its `## Audit remediation` section is refreshed by `/audit-to-plan` (M1/M2 now resolved; X1 the new open item). Several H&F tracker rows remain `pending` in `.claude/playthrough-test-status.json` (incl. staged-stew T2.2154 and the liquid-bowl pictures T2.1360); code work there is done, awaiting a human at a running build. T4.41 (perk weight) sits in `confirmedItems` (harness PASS 2026-10-14). The mod sits at the repo root pending full human testing before any `Stable/` move (owner rule, 2026-10-12).
 
-**Framework compliance**: Tier 2 - `ContentModPlugin` base, `Api.ActionRouter` for action dispatch (owns dedup), `Api.SpawnService.CardSpawned` for the Apothecary quest gate, `Api.TickEvents` for the mirror poll, `FindObjectsOfTypeAll` load-time one-shots cached and type-guarded. All event registration is once-per-process from `RegisterPatches` (not `OnGMInitialized`), so a save reload cannot stack handlers. Soft dependency on `crispywhips.CSFFModFramework`. No deprecated patterns (no `DropCollectionGuardPatch`, no hot-path prefixes, no manual perk/blueprint injection, no `ModLoaderVerison`/`ModEditorVersion`).
+**Framework compliance**: Tier 2 - `ContentModPlugin` base, `Api.ActionRouter` for action dispatch (owns dedup), `Api.SpawnService.CardSpawned` for the Apothecary quest gate, `Api.TickEvents` for the mirror poll, `FindObjectsOfTypeAll` load-time one-shots cached and type-guarded. All event registration is once-per-process from `RegisterPatches` (not `OnGMInitialized`), so a save reload cannot stack handlers. Soft dependency on `crispywhips.CSFFModFramework` (2.29.0+). The Wooden Pantry opts into the framework's opt-in `WildlifeRaidService` by carrying `tag_NotSafeFromAnimals` (now documented). No deprecated patterns (no `DropCollectionGuardPatch`, no hot-path prefixes, no manual perk/blueprint injection, no `ModLoaderVerison`/`ModEditorVersion`).
 
 ---
 
-## Phase 0: Stabilize  *(skipped - audit score >= 8, no open retrospectives)*
+## Phase 0: Stabilize  *(audit score 8/10, no open retrospectives)*
+
+> No confirmed CRITICAL and no unplayable loop remains. The one item that needs a decision before the next public release is X1 (below) - and its first step is adjudication, not a code change.
+
+| Item | Type | Priority | Complexity |
+|------|------|----------|------------|
+| **X1** - DryingTray "Finish Drying" recipes unreachable; the tray's "+0.25 Quality" never reaches the dried product. The finding sits in an **uncommitted** storage mod-report (labels it CRITICAL) that **contradicts** the committed storage critical-analysis (SOLID), and no live session claims the edit. **First**: re-run `/critical-analysis HerbsAndFungi` (or the storage module via `module_map`) to settle severity and ownership. **Then** (if confirmed): reorder `CookingRecipes[]` so each "Finish Drying" entry precedes the generic `tag_Dryable` entry (or gate the generic entry with an upper-bound durability range), OR move `TransferSpoilage`/`TransferSpecial2` onto each item's own `UsageDurability.OnFull.ReceivingCardChanges`. | Mechanical contradiction (storage), disputed severity | P0 (adjudicate) / P1 (fix) | Quick (fix) + a CA re-run |
 
 ---
 
 ## Phase 1: Foundation
 
-> The three 2026-10-23 player-facing honesty fixes (W11/W12/W13) have shipped in 1.14.15 and are verified at HEAD. What remains is optional hygiene. The 2026-10-11 code-quality hardening (W1-W4, M1) shipped in 1.14.4 (`61d1b7e62`); the five G5 breadcrumb gaps (W6-W10) and the 7 loose blueprint gate names (M5) in 1.14.13 (`00eeafb74`); `bin/Release/` is already untracked. The full blueprint audit ran 2026-10-20 over all 133 blueprints and is clean.
+> Version hygiene is clean (1.14.18 synced, build 0/0, parity clean). What remains is a small docs/image/tag cluster - all cheap.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **W14** - README attributes the Lanolin-as-Herbal-Salve-ingredient feature to `GameLoadPatch`, but the mechanism is `TagGroups.json`'s `GpTag_HnF_SalveBase` (`ExtraCards: ["sh_lanolin"]`), filled by the framework (2.28.9+). Reword the README line to credit `TagGroups.json`/the framework, or drop the mechanism name and state the player-facing effect. Documentation honesty; the feature itself is correctly wired. | Docs honesty (modwide) | P2 | Quick |
-| **G2** (optional) - drop `debugOnly: true` on the `"perk-unresolved"` WarnOnce at `AcademyHerbalismBridgePatch.cs:106-107` so a future CMC rename surfaces one default-visible warning. Below the mod warning threshold; fold into the next C# touch. | Reliability (code-quality) | P3 | Quick |
-| **A10 / H1** (optional) - gate the `[Forage] ForageDropDensityScale` startup Info line behind `scale != 1.0f` (or demote to `LogDebug`, checking `Documentation/Retrospectives/` for the `[Forage]` tag first); delete the 3 orphaned `.art` records (`HF_ClearedForestTrail.json`, `HF_OvergrownForestTrail.json`, `WildBeesNest.json`). Cosmetic. | Hygiene (modwide) | P3 | Quick |
-| ~~W11 / W12 / W13~~ - **DONE in 1.14.15** (`8f28dae633`/`8ee35982b2`): cordial cooling claim dropped, HempFlower "Harvest Seeds" moved to a DismantleAction, OilPress pipe claim scoped to the four herbs with a pipe. Verified at HEAD 2026-10-27. | Feature honesty | - | Shipped |
+| **W2** - Both oyster grow-bag blueprints use mushroom-LOG art (`ReadyGoldOysterLog`/`ReadyKingOysterLog`); set `CardImageWarpData` to `HF_GrowBagGoldenOyster`/`HF_GrowBagKingOyster` (the bag sprites the mature cards already use). | Image fix (cultivation) | P1 | Quick |
+| **W3** - Add `"VegetarianAction"` to the Eat `ActionTagsWarpData` of `NettleBread`, `PeaBread`, `SproutBread` (every other breads edible has it; all three are meat-free). | Tag consistency (breads) | P2 | Quick |
+| **W4** - Ripe Puffball README (line 32): drop the "(half of Ground Yarrow's Apply to Wound)" clotting parenthetical (it is equal, not half) and correct "twice as long" to "five times" (SpoilageTime 288 -> 1440). | Docs honesty (fungi) | P2 | Quick |
+| **W1** - Drying Tray `InventoryFilter` admits `tag_Cookable`/`tag_Heatable` (for Dry Meat Slowly), which also match raw dough/dishes that cannot dry - cosmetic slot-waste. Narrow the filter (a dedicated `tag_DryableMeat`), or document as a won't-fix in the plan. | UX (storage) | P2 | Medium |
+| N1-N2 (minor) - Forager's Notebook shares the Field Guide sprite; stale `.art/review/verdicts.json` entry for `HF_LQ_PickleBrine.png`. | Housekeeping | P3 | Quick |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> No active plan. Both round-2 and the later vanilla-balance MASTER_PLANs were drained and archived (2026-10-12 and 2026-10-18). Every feature is either built (shipped across 1.14.0-1.14.17, some awaiting human verification) or closed into an archive's "Considered, not selected" table with its reason. **Do not re-promote a Considered row** - each carries why it was ruled out. New content for this mod starts from a fresh `/generate-ideas` + plan, not from an archive's Considered table.
+> No new content is scheduled. The three MASTER_PLAN player-request rows (fewer look-alikes, staged stews, richer taste feedback) are all built-and-unreleased. The only "expansion" options are the build-the-feature side of the honesty findings; each is optional. Do not re-promote a drained Considered row.
 
-- **Shipped, awaiting human verification** (code done; the only "expansion" left is confirming it plays): the 8 pending H&F rows in `.claude/playthrough-test-status.json`. Source of truth: `Documentation/Design/HerbsAndFungi_Content_Update_1_14_1_As_Built.md` and `HerbsAndFungi_Vanilla_Balance_As_Built.md`.
-- **2026-10-14 (1.14.9): the Foraging Forest is retired.** Owner decision once Far Territory took over mod-made locations: the forest nodes, the Wild Bees' Nest, the forage hotspots, the Fungal Bloom, the Overgrown Forest Trail and the Old-Growth Grove unlock are removed, and every forest forage rule moved to the vanilla location its node cloned. Any roadmap/audit/tracker row about those features (e.g. T2.1007) no longer applies.
-- **No new content is scheduled.** The mod is feature-complete for round 2 and the vanilla-balance pass; the next build phase would be a new planning pass, not continuation of a drained plan.
-- **Content options surfaced (unscoped) by the W11/W13 fixes**: an ambient (un-iced) cooling cordial that is a distinct mild cooler rather than copying the iced teas; chamomile/ginseng/yarrow pipes to make the OilPress "corresponding pipe" claim literally true. Both are content choices, not required (the honesty fixes already shipped). See `.audit/ideas.md`.
+- **Shipped, awaiting human verification** (code done; what is left is confirming it plays): the pending H&F rows in `.claude/playthrough-test-status.json`, incl. staged-stew T2.2154 and the Clay-Bowl liquid pictures (T2.1360). Source of truth: the As-Built archives under `Documentation/Design/` and the current `MASTER_PLAN.md`.
+- **Build-the-feature options** (all optional, see `.audit/ideas.md`): a hemp-burning smoke/mosquito/animal-alert atmospheric subsystem (the old C1 claims are stripped, so this is a future feature, not a fix); a richer Botanical Field Guide "Read" journal (D2 is resolved as tooltips; a `StartDialog` journal is polish). The Wooden Pantry raid is now documented (M1 resolved), so that "surface the feature" option is done. None is required.
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> The cross-mod hooks are already shipped; what remains is partner-side acceptance, tracked in the partner mods, not here.
+> The cross-mod hooks are shipped; what remains is partner-side acceptance, tracked in the partner mods.
 
-### Academy Herbalism course (Community Mod Chest)
-**What**: CMC's Academy Herbalism course identifies Unknown Chanterelles. Already wired via `AcademyHerbalismBridgePatch`.
-**Why**: gives CMC players a progression route to safe chanterelle ID beyond the Herbalism skill and the Botanical Field Guide.
-**Requires**: CMC installed (soft). Shipped. (Note: code-quality G2 - the CMC perk-drift breadcrumb at `AcademyHerbalismBridgePatch.cs:106-107` is `debugOnly`; a future CMC rename takes the Identify path dead with no default-visible log. Optional one-line hardening, below the mod warning threshold - see Phase 1.)
+### Advanced Copper Tools - oils as lamp fuel
+**What**: every H&F pressed oil carries `tag_Oil`; ACT ships `MetalLantern`, `CopperOilFlask` and `CopperBrazier_Placed` that consume `tag_Oil` (README:196). The ACT cards are confirmed to reference `tag_Oil`, so the oils' "oil lamp" text is honest with ACT installed.
+**Why**: gives H&F oils a late-game light use for ACT players.
+**Requires**: ACT installed (soft). Shipped; the only open item is an in-game confirmation that an oil actually refuels an ACT lamp (runtime tracker row).
+**Complexity**: done (H&F side).
+
+### Community Mod Chest - Academy Herbalism identify
+**What**: CMC's Academy Herbalism course identifies Unknown Chanterelles, bridged via `AcademyHerbalismBridgePatch`.
+**Why**: a progression route to safe chanterelle ID beyond the Herbalism skill and the Field Guide.
+**Requires**: CMC installed (soft). Shipped. The CMC perk-drift breadcrumb is now default-visible (G2 resolved), so a future CMC rename surfaces one warning rather than failing silently.
 **Complexity**: done.
 
-### WDI sawdust -> Grow Bag; Sirus23 `tag_x_AnimalRemedy`
-**What**: WDI's Sawmill "Cut" drops vanilla `WoodShavings`, which H&F's Grow Bag accepts; H&F self-tags an animal remedy that Sirus23's livestock feature consumes.
-**Why**: completes the forager/industry and forager/livestock loops across mods under the soft-dependency doctrine (consumer ships the acceptance).
-**Requires**: coordination recorded in the As-Built; a couple of partner-side legs were still blocked outside the plan at close.
-**Complexity**: H&F half done; remainder is partner-mod work.
+### Sirus23 - companion remedies and Lanolin salve
+**What**: H&F remedies (Dried/Ground Yarrow, Yarrow Tea, Herbal Salve, Plantain Poultice) treat a Sirus23 companion's wounds; the Herbal Salve's oil slot also takes Sirus23 Lanolin via `TagGroups.json` `GpTag_HnF_SalveBase`.
+**Why**: completes the forager/livestock care loop under the soft-dependency doctrine.
+**Requires**: Sirus23 installed (soft); framework 2.28.9+ fills the tag group. Shipped.
+**Complexity**: done.
 
 ---
 
 ## Phase 4: Polish
 
-> Art is effectively complete - 292 image references all resolve, 0 orphans, 0 GUID-in-sprite.
+> Art is effectively complete - 237 images, nearly all references resolve, 0 GUID-in-sprite. The remaining art items are the grow-bag blueprint sprites (W2, Phase 1), the notebook sprite and an owner review pass.
 
 | Item | What | Complexity |
 |------|------|------------|
-| Perk starting-item weight balance (W5) | 10 perks exceed the 8-entry heuristic. Since 1.14.4 every grant is an AddedCard that lands on the board, and T4.41 recorded a harness PASS 2026-10-14; what remains is a human feel check before W5 is struck. Not a bug. | Quick (human check) |
-| Art review (H2) | `WildBeesNest.png` and `CloudberryFresh.png` were regenerated 2026-10-12 and not yet owner-reviewed. Route through `/review-art`. | Quick (gallery review) |
+| Perk starting-item weight balance (W5) | 10 perks exceed the 8-entry heuristic; since 1.14.4 every grant lands on the board (not carried), and T4.41 recorded a harness PASS 2026-10-14. A human feel check closes it. Not a bug. | Quick (human check) |
+| Art review (N4/H2) | `WildBeesNest.png` and `CloudberryFresh.png` (regenerated 2026-10-12) not yet owner-reviewed; 3 orphaned `.art` records for 1.14.9-removed cards optional to delete. Route through `/review-art`. | Quick (gallery review) |
+| Liquid-bowl pictures (shipped 2026-11-04) | `dcd390ed9`/`c81c2d568` gave every H&F liquid its own Clay-Bowl picture (T2.1360). Confirm in a run that bowls draw the right liquid. | Quick (runtime check) |
+| Notebook art (N1) | Forager's Notebook reuses the Field Guide sprite; ship a distinct notebook image, or accept the shared hemp-paper-book art. | Quick |
 
 ---
 
 ## Long-term Vision
 
-> Herbs and Fungi is feature-complete for its current scope. Its natural endpoint is maintenance mode: it already occupies the full early-to-mid-game foraging, herbalism and preservation niche, and the round-2 plan deliberately drained the backlog ("reach an end with the mod development and then shift into maintenance mode"). The next milestone is not more content but a full human playthrough of the awaiting-verification set, after which the mod moves into `Stable/` and only updates to track game versions and player reports.
+> Herbs and Fungi is content-complete for its scope; its natural endpoint is maintenance mode once the X1 adjudication and the small Phase 1 cluster are cleared and the awaiting-verification set is played through. It already occupies the full early-to-mid-game foraging, herbalism and preservation niche. The immediate milestone is not more content but clearing X1 (the DryingTray recipe-order decision) and the Phase 1 cluster, followed by a full human playthrough, after which the mod can move into `Stable/` and only update to track game versions and player reports.
 
-**Potential major additions** (not justified by current scope - revisit only after the awaiting-verification set clears and only via a fresh planning pass):
-- A dedicated Herbalism progression arc tying the skill, the Botanical Field Guide and the Academy course into a longer identification/mastery loop - fits the mod's herbalism theme but adds a system, not just cards.
-- Cross-mod flavour-synergy pairs with CMC's `cmcflavourtannic` (the mushrooms' Tannic/Earthy pairing) - currently handed back to CMC's plan to avoid a foreign-reference boot warning; revisit if H&F ever ships its own FlavourTag.
+**Potential major additions** (not justified by current scope - revisit only after Phase 1 clears and only via a fresh planning pass):
+- A dedicated Herbalism progression arc tying the skill, the Botanical Field Guide and the Academy course into a longer identification/mastery loop - fits the theme but adds a system, not just cards. (The Field Guide "Read" journal is the natural first step.)
+- The hemp-burning atmospheric subsystem - smoke accumulation indoors, mosquito-repel and animal-alert outdoors - if the recreational-hemp theme is worth deepening (its advertised claims are now stripped, so this would be opt-in new content).
 
-Any of these worth building belongs in a fresh plan under `Documentation/Plans/HerbsAndFungi/` (or its Considered table, with the reason); never a stub under `Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
+Any of these worth building belongs in a plan under `Documentation/Plans/HerbsAndFungi/` (or its Considered table, with the reason); never a stub under `Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
 
 ---
 
@@ -90,10 +103,11 @@ Any of these worth building belongs in a fresh plan under `Documentation/Plans/H
 
 | Trigger | Action |
 |---------|--------|
-| After any new content phase | Run `/audit-mod HerbsAndFungi` and update this roadmap |
+| After any new content phase | Run `/audit-mod HerbsAndFungi` (or the per-module runs) and update this roadmap |
 | Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, re-run `/diagnose-log` |
-| After any source change | Run `/critical-analysis HerbsAndFungi` (or the per-module runs) so the adversarial report does not go stale |
-| Before the `Stable/` move | Complete the full awaiting-verification playthrough set; the mod moves only after full human testing (owner rule) |
+| After any source change | Re-run the affected module's `/critical-analysis` so the adversarial report does not go stale |
+| Sealed-vat fermentation / dual-GUID hot-water trigger | Framework-compatibility watches inherited from the 1.14.1 close; re-confirm after a framework bump |
+| Before the `Stable/` move | Clear X1 and the Phase 1 cluster, complete the awaiting-verification playthrough set; the mod moves only after full human testing (owner rule) |
 
 ---
 
@@ -423,3 +437,10 @@ Any of these worth building belongs in a fresh plan under `Documentation/Plans/H
 - **Pruned:** the whole plan folder. Built in the same pass (H&F [Unreleased]): six herb winter grow bags (Chamomile, Dandelion, Plantain, Yarrow, Rhubarb, Healer's Moss), the vegetable, mushroom and frog vats (plain and spiced) at SpoilageTime 2880, and the Kale bag's blueprint text (it takes Wood Shavings, not soil) plus a Chinese typo in its help text. Ruled out, with reasons in the As_Built's Considered table: the N3 tea, indoor gating on `tag_EnvIndoors`, and grow bags for the ten other field-crop cards (Carrot, Leek, Peanut, Hops, Grape, Ginseng, Oat, Broad Bean, Hemp Plant, Hemp Field).
 - **Evidence:** `HerbsAndFungi-BalancePass.Tests.ps1` widened to all seven bags and every ready vat, watched red on the pre-change bytes (16 passed, 2 failed: the Chamomile bag missing, the frog vat at 8640) and green after (18 passed). Same tree: `HerbsAndFungi-HerbTag`, `Blueprint-*`, `CardsOnBoard-QuantityField`, `InjectionFiles-UidResolution`, `Localization-DuplicateKeys`, `Localization-EnglishColumnCjk`, `Preflight-Localization`, `Preflight-LocalizationParity`, `NonUidWarpData-Guard` and `Sprite-NameResolves` green; `CardData-Integrity` and `CardStat-VanillaPresentation` red only on FarTerritory cards a peer was building. The indoor question: the CardData export carries no `CardTags` on any of its 2874 cards, so the 2026-10-15 "zero static users" of `tag_EnvIndoors` was not evidence; `GameManager.EnvironmentHasTag` (`.decomp/GameManager.cs`) reads the env card, its explorable card and the board's cards, so whether a cabin carries the tag is a runtime fact.
 - **Verification debt:** T2.1094 to T2.1098, T2.1562 to T2.1564 and T2.1755 to T2.1764, all `pending` in `.claude/playthrough-test-status.json`.
+
+### 2026-11-05 - MASTER_PLAN (Nexus player requests + Audit remediation round 2), drained and archived
+- **Verdict:** per `/audit-plan`'s ground-truth pass: 3 claims (1.1, 1.2, 1.3) VERIFIED-DONE and deleted (tracker rows T2.2145, T2.2146, T2.2147, T2.2154 all PASS/confirmed); 1 claim (AF2) OBSOLETE and deleted (superseded by AF5, relationship independently confirmed); 6 claims (AF1, AF3, AF4, AF5, AF6, AF7) BUILT - every one's code/text read directly and matches what it claims, each now carries a tracker row (AF6 `T2.2168` and AF7 `T2.2169` newly filed this pass, the other four already filed), all `pending` on a human check. 0 claims OPEN. Per this skill's own translation rule (a pending tracker row does not block drained status, only its ABSENCE would), this plan is DRAINED even though `/audit-plan` itself reported "not yet" - it is conservative about unplayed verification, which answers a narrower question than this skill asks.
+- **Disposition:** ARCHIVE to `Documentation/Design/HerbsAndFungi_Audit_Remediation_2026-11_As_Built.md` (distinct from the September `HerbsAndFungi_Audit_Remediation_As_Built.md`, an earlier, unrelated generation of the same plan topic) - the remaining AF1-AF7 fix descriptions (exact commit SHAs, CSV line numbers, JSON field values, the AF4 false-positive analysis and the AF7 recipe-ordering engine finding) and the five-entry Promotion Log carry real diagnostic value not fully duplicated elsewhere.
+- **Pruned:** section "## 1. Player requests" (items 1.1-1.3) and item AF2, already deleted from the plan doc by the `/audit-plan` pass; the whole remaining doc (title, empty Considered table, Audit remediation section with AF1/AF3/AF4/AF5/AF6/AF7 as one-line pointers, and the Promotion Log) now moved out of `Documentation/Plans/` in this pass.
+- **Evidence:** per the `/audit-plan` pass's own per-claim citations (`UidAliases.json`'s 14 retired-to-keeper rows for 1.1; the full 4-step chop/mix/simmer/finish chain read end to end for both stew lines for 1.2; `FlavourTags`/Intensity values matching both "Tastes great!" profiles for 1.3; `HempFlowerDried.json`/`HempButter.json` for AF1; `WoodenPantryPlaced.json`/`WildlifeRaidService` for AF2/AF5; `BotanicalFieldGuide.json`'s five `AlwaysShow` pages for AF3; `Bp_CressBed.json`'s tag-condition pair for AF4, false positive confirmed; `Bp_DryingTray.json`'s description/CSV for AF6; `DryingTray.json` `CookingRecipes[]` order, index 14 of 15, for AF7); commits `f71b9ac9f`, `360445be1`, `f8beca73c`, `12b5ee1d00` confirmed via `git show --stat`. Citation sweep (repo, excluding `bin/`/`obj/`, plus the memory dir) for `Documentation/Plans/HerbsAndFungi/MASTER_PLAN` found and fixed: `.claude/playthrough-test-status.json` rows T2.2145, T2.2146 and T2.2147's `source` fields; this file's own "Open work" paragraph and Phase 2 prose; `HerbsAndFungi/.audit/ideas.md` lines 3, 39 and 47; `Development_Tools/Tests/HerbsAndFungi-DryingTrayRecipeOrder.Tests.ps1` line 5's header comment; `Documentation/Plans/Community_Mod_Chest/MASTER_PLAN.md` line 5's cross-mod-requests pointer. Left alone as pre-existing, unrelated staleness (citing an older feature-numbering generation from the 1.14.1 round-2 plan, archived 2026-10-12): `WaterDrivenInfrastructure_Round2_As_Built.md` lines 233-234, `AdvancedCopperTools_Content_Update_As_Built.md` line 439, `Fleet_Cross_Mod_Decoupling_As_Built.md` line 149, `ForestLore_As_Built.md` line 142. Left alone as dated: `Documentation/Research/HerbsAndFungi/plant_streamlining_2026-10-31.md`; `Documentation/Research/HerbsAndFungi/balance_tracker_rows_2026-10-15.json` (already citing the earlier, since-archived plan generation's "section 1").
+- **Verification debt:** T2.2163 (AF1), T2.2162 (AF3), T2.2165 (AF4, false-positive confirmation), T2.2166 (AF5), T2.2168 (AF6, newly filed), T2.2169 (AF7, newly filed) - all `pending` in `.claude/playthrough-test-status.json`.

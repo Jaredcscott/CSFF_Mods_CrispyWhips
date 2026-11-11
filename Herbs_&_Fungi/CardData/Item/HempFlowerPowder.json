@@ -206,7 +206,7 @@
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_powder",
                 "LocalizationKey": "Herbs_And_Fungi_HempFlowerPowder_CardInteractions1_ActionDescription",
-                "DefaultText": "Burn with fire to create aromatic smoke. Improves mood and reduces anxiety."
+                "DefaultText": "Burn it on a fire and breathe the smoke: Morale +10 to 12 and Altered Mindstate +12 to 18. Only while your Morale is 70 or lower. The powder is used up."
             },
             "DaytimeCost": 1,
             "HungerCost": 0,

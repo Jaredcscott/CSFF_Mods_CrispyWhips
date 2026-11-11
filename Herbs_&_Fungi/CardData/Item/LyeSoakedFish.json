@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_lye_soaked_fish",
         "LocalizationKey": "Herbs_And_Fungi_LyeSoakedFish_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> One Dried Fish (lean or fatty) and a bowl of Lye, from the Cooking tab. The lye is used up.\n\n<b>Next:</b> It turns into Lye-Cured Fish after about two days (a tunable placeholder)."
+        "DefaultText": "<b>Made from:</b> One Dried Fish (lean or fatty) and a bowl of Lye, from the Cooking tab. The lye is used up.\n\n<b>Next:</b> It turns into Lye-Cured Fish after about two days."
     },
     "CardType": 0,
     "CardImage": {

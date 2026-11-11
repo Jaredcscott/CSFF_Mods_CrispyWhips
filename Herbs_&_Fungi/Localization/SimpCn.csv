@@ -12,11 +12,11 @@ Herbs_And_Fungi_MorelMushroom_DismantleActions_Eat_ActionName,Eat Raw,生吃
 Herbs_And_Fungi_MorelMushroom_DismantleActions_Eat_ActionDescription,Eat the morel raw. Warning: Raw morels contain toxins that cause food poisoning and an upset stomach!,生吃羊肚菌。警告：生羊肚菌含有毒素，会引起食物中毒和胃部不适！
 Herbs_And_Fungi_GoldenOyster_CardName,Golden Oyster,金顶侧耳
 Herbs_And_Fungi_GoldenOyster_CardDescription,Brilliant yellow oysters that fruit on hardwood in any season. Prized for their nutty cashew-like flavor.,一年四季都生长在硬木上的亮黄色侧耳。以其类似腰果的坚果风味而闻名。
-Herbs_And_Fungi_GoldenOyster_CardHelpSection,"<b>Season:</b> Year-round
+Herbs_And_Fungi_GoldenOyster_CardHelpSection,"<b>Season:</b> Year-round, in oak, alder, pine and willow woods and at the Secret Grove, the Mossy Clearing and the Alder Grove
 
 <b>Habitat:</b> Hardwood logs and stumps.
 
-<b>Flavor:</b> Unique cashew-like nutty taste.","<b>季节:</b> 全年
+<b>Flavor:</b> Unique cashew-like nutty taste.","<b>季节:</b> 全年，见于橡树林、桤木林、松树林、柳树地点、隐秘林地、覆苔林隙和桤木林地
 
 <b>栖息地:</b> 硬木原木和树桩。
 
@@ -677,12 +677,12 @@ Herbs_And_Fungi_TruffleOil_CardHelpSection,"<b>Crafted:</b> By pressing a Truffl
 
 <b>用途：</b>饮用可缓解饥饿和压力，并增强免疫力。"
 Herbs_And_Fungi_WoodenPantry_CardName,Wooden Pantry,木制食品柜
-Herbs_And_Fungi_WoodenPantry_CardDescription,"A plank-built food pantry. Slows food spoilage, but wild animals can break in and eat what's inside.",一个木板制成的食品柜。减缓食物腐败，但野生动物可能会破门而入。
+Herbs_And_Fungi_WoodenPantry_CardDescription,"A plank-built food pantry. Slows food spoilage. With the framework's optional wildlife raids turned on, animals can break in and spoil the food inside.",一个木板制成的食品柜。减缓食物腐败。如果开启了框架的可选野生动物袭击，动物可能会破门而入，糟蹋里面的食物。
 Herbs_And_Fungi_WoodenPantry_CardHelpSection,"<b>Spoilage:</b> Slows to 75% of normal rate.
 
-<b>Animal-safe:</b> No. Passing wildlife (foxes, hares, badgers, and larger beasts) can raid this pantry.","<b>腐败:</b> 减缓至正常速率的75%。
+<b>Animal-safe:</b> No, but only with the framework's optional wildlife raids turned on (WildlifeRaidsEnabled in the CSFF Mod Framework config, off by default). Then each in-game day there is a 35% chance (the default) that animals spoil one food item in an open container like this one where you are, adding a little stress. A bear encounter can also raid it.","<b>腐败:</b> 减缓至正常速率的75%。
 
-<b>防动物:</b> 否。路过的野生动物（狐狸、野兔、獽及更大型的野兽）可能会闯入洗劫此储藏柜。"
+<b>防动物：</b>否，但仅在开启了框架的可选野生动物袭击时（CSFF Mod Framework 配置中的 WildlifeRaidsEnabled，默认关闭）。开启后，每个游戏日有35%的几率（默认值），动物会糟蹋你所在地点这类开放容器中的一件食物，并带来少许压力。遭遇熊时它也可能被洗劫。"
 Herbs_And_Fungi_WoodenPantry_DismantleActions_Place_ActionName,Place,放置
 Herbs_And_Fungi_WoodenPantry_DismantleActions_Place_ActionDescription,Set the pantry down in your environment.,将储藏柜放置在你所在的环境中。
 Herbs_And_Fungi_WoodenPantry_DismantleActions_Dismantle_ActionName,Dismantle,拆除
@@ -692,7 +692,7 @@ Herbs_And_Fungi_WoodenPantryPlaced_DismantleActions_PickUp_ActionName,Pick Up,�
 Herbs_And_Fungi_WoodenPantryPlaced_DismantleActions_PickUp_ActionDescription,Pick up the pantry to carry it.,拾起储藏柜以便携带。
 Herbs_And_Fungi_WoodenPantryPlaced_DismantleActions_PickUp_FailMessage,Empty the pantry before picking it up.,请先清空储藏柜再拾起。
 Herbs_And_Fungi_Bp_WoodenPantry_CardName,Wooden Pantry,木制储藏柜
-Herbs_And_Fungi_Bp_WoodenPantry_CardDescription,"A simple plank pantry with woven shelves. Slows food spoilage, but animals can raid it. Requires 6 planks, 3 rope, and a hammer.",一个用木板搭建的简易储藏柜，带有编织搭架。能减缓食物腐败，但会被动物闯入。需要6块木板、3根绳子和一把锤子。
+Herbs_And_Fungi_Bp_WoodenPantry_CardDescription,"A simple plank pantry with woven shelves. Slows food spoilage; with the framework's optional wildlife raids turned on, animals can raid it. Requires 6 planks, 3 rope, and a hammer.",一个用木板搭建的简易储藏柜，带有编织搭架。能减缓食物腐败；如果开启了框架的可选野生动物袭击，会被动物闯入。需要6块木板、3根绳子和一把锤子。
 Herbs_And_Fungi_Bp_WoodenPantry_UnlockConditionsDesc,Unlocked after obtaining a Wooden Plank,获得木板后解锁
 Herbs_And_Fungi_Bp_SleepTea_CardName,Sleep Tea,安眠茶
 Herbs_And_Fungi_Bp_SleepTea_CardDescription,Grind 2 reishi into a clay bowl to brew a soothing tea. Reduces stress.,将2个灵芝研磨入陶碗以酿制舒缓的茶。减少压力。
@@ -818,7 +818,10 @@ Herbs_And_Fungi_DryingStack_Placed_CardHelpSection,"<b>Capacity:</b> Holds 3 dry
 <b>用途:</b> 像家具一样放在地上，然后添加晾干托盘。将草药、花朵或真菌装入托盘。
 <b>优点:</b> 有组织的垂直存储，高效干燥。"
 Herbs_And_Fungi_WoodenPantry_Placed_CardHelpSection,"<b>Spoilage:</b> Slows to 75% of normal rate.
-<b>Animal-safe:</b> No. Passing wildlife (foxes, hares, badgers, and larger beasts) can raid this pantry.",<b>腐败：</b>减缓至正常速率的75%。
+
+<b>Animal-safe:</b> No, but only with the framework's optional wildlife raids turned on (WildlifeRaidsEnabled in the CSFF Mod Framework config, off by default). Then each in-game day there is a 35% chance (the default) that animals spoil one food item in an open container like this one where you are, adding a little stress. A bear encounter can also raid it.","<b>腐败：</b>减缓至正常速率的75%。
+
+<b>防动物：</b>否，但仅在开启了框架的可选野生动物袭击时（CSFF Mod Framework 配置中的 WildlifeRaidsEnabled，默认关闭）。开启后，每个游戏日有35%的几率（默认值），动物会糟蹋你所在地点这类开放容器中的一件食物，并带来少许压力。遭遇熊时它也可能被洗劫。"
 Herbs_And_Fungi_Bp_PickleVegetables_CardName,Pickle Vegetables,腌制蔬菜
 Herbs_And_Fungi_Bp_PickleVegetables_CardDescription,Pack 5 raw vegetables and a clay bowl into a brine-filled vat to begin pickling. Consumes 500 units of brine and seals the vat into 'Pickle Vegetables' (closed). Then add water to seal and wait ~7 days.,将5个生蔬菜和一个陶碗放入装有卤水的缸中开始腌制。消耗500单位卤水并将缸密封成『腌制蔬菜（已盖盖）』。然后加水密封并等待约7天。
 Herbs_And_Fungi_Bp_PickleVegetables_UnlockConditionsDesc,Pickle Vat Needed,需要腌菜缸
@@ -1063,7 +1066,7 @@ Herbs_And_Fungi_Bp_DryingStack_CardName,Drying Stack,晾干架
 Herbs_And_Fungi_Bp_DryingStack_CardDescription,A vertical wooden rack for storing multiple drying trays. Requires 4 planks and a hammer.,一个用于存放多个晾干托盘的竖向木架。需要4块木板和一把锤子。
 Herbs_And_Fungi_Bp_DryingStack_UnlockConditionsDesc,Unlocked after crafting or obtaining a Drying Tray,制作或获得晾干托盘后解锁
 Herbs_And_Fungi_Bp_DryingTray_CardName,Drying Tray,晾干托盘
-Herbs_And_Fungi_Bp_DryingTray_CardDescription,A woven tray with fine mesh for drying herbs. Requires 4 reeds or willow twigs and 2 twine.,一个用细网眼编织的晾干草药托盘。需要4根干芦苇或柳树枝和2根麻绳。
+Herbs_And_Fungi_Bp_DryingTray_CardDescription,A woven tray with fine mesh for drying herbs. Requires 4 dry reeds and 2 twine.,一个用细网眼编织的晾干草药托盘。需要4根干芦苇和2根麻绳。
 Herbs_And_Fungi_Bp_DryingTray_UnlockConditionsDesc,Unlocked after obtaining Dry Reeds,获得干芦苇后解锁
 Herbs_And_Fungi_DryingStack_DismantleActions_Place_ActionName,Place,放置
 Herbs_And_Fungi_DryingStackPlaced_DismantleActions_PickUp_ActionName,Pick Up,拾起
@@ -1118,18 +1121,14 @@ Herbs_And_Fungi_HempButterInactive_Progress_OnFull_ActionDescription,Hemp butter
 Herbs_And_Fungi_HempButterInactive_SpecialDurability2_CardStatName,Quality,品质
 Herbs_And_Fungi_HempButterInactive_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_HempButterInactive_SpoilageTime_OnFull_ActionDescription,Inactive Hemp Butter Spoiled!,非活性大麻黄油已变质！
-Herbs_And_Fungi_HempButter_CardDescription,"Solid hemp-infused fat with activated psychoactive properties. Can be consumed in small, medium, or large doses. High doses may trigger anxiety.",含有活化精神活性成分的固态大麻浸脂。可小剂量、中剂量或大剂量服用。大剂量可能引发焦虑。
+Herbs_And_Fungi_HempButter_CardDescription,"Solid hemp-infused fat with activated psychoactive properties. Can be consumed in small, medium, or large doses. Medium and high doses may trigger anxiety.",含有活化精神活性成分的固态大麻浸脂。可小剂量、中剂量或大剂量服用。中剂量和大剂量可能引发焦虑。
 Herbs_And_Fungi_HempButter_CardHelpSection,"<b>Dosing:</b> Choose your dose carefully.
 <b>Mild:</b> Pleasant effects.
 <b>Medium:</b> Strong effects, small anxiety risk.
-<b>High:</b> Very strong effects, high anxiety risk.
-
-<b>Warning:</b> Does not repel mosquitoes like burning does.","<b>剂量：</b>请谨慎选择剂量。
+<b>High:</b> Very strong effects, high anxiety risk.","<b>剂量：</b>请谨慎选择剂量。
 <b>小剂量：</b>效果温和，体验愉悦。
 <b>中剂量：</b>效果强烈，轻微焦虑风险。
-<b>大剂量：</b>效果极强，高度焦虑风险。
-
-<b>注意：</b>不像燃烧那样能驱赶蚊虫。"
+<b>大剂量：</b>效果极强，高度焦虑风险。"
 Herbs_And_Fungi_HempButter_CardName,Hemp Butter,大麻黄油
 Herbs_And_Fungi_HempButter_DismantleActions0_ActionDescription,"Eat a small amount. Gentle effects, pleasant experience.",吃少量。效果温和，体验愉悦。
 Herbs_And_Fungi_HempButter_DismantleActions0_ActionName,Consume Mild Dose,服用小剂量
@@ -1144,18 +1143,14 @@ Herbs_And_Fungi_HempButter_UsageDurability_CardStatName,Doses,剂量
 Herbs_And_Fungi_HempFlowerDried_CardDescription,Dried flowering tops with psychoactive properties. Can be ground into powder or burned on fires to create aromatic smoke with mood-enhancing effects.,干燥的花穗，含有精神活性成分。可研磨成粉或在火上燃烧，产生芳香烟雾，改善情绪。
 Herbs_And_Fungi_HempFlowerDried_CardHelpSection,"<b>Processing:</b> Grind with rock for premium quality (+50), or use axes/knives/quern/mortar for standard quality (+25).
 
-<b>Burning:</b> Burn on any fire to create smoke that improves mood and reduces anxiety. Each flower adds 5% smoke to indoor spaces.
+<b>Burning:</b> Burn it on any fire for Morale +10 to 12 and Altered Mindstate +10 to 15, while your Morale is 70 or lower. Each burn uses up one flower.","<b>加工：</b>用岩石精细研磨可提升品质50点，或用斧头/刀/磨盘/研钵标准研磨提升25点。
 
-<b>Warning:</b> Too much smoke (3+ flowers) becomes harmful despite mental benefits.","<b>加工：</b>用岩石精细研磨可提升品质50点，或用斧头/刀/磨盘/研钵标准研磨提升25点。
-
-<b>燃烧：</b>在任何火源上燃烧，产生改善情绪、减轻焦虑的烟雾。每朵花为室内增加5%烟雾。
-
-<b>注意：</b>超过3朵花的烟雾会产生危害，尽管有精神益处。"
+<b>燃烧：</b>在任何火源上燃烧，情绪+10至12，精神失常+10至15，前提是情绪不高于70。每次燃烧用掉一朵花。"
 Herbs_And_Fungi_HempFlowerDried_CardInteractions[0]_ActionDescription,Premium grinding with rock. Increases quality by 50 and costs less effort.,用岩石精细研磨。品质提升50，耗费较少体力。
 Herbs_And_Fungi_HempFlowerDried_CardInteractions[0]_ActionName,Grind,研磨
 Herbs_And_Fungi_HempFlowerDried_CardInteractions[1]_ActionDescription,"Standard grinding with axes, knives, quern, or mortar. Increases quality by 25 but uses more energy.",用斧头、刀、磨盘或研钵标准研磨。品质提升25，但消耗较多体力。
 Herbs_And_Fungi_HempFlowerDried_CardInteractions[1]_ActionName,Grind,研磨
-Herbs_And_Fungi_HempFlowerDried_CardInteractions[2]_ActionDescription,"Burn on fire to create aromatic smoke. Improves mood and reduces anxiety. Outdoors: repels mosquitoes but alerts all animals in the area, preventing sneak attacks. Indoors: adds 5% smoke to enclosed spaces.",在火上燃烧，产生芳香烟雾。改善情绪，减轻焦虑。户外：驱赶蚊虫，但会惊动附近所有动物。室内：为封闭空间增加5%烟雾。
+Herbs_And_Fungi_HempFlowerDried_CardInteractions[2]_ActionDescription,"Burn it on a fire and breathe the smoke: Morale +10 to 12 and Altered Mindstate +10 to 15. Only while your Morale is 70 or lower. The flower is used up.",在火上燃烧并吸入烟雾：情绪+10至12，精神失常+10至15。仅在情绪不高于70时可用。花会被用掉。
 Herbs_And_Fungi_HempFlowerDried_CardInteractions[2]_ActionName,Burn,燃烧
 Herbs_And_Fungi_HempFlowerDried_CardName,Dried Hemp Flower,干燥大麻花
 Herbs_And_Fungi_HempFlowerDried_OnStatsChangeActions[0]_ActionName,Finish Rotary Quern Grinding,完成旋转磨盘研磨
@@ -1171,7 +1166,7 @@ Herbs_And_Fungi_HempFlowerPowder_CardHelpSection,"<b>Quality:</b> Premium produc
 <b>储存：</b>保存性能优良。"
 Herbs_And_Fungi_HempFlowerPowder_CardInteractions0_ActionDescription,Combine with fat or butter to create inactive hemp butter. Must be heated for 60-90 minutes to activate.,与脂肪或黄油混合，制作非活性大麻黄油。需加热60至90分钟以激活。
 Herbs_And_Fungi_HempFlowerPowder_CardInteractions0_ActionName,Mix with Fat or Butter,与脂肪或黄油混合
-Herbs_And_Fungi_HempFlowerPowder_CardInteractions1_ActionDescription,Burn with fire to create aromatic smoke. Improves mood and reduces anxiety.,在火上燃烧，产生芳香烟雾。改善情绪，减轻焦虑。
+Herbs_And_Fungi_HempFlowerPowder_CardInteractions1_ActionDescription,Burn it on a fire and breathe the smoke: Morale +10 to 12 and Altered Mindstate +12 to 18. Only while your Morale is 70 or lower. The powder is used up.,在火上燃烧并吸入烟雾：情绪+10至12，精神失常+12至18。仅在情绪不高于70时可用。粉末会被用掉。
 herbsfungigingercut_UsageDurability_StatName,Dry,干燥
 herbsfungidriedreishi_OnStatsChangeActions[0]_ActionName,Finish Rotary Quern Grinding,完成旋转磨盘研磨
 herbsfungidriedreishi_SpecialDurability3_CardStatName,Mill,磨碎度
@@ -1218,9 +1213,9 @@ Herbs_And_Fungi_HempPlantMature_DismantleActions_ActionName,Harvest,采收
 Herbs_And_Fungi_HempSeedsRoasted_CardDescription,Nutritious roasted seeds. Can be eaten or used as seasoning.,富含营养的烤制种子。可直接食用或用作调味料。
 Herbs_And_Fungi_HempSeedsRoasted_CardHelpSection,"<b>Found:</b> Roast raw hemp seeds on a fire. 
 
-<b>Uses:</b> Food source, oil production, fiber cultivation.","<b>获取：</b>在火上烘烤生大麻籽。
+<b>Uses:</b> Food source, seasoning.","<b>获取：</b>在火上烘烤生大麻籽。
 
-<b>用途：</b>食物来源、榨油原料、纤维种植。"
+<b>用途：</b>食物来源、调味料。"
 Herbs_And_Fungi_HempSeedsRoasted_CardInteractions_Add_ActionName,Add,添加
 Herbs_And_Fungi_HempSeedsRoasted_CardName,Roasted Hemp Seeds,烤大麻籽
 Herbs_And_Fungi_HempSeedsRoasted_DismantleActions_Eat_ActionName,Eat,吃
@@ -1255,7 +1250,7 @@ Herbs_And_Fungi_HerbPipeAppleweed_CardName,Herb Pipe (Appleweed),草药烟斗（
 Herbs_And_Fungi_HerbPipeAppleweed_DismantleActions0_ActionDescription,Dump out the appleweed powder without smoking it.,不吸食，直接倒出苹果草粉末。
 Herbs_And_Fungi_HerbPipeAppleweed_DismantleActions0_ActionName,Empty Pipe,清空烟斗
 Herbs_And_Fungi_HerbPipeAppleweed_OnZero,Pipe Empty!,烟斗已空！
-Herbs_And_Fungi_HerbPipeAppleweed_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HerbPipeAppleweed_SpecialDurability2_CardStatName,Charge,余量
 Herbs_And_Fungi_HerbPipeFairyweed_CardDescription,A carved wooden pipe loaded with fairyweed powder. Ready to smoke.,装填了仙女草粉末的雕刻木烟斗。随时可以吸食。
 Herbs_And_Fungi_HerbPipeFairyweed_CardInteractions0_ActionDescription,Light and smoke the fairyweed. Mystical and uplifting effects.,点燃并吸食仙女草。神秘振奋的效果。
 Herbs_And_Fungi_HerbPipeFairyweed_CardInteractions0_ActionName,Smoke Fairyweed,吸食仙女草
@@ -1263,7 +1258,7 @@ Herbs_And_Fungi_HerbPipeFairyweed_CardName,Herb Pipe (Fairyweed),草药烟斗（
 Herbs_And_Fungi_HerbPipeFairyweed_DismantleActions0_ActionDescription,Dump out the fairyweed powder without smoking it.,不吸食，直接倒出仙女草粉末。
 Herbs_And_Fungi_HerbPipeFairyweed_DismantleActions0_ActionName,Empty Pipe,清空烟斗
 Herbs_And_Fungi_HerbPipeFairyweed_OnZero,Pipe Empty!,烟斗已空！
-Herbs_And_Fungi_HerbPipeFairyweed_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HerbPipeFairyweed_SpecialDurability2_CardStatName,Charge,余量
 Herbs_And_Fungi_HerbPipeFrostleaf_CardDescription,A carved wooden pipe loaded with frostleaf powder. Ready to smoke.,装填了冰叶粉末的雕刻木烟斗。随时可以吸食。
 Herbs_And_Fungi_HerbPipeFrostleaf_CardInteractions0_ActionDescription,Light and smoke the frostleaf. Cool and refreshing effects.,点燃并吸食冰叶。清凉爽神的效果。
 Herbs_And_Fungi_HerbPipeFrostleaf_CardInteractions0_ActionName,Smoke Frostleaf,吸食冰叶
@@ -1271,7 +1266,7 @@ Herbs_And_Fungi_HerbPipeFrostleaf_CardName,Herb Pipe (Frostleaf),草药烟斗（
 Herbs_And_Fungi_HerbPipeFrostleaf_DismantleActions0_ActionDescription,Dump out the frostleaf powder without smoking it.,不吸食，直接倒出冰叶粉末。
 Herbs_And_Fungi_HerbPipeFrostleaf_DismantleActions0_ActionName,Empty Pipe,清空烟斗
 Herbs_And_Fungi_HerbPipeFrostleaf_OnZero,Pipe Empty!,烟斗已空！
-Herbs_And_Fungi_HerbPipeFrostleaf_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HerbPipeFrostleaf_SpecialDurability2_CardStatName,Charge,余量
 Herbs_And_Fungi_HerbPipeHemp_CardDescription,A carved wooden pipe loaded with hemp flower powder. Ready to smoke.,装填了大麻花粉的雕刻木烟斗。随时可以吸食。
 Herbs_And_Fungi_HerbPipeHemp_CardInteractions0_ActionDescription,Light and smoke the hemp. Relaxing and calming effects.,点燃并吸食大麻。放松平静的效果。
 Herbs_And_Fungi_HerbPipeHemp_CardInteractions0_ActionName,Smoke Hemp,吸食大麻
@@ -1279,17 +1274,17 @@ Herbs_And_Fungi_HerbPipeHemp_CardName,Herb Pipe (Hemp),草药烟斗（大麻）
 Herbs_And_Fungi_HerbPipeHemp_DismantleActions0_ActionDescription,Dump out the hemp powder without smoking it.,不吸食，直接倒出大麻粉末。
 Herbs_And_Fungi_HerbPipeHemp_DismantleActions0_ActionName,Empty Pipe,清空烟斗
 Herbs_And_Fungi_HerbPipeHemp_OnZero,Pipe Empty!,烟斗已空！
-Herbs_And_Fungi_HerbPipeHemp_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HerbPipeHemp_SpecialDurability2_CardStatName,Charge,余量
 Herbs_And_Fungi_HerbPipe_CardDescription,A carved wooden pipe for smoking herbal powders. Provides relaxing effects without filling the room with smoke.,用于吸食草药粉末的雕刻木烟斗。提供放松效果，不会让房间充满烟雾。
 Herbs_And_Fungi_HerbPipe_CardHelpSection,"<b>Loading:</b> Add herbal powders (hemp, fairyweed, appleweed, frostleaf) to load the pipe.
 
 <b>Smoking:</b> Drag lit tinder or candle onto pipe to smoke. Reusable.
 
-<b>Benefits:</b> Discreet, no room smoke, portable relaxation.","<b>装填：</b>将草药粉（大麻花、仙草、苹果草、冰叶）加入烟斗。
+<b>Benefits:</b> Discreet, portable relaxation.","<b>装填：</b>将草药粉（大麻花、仙草、苹果草、冰叶）加入烟斗。
 
 <b>吸食：</b>将点燃的火绒或蜡烛拖到烟斗上即可吸食。可重复使用。
 
-<b>效益：</b>低调，不产生房间烟雾，便携放松。"
+<b>效益：</b>低调，便携放松。"
 Herbs_And_Fungi_HerbPipe_CardInteractions0_ActionDescription,Pack the pipe with hemp flower powder.,将大麻花粉装入烟斗。
 Herbs_And_Fungi_HerbPipe_CardInteractions0_ActionName,Load: Hemp,装填：大麻
 Herbs_And_Fungi_HerbPipe_CardInteractions1_ActionDescription,Pack the pipe with fairyweed powder.,将仙女草粉末装入烟斗。
@@ -1538,7 +1533,7 @@ herbsfungimushroombroth_Spoiled,The mushroom broth has spoiled.,蘑菇汤已变�
 herbsfungimushroombroth_Drink,Drink,饮用
 herbsfungimushroombroth_Drink_Desc,Drink the mushroom broth. Earthy and warming.,饮用蘑菇汤。风味浓郁温暖。
 Herbs_And_Fungi_Bp_MushroomBroth_CardName,Mushroom Broth,蘑菇汤
-Herbs_And_Fungi_Bp_MushroomBroth_CardDescription,"Simmer dried shiitake and king oyster mushrooms in a clay bowl of freshly boiled water (at least 150) to make a rich, earthy mushroom broth. Warming and deeply nourishing.",将干香菇和干杏鲍菇放入盛有刚烧开的水（至少150）的陶碗中慢燉，制成浓郁的蘑菇汤。温暖滋补。
+Herbs_And_Fungi_Bp_MushroomBroth_CardDescription,"Simmer dried shiitake and king oyster mushrooms in a clay bowl holding at least 150 of freshly boiled water (an amount, not a temperature: build before it cools) to make a rich, earthy mushroom broth. Warming and deeply nourishing.",将干香菇和干杏鲍菇放入盛有至少150份刚烧开的水的陶碗（150是水量，不是温度；趁水未凉时制作）中慢燉，制成浓郁的蘑菇汤。温暖滋补。
 Herbs_And_Fungi_Bp_MushroomBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Shiitake and Dried King Oyster,获得干香菇和干杏鲍菇后解锁
 herbsfungihealersmosstincture_CardHelpSection,"<b>Made by:</b> Blueprint: Healer's Moss Tincture
 
@@ -1710,7 +1705,7 @@ Herbs_And_Fungi_KingOysterGround_Eat,Eat,食用
 Herbs_And_Fungi_KingOysterGround_Eat_Desc,"Eat the concentrated king oyster powder. Savory, earthy umami flavor straight from the jar.",食用浓缩的杏鲍菇粉。咸鲜风味扑面而来。
 Herbs_And_Fungi_Spice_PeanutOil_SpiceName,Peanut Oil,花生油
 Herbs_And_Fungi_Bp_ReishiBroth_CardName,Reishi Broth,灵芝汤
-Herbs_And_Fungi_Bp_ReishiBroth_CardDescription,"Simmer dried reishi mushroom in a clay bowl of freshly boiled water (at least 150) to make a rich, earthy broth with powerful immune support and stress relief.",将干灵芝放入盛有刚烧开的水（至少150）的陶碗中慢燉，制成浓郁的汤品，提供强大的免疫支持和压力缓解。
+Herbs_And_Fungi_Bp_ReishiBroth_CardDescription,"Simmer dried reishi mushroom in a clay bowl holding at least 150 of freshly boiled water (an amount, not a temperature: build before it cools) to make a rich, earthy broth with powerful immune support and stress relief.",将干灵芝放入盛有至少150份刚烧开的水的陶碗（150是水量，不是温度；趁水未凉时制作）中慢燉，制成浓郁的汤品，提供强大的免疫支持和压力缓解。
 Herbs_And_Fungi_Bp_ReishiBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Reishi,获得干灵芝后解锁
 herbsfungireishibroth_CardName,Reishi Broth,灵芝汤
 herbsfungireishibroth_CardDescription,A rich broth simmered from dried reishi mushroom in a clay bowl. Powerful immune support and stress relief in a warming bowl.,用干灵芝在陶碗中慢燉而成的浓郁汤品。温暖的一碗，提供强大的免疫支持和压力缓解。
@@ -1728,7 +1723,7 @@ herbsfungireishibroth_Spoiled,The reishi broth has spoiled.,灵芝汤已变质�
 herbsfungireishibroth_Drink,Drink,饮用
 herbsfungireishibroth_Drink_Desc,Drink the reishi broth. Earthy and warming.,饮用灵芝汤。风味浓郁温暖。
 Herbs_And_Fungi_Bp_LionsManeBroth_CardName,Lion's Mane Broth,狮鬃菇汤
-Herbs_And_Fungi_Bp_LionsManeBroth_CardDescription,"Simmer dried lion's mane mushroom in a clay bowl of freshly boiled water (at least 150) to make a rich, nutty broth known for boosting cognitive focus.",将干狮鬃菇放入盛有刚烧开的水（至少150）的陶碗中慢燉，制成坚果香浓郁的汤品，以增强专注力而闻名。
+Herbs_And_Fungi_Bp_LionsManeBroth_CardDescription,"Simmer dried lion's mane mushroom in a clay bowl holding at least 150 of freshly boiled water (an amount, not a temperature: build before it cools) to make a rich, nutty broth known for boosting cognitive focus.",将干狮鬃菇放入盛有至少150份刚烧开的水的陶碗（150是水量，不是温度；趁水未凉时制作）中慢燉，制成坚果香浓郁的汤品，以增强专注力而闻名。
 Herbs_And_Fungi_Bp_LionsManeBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Lion's Mane,获得干狮鬃菇后解锁
 herbsfungilionsmanebroth_CardName,Lion's Mane Broth,狮鬃菇汤
 herbsfungilionsmanebroth_CardDescription,A rich broth simmered from dried lion's mane mushroom in a clay bowl. Known for boosting cognitive function and focus.,用干狮鬃菇在陶碗中慢燉而成的坚果香浓郁汤品。以增强认知功能和专注力而闻名。
@@ -1746,7 +1741,7 @@ herbsfungilionsmanebroth_Spoiled,The lion's mane broth has spoiled.,狮鬃菇汤
 herbsfungilionsmanebroth_Drink,Drink,饮用
 herbsfungilionsmanebroth_Drink_Desc,Drink the lion's mane broth. Nutty and warming.,饮用狮鬃菇汤。坚果香浓郁温暖。
 Herbs_And_Fungi_Bp_ChanterelleBroth_CardName,Chanterelle Broth,鸡油菌汤
-Herbs_And_Fungi_Bp_ChanterelleBroth_CardDescription,"Simmer dried chanterelle mushroom in a clay bowl of freshly boiled water (at least 150) to make a rich, earthy broth known for lifting morale.",将干鸡油菌放入盛有刚烧开的水（至少150）的陶碗中慢燉，制成浓郁的汤品，以提升情绪而闻名。
+Herbs_And_Fungi_Bp_ChanterelleBroth_CardDescription,"Simmer dried chanterelle mushroom in a clay bowl holding at least 150 of freshly boiled water (an amount, not a temperature: build before it cools) to make a rich, earthy broth known for lifting morale.",将干鸡油菌放入盛有至少150份刚烧开的水的陶碗（150是水量，不是温度；趁水未凉时制作）中慢燉，制成浓郁的汤品，以提升情绪而闻名。
 Herbs_And_Fungi_Bp_ChanterelleBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Chanterelle,获得干鸡油菌后解锁
 herbsfungichanterellebroth_CardName,Chanterelle Broth,鸡油菌汤
 herbsfungichanterellebroth_CardDescription,A rich broth simmered from dried chanterelle mushroom in a clay bowl. Known for lifting morale.,用干鸡油菌在陶碗中慢燉而成的浓郁汤品。以提升情绪而闻名。
@@ -1782,7 +1777,7 @@ Herbs_And_Fungi_Bp_BerryPreserve_CardName,Berry Preserve,蜂窝腌浆果
 Herbs_And_Fungi_Bp_BerryPreserve_CardDescription,"Slow-simmer dried cloudberries, lingonberries, blackcurrants, redcurrants, and honeycomb to make a shelf-stable berry preserve.",将晒干的云莓、晒干的越橘、晒干的黑醋栗和晒干的红醋栗、蜂窝慢燉，制成可长期保存的蜂窝腌浆果。
 Herbs_And_Fungi_Bp_BerryPreserve_UnlockConditionsDesc,Dried Cloudberry and Honeycomb Needed,需要晒干的云莓和蜂窝
 Herbs_And_Fungi_ApothecaryShelf_CardName,Apothecary Shelf,草药储物架
-Herbs_And_Fungi_ApothecaryShelf_CardDescription,"A narrow slatted shelf built for drying stores. It takes only herbs, mushrooms, powders and medicines, and keeps them as well as a food pantry does, safe from the animals that raid one.",一个简单的木架系统。用于高效保存草药、蘑菇和粉末。
+Herbs_And_Fungi_ApothecaryShelf_CardDescription,"A narrow slatted shelf built for drying stores. It takes only herbs, mushrooms, powders and medicines, and keeps them as well as a food pantry does, safe from the animals that can raid one.",一个狭窄的板条架，专为存放干货而造。只收草药、蘑菇、粉末和药品，保存效果与食品柜相同，而且不会被闯入食品柜的动物洗劫。
 Herbs_And_Fungi_ApothecaryShelf_CardHelpSection,"<b>Accepts:</b> Herbs, fungi, powders and medicines only. Ordinary food and materials are refused.
 
 <b>Place it</b> to get the slower spoilage rate.",<b>用途：</b> 用于高效保存草药、蘑菇和粉末。放置后减缓食物腐败。
@@ -2159,11 +2154,11 @@ Herbs_And_Fungi_BotanicalFieldGuide_CardName,Botanical Field Guide,植物野外�
 Herbs_And_Fungi_BotanicalFieldGuide_CardDescription,A hand-bound book of hemp paper that records where and when the forest plants grow. Read it to look anything up.,用大麻纸手工装订的书，记录了森林植物的生长地点和时节。阅读它即可查阅。
 Herbs_And_Fungi_BotanicalFieldGuide_CardHelpSection,"<b>Made from:</b> six sheets of Hemp Paper and twine, from the Support tab.
 
-<b>Uses:</b> Choose Read to see where and when each plant can be found. The guide is not used up.","<b>制作材料：</b>六张大麻纸和麻线，在支持分类中制作。
+<b>Uses:</b> Hover over one of its five Read buttons to see that page: Places, Mushrooms, Herbs and Flowers, Fruit and Nuts, Roots and Greens. Each plant's line says where and when it turns up. The guide is not used up.","<b>制作材料：</b>六张大麻纸和麻线，在支持分类中制作。
 
-<b>用途：</b>选择阅读可查看每种植物的生长地点和时节。指南不会被消耗。"
-Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_Read_ActionName,Read,阅读
-Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_Read_ActionDescription,"Where and when each plant of the forest turns up. Unless a line says otherwise, a plant is found by foraging from spring to autumn and never in winter.
+<b>用途：</b>把鼠标停在五个“阅读”按钮之一上，即可看到对应的一页：地点、蘑菇、草药与花、水果与坚果、根茎与叶菜。每种植物都写明了出现的地点和时节。指南不会被消耗。"
+Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_Read_ActionName,Read: Places,阅读：地点
+Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_Read_ActionDescription,"Where and when each plant of the forest turns up. The other four Read pages list the plants by these place names.
 
 Places
 Oak woods: oak groves, thickets and clearings
@@ -2174,64 +2169,7 @@ Pine meadows: pine meadows
 North: the northern places above Grenfell Falls
 River banks: river places, Lake Island
 Willow places: willow groves and thickets
-Birch stands: 17 birch-tree places
-
-Plants
-Morel Mushroom: all year. Oak woods, alder woods, river banks, Pine Meadows, Old Grove.
-Lion's Mane Mushroom: oak woods, alder woods.
-King Oyster: all year. Oak woods, alder woods, pine woods.
-Golden Oyster: all year. Oak woods, alder woods, pine woods.
-Chanterelle: oak woods, alder woods, Pine Meadows, birch stands.
-Reishi Mushroom: oak woods, alder woods, pine woods.
-Giant Puffball: clearings, Secret Grove, Alder Grove.
-Chicken of the Woods: willow places, oak woods, alder woods.
-Black Trumpet: oak woods, alder woods, Pine Meadows.
-Shiitake Mushroom: oak woods, alder woods, Primeval Woods, Pine Meadows.
-Chaga: all year. Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows, birch stands.
-Death Cap (deadly): north, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing.
-Truffle: spring to autumn, rarely, by digging up mud at a river, and by foraging the Old Grove; in any season with Dig for Truffles at the oak and alder groves, thickets and clearings.
-Wild Ginseng: Primeval Woods, Lost Woods, Green Grove, Green Glade, Oaken Grove, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows.
-Ginger: river banks, willow places, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows.
-Yarrow: commonest in pine meadows. Other clearings, Secret Grove, Alder Grove.
-Wolfsbane (poisonous): river banks.
-Wild Flowers: clearings, pine meadows, river banks, Secret Grove, Alder Grove.
-Dandelion: clearings, river banks, oak woods, alder woods.
-Common Plantain: clearings, river banks, Secret Grove, Alder Grove, 13 of the birch stands.
-Chamomile: pine meadows, clearings, Secret Grove, Alder Grove, 16 of the birch stands.
-Blackcurrants: summer only. River banks, oak woods, alder woods, Pine Meadows, birch stands.
-Redcurrants: summer only. Oak woods, alder woods, clearings other than pine meadows, 12 of the birch stands.
-Lingonberries: summer and autumn. Pine meadows, pine woods, north, Secret Grove, Mossy Clearing, Alder Grove.
-Cloudberries: north, pine meadows, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Old Grove.
-Hemp Seeds and Hemp Plants: Primeval Woods, Lake Island. Seeds also come from clearing the ground in Primeval Woods.
-Peanut Pods: oak woods, alder woods, clearings, pine woods.
-Velvet Shank: winter only. Oak woods, alder woods, willow places, Secret Grove, Mossy Clearing, Alder Grove.
-Watercress: any place with a river.
-Water Lily Rhizome: any place with a river.
-Camas Bulb: spring and summer. Secret Grove, Pine Meadows.
-Fiddleheads: spring only. Mossy Clearing, Alder Grove.
-Thistle Greens: spring and summer. Secret Grove, Pine Meadows.
-Goosefoot Greens: spring and summer. Secret Grove, Mossy Clearing.
-Rhubarb: spring and summer. Secret Grove, Alder Grove.
-Horseradish Root: spring and autumn. Alder Grove, Pine Clearing.
-Mustard Seeds: summer and autumn. Secret Grove, Pine Meadows.
-Chicory Root: summer and autumn. Secret Grove, Pine Meadows.
-Mandrake Root: summer and autumn. Mossy Clearing, Old Grove.
-Turnroot Greens: not foraged. About half the times you harvest a mature turnroot field by hand, spring to autumn.
-Crabapples: autumn only. Secret Grove, Mossy Clearing.
-Wild Pears: summer and autumn. Mossy Clearing, Alder Grove.
-Wild Plums: autumn only. Secret Grove, Pine Clearing.
-Chestnuts: autumn only. Secret Grove, Mossy Clearing.
-Hazelnuts: autumn only. Secret Grove, Alder Grove.
-Sloes: autumn only. Secret Grove, Pine Meadows.
-Elderflowers: spring and summer. Secret Grove, Alder Grove.
-Elderberries: autumn only. Secret Grove, Alder Grove.
-Kale: Secret Grove, Pine Meadows.
-Leek: Secret Grove, Alder Grove.
-Carrot: Alder Grove, Pine Meadows.
-Broad Beans: spring and summer. Alder Grove, Pine Meadows.
-Hops: summer and autumn. Mossy Clearing, Alder Grove.
-Grapes: summer and autumn. Secret Grove, Mossy Clearing.
-Oats: summer and autumn. Secret Grove, Pine Meadows.","森林中每种植物何时何地出现。除非另有说明，植物只能在春季至秋季采集，冬季找不到。
+Birch stands: 17 birch-tree places","森林中每种植物何时何地出现。其他四个“阅读”页按以下地点名称列出各种植物。
 
 地点
 橡树林：橡树林地、灌木丛和空地
@@ -2242,13 +2180,28 @@ Oats: summer and autumn. Secret Grove, Pine Meadows.","森林中每种植物何�
 北方：格伦费尔瀑布以北的地区
 河岸：河边地点，湖心岛
 柳树地点：柳树林地和灌木丛
-白桦林：17处白桦树地点
+白桦林：17处白桦树地点"
+Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadMushrooms_ActionName,Read: Mushrooms,阅读：蘑菇
+Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadMushrooms_ActionDescription,"Unless a line says otherwise, a plant is found by foraging from spring to autumn and never in winter. The Read: Places page explains the place names.
 
-植物
+Morel Mushroom: all year. Oak woods, alder woods, river banks, Pine Meadows, Old Grove.
+Lion's Mane Mushroom: oak woods, alder woods.
+King Oyster: all year. Oak woods, alder woods, pine woods.
+Golden Oyster: all year. Oak woods, alder woods, pine woods, willow places, Secret Grove, Mossy Clearing, Alder Grove.
+Chanterelle: oak woods, alder woods, Pine Meadows, birch stands.
+Reishi Mushroom: oak woods, alder woods, pine woods.
+Giant Puffball: clearings, Secret Grove, Alder Grove.
+Chicken of the Woods: willow places, oak woods, alder woods.
+Black Trumpet: oak woods, alder woods, Pine Meadows.
+Shiitake Mushroom: oak woods, alder woods, Primeval Woods, Pine Meadows.
+Chaga: all year. Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows, birch stands.
+Death Cap (deadly): north, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing.
+Truffle: spring to autumn, rarely, by digging up mud at a river, and by foraging the Old Grove; in any season with Dig for Truffles at the oak and alder groves, thickets and clearings.","除非另有说明，植物只能在春季至秋季采集，冬季找不到。地点名称见“阅读：地点”页。
+
 羊肚菌：全年。橡树林，桤木林，河岸，松林草场，老树林。
 狮鬃菇：橡树林，桤木林。
 杏鲍菇：全年。橡树林，桤木林，松树林。
-金顶侧耳：全年。橡树林，桤木林，松树林。
+金顶侧耳：全年。橡树林，桤木林，松树林，柳树地点，隐秘林地，覆苔林隙，桤木林地。
 鸡油菌：橡树林，桤木林，松林草场，白桦林。
 灵芝：橡树林，桤木林，松树林。
 大马勃：空地，隐秘林地，桤木林地。
@@ -2257,7 +2210,23 @@ Oats: summer and autumn. Secret Grove, Pine Meadows.","森林中每种植物何�
 香菇：橡树林，桤木林，原始森林，松林草场。
 白桦茸：全年。覆苔林隙，桤木林地，松树林隙，松林草场，白桦林。
 毒鹅膏（剧毒）：北方，隐秘林地，覆苔林隙，桤木林地，松树林隙。
-松露：春季至秋季在河边挖掘泥土时偶尔获得，也可在老树林采集获得；在橡树和桤木林地、灌木丛和空地使用“挖掘松露”则四季皆可。
+松露：春季至秋季在河边挖掘泥土时偶尔获得，也可在老树林采集获得；在橡树和桤木林地、灌木丛和空地使用“挖掘松露”则四季皆可。"
+Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadHerbs_ActionName,Read: Herbs and Flowers,阅读：草药与花
+Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadHerbs_ActionDescription,"Unless a line says otherwise, a plant is found by foraging from spring to autumn and never in winter. The Read: Places page explains the place names.
+
+Wild Ginseng: Primeval Woods, Lost Woods, Green Grove, Green Glade, Oaken Grove, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows.
+Ginger: river banks, willow places, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Pine Meadows.
+Yarrow: commonest in pine meadows. Other clearings, Secret Grove, Alder Grove.
+Wolfsbane (poisonous): river banks.
+Wild Flowers: clearings, pine meadows, river banks, Secret Grove, Alder Grove.
+Dandelion: clearings, river banks, oak woods, alder woods.
+Common Plantain: clearings, river banks, Secret Grove, Alder Grove, 13 of the birch stands.
+Chamomile: pine meadows, clearings, Secret Grove, Alder Grove, 16 of the birch stands.
+Elderflowers: spring and summer. Secret Grove, Alder Grove.
+Hops: summer and autumn. Mossy Clearing, Alder Grove.
+Mustard Seeds: summer and autumn. Secret Grove, Pine Meadows.
+Hemp Seeds and Hemp Plants: Primeval Woods, Lake Island. Seeds also come from clearing the ground in Primeval Woods.","除非另有说明，植物只能在春季至秋季采集，冬季找不到。地点名称见“阅读：地点”页。
+
 野生人参：原始森林，迷失森林，青翠树林，青翠林间空地，橡木树林，隐秘林地，覆苔林隙，桤木林地，松树林隙，松林草场。
 生姜：河岸，柳树地点，隐秘林地，覆苔林隙，桤木林地，松树林隙，松林草场。
 蓍草：松树草甸最常见。其他空地，隐秘林地，桤木林地。
@@ -2266,39 +2235,63 @@ Oats: summer and autumn. Secret Grove, Pine Meadows.","森林中每种植物何�
 蒲公英：空地，河岸，橡树林，桤木林。
 宽叶车前草：空地，河岸，隐秘林地，桤木林地，17处白桦林中的13处。
 洋甘菊：松树草甸，空地，隐秘林地，桤木林地，17处白桦林中的16处。
+接骨木花：春季和夏季。隐秘林地，桤木林地。
+啤酒花：夏季和秋季。覆苔林隙，桤木林地。
+芥菜籽：夏季和秋季。隐秘林地，松林草场。
+大麻种子和大麻植株：原始森林，湖心岛。种子也可在原始森林清理地面时获得。"
+Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadFruit_ActionName,Read: Fruit and Nuts,阅读：水果与坚果
+Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadFruit_ActionDescription,"Unless a line says otherwise, a plant is found by foraging from spring to autumn and never in winter. The Read: Places page explains the place names.
+
+Blackcurrants: summer only. River banks, oak woods, alder woods, Pine Meadows, birch stands.
+Redcurrants: summer only. Oak woods, alder woods, clearings other than pine meadows, 12 of the birch stands.
+Lingonberries: summer and autumn. Pine meadows, pine woods, north, Secret Grove, Mossy Clearing, Alder Grove.
+Cloudberries: north, pine meadows, Secret Grove, Mossy Clearing, Alder Grove, Pine Clearing, Old Grove.
+Wild Plums: summer and autumn. Secret Grove, Mossy Clearing, Pine Clearing, Alder Grove.
+Sloes: autumn only. Secret Grove, Pine Meadows.
+Grapes: summer and autumn. Secret Grove, Mossy Clearing.
+Chestnuts: autumn only. Secret Grove, Mossy Clearing, Alder Grove.
+Peanut Pods: oak woods, alder woods, clearings, pine woods.","除非另有说明，植物只能在春季至秋季采集，冬季找不到。地点名称见“阅读：地点”页。
+
 黑醋栗：仅限夏季。河岸，橡树林，桤木林，松林草场，白桦林。
 红醋栗：仅限夏季。橡树林，桤木林，松树草甸以外的空地，17处白桦林中的12处。
 越橘：夏季和秋季。松树草甸，松树林，北方，隐秘林地，覆苔林隙，桤木林地。
 云莓：北方，松树草甸，隐秘林地，覆苔林隙，桤木林地，松树林隙，老树林。
-大麻种子和大麻植株：原始森林，湖心岛。种子也可在原始森林清理地面时获得。
-花生荚：橡树林，桤木林，空地，松树林。
-毛柄金钱菌：仅限冬季。橡树林，桤木林，柳树地点，隐秘林地，覆苔林隙，桤木林地。
+野李子：夏季和秋季。隐秘林地，覆苔林隙，松树林隙，桤木林地。
+黑刺李：仅限秋季。隐秘林地，松林草场。
+葡萄：夏季和秋季。隐秘林地，覆苔林隙。
+栗子：仅限秋季。隐秘林地，覆苔林隙，桤木林地。
+花生荚：橡树林，桤木林，空地，松树林。"
+Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadRoots_ActionName,Read: Roots and Greens,阅读：根茎与叶菜
+Herbs_And_Fungi_BotanicalFieldGuide_DismantleActions_ReadRoots_ActionDescription,"Unless a line says otherwise, a plant is found by foraging from spring to autumn and never in winter. The Read: Places page explains the place names.
+
+Watercress: any place with a river.
+Camas Bulb: Secret Grove, Pine Meadows, any place with a river.
+Fiddleheads: spring only. Mossy Clearing, Alder Grove.
+Goosefoot Greens: spring and summer. Secret Grove, Mossy Clearing.
+Rhubarb: spring and summer. Secret Grove, Alder Grove.
+Horseradish Root: spring and autumn. Alder Grove, Pine Clearing.
+Chicory Root: summer and autumn. Secret Grove, Pine Meadows.
+Mandrake Root: summer and autumn. Mossy Clearing, Old Grove.
+Turnroot Greens: Secret Grove, Pine Meadows. Also about half the times you harvest a mature turnroot field by hand.
+Kale: Secret Grove, Pine Meadows.
+Leek: Secret Grove, Alder Grove.
+Carrot: Alder Grove, Pine Meadows.
+Broad Beans: spring and summer. Alder Grove, Pine Meadows.
+Oats: summer and autumn. Secret Grove, Pine Meadows.","除非另有说明，植物只能在春季至秋季采集，冬季找不到。地点名称见“阅读：地点”页。
+
 水芹菜：任何有河流的地点。
-睡莲根茎：任何有河流的地点。
-卡马百合球茎：春季和夏季。隐秘林地，松林草场。
+卡马百合球茎：隐秘林地，松林草场，任何有河流的地点。
 蕨菜嫩芽：仅限春季。覆苔林隙，桤木林地。
-蓟菜嫩茎：春季和夏季。隐秘林地，松林草场。
 藜草叶：春季和夏季。隐秘林地，覆苔林隙。
 大黄：春季和夏季。隐秘林地，桤木林地。
 辣根：春季和秋季。桤木林地，松树林隙。
-芥菜籽：夏季和秋季。隐秘林地，松林草场。
 菊苣根：夏季和秋季。隐秘林地，松林草场。
 曼德拉草根：夏季和秋季。覆苔林隙，老树林。
-芜菁叶：无法采集。春季至秋季徒手收获成熟的芜菁田时，约有一半机会获得。
-野山楂苹果：仅限秋季。隐秘林地，覆苔林隙。
-野梨：夏季和秋季。覆苔林隙，桤木林地。
-野李子：仅限秋季。隐秘林地，松树林隙。
-栗子：仅限秋季。隐秘林地，覆苔林隙。
-榛子：仅限秋季。隐秘林地，桤木林地。
-黑刺李：仅限秋季。隐秘林地，松林草场。
-接骨木花：春季和夏季。隐秘林地，桤木林地。
-接骨木莓：仅限秋季。隐秘林地，桤木林地。
+芜菁叶：隐秘林地，松林草场。徒手收获成熟的芜菁田时，也约有一半机会获得。
 羽衣甘蓝：隐秘林地，松林草场。
 韭葱：隐秘林地，桤木林地。
 胡萝卜：桤木林地，松林草场。
 蚕豆：春季和夏季。桤木林地，松林草场。
-啤酒花：夏季和秋季。覆苔林隙，桤木林地。
-葡萄：夏季和秋季。隐秘林地，覆苔林隙。
 燕麦：夏季和秋季。隐秘林地，松林草场。"
 Herbs_And_Fungi_Bp_HempPulp_CardName,Hemp Pulp,大麻纸浆
 Herbs_And_Fungi_Bp_HempPulp_CardDescription,Chop hemp stalks and leave them to soak. After about a day the pulp is soft enough to press into paper.,把大麻茎切碎并浸泡。约一天后纸浆变软，可以压制成纸。
@@ -2793,64 +2786,15 @@ Herbs_And_Fungi_WaxLeatherDressing_CardHelpSection,"<b>Made from:</b> drag a Lin
 
 <b>Dress leather:</b> drag it onto any leather garment (tunic, trousers, coat, gloves, shoes, helmet and the like). The garment's Quality rises by 5, up to its maximum, and the dressing is used up. A higher Quality means slower wear and a warmer garment.
 
-The 5 is a tunable placeholder, the same amount a needle repair costs the garment.","<b>制作：</b>把亚麻籽油拖到蜜蜡上（油会被用掉，陶碗会留下）。蜜蜡来自蜂巢，可从蜂箱或蜂篓获取。
+The 5 is the same amount a needle repair costs the garment.","<b>制作：</b>把亚麻籽油拖到蜜蜡上（油会被用掉，陶碗会留下）。蜜蜡来自蜂巢，可从蜂箱或蜂篓获取。
 
 <b>保养皮革：</b>把它拖到任何皮革衣物上（上衣、裤子、大衣、手套、靴子、头盔等）。衣物的品质会提高 5，最高不超过上限，保养膏随之用完。品质越高，磨损越慢，衣物也越保暖。
 
-这个 5 是可调的占位数值，与用针修补一次所花的品质相同。"
+这个 5 与用针修补一次所花的品质相同。"
 Herbs_And_Fungi_WaxLeatherDressing_Dress_ActionName,Dress the Leather,保养皮革
 Herbs_And_Fungi_WaxLeatherDressing_Dress_ActionDescription,Rub the wax into the leather. The dressing is used up and the garment's quality rises.,把蜜蜡揉进皮革里。保养膏会被用掉，衣物的品质随之提高。
 Herbs_And_Fungi_LinseedOil_WorkIntoBeeswax_ActionName,Work into Wax,调入蜜蜡
 Herbs_And_Fungi_LinseedOil_WorkIntoBeeswax_ActionDescription,Soften the beeswax with the oil into a Wax Leather Dressing. The oil is used up and you keep the clay bowl.,用油把蜜蜡调软，制成蜡皮革保养膏。油会被用掉，陶碗会留下。
-Herbs_And_Fungi_VelvetShank_CardName,Velvet Shank,毛柄金钱菌
-Herbs_And_Fungi_VelvetShank_CardDescription,"Small golden-brown caps with slick, velvety stems. They fruit on oak, alder and willow only through the frost, when almost nothing else grows.",金褐色的小菌盖，菌柄滑润如丝绒。它们只在霜冻时节长在橡树、桤木和柳树上，那时几乎没有别的东西生长。
-Herbs_And_Fungi_VelvetShank_CardHelpSection,"<b>Season:</b> Winter only
-
-<b>Habitat:</b> Oak, alder and willow woods, on dead and dying wood.
-
-<b>Use:</b> Cook it, or let it dry on the card.","<b>季节：</b>仅限冬季
-
-<b>栖息地：</b>橡树、桤木和柳树林中的枯木与垂死的树木上。
-
-<b>用途：</b>可以烹煮，也可以放在身上自然风干。"
-Herbs_And_Fungi_VelvetShank_SpoilageTime_CardStatName,Spoilage,新鲜度
-Herbs_And_Fungi_VelvetShank_SpoilageTime_OnFull_ActionDescription,Velvet Shank Spoiled!,毛柄金钱菌变质了！
-Herbs_And_Fungi_VelvetShank_UsageDurability_CardStatName,Dryness,干燥度
-Herbs_And_Fungi_VelvetShank_UsageDurability_OnFull_ActionName,Dried,已风干
-Herbs_And_Fungi_VelvetShank_SpecialDurability1_CardStatName,Cook,烹煮
-Herbs_And_Fungi_VelvetShank_SpecialDurability1_OnFull_ActionDescription,Velvet Shank Cooked!,毛柄金钱菌煮熟了！
-Herbs_And_Fungi_VelvetShank_DismantleActions_Eat_ActionName,Eat Raw,生吃
-Herbs_And_Fungi_VelvetShank_DismantleActions_Eat_ActionDescription,Eat the velvet shank raw. The caps are slippery and mild.,生吃毛柄金钱菌。菌盖滑润，味道清淡。
-Herbs_And_Fungi_VelvetShankCooked_CardName,Cooked Velvet Shank,熟毛柄金钱菌
-Herbs_And_Fungi_VelvetShankCooked_CardDescription,Velvet shank cooked until the slippery caps turn tender and glossy.,煮到菌盖变得软嫩油亮的毛柄金钱菌。
-Herbs_And_Fungi_VelvetShankCooked_CardHelpSection,"<b>Prepared:</b> Perfectly cooked.
-
-<b>Nutrition:</b> Cooking enhances the nutritional value and flavor of these mushrooms.
-
-<b>Flavor:</b> Mild, savoury taste with a tender cap.","<b>制作：</b>烹煮得恰到好处。
-
-<b>营养：</b>烹煮能提升这些蘑菇的营养价值和风味。
-
-<b>风味：</b>清淡鲜香，菌盖软嫩。"
-Herbs_And_Fungi_VelvetShankCooked_SpoilageTime_CardStatName,Spoilage,新鲜度
-Herbs_And_Fungi_VelvetShankCooked_SpoilageTime_OnFull_ActionDescription,Cooked Velvet Shank Spoiled!,熟毛柄金钱菌变质了！
-Herbs_And_Fungi_VelvetShankCooked_DismantleActions_Eat_ActionName,Eat,食用
-Herbs_And_Fungi_VelvetShankCooked_DismantleActions_Eat_ActionDescription,Eat the cooked velvet shank. Tender and nourishing.,吃下熟毛柄金钱菌。软嫩而有营养。
-Herbs_And_Fungi_VelvetShankDried_CardName,Dried Velvet Shank,干毛柄金钱菌
-Herbs_And_Fungi_VelvetShankDried_CardDescription,Dried velvet shank caps. Drying keeps a winter-only mushroom through the rest of the year.,风干的毛柄金钱菌菌盖。风干后，这种只在冬天生长的蘑菇可以留到一年里的其他时节。
-Herbs_And_Fungi_VelvetShankDried_CardHelpSection,"<b>Preservation:</b> Dried for extended shelf life.
-
-<b>Use:</b> Add directly to soups and stews, or eat as a chewy snack.
-
-<b>Flavor:</b> Concentrated, savoury taste.","<b>保存：</b>风干后保质期更长。
-
-<b>用途：</b>可直接加入汤和炖菜，也可当作有嚼劲的零食。
-
-<b>风味：</b>浓缩的鲜香味。"
-Herbs_And_Fungi_VelvetShankDried_SpoilageTime_CardStatName,Spoilage,新鲜度
-Herbs_And_Fungi_VelvetShankDried_SpoilageTime_OnFull_ActionDescription,Dried Velvet Shank Spoiled!,干毛柄金钱菌变质了！
-Herbs_And_Fungi_VelvetShankDried_DismantleActions_Eat_ActionName,Eat Dried,吃干货
-Herbs_And_Fungi_VelvetShankDried_DismantleActions_Eat_ActionDescription,Eat the dried velvet shank. Chewy with concentrated flavor.,吃下干毛柄金钱菌。有嚼劲，味道浓缩。
 Herbs_And_Fungi_Spice_HerbalTonic_SpiceName,Herbal Tonic,滋补草药
 Herbs_And_Fungi_Spice_HerbalAnalgesic_SpiceName,Herbal Analgesic,镇痛草药
 Herbs_And_Fungi_Spice_ClottingEffect_SpiceName,Clotting Herbs,凝血草药
@@ -3040,9 +2984,9 @@ Herbs_And_Fungi_ForagersNotebook_CardName,Forager's Notebook,采集者笔记本
 Herbs_And_Fungi_ForagersNotebook_CardDescription,"A small hemp-paper notebook. Once you carry it, it writes down each wild plant and mushroom you find and the place where you first found it.",一本用大麻纸做的小笔记本。带在身上时，它会记下你发现的每一种野生植物和蘑菇，以及你第一次发现它的地点。
 Herbs_And_Fungi_ForagersNotebook_CardHelpSection,"<b>Made from:</b> three sheets of Hemp Paper and twine, from the Support tab.
 
-<b>Uses:</b> Keep it in your inventory. Each time a wild plant or mushroom of this mod turns up in your hands, the notebook adds it under the place where you got it, the first time only. Open the card to read the list. Foraged finds are what it is for, but anything of that kind you receive is written down too. The list is saved with the notebook. Placeholder art.","<b>制作材料：</b>三张大麻纸和麻线，在支持分类中制作。
+<b>Uses:</b> Keep it in your inventory. Each time a wild plant or mushroom of this mod turns up in your hands, the notebook adds it under the place where you got it, the first time only. Open the card to read the list. Foraged finds are what it is for, but anything of that kind you receive is written down too. The list is saved with the notebook.","<b>制作材料：</b>三张大麻纸和麻线，在支持分类中制作。
 
-<b>用途：</b>放在背包里即可。每当本模组的野生植物或蘑菇到了你手里，笔记本就会把它记在你获得它的地点之下，只记第一次。打开卡牌即可查看清单。它主要用来记录采集所得，但其他途径得到的同类物品也会被记下。清单随笔记本一起存档。占位图片。"
+<b>用途：</b>放在背包里即可。每当本模组的野生植物或蘑菇到了你手里，笔记本就会把它记在你获得它的地点之下，只记第一次。打开卡牌即可查看清单。它主要用来记录采集所得，但其他途径得到的同类物品也会被记下。清单随笔记本一起存档。"
 Herbs_And_Fungi_Bp_ForagersNotebook_CardName,Forager's Notebook,采集者笔记本
 Herbs_And_Fungi_Bp_ForagersNotebook_CardDescription,Bind a few sheets of hemp paper with twine into a notebook that records what you find and where.,用麻线把几张大麻纸装订成一本笔记本，记录你发现了什么、在哪里发现的。
 Herbs_And_Fungi_Bp_ForagersNotebook_UnlockConditionsDesc,Unlocked after obtaining Hemp Paper,获得大麻纸后解锁
@@ -3154,9 +3098,9 @@ herbsfungivigorelixir_CardName,Vigor Elixir,活力灵药
 herbsfungivigorelixir_CardDescription,"A strong, bitter elixir of reishi tea fortified with ground ginseng, brewed in the medicine cauldron. Holds the immune system strong for far longer than a tea.",在药用大锅中以人参粉强化灵芝茶酿成的苦味浓药。能让免疫力保持强健，远比普通药茶持久。
 herbsfungivigorelixir_CardHelpSection,"<b>Preparation:</b> At a medicine station (Clay Cauldron or Copper Cauldron), stir ground ginseng into a pot of Reishi Tea.
 
-<b>Benefits:</b> A strong dose of Herbal Tonic (placeholder 72 of 96), well above any tea, plus the usual refreshment.","<b>制作：</b>在药用工作台（陶土大锅或铜大锅）中，将人参粉搅入一锅灵芝茶。
+<b>Benefits:</b> A strong dose of Herbal Tonic (72 of 96), well above any tea, plus the usual refreshment.","<b>制作：</b>在药用工作台（陶土大锅或铜大锅）中，将人参粉搅入一锅灵芝茶。
 
-<b>功效：</b>提供强效草药补剂（暂定 72/96），远超任何药茶，并带来常规的提神效果。"
+<b>功效：</b>提供强效草药补剂（72/96），远超任何药茶，并带来常规的提神效果。"
 herbsfungivigorelixir_SpoilageTime_CardStatName,Bacteria,细菌
 herbsfungivigorelixir_SpoilageTime_OnFull_ActionDescription,Vigor Elixir Spoiled!,活力灵药变质了！
 herbsfungivigorelixir_FuelCapacity_CardStatName,Liquid Temperature,液体温度
@@ -3178,9 +3122,9 @@ Herbs_And_Fungi_FishSauceYoung_CardName,Young Fish Sauce,新鱼露
 Herbs_And_Fungi_FishSauceYoung_CardDescription,Fish mash steeping in water. Leave it in any container for about five days and it ferments into fish sauce. Not ready to use.,浸在水中的鱼糜。放在任何容器里静置约五天，就会发酵成鱼露。尚不能使用。
 Herbs_And_Fungi_FishSauceYoung_CardHelpSection,"<b>Made from:</b> Drag Salted Fish Mash onto water.
 
-<b>Next:</b> After about five days (a tunable placeholder) it turns into Fish Sauce.","<b>制作：</b>将咸鱼糜拖到水上。
+<b>Next:</b> After about five days it turns into Fish Sauce.","<b>制作：</b>将咸鱼糜拖到水上。
 
-<b>之后：</b>约五天后（暂定时长）变成鱼露。"
+<b>之后：</b>约五天后变成鱼露。"
 Herbs_And_Fungi_FishSauceYoung_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_FishSauceYoung_SpoilageTime_OnFull_ActionDescription,The young fish sauce has gone off.,新鱼露变质了。
 Herbs_And_Fungi_FishSauceYoung_Progress_CardStatName,Fermenting,发酵中
@@ -3206,9 +3150,9 @@ Herbs_And_Fungi_LyeSoakedFish_CardName,Lye-Soaked Fish,浸碱鱼
 Herbs_And_Fungi_LyeSoakedFish_CardDescription,"Dried fish steeping in lye. Leave it alone while the Soaking bar fills, about two days, and it becomes Lye-Cured Fish. Caustic; do not eat.",正在碱液中浸泡的鱼干。放着不动，等“浸泡”进度条走满（约两天），就会变成碱化鱼。有腐蚀性，不可食用。
 Herbs_And_Fungi_LyeSoakedFish_CardHelpSection,"<b>Made from:</b> One Dried Fish (lean or fatty) and a bowl of Lye, from the Cooking tab. The lye is used up.
 
-<b>Next:</b> It turns into Lye-Cured Fish after about two days (a tunable placeholder).","<b>制作：</b>一份鱼干（瘦鱼或肥鱼）和一碗碱液，在烹饪标签页制作。碱液会被用掉。
+<b>Next:</b> It turns into Lye-Cured Fish after about two days.","<b>制作：</b>一份鱼干（瘦鱼或肥鱼）和一碗碱液，在烹饪标签页制作。碱液会被用掉。
 
-<b>之后：</b>约两天后（暂定时长）变成碱化鱼。"
+<b>之后：</b>约两天后变成碱化鱼。"
 Herbs_And_Fungi_LyeSoakedFish_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_LyeSoakedFish_SpoilageTime_OnFull_ActionDescription,The lye-soaked fish has gone off.,浸碱鱼变质了。
 Herbs_And_Fungi_LyeSoakedFish_Progress_CardStatName,Soaking,浸泡
@@ -3240,9 +3184,9 @@ Herbs_And_Fungi_Lutefisk_CardName,Lutefisk,碱鱼
 Herbs_And_Fungi_Lutefisk_CardDescription,"Dried fish cured in lye, rinsed and cooked until it flakes: soft, gelatinous and mild. A hearty northern dish.",鱼干经碱液处理、冲洗、烹熟后松软，口感如胶质，味道温和。一道扎实的北方菜肴。
 Herbs_And_Fungi_Lutefisk_CardHelpSection,"<b>Made from:</b> Dried fish soaked in lye (about two days), rinsed in water, then cooked over a fire.
 
-<b>Uses:</b> Eat it for a filling fish meal (values are tunable placeholders). Counts as a fish meal for fish boredom.","<b>制作：</b>鱼干在碱液中浸泡（约两天），用水冲洗，再放在火上烹熟。
+<b>Uses:</b> Eat it for a filling fish meal. Counts as a fish meal for fish boredom.","<b>制作：</b>鱼干在碱液中浸泡（约两天），用水冲洗，再放在火上烹熟。
 
-<b>用途：</b>食用后能饱腹（数值为暂定）。计入鱼类厌倦度。"
+<b>用途：</b>食用后能饱腹。计入鱼类厌倦度。"
 Herbs_And_Fungi_Lutefisk_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_Lutefisk_SpoilageTime_OnFull_ActionDescription,The lutefisk has gone off.,碱鱼变质了。
 Herbs_And_Fungi_Lutefisk_FuelCapacity_CardStatName,Temperature,温度
@@ -3264,11 +3208,11 @@ Herbs_And_Fungi_TendonSoup_CardName,Tendon Soup,肌腱汤
 Herbs_And_Fungi_TendonSoup_CardDescription,"A bowl of thick, savoury soup simmered from tendon until it turns soft and gelatinous, with dried yarrow for a bitter edge.",用肌腱慢炖至软糯胶质的浓稠鲜汤，加入干蓍草，带一丝苦味。
 Herbs_And_Fungi_TendonSoup_CardHelpSection,"<b>Made by:</b> Blueprint: Tendon Soup (2 Tendon, a Clay Bowl and Dried Yarrow).
 
-<b>Uses:</b> Drink for hydration and a solid meal (values are tunable placeholders).
+<b>Uses:</b> Drink for hydration and a solid meal.
 
 <b>Benefits:</b> Hydrating and filling, mildly calming. Savoury and bitter.","<b>制作：</b>蓝图：肌腱汤（2份肌腱、1只黏土碗和干蓍草）。
 
-<b>用途：</b>饮用可补水并果腹（数值为可调整的占位值）。
+<b>用途：</b>饮用可补水并果腹。
 
 <b>功效：</b>补水、饱腹，略能安神。味道鲜美微苦。"
 Herbs_And_Fungi_TendonSoup_SpoilageTime_StatName,Spoilage,腐败
@@ -3294,9 +3238,9 @@ Herbs_And_Fungi_Fishcake_CardName,Fishcake,鱼饼
 Herbs_And_Fungi_Fishcake_CardDescription,"A golden patty of minced fish and flour, lightly bitter with dandelion. Plain, filling fare.",金黄的鱼肉面饼，带着蒲公英的微苦。朴素而扎实的食物。
 Herbs_And_Fungi_Fishcake_CardHelpSection,"<b>Made from:</b> A Raw Fishcake cooked over a fire.
 
-<b>Uses:</b> Eat it for a filling fish meal (values are tunable placeholders). Counts as a fish meal for fish boredom.","<b>制作：</b>将生鱼饼在火上烹熟。
+<b>Uses:</b> Eat it for a filling fish meal. Counts as a fish meal for fish boredom.","<b>制作：</b>将生鱼饼在火上烹熟。
 
-<b>用途：</b>食用可当一顿扎实的鱼肉餐（数值为可调整的占位值）。计入鱼类厌倦度。"
+<b>用途：</b>食用可当一顿扎实的鱼肉餐。计入鱼类厌倦度。"
 Herbs_And_Fungi_Fishcake_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_Fishcake_SpoilageTime_OnFull_ActionDescription,The fishcake has gone off.,鱼饼变质了。
 Herbs_And_Fungi_Fishcake_FuelCapacity_CardStatName,Temperature,温度
@@ -3324,9 +3268,9 @@ Herbs_And_Fungi_Haggis_CardName,Haggis,肚包杂碎
 Herbs_And_Fungi_Haggis_CardDescription,"Offal and rye grain packed into a stomach and cooked until firm: rich, herbal and very filling.",内脏和黑麦粒塞进胃里煮至紧实：味道浓郁，带着草药香，十分顶饱。
 Herbs_And_Fungi_Haggis_CardHelpSection,"<b>Made from:</b> A Raw Haggis cooked over a fire.
 
-<b>Uses:</b> Eat it for a heavy meat meal (values are tunable placeholders). Counts as a meat meal for meat boredom.","<b>制作：</b>将生肚包杂碎在火上烹熟。
+<b>Uses:</b> Eat it for a heavy meat meal. Counts as a meat meal for meat boredom.","<b>制作：</b>将生肚包杂碎在火上烹熟。
 
-<b>用途：</b>食用可当一顿分量十足的肉餐（数值为可调整的占位值）。计入肉类厌倦度。"
+<b>用途：</b>食用可当一顿分量十足的肉餐。计入肉类厌倦度。"
 Herbs_And_Fungi_Haggis_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_Haggis_SpoilageTime_OnFull_ActionDescription,The haggis has gone off.,肚包杂碎变质了。
 Herbs_And_Fungi_Haggis_FuelCapacity_CardStatName,Temperature,温度
@@ -3351,9 +3295,9 @@ Herbs_And_Fungi_SproutBread_CardName,Sprouted Rye Bread,发芽黑麦面包
 Herbs_And_Fungi_SproutBread_CardDescription,"A dense, faintly sweet bread made with ground malted rye. Plain and filling.",用磨碎的黑麦麦芽粉做成的紧实面包，带一丝甜味。朴素而扎实。
 Herbs_And_Fungi_SproutBread_CardHelpSection,"<b>Made from:</b> Raw Sprouted Rye Bread baked near a fire.
 
-<b>Uses:</b> Eat it for a filling meal (values are tunable placeholders, copied from the vanilla rye flatbread).","<b>制作：</b>生发芽黑麦面包在火旁烤熟。
+<b>Uses:</b> Eat it for a filling meal.","<b>制作：</b>生发芽黑麦面包在火旁烤熟。
 
-<b>用途：</b>吃下它可饱腹（数值为可调占位值，取自原版黑麦薄饼）。"
+<b>用途：</b>吃下它可饱腹。"
 Herbs_And_Fungi_SproutBread_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_SproutBread_SpoilageTime_OnFull_ActionDescription,The sprouted rye bread has gone off.,发芽黑麦面包变质了。
 Herbs_And_Fungi_SproutBread_FuelCapacity_CardStatName,Temperature,温度
@@ -3375,9 +3319,9 @@ Herbs_And_Fungi_NettleBread_CardName,Nettle Bread,荨麻面包
 Herbs_And_Fungi_NettleBread_CardDescription,"A green-flecked loaf with a grassy, peppery bite. Plain and filling.",带绿色碎叶的面包，有青草般的微辛。朴素而扎实。
 Herbs_And_Fungi_NettleBread_CardHelpSection,"<b>Made from:</b> Raw Nettle Bread baked near a fire.
 
-<b>Uses:</b> Eat it for a filling meal (values are tunable placeholders, copied from the vanilla rye flatbread).","<b>制作：</b>生荨麻面包在火旁烤熟。
+<b>Uses:</b> Eat it for a filling meal.","<b>制作：</b>生荨麻面包在火旁烤熟。
 
-<b>用途：</b>吃下它可饱腹（数值为可调占位值，取自原版黑麦薄饼）。"
+<b>用途：</b>吃下它可饱腹。"
 Herbs_And_Fungi_NettleBread_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_NettleBread_SpoilageTime_OnFull_ActionDescription,The nettle bread has gone off.,荨麻面包变质了。
 Herbs_And_Fungi_NettleBread_FuelCapacity_CardStatName,Temperature,温度
@@ -3525,7 +3469,7 @@ herbsfungioatmeal_CardHelpSection,"<b>Made from:</b> Grinding Oats.
 herbsfungioatmeal_SpoilageTime_StatName,Spoilage,腐败
 herbsfungioatmeal_SpoilageTime_OnFull,The oatmeal has gone mouldy.,燕麦粉已经发霉了。
 Herbs_Fungi_Bp_OatField_CardName,Oat Field,燕麦田
-Herbs_Fungi_Bp_OatField_CardDescription,Sow 6 oats in fertile ground to grow a field of oats that is ready after 9 days.,在肥沃的土地上播下6份燕麦，9天后长成一片可以收获的燕麦田。
+Herbs_Fungi_Bp_OatField_CardDescription,Sow 6 oats in fertile ground to grow a field of oats that is ready after 27 days.,在肥沃的土地上播下6份燕麦，27天后长成一片可以收获的燕麦田。
 Herbs_Fungi_Bp_OatField_UnlockConditionsDesc,Unlocked after obtaining Oats,获得燕麦后解锁
 herbsfungioatfieldgrowing_CardName,Growing Oat Field,生长中的燕麦田
 herbsfungioatfieldgrowing_CardDescription,A field of green oats growing steadily. It will be ready to harvest when the heads turn pale.,一片稳定生长的青燕麦田。麦穗变白时就可以收获了。
@@ -3558,7 +3502,7 @@ herbsfungibroadbeans_SpoilageTime_OnFull,The broad beans have gone mouldy.,蚕�
 herbsfungibroadbeans_Eat,Eat,吃
 herbsfungibroadbeans_Eat_Desc,"Eat the beans raw. Starchy and a little bitter, but filling.",生吃蚕豆。粉糯，略带苦味，但很顶饱。
 Herbs_Fungi_Bp_BroadBeanField_CardName,Broad Bean Field,蚕豆田
-Herbs_Fungi_Bp_BroadBeanField_CardDescription,Sow 6 broad beans in fertile ground to grow a field of beans that is ready after 10 days.,在肥沃的土地上播下6份蚕豆，10天后长成一片可以收获的蚕豆田。
+Herbs_Fungi_Bp_BroadBeanField_CardDescription,Sow 6 broad beans in fertile ground to grow a field of beans that is ready after 30 days.,在肥沃的土地上播下6份蚕豆，30天后长成一片可以收获的蚕豆田。
 Herbs_Fungi_Bp_BroadBeanField_UnlockConditionsDesc,Unlocked after obtaining Broad Beans,获得蚕豆后解锁
 herbsfungibroadbeanfieldgrowing_CardName,Growing Broad Bean Field,生长中的蚕豆田
 herbsfungibroadbeanfieldgrowing_CardDescription,Rows of grey-green bean plants with black-and-white flowers. The beans will be ready when the pods swell.,一排排灰绿色的蚕豆苗，开着黑白相间的花。豆荚鼓起来时就可以收获了。
@@ -3603,9 +3547,9 @@ Herbs_And_Fungi_LiverSausageCooked_CardName,Liver Sausage,肝肠
 Herbs_And_Fungi_LiverSausageCooked_CardDescription,A browned sausage of liver and meat with a bitter edge of yarrow. Can be dried to last longer.,肝脏和肉做成的香肠，烤得焦黄，带着蓍草的微苦。可以风干以延长保存时间。
 Herbs_And_Fungi_LiverSausageCooked_CardHelpSection,"<b>Made from:</b> A Raw Liver Sausage cooked over a fire.
 
-<b>Uses:</b> Eat it for a meat meal (values are tunable placeholders, copied from the vanilla Cooked Sausage with more iron). Dry it on a drying rack to make Dried Liver Sausage.","<b>制作：</b>在火上烤熟的生肝肠。
+<b>Uses:</b> Eat it for a meat meal. Dry it on a drying rack to make Dried Liver Sausage.","<b>制作：</b>在火上烤熟的生肝肠。
 
-<b>用途：</b>食用，算作一顿肉食（数值为可调的占位值，照搬原版熟香肠并提高了铁含量）。放在晾架上风干可做成干肝肠。"
+<b>用途：</b>食用，算作一顿肉食。放在晾架上风干可做成干肝肠。"
 Herbs_And_Fungi_LiverSausageCooked_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_LiverSausageCooked_SpoilageTime_OnFull_ActionDescription,The liver sausage has gone off.,肝肠变质了。
 Herbs_And_Fungi_LiverSausageCooked_FuelCapacity_CardStatName,Temperature,温度
@@ -3615,9 +3559,9 @@ Herbs_And_Fungi_LiverSausageBoiled_CardName,Boiled Liver Sausage,水煮肝肠
 Herbs_And_Fungi_LiverSausageBoiled_CardDescription,"A pale, tender sausage of liver and meat, simmered with yarrow.",肝脏和肉做成的香肠，和蓍草一起慢煮，颜色浅淡，口感软嫩。
 Herbs_And_Fungi_LiverSausageBoiled_CardHelpSection,"<b>Made from:</b> A Raw Liver Sausage boiled in a pot of water.
 
-<b>Uses:</b> Eat it for a meat meal (values are tunable placeholders, copied from the vanilla Boiled Sausage with more iron).","<b>制作：</b>放进盛水的锅里煮熟的生肝肠。
+<b>Uses:</b> Eat it for a meat meal.","<b>制作：</b>放进盛水的锅里煮熟的生肝肠。
 
-<b>用途：</b>食用，算作一顿肉食（数值为可调的占位值，照搬原版水煮香肠并提高了铁含量）。"
+<b>用途：</b>食用，算作一顿肉食。"
 Herbs_And_Fungi_LiverSausageBoiled_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_LiverSausageBoiled_SpoilageTime_OnFull_ActionDescription,The boiled liver sausage has gone off.,水煮肝肠变质了。
 Herbs_And_Fungi_LiverSausageBoiled_FuelCapacity_CardStatName,Temperature,温度
@@ -3627,9 +3571,9 @@ Herbs_And_Fungi_LiverSausageDried_CardName,Dried Liver Sausage,干肝肠
 Herbs_And_Fungi_LiverSausageDried_CardDescription,"A hard, dark sausage of liver and meat, dried with yarrow. It keeps for a long time.",肝脏和肉做成的香肠，加蓍草风干，又硬又黑，能保存很久。
 Herbs_And_Fungi_LiverSausageDried_CardHelpSection,"<b>Made from:</b> A Raw Liver Sausage or a Liver Sausage dried on a drying rack.
 
-<b>Uses:</b> Eat it for a meat meal (values are tunable placeholders, copied from the vanilla Dried Sausage with more iron). Keeps far longer than the fresh sausage.","<b>制作：</b>放在晾架上风干的生肝肠或肝肠。
+<b>Uses:</b> Eat it for a meat meal. Keeps far longer than the fresh sausage.","<b>制作：</b>放在晾架上风干的生肝肠或肝肠。
 
-<b>用途：</b>食用，算作一顿肉食（数值为可调的占位值，照搬原版干香肠并提高了铁含量）。比新鲜香肠耐放得多。"
+<b>用途：</b>食用，算作一顿肉食。比新鲜香肠耐放得多。"
 Herbs_And_Fungi_LiverSausageDried_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_LiverSausageDried_SpoilageTime_OnFull_ActionDescription,The dried liver sausage has gone off.,干肝肠变质了。
 Herbs_And_Fungi_LiverSausageDried_FuelCapacity_CardStatName,Temperature,温度
@@ -3734,9 +3678,9 @@ Herbs_And_Fungi_Ful_CardName,Ful,蚕豆泥
 Herbs_And_Fungi_Ful_CardDescription,"Broad beans mashed with peanut oil into a thick, nutty paste. Hearty and filling.",蚕豆加花生油捣成的浓稠坚果味豆泥。扎实又顶饱。
 Herbs_And_Fungi_Ful_CardHelpSection,"<b>Made from:</b> Blueprint: Ful (Cooking tab, 3 Broad Beans and 1 Peanut Oil; the clay bowl comes back).
 
-<b>Uses:</b> Eat it (values are tunable placeholders).","<b>制作：</b>蓝图：蚕豆泥（烹饪页，3份蚕豆和1份花生油；陶碗会返还）。
+<b>Uses:</b> Eat it.","<b>制作：</b>蓝图：蚕豆泥（烹饪页，3份蚕豆和1份花生油；陶碗会返还）。
 
-<b>用途：</b>食用（数值为可调占位值）。"
+<b>用途：</b>食用。"
 Herbs_And_Fungi_Bp_Ful_CardName,Ful,蚕豆泥
 Herbs_And_Fungi_Bp_Ful_CardDescription,Mash broad beans with any oil into ful. The oil's clay bowl comes back.,把蚕豆和任意一种油捣成蚕豆泥。装油的陶碗会返还。
 Herbs_And_Fungi_Bp_Ful_UnlockConditionsDesc,Unlocked after obtaining Broad Beans,获得蚕豆后解锁
@@ -3756,9 +3700,9 @@ Herbs_And_Fungi_PeaBread_CardName,Pea Bread,豌豆面包
 Herbs_And_Fungi_PeaBread_CardDescription,"A heavy, golden loaf of pea flour with a nutty, earthy taste. Plain and filling.",用豌豆粉烤成的沉甸甸的金黄面包，带坚果与泥土的风味。朴素而扎实。
 Herbs_And_Fungi_PeaBread_CardHelpSection,"<b>Made from:</b> Raw Pea Bread baked near a fire.
 
-<b>Uses:</b> Eat it for a filling meal (values are tunable placeholders, copied from the vanilla rye flatbread).","<b>制作：</b>生豌豆面包在火旁烤熟。
+<b>Uses:</b> Eat it for a filling meal.","<b>制作：</b>生豌豆面包在火旁烤熟。
 
-<b>用途：</b>吃下它可饱腹（数值为可调占位值，取自原版黑麦薄饼）。"
+<b>用途：</b>吃下它可饱腹。"
 Herbs_And_Fungi_PeaBread_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_PeaBread_SpoilageTime_OnFull_ActionDescription,The pea bread has gone off.,豌豆面包变质了。
 Herbs_And_Fungi_PeaBread_FuelCapacity_CardStatName,Temperature,温度
@@ -3793,9 +3737,9 @@ Herbs_And_Fungi_NutTofu_CardName,Nut Tofu,坚果豆腐
 Herbs_And_Fungi_NutTofu_CardDescription,"Peanut milk curdled with salt and pressed into a firm, pale block. Mild, dense and filling.",花生奶加盐凝固后压成的淡色硬块。味道温和，扎实管饱。
 Herbs_And_Fungi_NutTofu_CardHelpSection,"<b>Made from:</b> Blueprint: Nut Tofu (Cooking tab, 1 Salt and a bowl holding 150 of Nut Milk).
 
-<b>Uses:</b> Eat it (values are tunable placeholders).","<b>制作：</b>蓝图：坚果豆腐（烹饪标签，1份盐和一碗150份坚果奶）。
+<b>Uses:</b> Eat it.","<b>制作：</b>蓝图：坚果豆腐（烹饪标签，1份盐和一碗150份坚果奶）。
 
-<b>用途：</b>直接食用（数值为可调的占位值）。"
+<b>用途：</b>直接食用。"
 Herbs_And_Fungi_NutTofu_SpoilageTime_CardStatName,Spoilage,腐败
 Herbs_And_Fungi_NutTofu_SpoilageTime_OnFull_ActionDescription,The nut tofu has gone off.,坚果豆腐变质了。
 Herbs_And_Fungi_NutTofu_DismantleActions_Eat_ActionName,Eat,食用
@@ -3831,9 +3775,9 @@ Herbs_And_Fungi_ShavedIce_CardName,Shaved Ice,刨冰
 Herbs_And_Fungi_ShavedIce_CardDescription,"A bowl of finely shaved ice drizzled with berry preserve. Sweet, fruity and very cold. It melts if left out.",一碗淋了浆果蜜饯的细刨冰。又甜又香又冰。放着会融化。
 Herbs_And_Fungi_ShavedIce_CardHelpSection,"<b>Made from:</b> An Ice Block and a Berry Preserve (Cooking tab); makes two bowls.
 
-<b>Uses:</b> Eat it to cool down: a little food and water, and a Cooled status that makes the weather feel milder for a few hours (all values are tunable placeholders). It melts away in about 6 hours, so eat it at once.","<b>制作材料：</b>一块冰块和一份浆果蜜饯（烹饪标签页）；可做两碗。
+<b>Uses:</b> Eat it to cool down: a little food and water, and a Cooled status that makes the weather feel milder for a few hours. It melts away in about 6 hours, so eat it at once.","<b>制作材料：</b>一块冰块和一份浆果蜜饯（烹饪标签页）；可做两碗。
 
-<b>用途：</b>食用可降温：少量食物和水分，并获得“清凉”状态，让你在几个小时内觉得天气温和一些（所有数值均为可调占位值）。约 6 小时后融化，请立即食用。"
+<b>用途：</b>食用可降温：少量食物和水分，并获得“清凉”状态，让你在几个小时内觉得天气温和一些。约 6 小时后融化，请立即食用。"
 Herbs_And_Fungi_ShavedIce_SpoilageTime_CardStatName,Melting,融化
 Herbs_And_Fungi_ShavedIce_SpoilageTime_OnFull_ActionDescription,The shaved ice has melted away.,刨冰已经融化。
 Herbs_And_Fungi_ShavedIce_DismantleActions_Eat_ActionName,Eat,吃
@@ -3883,26 +3827,15 @@ Herbs_And_Fungi_FiddleheadsCooked_CardHelpSection,"<b>Made from:</b> Fiddleheads
 <b>Uses:</b> Eat them, or add them to a stew. Safe to eat.","<b>制作：</b>在火边烹熟的蕨菜嫩芽。
 
 <b>用途：</b>直接食用，或加入炖菜。可以放心食用。"
-herbsfungithistle_CardName,Thistle Greens,蓟菜嫩茎
-herbsfungithistle_CardDescription,"Young thistle stalks and leaf ribs with the prickles stripped off. Crisp and juicy, like a bitter celery.",剥去尖刺的蓟草嫩茎和叶脉。爽脆多汁，像带苦味的芹菜。
-herbsfungithistle_SpoilageTime_StatName,Spoilage,腐败
-herbsfungithistle_SpoilageTime_OnFull,The thistle greens have wilted and rotted.,蓟菜嫩茎枯萎腐烂了。
-herbsfungithistle_Eat,Eat,吃
-herbsfungithistle_Eat_Desc,"Eat the thistle greens. Crisp, juicy and a little bitter.",吃掉蓟菜嫩茎。爽脆多汁，略带苦味。
-herbsfungithistle_CardHelpSection,"<b>Season:</b> Spring and summer, at the Secret Grove and Pine Meadows.
-
-<b>Uses:</b> Eat it raw, or add it to a stew.","<b>季节：</b>春季和夏季，见于隐秘林地和松林草场。
-
-<b>用途：</b>生吃，或加入炖菜。"
 Herbs_And_Fungi_CamasBulb_CardName,Camas Bulb,卡马百合球茎
 Herbs_And_Fungi_CamasBulb_CardDescription,"The onion-like bulb of the blue camas lily, dug from wet meadows. Too tough to eat raw; roasted slowly it turns soft and sweet.",蓝色卡马百合形似洋葱的球茎，挖自潮湿的草甸。生的太硬无法食用；慢慢烤过后会变得软糯香甜。
 Herbs_And_Fungi_CamasBulb_SpoilageTime_StatName,Spoilage,腐败
 Herbs_And_Fungi_CamasBulb_SpoilageTime_Spoiled,The camas bulb has gone soft and rotted.,卡马百合球茎变软腐烂了。
 Herbs_And_Fungi_CamasBulb_SpecialDurability1_StatName,Cook,烹饪
 Herbs_And_Fungi_CamasBulb_SpecialDurability1_Cooked,The camas bulb is roasted soft and sweet.,卡马百合球茎烤得软糯香甜了。
-Herbs_And_Fungi_CamasBulb_CardHelpSection,"<b>Season:</b> Spring and summer, at Pine Meadows and the Secret Grove.
+Herbs_And_Fungi_CamasBulb_CardHelpSection,"<b>Season:</b> Spring to autumn, at Pine Meadows, the Secret Grove and any place with a river.
 
-<b>Uses:</b> Roast it by a fire into Roasted Camas, or add it to a stew. It cannot be eaten raw.","<b>季节：</b>春季和夏季，见于松林草场和隐秘林地。
+<b>Uses:</b> Roast it by a fire into Roasted Camas, or add it to a stew. It cannot be eaten raw.","<b>季节：</b>春季至秋季，见于松林草场、隐秘林地和任何有河流的地点。
 
 <b>用途：</b>在火边烤成烤卡马球茎，或加入炖菜。不能生吃。"
 Herbs_And_Fungi_CamasRoasted_CardName,Roasted Camas,烤卡马球茎
@@ -4133,94 +4066,26 @@ herbsfungigoosefoot_CardHelpSection,"<b>Season:</b> Spring and summer, at the Se
 <b>Uses:</b> Eat it raw for Goosefoot Purge, a gentle effect that slowly lowers gut parasites with no sickness, or add it to a stew (the stew gives food, not the purge).","<b>季节：</b>春季和夏季，见于隐秘林地和覆苔林隙。
 
 <b>用途：</b>生吃可获得藜草驱虫，一种温和的效果，会慢慢降低肠道寄生虫且不会让人生病；也可以加进炖菜（炖菜只提供食物，没有驱虫效果）。"
-Herbs_And_Fungi_WaterLilyRhizome_CardName,Water Lily Rhizome,睡莲根茎
-Herbs_And_Fungi_WaterLilyRhizome_CardDescription,"The thick, starchy rootstock of a water lily, pulled from the mud of a river bank. Bitter and tough raw; cooked it turns soft and mealy, like a chestnut.",从河岸淤泥中拔出的睡莲粗壮淀粉质根茎。生吃苦涩坚硬；煮熟后变得软糯粉面，像栗子一样。
-Herbs_And_Fungi_WaterLilyRhizome_SpoilageTime_StatName,Spoilage,腐败
-Herbs_And_Fungi_WaterLilyRhizome_SpoilageTime_Spoiled,The water lily rhizome has gone slimy and rotted.,睡莲根茎变得黏滑腐烂了。
-Herbs_And_Fungi_WaterLilyRhizome_SpecialDurability1_StatName,Cook,烹饪
-Herbs_And_Fungi_WaterLilyRhizome_SpecialDurability1_Cooked,The water lily rhizome is cooked soft.,睡莲根茎煮软了。
-Herbs_And_Fungi_WaterLilyRhizome_CardHelpSection,"<b>Season:</b> Spring to autumn, foraged at the river places.
-
-<b>Uses:</b> Cook it by a fire into a Cooked Water Lily Rhizome, or add it to a stew. It cannot be eaten raw.","<b>季节：</b>春季至秋季，在河边地点采集。
-
-<b>用途：</b>在火边煮成熟睡莲根茎，或加入炖菜。不能生吃。"
-Herbs_And_Fungi_WaterLilyCooked_CardName,Cooked Water Lily Rhizome,熟睡莲根茎
-Herbs_And_Fungi_WaterLilyCooked_CardDescription,"A water lily rhizome cooked by the fire until soft and mealy. Starchy and filling, with a faint nutty bitterness.",在火边煮至软糯粉面的睡莲根茎。富含淀粉，饱腹，带一丝坚果般的微苦。
-Herbs_And_Fungi_WaterLilyCooked_SpoilageTime_StatName,Spoilage,腐败
-Herbs_And_Fungi_WaterLilyCooked_SpoilageTime_Spoiled,The cooked water lily rhizome has spoiled.,熟睡莲根茎变质了。
-Herbs_And_Fungi_WaterLilyCooked_Eat,Eat,吃
-Herbs_And_Fungi_WaterLilyCooked_Eat_Desc,"Eat the cooked water lily rhizome. Soft, starchy and filling.",吃掉熟睡莲根茎。软糯、富含淀粉、饱腹。
-Herbs_And_Fungi_WaterLilyCooked_CardHelpSection,"<b>Made from:</b> A Water Lily Rhizome cooked by a fire.
-
-<b>Uses:</b> Eat it or add it to a stew.","<b>制作：</b>在火边煮熟的睡莲根茎。
-
-<b>用途：</b>直接食用或加入炖菜。"
 herbsfungiturnrootgreens_CardName,Turnroot Greens,芜菁叶
 herbsfungiturnrootgreens_CardDescription,"The leafy tops cut from a turnroot field at harvest. Tender, peppery greens, good raw or wilted into a stew.",收获芜菁田时割下的叶子。鲜嫩带辛辣，可生吃或放进炖菜里煮软。
 herbsfungiturnrootgreens_SpoilageTime_StatName,Spoilage,腐败
 herbsfungiturnrootgreens_SpoilageTime_OnFull,The turnroot greens have wilted and rotted.,芜菁叶枯萎腐烂了。
 herbsfungiturnrootgreens_Eat,Eat,吃
 herbsfungiturnrootgreens_Eat_Desc,Eat the turnroot greens. Tender and a little peppery.,吃掉芜菁叶。鲜嫩，略带辛辣。
-herbsfungiturnrootgreens_CardHelpSection,"<b>Found:</b> Sometimes when you harvest a mature turnroot field by hand (not with a sickle).
+herbsfungiturnrootgreens_CardHelpSection,"<b>Found:</b> Foraging from spring to autumn at the Secret Grove and Pine Meadows, and sometimes when you harvest a mature turnroot field by hand (not with a sickle).
 
-<b>Uses:</b> Eat it raw, or add it to a stew.","<b>获取：</b>用手收获成熟的芜菁田时有时会得到（用镰刀收获则没有）。
+<b>Uses:</b> Eat it raw, or add it to a stew.","<b>获取：</b>春季至秋季在隐秘林地和松林草场觅食获得；用手收获成熟的芜菁田时有时也会得到（用镰刀收获则没有）。
 
 <b>用途：</b>生吃，或加入炖菜。"
-herbsfungicrabapple_CardName,Crabapples,野山楂苹果
-herbsfungicrabapple_CardDescription,"Small, hard wild apples, sharply sour even when ripe. Better dried or cooked than eaten straight from the tree.",又小又硬的野苹果，即使熟透也酸得厉害。晒干或煮熟比直接从树上摘来吃更好。
-herbsfungicrabapple_CardHelpSection,"<b>Season:</b> Autumn
-
-<b>Found:</b> The Secret Grove and the Mossy Clearing.
-
-<b>Uses:</b> Eat raw, dry for long-term storage, or add to a stew.","<b>季节：</b>秋季
-
-<b>地点：</b>隐秘林地和覆苔林隙。
-
-<b>用途：</b>生吃、晒干长期保存，或加入炖菜。"
-herbsfungicrabapple_SpoilageTime_CardStatName,Spoilage,腐败
-herbsfungicrabapple_SpoilageTime_OnFull,Crabapples spoiled!,野山楂苹果腐烂了！
-herbsfungicrabapple_UsageDurability_CardStatName,Dryness,干燥度
-herbsfungicrabapple_UsageDurability_OnFull,Crabapples dried!,野山楂苹果晒干了！
-herbsfungicrabapple_Eat_ActionName,Eat,吃
-herbsfungicrabapple_Eat_ActionDescription,Eat the crabapples. Sharp and sour.,吃掉野山楂苹果。又酸又冲。
-herbsfungicrabappledried_CardName,Dried Crabapples,干野山楂苹果
-herbsfungicrabappledried_CardDescription,"Crabapples dried into tough, tangy rings that keep for a long time.",晒成坚韧、酸香果圈的野山楂苹果，能保存很久。
-herbsfungicrabappledried_SpoilageTime_CardStatName,Spoilage,腐败
-herbsfungicrabappledried_SpoilageTime_OnFull,Dried crabapples lost their flavor.,干野山楂苹果失去了风味。
-herbsfungicrabappledried_Eat_ActionName,Eat,吃
-herbsfungicrabappledried_Eat_ActionDescription,Eat the dried crabapples. Chewy and tart.,吃掉干野山楂苹果。有嚼劲，酸酸的。
-herbsfungipear_CardName,Wild Pears,野梨
-herbsfungipear_CardDescription,"Small, gritty wild pears, sweet when they soften late in the season.",又小又粗糙的野梨，在季节后期变软时才变甜。
-herbsfungipear_CardHelpSection,"<b>Season:</b> Summer and autumn
-
-<b>Found:</b> The Alder Grove and the Mossy Clearing.
-
-<b>Uses:</b> Eat raw, dry for long-term storage, or add to a stew.","<b>季节：</b>夏季和秋季
-
-<b>地点：</b>桤木林地和覆苔林隙。
-
-<b>用途：</b>生吃、晒干长期保存，或加入炖菜。"
-herbsfungipear_SpoilageTime_CardStatName,Spoilage,腐败
-herbsfungipear_SpoilageTime_OnFull,Wild Pears spoiled!,野梨腐烂了！
-herbsfungipear_UsageDurability_CardStatName,Dryness,干燥度
-herbsfungipear_UsageDurability_OnFull,Wild Pears dried!,野梨晒干了！
-herbsfungipear_Eat_ActionName,Eat,吃
-herbsfungipear_Eat_ActionDescription,Eat the wild pears. Sweet and grainy.,吃掉野梨。香甜带沙。
-herbsfungipeardried_CardName,Dried Wild Pears,干野梨
-herbsfungipeardried_CardDescription,"Wild pears sliced and dried into sweet, leathery pieces that keep for a long time.",切片晒干的野梨，甜而有韧劲，能保存很久。
-herbsfungipeardried_SpoilageTime_CardStatName,Spoilage,腐败
-herbsfungipeardried_SpoilageTime_OnFull,Dried wild pears lost their flavor.,干野梨失去了风味。
-herbsfungipeardried_Eat_ActionName,Eat,吃
-herbsfungipeardried_Eat_ActionDescription,Eat the dried wild pears. Sweet and chewy.,吃掉干野梨。香甜有嚼劲。
 herbsfungiplum_CardName,Wild Plums,野李子
 herbsfungiplum_CardDescription,Small purple wild plums with a dusty bloom. Juicy and sweet around a sour skin.,表面带一层白霜的小紫野李子。果肉多汁香甜，果皮略酸。
-herbsfungiplum_CardHelpSection,"<b>Season:</b> Autumn
+herbsfungiplum_CardHelpSection,"<b>Season:</b> Summer and autumn
 
-<b>Found:</b> The Secret Grove and the Pine Clearing.
+<b>Found:</b> The Secret Grove, the Mossy Clearing, the Pine Clearing and the Alder Grove.
 
-<b>Uses:</b> Eat raw, dry into prunes, cook into a Plum Preserve (Cooking tab), or add to a stew.","<b>季节：</b>秋季
+<b>Uses:</b> Eat raw, dry into prunes, cook into a Plum Preserve (Cooking tab), or add to a stew.","<b>季节：</b>夏季和秋季
 
-<b>地点：</b>隐秘林地和松树林隙。
+<b>地点：</b>隐秘林地、覆苔林隙、松树林隙和桤木林地。
 
 <b>用途：</b>生吃、晒成李子干、熬成李子酱（烹饪页），或加入炖菜。"
 herbsfungiplum_SpoilageTime_CardStatName,Spoilage,腐败
@@ -4257,11 +4122,11 @@ Herbs_And_Fungi_Chestnut_CardName,Chestnuts,栗子
 Herbs_And_Fungi_Chestnut_CardDescription,"Glossy brown chestnuts from a wild tree, starchy and bitter-sweet. Edible raw, far better roasted.",来自野树的光亮褐色栗子，淀粉丰富，带着苦甜味。可以生吃，烤熟后好得多。
 Herbs_And_Fungi_Chestnut_CardHelpSection,"<b>Season:</b> Autumn
 
-<b>Found:</b> Foraging at the Mossy Clearing and the Secret Grove.
+<b>Found:</b> Foraging at the Mossy Clearing, the Secret Grove and the Alder Grove.
 
 <b>Uses:</b> Eat raw for modest nourishment, or place on a fire and use Roast. Keeps for about three weeks.","<b>季节：</b>秋季
 
-<b>地点：</b>在覆苔林隙和隐秘林地觅食。
+<b>地点：</b>在覆苔林隙、隐秘林地和桤木林地觅食。
 
 <b>用途：</b>生吃能获得少量营养，或放在火上选择“烤”。可保存约三周。"
 Herbs_And_Fungi_Chestnut_SpoilageTime_CardStatName,Spoilage,腐败
@@ -4319,31 +4184,6 @@ Herbs_And_Fungi_ChestnutFlatbread_SpoilageTime_OnFull_ActionDescription,The ches
 Herbs_And_Fungi_ChestnutFlatbread_FuelCapacity_CardStatName,Temperature,温度
 Herbs_And_Fungi_ChestnutFlatbread_DismantleActions_Eat_ActionName,Eat,吃
 Herbs_And_Fungi_ChestnutFlatbread_DismantleActions_Eat_ActionDescription,Eat the chestnut flatbread.,吃栗子薄饼。
-Herbs_And_Fungi_Hazelnut_CardName,Hazelnuts,榛子
-Herbs_And_Fungi_Hazelnut_CardDescription,"Small round nuts from a hazel thicket, rich and sweet. Good raw, better roasted.",榛树丛里的圆形小坚果，油润香甜。生吃不错，烤熟更好。
-Herbs_And_Fungi_Hazelnut_CardHelpSection,"<b>Season:</b> Autumn
-
-<b>Found:</b> Foraging at the Secret Grove and the Alder Grove.
-
-<b>Uses:</b> Eat raw for moderate nourishment, or place on a fire and use Roast for a richer boost. Keeps for about a month.","<b>季节：</b>秋季
-
-<b>地点：</b>在隐秘林地和桤木林地觅食。
-
-<b>用途：</b>生吃能获得中等营养，或放在火上选择“烤”获得更丰富的能量。可保存约一个月。"
-Herbs_And_Fungi_Hazelnut_SpoilageTime_CardStatName,Spoilage,腐败
-Herbs_And_Fungi_Hazelnut_SpoilageTime_OnFull_ActionDescription,The hazelnuts have gone rancid.,榛子变哈喇了。
-Herbs_And_Fungi_Hazelnut_DismantleActions_Eat_ActionName,Eat,吃
-Herbs_And_Fungi_Hazelnut_DismantleActions_Roast_ActionName,Roast,烤
-Herbs_And_Fungi_RoastedHazelnut_CardName,Roasted Hazelnuts,烤榛子
-Herbs_And_Fungi_RoastedHazelnut_CardDescription,"Warm, fragrant hazelnuts roasted over a fire. Crisp, buttery and satisfying.",在火上烤得温热喷香的榛子。酥脆、油润，吃着很满足。
-Herbs_And_Fungi_RoastedHazelnut_CardHelpSection,"<b>Made from:</b> Roasting Hazelnuts on a fire.
-
-<b>Uses:</b> Eat for a substantial fat and protein boost. Keeps for over a month.","<b>制作：</b>把榛子放在火上烤。
-
-<b>用途：</b>食用可获得充足的脂肪和蛋白质。可保存一个多月。"
-Herbs_And_Fungi_RoastedHazelnut_SpoilageTime_CardStatName,Spoilage,腐败
-Herbs_And_Fungi_RoastedHazelnut_SpoilageTime_OnFull_ActionDescription,The roasted hazelnuts have gone rancid.,烤榛子变哈喇了。
-Herbs_And_Fungi_RoastedHazelnut_DismantleActions_Eat_ActionName,Eat,吃
 herbsfungisloe_CardName,Sloes,黑刺李
 herbsfungisloe_CardDescription,"Tiny blue-black fruit of the blackthorn, so astringent they pucker the whole mouth. Hardly worth eating raw; crush them into water to start a sloe must that ferments into wine.",黑刺李灌木结的蓝黑色小果，涩得整张嘴都发紧。生吃不太值得；把它们压碎在水里，就能做成发酵成酒的黑刺李汁。
 herbsfungisloe_CardHelpSection,"<b>Season:</b> Autumn
@@ -4407,29 +4247,6 @@ herbsfungielderflowercordial_SpoilageTime_StatName,Spoilage,腐败
 herbsfungielderflowercordial_Spoiled,The elderflower cordial has spoiled.,接骨木花露饮变质了。
 herbsfungielderflowercordial_Drink,Drink,喝
 herbsfungielderflowercordial_Drink_Desc,Drink the elderflower cordial. Sweet and soothing.,喝接骨木花露饮。香甜舒缓。
-herbsfungielderberry_CardName,Elderberries,接骨木莓
-herbsfungielderberry_CardDescription,"Heavy clusters of tiny purple-black berries, tart and a little bitter. Best dried or cooked rather than eaten raw.",一串串沉甸甸的紫黑色小浆果，酸中带苦。晒干或煮熟比生吃好。
-herbsfungielderberry_CardHelpSection,"<b>Season:</b> Autumn
-
-<b>Found:</b> Foraging at the Alder Grove and the Secret Grove.
-
-<b>Uses:</b> Eat raw, dry for long-term storage, or add to a stew.","<b>季节：</b>秋季
-
-<b>地点：</b>在桤木林地和隐秘林地觅食。
-
-<b>用途：</b>生吃、晒干长期保存，或加入炖菜。"
-herbsfungielderberry_SpoilageTime_CardStatName,Spoilage,腐败
-herbsfungielderberry_SpoilageTime_OnFull,Elderberries spoiled!,接骨木莓腐烂了！
-herbsfungielderberry_UsageDurability_CardStatName,Dryness,干燥度
-herbsfungielderberry_UsageDurability_OnFull,Elderberries dried!,接骨木莓晒干了！
-herbsfungielderberry_Eat_ActionName,Eat,吃
-herbsfungielderberry_Eat_ActionDescription,"Eat the elderberries. Tart, with a bitter edge.",吃接骨木莓。酸涩，带点苦味。
-herbsfungielderberrydried_CardName,Dried Elderberries,干接骨木莓
-herbsfungielderberrydried_CardDescription,"Elderberries dried into small, dark, chewy raisins that keep for a long time.",晒成深色有嚼劲小果干的接骨木莓，能保存很久。
-herbsfungielderberrydried_SpoilageTime_CardStatName,Spoilage,腐败
-herbsfungielderberrydried_SpoilageTime_OnFull,Dried elderberries lost their flavor.,干接骨木莓失去了风味。
-herbsfungielderberrydried_Eat_ActionName,Eat,吃
-herbsfungielderberrydried_Eat_ActionDescription,Eat the dried elderberries. Chewy and tart.,吃干接骨木莓。有嚼劲，酸酸的。
 Herbs_And_Fungi_Quest_Ginger_Collection_StatName,Ginger Quest Completed,生姜任务已完成
 Herbs_And_Fungi_Quest_Ginger_Collection_StatDescription,"Hidden flag: 1 once Dried Ginger has been obtained, or the CMC Apothecary's herb quest is completed (whichever first). Gates the Anti-Nausea Tea blueprint.",隐藏标记：获得干姜，或完成 CMC 药剂师的草药任务（以先到者为准）后变为 1。控制抗恶心茶蓝图的解锁。
 Herbs_And_Fungi_Quest_Ginseng_Collection_StatName,Ginseng Quest Completed,人参任务已完成
@@ -4598,3 +4415,101 @@ Herbs_And_Fungi_WinterGrowBagMossbedGrowing_DismantleActions_ActionName,Uproot,�
 Herbs_And_Fungi_Bp_WinterGrowBagMossbed_CardName,Pack Healer's Moss Grow Bag,制作治愈苔藓种植袋
 Herbs_And_Fungi_Bp_WinterGrowBagMossbed_CardDescription,"Pack wood shavings and 2 Healer's Moss into a cloth grow bag. No fertile ground needed, so it can be set down indoors. Keep a lit fire beside it to grow Healer's Moss through winter.",把木屑和2份治愈苔藓装进布制种植袋。无需肥沃的土地，可放在室内。在旁边保持一堆生着的火，就能在冬天种植治愈苔藓。
 Herbs_And_Fungi_Bp_WinterGrowBagMossbed_UnlockConditionsDesc,Unlocked after obtaining Healer's Moss,获得治愈苔藓后解锁
+Herbs_And_Fungi_LQ_StewMushroomSimmering_CardName,Simmering Mushroom Stew,正在炖煮的蘑菇炖菜
+Herbs_And_Fungi_LQ_StewMushroomSimmering_CardDescription,"The mushroom and leek mix simmering in hot water. Keep the bowl on a fire for about half an hour (2 ticks, while it stays at least half hot) and it becomes Mushroom Stew Base.",蘑菇韭葱在热水里慢慢炖着。把碗放在火上约半小时（2个时间单位，期间保持至少一半的热度），它就会变成蘑菇炖菜汤底。
+Herbs_And_Fungi_LQ_StewMushroomSimmering_CardHelpSection,"<b>Step 3 of 4:</b> Keep it hot. On a fire the bowl stays hot; off the fire it cools within half an hour and stops simmering until it is hot again.
+
+<b>Next:</b> it turns into Mushroom Stew Base, then add Kale.","<b>第3步，共4步：</b>保持热度。放在火上碗会一直保持热；离开火后半小时内就会冷却，直到再次变热之前都不会继续炖煮。
+
+<b>下一步：</b>它会变成蘑菇炖菜汤底，然后加入羽衣甘蓝。"
+Herbs_And_Fungi_LQ_StewMushroomSimmering_SpoilageTime_CardStatName,Bacteria,细菌
+Herbs_And_Fungi_LQ_StewMushroomSimmering_SpoilageTime_OnFull_ActionDescription,Simmering Mushroom Stew spoiled!,正在炖煮的蘑菇炖菜变质了！
+Herbs_And_Fungi_LQ_StewMushroomSimmering_FuelCapacity_CardStatName,Liquid Temperature,液体温度
+Herbs_And_Fungi_LQ_StewMushroomSimmering_SpecialDurability1_CardStatName,Simmered,炖煮进度
+Herbs_And_Fungi_LQ_StewMushroomSimmering_SpecialDurability1_OnFull_ActionDescription,The stew has simmered. Add the last ingredient while it is hot.,炖菜炖好了。趁热加入最后一样食材。
+Herbs_And_Fungi_LQ_StewMushroomBase_CardName,Mushroom Stew Base,蘑菇炖菜汤底
+Herbs_And_Fungi_LQ_StewMushroomBase_CardDescription,"A simmered stew base, still missing its last ingredient. While it is still hot, add Kale to finish it into Forager's Mushroom Stew.",炖好的汤底，还差最后一样食材。趁热加入羽衣甘蓝，就能完成采集者蘑菇炖菜。
+Herbs_And_Fungi_LQ_StewMushroomBase_CardHelpSection,<b>Step 4 of 4:</b> drag Kale onto the bowl while the stew is at least half hot.,<b>第4步，共4步：</b>趁炖菜至少还有一半热度时，把羽衣甘蓝拖到碗上。
+Herbs_And_Fungi_LQ_StewMushroomBase_SpoilageTime_CardStatName,Bacteria,细菌
+Herbs_And_Fungi_LQ_StewMushroomBase_SpoilageTime_OnFull_ActionDescription,Mushroom Stew Base spoiled!,蘑菇炖菜汤底变质了！
+Herbs_And_Fungi_LQ_StewMushroomBase_FuelCapacity_CardStatName,Liquid Temperature,液体温度
+Herbs_And_Fungi_LQ_StewMushroomBase_Finish_ActionName,Add and Finish the Stew,加入并完成炖菜
+Herbs_And_Fungi_LQ_StewMushroomBase_Finish_ActionDescription,Stir in Kale to finish the Forager's Mushroom Stew.,搅入羽衣甘蓝，完成采集者蘑菇炖菜。
+Herbs_And_Fungi_LQ_StewMushroomBase_Finish_NotHot,Not hot enough,不够热
+Herbs_And_Fungi_LQ_StewMushroom_CardName,Forager's Mushroom Stew,采集者蘑菇炖菜
+Herbs_And_Fungi_LQ_StewMushroom_CardDescription,"Delicious! Savoury and earthy, with a gentle bite of leek. A bowl holds two servings.",美味！咸鲜带着泥土香，还有一丝韭葱的辛香。一碗可以吃两份。
+Herbs_And_Fungi_LQ_StewMushroom_CardHelpSection,"<b>Made by:</b> the four-step Forager's Mushroom Stew recipe.
+
+<b>Eat a Serving:</b> filling and warming, and gives a share of Herbal Tonic that strengthens your immune system for a while.","<b>制作：</b>四个步骤的采集者蘑菇炖菜食谱。
+
+<b>吃一份：</b>管饱又暖身，并带来一份草药补剂，暂时增强你的免疫力。"
+Herbs_And_Fungi_LQ_StewMushroom_SpoilageTime_CardStatName,Bacteria,细菌
+Herbs_And_Fungi_LQ_StewMushroom_SpoilageTime_OnFull_ActionDescription,Forager's Mushroom Stew spoiled!,采集者蘑菇炖菜变质了！
+Herbs_And_Fungi_LQ_StewMushroom_FuelCapacity_CardStatName,Liquid Temperature,液体温度
+Herbs_And_Fungi_LQ_StewMushroom_Eat_ActionName,Eat a Serving,吃一份
+Herbs_And_Fungi_LQ_StewMushroom_Eat_ActionDescription,"Delicious! Savoury and earthy, with a gentle bite of leek.",美味！咸鲜带着泥土香，还有一丝韭葱的辛香。
+Herbs_And_Fungi_StewMushroomMix_CardName,Mushroom and Leek Mix,蘑菇韭葱拌料
+Herbs_And_Fungi_StewMushroomMix_CardDescription,"A sliced leek tossed with a fresh mushroom, ready for the pot. The first step of a Forager's Mushroom Stew.",切好的韭葱拌上一朵新鲜蘑菇，准备下锅。这是采集者蘑菇炖菜的第一步。
+Herbs_And_Fungi_StewMushroomMix_CardHelpSection,"<b>Step 2 of 4:</b> drop it into a Clay Bowl holding at least 290 of water that is at least half hot (boil it on a fire first). The water becomes Simmering Mushroom Stew.
+
+<b>A four-step stew:</b> chop, heat, simmer half an hour on the fire, then add Kale.","<b>第2步，共4步：</b>把它放进一个装有至少290水、且至少一半热度的陶碗里（先在火上把水烧开）。水会变成正在炖煮的蘑菇炖菜。
+
+<b>四步炖菜：</b>切拌、加热、在火上炖半小时，然后加入羽衣甘蓝。"
+Herbs_And_Fungi_StewMushroomMix_SpoilageTime_StatName,Spoilage,腐败
+Herbs_And_Fungi_StewMushroomMix_SpoilageTime_OnFull,The stew mix has gone off.,炖菜拌料变质了。
+Herbs_And_Fungi_StewMushroomMix_Heat_ActionName,Put in the Pot,放进锅里
+Herbs_And_Fungi_StewMushroomMix_Heat_ActionDescription,"Tip the mix into a clay bowl of hot water (at least 290, at least half hot). The water starts simmering into Simmering Mushroom Stew.",把拌料倒进一碗热水里（至少290，至少一半热度）。水开始炖成正在炖煮的蘑菇炖菜。
+Herbs_And_Fungi_StewMushroomMix_Heat_NotEnough,Not enough water,水不够
+Herbs_And_Fungi_StewMushroomMix_Heat_TooThick,Too thick: use fresh water,太稠了：请用清水
+Herbs_And_Fungi_StewMushroomMix_Heat_NotHot,Not hot enough,不够热
+Herbs_And_Fungi_Leek_StewCombine_ActionName,Chop Together (Stew),切拌在一起（炖菜）
+Herbs_And_Fungi_Leek_StewCombine_ActionDescription,"Slice the leek and toss it with a fresh Chanterelle, Shiitake, King Oyster, Golden Oyster or Black Trumpet: the first step of a Forager's Mushroom Stew.",把韭葱切片，与一朵新鲜的鸡油菌、香菇、杏鲍菇、金顶侧耳或黑喇叭菌拌在一起：这是采集者蘑菇炖菜的第一步。
+Herbs_And_Fungi_LQ_StewRootSimmering_CardName,Simmering Root Stew,正在炖煮的根茎炖菜
+Herbs_And_Fungi_LQ_StewRootSimmering_CardDescription,"The carrot and ginger mix simmering in hot water. Keep the bowl on a fire for about half an hour (2 ticks, while it stays at least half hot) and it becomes Root Stew Base.",胡萝卜生姜在热水里慢慢炖着。把碗放在火上约半小时（2个时间单位，期间保持至少一半的热度），它就会变成根茎炖菜汤底。
+Herbs_And_Fungi_LQ_StewRootSimmering_CardHelpSection,"<b>Step 3 of 4:</b> Keep it hot. On a fire the bowl stays hot; off the fire it cools within half an hour and stops simmering until it is hot again.
+
+<b>Next:</b> it turns into Root Stew Base, then add Yarrow or Dried Yarrow.","<b>第3步，共4步：</b>保持热度。放在火上碗会一直保持热；离开火后半小时内就会冷却，直到再次变热之前都不会继续炖煮。
+
+<b>下一步：</b>它会变成根茎炖菜汤底，然后加入蓍草或干蓍草。"
+Herbs_And_Fungi_LQ_StewRootSimmering_SpoilageTime_CardStatName,Bacteria,细菌
+Herbs_And_Fungi_LQ_StewRootSimmering_SpoilageTime_OnFull_ActionDescription,Simmering Root Stew spoiled!,正在炖煮的根茎炖菜变质了！
+Herbs_And_Fungi_LQ_StewRootSimmering_FuelCapacity_CardStatName,Liquid Temperature,液体温度
+Herbs_And_Fungi_LQ_StewRootSimmering_SpecialDurability1_CardStatName,Simmered,炖煮进度
+Herbs_And_Fungi_LQ_StewRootSimmering_SpecialDurability1_OnFull_ActionDescription,The stew has simmered. Add the last ingredient while it is hot.,炖菜炖好了。趁热加入最后一样食材。
+Herbs_And_Fungi_LQ_StewRootBase_CardName,Root Stew Base,根茎炖菜汤底
+Herbs_And_Fungi_LQ_StewRootBase_CardDescription,"A simmered stew base, still missing its last ingredient. While it is still hot, add Yarrow or Dried Yarrow to finish it into Herbalist's Root Stew.",炖好的汤底，还差最后一样食材。趁热加入蓍草或干蓍草，就能完成草药师根茎炖菜。
+Herbs_And_Fungi_LQ_StewRootBase_CardHelpSection,<b>Step 4 of 4:</b> drag Yarrow or Dried Yarrow onto the bowl while the stew is at least half hot.,<b>第4步，共4步：</b>趁炖菜至少还有一半热度时，把蓍草或干蓍草拖到碗上。
+Herbs_And_Fungi_LQ_StewRootBase_SpoilageTime_CardStatName,Bacteria,细菌
+Herbs_And_Fungi_LQ_StewRootBase_SpoilageTime_OnFull_ActionDescription,Root Stew Base spoiled!,根茎炖菜汤底变质了！
+Herbs_And_Fungi_LQ_StewRootBase_FuelCapacity_CardStatName,Liquid Temperature,液体温度
+Herbs_And_Fungi_LQ_StewRootBase_Finish_ActionName,Add and Finish the Stew,加入并完成炖菜
+Herbs_And_Fungi_LQ_StewRootBase_Finish_ActionDescription,Stir in Yarrow or Dried Yarrow to finish the Herbalist's Root Stew.,搅入蓍草或干蓍草，完成草药师根茎炖菜。
+Herbs_And_Fungi_LQ_StewRootBase_Finish_NotHot,Not hot enough,不够热
+Herbs_And_Fungi_LQ_StewRoot_CardName,Herbalist's Root Stew,草药师根茎炖菜
+Herbs_And_Fungi_LQ_StewRoot_CardDescription,"Delicious! Sweet carrot, warming ginger and a bitter-green note of yarrow. A bowl holds two servings.",美味！胡萝卜的甜、生姜的暖，还有蓍草的一丝清苦。一碗可以吃两份。
+Herbs_And_Fungi_LQ_StewRoot_CardHelpSection,"<b>Made by:</b> the four-step Herbalist's Root Stew recipe.
+
+<b>Eat a Serving:</b> filling and warming, and gives Herbal Analgesic that dulls pain for a few hours.","<b>制作：</b>四个步骤的草药师根茎炖菜食谱。
+
+<b>吃一份：</b>管饱又暖身，并带来草药镇痛，可在几个小时内减轻疼痛。"
+Herbs_And_Fungi_LQ_StewRoot_SpoilageTime_CardStatName,Bacteria,细菌
+Herbs_And_Fungi_LQ_StewRoot_SpoilageTime_OnFull_ActionDescription,Herbalist's Root Stew spoiled!,草药师根茎炖菜变质了！
+Herbs_And_Fungi_LQ_StewRoot_FuelCapacity_CardStatName,Liquid Temperature,液体温度
+Herbs_And_Fungi_LQ_StewRoot_Eat_ActionName,Eat a Serving,吃一份
+Herbs_And_Fungi_LQ_StewRoot_Eat_ActionDescription,"Delicious! Sweet carrot, warming ginger and a bitter-green note of yarrow.",美味！胡萝卜的甜、生姜的暖，还有蓍草的一丝清苦。
+Herbs_And_Fungi_StewRootMix_CardName,Carrot and Ginger Mix,胡萝卜生姜拌料
+Herbs_And_Fungi_StewRootMix_CardDescription,"A chopped carrot with slices of ginger, ready for the pot. The first step of a Herbalist's Root Stew.",切好的胡萝卜配上生姜片，准备下锅。这是草药师根茎炖菜的第一步。
+Herbs_And_Fungi_StewRootMix_CardHelpSection,"<b>Step 2 of 4:</b> drop it into a Clay Bowl holding at least 290 of water that is at least half hot (boil it on a fire first). The water becomes Simmering Root Stew.
+
+<b>A four-step stew:</b> chop, heat, simmer half an hour on the fire, then add Yarrow or Dried Yarrow.","<b>第2步，共4步：</b>把它放进一个装有至少290水、且至少一半热度的陶碗里（先在火上把水烧开）。水会变成正在炖煮的根茎炖菜。
+
+<b>四步炖菜：</b>切拌、加热、在火上炖半小时，然后加入蓍草或干蓍草。"
+Herbs_And_Fungi_StewRootMix_SpoilageTime_StatName,Spoilage,腐败
+Herbs_And_Fungi_StewRootMix_SpoilageTime_OnFull,The stew mix has gone off.,炖菜拌料变质了。
+Herbs_And_Fungi_StewRootMix_Heat_ActionName,Put in the Pot,放进锅里
+Herbs_And_Fungi_StewRootMix_Heat_ActionDescription,"Tip the mix into a clay bowl of hot water (at least 290, at least half hot). The water starts simmering into Simmering Root Stew.",把拌料倒进一碗热水里（至少290，至少一半热度）。水开始炖成正在炖煮的根茎炖菜。
+Herbs_And_Fungi_StewRootMix_Heat_NotEnough,Not enough water,水不够
+Herbs_And_Fungi_StewRootMix_Heat_TooThick,Too thick: use fresh water,太稠了：请用清水
+Herbs_And_Fungi_StewRootMix_Heat_NotHot,Not hot enough,不够热
+Herbs_And_Fungi_Carrot_StewCombine_ActionName,Chop Together (Stew),切拌在一起（炖菜）
+Herbs_And_Fungi_Carrot_StewCombine_ActionDescription,Chop the carrot together with Ginger or Cut Ginger: the first step of a Herbalist's Root Stew.,把胡萝卜和生姜或姜片切拌在一起：这是草药师根茎炖菜的第一步。

@@ -13,7 +13,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_liver_sausage_cooked",
         "LocalizationKey": "Herbs_And_Fungi_LiverSausageCooked_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> A Raw Liver Sausage cooked over a fire.\n\n<b>Uses:</b> Eat it for a meat meal (values are tunable placeholders, copied from the vanilla Cooked Sausage with more iron). Dry it on a drying rack to make Dried Liver Sausage."
+        "DefaultText": "<b>Made from:</b> A Raw Liver Sausage cooked over a fire.\n\n<b>Uses:</b> Eat it for a meat meal. Dry it on a drying rack to make Dried Liver Sausage."
     },
     "CardType": 0,
     "CardImage": {

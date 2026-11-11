@@ -9,12 +9,12 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_hemp_butter",
         "LocalizationKey": "Herbs_And_Fungi_HempButter_CardDescription",
-        "DefaultText": "Solid hemp-infused fat with activated psychoactive properties. Can be consumed in small, medium, or large doses. High doses may trigger anxiety."
+        "DefaultText": "Solid hemp-infused fat with activated psychoactive properties. Can be consumed in small, medium, or large doses. Medium and high doses may trigger anxiety."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hemp_butter",
         "LocalizationKey": "Herbs_And_Fungi_HempButter_CardHelpSection",
-        "DefaultText": "<b>Dosing:</b> Choose your dose carefully.\n<b>Mild:</b> Pleasant effects.\n<b>Medium:</b> Strong effects, small anxiety risk.\n<b>High:</b> Very strong effects, high anxiety risk.\n\n<b>Warning:</b> Does not repel mosquitoes like burning does."
+        "DefaultText": "<b>Dosing:</b> Choose your dose carefully.\n<b>Mild:</b> Pleasant effects.\n<b>Medium:</b> Strong effects, small anxiety risk.\n<b>High:</b> Very strong effects, high anxiety risk."
     },
     "ObjectWeight": 75,
     "TradingValue": 100.0,

@@ -27,8 +27,7 @@ All foraged mushrooms are found in forests. Most spawn on the surface; Truffles 
 | **Chanterelle** | Raw or cooked | Golden funnel-shaped; common, safe raw |
 | **Giant Puffball** | Raw or cooked | Large white sphere; very filling |
 | **King Oyster** | Raw or cooked | Dense and meaty; high protein |
-| **Golden Oyster** | Raw or cooked | Nutty cashew-like flavor |
-| **Velvet Shank** | Raw or cooked | Winter only, from foraging oak, alder and willow woods. Mild and slippery; shares the Golden Oyster pictures, not checked in game |
+| **Golden Oyster** | Raw or cooked | Nutty cashew-like flavor. Found all year, winter included, at oak, alder, pine and willow woods |
 | **Shiitake** | Raw or cooked | Immune-boosting; best cooked |
 | **Chicken of the Woods** | **Must cook** | Toxic raw (short food poisoning); cooked it is safe and feeds you much better |
 | **Morel** | **Must cook** | Toxic raw (short food poisoning and nausea); always cook before eating |
@@ -114,13 +113,12 @@ A spice and food ingredient.
 - **Sliced:** Cut fresh ginger to create slices for recipes.
 - **Dried:** Greatly extends shelf life. Good for trading and long-term storage.
 
-### Fiddleheads, Thistle Greens and Camas
+### Fiddleheads and Camas
 
-Three more wild foods, foraged at a few vanilla woods and meadows. Forage chances, food values and spoilage are tunable placeholders, Fiddleheads have their own picture and the others share vanilla or existing ones, and none of this has been checked in game yet.
+Two more wild foods, foraged at a few vanilla woods and meadows. Forage chances, food values and spoilage are tunable placeholders, Fiddleheads have their own picture and the others share vanilla or existing ones, and none of this has been checked in game yet.
 
 - **Fiddleheads** (spring only, the Alder Grove and the Mossy Clearing): curled fern shoots. **Eat Raw** gives a short bout of food poisoning (+8, the raw-morel dose); cook them by a fire into **Cooked Fiddleheads**, which are safe to **Eat**. Either can go into a stew.
-- **Thistle Greens** (spring and summer, the Secret Grove and Pine Meadows): peeled thistle stalks you **Eat** raw or add to a stew.
-- **Camas Bulb** (spring and summer, Pine Meadows and the Secret Grove): cannot be eaten raw. Roast it by a fire into **Roasted Camas** (**Eat**, or add to a stew). Holding Roasted Camas unlocks the **Camas Cake** blueprint (Cooking tab, 2 Roasted Camas). **Grind** the cake with a stone mortar or any grinding tool (or Water Driven Infrastructure's Grinding Mill) into **Camas Flour**, drag the flour onto a bowl or pot holding at least 150 of cool fresh water to **Soak** it into **Camas Dough**, and bake the dough near a fire into **Camas Flatbread** (**Eat**).
+- **Camas Bulb** (spring to autumn, Pine Meadows, the Secret Grove and the river places): cannot be eaten raw. Roast it by a fire into **Roasted Camas** (**Eat**, or add to a stew). Holding Roasted Camas unlocks the **Camas Cake** blueprint (Cooking tab, 2 Roasted Camas). **Grind** the cake with a stone mortar or any grinding tool (or Water Driven Infrastructure's Grinding Mill) into **Camas Flour**, drag the flour onto a bowl or pot holding at least 150 of cool fresh water to **Soak** it into **Camas Dough**, and bake the dough near a fire into **Camas Flatbread** (**Eat**).
 
 ### Mandrake, Rhubarb and Mustard
 
@@ -137,10 +135,11 @@ Three more wild finds, foraged at a few vanilla woods and meadows. Forage chance
 - **Horseradish Root** (spring and autumn, the Pine Clearing and the Alder Grove): a fierce, pale root, not food. **Cut** it with a knife into **Sliced Horseradish**. Drag the slices onto a plateable food such as cooked meat, fish or eggs (**Add**) to season it with Horseradish, sharply pungent with a little heat; that uses the slices up. Left alone the slices dry (slowly by themselves, quickly on a Drying Tray) into **Dried Horseradish**, which keeps and seasons three plates.
 - **Chicory Root** (summer and autumn, Pine Meadows and the Secret Grove): a bitter taproot, not food. Roast it by a fire into **Roasted Chicory**, which keeps well, then drag a bowl of hot water onto it (**Steep in Hot Water**) for **Chicory Brew**. Its **Drink** quenches thirst and gives **Chicory Lift** for a few hours: you tire more slowly, and stress rises a little faster. A second cup soon after makes you **Jittery** (both effects doubled). Allied Partners leave it alone.
 - **Goosefoot Greens** (spring and summer, the Secret Grove and the Mossy Clearing): mild, spinach-like leaves you **Eat** raw or add to a stew. Eating them gives **Goosefoot Purge**, which slowly lowers gut Parasites (5 a tick, 10 after a second helping close together) and wears off over about a day. It is the gentle path next to Death Cap Tincture: slower, but with no nausea or food poisoning. A stew made with goosefoot gives food only, not the purge. Allied Partners leave it alone.
-- **Water Lily Rhizome** (spring to autumn, at the river places): a starchy rootstock, not food raw. Cook it by a fire into a **Cooked Water Lily Rhizome** you **Eat**, or add either to a stew.
-- **Turnroot Greens**: harvest a mature turnroot field by hand and about half the time you also get a handful of greens (spring to autumn; the sickle harvest does not give them). **Eat** them raw or add them to a stew.
-- **Crabapples** (autumn, the Secret Grove and the Mossy Clearing), **Wild Pears** (summer and autumn, the Alder Grove and the Mossy Clearing) and **Wild Plums** (autumn, the Secret Grove and the Pine Clearing): eat them fresh, let them dry into a dried form that keeps much longer, or add them to a stew. Cook 3 Wild Plums with 2 Honeycomb into a **Plum Preserve** (Cooking tab).
-- **Chestnuts** (autumn, the Secret Grove and the Mossy Clearing) and **Hazelnuts** (autumn, the Secret Grove and the Alder Grove): eat them raw or roast them on a fire. Grind a roasted chestnut with any grinding tool into Chestnut Flour, soak it in water for Chestnut Dough, and bake the dough near a fire into Chestnut Flatbread. **Sloes** (autumn, the Secret Grove and Pine Meadows): drag them onto a container of water to crush them into Sloe Must, which turns into Sloe Wine after 4 days. **Elderflowers** (spring and summer) and **Elderberries** (autumn), at the Secret Grove and the Alder Grove: dry the flowers, then steep them in hot water for an Elderflower Cordial; eat, dry or stew the berries.
+- **Turnroot Greens** (spring to autumn, the Secret Grove and Pine Meadows): forage them, or harvest a mature turnroot field by hand and about half the time you also get a handful of greens (the sickle harvest does not give them). **Eat** them raw or add them to a stew.
+- **Wild Plums** (summer and autumn, the Secret Grove, the Mossy Clearing, the Pine Clearing and the Alder Grove): eat them fresh, let them dry into Dried Wild Plums that keep much longer, or add them to a stew. Cook 3 Wild Plums with 2 Honeycomb into a **Plum Preserve** (Cooking tab).
+- **Chestnuts** (autumn, the Secret Grove, the Mossy Clearing and the Alder Grove): eat them raw or roast them on a fire. Grind a roasted chestnut with any grinding tool into Chestnut Flour, soak it in water for Chestnut Dough, and bake the dough near a fire into Chestnut Flatbread. **Sloes** (autumn, the Secret Grove and Pine Meadows): drag them onto a container of water to crush them into Sloe Must, which turns into Sloe Wine after 4 days. **Elderflowers** (spring and summer, at the Secret Grove and the Alder Grove): dry the flowers, then steep them in hot water for an Elderflower Cordial.
+
+**Fewer look-alikes (plant streamlining):** cards that did exactly the same things as another were folded into it. Wild Pears, Crabapples and Elderberries became Wild Plums, Hazelnuts became Chestnuts, Thistle Greens became Turnroot Greens, Velvet Shank became Golden Oyster and Water Lily Rhizome became Camas Bulb (each with its dried, cooked or roasted form). The keeper is found wherever and whenever the retired card was, and a saved game loads the old cards as the new ones. In winter, the woods that had both Velvet Shank and Golden Oyster now give one mushroom find where they gave two.
 
 ---
 
@@ -166,10 +165,10 @@ Craft from the **Furniture** tab. A placed structure that holds **up to 3 Drying
 
 ### Wooden Pantry
 
-A sealed cool-storage cabinet that slows spoilage to **75% of normal**. Built from the Furniture tab; place it indoors.
+A plank cool-storage cabinet that slows spoilage to **75% of normal**. Built from the Furniture tab; place it indoors.
 
-- Not animal-safe — foxes, badgers, and other wildlife can raid it.
 - Best for storing dried herbs, preserved foods, and anything with a moderate shelf life.
+- Not animal-safe when the framework's optional wildlife raids are turned on (`WildlifeRaidsEnabled` in the CSFF Mod Framework config, off by default): each in-game day there is then a 35% chance (the default) that animals spoil one food item in an open container like this one where you are.
 
 ### Apothecary Shelf
 
@@ -234,7 +233,7 @@ A reusable carved wooden pipe for inhaling herbal powders.
 | **Appleweed Powder** | Moderate | Moderate-High | Balanced |
 | **Frostleaf Powder** | Moderate | High | Best relaxation |
 
-**Using the pipe:** Drag a fire source (any lit flame) onto the loaded pipe to smoke it. Quality degrades with each use — a fresh pipe holds 3 uses.
+**Using the pipe:** Drag a fire source (any lit flame) onto the loaded pipe to smoke it. Its Charge bar drops with each use: a loaded pipe holds 3 uses.
 
 **Empty:** Use the "Empty Pipe" action to recover the unloaded pipe and discard leftover powder.
 
@@ -386,7 +385,7 @@ Brew ground medicinal powder in hot water.
 
 **Herbal Honey Syrup** - One Honeycomb (see Honeycomb below), two Dried Chamomile or two Dried Common Plantain and a Clay Bowl, from the Medical tab once you hold Honeycomb. **Take a Spoonful** raises the Heather Effect (the same stat vanilla heather tea raises, capped at 48, so they do not add past it), which slows chest and throat infections for a while; three spoonfuls to a bowl, then you get the empty bowl back. The dose and spoonful count are starting values, not tuned, and it has not been checked in game.
 
-**Botanical Field Guide** - Hemp Stalks make Hemp Pulp (Support tab; it unlocks once you hold Hemp Stalks). Leave the pulp alone for about a day and it becomes Soaked Hemp Pulp, 2 of which press into 3 Hemp Paper. Six paper and a Twine bind into the guide. Choose Read to see where and when each plant can be found; the guide is not used up. The quantities and times are starting values, not tuned, and it has not been checked in game.
+**Botanical Field Guide** - Hemp Stalks make Hemp Pulp (Support tab; it unlocks once you hold Hemp Stalks). Leave the pulp alone for about a day and it becomes Soaked Hemp Pulp, 2 of which press into 3 Hemp Paper. Six paper and a Twine bind into the guide. Hover over its five Read buttons (Places, Mushrooms, Herbs and Flowers, Fruit and Nuts, Roots and Greens) to see where and when each plant can be found; the guide is not used up. The quantities and times are starting values, not tuned, and it has not been checked in game.
 
 **Gruit Ale** - Make a Gruit Bundle from the Cooking tab (Dried Bog Myrtle, Dried Heather Flowers, Dried Yarrow and Twine; it unlocks once you hold Dried Bog Myrtle and Dried Yarrow), then drag it onto a bowl of FINISHED rye ale, not onto wort. The ale becomes Gruit Ale: bitter and herbal, and it spoils half as fast as plain rye ale. It does not freeze and does not age further in a barrel. The half-speed spoilage and the price are starting values, not tuned, and it has not been checked in game.
 
@@ -455,6 +454,26 @@ loses quality on an open fire, so use the oven. Left in the oven, a baked pasty 
 **Eating.** Use the baked pasty's **Eat** button (1 daytime). The berry pasty has vanilla's Rye Bilberry Pasty's
 nutrition; the mushroom pasty has the same without the fruit weariness. All the numbers are copied from vanilla's
 pasties, not tuned for these, and none of it has been checked in game yet.
+
+---
+
+## Staged Stews
+
+Two stews are cooked in steps, in a **Clay Bowl** on a fire. Each stage's card names the next step.
+
+1. **Chop.** Drag a **Leek** onto a fresh Chanterelle, Shiitake, King Oyster, Golden Oyster or Black Trumpet (or the
+mushroom onto the leek) for a **Mushroom and Leek Mix**. Drag a **Carrot** onto Ginger or Cut Ginger for a
+**Carrot and Ginger Mix**. Both cards are used up.
+2. **Into the pot.** Drop the mix into a Clay Bowl holding at least 290 of water that is at least half hot. The water
+becomes a simmering stew. Only a Clay Bowl takes it, so a big pot of water cannot make endless servings.
+3. **Simmer.** Keep the bowl on the fire for 2 ticks (half an hour). It simmers only while it stays at least half hot;
+off the fire it cools and waits.
+4. **Finish.** While it is still hot, add **Kale** to the mushroom stew, or **Yarrow** or **Dried Yarrow** to the root
+stew.
+
+The result is a bowl of **Forager's Mushroom Stew** (savoury, earthy, herbal and green with a hint of leek, plus Herbal Tonic +24) or **Herbalist's Root
+Stew** (sweet, herbal and green with a little ginger, plus Herbal Analgesic +24). Each bowl gives two servings through **Eat a Serving**, and each serving shows the game's "Tastes great!" line and lifts Gratification by 50. The serving
+values, effect sizes and simmer time are starting values, not yet tuned or checked in game.
 
 ---
 
