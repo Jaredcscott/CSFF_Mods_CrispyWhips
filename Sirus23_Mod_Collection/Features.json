@@ -313,8 +313,8 @@
     },
     {
       "name": "Prepared Dairy Dishes",
-      "status": "Implemented",
-      "_note": "NEW group (2026-09-01 regen). 1.17.0 CI-transform layer (drag Butter/Sheep Cheese/Cream onto vanilla dishes) — adjacent to, not covered by, the passing dairy-chain items.",
+      "status": "Tested",
+      "_note": "Two CI-transform layers on vanilla dishes: 1.17.0 (drag Butter/Sheep Cheese/Cream onto Roasted Cattail Root/Wheat Roundbread/Mashed Turnroot) and v1.21.0 plan row N11 (drag Yogurt/Sour Cream/Ricotta/Buttermilk onto Dried Springberries/Boiled Turnroot/Rye Roundbread/Wheat Hardtack). Both confirmed since the 2026-09-01 regen; audit restamped 2026-10-31.",
       "cards": [
         "sh_buttered_roots",
         "sh_cheese_stuffed_flatbread",
@@ -324,8 +324,8 @@
         "sh_ricotta_rye_round",
         "sh_soured_turnroot"
       ],
-      "confidence": "LOW",
-      "evidence": "T2.125 (2026-08-22) explicitly unverified, distinct from the already-passing sirus_dairy_chain item."
+      "confidence": "VERIFIED",
+      "evidence": "T2.125 PASS (harness review 2026-09-26, 20260925-121418): all three 1.17.0 transforms fire and each dish shows its own 512x768 art, not the former placeholder. T2.204 PASS (harness review 2026-09-26, 20260923-104512): all four N11 transforms consume their exact ingredients and dairy, spawn, and raise Satiation on Eat. All 7 shipped images confirmed non-placeholder (20-60KB, 2026-10-31)."
     },
     {
       "name": "Wool (Raw)",
@@ -364,14 +364,17 @@
       "evidence": "Pack Bond itself VERIFIED (T2.25, runtime-granted, unaffected by the perk regression below). The 5 character-creation kit perks are MEDIUM: T1.51 (2026-08-29) records none of the 8 StartUnlocked-gated perks re-verified since the 1.20.0 regression fix."
     },
     {
-      "name": "Wild Sheep Spawns",
+      "name": "Wild Sheep Roaming Animals",
       "status": "Implemented",
+      "_note": "Plan 1.1 (2026-10-31, Chiwei c174135852): Animals/WildSheep.json and Animals/WildMaleSheep.json replace the two spawn triggers (kept at SpawnChance 0). Hunted with a passive Approach fight, caught alive in a pit trap (the live sh_wild_sheep / sh_wild_male_sheep card) or killed by a log trap (the carcass).",
       "cards": [
+        "sh_wild_sheep_carcass",
+        "sh_wild_male_sheep_carcass",
         "sh_tgr_wild_sheep_spawn",
         "sh_tgr_wild_male_sheep_spawn"
       ],
       "confidence": "LOW",
-      "evidence": "summary.md Sub-Audit Index: gap-plan.md P3 (wild-sheep spawn smoke test) remains pending in-game, never closed by later evidence."
+      "evidence": "T2.2143 and T2.2144 pending; scenario authored, not run."
     },
     {
       "name": "Wolf Taming and Wolf Pup",
@@ -415,6 +418,18 @@
       ],
       "confidence": "LOW",
       "evidence": "T2.573 pending; scenario authored, not run."
+    },
+    {
+      "name": "Food Bowl",
+      "status": "Implemented",
+      "_note": "Plan 1.2 (2026-10-31, Chiwei c174135852): a placed bowl (fc_food_bowl) holding the companions' AnimalFoods; Patcher/WolfTickPatch.cs TryBowlFeed feeds a Wolf, Fox, Owl or Hawk Companion below half Hunger from a bowl in the player's current environment.",
+      "cards": [
+        "fc_food_bowl",
+        "fc_food_bowl_portable",
+        "sh_bp_food_bowl"
+      ],
+      "confidence": "LOW",
+      "evidence": "T2.2142 pending; scenario authored, not run."
     },
     {
       "name": "Truffle Hog",

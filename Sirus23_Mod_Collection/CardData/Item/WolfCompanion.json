@@ -62,7 +62,6 @@
                     "f6cc4f98e0ab4ae47b4b2c8f5d48da02",
                     "b25f1f9bfc2a0bc44a93079ed02cb43f",
                     "699942038046235428420895876b83e2",
-                    "674b640f46671f1418af4559b259b442",
                     "3dda5e481d296c5409b05ac6e66a9221"
                 ],
                 "TriggerCardsWarpType": 3,
@@ -303,21 +302,24 @@
         {
             "ActionName": {
                 "ParentObjectID": "fc_wolf_companion",
-                "LocalizationKey": "fc_wolf_companion_CardInteractions[5].ActionName",
+                "LocalizationKey": "FC_WolfCompanion_CI5_ActionName",
                 "DefaultText": "Give Bone Treat"
             },
             "ActionDescription": {
                 "ParentObjectID": "fc_wolf_companion",
-                "LocalizationKey": "fc_wolf_companion_CardInteractions[5].ActionDescription",
+                "LocalizationKey": "FC_WolfCompanion_CI5_ActionDescription",
                 "DefaultText": "Hand over the marrow bone you saved back. The wolf takes it carefully, then will not put it down."
             },
             "DaytimeCost": 1,
             "UseMiniTicks": 0,
+            "ActionSounds": [],
             "ActionTags": [],
             "ActionTagsWarpData": [
                 "HandAction"
             ],
             "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
             "CompatibleCards": {
                 "TriggerCards": [],
                 "TriggerTags": [],
@@ -739,6 +741,25 @@
             "ConsumableChargesModifier": {
                 "Active": true,
                 "FloatValue": 0.25
+            },
+            "MultiplyConsumableChargesRate": false
+        },
+        {
+            "EffectName": "Companionship (fc_hawk_companion)",
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "fc_hawk_companion"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredCardsNOTOnBoardWarpData": [
+                    "fc_fox_companion",
+                    "fc_owl_companion"
+                ],
+                "RequiredCardsNOTOnBoardWarpType": 3
+            },
+            "ConsumableChargesModifier": {
+                "Active": true,
+                "FloatValue": 0.05
             },
             "MultiplyConsumableChargesRate": false
         }

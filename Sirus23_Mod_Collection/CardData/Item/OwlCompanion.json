@@ -53,11 +53,9 @@
                     "fe07d4d800bcc8646a0ff2513c78d5df",
                     "e292e8faac1041f4ab1da9bcf900e751",
                     "91168c5978471d54aaad816581f63ffd",
-                    "f4be79e87ba98db41a9c9e31bb76c33d",
                     "5dc9560f81be57c4b9e22780f8a5ad78",
                     "692c88d91a4fdf0498749339ae6d53f8",
-                    "4093dde8982306b4d8a5a9108ac5f0bb",
-                    "1e3f5517c9203e74b9c76a7bae1a3920"
+                    "4093dde8982306b4d8a5a9108ac5f0bb"
                 ],
                 "TriggerCardsWarpType": 3,
                 "TriggerTagsWarpData": [],
@@ -557,6 +555,25 @@
                 "RequiredCardsOnBoardWarpType": 3,
                 "RequiredCardsNOTOnBoardWarpData": [
                     "fc_wolf_companion"
+                ],
+                "RequiredCardsNOTOnBoardWarpType": 3
+            },
+            "ConsumableChargesModifier": {
+                "Active": true,
+                "FloatValue": 0.05
+            },
+            "MultiplyConsumableChargesRate": false
+        },
+        {
+            "EffectName": "Companionship (fc_hawk_companion)",
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "fc_hawk_companion"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredCardsNOTOnBoardWarpData": [
+                    "fc_wolf_companion",
+                    "fc_fox_companion"
                 ],
                 "RequiredCardsNOTOnBoardWarpType": 3
             },

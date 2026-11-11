@@ -18,13 +18,28 @@ namespace Sirus23ModCollection.Patcher
     /// container joins without a UID list) or is one of the vanilla water sources
     /// (ClayBasin, WateringTrough, RainCistern, ...); its contained liquid must carry
     /// vanilla tag_WaterAny, so a brine vat, a cauldron of medicine or a kettle of tea is
-    /// never drunk from (owner, 2026-10-09: "limit the Sirus animals to water"). Auto-feed
-    /// works identically for hunger using the nearest available food item.
+    /// never drunk from (owner, 2026-10-09: "limit the Sirus animals to water"). The read and the
+    /// drain both go through CardUtil.GetLiquidQuantity/ModifyLiquid, which resolve to the
+    /// container's own ContainedLiquid card and route the write through the game's own liquid
+    /// path, so an emptied container's liquid card is destroyed the way vanilla drinking does it
+    /// rather than left behind at quantity 0. Auto-feed works identically for hunger using the
+    /// nearest available food item.
+    ///
+    /// Companion Food Bowl (1.22.13): before that, a companion below HALF Hunger eats one food card
+    /// out of a Food Bowl (fc_food_bowl) in the player's current environment. The bowl takes the
+    /// same AnimalFoods set (its InventoryFilter is gated equal to VanillaIds.AnimalFoods by
+    /// Development_Tools/Tests/Sirus23-CompanionFoodBowl.Tests.ps1). Like every rule here it runs
+    /// only for companions on the player's board: the game does not tick a card left on another map.
     ///
     /// Morale-departure applies to all three companions. Health (SpecialDurability1) is
-    /// C#-managed for the wolf only: the fox and owl carry the same bar, but it drains from
-    /// JSON PassiveEffects while their Hunger or Thirst is empty and kills them through the
-    /// bar's own OnZero action (CardData/Item/FoxCompanion.json and OwlCompanion.json).
+    /// C#-managed for the wolf only (WolfHealthRule: it falls on low Hunger and on empty Thirst):
+    /// the fox and owl carry the same bar, but it drains from JSON PassiveEffects while their
+    /// Hunger or Thirst is empty and kills them through the bar's own OnZero action
+    /// (CardData/Item/FoxCompanion.json and OwlCompanion.json).
+    ///
+    /// Every stat read goes through TryGetStat and every stat write checks its result: a read or
+    /// write that fails (field drift after a game or framework update) logs one warning per cause
+    /// instead of making the companions silently stop eating, drinking, healing or leaving.
     /// </summary>
     public static class WolfTickPatch
     {
@@ -34,6 +49,12 @@ namespace Sirus23ModCollection.Patcher
         public const string HawkId = "fc_hawk_companion";
 
         private const string WolfCarcassUid = "aad9634a9b5273844bbe2e7a119c5b23";
+
+        // Companion Food Bowl (plan 1.2, Chiwei c174135852): a placed bowl whose small inventory takes the
+        // same AnimalFoods the companions auto-eat. A companion below BowlThreshold Hunger eats one food card
+        // from a bowl in the player's current environment, before the loose-food rule below 20% is tried.
+        public const string BowlId = "fc_food_bowl";
+        private const float BowlThreshold = 0.50f;
 
         private const float Threshold = 0.20f;
         private static ManualLogSource Logger => Plugin.Logger;
@@ -83,6 +104,9 @@ namespace Sirus23ModCollection.Patcher
         private static readonly Dictionary<UnityEngine.Object, bool> _waterLiquidModelCache = new();
         private static readonly HashSet<string> _warnedCauses = new(StringComparer.Ordinal);
 
+        private static List<object> _bowlsThisTick;
+        private static readonly HashSet<object> _eatenThisTick = new();
+
         private static List<object> _cachedCompanions;
         private static List<object> _cachedFoods;
         private static List<object> _cachedWaters;
@@ -122,15 +146,21 @@ namespace Sirus23ModCollection.Patcher
             try
             {
                 _cardBaseType ??= CardUtil.FindGameType("InGameCardBase");
-                if (_cardBaseType == null) return;
+                if (_cardBaseType == null)
+                {
+                    WarnOnce("cardbase-type", "[CompanionTick] the InGameCardBase game type could not be resolved; all companion upkeep is skipped this session.");
+                    return;
+                }
 
                 RefreshCachesIfBoardChanged();
                 if (_cachedCompanions == null || _cachedCompanions.Count == 0) return;
 
+                _bowlsThisTick = null;
+                _eatenThisTick.Clear();
                 foreach (var companion in _cachedCompanions)
                 {
                     if (TryInitFreshSpawn(companion)) continue;
-                    TryAutoFeed(companion, _cachedFoods);
+                    if (!TryBowlFeed(companion)) TryAutoFeed(companion, _cachedFoods);
                     TryAutoDrink(companion, _cachedWaters);
                     TryManageHealth(companion);
                     TryMoraleCheck(companion);
@@ -170,7 +200,9 @@ namespace Sirus23ModCollection.Patcher
         {
             var gm = CardUtil.GetGameManagerInstance();
             if (gm == null) return -1;
-            return Reflect.GetMember(gm, "AllCards") is System.Collections.ICollection c ? c.Count : -1;
+            if (Reflect.GetMember(gm, "AllCards") is System.Collections.ICollection c) return c.Count;
+            WarnOnce("allcards-read", "[CompanionTick] GameManager.AllCards could not be read; board-change detection is frozen and companions added or removed this session may not get upkeep.");
+            return -1;
         }
 
         // ── Upkeep rules ─────────────────────────────────────────────────────
@@ -195,15 +227,22 @@ namespace Sirus23ModCollection.Patcher
             if (hungerMax <= 0f || thirstMax <= 0f || moraleMax <= 0f) return false;
             if (hunger > 0f || thirst > 0f || morale > 0f) return false;
 
-            CardUtil.SetDurability(companion, "SpoilageTime", hungerMax);
-            CardUtil.SetDurability(companion, "UsageDurability", thirstMax);
-            CardUtil.SetDurability(companion, "Progress", moraleMax);
+            // A failed write leaves the stat at 0, so this companion comes back here every tick and never
+            // comes to life: say so once per stat instead of spinning silently.
+            string uid = CardUtil.GetCardUniqueId(companion) ?? "companion";
+            if (!CardUtil.SetDurability(companion, "SpoilageTime", hungerMax))
+                WarnOnce("init-write:SpoilageTime", $"[CompanionTick] {uid} spawned with zeroed stats and its Hunger (SpoilageTime) could not be filled; it stays at 0.");
+            if (!CardUtil.SetDurability(companion, "UsageDurability", thirstMax))
+                WarnOnce("init-write:UsageDurability", $"[CompanionTick] {uid} spawned with zeroed stats and its Thirst (UsageDurability) could not be filled; it stays at 0.");
+            if (!CardUtil.SetDurability(companion, "Progress", moraleMax))
+                WarnOnce("init-write:Progress", $"[CompanionTick] {uid} spawned with zeroed stats and its Morale (Progress) could not be filled; it stays at 0.");
             // The fox and owl's Health bar carries the death action (OnZero, ModType Destroy), which
             // the engine fires on the first tick for a card that spawned at 0 even with no crossing
             // (reference_onzero_destroy_races_dtp_tick), so it must be filled with the other three.
             if (TryGetStat(companion, "SpecialDurability1", out float health, out float healthMax)
-                && healthMax > 0f && health <= 0f)
-                CardUtil.SetDurability(companion, "SpecialDurability1", healthMax);
+                && healthMax > 0f && health <= 0f
+                && !CardUtil.SetDurability(companion, "SpecialDurability1", healthMax))
+                WarnOnce("init-write:SpecialDurability1", $"[CompanionTick] {uid} spawned with zeroed stats and its Health (SpecialDurability1) could not be filled; it stays at 0.");
             Logger?.LogDebug($"[CompanionTick] {CardUtil.GetCardUniqueId(companion) ?? "companion"} spawned with zeroed stats — initialized to full (hunger {hungerMax:F0}, thirst {thirstMax:F0}, morale {moraleMax:F0}).");
             return true;
         }
@@ -219,24 +258,28 @@ namespace Sirus23ModCollection.Patcher
 
             if (!TryGetStat(companion, "SpoilageTime", out float hungerCur, out float hungerMax)) return;
             float hungerRatio = hungerMax > 0f ? hungerCur / hungerMax : 0f;
+            // Thirst drains Health like the fox's "Parched Health Drain". An unreadable Thirst bar has
+            // already warned in TryGetStat; it counts as not parched so Hunger still works alone.
+            float thirstRatio = TryGetStat(companion, "UsageDurability", out float thirstCur, out float thirstMax) && thirstMax > 0f
+                ? thirstCur / thirstMax : 1f;
 
-            if (hungerRatio < 0.10f)
+            float newHealth = WolfHealthRule.NextHealth(healthCur, healthMax, hungerRatio, thirstRatio);
+            if (newHealth == healthCur) return;
+            if (!CardUtil.SetDurability(companion, "SpecialDurability1", newHealth))
             {
-                float newHealth = (float)Math.Max(0.0, healthCur - 2.0);
-                if (newHealth == healthCur) return;
-                CardUtil.SetDurability(companion, "SpecialDurability1", newHealth);
-                if (newHealth <= 0f)
-                {
-                    Logger?.LogDebug("[CompanionTick] wolf died of starvation — spawning wolf carcass.");
-                    SpawnService.Spawn(WolfCarcassUid);
-                    CardUtil.TryRemoveCard(companion);
-                    _lastAllCardsCount = int.MinValue;
-                }
+                WarnOnce("health-write", "[CompanionTick] the wolf's Health (SpecialDurability1) could not be written, so it neither loses nor mends Health.");
+                return;
             }
-            else if (hungerRatio > 0.60f && healthCur < healthMax)
+            if (newHealth <= 0f)
             {
-                CardUtil.SetDurability(companion, "SpecialDurability1",
-                    (float)Math.Min(healthMax, healthCur + 0.5));
+                string cause = hungerRatio < WolfHealthRule.StarvingBelow
+                    ? (thirstRatio <= WolfHealthRule.ParchedAtOrBelow ? "hunger and thirst" : "starvation")
+                    : "thirst";
+                Logger?.LogDebug($"[CompanionTick] wolf died of {cause}: spawning wolf carcass.");
+                SpawnService.Spawn(WolfCarcassUid);
+                if (!CardUtil.TryRemoveCard(companion))
+                    WarnOnce("wolf-death-remove", "[CompanionTick] the dead wolf could not be removed from the board, so it stays at 0 Health beside its carcass.");
+                _lastAllCardsCount = int.MinValue;
             }
         }
 
@@ -247,8 +290,64 @@ namespace Sirus23ModCollection.Patcher
 
             string uid = CardUtil.GetCardUniqueId(companion) ?? "companion";
             Logger?.LogDebug($"[CompanionTick] {uid} morale depleted — companion has left.");
-            CardUtil.TryRemoveCard(companion);
+            if (!CardUtil.TryRemoveCard(companion))
+                WarnOnce("depart-remove", $"[CompanionTick] {uid} ran out of Morale but could not be removed from the board, so it has not left.");
             _lastAllCardsCount = int.MinValue;
+        }
+
+        /// <summary>
+        /// Companion Food Bowl: a companion below half Hunger eats one food card from a Food Bowl in the
+        /// player's current environment, filling Hunger and adding 20 Morale like the loose-food rule.
+        /// The bowl lookup is environment-scoped (GameQuery.CardsInPlayerEnv, never a bare AllCards UID scan:
+        /// CLAUDE.md "An AllCards UID scan is NOT the cards in this room"), so a bowl left at another camp
+        /// feeds nobody here. Food removed this tick is remembered, because CardUtil.TryRemoveCard runs the
+        /// game's RemoveCard as a coroutine and the card is still in the bowl's slot until it finishes.
+        /// Returns true when the companion ate from a bowl.
+        /// </summary>
+        private static bool TryBowlFeed(object companion)
+        {
+            if (!TryGetStat(companion, "SpoilageTime", out float cur, out float max)) return false;
+            if (max <= 0f || (cur / max) >= BowlThreshold) return false;
+
+            foreach (var bowl in FindBowlsInPlayerEnv())
+            {
+                object food = null;
+                foreach (var card in Inventory.Cards(bowl))
+                {
+                    if (_eatenThisTick.Contains(card)) continue;
+                    string uid = CardUtil.GetCardUniqueId(card);
+                    if (uid != null && _foodIds.Contains(uid)) { food = card; break; }
+                }
+                if (food == null) continue;
+
+                if (!CardUtil.SetDurability(companion, "SpoilageTime", max))
+                {
+                    WarnOnce("bowl-hunger-write", "[CompanionTick] a companion's Hunger (SpoilageTime) could not be written, so it did not eat from the Food Bowl.");
+                    return false;
+                }
+                string foodUid = CardUtil.GetCardUniqueId(food);
+                if (!CardUtil.TryRemoveCard(food))
+                    WarnOnce("bowl-remove", $"[CompanionTick] {foodUid} could not be removed from the Food Bowl after a companion ate it.");
+                _eatenThisTick.Add(food);
+                _lastAllCardsCount = int.MinValue;
+                if (TryGetStat(companion, "Progress", out float mor, out float morMax) && morMax > 0f
+                    && !CardUtil.SetDurability(companion, "Progress", (float)Math.Min(morMax, mor + 20.0)))
+                    WarnOnce("morale-write", "[CompanionTick] a companion's Morale (Progress) could not be raised after it ate.");
+                Logger?.LogInfo($"[CompanionTick] {CardUtil.GetCardUniqueId(companion)} ate {foodUid} from the Food Bowl (hunger {cur:F0}->{max:F0})");
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>The Food Bowls in the player's current environment, read once per tick and only when a
+        /// companion is hungry enough to look.</summary>
+        private static List<object> FindBowlsInPlayerEnv()
+        {
+            if (_bowlsThisTick != null) return _bowlsThisTick;
+            _bowlsThisTick = new List<object>();
+            foreach (var card in GameQuery.CardsInPlayerEnv())
+                if (CardUtil.GetCardUniqueId(card) == BowlId) _bowlsThisTick.Add(card);
+            return _bowlsThisTick;
         }
 
         private static void TryAutoFeed(object companion, List<object> foods)
@@ -261,7 +360,11 @@ namespace Sirus23ModCollection.Patcher
             object food = PickNearest(companion, foods);
             if (food == null) return;
 
-            if (!CardUtil.SetDurability(companion, "SpoilageTime", max)) return;
+            if (!CardUtil.SetDurability(companion, "SpoilageTime", max))
+            {
+                WarnOnce("feed-hunger-write", "[CompanionTick] a companion's Hunger (SpoilageTime) could not be written, so it did not eat the food on the board.");
+                return;
+            }
             string foodUid = CardUtil.GetCardUniqueId(food);
             if (CardUtil.TryRemoveCard(food))
             {
@@ -269,10 +372,13 @@ namespace Sirus23ModCollection.Patcher
                 _lastAllCardsCount = int.MinValue;
                 // Mirror the Feed CI: auto-feeding also grants a small morale boost so the
                 // companion doesn't immediately depart on the same tick it eats.
-                if (TryGetStat(companion, "Progress", out float mor, out float morMax) && morMax > 0f)
-                    CardUtil.SetDurability(companion, "Progress", (float)Math.Min(morMax, mor + 20.0));
+                if (TryGetStat(companion, "Progress", out float mor, out float morMax) && morMax > 0f
+                    && !CardUtil.SetDurability(companion, "Progress", (float)Math.Min(morMax, mor + 20.0)))
+                    WarnOnce("morale-write", "[CompanionTick] a companion's Morale (Progress) could not be raised after it ate.");
                 Logger?.LogDebug($"[CompanionTick] {CardUtil.GetCardUniqueId(companion)} auto-ate {foodUid} (hunger {cur:F0}->{max:F0})");
             }
+            else
+                WarnOnce("feed-remove", $"[CompanionTick] {foodUid} could not be removed from the board after a companion ate it, so the companion's Hunger was filled for free.");
         }
 
         private static void TryAutoDrink(object companion, List<object> waters)
@@ -287,14 +393,20 @@ namespace Sirus23ModCollection.Patcher
             foreach (var w in waters)
             {
                 if (!HoldsWater(w)) continue;
-                if (GetLiquidQuantity(w) <= 0f) continue;
+                float qty = CardUtil.GetLiquidQuantity((InGameCardBase)w);
+                if (float.IsNaN(qty) || qty <= 0f) continue;
                 float d = DistanceSquared(companion, w);
                 if (d < bestDist) { bestDist = d; source = w; }
             }
             if (source == null) return;
 
-            if (!CardUtil.SetDurability(companion, "UsageDurability", max)) return;
-            AdjustLiquidQuantity(source, -100f);
+            if (!CardUtil.SetDurability(companion, "UsageDurability", max))
+            {
+                WarnOnce("drink-thirst-write", "[CompanionTick] a companion's Thirst (UsageDurability) could not be written, so it did not drink.");
+                return;
+            }
+            if (!CardUtil.ModifyLiquid((InGameCardBase)source, -100f))
+                WarnOnce("drink-liquid-write", $"[CompanionTick] {CardUtil.GetCardUniqueId(source)}'s water could not be reduced after a companion drank from it, so the drink was free.");
             Logger?.LogDebug($"[CompanionTick] {CardUtil.GetCardUniqueId(companion)} auto-drank from {CardUtil.GetCardUniqueId(source)} (thirst {cur:F0}->{max:F0})");
         }
 
@@ -304,7 +416,14 @@ namespace Sirus23ModCollection.Patcher
         {
             cur = CardUtil.GetDurability(card, statName);
             max = CardUtil.GetDurabilityMax(card, statName);
-            if (float.IsNaN(cur) || float.IsNaN(max)) { cur = 0f; max = 0f; return false; }
+            if (float.IsNaN(cur) || float.IsNaN(max))
+            {
+                // Never a normal "below threshold" answer: every companion card has all four bars, so a NaN is
+                // field drift or a card without its model, and every rule that reads this stat stops at once.
+                WarnOnce($"stat-read:{statName}", $"[CompanionTick] {CardUtil.GetCardUniqueId(card) ?? "a companion"}'s {statName} could not be read (current {cur}, max {max}); companion upkeep that needs it is skipped.");
+                cur = 0f; max = 0f;
+                return false;
+            }
             return true;
         }
 
@@ -324,19 +443,6 @@ namespace Sirus23ModCollection.Patcher
                 if (d < bestDist) { bestDist = d; best = c; }
             }
             return best;
-        }
-
-        private static readonly string[] LiquidMemberNames =
-            { "CurrentLiquidQuantity", "LiquidQuantity", "CurrentLiquid" };
-
-        // Containers (Rain Cistern, ClayBowl, WateringTrough, ...) hold their water in the
-        // ContainedLiquid child card, not their own CurrentLiquidQuantity — that field stays 0
-        // unless the card itself is a Liquid. Mirrors InGameCardBase.GetCurrentDurability(Liquid).
-        private static object ResolveLiquidHolder(object card)
-        {
-            var contained = Reflect.GetMember(card, "ContainedLiquid");
-            if (contained is UnityEngine.Object uo && uo != null) return contained;
-            return card;
         }
 
         /// <summary>
@@ -381,19 +487,5 @@ namespace Sirus23ModCollection.Patcher
             if (_warnedCauses.Add(cause)) Logger?.LogWarning(message);
         }
 
-        private static float GetLiquidQuantity(object card)
-        {
-            var v = Reflect.GetMember(ResolveLiquidHolder(card), LiquidMemberNames);
-            return v != null ? CardUtil.ToFloat(v) : 0f;
-        }
-
-        private static void AdjustLiquidQuantity(object card, float delta)
-        {
-            var holder = ResolveLiquidHolder(card);
-            var v = Reflect.GetMember(holder, LiquidMemberNames);
-            if (v == null) return;
-            float next = Math.Max(0f, CardUtil.ToFloat(v) + delta);
-            Reflect.SetMemberAny(holder, next, LiquidMemberNames);
-        }
     }
 }

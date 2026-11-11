@@ -2,6 +2,7 @@
   "//": "Feature 28 (Phase F, built on the owner's 2026-10-12 go-ahead, not Sirus's sign-off): a wild hawk of the oak and pine clearings, a daytime bird that wanders between them, never stalks the player and never attacks. A GENERATED agent (no Agent.Ref) on the Lynx manifest's shape (HarshWilds/Animals/Lynx.json), with the Owl's Spawn.SuppressWhileCardOnBoard, tame Interaction and Companion sections (Animals/Owl.json). The manifest has NO hunt field: the companion's catch is the 'Send Hawk Hunting' DismantleAction on CardData/Item/HawkCompanion.json, paid by Patcher/CompanionHuntPatch.cs (HawkHunt).",
   "//Encounter": "Generated and Passive: the Approach button needs an Encounter or it falls through to the vanilla duck (Animals-ManifestHygiene check A). The hawk flees rather than fights, so there is no Aggression block and no Tame OnFail.AttackChance (that needs an Encounter.Ref).",
   "//Tunable": "TUNABLE, NOT PLAYTESTED: Blood 30, the Tame weights (copied from the owl: 50 percent at Tracking 0, 75 percent at 150), the 672-tick death respawn and 288-tick post-companion respawn. Traps and Tracks are left out on purpose: the hawk is a companion, not a hunted animal, so no trap, bait duty or track card is shipped for it.",
+  "//OneHawk": "AF1 (Sirus23 1.22.14, needs framework 2.29.2): the wild hawk is retired while the Hawk Companion (Spawn.SuppressWhileCardOnBoard) OR the Eyas (Spawn.AlsoSuppressWhileCardsOnBoard) is on the board. Before this, only the companion retired it, so a player raising an eyas could still tame the wild hawk and end up with two Hawk Companions when the eyas grew. The eyas becomes the companion in one action (CardData/Item/Eyas.json, SpoilageTime OnZero), and a retired tick with any suppressor on the board zeroes the 288-tick return timer, so the hand-over cannot bring the wild hawk back. A framework before 2.29.2 ignores the added key: only the companion retires the hawk there, as before.",
   "SchemaVersion": 1,
   "SpeciesId": "sirus_hawk",
   "DisplayName": "Hawk",
@@ -16,6 +17,7 @@
     "HomeEnv": "b791dfa6bad821e4e91d7c4210ec3ea3",
     "DeathRespawnTicks": 672,
     "SuppressWhileCardOnBoard": "fc_hawk_companion",
+    "AlsoSuppressWhileCardsOnBoard": ["fc_eyas"],
     "SuppressedRespawnTicks": 288
   },
   "ActivityWindow": {

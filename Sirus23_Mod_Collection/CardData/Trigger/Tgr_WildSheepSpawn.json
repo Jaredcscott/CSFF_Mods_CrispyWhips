@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_tgr_wild_sheep_spawn",
         "LocalizationKey": "sh_tgr_wild_sheep_spawn_CardDescription",
-        "DefaultText": "Occasionally spawns a wild sheep on the board."
+        "DefaultText": "Retired in 1.22.13: wild sheep now roam as animals (Animals/WildSheep.json). Kept at a 0 spawn chance so an older copy of this file left in an install spawns nothing."
     },
     "TriggerCard": {
         "m_FileID": 0,
@@ -16,7 +16,7 @@
     },
     "TriggerCardWarpData": "sh_wild_sheep",
     "TriggerCardWarpType": 3,
-    "SpawnChance": 5,
+    "SpawnChance": 0,
     "SpawnLocation": 1,
     "TriggerFrequency": 192,
     "MaxOnBoard": 1,

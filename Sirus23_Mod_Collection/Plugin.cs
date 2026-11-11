@@ -12,7 +12,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.Sirus23ModCollection";
     public const string PluginName = "Sirus23 Mod Collection";
-    public const string PluginVersion = "1.22.12";
+    public const string PluginVersion = "1.22.14";
 
     internal new static ManualLogSource Logger { get; private set; }
 
@@ -49,8 +49,8 @@ internal class Plugin : ContentModPlugin
         // NPCAgents (GameSourceModify/VanillaFox_Agent1.json, VanillaFox_Agent2.json) — no
         // separate wild-fox species/patcher; CompanionHuntPatch's FoxTameInit handler matches
         // the vanilla agents directly.
-        // Wildlife encounter suppression ships as EncounterGuards/WolfGuard.json —
-        // evaluated by the framework's single StartEncounter prefix.
+        // Wildlife encounter suppression ships as EncounterGuards/*.json (WolfGuard,
+        // FoxGuard, OwlGuard) — evaluated by the framework's single StartEncounter prefix.
         // Sheep butter/reproduction patching runs once game data is ready.
         TryApply("SheepHusbandry", GameLoadPatch.Register);
         // Night-time escape/predation roll for unpenned tame sheep/rams; ticks on
@@ -61,6 +61,9 @@ internal class Plugin : ContentModPlugin
         // lactating sheep in the current environment in one click. See SheepFeederPatch
         // doc comment for why milking is intentionally out of scope.
         TryApply("SheepFeeder", SheepFeederPatch.Register);
+        // "Milk" drains the ewe's Usage here, not in JSON: ModType 1 on a CreatedLiquidInGivenCard
+        // action throws in WikiMod's drag tooltip. See SheepMilkPatch doc comment.
+        TryApply("SheepMilk", SheepMilkPatch.Register);
         // Keeps vanilla clearings' "Grazing Animals (+1 Happines)" remote passive (an additive
         // +1 on Usage) off the sheep: the Lactating Sheep keeps milk in Usage, and no sheep has
         // a Happiness stat. See SheepGrazingGuardPatch doc comment.

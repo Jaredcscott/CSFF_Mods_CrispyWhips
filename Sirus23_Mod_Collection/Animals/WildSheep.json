@@ -1,0 +1,113 @@
+{
+  "//": "The wild sheep (ewe) as a roaming animal: it wanders the oak clearings and the flower and pine meadows by day and night, leaves tracks, can be hunted with Approach (it never attacks) and is caught in a baited pit trap (alive) or log trap (dead).",
+  "//Plan": "Sirus23 plan 1.1 (Chiwei, Nexus comment c174135852, 2026-08-20: 'design sheep to resemble vanilla wild animals, allowing them to be hunted or captured through traps ... using the vanilla creature system'). Built 2026-10-31 by mission csff-nexus-fix-sirus23-2026-10-31 on the owner's 'fix these issues' instruction, before Sirus's sign-off. A GENERATED agent (no Agent.Ref) on the Hawk manifest's shape (Animals/Hawk.json), with the Owl's Traps section shape (Animals/Owl.json) and the Lynx's trap-suppressor rule (HarshWilds/Animals/Lynx.json //Traps).",
+  "//Traps": "Vanilla Agent_Doe and Agent_Boar1 both stamp AgentTrapCunning 15, PitTrap 0, LogTrap 0, Snare 10000, Deadfall 10000 (EA 0.69e export); copied here. A pit trap catches the sheep ALIVE as the existing live card (the vanilla BoarTied precedent: pit traps are the large-game live catch), a log trap kills it (the carcass card). BaitTags/BaitCards are omitted so the framework derives the food pool from the live pit and log trap cards. Bait.DutyWeight equals WanderWeight, as the validator requires.",
+  "//Suppressor": "A trap catch retires the agent by exists 0, which only the suppressed-respawn path restores (validator rule; Lynx //Traps). The suppressor is the live catch card, so while a caught wild sheep is on the player's board the wild agent stays retired, and SuppressedRespawnTicks after it is tamed, slaughtered or left on another map a fresh one comes back. A log-trap catch drops the carcass, which is NOT the suppressor, so it also comes back after SuppressedRespawnTicks. A kill waits DeathRespawnTicks.",
+  "//Encounter": "Generated and Passive (duck shape): the Approach button opens a fight the sheep only ever tries to escape from, never an attack, and there is no Aggression block and no tame OnFail.AttackChance. Defeat drains AgentBlood, so the generated death action drops Carcass.Card where it died. Body template is the vanilla doe's.",
+  "//Tame": "No tame Interaction on the agent: taming and slaughter stay on the caught live card (CardData/Item CardInteractions Tame and Slaughter), so a save holding a wild sheep card keeps both actions.",
+  "//Blood": "Agent.Blood.RatePerTick 0 as in every generated manifest since Harsh Wilds 2026-10-05 (MuskOx //Blood): a regenerating blood would walk a killed animal back before DeathRespawnTicks.",
+  "//Tunable": "TUNABLE, NOT PLAYTESTED: Blood, Awareness, the 672-tick (one week) death and suppressed respawns, the track lifetime and the RevealSkillCurve.",
+  "SchemaVersion": 1,
+  "SpeciesId": "sirus_wild_sheep",
+  "DisplayName": "Wild Sheep",
+  "LocalizationKey": "sh_wild_sheep_CardName",
+  "DescriptionLocalizationKey": "sh_wild_sheep_AgentDescription",
+  "Sprite": "sh_wild_sheep",
+  "WeightCategory": "Medium",
+  "Agent": {
+    "Blood": {
+      "Start": 60,
+      "Max": 60,
+      "RatePerTick": 0
+    },
+    "PoisonResistance": {
+      "Start": 20,
+      "RatePerTick": 0.4
+    }
+  },
+  "Spawn": {
+    "HomeEnv": "b791dfa6bad821e4e91d7c4210ec3ea3",
+    "DeathRespawnTicks": 672,
+    "SuppressWhileCardOnBoard": "sh_wild_sheep",
+    "SuppressedRespawnTicks": 672
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "b791dfa6bad821e4e91d7c4210ec3ea3",
+      "60402000491626042b116556a55e84f5",
+      "69bfd218f65d27a4e80c9b8365091f93",
+      "c5d869f30ddcd194f924042021d7df96",
+      "ca60012d0c6a8394f9bc5cef2e1794ad"
+    ],
+    "WanderWeight": 100
+  },
+  "Tracks": {
+    "Enabled": true,
+    "LifetimeTicks": {
+      "Min": 48,
+      "Max": 96
+    },
+    "AddedDiscoverChance": 0,
+    "RevealSkill": "Skill_Tracking",
+    "RevealSkillCurve": {
+      "StatRange": [
+        0,
+        150
+      ],
+      "ChanceRange": [
+        0,
+        10
+      ]
+    },
+    "BloodTrail": true
+  },
+  "Traps": {
+    "Enabled": true,
+    "Wariness": 15,
+    "PerType": {
+      "PitTrap": 0,
+      "LogTrap": 0,
+      "Snare": 10000,
+      "Deadfall": 10000
+    },
+    "Bait": {
+      "DutyWeight": 100
+    },
+    "CatchResults": [
+      {
+        "TrapType": "PitTrap",
+        "Drops": [
+          {
+            "Card": "sh_wild_sheep",
+            "Weight": 100
+          }
+        ]
+      },
+      {
+        "TrapType": "LogTrap",
+        "Drops": [
+          {
+            "Card": "sh_wild_sheep_carcass",
+            "Weight": 100
+          }
+        ]
+      }
+    ]
+  },
+  "Encounter": {
+    "BodyTemplate": "Combat_ BTDoe_F",
+    "Blood": 60,
+    "Size": 10,
+    "Awareness": [
+      40,
+      80
+    ],
+    "Passive": true,
+    "ForceFight": false,
+    "ApproachButton": true,
+    "EnemyNameLocalizationKey": "sh_wild_sheep_EnemyName"
+  },
+  "Carcass": {
+    "Card": "sh_wild_sheep_carcass"
+  }
+}

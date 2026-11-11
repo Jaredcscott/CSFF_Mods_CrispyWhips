@@ -25,9 +25,9 @@ FC_WolfCompanion_SpoilageTime_CardStatName,Hunger,饥饿
 FC_WolfCompanion_UsageDurability_CardStatName,Thirst,口渴
 FC_WolfCompanion_SpecialDurability1_CardStatName,Health,Health
 sh_wild_sheep_CardName,Wild Sheep,Wild Sheep
-sh_wild_sheep_CardDescription,"A wild sheep roaming the forest. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources.","A wild sheep roaming the forest. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources."
+sh_wild_sheep_CardDescription,"A wild sheep, caught alive in a pit trap. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources.","A wild sheep, caught alive in a pit trap. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources."
 sh_wild_male_sheep_CardName,Wild Ram,Wild Ram
-sh_wild_male_sheep_CardDescription,"A wild ram. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources.","A wild ram. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources."
+sh_wild_male_sheep_CardDescription,"A wild ram, caught alive in a pit trap. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources.","A wild ram, caught alive in a pit trap. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources."
 sh_tame_sheep_CardName,Tame Sheep,Tame Sheep
 sh_tame_sheep_CardDescription,"A tame sheep. Shear it for wool, keep it near a ram to breed over time, or slaughter it. Below a quarter Nourishment it grows no wool.","A tame sheep. Shear it for wool, keep it near a ram to breed over time, or slaughter it. Below a quarter Nourishment it grows no wool."
 sh_male_sheep_CardName,Ram,Ram
@@ -96,7 +96,7 @@ sh_bp_sheep_feeder_CardName,Sheep Feeder Blueprint,Sheep Feeder Blueprint
 sh_bp_sheep_feeder_CardDescription,Build a feeder to store feed for your sheep.,Build a feeder to store feed for your sheep.
 sh_bp_sheep_feeder_UnlockConditionsDesc,Requires: Wool,需要：羊毛
 sh_tgr_wild_sheep_spawn_CardName,Wild Sheep Spawn,Wild Sheep Spawn
-sh_tgr_wild_sheep_spawn_CardDescription,Occasionally spawns a wild sheep on the board.,Occasionally spawns a wild sheep on the board.
+sh_tgr_wild_sheep_spawn_CardDescription,Retired in 1.22.13: wild sheep now roam as animals (Animals/WildSheep.json). Kept at a 0 spawn chance so an older copy of this file left in an install spawns nothing.,Retired in 1.22.13: wild sheep now roam as animals (Animals/WildSheep.json). Kept at a 0 spawn chance so an older copy of this file left in an install spawns nothing.
 sh_cheese_cloth_UsageDurability_CardStatName,Durability,Durability
 sh_shears_UsageDurability_CardStatName,Durability,Durability
 sh_shears_UsageDurability_OnZero_ActionName,Shears Worn Out,Shears Worn Out
@@ -132,7 +132,7 @@ sh_butter_churn_CardInteractions[0].ActionName,Churn Butter,Churn Butter
 sh_butter_churn_CardInteractions[0].ActionDescription,Churn fresh sheep milk into butter and buttermilk.,将新鲜羊奶搅拌成黄油和白脱牛奶。
 sh_whey_CardInteractions[0].ActionName,Heat Whey,Heat Whey
 sh_tgr_wild_male_sheep_spawn_CardName,Wild Ram Spawn,Wild Ram Spawn
-sh_tgr_wild_male_sheep_spawn_CardDescription,Occasionally spawns a wild ram on the board.,Occasionally spawns a wild ram on the board.
+sh_tgr_wild_male_sheep_spawn_CardDescription,Retired in 1.22.13: wild rams now roam as animals (Animals/WildMaleSheep.json). Kept at a 0 spawn chance so an older copy of this file left in an install spawns nothing.,Retired in 1.22.13: wild rams now roam as animals (Animals/WildMaleSheep.json). Kept at a 0 spawn chance so an older copy of this file left in an install spawns nothing.
 sh_aged_sheep_cheese_DismantleActions[0].ActionName,Eat,Eat
 sh_butter_DismantleActions[0].ActionName,Eat,Eat
 sh_ricotta_DismantleActions[0].ActionName,Eat,Eat
@@ -185,7 +185,7 @@ sh_sheep_feeder_DismantleActions[1].ActionDescription,Feeds and shears every rea
 sh_sheep_feeder_DismantleActions[2].ActionName,Tend Flock with the Wolf,Tend Flock with the Wolf
 sh_sheep_feeder_DismantleActions[2].ActionDescription,"Your wolf companion herds the flock, so tending it takes half the time. Feeds and shears every ready tame sheep and ram nearby, the same as Tend Flock.","Your wolf companion herds the flock, so tending it takes half the time. Feeds and shears every ready tame sheep and ram nearby, the same as Tend Flock."
 FC_FoxCompanion_CardName,Fox Companion,Fox Companion
-FC_FoxCompanion_CardDescription,A quick-witted fox that has taken a liking to you. Keep it fed and watered or it will wander off.,A quick-witted fox that has taken a liking to you. Keep it fed and watered or it will wander off.
+FC_FoxCompanion_CardDescription,"A quick-witted fox that has taken a liking to you. Keep it fed and watered, or it will weaken and die.","A quick-witted fox that has taken a liking to you. Keep it fed and watered, or it will weaken and die."
 FC_FoxCompanion_CI0_ActionName,Feed Fox,Feed Fox
 FC_FoxCompanion_CI0_ActionDescription,Give the fox a meal. Its ears perk up happily.,Give the fox a meal. Its ears perk up happily.
 FC_FoxCompanion_DA0_ActionName,Pet Fox,Pet Fox
@@ -428,8 +428,8 @@ sh_ricotta_CardInteractions[0].ActionName,Heap onto Rye Round,堆在黑麦面包
 sh_ricotta_CardInteractions[0].ActionDescription,Split a rye round and pile the ricotta on.,切开黑麦圆面包，堆上里科塔奶酪。
 sh_buttermilk_CardInteractions[0].ActionName,Soak the Hardtack,泡软硬饰
 sh_buttermilk_CardInteractions[0].ActionDescription,Leave the hardtack in buttermilk until it gives under a thumb.,将硬饰泡在酥乳里，直到按下去发软。
-fc_wolf_companion_CardInteractions[5].ActionName,Give Bone Treat,给予骨头零食
-fc_wolf_companion_CardInteractions[5].ActionDescription,"Hand over the marrow bone you saved back. The wolf takes it carefully, then will not put it down.",递上你特意留下的骸骸。狼小心地叼住，一直不肯松口。
+FC_WolfCompanion_CI5_ActionName,Give Bone Treat,给予骨头零食
+FC_WolfCompanion_CI5_ActionDescription,"Hand over the marrow bone you saved back. The wolf takes it carefully, then will not put it down.",递上你特意留下的骸骸。狼小心地叼住，一直不肯松口。
 fc_owl_companion_CardInteractions[4].ActionName,Give Owl Treat,给予猫头鹰零食
 fc_owl_companion_CardInteractions[4].ActionDescription,Offer the salted strips one at a time. The owl takes each from your fingers without a sound.,一条一条地递上盐渍肉条。猫头鹰无声地从你指间叼走。
 fc_fox_companion_CardInteractions[4].ActionName,Give Berry Mix,给予混合果干
@@ -677,3 +677,28 @@ sh_stat_soft_furnishing_Status_Name,Soft Furnishings,Soft Furnishings
 sh_stat_soft_furnishing_Status_Description,A Feather Pillow or Felt Rug among your things makes camp feel a little more like home: Sanctuary +10. More of them do not add more.,A Feather Pillow or Felt Rug among your things makes camp feel a little more like home: Sanctuary +10. More of them do not add more.
 sh_stat_comfort_fixup_done_GameName,Comfort Reset Done,Comfort Reset Done
 sh_stat_comfort_fixup_done_Description,"Hidden. Set to 1 once Sirus23 1.22.6 has cleared the permanent Comfort that older Lanolin Salves wrote into this save, so the reset runs once per save.","Hidden. Set to 1 once Sirus23 1.22.6 has cleared the permanent Comfort that older Lanolin Salves wrote into this save, so the reset runs once per save."
+sh_wild_sheep_AgentDescription,"A wild sheep grazing the oak clearings and meadows. Approach it to hunt it (it only ever runs), or bait a pit trap to catch it alive; a log trap kills it.","A wild sheep grazing the oak clearings and meadows. Approach it to hunt it (it only ever runs), or bait a pit trap to catch it alive; a log trap kills it."
+sh_wild_male_sheep_AgentDescription,"A wild ram grazing the pine clearings and hills. Approach it to hunt it (it only ever runs), or bait a pit trap to catch it alive; a log trap kills it.","A wild ram grazing the pine clearings and hills. Approach it to hunt it (it only ever runs), or bait a pit trap to catch it alive; a log trap kills it."
+sh_wild_sheep_EnemyName,wild sheep,wild sheep
+sh_wild_male_sheep_EnemyName,wild ram,wild ram
+sh_wild_sheep_carcass_CardName,Wild Sheep Carcass,Wild Sheep Carcass
+sh_wild_sheep_carcass_CardDescription,"A wild sheep, killed in a hunt or a log trap. Butcher it with a knife for the same meat, fat, hide, bones and offal as slaughtering a live one.","A wild sheep, killed in a hunt or a log trap. Butcher it with a knife for the same meat, fat, hide, bones and offal as slaughtering a live one."
+sh_wild_sheep_carcass_SpoilageTime_CardStatName,Spoilage,Spoilage
+sh_wild_sheep_carcass_CardInteractions[0].ActionName,Butcher,Butcher
+sh_wild_sheep_carcass_CardInteractions[0].ActionDescription,"Cut the carcass up for meat, fat, the hide, bones and offal.","Cut the carcass up for meat, fat, the hide, bones and offal."
+sh_wild_male_sheep_carcass_CardName,Wild Ram Carcass,Wild Ram Carcass
+sh_wild_male_sheep_carcass_CardDescription,"A wild ram, killed in a hunt or a log trap. Butcher it with a knife for the same meat, fat, hide, bones and offal as slaughtering a live one.","A wild ram, killed in a hunt or a log trap. Butcher it with a knife for the same meat, fat, hide, bones and offal as slaughtering a live one."
+sh_wild_male_sheep_carcass_SpoilageTime_CardStatName,Spoilage,Spoilage
+sh_wild_male_sheep_carcass_CardInteractions[0].ActionName,Butcher,Butcher
+sh_wild_male_sheep_carcass_CardInteractions[0].ActionDescription,"Cut the carcass up for meat, fat, the hide, bones and offal.","Cut the carcass up for meat, fat, the hide, bones and offal."
+fc_food_bowl_CardName,Food Bowl,Food Bowl
+fc_food_bowl_CardDescription,"A clay bowl set down for your companions. Put meat, bird meat, fish or bones in it: a Wolf, Fox, Owl or Hawk Companion in this place that is below half Hunger eats one piece from it on its own.","A clay bowl set down for your companions. Put meat, bird meat, fish or bones in it: a Wolf, Fox, Owl or Hawk Companion in this place that is below half Hunger eats one piece from it on its own."
+fc_food_bowl_DismantleActions[0].ActionName,Pick Up,Pick Up
+fc_food_bowl_DismantleActions[0].ActionDescription,Pick up the bowl to carry it. Any food in it is set down.,Pick up the bowl to carry it. Any food in it is set down.
+fc_food_bowl_portable_CardName,Food Bowl,Food Bowl
+fc_food_bowl_portable_CardDescription,"A companion's food bowl, ready to carry. Use Place to set it down.","A companion's food bowl, ready to carry. Use Place to set it down."
+fc_food_bowl_portable_DismantleActions[0].ActionName,Place,Place
+fc_food_bowl_portable_DismantleActions[0].ActionDescription,Set the food bowl down in this place.,Set the food bowl down in this place.
+sh_bp_food_bowl_CardName,Food Bowl Blueprint,Food Bowl Blueprint
+sh_bp_food_bowl_CardDescription,Set a clay bowl aside as your companions' food bowl.,Set a clay bowl aside as your companions' food bowl.
+sh_bp_food_bowl_UnlockConditionsDesc,Requires: Clay Bowl,Requires: Clay Bowl

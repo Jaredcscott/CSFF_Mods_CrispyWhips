@@ -25,9 +25,9 @@ FC_WolfCompanion_SpoilageTime_CardStatName,Hunger,饥饿
 FC_WolfCompanion_UsageDurability_CardStatName,Thirst,口渴
 FC_WolfCompanion_SpecialDurability1_CardStatName,Health,健康度
 sh_wild_sheep_CardName,Wild Sheep,野生绵羊
-sh_wild_sheep_CardDescription,"A wild sheep roaming the forest. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources.",一只在森林中游荡的野生绵羊。喂它新鲜草地牧草可以尝试驯服它（大约每三次喂食能赢得一次信任），或将其屠宰以获取资源。
+sh_wild_sheep_CardDescription,"A wild sheep, caught alive in a pit trap. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources.",一只用陷坑活捉的野生绵羊。喂它新鲜草地牧草可以尝试驯服它（大约每三次喂食能赢得一次信任），或将其屠宰以获取资源。
 sh_wild_male_sheep_CardName,Wild Ram,野生公羊
-sh_wild_male_sheep_CardDescription,"A wild ram. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources.",一只野生公羊。喂它新鲜草地牧草可以尝试驯服它（大约每三次喂食能赢得一次信任），或将其屠宰以获取资源。
+sh_wild_male_sheep_CardDescription,"A wild ram, caught alive in a pit trap. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources.",一只用陷坑活捉的野生公羊。喂它新鲜草地牧草可以尝试驯服它（大约每三次喂食能赢得一次信任），或将其屠宰以获取资源。
 sh_tame_sheep_CardName,Tame Sheep,驯养绵羊
 sh_tame_sheep_CardDescription,"A tame sheep. Shear it for wool, keep it near a ram to breed over time, or slaughter it. Below a quarter Nourishment it grows no wool.",一只驯养的绵羊。剪毛可获取羊毛，让它靠近公羊可随时间繁殖，也可将其屠宰。营养低于四分之一时不长羊毛。
 sh_male_sheep_CardName,Ram,公羊
@@ -96,7 +96,7 @@ sh_bp_sheep_feeder_CardName,Sheep Feeder Blueprint,羊饲料槽图纸
 sh_bp_sheep_feeder_CardDescription,Build a feeder to store feed for your sheep.,建造一个饲料槽，为你的绵羊储存饲料。
 sh_bp_sheep_feeder_UnlockConditionsDesc,Requires: Wool,需要：羊毛
 sh_tgr_wild_sheep_spawn_CardName,Wild Sheep Spawn,野生绵羊生成点
-sh_tgr_wild_sheep_spawn_CardDescription,Occasionally spawns a wild sheep on the board.,偶尔会在场景中生成一只野生绵羊。
+sh_tgr_wild_sheep_spawn_CardDescription,Retired in 1.22.13: wild sheep now roam as animals (Animals/WildSheep.json). Kept at a 0 spawn chance so an older copy of this file left in an install spawns nothing.,已在 1.22.13 停用：野生绵羊现在作为动物在野外游荡（Animals/WildSheep.json）。生成几率保持为 0，因此安装中残留的旧版文件不会再生成任何东西。
 sh_cheese_cloth_UsageDurability_CardStatName,Durability,耐久度
 sh_shears_UsageDurability_CardStatName,Durability,耐久度
 sh_shears_UsageDurability_OnZero_ActionName,Shears Worn Out,剪毛刀已磨损
@@ -132,7 +132,7 @@ sh_butter_churn_CardInteractions[0].ActionName,Churn Butter,搅拌黄油
 sh_butter_churn_CardInteractions[0].ActionDescription,Churn fresh sheep milk into butter and buttermilk.,将新鲜羊奶搅拌成黄油和白脱牛奶。
 sh_whey_CardInteractions[0].ActionName,Heat Whey,加热乳清
 sh_tgr_wild_male_sheep_spawn_CardName,Wild Ram Spawn,野生公羊生成点
-sh_tgr_wild_male_sheep_spawn_CardDescription,Occasionally spawns a wild ram on the board.,偶尔会在场景中生成一只野生公羊。
+sh_tgr_wild_male_sheep_spawn_CardDescription,Retired in 1.22.13: wild rams now roam as animals (Animals/WildMaleSheep.json). Kept at a 0 spawn chance so an older copy of this file left in an install spawns nothing.,已在 1.22.13 停用：野生公羊现在作为动物在野外游荡（Animals/WildMaleSheep.json）。生成几率保持为 0，因此安装中残留的旧版文件不会再生成任何东西。
 sh_aged_sheep_cheese_DismantleActions[0].ActionName,Eat,吃掉
 sh_butter_DismantleActions[0].ActionName,Eat,吃掉
 sh_ricotta_DismantleActions[0].ActionName,Eat,吃掉
@@ -185,7 +185,7 @@ sh_sheep_feeder_DismantleActions[1].ActionDescription,Feeds and shears every rea
 sh_sheep_feeder_DismantleActions[2].ActionName,Tend Flock with the Wolf,与狼同行照料羊群
 sh_sheep_feeder_DismantleActions[2].ActionDescription,"Your wolf companion herds the flock, so tending it takes half the time. Feeds and shears every ready tame sheep and ram nearby, the same as Tend Flock.","狼伙伴会帮你赶拢羊群，所以照料只需一半时间。与照料羊群一样，为附近所有准备好的驯养绵羊和公羊喂食并剪毛。"
 FC_FoxCompanion_CardName,Fox Companion,狐狸伙伴
-FC_FoxCompanion_CardDescription,A quick-witted fox that has taken a liking to you. Keep it fed and watered or it will wander off.,一只机敏的狐狸对你产生了好感。保持喂养和给水，否则它会离你而去。
+FC_FoxCompanion_CardDescription,"A quick-witted fox that has taken a liking to you. Keep it fed and watered, or it will weaken and die.",一只机敏的狐狸对你产生了好感。保持喂养和给水，否则它会日渐虚弱，直至死去。
 FC_FoxCompanion_CI0_ActionName,Feed Fox,喂狐狸
 FC_FoxCompanion_CI0_ActionDescription,Give the fox a meal. Its ears perk up happily.,给狐狸一顿饭。它开心地竖起了耳朵。
 FC_FoxCompanion_DA0_ActionName,Pet Fox,抚摸狐狸
@@ -428,8 +428,8 @@ sh_ricotta_CardInteractions[0].ActionName,Heap onto Rye Round,堆在黑麦面包
 sh_ricotta_CardInteractions[0].ActionDescription,Split a rye round and pile the ricotta on.,切开黑麦圆面包，堆上里科塔奶酪。
 sh_buttermilk_CardInteractions[0].ActionName,Soak the Hardtack,泡软硬饰
 sh_buttermilk_CardInteractions[0].ActionDescription,Leave the hardtack in buttermilk until it gives under a thumb.,将硬饰泡在酥乳里，直到按下去发软。
-fc_wolf_companion_CardInteractions[5].ActionName,Give Bone Treat,给予骨头零食
-fc_wolf_companion_CardInteractions[5].ActionDescription,"Hand over the marrow bone you saved back. The wolf takes it carefully, then will not put it down.",递上你特意留下的骸骸。狼小心地叼住，一直不肯松口。
+FC_WolfCompanion_CI5_ActionName,Give Bone Treat,给予骨头零食
+FC_WolfCompanion_CI5_ActionDescription,"Hand over the marrow bone you saved back. The wolf takes it carefully, then will not put it down.",递上你特意留下的骸骸。狼小心地叼住，一直不肯松口。
 fc_owl_companion_CardInteractions[4].ActionName,Give Owl Treat,给予猫头鹰零食
 fc_owl_companion_CardInteractions[4].ActionDescription,Offer the salted strips one at a time. The owl takes each from your fingers without a sound.,一条一条地递上盐渍肉条。猫头鹰无声地从你指间叼走。
 fc_fox_companion_CardInteractions[4].ActionName,Give Berry Mix,给予混合果干
@@ -677,3 +677,28 @@ sh_stat_soft_furnishing_Status_Name,Soft Furnishings,软装
 sh_stat_soft_furnishing_Status_Description,A Feather Pillow or Felt Rug among your things makes camp feel a little more like home: Sanctuary +10. More of them do not add more.,行囊里有羽绒枕或毛毡地毯，营地就多了几分家的感觉：庇护度+10。多带几件也不会更多。
 sh_stat_comfort_fixup_done_GameName,Comfort Reset Done,舒适度重置完成
 sh_stat_comfort_fixup_done_Description,"Hidden. Set to 1 once Sirus23 1.22.6 has cleared the permanent Comfort that older Lanolin Salves wrote into this save, so the reset runs once per save.",隐藏数值。Sirus23 1.22.6 清除了旧版羊毛脂药膏写入本存档的永久舒适度后设为1，因此每个存档只重置一次。
+sh_wild_sheep_AgentDescription,"A wild sheep grazing the oak clearings and meadows. Approach it to hunt it (it only ever runs), or bait a pit trap to catch it alive; a log trap kills it.",一只在橡树林空地和草场上吃草的野生绵羊。接近它就能狩猎（它只会逃跑），或在陷坑里放诱饵活捉它；原木陷阱会杀死它。
+sh_wild_male_sheep_AgentDescription,"A wild ram grazing the pine clearings and hills. Approach it to hunt it (it only ever runs), or bait a pit trap to catch it alive; a log trap kills it.",一只在松林空地和山丘上吃草的野生公羊。接近它就能狩猎（它只会逃跑），或在陷坑里放诱饵活捉它；原木陷阱会杀死它。
+sh_wild_sheep_EnemyName,wild sheep,野生绵羊
+sh_wild_male_sheep_EnemyName,wild ram,野生公羊
+sh_wild_sheep_carcass_CardName,Wild Sheep Carcass,野生绵羊尸体
+sh_wild_sheep_carcass_CardDescription,"A wild sheep, killed in a hunt or a log trap. Butcher it with a knife for the same meat, fat, hide, bones and offal as slaughtering a live one.",一只在狩猎或原木陷阱中死去的野生绵羊。用刀屠宰它，可得到与屠宰活羊相同的肉、脂肪、兽皮、骨头和内脏。
+sh_wild_sheep_carcass_SpoilageTime_CardStatName,Spoilage,腐败
+sh_wild_sheep_carcass_CardInteractions[0].ActionName,Butcher,屠宰
+sh_wild_sheep_carcass_CardInteractions[0].ActionDescription,"Cut the carcass up for meat, fat, the hide, bones and offal.",把尸体切开，取得肉、脂肪、兽皮、骨头和内脏。
+sh_wild_male_sheep_carcass_CardName,Wild Ram Carcass,野生公羊尸体
+sh_wild_male_sheep_carcass_CardDescription,"A wild ram, killed in a hunt or a log trap. Butcher it with a knife for the same meat, fat, hide, bones and offal as slaughtering a live one.",一只在狩猎或原木陷阱中死去的野生公羊。用刀屠宰它，可得到与屠宰活公羊相同的肉、脂肪、兽皮、骨头和内脏。
+sh_wild_male_sheep_carcass_SpoilageTime_CardStatName,Spoilage,腐败
+sh_wild_male_sheep_carcass_CardInteractions[0].ActionName,Butcher,屠宰
+sh_wild_male_sheep_carcass_CardInteractions[0].ActionDescription,"Cut the carcass up for meat, fat, the hide, bones and offal.",把尸体切开，取得肉、脂肪、兽皮、骨头和内脏。
+fc_food_bowl_CardName,Food Bowl,食盆
+fc_food_bowl_CardDescription,"A clay bowl set down for your companions. Put meat, bird meat, fish or bones in it: a Wolf, Fox, Owl or Hawk Companion in this place that is below half Hunger eats one piece from it on its own.",为伙伴们放下的陶碗。往里放肉、禽肉、鱼或骨头：在此处饥饿值低于一半的狼、狐狸、猫头鹰或鹰伙伴会自己从中吃一份。
+fc_food_bowl_DismantleActions[0].ActionName,Pick Up,拿起
+fc_food_bowl_DismantleActions[0].ActionDescription,Pick up the bowl to carry it. Any food in it is set down.,拿起食盆以便携带。盆里的食物会被放到地上。
+fc_food_bowl_portable_CardName,Food Bowl,食盆
+fc_food_bowl_portable_CardDescription,"A companion's food bowl, ready to carry. Use Place to set it down.",伙伴的食盆，可以随身携带。使用「放置」把它放下。
+fc_food_bowl_portable_DismantleActions[0].ActionName,Place,放置
+fc_food_bowl_portable_DismantleActions[0].ActionDescription,Set the food bowl down in this place.,把食盆放在此处。
+sh_bp_food_bowl_CardName,Food Bowl Blueprint,食盆图纸
+sh_bp_food_bowl_CardDescription,Set a clay bowl aside as your companions' food bowl.,把一个陶碗留作伙伴们的食盆。
+sh_bp_food_bowl_UnlockConditionsDesc,Requires: Clay Bowl,需要：陶碗

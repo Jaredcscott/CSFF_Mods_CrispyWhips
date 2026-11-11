@@ -251,7 +251,7 @@ namespace Sirus23ModCollection.Patcher
             foreach (var card in allCards)
             {
                 if (card == null) continue;
-                if (!IsInPlayerEnv(card))
+                if (!GameQuery.IsInPlayerEnv(card))
                 {
                     CollectAway(card, away);
                     continue;
@@ -566,11 +566,5 @@ namespace Sirus23ModCollection.Patcher
             return condition <= WornThroughCondition ? PenState.WornPen : PenState.Penned;
         }
 
-        private static bool IsInPlayerEnv(object card)
-        {
-            var env = CardUtil.GetMemberValue(card, "CardEnvironment");
-            if (env == null) return false;
-            return CardUtil.GetMemberValue(env, "MatchesPlayerEnv") is bool b && b;
-        }
     }
 }

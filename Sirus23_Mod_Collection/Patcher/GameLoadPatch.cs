@@ -492,7 +492,7 @@ internal static class GameLoadPatch
     // repeated calls reuse the same "alt_tab_<uid>" group, so a second GameDataReady adds nothing.
     private static void PatchWoolYarnAtLoom()
     {
-        var allData = GetAllData();
+        var allData = GetAllData("WoolYarnLoom");
         if (allData == null) return;
 
         int patched = BlueprintAlternates.AddAlternateIngredient(
@@ -525,7 +525,7 @@ internal static class GameLoadPatch
     {
         try
         {
-            var allData = GetAllData();
+            var allData = GetAllData("LanolinFat");
             if (allData == null)
             {
                 Logger?.LogWarning("[LanolinFat] No game data at GameDataReady (the cause is logged above); lanolin will not stand in for Fat");
@@ -580,7 +580,7 @@ internal static class GameLoadPatch
     {
         try
         {
-            var allData = GetAllData();
+            var allData = GetAllData("SalveHerbs");
             if (allData == null)
             {
                 Logger?.LogWarning("[SalveHerbs] No game data at GameDataReady (the cause is logged above); the Lanolin Salve takes Frostleaf Powder only");
@@ -622,33 +622,35 @@ internal static class GameLoadPatch
     }
 
     // DataBase.AllData, reached the same way WDI's GameLoadPatch does. Each null exit logs its
-    // own cause, because the caller cannot tell them apart from a legitimate empty result.
-    private static IEnumerable GetAllData()
+    // own cause, because the caller cannot tell them apart from a legitimate empty result. The
+    // <tag> names the FEATURE that called (three do: WoolYarnLoom, LanolinFat, SalveHerbs), so a
+    // null here surfaces under the pass that actually failed, not always "[WoolYarnLoom]".
+    private static IEnumerable GetAllData(string tag)
     {
         var gameLoadType = CardUtil.FindGameType("GameLoad");
         if (gameLoadType == null)
         {
-            Logger?.LogWarning("[WoolYarnLoom] 'GameLoad' type not found; wool yarn will not work at vanilla looms");
+            Logger?.LogWarning($"[{tag}] 'GameLoad' type not found; this vanilla-data pass will not run");
             return null;
         }
 
         var gameLoad = UnityEngine.Object.FindObjectOfType(gameLoadType);
         if (gameLoad == null)
         {
-            Logger?.LogWarning("[WoolYarnLoom] No GameLoad instance at GameDataReady; wool yarn will not work at vanilla looms");
+            Logger?.LogWarning($"[{tag}] No GameLoad instance at GameDataReady; this vanilla-data pass will not run");
             return null;
         }
 
         var dataBase = Reflect.GetMember(gameLoad, "DataBase");
         if (dataBase == null)
         {
-            Logger?.LogWarning("[WoolYarnLoom] GameLoad.DataBase is null; wool yarn will not work at vanilla looms");
+            Logger?.LogWarning($"[{tag}] GameLoad.DataBase is null; this vanilla-data pass will not run");
             return null;
         }
 
         if (Reflect.GetMember(dataBase, "AllData") is not IEnumerable allData)
         {
-            Logger?.LogWarning("[WoolYarnLoom] DataBase.AllData is null or not enumerable; wool yarn will not work at vanilla looms");
+            Logger?.LogWarning($"[{tag}] DataBase.AllData is null or not enumerable; this vanilla-data pass will not run");
             return null;
         }
 
@@ -734,7 +736,12 @@ internal static class GameLoadPatch
             "Pregnancy");
 
         var onFull = Reflect.GetMember(durability, "OnFull");
-        if (onFull == null) return;
+        if (onFull == null)
+        {
+            // A silent return here births nothing: the ewe's pregnancy stat fills but triggers no OnFull.
+            Logger?.LogWarning("[SheepReproduction] the cloned cow pregnancy durability has no OnFull; the tame ewe's pregnancy fills but triggers no birth (a game update may have reshaped the cow's SpecialDurability4)");
+            return;
+        }
 
         SetLocalizedText(onFull, "ActionDescription",
             "sh_tame_sheep_SpecialDurability4.OnFull.ActionDescription",
@@ -839,14 +846,31 @@ internal static class GameLoadPatch
     private static object BuildBirthCollections(object fallbackCollections)
     {
         var sourceCollection = GetFirstItem(fallbackCollections);
-        if (sourceCollection == null) return fallbackCollections;
+        if (sourceCollection == null)
+        {
+            // A silent fallback here births the cloned COW's drops (a calf), not lambs: a game
+            // update that emptied the cow's first produced collection is the only way to reach it.
+            Logger?.LogWarning("[SheepReproduction] vanilla cow birth collection not found; the tame ewe would give birth to the cow's drops, not lambs (a game update may have reshaped the cow's OnFull)");
+            return fallbackCollections;
+        }
 
         var existingDrops = Reflect.GetMember(sourceCollection, "DroppedCards");
         var templateDrop = GetFirstItem(existingDrops);
-        if (templateDrop == null) return fallbackCollections;
+        if (templateDrop == null)
+        {
+            Logger?.LogWarning("[SheepReproduction] vanilla cow birth collection has no DroppedCards template; the tame ewe would give birth to the cow's drops, not lambs (a game update may have reshaped the cow's OnFull)");
+            return fallbackCollections;
+        }
 
         // WarpResolver ran before GameDataReady — set the resolved reference directly.
         var lambCardData = CardUtil.GetCardDataById(LambUid);
+        if (lambCardData == null)
+        {
+            // The WarpData string set in BuildLambCollection is a no-op post-WarpResolver, so a null
+            // here leaves each lamb drop pointing at the cloned cow's card: the ewe would birth the
+            // cow's drops, not lambs.
+            Logger?.LogWarning($"[SheepReproduction] lamb card '{LambUid}' not found; the tame ewe would give birth to the cloned cow's drops, not lambs");
+        }
         var birthCollection = BuildLambCollection(sourceCollection, existingDrops, templateDrop,
             "Birth", SingleBirthWeight, 1, lambCardData);
         var twinsCollection = BuildLambCollection(sourceCollection, existingDrops, templateDrop,
@@ -943,6 +967,12 @@ internal static class GameLoadPatch
         var lactatingSheepData = CardUtil.GetCardDataById(LactatingSheepUid);
         if (lactatingSheepData != null)
             Reflect.SetMember(receivingChanges, "TransformInto", lactatingSheepData);
+        else
+        {
+            // The WarpData string set above is a no-op post-WarpResolver, so a null here leaves
+            // TransformInto on the cow's target: a ewe would not become a Lactating Sheep after birth.
+            Logger?.LogWarning($"[SheepReproduction] lactating sheep card '{LactatingSheepUid}' not found; a ewe would not become a Lactating Sheep after birth");
+        }
         // Nourishment lives on SpoilageTime: carry it across the swap so birth is not a free refill.
         Reflect.SetMember(receivingChanges, "TransferSpoilage", true);
         Reflect.SetMember(receivingChanges, "TransferUsage", false);

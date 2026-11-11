@@ -1,79 +1,75 @@
 # Roadmap: Sirus23 Mod Collection
-Version at time of writing: 1.22.10
-Date: 2026-10-23
-Audit score: 10/10 - PASS (0 CRITICAL)
+Version at time of writing: 1.22.12
+Date: 2026-11-07
+Audit score: 9/10 - PASS (consolidated 2026-11-07)
 
 ## Current State
 
-**Theme**: Animal companions (Wolf, Fox, Owl, Hawk, Ferret, Truffle Hog) and full sheep husbandry - milking, wool, dairy, felt-working, pen-or-perish predation, and a draft-animal farmstead. A mid-game survival/husbandry loop that layers onto vanilla livestock.
+**Theme**: Animal companions (Wolf, Fox, Owl, Hawk, plus Ferret and Truffle Hog), a full working sheep farm (milking, wool, cheese, butter, dairy dishes, pens and perks), draught oxen, and Felt Working (felted wool clothing, a bedroll, a rug, dyeing, a set bonus and Lanolin waterproofing) - a companionship-and-husbandry layer over base-game survival.
 
-**Content**: 71 items / 29 blueprints / 7 structures / 9 perks / 78 custom images / 2 triggers / 2 Animals manifests (Owl, Hawk) / 4 GameSourceModify patches / 3 EncounterGuards / 1 liquid.
+**Content**: 74 items / 30 blueprints / 8 structures / 9 perks / 78 custom images (plus 4 declarative `Animals/*.json` species manifests and 2 spawn triggers).
 
-**Stability**: 10/10 - 0 CRITICAL, 0 design gaps, 2 open warnings. Both open warnings are player-facing description-vs-data inaccuracies in the Working Animals module (Ox Plough's "the Bull gets hungrier" claim with no field implementing it; Ox Cart's unconditional haul text that is actually Bull-conditional) surfaced by the working-module critical-analysis (CURRENT at `a3e7e9e4c`, 2026-10-23). The 2026-10-21 reliability warnings (Tend Flock and owl cave-rule Debug-only catches, RecallWhistle saved-weight catch) are all RESOLVED; the 2026-10-20 per-type CRITICALs and their warnings are fixed in 8e0a8b7de, Pack Bond guard and Shears text in da5ee9b33. Module-scoped audits: 8 of 10 modules fully CURRENT and clean (companions, dairy, textiles, wolf, fox, owl, hawk, working); sheep and modwide reports are STALE and defer to the mod-level pass.
+**Stability**: 9/10 - 0 CRITICAL, 2 WARNING (hawk/owl "only one companion" not enforced young-animal-first; four companion patches have no static regression gate), 1 cosmetic minor. Build clean (0/0), versions synced at 1.22.12, Bin/Release in sync, EN/CN parity CLEAN (704/704).
 
-**Open work**: No open or pending retrospectives name this mod. No open plan existed before this pass (the vanilla-balance-and-niche plan was built and archived as `Documentation/Design/Sirus23_Vanilla_Balance_And_Niche_As_Built.md`, 1.22.6-1.22.8). `/audit-to-plan` may open a MASTER_PLAN remediation section for the two Ox docs warnings. What otherwise remains is in-game verification on tracker rows and the release of 1.22.9/1.22.10.
+**Open work**: none - no retrospective in `Documentation/Retrospectives/INDEX.md` names Sirus23 / S23 (0 open, 0 pending). The prior pass's two findings (reciprocal hawk companionship, README under-claiming) are both closed.
 
-**Framework compliance**: Tier 2, fully adopted. `Plugin.cs` extends `ContentModPlugin`; patchers use `ActionRouter`, `SpawnService`, `TickEvents`, `CompanionService` and declarative `EncounterGuards`. Declarative content (BlueprintTabs, GameSourceModify, Animals manifests, EncounterGuards) used throughout. No deprecated patterns (`DropCollectionGuardPatch`, unfiltered hot-path prefixes, `ModLoaderVerison`) present.
+**Framework compliance**: Tier 2, fully adopted. `ContentModPlugin` (`Plugin.RegisterPatches`), `ActionRouter` (companion fetch/recall handlers), `SpawnService.Spawn(uid, stats)`, `TickEvents.Interval` (companion upkeep, recall poll), declarative `EncounterGuards/*.json` (wildlife-vs-companion), and the declarative `Animals/*.json` species system. Hard-requires CSFF Mod Framework 2.28.0 (`CardUtil.GrantInRunPerk`, `Api.Localized.Text`), so it batch-ships with the framework (enforced at upload by `nexus_publish.py` RefCheck). No deprecated patterns (no `DropCollectionGuardPatch`, no `ModLoaderVerison`/`ModEditorVersion`, no unfiltered hot-path prefix, no manual perk/blueprint injection).
 
 ---
 
-## Phase 0: Stabilize
+## Phase 0: Stabilize  *(skipped - audit score 9/10 >= 8 and 0 open retrospectives)*
 
-> Audit score is 10/10 with 0 CRITICAL and no open retrospectives. The two open warnings are player-facing docs-honesty, worth landing before the next public upload; neither fails the mod. The prior pass's two logging warnings (W1/W2) and the RecallWhistle catch are RESOLVED (same commit, 2026-10-21).
-
-| Item | Type | Priority | Complexity |
-|------|------|----------|------------|
-| Ox Plough Bull-hunger text (README:247): soften the "the Bull gets hungrier" line to match what ships (player/field/plough bear the cost), OR add a real Bull NPCStat hunger write on the "Plough the Field" path | Docs-honesty (or small feature) | P1 | Quick (text) / Medium (feature) |
-| Ox Cart haul text (OxCart.json CardDescription + SimpCn + README:251): ADJUDICATE first - split container capacity (`MaxWeightCapacity: 6000`, real) from haul-while-held (the Bull-only CantHaulSoMuchPenalty drop); then qualify the text as Bull-conditional or make the no-Bull branch actually haul more. Confirm the Bull-branch haul magnitude in game before quoting a number | Docs-honesty | P1 | Quick (text) / Medium (verify + retune) |
+> No CRITICAL issues and no open retrospectives, so there is nothing that must land before new content. The one correctness-adjacent item (W1, the young-animal-first companion duplicate) is non-blocking and over-delivers rather than breaking, so it leads Phase 1 instead of gating the mod.
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes; all currently met - this phase is a standing checklist, not open work.
+> Close the two open warnings and the cosmetic minor; keep the hygiene that is already green. These harden an otherwise ship-ready mod.
 
-| Item | Type | State |
-|------|------|-------|
-| Versions synced across ModInfo/Plugin.cs/README (1.22.10 x3) | Version hygiene | DONE |
-| Tier 2 framework adoption (ActionRouter/SpawnService/TickEvents/CompanionService) | Framework | DONE |
-| SimpCn.csv Chinese parity (CLEAN; 1.22.10 Ferret food text in both files) | Localization | DONE |
-| bin/Release sync clean | Build hygiene | DONE |
-| Publish 1.22.9/1.22.10 to Nexus - re-verify with `/nexus-publish status`; build needs framework > Nexus 2.26.12, so ship in a framework batch; Pack Bond needs framework 2.28.0 | Release | TODO |
+| Item | Type | Priority | Complexity |
+|------|------|----------|------------|
+| **Enforce "only one companion" young-animal-first for hawk AND owl** (W1). Pick one shared fix: hide the Tame interaction while `fc_eyas`/`fc_owlet` is held, or gate the young animal's grow-into-companion to check for an existing companion on the board, or extend `SuppressWhileCardOnBoard` to accept a second UID. The reachable duplicate (raise young, tame wild mid-growth, young matures -> two companions) contradicts the card's own "only one" text. | Mechanical-contradiction fix (shared, 2 species) | P1 | Medium (data-only option) / Complex (framework multi-UID schema) |
+| **Add `Sirus23-CompanionRecallAndStay.Tests.ps1`** (W2): pin `IndoorOrCaveEnv.EnvUids`, the Recall Whistle UID match + 6-second verify/restore window, and `CompanionContainerGuardPatch.ProtectedUids` = the four companion UIDs. Four of five companion patches currently ship with only a one-time human/harness PASS and no static gate. | Regression gate | P1 | Medium |
+| **Rename Fox/Owl `CardInteractions[4]` LocalizationKeys** (m1) from the `fc_<x>_companion_CardInteractions[4].*` bracket-index style to the `FC_<X>Companion_CI4_*` convention (+ matching SimpEn/SimpCn rows in the same commit). Cosmetic, no functional effect. | Cosmetic / key hygiene | P2 | Quick |
+| **Re-stamp the five STALE module dimensions** (owl mod-report + CA, companions CA, modwide mod-report + CA) to the current HEAD at the next module pass. Content is already 2026-11-07 and re-verified; this is commit-hash-lag housekeeping only. | Audit housekeeping | P2 | Quick |
+| Version hygiene / localization / framework tier - **already green** (synced 1.22.12, SimpCn parity CLEAN 704/704, Tier 2 adopted). Maintain, do not redo. | Hygiene (maintained) | - | - |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> The mod's core loops are complete and recently extended (1.22.8 niche content, 1.22.9/1.22.10 fixes). No new core content is justified until the pending in-game verification confirms what is already built. The next "expansion" work is closing verification debt, not writing features.
+> The mod's core loops are mature and complete. The one natural content addition is the flip side of the W1 fix.
 
-### Close 1.22.8 / 1.22.9 / 1.22.10 verification debt
-**What**: Run the pending tracker rows in-game and record results: T2.587-T2.591 (the 1.22.9 audit fix set: feeder spill, Rotten Remains, bedroll sleep tag and plough, Pack Bond, EN/CN text), T2.582 (felt wet-weather), T2.583 (fox forager's-aid), T2.585 (owl pest-control cadence), T2.586 (lanolin waterproofing), the older pending companion/sheep rows (T2.561-T2.574, tame rows T2.551/T2.552 await `record`), plus the working-module Ox Cart haul-magnitude check (new, for Phase 0 W2).
-**Why**: The code is built; these are open questions on `.claude/playthrough-test-status.json`, not findings. A failed row returns as a fix. Code work is not blocked on them (CLAUDE.md: code never waits on a playthrough).
-**Requires**: a running build; the Transfer-TestingState sync if verified on the testbox.
-**Complexity**: Medium (human playthrough, not code).
+### Alternate young-animal payoff when a companion is already held
+**What**: When the W1 fix blocks a second companion, make the young animal's grow or the wild-tame hand the player an alternate reward instead of nothing - a juvenile that stays a wild follower, or a down/feather/pelt drop - so closing the duplicate does not feel like lost effort.
+**Why**: Turns a bug fix into a small content beat; keeps the raise-an-eyas / find-an-owlet loop rewarding even for a player who already bonded the grown bird.
+**Requires**: W1 (Phase 1) - this is the branch W1's grow-gate creates.
+**Complexity**: Medium
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> Cross-mod producer/consumer halves are all shipped or live in the partner mod's own scope.
+> Cross-mod hooks already exist (H&F Truffle Hog, ACT/CMC interior follow, Lanolin-for-Fat in six base recipes, wool yarn onto any base-game loom). The remaining depth is a framework generalization that also closes W1 the clean way.
 
-### Cross-mod state (all resolved)
-**What**: Wool washing (shipped in-mod), H&F herb remedies in Treat Wounds + herb-infused dairy (shipped), Lanolin-stands-in-for-Fat (shipped, needs framework 2.28.0+), ACT copper/iron Shears tier (Sirus `tag_Shears` CI already accepts it, no Sirus change), RepeatAction repeat milking/shearing (shipped, T2.22 confirmed), PartnerOverhaul NPCs eat Sirus food (shipped).
-**Why**: Documented in `.audit/ideas.md` Cross-Mod table; no open Sirus-side work remains.
-**Requires**: none.
-**Complexity**: N/A (done).
+### Multi-UID `SuppressWhileCardOnBoard` (framework)
+**What**: Extend the declarative `Animals/*.json` `Spawn.SuppressWhileCardOnBoard` field (today single-UID, `AnimalSchema.cs:64`) to accept a list, so a wild species can be suppressed while EITHER its grown companion OR its juvenile is held.
+**Why**: It is the cleanest W1 fix and it is reusable - any future "find young, then tame wild" species (and both of Sirus23's current ones) gets correct uniqueness from one manifest field instead of per-mod C#.
+**Requires**: Coordination with CSFFModFramework (schema + validator + loader); already in the framework batch Sirus23 ships with.
+**Complexity**: Medium
 
 ---
 
 ## Phase 4: Polish
 
-> Art and text are in good shape (78 custom images, WildHawk sprite wired via Animals manifest). No open art gaps.
+> Art and text are in strong shape (78 custom images, descriptions re-verified honest this pass). Little remains.
 
 | Item | What | Complexity |
 |------|------|------------|
-| Art review pass | Run `/review-art Sirus23_Mod_Collection` if any 1.22.8 image was regenerated/altered and needs a fresh verdict | Quick |
-| Description accuracy | README is heavily caveated and matches the tracker; re-check "not yet confirmed in the game" lines after each verification pass so passing rows do not leave stale under-claims. The two Ox cards (Phase 0) are the current live description-vs-data gaps | Quick |
+| Fox/Owl CI4 key rename | The m1 cosmetic LocalizationKey cleanup (also listed in Phase 1) | Quick |
+| Description / caption watch | README captions are all honest as of `46f2692ff`; re-check the three still-unconfirmed captions (Wild Sheep live loop / T2.2144, owl recall night clause, milked-dry-to-Tame) when their tracker rows pass, and flip them then | Quick |
+| J27 self-sink heuristic (fleet, not this mod) | Teach `/audit-items`'s J27 check to count a card's own self-targeted destroying CI as downstream use, so the four carcass false positives stop costing an adjudication line every pass | Medium |
 
 ---
 
@@ -81,10 +77,13 @@ Audit score: 10/10 - PASS (0 CRITICAL)
 
 > Where this mod should be at v1.23+.
 
-Sirus23 is feature-complete for its theme: a companion-and-husbandry layer that closes vanilla's livestock and fibre gaps end to end (acquire -> tend -> produce -> preserve -> wear). Its natural endpoint is a fully-verified, Nexus-published 1.22.x with every companion, sheep, dairy and felt loop confirmed in-game and the two Ox docs gaps closed, then a move toward `Stable/` once the verification debt is cleared and the mod only updates to track game/framework versions. The biggest addition that would become natural at a larger scale is a dedicated shepherd/trainer NPC economy, but that was ruled out in the as-built plan (it belongs to CMC's village scope) - do not re-propose it here.
+Sirus23 is a mature, feature-complete companion-and-husbandry collection; its next version is about edge-case correctness and reuse, not new systems. The natural endpoint is a mod where every "only one at a time" rule is actually enforced in both directions (via the framework's multi-UID suppression), every patch has a static regression gate rather than a one-time playthrough PASS, and the declarative `Animals/*.json` system it helped prove out is clean enough that a new species is a manifest, not a patcher. The biggest addition that is not yet justified is a second tier of husbandry depth (a goat or a second dairy animal) - natural only once the sheep/dairy loop's own verification debt (T2.2144 and the live-play rows) is cleared.
 
-**Potential major additions** (not yet justified - revisit only after verification debt clears):
-- None currently selected. The as-built plan's "Considered, not selected" rulings (husbandry mastery perk, shepherd-trainer NPC) carry their rejection reasons; do not re-promote.
+**Potential major additions** (not yet justified - revisit after Phase 3):
+- A second dairy/husbandry species reusing the sheep system's pen/feeder/perk scaffolding - fits the farm theme, but only after the sheep live-play rows confirm the existing loop end to end.
+- A companion "command" or recall depth pass (multi-companion coordination) - fits the companion theme, but current scope (one of each, mutual-exclusion bonuses) is already coherent and complete.
+
+Any of these worth building belongs in a new `Documentation/Plans/Sirus23_Mod_Collection/` plan (or its Considered table, with the reason, if not); do not create a stub under `Documentation/Ideas/`.
 
 ---
 
@@ -93,10 +92,9 @@ Sirus23 is feature-complete for its theme: a companion-and-husbandry layer that 
 | Trigger | Action |
 |---------|--------|
 | After any new content phase | Run `/audit-mod Sirus23_Mod_Collection` and update this roadmap |
-| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
-| After fixing a critical issue | Run `/critical-analysis Sirus23_Mod_Collection` to verify the fix |
-| After a verification pass | Re-check README "not yet confirmed" lines against `.claude/playthrough-test-status.json` |
-| Before release | Run `/nexus-publish status`; ship in a framework batch (build needs framework > Nexus 2.26.12) |
+| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log`; refresh `lib/Assembly-CSharp.dll` |
+| After fixing W1 (or any correctness item) | Run `/critical-analysis Sirus23_Mod_Collection` (or the hawk/owl module pass) to verify |
+| Before a Nexus upload | Batch-ship with the framework (2.28.0+ minimum); run `/nexus-publish status` and confirm the RefCheck gate |
 
 ---
 
@@ -105,12 +103,13 @@ Sirus23 is feature-complete for its theme: a companion-and-husbandry layer that 
 ```
 /audit-mod Sirus23_Mod_Collection         - full health check, updates .audit/
 /critical-analysis Sirus23_Mod_Collection - adversarial review
-/code-quality Sirus23_Mod_Collection      - C# reliability review
 /repair-items Sirus23_Mod_Collection      - auto-fix item JSON issues
+/repair-blueprints Sirus23_Mod_Collection - auto-fix blueprint JSON issues
 /build-mod Sirus23_Mod_Collection         - build Release DLL
 /deploy-mods Sirus23_Mod_Collection       - build + deploy to game
-/nexus-publish status                     - live-vs-local version per mod
+/update-mod-version Sirus23_Mod_Collection <ver> - bump version in all 3 files
 /export-to-repo Sirus23_Mod_Collection    - push to public repo
+/nexus-publish status                     - live-vs-local publish state
 ```
 
 ---
@@ -406,3 +405,61 @@ re-promote any of the six shipped rows.
 - **Decisions:** owner, 2026-10-18 (chat): N4's treatment is raw Lanolin and only the six Sirus23 felt/wool pieces take it. Dispatcher retune before commit: N4 RainProtection 0.75 -> 0.28 per piece, because at 0.75 a full treated set reached Max Protection, above any vanilla coat (owner 2026-10-14, "balance, not steamroll").
 - **Evidence:** `Deploy-Mods.ps1 -Sirus23ModCollection` built and deployed 1.22.8 clean (the N3 C# compiled). Workspace Pester run 2026-10-18: Sirus23-Balance, Framework-EncounterGuardScope, Localization and CardArt containers green. The suite total was red for causes outside this mod: MUM-CompiledLogic and the framework fixtures could not start dotnet in the run's shell, plus Far Territory, Harsh Wilds, ACT pre-rewrite pins and embedded-ZIP currency for six mods (Sirus23 among them, owed at the suite pack).
 - **Verification debt:** T2.582 (N1), T2.583 (N5), T2.585 (N3), T2.586 (N4), with T2.576 to T2.581 and T2.1713 to T2.1723 still pending; the id between T2.583 and T2.585 is unused. Release: framework, CMC and Sirus23 1.22.8 in one suite batch, Mod Update Manager last.
+
+### 2026-10-31 - MASTER_PLAN (Nexus requests, Chiwei c174135852), built and archived
+- Scope: `Documentation/Plans/Sirus23_Mod_Collection/MASTER_PLAN.md` (rows 1.1 wild sheep as roaming animals, 1.2 companion food bowls).
+- **Verdict:** DRAINED. Both rows built unreleased by mission `csff-nexus-fix-sirus23-2026-10-31` on the owner's 2026-10-31 instruction to fix the open Nexus reports (the plan had held them for an owner decision; that instruction is the decision).
+- **Disposition:** ARCHIVE - moved to `Documentation/Design/Sirus23_Nexus_Requests_2026-10_As_Built.md` with each "Decided 2026-10-31" choice and a Considered table (Ferret and Truffle Hog bowls, bowls for the young animals, feeding while away, an agent-side tame, snare catches); `Documentation/Plans/` again has no Sirus23 folder.
+- **Evidence:** `Sirus23-WildSheepAnimals.Tests.ps1` and `Sirus23-CompanionFoodBowl.Tests.ps1` red on a copy of the pre-change tree and green after; `AllCards-EnvScoping.Tests.ps1` gained the bowl finder with a planted break; Release build clean.
+- **Verification debt:** T2.2142 (Food Bowl, harness), T2.2143 (wild sheep load and carcasses, harness), T2.2144 (trap, hunt and respawn, a person in play). Carcass art is the Sheep Remains picture for now.
+
+### 2026-11-06 - MASTER_PLAN (AN1, hawk reciprocal companionship), drained and deleted
+- Scope: `Documentation/Plans/Sirus23_Mod_Collection/MASTER_PLAN.md` (feature AN1, the sole row, promoted 2026-11-05 by `/audit-to-plan` from `.audit/ideas.md` D1) and its one-prompt pack.
+- **Verdict:** 1 of 1 claim BUILT: `WolfCompanion.json`, `FoxCompanion.json` and `OwlCompanion.json` each gained a reciprocal `Companionship (fc_hawk_companion)` `PassiveEffects` entry at 0.05 with the Wolf > Fox > Owl `RequiredCardsNOTOnBoardWarpData` exclusion ladder, mirroring `HawkCompanion.json`'s own three entries exactly; `README.md:130` reworded from "gain nothing from the hawk" to the symmetric claim; `CHANGELOG.md` `[Unreleased]` Added gained the player-facing entry. 0 OPEN, 0 FAILED, 0 OBSOLETE (the pack held one prompt, this same claim). Owner go-ahead recorded in the pack header: "build AN1 now at the plan's stated 0.05 magnitude" (2026-11-05, this session). Disposition and removal carried out on the owner's direct instruction in chat, 2026-11-06 ("close up and add any test cases to the test plan then remove the plan file"), not a `/cleanup-plans` sweep.
+- **Disposition:** DELETE. This single-claim plan (an `/audit-to-plan` promotion table plus its promotion log) carries no design rationale beyond what `.audit/ideas.md` D1, the CHANGELOG entry, this log entry and the three committed JSON diffs already hold - no `Documentation/Design/Sirus23_*_As_Built.md` archive is warranted, the same call this mod's prior single-claim closeouts made (`RepeatAction`'s 2026-11-05 "drained and deleted" entry is the same shape).
+- **Pruned:** the whole plan doc and its implementation-prompts pack removed from `Documentation/Plans/`, which again has no Sirus23 folder.
+- **Evidence:** diffs read from disk, not believed from the dispatched agent's self-report: `git show --stat 007149899` (+14 `WolfCompanion.json`, +18 `FoxCompanion.json`, +19 `OwlCompanion.json`, +1/-1 `README.md`, +46/-2 `Sirus23-Balance.Tests.ps1`); each new `PassiveEffects` entry diffed field-for-field against `HawkCompanion.json`'s own three entries (exact match on `EffectName`, `Conditions.RequiredCardsOnBoardWarpData`/`WarpType`, the matching `RequiredCardsNOTOnBoardWarpData`/`WarpType` per rung, `ConsumableChargesModifier.Active`/`FloatValue: 0.05`, `MultiplyConsumableChargesRate: false`); `Sirus23-Balance.Tests.ps1` re-run independently of the dispatched agent's own watched-red-then-green pass: 27/27 PASS. `.audit/ideas.md` D1 marked BUILT in the same pass so `/audit-to-plan` does not re-promote it.
+- **Verification debt:** T2.2200 (pending, person check: the reciprocal Morale-decay slowdown beside the hawk, and that it is exclusive to the highest-priority companion present per the Wolf > Fox > Owl ladder when more than one shares the board).
+
+
+### 2026-11-06 - Fleet_APE_Port
+Scope: Fleet
+- **Verdict:** Fully landed. Section 10 (W0.10) rows 11 and 14 - the plan's last two open code
+  rows - built, build-verified across every affected mod, and gate-verified in Prompts 45 and
+  46 (`Api.Npc.RegisterMoveGuard`/`MoveGuardPatch` for row 11; `GameQuery.IsInPlayerEnv` made
+  public plus 3 call-site migrations for row 14). Every other section (1, 2, 3, 4.1, 5.1, 5.7,
+  6.4, 6.5, 8, 9) was already reduced to as-built lines in earlier prompts. 0 open code rows
+  remain in the plan or its pack.
+- **Disposition:** ARCHIVE - plan doc moved to `Documentation/Design/Fleet_APE_Port_As_Built.md`
+  (full history preserved, nothing summarized away). Pack
+  (`MASTER_PLAN_Implementation_Prompts.md`) DELETED per policy (packs are always deleted, never
+  archived); its citations elsewhere were repointed to the landing commit of the row each one
+  names, since no archive exists for it.
+- **Pruned:** `Documentation/Plans/Fleet/MASTER_PLAN.md` and
+  `Documentation/Plans/Fleet/MASTER_PLAN_Implementation_Prompts.md`, both now removed from
+  `Documentation/Plans/Fleet/`.
+- **Evidence:** Row 11 commit `9a5305424` (Prompt 45, `Api.Npc.RegisterMoveGuard` +
+  `MoveGuardPatch`, collapsed into the pack by `a3c7ab227`); row 14 commit `5c28c03e4` (Prompt
+  46, `GameQuery.IsInPlayerEnv` public plus the 3 call-site migrations in one commit, collapsed
+  into the pack by `e01e911ef`); unrelated pre-existing gate fix found during verification,
+  commit `6f0a0bc91` (`CMC-SilentExits.Tests.ps1`, 3 stale rows from the earlier StatAccess
+  migration); citation sweep commits `6567bc510` (`.claude/playthrough-test-status.json`
+  private-index fix) and `e01776032` (gate comment + `AUTHORING.md`). `python3 -c` count against
+  `.claude/playthrough-test-status.json`'s `items` bucket for rows citing
+  `Fleet_APE_Port_As_Built.md`: 4 pending, 0 dropped; `confirmedItems` bucket: 25 already
+  confirmed. `git status --porcelain -- Documentation/Plans/Fleet/` empty after the move.
+- **Verification debt:** 4 rows still `pending` in `.claude/playthrough-test-status.json`
+  `items` as of this sweep: `cmc_homestead_kit_metal_nuggets`,
+  `fw_mod_action_sounds_resolve_smithing_heard`, `fw_heated_metal_art_look_person`,
+  `act_metal_gloves_art_look_person`. Per CLAUDE.md "code work never waits on a human
+  playthrough," these do not block this archival; they remain open tracker rows for a future
+  human playthrough pass to confirm.
+
+### 2026-11-11 - MASTER_PLAN (AF1 one hawk / one owl companion, AN1 alternate payoff), drained and deleted
+- Scope: `Documentation/Plans/Sirus23_Mod_Collection/MASTER_PLAN.md` (the two audit-remediation rows promoted 2026-11-07: fix AF1, feature AN1) and its three-prompt pack.
+- **Verdict:** AF1 BUILT in two commits, AN1 OBSOLETE, 0 open. Framework 2.29.2 (`275b52b3d`) adds `Spawn.AlsoSuppressWhileCardsOnBoard`, an optional list of further suppressor cards beside the single-string `SuppressWhileCardOnBoard` (an older framework ignores the key and keeps one-card suppression). Sirus23 1.22.14 (`368dd5517`) lists `fc_eyas` on `Animals/Hawk.json` and `fc_owlet` on `Animals/Owl.json`, so the wild bird is retired while its young bird or its companion is on the board. Both versions are unreleased and must ship in one suite batch. AN1 (an alternate payoff for a young bird whose growth is blocked) was defined as the branch AF1's grow-gate creates; AF1 was built as suppression, so there is no grow-gate: the `SpoilageTime.OnZero` drop in `Eyas.json` and `Owlet.json` carries no blocker and a young bird always grows into the one companion.
+- **Disposition:** DELETE. A two-row `/audit-to-plan` promotion table plus its promotion log, with no design rationale beyond what the two CHANGELOG entries, `Documentation/Design/Animals_Schema.md` (the key and why it is a second key), the two gates and this entry hold. No `Documentation/Design/Sirus23_*_As_Built.md` archive is warranted, the same call as the 2026-11-06 entry above.
+- **Pruned:** the whole plan doc and its implementation-prompts pack removed from `Documentation/Plans/`, which again has no Sirus23 folder. Pack: Prompt 1 (framework) and Prompt 2 (Sirus23 data) built, Prompt 3 (AN1, held by the hardening freeze) removed as obsolete without being dispatched.
+- **Evidence:** `Development_Tools/Tests/Framework-AnimalAlsoSuppress.Tests.ps1` (the real parse, validator rules and tick decision from the built DLL, and every shipped Animals manifest through the same code; 18 of 21 red on the pre-change DLL, 3 red on a build with the two validator rules cut out, 1 red on a scan root with an unresolved card and the key on its own). `Development_Tools/Tests/Sirus23-YoungBirdSuppressor.Tests.ps1` (every card that grows into a suppressor card by itself is in that manifest's list, derived from the JSON; red on a copy of the mod with `fc_eyas` removed from `Hawk.json`). `git show --numstat 275b52b3d` and `368dd5517` read against the intended edits; Release builds of both projects clean on 2026-11-11. The hand-over was read in `AnimalLifecycleTicker.TickSuppressedRespawn`: a retired tick with any suppressor on the board zeroes the return timer, so the one-action eyas-to-companion swap cannot reach the 288-tick restore.
+- **What suppression does not reach** (recorded so the idea is not lost; none of it is built): a save that already holds both a young bird and that bird's companion when it updates still gets a second companion when the young bird grows, and a player on a framework before 2.29.2 keeps the old behaviour. A grow-gate on the young bird's drop would close both, and would need AN1's alternate payoff with it so a blocked young bird is not simply lost. That pair is a new feature and waits on the hardening freeze.
+- **Verification debt:** T2.2205 (`sir_one_bird_young_suppresses_wild`, pending, a person in play: no wild bird while its young bird is held, one companion when it grows, the wild bird back about three days after both are gone, companion-first unchanged).

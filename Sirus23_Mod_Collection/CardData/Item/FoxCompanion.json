@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "fc_fox_companion",
         "LocalizationKey": "FC_FoxCompanion_CardDescription",
-        "DefaultText": "A quick-witted fox that has taken a liking to you. Keep it fed and watered or it will wander off."
+        "DefaultText": "A quick-witted fox that has taken a liking to you. Keep it fed and watered, or it will weaken and die."
     },
     "CardType": 0,
     "ObjectWeight": 100,
@@ -629,6 +629,25 @@
             "ConsumableChargesModifier": {
                 "Active": true,
                 "FloatValue": 0.0625
+            },
+            "MultiplyConsumableChargesRate": false
+        },
+        {
+            "EffectName": "Companionship (fc_hawk_companion)",
+            "Conditions": {
+                "RequiredCardsOnBoardWarpData": [
+                    "fc_hawk_companion"
+                ],
+                "RequiredCardsOnBoardWarpType": 3,
+                "RequiredCardsNOTOnBoardWarpData": [
+                    "fc_wolf_companion",
+                    "fc_owl_companion"
+                ],
+                "RequiredCardsNOTOnBoardWarpType": 3
+            },
+            "ConsumableChargesModifier": {
+                "Active": true,
+                "FloatValue": 0.05
             },
             "MultiplyConsumableChargesRate": false
         },

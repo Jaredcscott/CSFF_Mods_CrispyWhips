@@ -280,19 +280,13 @@ internal static class CompanionHuntPatch
         => card != null && TryFindNpcByCard(card, out var npc) && IsVanillaWildWolfPackNpc(npc);
 
     private static bool IsVanillaWildWolfPackNpc(object npc)
-    {
-        var model = Reflect.GetMember(npc, "NPCModel");
-        return model != null && Reflect.GetMember(model, "UniqueID") as string == VanillaWolfPackAgentUid;
-    }
+        => ReadWildAgentUid(npc) == VanillaWolfPackAgentUid;
 
     private static bool IsVanillaWildWolfCard(object card)
         => card != null && TryFindNpcByCard(card, out var npc) && IsVanillaWildWolfNpc(npc);
 
     private static bool IsVanillaWildWolfNpc(object npc)
-    {
-        var model = Reflect.GetMember(npc, "NPCModel");
-        return model != null && Reflect.GetMember(model, "UniqueID") as string == VanillaWolfAgentUid;
-    }
+        => ReadWildAgentUid(npc) == VanillaWolfAgentUid;
 
     /// <summary>True when <paramref name="card"/> is the live board card of a real vanilla
     /// Agent_Fox1/Agent_Fox2 NPC (not a mod-authored species) — found by scanning GameManager's
@@ -302,9 +296,39 @@ internal static class CompanionHuntPatch
 
     private static bool IsVanillaWildFoxNpc(object npc)
     {
-        var model = Reflect.GetMember(npc, "NPCModel");
-        var uid = model != null ? Reflect.GetMember(model, "UniqueID") as string : null;
+        var uid = ReadWildAgentUid(npc);
         return uid == VanillaFoxAgent1Uid || uid == VanillaFoxAgent2Uid;
+    }
+
+    // One shared read of a live NPC's wild-agent UID, with a per-missing-member WarnOnce so a renamed
+    // NPCModel/UniqueID (a future game update) is a VISIBLE failure, not a silent wild-tame death
+    // (CLAUDE.md Silent Catch Blocks, G5: a non-throwing Reflect read fails closed). Reflect.TryGetMember
+    // distinguishes "member could not be resolved" (returns false -> warn once) from "member read, value
+    // is null" (a live NPC with no model/UID -> a legitimate non-match that stays silent, like the
+    // ordinary "this card is not this NPC" path). Returns null in every non-match case.
+    private static readonly System.Collections.Generic.HashSet<string> _warnedMembers = new(StringComparer.Ordinal);
+
+    private static void WarnOnceMember(string cause, string what)
+    {
+        if (_warnedMembers.Add(cause))
+            Plugin.Logger.LogWarning($"[CompanionHunt] {what} could not be read by reflection; wild-animal taming (fox/wolf/wolf pack) can no longer identify its target and will not fire. Logged once per cause.");
+    }
+
+    private static string ReadWildAgentUid(object npc)
+    {
+        if (npc == null) return null;
+        if (!Reflect.TryGetMember(npc, "NPCModel", out var model))
+        {
+            WarnOnceMember("NPCModel", "InGameNPC.NPCModel");
+            return null;
+        }
+        if (model == null) return null;   // a live NPC with no model: a legitimate non-match, stays silent
+        if (!Reflect.TryGetMember(model, "UniqueID", out var uid))
+        {
+            WarnOnceMember("UniqueID", "the NPC model's UniqueID");
+            return null;
+        }
+        return uid as string;
     }
 
     /// <summary>Scans GameManager.AllNPCs for the live InGameNPC whose synthesized board card is
@@ -339,7 +363,14 @@ internal static class CompanionHuntPatch
         foreach (var candidate in allNpcs)
         {
             if (candidate == null) continue;
-            if (ReferenceEquals(Reflect.GetMember(candidate, "AssociatedCard"), card))
+            if (!Reflect.TryGetMember(candidate, "AssociatedCard", out var assoc))
+            {
+                // Unresolvable on this candidate means unresolvable on every one (same type), so the
+                // scan cannot succeed: warn once and stop, rather than silently returning no match.
+                WarnOnceMember("AssociatedCard", "InGameNPC.AssociatedCard");
+                return false;
+            }
+            if (ReferenceEquals(assoc, card))
             {
                 npc = candidate;
                 return true;

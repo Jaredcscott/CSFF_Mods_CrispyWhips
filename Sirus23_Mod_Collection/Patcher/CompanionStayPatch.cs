@@ -45,6 +45,7 @@ internal static class CompanionStayPatch
     private static FieldInfo _nextEnvironmentField;
     private static bool _nextEnvironmentMissing;
     private static PropertyInfo _envCardProperty;
+    private static bool _envCardMissing;
 
     // The getter postfix runs on every IndependentFromEnv read, so a catch that starts firing after a game
     // update must warn once per cause, not per card read.
@@ -163,28 +164,35 @@ internal static class CompanionStayPatch
             object envId = _nextEnvironmentField.GetValue(gm);
             if (envId == null) return false;
 
-            _envCardProperty ??= envId.GetType().GetProperty("EnvCard",
-                BindingFlags.Instance | BindingFlags.Public);
+            if (_envCardMissing) return false;
+            if (_envCardProperty == null)
+            {
+                _envCardProperty = envId.GetType().GetProperty("EnvCard",
+                    BindingFlags.Instance | BindingFlags.Public);
+                if (_envCardProperty == null)
+                {
+                    // An EnvCard-property miss (a game update renamed it) is distinct from the benign
+                    // case where the property reads null outside a resolved destination: warn once and
+                    // latch here, exactly as the NextEnvironment field miss above does, so the owl's
+                    // silent death is visible rather than folded into a per-transition Info line.
+                    _envCardMissing = true;
+                    Plugin.Logger?.LogWarning("[CompanionStay] EnvID.EnvCard property not found; the owl will no longer be left behind when entering a cave/building.");
+                    return false;
+                }
+            }
             if (_envCardProperty?.GetValue(envId) is not UnityEngine.Object envCard || envCard == null)
             {
-                Plugin.Logger?.LogInfo("[CompanionStay] Owl destination check: NextEnvironment.EnvCard is null — cannot evaluate this transition.");
+                Plugin.Logger?.LogDebug("[CompanionStay] Owl destination check: NextEnvironment.EnvCard is null - cannot evaluate this transition.");
                 return false;
             }
 
-            // DO NOT demote these three lines to LogDebug. They read as leftover bring-up
-            // instrumentation now that T2.75 (owl biome-gated follow) is recorded PASS, and the
-            // 2026-09-05 audit did recommend demoting them on exactly that reasoning - but the
-            // CLAUDE.md demotion guard applies here and that adjudication was wrong. The open
-            // retro `Documentation/Retrospectives/river-bridge-east-click-noop.md` names this
-            // postfix under "Investigation Tooling" as a free travel tracer: it prints
-            // GameManager.NextEnvironment.EnvCard at Info on EVERY transition, so any player's
-            // LogOutput.log carries a complete env-to-env movement trace with nothing enabled,
-            // and that is how the retro established its westbound-works/eastbound-never asymmetry.
-            // At Debug it would need VerboseLogging, which player logs do not have set.
-            // Re-check that retro's status before revisiting. Re-adjudicated 2026-09-07.
+            // These per-transition lines were held at LogInfo (2026-09-07) because the retro
+            // `Documentation/Retrospectives/river-bridge-east-click-noop.md` used them as a free
+            // env-to-env travel tracer. That retro graduated 2026-10-12 (framework 2.25.30, T2.186),
+            // so they now sit at LogDebug: a travel trace needs debug logging enabled.
             bool match = IndoorOrCaveEnv.Matches(envCard);
-            Plugin.Logger?.LogInfo(match
-                ? $"[CompanionStay] Owl left behind — destination '{CardUtil.GetCardUniqueId(envCard)}' is a known cave/structure."
+            Plugin.Logger?.LogDebug(match
+                ? $"[CompanionStay] Owl left behind - destination '{CardUtil.GetCardUniqueId(envCard)}' is a known cave/structure."
                 : $"[CompanionStay] Owl destination '{CardUtil.GetCardUniqueId(envCard)}' not recognized as indoor/cave.");
             return match;
         }

@@ -8,7 +8,7 @@
     {
       "id": "sheep",
       "name": "Sheep Husbandry",
-      "summary": "Wild and tame sheep, rams, lactating ewes, lambs and remains, their spawn triggers, the Sheep Pen, Sheep Feeder, Sheep Bell and Shears, the predator tracks, the husbandry perks, and the pen, feeder and grazing-guard patches.",
+      "summary": "Wild and tame sheep, rams, lactating ewes, lambs and remains, the wild sheep and ram as roaming animals (Animals manifests, carcasses) and their retired spawn triggers, the Sheep Pen, Sheep Feeder, Sheep Bell and Shears, the predator tracks, the husbandry perks, and the pen, feeder and grazing-guard patches.",
       "paths": ["**/*WildSheep*", "**/*TameSheep*", "**/*MaleSheep*", "**/*LactatingSheep*", "**/*SheepRemains*", "**/*SheepPen*", "**/*SheepFeeder*", "**/*SheepBell*", "**/*SheepSpawn*", "**/*StartSheep*", "**/*SheepGrazing*", "**/*_sheep.*", "**/*sheep_remains*", "**/*sheep_bell*", "**/*sheep_feeder*", "**/*Lamb.json", "**/*Shears*", "**/*PredatorTracks*", "CharacterPerk/Pk_SH_HusbandryKit.json", "CharacterPerk/Pk_SH_ShepherdsStart.json"]
     },
     {
@@ -50,8 +50,8 @@
     {
       "id": "companions",
       "name": "Companion Behaviour",
-      "summary": "Shared companion behaviour: Send on Hunt and the fetches, Stay Here / Follow Me, the container guard, the cave/indoor environment check, and the Recall Whistle that calls left-behind companions back.",
-      "paths": ["Patcher/CompanionHuntPatch.cs", "Patcher/CompanionStayPatch.cs", "Patcher/CompanionContainerGuardPatch.cs", "Patcher/IndoorOrCaveEnv.cs", "**/*RecallWhistle*"]
+      "summary": "Shared companion behaviour: Send on Hunt and the fetches, Stay Here / Follow Me, the container guard, the cave/indoor environment check, the Recall Whistle that calls left-behind companions back, and the Food Bowl companions eat from.",
+      "paths": ["Patcher/CompanionHuntPatch.cs", "Patcher/CompanionStayPatch.cs", "Patcher/CompanionContainerGuardPatch.cs", "Patcher/IndoorOrCaveEnv.cs", "**/*RecallWhistle*", "**/*FoodBowl*"]
     },
     {
       "id": "working",

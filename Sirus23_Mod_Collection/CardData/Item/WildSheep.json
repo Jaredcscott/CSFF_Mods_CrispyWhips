@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "sh_wild_sheep",
         "LocalizationKey": "sh_wild_sheep_CardDescription",
-        "DefaultText": "A wild sheep roaming the forest. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources."
+        "DefaultText": "A wild sheep, caught alive in a pit trap. Offer it fresh meadowgrass to try to tame it (about 1 offering in 3 wins its trust), or slaughter it for resources."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],

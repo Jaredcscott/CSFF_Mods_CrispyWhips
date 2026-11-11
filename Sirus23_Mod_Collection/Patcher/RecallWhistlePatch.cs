@@ -303,7 +303,7 @@ internal static class RecallWhistlePatch
         try
         {
             if (card is not InGameCardBase cb || !cb) return;
-            string text = LocalizationManager.GetText(key, out var t) && !string.IsNullOrEmpty(t) ? t : fallback;
+            string text = CSFFModFramework.Api.Localized.Text(key, fallback);
             var gfx = MBSingleton<GraphicsManager>.Instance;
             if (gfx == null)
             {
@@ -314,7 +314,7 @@ internal static class RecallWhistlePatch
         }
         catch (Exception ex)
         {
-            WarnOnce("notify:" + ex.GetType().Name, $"the whistle's result line could not be shown: {ex.Message}");
+            WarnOnce("notify:" + ex.GetType().Name, $"the whistle's result line could not be shown: {ex.InnerException?.ToString() ?? ex.ToString()}");
         }
     }
 }

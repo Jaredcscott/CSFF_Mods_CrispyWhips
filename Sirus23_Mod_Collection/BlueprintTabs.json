@@ -31,7 +31,8 @@
         "sh_bp_wolf_den",
         "sh_bp_owl_perch",
         "sh_bp_sheep_bell",
-        "sh_bp_recall_whistle"
+        "sh_bp_recall_whistle",
+        "sh_bp_food_bowl"
     ],
     "Tab_1_Survival_Subtab_5_Cooking_TabName": [
         "sh_bp_butter_churn",
