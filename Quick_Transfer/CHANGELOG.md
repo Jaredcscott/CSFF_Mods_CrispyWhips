@@ -2,6 +2,13 @@
 
 All notable changes to this mod are documented here.
 
+## [1.9.4] - 2026-11-11
+
+### Fixed
+- **Prioritize Most Spoiled takes the whole older stack first.** With Drain Matching Stacks and Prioritize Most Spoiled on, an older stack of three or more could leave its third card behind while fresher cards moved in its place. Every card of the older stack now goes before the fresher ones.
+- Technical: the Prioritize branch of `FindFirstCandidate` ranked the batch's one scene scan, which sees only the two cards the game shows of each pile; it now re-reads each sibling slot's pile on every pick (`PrioritizePool`). Found by harness row T2.214 leg (f).
+- Technical: more one-time warnings in the BepInEx log, nothing you see in play. If a game update renames a member Quick Transfer reads (`SlotType`, `CannotBeTransferred`, `CardPileCount`, `CardVisuals`), the log now names it once instead of staying silent.
+
 ## [1.9.3] - 2026-10-30
 
 ### Fixed

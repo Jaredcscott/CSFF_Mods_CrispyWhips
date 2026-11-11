@@ -1,6 +1,6 @@
 # Quick Transfer
 
-**Version:** 1.9.3
+**Version:** 1.9.4
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Language:** English and Chinese (on-screen text)
@@ -159,6 +159,7 @@ The config file is `BepInEx/config/crispywhips.quick_transfer.cfg`, created on f
 
 Full notes are in [CHANGELOG.md](CHANGELOG.md).
 
+- **1.9.4:** Prioritize Most Spoiled moves every card of the older stack before the fresher ones (a third card used to stay behind).
 - **1.9.3:** a broken translation now shows in the log as a warning.
 - **1.9.2:** a card you locked with Utility Belt stays put when it is the card you modifier+click or press the Transfer Hotkey over.
 - **1.9.1:** version number only.

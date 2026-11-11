@@ -105,7 +105,7 @@ namespace Quick_Transfer.Patcher
                 }
                 else
                 {
-                    Logger.LogError("CardGraphics.OnPointerClick not found — QuickTransfer inactive.");
+                    Logger.LogError("CardGraphics.OnPointerClick not found - QuickTransfer inactive.");
                 }
 
                 ApplyBatchSoundPatch(harmony);
@@ -255,7 +255,9 @@ namespace Quick_Transfer.Patcher
                 // container reads them: an Item-row card pushes into the inspected card, an Inventory card pulls from
                 // it (SwapCard), so a Base, Equipment or Trading click never matches a listed container.
                 var clickContext = BatchContext.Read(card);
-                string clickSlotType = GetMemberValue(slot, "SlotType")?.ToString();
+                if (!Reflect.TryGetMember(slot, "SlotType", out var clickSlotTypeObj))
+                    WarnFeatureOnce("Per-container settings", "DynamicLayoutSlot.SlotType");
+                string clickSlotType = clickSlotTypeObj?.ToString();
                 string containerUid = null;
                 if (clickContext.Readable && clickContext.InspectedAlive && !clickContext.TradingWindowActive
                     && (clickSlotType == "Item" || clickSlotType == "Inventory"))
@@ -419,7 +421,9 @@ namespace Quick_Transfer.Patcher
                 var cardModel = GetMemberValue(card, "CardModel");
                 if (cardModel == null) return RefuseMoveOne("the card has no CardModel");
                 if (IsNonItemCard(cardModel)) return RefuseMoveOne("the card is not an Item");
-                if (GetMemberValue(cardModel, "CannotBeTransferred") is bool cannot && cannot) return RefuseMoveOne("the card cannot be transferred");
+                if (!Reflect.TryGetMember(cardModel, "CannotBeTransferred", out var cannotObj) || !(cannotObj is bool cannot))
+                    WarnFeatureOnce("Transfer guard", "CardData.CannotBeTransferred");
+                else if (cannot) return RefuseMoveOne("the card cannot be transferred");
                 if (IsPinnedCard(card)) return RefuseMoveOne("the card is a pinned placeholder");
                 if (UtilityBeltLockBridge.IsLocked(card)) return RefuseMoveOne("the card is locked in Utility Belt");
                 var slot = GetCurrentSlot(card);
@@ -1046,7 +1050,7 @@ namespace Quick_Transfer.Patcher
         }
 
         // Reads DynamicLayoutSlot.CardPileCount(bool _IncludePin) via cached reflection. Returns -1 if
-        // the method can't be resolved (caller treats -1 as "can't tell — assume success"). The Half
+        // the method can't be resolved (caller treats -1 as "can't tell - assume success"). The Half
         // preset passes false so a pinned placeholder is not counted as a card; the coroutine's progress
         // compare passes true, where the placeholder is the same on both sides of a click.
         static int GetPileCount(object slot, bool includePin)
@@ -1060,7 +1064,10 @@ namespace Quick_Transfer.Patcher
                     cardPileCountMethod = AccessTools.Method(slotType, "CardPileCount");
                     cardPileCountMethodOwner = slotType;
                 }
-                if (cardPileCountMethod == null) return -1;
+                // Warn once (like every other reflected member here): a persistent -1 makes the coroutine
+                // read every click as progress, which over-reports moves and disables the refused-move stop
+                // (the W0.1 464-refused-click fix). A game update renaming CardPileCount must not do that silently.
+                if (cardPileCountMethod == null) { WarnFeatureOnce("Transfer progress tracking", "DynamicLayoutSlot.CardPileCount"); return -1; }
 
                 var result = cardPileCountMethod.Invoke(slot, new object[] { includePin });
                 return result is int count ? count : -1;
@@ -1105,6 +1112,8 @@ namespace Quick_Transfer.Patcher
         sealed class ScanCache
         {
             public UnityEngine.Object[] Graphics;
+            // Prioritize Most Spoiled only: the sibling slots that scan found, re-read on every pick.
+            public List<object> SiblingSlots;
         }
 
         private static MethodInfo copyCardPileMethod;
@@ -1137,6 +1146,7 @@ namespace Quick_Transfer.Patcher
                 {
                     if (card == null || (card is UnityEngine.Object deadCard && deadCard == null)) continue;
                     var visuals = GetMemberValue(card, "CardVisuals");
+                    if (visuals == null) { WarnFeatureOnce("Fast candidate scan", "InGameCardBase.CardVisuals"); continue; }
                     if (visuals is Component c && c != null && c.gameObject.activeInHierarchy) graphics.Add(visuals);
                 }
                 return graphics;
@@ -1161,15 +1171,20 @@ namespace Quick_Transfer.Patcher
             var own = SlotGraphics(sourceSlot);
             if (own == null) return FindFirstCandidateBySceneScan(sourceSlot, uniqueId, filterTag, widen, spoiledMin);
 
+            // Ranking needs every sibling pile's cards, not just the ones the scan saw: the game hides a pile's cards
+            // past index 1, so the scan holds at most two of each sibling pile, and a third older card stayed behind
+            // while a fresher one moved (harness row T2.214 leg (f), 2026-11-04). So the sibling slots the scan found
+            // are re-read from their own piles on every pick, the way the clicked slot is.
             if (widen && Plugin.PrioritizeMostSpoiled.Value)
             {
                 if (cache.Graphics != null)
                 {
-                    var cached = MostSpoiledCandidate(Combined(own, cache.Graphics), sourceSlot, uniqueId, filterTag, spoiledMin);
+                    var cached = MostSpoiledCandidate(PrioritizePool(own, cache), sourceSlot, uniqueId, filterTag, spoiledMin);
                     if (cached != null) return cached;
                 }
                 cache.Graphics = UnityEngine.Object.FindObjectsOfType(cardGraphicsType);
-                return MostSpoiledCandidate(Combined(own, cache.Graphics), sourceSlot, uniqueId, filterTag, spoiledMin);
+                cache.SiblingSlots = SiblingSlotsOf(cache.Graphics, sourceSlot, uniqueId, filterTag, spoiledMin);
+                return MostSpoiledCandidate(PrioritizePool(own, cache), sourceSlot, uniqueId, filterTag, spoiledMin);
             }
             foreach (var g in own)
             {
@@ -1201,6 +1216,37 @@ namespace Quick_Transfer.Patcher
             all.AddRange(own);
             if (scene != null) all.AddRange(scene);
             return all;
+        }
+
+        // The clicked pile, the scan, and every sibling slot's current pile (its newly shown cards included).
+        // A card listed twice is harmless: the ranking keeps the single best.
+        static List<object> PrioritizePool(List<object> own, ScanCache cache)
+        {
+            var all = Combined(own, cache.Graphics);
+            if (cache.SiblingSlots == null) return all;
+            foreach (var slot in cache.SiblingSlots)
+            {
+                var pile = SlotGraphics(slot);
+                if (pile != null) all.AddRange(pile);
+            }
+            return all;
+        }
+
+        // The distinct slots, other than the clicked one, that hold a valid candidate in this scan.
+        static List<object> SiblingSlotsOf(UnityEngine.Object[] scene, object sourceSlot, string uniqueId, string filterTag, float spoiledMin)
+        {
+            var slots = new List<object>();
+            if (scene == null) return slots;
+            foreach (var g in scene)
+            {
+                if (!IsValidCandidate(g, sourceSlot, uniqueId, filterTag, allowSiblingSlots: true, spoiledMin)) continue;
+                var slot = GetCurrentSlot(GetCardFromGraphics(g));
+                if (slot == null || ReferenceEquals(slot, sourceSlot)) continue;
+                bool seen = false;
+                foreach (var s in slots) if (ReferenceEquals(s, slot)) { seen = true; break; }
+                if (!seen) slots.Add(slot);
+            }
+            return slots;
         }
 
         // The scan before plan Feature 17: every active card graphic in the scene, tested in scene order. Kept as the
@@ -1377,8 +1423,9 @@ namespace Quick_Transfer.Patcher
             if (cardModel == null) return false;
             var cardType = GetMemberValue(cardModel, "CardType");
             if (cardType != null && Convert.ToInt32(cardType) == 8) return false;
-            var cannotTransfer = GetMemberValue(cardModel, "CannotBeTransferred");
-            if (cannotTransfer is bool ct && ct) return false;
+            if (!Reflect.TryGetMember(cardModel, "CannotBeTransferred", out var cannotTransfer) || !(cannotTransfer is bool ct))
+                WarnFeatureOnce("Transfer guard", "CardData.CannotBeTransferred");
+            else if (ct) return false;
             // A pinned card is the faint placeholder a pinned slot keeps: a real card of the pile with its
             // own CardGraphics, which vanilla's click ignores (OnPointerClick). Never a candidate.
             if (IsPinnedCard(card)) return false;
@@ -1472,7 +1519,7 @@ namespace Quick_Transfer.Patcher
         // Delegates the actual property/field resolution + per-(Type,name) caching to the
         // framework's Reflect API. Preserves the original fallback semantics exactly: try each
         // candidate name in turn and only fall through to the next name if the resolved value
-        // is null (not merely if the member is absent) — callers rely on this to skip fields
+        // is null (not merely if the member is absent) - callers rely on this to skip fields
         // that exist on the type but aren't populated on a given instance (e.g. CurrentSlot vs
         // ContainerSlot vs ParentSlot).
         private static object GetMemberValue(object obj, params string[] names)
