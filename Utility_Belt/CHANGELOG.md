@@ -2,6 +2,17 @@
 
 All notable changes to this mod are documented here.
 
+## [0.1.9] - 2026-11-11
+
+### Fixed
+Utility Belt now carries Quick Transfer 1.9.4 and Repeat Action 2.2.5.
+
+- **Quick Transfer: Prioritize Most Spoiled takes the whole older stack first.** An older stack of three or more could leave its third card behind while fresher cards moved in its place.
+
+### Added
+
+- **Repeat Action: a run stops when a wild animal arrives** (`Stop When An Animal Arrives`, on by default). The run stops before its next repeat when a wild animal walks onto the board where you are, so it is still there when you look up.
+
 ## [0.1.8] - 2026-10-30
 
 ### Fixed
