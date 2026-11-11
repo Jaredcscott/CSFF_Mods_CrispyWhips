@@ -1,8 +1,8 @@
 # Forest Lore
 
-**Version:** 0.1.9
+**Version:** 0.1.10
 **Author:** Jared
-**Requires:** CSFFModFramework 2.28.0 or later
+**Requires:** CSFFModFramework 2.28.3 or later
 **Status:** pre-release, early development.
 
 Forest Lore adds the forest's own landmarks, ruins and hidden places. Each is a place on the map with something to do there, and everything you take away is an ordinary vanilla card. Every count, chance, refill rate and bonus below is a placeholder, not a balanced value. The mod has no settings.
@@ -43,7 +43,7 @@ The bronze nugget, here and everywhere below, is a vanilla Metal Nugget of Tin B
 - While you are in Barrow Wood it gives +1 Rain Protection and +1 Sun Protection.
 - It never decays and cannot be repaired or deconstructed.
 
-**Weeping Pine.** A lone old pine among the barrows, its bark beaded with resin. **Collect Resin** (15 minutes) gives vanilla Cold Resin, four collections from a full tree, then about one every five days while the scars refill. A vanilla Resin Tap gives one a day once built and refreshed, so the pine is a slow extra, not a replacement. It shows the base game's pine picture until it has its own.
+**Weeping Pine.** A lone old pine among the barrows, its bark beaded with resin. **Collect Resin** (15 minutes) gives vanilla Cold Resin, four collections from a full tree, then about one every five days while the scars refill. A vanilla Resin Tap gives one a day once built and refreshed, so the pine is a slow extra, not a replacement.
 
 An emptied cairn stays empty for good. Finds go straight into your hands, and anything you leave in Barrow Wood stays there.
 
@@ -77,7 +77,7 @@ Warm mud south of the Peat Bog, reached by a new South exit. It is a copy of the
 - **Mud Volcano.** **Scoop Mud** (15 minutes) gives three Mud Piles, eight scoops from a full crater. While you stand here it also warms you a little (+3 Perceived Temperature, like a mud hut room).
 - **Salt Crust.** **Scrape Salt** (15 minutes) gives Salt, two scrapes from a full crust. It regrows about ten days per scrape, so salt stays scarce.
 - **Tar Seep.** **Collect Tar** (15 minutes) gives Heated Tar, four collections from a full pool at about five days each. The tar cools into vanilla Cold Tar by itself.
-- **Deer Lick.** **Wait at the Lick** (2 hours) for a doe (about 3 in 10) or a stag (about 3 in 20) to come down for the salt; the base game's deer sighting appears and you can hunt it or let it be. It is the world's own doe or stag, so one you have killed does not come back until the base game brings it back. Three waits from a full lick, then about one every two days. The odds are placeholders, not balanced. The card shows the base game's tracks picture until it has its own.
+- **Deer Lick.** **Wait at the Lick** (2 hours) for a doe (about 3 in 10) or a stag (about 3 in 20) to come down for the salt; the base game's deer sighting appears and you can hunt it or let it be. It is the world's own doe or stag, so one you have killed does not come back until the base game brings it back. Three waits from a full lick, then about one every two days. The odds are placeholders, not balanced.
 
 A spent patch keeps its button and says there is nothing to take yet.
 
@@ -139,6 +139,8 @@ Three chambers lie in a line, reachable only through the Cave Mouth and not draw
 ## Version history
 
 Full notes are in CHANGELOG.md.
+- **0.1.10:** the Weeping Pine and the Deer Lick have their own pictures.
+- **0.1.9:** a Homestead filled before 0.1.5 keeps everything stored in it when the save loads, napping and sleeping at the Homestead, the Overhanging Rock and the Tree Hollow now count as sleep, and actions that were silent now make a sound.
 - **0.1.8:** hunting a deer at the Deer Lick now starts the fight, new pictures for the Rusty Axe and the Blunt Rusty Axe.
 - **0.1.7:** a Deer Lick at the Mud Springs, no clay from clearing the Homestead, two peat a dig at the Mud Springs, a picture for the Rusty Axe.
 - **0.1.6:** the four reading actions calm you once a day, a Weeping Pine at Barrow Wood, rare relic finds at the Ossuary and the Bog Body, the Cave Lake's winter text, a picture for the Blunt Rusty Axe.

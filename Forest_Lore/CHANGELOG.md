@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.10] - 2026-11-11
+
+### Changed
+
+- **The Weeping Pine and the Deer Lick have their own pictures.** The pine shows an old trunk split open with resin weeping down to its foot, and the Deer Lick a grey mud hollow crossed by hoof prints around a pool. Both used base-game stand-ins (the pine tree and the tracks) until now.
+- **Forest Lore now asks for CSFF Mod Framework 2.28.3 or later** (the README said 2.28.0). Nothing in the mod changed: the Tree Hollow's swaying branches have needed 2.28.3 since they were added, and the stated minimum was wrong.
+
 ## [0.1.9] - 2026-10-30
 
 ### Fixed

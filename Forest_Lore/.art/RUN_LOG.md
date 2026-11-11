@@ -55,3 +55,5 @@
 | 2026-10-15 | FL_AxeRustyBlunt | nano-banana-2 image2image | 1K | 20 | fcAyvsilCqs1JYd4vx3k | OK |
 | 2026-10-21 | FL_AxeRustyBlunt (owner gallery rework: vanilla Axe_Iron as subject reference, rusted and blunted; Axe_Stone style) | nano-banana-2 image2image | 1K | 20 | u07gaCt3brrtaY2qdX2p | OK |
 | 2026-10-21 | FL_AxeRusty (owner gallery rework: vanilla Axe_Iron as subject reference, rusted with a honed edge; pair of FL_AxeRustyBlunt) | nano-banana-2 image2image | 1K | 20 | 0TgkTOkj12BWt8QKdzEN | OK |
+| 2026-11-05 | FL_ResinPine (recovered from f8b83d9bde, prior attempt matched card + full-bleed Location convention, already shipped-form) | nano-banana-2 image2image | 1K | 0 | recovered-f8b83d9bde | OK |
+| 2026-11-05 | FL_DeerLick | nano-banana-2 image2image (claude.ai OpenArt connector, mcp__openart__* unauthenticated this session) | 2K | 30 | vTCNTDeWfs9qBitq3BKz | OK |

@@ -1,0 +1,28 @@
+{
+  "target": "FL_DeerLick.png",
+  "sourceCard": "CardData/Location/DeerLick.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Reference image 1 and reference image 2 are style references only: match their flat posterized colour fills, thin dark ink outlines, small ink tick marks and muted palette; do not copy their subjects.\n\nSubject: a trampled deer lick, a shallow hollow of grey, salty mud where mineral spring water seeps up through the forest floor. The hollow fills most of the lower frame: flattened, damp grey-brown mud pocked and churned by many overlapping deer hoof tracks that cross and recross each other, densest at the centre and trailing off toward the muddy rim. A thin sheen of standing water sits in the lowest dimples. Sparse tufts of grass, a few reeds and scattered pale mineral-crusted stones ring the hollow's edge. Low forest trees and undergrowth frame the background, receding into dim green shade. No deer present, no people, no glowing light.\n\nStyle: Card Survival Fantasy Forest game card art. Flat posterized colour fills in a few hard-edged tonal steps, cel-like, no soft gradients, no watercolour bleed, no paper texture, no border or frame. Thin dark ink outlines and small ink hatch and tick marks for texture, used to render the individual hoof tracks clearly in the mud. Muted naturalistic palette of grey-brown mud, moss greens and earth tones. Realistic proportions, nothing glossy, no fantasy glow, no light rays, no text. Full-bleed painted scene filling the whole 2:3 portrait card edge to edge.\n\nAvoid: photo, photorealistic, 3D render, digital vector art, pixel art, neon colors, lens flare, blurry, low contrast, black background, grey solid background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame, deer or other animals, human figures, sand, snow.",
+  "refs": [
+    {
+      "label": "Bear_Wild (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652691630_2575370d.png"
+    },
+    {
+      "label": "BoggyMeadows (vanilla style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BoggyMeadows_1791652694216_7bb6cd27.png"
+    }
+  ],
+  "historyId": "vTCNTDeWfs9qBitq3BKz",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1793918145906_a9867bfa_1793918146493_62b9c8a8.png",
+  "credits": 30,
+  "generated": "2026-11-05",
+  "note": "Implementation-prompt AN1 (Documentation/Plans/ForestLore/MASTER_PLAN_Implementation_Prompts.md, Prompt 2). The mod-level `mcp__openart__*` server (mcp.openart.ai, user-scoped) was not authenticated in this session; generated instead through the same OpenArt account (uid XbhdRvvhTk0K7JCPQP3H, confirmed via openart_account_get) over the claude.ai OpenArt connector (`mcp__claude_ai_OpenArt__*`), same model/mode/params/credits ledger, landing in that connector's own default project (projectId IzYSzB3JttZ3OpZ498wM) rather than ForestLore's usual create-image project - noted here so a later /create-image-refs run on this mod does not expect this generation in its own project history. Deer Lick has no prior art to use as a composition reference (unlike most ForestLore Location cards), so this used style-only references (no composition ref) against the card's own description. Tracks are the card's actual subject (the `footprints, tracks` Avoid-list rule's documented exception, per .claude/commands/create-image.md, same as Sirus23 sh_predator_tracks). Finished with /process-card-art --full-bleed (matches every other ForestLore Location card's shipped form: 512x768 palette PNG, transparency chunk present, 0% transparent)."
+}

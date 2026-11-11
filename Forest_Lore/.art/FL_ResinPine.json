@@ -1,0 +1,13 @@
+{
+  "target": "FL_ResinPine.png",
+  "sourceCard": "CardData/Location/ResinPine.json",
+  "model": null,
+  "mode": "recovered, not regenerated",
+  "params": null,
+  "prompt": null,
+  "historyId": null,
+  "resource_url": null,
+  "credits": 0,
+  "generated": "2026-10-XX (original generation date not recorded; recovered bytes carry no sidecar of their own)",
+  "note": "Implementation-prompt AN1 (Documentation/Plans/ForestLore/MASTER_PLAN_Implementation_Prompts.md, Prompt 1), 2026-11-05: a prior art attempt at this card was built and then deleted 2026-10-27 (commit f8b83d9bde touched the file last). Recovered verbatim with `git show f8b83d9bde:ForestLore/Resource/Picture/FL_ResinPine.png` rather than regenerating, per the prompt's own recovery step: it depicts an old weeping pine with bark split and resin pooling down the trunk and at the base, matching the card's current description, and was already in the mod's shipped full-bleed Location form (512x768 palette PNG with transparency chunk, 0% transparent, matching FL_AncientCairn.png's shape exactly) - no process-card-art pass was needed. Wired into CardImageWarpData (was the vanilla TreePine placeholder)."
+}

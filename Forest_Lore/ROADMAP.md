@@ -1,25 +1,25 @@
 # Roadmap: Forest Lore
-Version at time of writing: 0.1.8
-Date: 2026-10-20
-Audit score: 10/10 (`.audit/summary.md` consolidated 2026-10-20; critical-analysis and mod-report both fresh at 0.1.8, code-quality's C# claim re-confirmed current)
+Version at time of writing: 0.1.9
+Date: 2026-11-07
+Audit score: 10/10 (`.audit/summary.md` consolidated 2026-11-07 from the union of the 9 per-module reports; 7 real module audits at v0.1.9 each SOLID 10/10, 2 seed stubs over unchanged files)
 
 ## Current State
 
 **Theme**: the forest's own landmarks, ruins and hidden places (Barrow Wood, the Old Battlefield, the Abandoned Homestead, the Mud Springs, Guano Rock, the Rock Shelter and the Sunken Caves) added to the vanilla map, for players who want more to find and read on the paper map without new items to manage. It hands out only vanilla cards.
 
-**Content**: 0 items / 0 blueprints / 24 structures (CT2 location cards, `CardData/Location/`) and 3 improvements (CT10, `CardData/EnvImprovement/`) / 0 perks / 27 custom images (25 card pictures plus `FL_AxeRusty` and `FL_AxeRustyBlunt` for two artless vanilla axes). Also 9 map nodes, 13 improvement injections and 6 `GameSourceModify` patches.
+**Content**: 0 items / 0 blueprints / 24 structures (CT2 location cards, `CardData/Location/`) and 3 improvements (CT10, `CardData/EnvImprovement/`) / 0 perks / 29 custom images - every CT2/CT10 card now has its own picture after the 2026-11-05 AN1 art pass (27 card pictures), plus `FL_AxeRusty` and `FL_AxeRustyBlunt` for two artless vanilla axes. Also 9 map nodes, 13 improvement injections, 6 `GameSourceModify` patches, one `CardData/Motion` sway entry, and - since 0.1.9 - the mod's first C# (one Harmony patch, `HomesteadLoadKeep.cs` / `HomesteadLoadKeepPatch.cs`).
 
-**Stability**: 10/10, 0 CRITICAL, 0 design gaps, 0 open warnings (6 pre-flight warnings all adjudicated not-a-defect this run: C8 host-only plugin, F26 x3 intentional map-hidden chambers, M11 x2 axe art referenced via GameSourceModify). Critical-analysis and mod-report are now fresh at 0.1.8; three tracker rows pending, all old-save-fixture blocked.
+**Stability**: 10/10, 0 CRITICAL, 0 design gaps, 0 open warnings. 7 modules carry full SOLID 10/10 audits (axes, barrow, caves, climbing, homestead, modwide, mudsprings) and 2 are seed stubs over unchanged files (battlefield, outlying); all are CURRENT per `module_map.py status` except the modwide mod-report, which is benignly self-stale (it fixed README's 0.1.9 version-history gap in the same commit that wrote it, so its stamp lags one self-made commit). The 4 pre-flight warnings are adjudicated not-a-defect (C8 host-only plugin, F26 x3 intentional map-hidden chambers) and the M11 x2 axe-art flags are a known false positive. The 0.1.9 Homestead over-capacity load-keep C# is verified correct and sits behind a watched egg gate (`ForestLore-HomesteadOverCapacityLoad.Tests.ps1`, red pre-fix, 12/12 green).
 
-**Open work**: no open retrospectives (`Documentation/Retrospectives/INDEX.md` has no Forest Lore row). No open plan: both plans are built and archived (`Documentation/Design/ForestLore_As_Built.md`, `Documentation/Design/ForestLore_Balance_And_Niche_As_Built.md`). The 0.1.8 Deer Lick encounter fix is harness-confirmed (T2.848 PASS), and T2.839/T2.841 now read PASS. Pending tracker rows: T2.847 (clone clay/peat parity), T2.1746 (Sunken Lake eel stock on an old save), T2.1748 (Homestead decay/repair/capacity), all needing a 0.1.4/0.1.6 save that visited the site, a fixture that exists on no rig.
+**Open work**: no open retrospectives (`Documentation/Retrospectives/INDEX.md` has no Forest Lore row). No open plan: all three plans are built and archived (`Documentation/Design/ForestLore_As_Built.md`, `ForestLore_Balance_And_Niche_As_Built.md`, `ForestLore_Card_Art_AN1_As_Built.md`). Open review/verification debt, all correctly routed and none blocking: the two new AN1 pictures await an owner gallery verdict (`/review-art`) and an in-game sighting (tracker `T2.850` Weeping Pine, `T2.851` Deer Lick, both `pending`); `fl_b13_clone_clay_and_peat` stays `pending` (needs a 0.1.6 old save that visited both the Homestead and Mud Springs clone sites, a fixture that exists on no rig); and two runtime-only module questions should become tracker rows: the Grinding Slab actually grinding its content to flour, and cave Enter/Leave landing on the right board.
 
-**Framework compliance**: a 21-line `ContentModPlugin` host with the CSFFModFramework SoftDependency (2.28.0 or later). It uses no Tier 2 C# services because it has no C# behaviour; everything is framework data (MapNodes, ConnectionGates, InjectImprovementInto, GameSourceModify). No `DropCollectionGuardPatch`, no Harmony, no `ModLoaderVerison`.
+**Framework compliance**: a `ContentModPlugin` host with the CSFFModFramework SoftDependency, floor raised to **2.28.3 or later** in 0.1.9 (the `CardData/Motion/CardMotion.json` Tree Hollow sway needs 2.28.3's CardMotionLoader; the stated floor was corrected from 2.28.0 during the 2026-10-31 module audit, commit `88343fc10`). It uses no Tier 2 C# services; its one Harmony patch targets `GameManager.LoadInventoryCard` / `InGameCardBase.GetIndexForInventory` behind a filtered guard (early-returns unless loading into the Homestead). No `DropCollectionGuardPatch`, no unfiltered hot-path prefix, no `ModLoaderVerison`.
 
 ---
 
 ## Phase 0: Stabilize
 
-Skipped: audit score 10/10, no open retrospectives, no open CRITICAL or warning. The fresh 0.1.8 critical-analysis and mod-report retired the previous run's audit-freshness debt.
+Skipped: audit score 10/10, no open retrospectives, no open CRITICAL or warning. The 2026-10-31 to 2026-11-06 module audits are the current, fresh adversarial + health passes; the 2026-10-20/21 mod-level reports are superseded (they predate the 0.1.9 C# and describe a code-free mod).
 
 ---
 
@@ -29,37 +29,40 @@ Skipped: audit score 10/10, no open retrospectives, no open CRITICAL or warning.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Build the old-save fixture that T2.847, T2.1746 and T2.1748 need (a 0.1.4/0.1.6 save that already visited the Homestead, Sunken Lake and the clone sites), then record them through `/playthrough-test-plan`; until it exists the three rows stay fixture-blocked and cannot advance | Verification debt | P1 | Complex |
-| Version hygiene: ModInfo.json, `Plugin.cs` and README are all 0.1.8 (re-read 2026-10-20); keep them in step on the next bump with `/update-mod-version` | Version hygiene | P1 | Quick |
-| Localization: SimpEn.csv and SimpCn.csv hold the same 243 keys, Chinese parity CLEAN (re-read 2026-10-20); keep the same-commit parity on every new string | Localization | P1 | Quick |
+| Record owner gallery verdicts for the two new AN1 pictures (`FL_ResinPine`, `FL_DeerLick`) via `/review-art ForestLore` - neither has a `.art/review/verdicts.json` entry yet (the file's newest verdicts are 2026-10-21; both were generated 2026-11-05) - then keep the in-game sighting rows `T2.850`/`T2.851` on the playthrough tracker | Art review | P1 | Quick |
+| Route the two runtime-only module questions into `/playthrough-test-plan` rows: (a) Grinding Slab milling actually advances the content to flour (not just the slab's Quality); (b) cave Enter/Leave lands on the Painted Chamber / Rock Shelter with the right site cards | Verification debt | P1 | Quick |
+| Build the old-save fixture `fl_b13_clone_clay_and_peat` needs (a 0.1.6 save that already visited the Homestead and Mud Springs clone sites), then record it via `/playthrough-test-plan`; until it exists the row stays fixture-blocked | Verification debt | P1 | Complex |
+| Retire the stale 2026-10-20/21/27 mod-level `/critical-analysis`, `/code-quality` and `/audit-images` reports with a fresh run (the module reports already supersede them in substance, but the mod-level files still say "no C#" and the images report predates the AN1 art) | Audit hygiene | P1 | Quick |
+| Version hygiene: ModInfo.json, `Plugin.cs` and README are all 0.1.9; keep them in step on the next bump with `/update-mod-version` | Version hygiene | P1 | Quick |
+| Localization: SimpEn.csv and SimpCn.csv hold the same 243 keys, Chinese parity CLEAN; keep the same-commit parity on every new string | Localization | P1 | Quick |
 
 ---
 
 ## Phase 2: Core Expansion
 
-No open plan holds new Forest Lore content, and the audits surface none. Any new site belongs in a new `Documentation/Plans/ForestLore/MASTER_PLAN.md`, checked first against the Considered tables of both As-Built records (they rule out, with reasons, Gnome Figurines at the Ossuary, a timed mud-warming action, an env-tag-lure or new-species Deer Lick, a scrapeable clay lick and `StripAllInheritedDrops` on the clones).
+No open plan holds new Forest Lore content, and the audits surface none. Any new site belongs in a new `Documentation/Plans/ForestLore/MASTER_PLAN.md`, checked first against the Considered tables of all three As-Built records (they rule out, with reasons, Gnome Figurines at the Ossuary, a timed mud-warming action, an env-tag-lure or new-species Deer Lick, a scrapeable clay lick and `StripAllInheritedDrops` on the clones).
 
 ### Balance the declared placeholders
 **What**: settle the Deer Lick odds (about 3 in 10 doe, 3 in 20 stag), the 6 percent relic finds at the Ossuary and the Bog Body, and the Stress -10 reading calm, all labelled placeholders in CHANGELOG 0.1.6/0.1.7.
 **Why**: these are the only Forest Lore numbers no balance pass has judged against vanilla.
-**Requires**: the method of `Documentation/Design/ForestLore_Balance_And_Niche_As_Built.md` section 0 (ledger rows and an owner decision page). T2.848 is now PASS, so the Deer Lick's behaviour is confirmed and only its values remain to tune.
+**Requires**: the method of `Documentation/Design/ForestLore_Balance_And_Niche_As_Built.md` section 0 (ledger rows and an owner decision page), and each row's observation to land first so the tuning pass does not discard the one measurement it exists to produce.
 **Complexity**: Medium
 
 ---
 
 ## Phase 3: Integration & Depth
 
-No cross-mod hook is surfaced: the 2026-10-12 pre-flight found 0 foreign structural references and 0 tag collisions across 17 mods, and `Documentation/Interop_Registry.md` has no Forest Lore row.
+No *new* cross-mod hook is surfaced (the fleet-indexing preflight found 0 foreign structural references and 0 tag collisions for Forest Lore). Two integrations already exist and are tracked, not to be re-proposed as new: HarshWilds' Mud Volcano eruption fires only when Forest Lore is installed (consumes FL's Mud Springs), and Far Territory seeds a Forest Lore landmark.
 
 ---
 
 ## Phase 4: Polish
 
+Every CT2/CT10 card now ships bespoke art: the last two vanilla-sprite placeholders (Weeping Pine `TreePine`, Deer Lick `Tracks`) were replaced by `FL_ResinPine` / `FL_DeerLick` in the 2026-11-05 AN1 pass, so the placeholder-art gap is closed. What remains is the review verdict and one persistence check.
+
 | Item | What | Complexity |
 |------|------|------------|
-| Custom art for the Weeping Pine | `fl_resin_pine` draws the vanilla `TreePine` sprite; `/create-image`, `/process-card-art`, then swap `CardImageWarpData` to the new PNG name (type 3) | Quick |
-| Custom art for the Deer Lick | `fl_deer_lick` draws the vanilla `Tracks` sprite; same steps | Quick |
-| Rusty Axe picture review | `FL_AxeRusty` was derived from `FL_AxeRustyBlunt` by painting a honed edge (no OpenArt in that session; sidecar `.art/FL_AxeRusty.json`); regenerate through `/create-image` if the `/review-art` gallery rejects it | Quick |
+| Card-art gallery verdict | Run `/review-art ForestLore` so the two new AN1 pictures (`FL_ResinPine`, `FL_DeerLick`) get owner approve/alter/regenerate verdicts recorded in `.art/review/verdicts.json` (also listed in Phase 1, since it is the only open art step) | Quick |
 | Chamber item persistence | framework 2.28.0's keep-the-item fix is unseen in Forest Lore's chambers (none of T2.836 to T2.838 leaves an item on a chamber board); README's Known limitations says so. A tracker row that leaves an item in a chamber across a reload would close it | Quick |
 
 ### Not added: the Gnome Figurines (checked 2026-10-17)
@@ -72,10 +75,10 @@ The two Gnome Figurines (`TuskCarving_GnomeMale` 0c9ab5207f7b41b4896e2f9a3f86bc9
 
 > Where this mod should be at v1.0.
 
-Forest Lore's natural endpoint is a finished set of verified, vanilla-balanced places: every site confirmed in a running game, every placeholder value tuned, every card with its own picture, and then maintenance mode. Its role is exploration and small, lore-flavoured rewards, not a new production chain, so 1.0 is reached by closing verification and polish rather than by adding systems. With the Deer Lick fix landed and confirmed, the remaining distance to 1.0 is the three old-save migration checks, the placeholder tuning pass, and four polish items.
+Forest Lore's natural endpoint is a finished set of verified, vanilla-balanced places: every site confirmed in a running game, every placeholder value tuned, every card with its own picture, and then maintenance mode. Its role is exploration and small, lore-flavoured rewards, not a new production chain, so 1.0 is reached by closing verification and polish rather than by adding systems. With the Deer Lick encounter fix, the 0.1.9 Homestead over-capacity fix, and now every card's bespoke art all landed and in shipped form, the remaining distance to 1.0 is: the two open runtime checks (Grinding Slab milling, cave entry/exit), the one old-save migration row, the placeholder tuning pass, and the still-open art review plus in-game sighting of the two new pictures (`/review-art`; tracker `T2.850`/`T2.851`).
 
 **Potential major additions** (not yet justified - revisit after Phase 2):
-- None surfaced by the audits; the ruled-out ideas live in the two As-Built Considered tables.
+- None surfaced by the audits; the ruled-out ideas live in the three As-Built Considered tables.
 
 Any of these worth building belongs in the mod's plan under `Documentation/Plans/ForestLore/` (or its Considered table, with the reason, if it is not); never create a stub under `Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
 
@@ -85,8 +88,8 @@ Any of these worth building belongs in the mod's plan under `Documentation/Plans
 
 | Trigger | Action |
 |---------|--------|
-| After any new content phase | Run `/audit-mod ForestLore` and update this roadmap |
-| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log`; re-check the vanilla indices the `GameSourceModify` patches address (gated by `ForestLore-BalanceGates` B13 and `ForestLore-BogBodyPatch`) |
+| After any new content phase | Run `/audit-mod ForestLore` (per module where it helps) and update this roadmap |
+| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log`; re-check the vanilla indices the `GameSourceModify` patches address (gated by `ForestLore-BalanceGates` B13 and `ForestLore-BogBodyPatch`); re-verify the `HomesteadLoadKeepPatch` reflection targets against the refreshed decomp |
 | After fixing a critical issue | Run `/critical-analysis ForestLore` to verify the fix |
 | After Phase 2 complete | Run `/export-to-repo ForestLore` and bump the version |
 
@@ -97,12 +100,12 @@ Any of these worth building belongs in the mod's plan under `Documentation/Plans
 ```
 /audit-mod ForestLore         - full health check, updates .audit/
 /critical-analysis ForestLore - adversarial review
-/code-quality ForestLore      - C# review (a bare ContentModPlugin host)
+/code-quality ForestLore      - C# review (ContentModPlugin host + one Homestead load patch since 0.1.9)
 /build-mod ForestLore         - build Release DLL
 /deploy-mods ForestLore       - build + deploy to game
 /update-mod-version ForestLore <ver> - bump version in all 3 files
 /export-to-repo ForestLore    - push to public repo
-/create-image ForestLore <card> - card art for the two vanilla-sprite placeholders
+/review-art ForestLore        - record owner gallery verdicts for the two new AN1 pictures
 ```
 
 ---
@@ -128,3 +131,9 @@ Any of these worth building belongs in the mod's plan under `Documentation/Plans
 - **Disposition:** ARCHIVE - the plan moved to `Documentation/Design/ForestLore_Balance_And_Niche_As_Built.md` with section numbers unchanged, the pack deleted and its awaiting list folded into the archive header; the ForestLore plan folder is empty again.
 - **Evidence:** `Development_Tools/Tests/ForestLore-BalanceGates.Tests.ps1` 13 of 13 and `ForestLore-NicheContent.Tests.ps1` 24 of 24 (each with watched-red copies), `Art-ArtlessVanillaGrant` red on the unpatched Rusty Axe and green after; `dotnet build -c Release` clean. No code was run in a game.
 - **Verification debt:** T2.1745 to T2.1748, T2.843 to T2.849 (all pending).
+
+### 2026-11-06 - MASTER_PLAN (AN1 card art)
+- **Verdict:** counts: 1 feature row (AN1) checked, 1 built (`00eb4504c`), 0 open code rows, 0 fixes; pack 2 prompts, both built (the untracked pack still read "2 open", a stale refresh against a pre-build commit). 1 row deferred with its reason (placeholder tuning, gated on balance-row observations).
+- **Disposition:** ARCHIVE - the plan moved to `Documentation/Design/ForestLore_Card_Art_AN1_As_Built.md`, the drained pack deleted, the ForestLore plan folder removed (commit `6122ea1fe`). The deferred tuning row stays in `ForestLore/.audit/ideas.md` and Phase 4's placeholder tuning pass.
+- **Evidence:** `process_card_art.py --check` on `FL_ResinPine.png` and `FL_DeerLick.png`: 512x768, alpha, `shipped_form: true`, 2 of 2; both looked at and matching their card descriptions; `ResinPine.json` and `DeerLick.json` `CardImageWarpData` read `FL_ResinPine` / `FL_DeerLick`. No code was run in a game.
+- **Verification debt:** T2.850, T2.851 (pending).
