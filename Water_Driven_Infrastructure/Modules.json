@@ -45,7 +45,7 @@
     {
       "id": "fishery",
       "name": "Fishpond and Fish Funnel",
-      "summary": "Fishpond (kit, filled, stocked, winter), Fish Funnel, the pond feed and frog stats, the fishpond starting perk, and the population and one-funnel-per-trap patches.",
+      "summary": "Fishpond (kit, filled, stocked, winter), Fish Funnel, the pond feed and frog stats, the fishpond starting perk, and the population and one-funnel-per-trap patches. Its action handlers are NOT in this module's files: feeding (FishpondFeedOneSpecies), the unstocked kit (FishpondKitUnstocked, FishpondDrainFlagsKit), catch quality and rod and spear fishing live in the modwide module's Patcher/ActionInterceptPatch.cs, so read that file before calling any pond behaviour unbuilt.",
       "paths": ["CardData/**/*Fish*", "GameStat/WDI_Pond*", "CharacterPerk/Perk_FishpondStart.json", "Patcher/FishFunnelPatch.cs", "Patcher/FishpondPopulationPatch.cs"]
     },
     {

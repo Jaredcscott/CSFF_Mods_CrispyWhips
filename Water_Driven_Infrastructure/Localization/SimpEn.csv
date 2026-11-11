@@ -83,7 +83,7 @@ Water_Sawmill_Bp_WaterDrivenForge_UnlockConditionsDesc,Water-Driven Mill,水力�
 Water_Sawmill_Perk_SawmillStart_PerkName,Sawmill Start,锯木厂起步
 Water_Sawmill_Perk_SawmillStart_PerkDescription,Start with the Water-Driven Sawmill blueprint already researched and the Copper Saw Blade it needs. You still build the sawmill.,开局即已研究水力锯木厂蓝图，并携带建造所需的铜锯条。锯木厂仍需你亲手建造。
 Water_Sawmill_Frame_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_Frame_Disassemble_ActionDescription,"Break down the kit: the Water Mill, saw blade, metal parts and gears come back whole, bulk materials at half.",拆解套件：水力磨坊、锯条、金属零件和齿轮全数返还，大宗材料返还一半。
+Water_Sawmill_Frame_Disassemble_ActionDescription,"Break down the kit: the Water Mill, saw blade, metal parts, gears and 12 metal nails come back whole, bulk materials at half.",拆解套件：水力磨坊、锯条、金属零件、齿轮和12枚金属钉全数返还，大宗材料返还一半。
 Water_Sawmill_ForgeKit_CardName,Water-Driven Forge Kit,水力锻炉套件
 Water_Sawmill_ForgeKit_CardDescription,"A complete forge kit with all components for a large water-powered metalworking forge, including iron fittings, bearings, and an axle.",包含大型水力锻炉所有组件的完整套件，包括铁制配件、轴承和铁轴。
 Water_Sawmill_ForgeKit_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet to set up the forge.
@@ -94,7 +94,7 @@ Water_Sawmill_ForgeKit_CardHelpSection,"<b>Use:</b> Place near water or a connec
 Water_Sawmill_ForgeKit_Place_ActionName,Place,放置
 Water_Sawmill_ForgeKit_Place_ActionDescription,Place the forge kit into the environment.,将锻炉套件放置在环境中。
 Water_Sawmill_ForgeKit_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_ForgeKit_Disassemble_ActionDescription,"Break down the kit: the Water Mill, metal parts and fittings come back whole, bulk materials at half.",拆解套件：水力磨坊、金属零件和配件全数返还，大宗材料返还一半。
+Water_Sawmill_ForgeKit_Disassemble_ActionDescription,"Break down the kit: the Water Mill, metal parts, fittings and 10 metal nails come back whole, bulk materials at half.",拆解套件：水力磨坊、金属零件、配件和10枚金属钉全数返还，大宗材料返还一半。
 Water_Sawmill_WorkshopKit_CardName,Water-Driven Workshop Kit,水力工坊套件
 Water_Sawmill_WorkshopKit_CardDescription,"A bundled upgrade kit combining the water-driven forge, mill drive, forge hammer, iron reinforcements, bearing and axle support, an iron workshop wrench, charcoal reserve, and gear train for heavy metalworking.",集水力锻炉、磨坊驱动装置、锻锤、铁制加固件、轴承和铁轴支撑、铁制工坊扳手、木炭储备和齿轮系于一体的重型金属加工升级套件。
 Water_Sawmill_WorkshopKit_CardHelpSection,"<b>Purpose:</b> A bundled upgrade kit for extending the water-driven forge into a workshop.
@@ -103,7 +103,7 @@ Water_Sawmill_WorkshopKit_CardHelpSection,"<b>Purpose:</b> A bundled upgrade kit
 
 <b>内容：</b> 水力锻炉套件、水力磨坊、锻锤、铁制零件、铁轴承、铁轴、铁扳手、木炭和铜齿轮。"
 Water_Sawmill_WorkshopKit_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_WorkshopKit_Disassemble_ActionDescription,"Break down the workshop kit: the forge kit, Water Mill, tools, metal parts and gears come back whole, the charcoal at half.",拆解工坊套件：锻炉套件、水力磨坊、工具、金属零件和齿轮全数返还，木炭返还一半。
+Water_Sawmill_WorkshopKit_Disassemble_ActionDescription,"Break down the workshop kit: the forge kit, Water Mill, tools, metal parts, gears and 8 metal nails come back whole, the charcoal at half.",拆解工坊套件：锻炉套件、水力磨坊、工具、金属零件、齿轮和8枚金属钉全数返还，木炭返还一半。
 Water_Sawmill_WorkshopKit_FuelCapacity.CardStatName,Temperature,温度
 Water_Sawmill_ForgePlaced_CardName,Water-Driven Forge,水力锻炉
 Water_Sawmill_ForgePlaced_CardDescription,"A large water-powered forge for high-temperature metalworking, copper smelting, and clay firing.",用于高温金属加工、铜冶炼和烧陶的大型水力锻炉。
@@ -149,7 +149,7 @@ Water_Sawmill_GrindingMillKit_CardHelpSection,"<b>Use:</b> Place near water or a
 Water_Sawmill_GrindingMillKit_Place_ActionName,Place,放置
 Water_Sawmill_GrindingMillKit_Place_ActionDescription,Place the grinding mill kit into the environment.,将磨坊套件放置在环境中。
 Water_Sawmill_GrindingMillKit_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_GrindingMillKit_Disassemble_ActionDescription,"Break down the kit: the Water Mill, metal parts and fittings come back whole, bulk materials at half.",拆解套件：水力磨坊、金属零件和配件全数返还，大宗材料返还一半。
+Water_Sawmill_GrindingMillKit_Disassemble_ActionDescription,"Break down the kit: the Water Mill, metal parts, fittings and 8 metal nails come back whole, bulk materials at half.",拆解套件：水力磨坊、金属零件、配件和8枚金属钉全数返还，大宗材料返还一半。
 Water_Sawmill_GrindingMillPlaced_CardName,Water-Driven Grinding Mill,水力磨坊
 Water_Sawmill_GrindingMillPlaced_CardDescription,A large water-powered grinding mill for batch processing millable materials.,用于批量处理可磨材料的大型水力磨坊。
 Water_Sawmill_GrindingMillPlaced_CardHelpSection,"<b>Requirements:</b> Requires local mill race for water power.
@@ -181,7 +181,7 @@ Water_Sawmill_Perk_ForgeStart_PerkDescription,"Start with the Water-Driven Forge
 Water_Sawmill_Perk_GrindingMillStart_PerkName,Grinding Mill Start,磨坊起步
 Water_Sawmill_Perk_GrindingMillStart_PerkDescription,Start with a grinding mill kit and mill race component. Place near water or a connected mill race outlet to build a water-powered grain mill.,携带磨坊套件和引水渠组件开始游戏。放置在水源旁或引水渠出口附近以建造水力谷物磨。
 Water_Sawmill_OreSluiceKit_CardName,Ore Sluice Kit,矿石淘洗槽套件
-Water_Sawmill_OreSluiceKit_CardDescription,"A complete ore sluice kit with iron bearing and axle hardware, ready to be placed near water or a connected mill race outlet for mineral prospecting.",带有铁轴承和铁轴五金的完整矿石淘洗槽套件，可放置在水源旁或引水渠出口附近用于矿物勘探。
+Water_Sawmill_OreSluiceKit_CardDescription,"A complete ore sluice kit: a planked sluice box weighted with heavy stones and fastened with metal nails, ready to be placed near water or a connected mill race outlet for mineral prospecting.",完整的矿石淘洗槽套件：以重石压稳、用金属钉固定的木板淘洗槽，可放置在水源旁或引水渠出口附近用于矿物勘探。
 Water_Sawmill_OreSluiceKit_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet to set up the ore sluice.
 
 <b>Purpose:</b> Wash soil for greenstone, flint, stone, clay and the odd metal nugget.","<b>用途：</b> 放置在水源旁或引水渠出口附近建立矿石淘洗槽。
@@ -190,7 +190,7 @@ Water_Sawmill_OreSluiceKit_CardHelpSection,"<b>Use:</b> Place near water or a co
 Water_Sawmill_OreSluiceKit_Place_ActionName,Place,放置
 Water_Sawmill_OreSluiceKit_Place_ActionDescription,Place the ore sluice kit into the environment.,将矿石淘洗槽套件放置在环境中。
 Water_Sawmill_OreSluiceKit_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_OreSluiceKit_Disassemble_ActionDescription,"Break down the sluice kit: the sluice frame comes back whole, the planks and heavy stones at half.",拆解淘洗槽套件：淘洗槽框架完整返还，木板和重石返还一半。
+Water_Sawmill_OreSluiceKit_Disassemble_ActionDescription,"Break down the sluice kit: the sluice frame and 6 metal nails come back whole, the planks and heavy stones at half.",拆解淘洗槽套件：淘洗槽框架和6枚金属钉完整返还，木板和重石返还一半。
 Water_Sawmill_OreSluicePlaced_CardName,Ore Sluice,矿石淘洗槽
 Water_Sawmill_OreSluicePlaced_CardDescription,"A water-powered sluice box for washing soil and separating mineral deposits. Load mud piles, dirt piles, or fine dirt, then run the sluice to process them for greenstone, flint, stone, and occasionally metal nuggets.",用于冲洗土壤和分离矿物沉积物的水力淘洗槽。装入泥堆、污土堆或细沙土后运行淘洗槽以提取绿石、燧石、石头和偶尔的金属矿块。
 Water_Sawmill_OreSluicePlaced_CardHelpSection,"<b>Requirements:</b> Requires a local mill race for water power.
@@ -261,10 +261,10 @@ Water_Sawmill_WaterWheel_Dismantle_ActionDescription,"Disassemble the water whee
 Water_Sawmill_WaterMill_Dismantle_ActionName,Dismantle,拆除
 Water_Sawmill_WaterMill_Dismantle_ActionDescription,"Break down the water mill into its wheel, race, and drive gear.",将水力磨坊拆解为水轮、引水渠和驱动齿轮。
 Water_Sawmill_OreSluiceEmpty_CardName,Ore Sluice Frame,矿石淘洗槽框架
-Water_Sawmill_OreSluiceEmpty_CardDescription,An unfinished sluice box frame. Needs rope and a mill race connection to become a working ore sluice.,未完工的淘洗槽框架。需要绳索和引水渠连接才能成为可用的矿石淘洗槽。
+Water_Sawmill_OreSluiceEmpty_CardDescription,An unfinished sluice box frame. Needs heavy stones and a mill race connection to become a working ore sluice.,未完工的淘洗槽框架。需要大石块和引水渠连接才能成为可用的矿石淘洗槽。
 Water_Sawmill_OreSluiceEmpty_CardHelpSection,"<b>Use:</b> Finish it in the Ore Sluice blueprint with 10 Planks, 4 Heavy Stones and 6 Metal Nails.",<b>用途：</b> 在矿石淘洗槽蓝图中加上10块木板、4块重石和6枚金属钉即可完成建造。
 Water_Sawmill_OreSluiceEmpty_Dismantle_ActionName,Dismantle,拆除
-Water_Sawmill_OreSluiceEmpty_Dismantle_ActionDescription,Break down the sluice frame and recover half of the planks.,拆除淘洗槽框架并回收一半的木板。
+Water_Sawmill_OreSluiceEmpty_Dismantle_ActionDescription,Break down the sluice frame and recover its 6 metal nails and half of the planks.,拆除淘洗槽框架，回收6枚金属钉和一半的木板。
 Water_Sawmill_Bp_OreSluiceEmpty_CardName,Ore Sluice Frame,矿石淘洗槽框架
 Water_Sawmill_Bp_OreSluiceEmpty_CardDescription,Hammer together a basic sluice box frame from planks and copper nails.,用木板和铜钉锤制基础淘洗槽框架。
 Water_Sawmill_Bp_OreSluiceEmpty_UnlockConditionsDesc,Mill Race,引水渠
@@ -280,7 +280,7 @@ Water_Sawmill_FishpondKit_CardHelpSection,<b>Use:</b> Place near water or a conn
 Water_Sawmill_FishpondKit_Place_ActionName,Place,放置
 Water_Sawmill_FishpondKit_Place_ActionDescription,Place the fishpond near the river.,将鱼塘放置在河边。
 Water_Sawmill_FishpondKit_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_FishpondKit_Disassemble_ActionDescription,Break down the kit and recover half of the planks and heavy stones.,拆解套件并回收一半的木板和重石。
+Water_Sawmill_FishpondKit_Disassemble_ActionDescription,"Break down the kit and recover half of the planks and heavy stones, and its 4 metal nails.",拆解套件并回收一半的木板和重石，以及4枚金属钉。
 Water_Sawmill_FishpondKit_Unstocked_StatName,Unstocked,未放养
 Water_Sawmill_Stat_PondFrogs_StatName,Pond Frogs,鱼塘青蛙
 Water_Sawmill_Stat_PondFrogs_StatDescription,"Frogs living at the edge of your stocked fishponds. Catch Frog takes one; one more arrives every day, up to 6.",生活在你满塘鱼塘边的青蛙。捕青蛙每次捕走一只；每天会新来一只，最多6只。
@@ -311,7 +311,7 @@ Water_Sawmill_FishpondFilled_CardHelpSection,"<b>Populations:</b> Pike, perch, a
 
 <b>Feeding:</b> Drag fish scraps, bugs or fishing bait onto the pond to scatter fish food. The ponds take one feed a day. It adds a quarter of a fish to the smallest breeding species among the pike, perch and minnow (2 to 9 fish); with none breeding the food is wasted.
 
-<b>Water Draw:</b> Drag a water container in to fill it with unsafe water (boil before drinking).
+<b>Water Draw:</b> Drag a water container in to fill it with unclean water (boil before drinking).
 
 <b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available.","<b>鱼群：</b>梭鲈、鲈鱼和鲦鱼以相同的缓慢速率增长（每种约3.5天1条）。
 
@@ -335,8 +335,6 @@ Water_Sawmill_FishpondFilled_CatchPerch_ActionName,Catch Perch,捕捞鲈鱼
 Water_Sawmill_FishpondFilled_CatchPerch_ActionDescription,Spear a perch from the pond.,用标枪从鱼塘捕捞一条鲈鱼。
 Water_Sawmill_FishpondFilled_CatchMinnow_ActionName,Catch Minnow,捕捞小鱼
 Water_Sawmill_FishpondFilled_CatchMinnow_ActionDescription,Spear a minnow from the pond.,用标枪从鱼塘捕捞一条小鱼。
-Water_Sawmill_FishpondFilled_Fill_ActionName,Fill with Unsafe Water,汲取不安全的水
-Water_Sawmill_FishpondFilled_Fill_ActionDescription,Draw unsafe water from the pond into a container. Boil before drinking.,从鱼塘汲取不安全的水装入容器。饮用前需煮沸。
 Water_Sawmill_FishpondFilled_Feed_ActionName,Scatter Fish Food,撒鱼食
 Water_Sawmill_FishpondFilled_Feed_ActionDescription,"Scatter fish scraps, bugs or bait over the water, once a day. Adds a quarter of a fish to the smallest breeding species among pike, perch and minnow (2 to 9 fish). With none breeding the food is wasted.",将鱼杂、虫子或鱼饵撒到水面上，每天一次。使梭鲈、鲈鱼和鲦鱼中数量最少且正在繁殖（2至9条）的一种增加四分之一条。没有正在繁殖的鱼种时，鱼食会浪费。
 Water_Sawmill_FishpondFilled_Drain_ActionName,Drain,排水
@@ -356,7 +354,7 @@ Water_Sawmill_FishpondStocked_CardHelpSection,"<b>Populations:</b> Pike, perch, 
 
 <b>Feeding:</b> Drag fish scraps, bugs or fishing bait onto the pond to scatter fish food. The ponds take one feed a day. It adds a quarter of a fish to the smallest breeding species among the pike, perch and minnow (2 to 9 fish); with none breeding the food is wasted.
 
-<b>Water Draw:</b> Drag a water container in to fill it with unsafe water (boil before drinking).
+<b>Water Draw:</b> Drag a water container in to fill it with unclean water (boil before drinking).
 
 <b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available.","<b>鱼群：</b>梭鲈、鲈鱼和鲦鱼继续以相同的缓慢速率增长。
 
@@ -384,8 +382,6 @@ Water_Sawmill_FishpondStocked_CatchMinnow_ActionName,Catch Minnow,捕捞小鱼
 Water_Sawmill_FishpondStocked_CatchMinnow_ActionDescription,Spear a minnow from the pond.,用标枪从鱼塘捕捞一条小鱼。
 Water_Sawmill_FishpondStocked_CatchFrog_ActionName,Catch Frog,捕捉青蛙
 Water_Sawmill_FishpondStocked_CatchFrog_ActionDescription,"Catch a frog by hand from the pond's edge. Frogs come back one a day, up to 6.",用手从鱼塘边缘捕捉青蛙。青蛙每天回来一只，最多6只。
-Water_Sawmill_FishpondStocked_Fill_ActionName,Fill with Unsafe Water,汲取不安全的水
-Water_Sawmill_FishpondStocked_Fill_ActionDescription,Draw unsafe water from the pond into a container. Boil before drinking.,从鱼塘汲取不安全的水装入容器。饮用前需煮沸。
 Water_Sawmill_FishpondStocked_Feed_ActionName,Scatter Fish Food,撒鱼食
 Water_Sawmill_FishpondStocked_Feed_ActionDescription,"Scatter fish scraps, bugs or bait over the water, once a day. Adds a quarter of a fish to the smallest breeding species among pike, perch and minnow (2 to 9 fish). With none breeding the food is wasted.",将鱼杂、虫子或鱼饵撒到水面上，每天一次。使梭鲈、鲈鱼和鲦鱼中数量最少且正在繁殖（2至9条）的一种增加四分之一条。没有正在繁殖的鱼种时，鱼食会浪费。
 Water_Sawmill_FishpondStocked_Drain_ActionName,Drain,排水
@@ -395,13 +391,13 @@ Water_Sawmill_FishpondWinter_CardName,Fishpond (Frozen),鱼塘（冰封）
 Water_Sawmill_FishpondWinter_CardDescription,The fishpond is frozen over. The fish remain under the ice but no longer grow until spring. Only ice fishing is possible.,鱼塘已结冰。鱼仍在冰下但在春天前不再生长。只能进行冰钓。
 Water_Sawmill_FishpondWinter_CardHelpSection,"<b>Populations:</b> Pike, perch, and minnow are preserved beneath the ice (no growth until thaw). Trout, char, sturgeon, and eel are tracked separately and preserved across the freeze.
 
-<b>Ice Fish:</b> Each ice fishing action takes longer than open water and requires a spear.
+<b>Ice Fish:</b> Chop a hole and spear a fish at a time (45 minutes; Crayfish 30 minutes, no spear needed).
 
 <b>Water Draw:</b> Disabled while frozen.
 
 <b>Thaw:</b> The pond returns to its working state automatically when winter ends. Population is preserved across the freeze.","<b>鱼群：</b>梭鲈、鲈鱼和鲦鱼在冰层下保存（解冻前不会增长）。鳟鱼、红点鲑和鲟鱼各自独立追踪，在结冰期间保存。
 
-<b>冰上垂钓：</b>每次冰上捕鱼比开阔水域耗时更长，且需要鱼叉。
+<b>冰上垂钓：</b>凿洞用鱼叉叉鱼，每次一条（45分钟；小龙虾30分钟，不需要鱼叉）。
 
 <b>取水：</b>结冰期间不可取水。
 
@@ -826,9 +822,9 @@ Water_Sawmill_StampMillKit_CardHelpSection,<b>Use:</b> Place near water or a con
 Water_Sawmill_StampMillKit_Place_ActionName,Place,放置
 Water_Sawmill_StampMillKit_Place_ActionDescription,Place the stamp mill kit into the environment.,将捣矿机套件放置在环境中。
 Water_Sawmill_StampMillKit_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_StampMillKit_Disassemble_ActionDescription,"Break down the kit: the Water Mill, metal parts and fittings come back whole, bulk materials at half.",拆解套件：水力磨坊、金属零件和配件全数返还，大宗材料返还一半。
+Water_Sawmill_StampMillKit_Disassemble_ActionDescription,"Break down the kit: the Water Mill, metal parts, fittings and 8 metal nails come back whole, bulk materials at half.",拆解套件：水力磨坊、金属零件、配件和8枚金属钉全数返还，大宗材料返还一半。
 Water_Sawmill_StampMillPlaced_CardName,Water-Driven Stamp Mill,水力捣矿机
-Water_Sawmill_StampMillPlaced_CardDescription,"Water-driven stamps crush a hopper of ore at once, each piece a little better than by hand.",水力驱动的重锤一次捣碎一整斗矿石，每块都比手工略好。
+Water_Sawmill_StampMillPlaced_CardDescription,"Water-driven stamps crush a whole hopper of ore at once, each piece as well as a hand hammer would.",水力驱动的重锤一次捣碎一整斗矿石，每块的品质与手锤捣碎相同。
 Water_Sawmill_StampMillPlaced_CardHelpSection,"<b>Requirements:</b> Water at this location (a river or lake, or a connected mill race outlet).
 
 <b>Hopper:</b> Takes only Greenstone, Greenstone Slag and Bog Iron (fresh, dried or roasted). Tin ore does not go in.
@@ -958,7 +954,7 @@ Water_Sawmill_FullingMillKit_CardHelpSection,"<b>Use:</b> Place near water or a 
 Water_Sawmill_FullingMillKit_Place_ActionName,Place,放置
 Water_Sawmill_FullingMillKit_Place_ActionDescription,Place the fulling mill kit into the environment.,将缩绒坊套件放置在环境中。
 Water_Sawmill_FullingMillKit_Disassemble_ActionName,Disassemble,拆卸
-Water_Sawmill_FullingMillKit_Disassemble_ActionDescription,"Break down the kit: the water mill and iron parts come back whole, bulk materials at half.",拆解套件：水力磨坊和铁零件全数返还，大宗材料返还一半。
+Water_Sawmill_FullingMillKit_Disassemble_ActionDescription,"Break down the kit: the water mill, iron parts and nails come back whole, the planks and heavy stones at half.",拆解套件：水力磨坊、铁零件和金属钉全数返还，木板和重石返还一半。
 Water_Sawmill_FullingMillPlaced_CardName,Water-Driven Fulling Mill,水力缩绒坊
 Water_Sawmill_FullingMillPlaced_CardDescription,A water-powered fulling mill whose trip hammers beat finished cloth to raise its quality.,以落锤捸打成品布料提升品质的水力缩绒坊。
 Water_Sawmill_FullingMillPlaced_CardHelpSection,"<b>Requirements:</b> Requires a local mill race for water power.

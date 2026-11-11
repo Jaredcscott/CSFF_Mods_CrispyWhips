@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_ore_sluice_kit",
     "LocalizationKey": "Water_Sawmill_OreSluiceKit_CardDescription",
-    "DefaultText": "A complete ore sluice kit with iron bearing and axle hardware, ready to be placed near water or a connected mill race outlet for mineral prospecting."
+    "DefaultText": "A complete ore sluice kit: a planked sluice box weighted with heavy stones and fastened with metal nails, ready to be placed near water or a connected mill race outlet for mineral prospecting."
   },
   "CanBeRenamed": false,
   "CardHelpSection": {
@@ -82,7 +82,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_ore_sluice_kit",
         "LocalizationKey": "Water_Sawmill_OreSluiceKit_Disassemble_ActionDescription",
-        "DefaultText": "Break down the sluice kit: the sluice frame comes back whole, the planks and heavy stones at half."
+        "DefaultText": "Break down the sluice kit: the sluice frame and 6 metal nails come back whole, the planks and heavy stones at half."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -118,6 +118,12 @@
               "DroppedCardWarpData": "water_sawmill_ore_sluice_empty",
               "DroppedCardWarpType": 3,
               "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "advanced_copper_tools_copper_nails",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 6, "y": 6}
             }
           ]
         }

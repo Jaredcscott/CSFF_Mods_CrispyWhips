@@ -38,7 +38,7 @@
         "water_sawmill_bp_water_driven_sawmill"
       ],
       "confidence": "MEDIUM",
-      "evidence": "T2.14 PASS 2026-07-21 for Cut; but Cut is a drag CardInteraction gated by MillRaceGate (card-unbounded CardPredicate=_=>true), exposed to the OPEN framework ActionRouter CardOnCardAction index defect (T1.56, unfixed as of framework 2.25.x) - MEDIUM at best per that risk. 1.12.0 added a Saw All button (DaytimeCost 4, an ActionRouter handler registered AfterWrapped) and a log inventory (the filter admits the Tree Log; capacity 20000); that part is covered by the Pester contract and PENDING T2.604, and the Cut it sits beside is unchanged. 1.12.10 balance pass: Cut 1.5 h, Saw All 3 h, a 60-log blade wear with Replace Saw Blade, expanded cap 30000; earlier PASS rows predate it, not yet seen in game."
+      "evidence": "T2.14 PASS 2026-07-21 for Cut; but Cut is a drag CardInteraction gated by MillRaceGate (card-unbounded CardPredicate=_=>true), the framework ActionRouter CardOnCardAction index defect (T1.56) that once exposed it is fixed (framework 2.25.29, 2026-09-08) and confirmed in-game (T1.81 PASS 2026-10-05, Documentation/Playthrough_Test_Results.md), so it no longer bears on this group's confidence. 1.12.0 added a Saw All button (DaytimeCost 4, an ActionRouter handler registered AfterWrapped) and a log inventory (the filter admits the Tree Log; capacity 20000); that part is covered by the Pester contract and PENDING T2.604, and the Cut it sits beside is unchanged. 1.12.10 balance pass: Cut 1.5 h, Saw All 3 h, a 60-log blade wear with Replace Saw Blade, expanded cap 30000; earlier PASS rows predate it, not yet seen in game."
     },
     {
       "name": "Water-Driven Grinding Mill",
@@ -60,7 +60,7 @@
         "water_sawmill_bp_water_driven_forge"
       ],
       "confidence": "MEDIUM",
-      "evidence": "Core Blast/Smelt Ore VERIFIED-ish (T2.12, T2.14 PASS 2026-07-21; T2.44 Blast-quality fix PASS 2026-08-09 via shared ActionInterceptPatch code with Workshop) but Natural Windflow rescue (T2.115 PENDING), self-smelt quality/container-tag chain (T2.131 PENDING, memory project_wdi_copper_selfsmelt_quality_floor unverified), and Smelt Ore's own CI-drag path riding T1.56 keep the group at MEDIUM. 1.12.10 balance pass: Smelt Ore gives 1 nugget at the ore's Quality plus 1 Greenstone Slag, Heat Metal Items adds 200 fuel (was 600), research 48 h; not yet seen in game."
+      "evidence": "Core Blast/Smelt Ore VERIFIED-ish (T2.12, T2.14 PASS 2026-07-21; T2.44 Blast-quality fix PASS 2026-08-09 via shared ActionInterceptPatch code with Workshop) but Natural Windflow rescue (T2.115 PENDING), self-smelt quality/container-tag chain (T2.131 PENDING, memory project_wdi_copper_selfsmelt_quality_floor unverified), keep the group at MEDIUM; Smelt Ore's own CI-drag path no longer rides T1.56, fixed and confirmed as above. 1.12.10 balance pass: Smelt Ore gives 1 nugget at the ore's Quality plus 1 Greenstone Slag, Heat Metal Items adds 200 fuel (was 600), research 48 h; not yet seen in game."
     },
     {
       "name": "Water-Driven Workshop",
@@ -152,7 +152,7 @@
         "water_sawmill_bp_fishpond"
       ],
       "confidence": "MEDIUM",
-      "evidence": "T2.16 + T2.33 PASS 2026-07-21 for Catch/Stock/Drain; FishpondPopulationPatch.cs unchanged since 2026-07-20. The background breeding/Filled<->Stocked threshold-swap timer has no explicit confirmed observation (MEDIUM nuance, see feature-map.md). 1.12.0 added the Scatter Fish Food CI (PENDING T2.384-T2.385) and Fishing XP on the catch actions (PENDING T2.391), and the Eel (SpecialDurability4 count; Stock Eel, Catch Eel and Ice Fish Eel; carried by the Freeze and Thaw; PENDING T2.603) while retiring the legacy Catch Other Fish code; the other species' Catch/Stock are unchanged. 1.12.10 balance pass changed breeding (0.003 per tick), catch times (1 h, crayfish and frog 30 min), feeding (one feed a day, smallest breeding species), frogs (a shared pool of 6) and the drained kit (places an empty pond); the PASS rows above predate it, so confidence drops to MEDIUM until re-checked."
+      "evidence": "T2.16 + T2.33 PASS 2026-07-21 for Catch/Stock/Drain; FishpondPopulationPatch.cs unchanged since 2026-07-20. The background breeding/Filled<->Stocked threshold-swap timer has no explicit confirmed observation (MEDIUM nuance, see feature-map.md). 1.12.0 added the Scatter Fish Food CI (T2.384 PASS 2026-10-09, T2.385 PASS 2026-10-06) and Fishing XP on the catch actions (T2.391 PASS 2026-10-14), and the Eel (SpecialDurability4 count; Stock Eel, Catch Eel and Ice Fish Eel; carried by the Freeze and Thaw; T2.603 PASS 2026-10-03) while retiring the legacy Catch Other Fish code; the other species' Catch/Stock are unchanged. 1.12.10 balance pass changed breeding (0.003 per tick), catch times (1 h, crayfish and frog 30 min), feeding (one feed a day, smallest breeding species), frogs (a shared pool of 6) and the drained kit (places an empty pond). Feeding and the empty pond are C# handlers in Patcher/ActionInterceptPatch.cs (FishpondFeedOneSpecies, FishpondKitUnstocked, FishpondDrainFlagsKit), not in FishpondPopulationPatch.cs: harness T2.1702 and T2.1707 PASS 2026-10-18 and again 2026-11-11 (rig 2, batch walkthrough-20261111-014752). The 2026-07 PASS rows predate the pass, so the breeding pace, catch times and frog pool keep confidence at MEDIUM until re-checked."
     },
     {
       "name": "Reed and Cattail Beds",
@@ -198,7 +198,7 @@
         "water_sawmill_cast_iron_sheet"
       ],
       "confidence": "LOW",
-      "evidence": "RETIRED in 1.12.3 (Chiwei's Nexus report, 2026-10-05): every WDI recipe now takes the framework's shared Metal Nail, Tin Solder and Metal Sheet (the Stamp Mill Iron Sheets at Metal Type 200, the Water Basin any sheet but iron, Expand 4 Iron Nails). The five cards listed stay loadable as '(old)' and reforge themselves into the shared card of the same metal within a tick, or at once with a Reforge button; their six blueprints left BlueprintTabs.json with every unlock condition emptied. Static: the WDI retired-parts Pester contract. In-game: PENDING T2.646. The old T2.17 and T2.113 passes describe the retired behaviour."
+      "evidence": "RETIRED in 1.12.3 (Chiwei's Nexus report, 2026-10-05): every WDI recipe now takes the framework's shared Metal Nail, Tin Solder and Metal Sheet (the Stamp Mill Iron Sheets at Metal Type 200, the Water Basin any sheet but iron, Expand 4 Iron Nails). The five cards listed stay loadable as '(old)' and reforge themselves into the shared card of the same metal within a tick (a hidden Progress 0..1 at +1 per tick whose OnFull transforms the card), or at once with a Reforge button; their six blueprints left BlueprintTabs.json with every unlock condition emptied. Static: the WDI retired-parts Pester contract. In-game: T2.646 PASS (harness batch csff-batch-2026-10-13, recorded 2026-10-14). The old T2.17 and T2.113 passes describe the retired behaviour."
     },
     {
       "name": "Starter Perks",

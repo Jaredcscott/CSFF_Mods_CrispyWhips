@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_fishpond_filled",
     "LocalizationKey": "Water_Sawmill_FishpondFilled_CardHelpSection",
-    "DefaultText": "<b>Populations:</b> Pike, perch, and minnow each grow at the same slow rate (about 3.5 days per fish per species).\n\n<b>Trout / Char / Sturgeon / Eel:</b> Each tracked separately (cap 10 each). They do not breed.\n\n<b>Catch:</b> Use a spear to catch one fish at a time (1 hour; Crayfish 30 minutes). Each catch reduces that species' population by 1.\n\n<b>Stocked Threshold:</b> When the breeding population (pike+perch+minnow) exceeds 10, the pond transitions to Stocked and frogs can be caught.\n\n<b>Feeding:</b> Drag fish scraps, bugs or fishing bait onto the pond to scatter fish food. The ponds take one feed a day. It adds a quarter of a fish to the smallest breeding species among the pike, perch and minnow (2 to 9 fish); with none breeding the food is wasted.\n\n<b>Water Draw:</b> Drag a water container in to fill it with unsafe water (boil before drinking).\n\n<b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available."
+    "DefaultText": "<b>Populations:</b> Pike, perch, and minnow each grow at the same slow rate (about 3.5 days per fish per species).\n\n<b>Trout / Char / Sturgeon / Eel:</b> Each tracked separately (cap 10 each). They do not breed.\n\n<b>Catch:</b> Use a spear to catch one fish at a time (1 hour; Crayfish 30 minutes). Each catch reduces that species' population by 1.\n\n<b>Stocked Threshold:</b> When the breeding population (pike+perch+minnow) exceeds 10, the pond transitions to Stocked and frogs can be caught.\n\n<b>Feeding:</b> Drag fish scraps, bugs or fishing bait onto the pond to scatter fish food. The ponds take one feed a day. It adds a quarter of a fish to the smallest breeding species among the pike, perch and minnow (2 to 9 fish); with none breeding the food is wasted.\n\n<b>Water Draw:</b> Drag a water container in to fill it with unclean water (boil before drinking).\n\n<b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available."
   },
   "CardType": 2,
   "ObjectWeight": 1500.0,
@@ -994,58 +994,6 @@
           "IsInverse": false
         }
       ]
-    },
-    {
-      "ActionName": {
-        "ParentObjectID": "water_sawmill_fishpond_filled",
-        "LocalizationKey": "Water_Sawmill_FishpondFilled_Fill_ActionName",
-        "DefaultText": "Fill with Unsafe Water"
-      },
-      "ActionDescription": {
-        "ParentObjectID": "water_sawmill_fishpond_filled",
-        "LocalizationKey": "Water_Sawmill_FishpondFilled_Fill_ActionDescription",
-        "DefaultText": "Draw unsafe pond water into the container."
-      },
-      "DaytimeCost": 0,
-      "UseMiniTicks": 0,
-      "ActionSounds": [],
-      "ActionTags": [],
-      "ActionTagsWarpData": [],
-      "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": ["Flowing1"],
-      "ActionSoundsWarpType": 3,
-      "WorksInverted": false,
-      "StackCompatible": false,
-      "NotBaseAction": true,
-      "CompatibleCards": {
-        "TriggerCards": [],
-        "TriggerCardsWarpData": [],
-        "TriggerCardsWarpType": 3,
-        "TriggerTags": [],
-        "TriggerTagsWarpData": ["tag_WaterContainer"],
-        "TriggerTagsWarpType": 3
-      },
-      "GivenCardChanges": {
-        "ModType": 0,
-        "UsageChange": {"x": -1.0, "y": -1.0}
-      },
-      "ReceivingCardChanges": {
-        "ModType": 0
-      },
-      "CreatedLiquidInGivenCard": {
-        "LiquidCard": {"m_FileID": 0, "m_PathID": 0},
-        "LiquidCardWarpData": "aa33d3104cc682c4e9a163e7df9a7e13",
-        "LiquidCardWarpType": 3,
-        "Quantity": {"x": 10000.0, "y": 10000.0},
-        "Durabilities": {
-          "Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0,
-          "Special1": 0, "Special2": 0, "Special3": 0, "Special4": 0,
-          "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0,
-          "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 0.0,
-          "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0,
-          "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0
-        }
-      }
     }
   ],
   "CompatibleDutiesWarpData": [

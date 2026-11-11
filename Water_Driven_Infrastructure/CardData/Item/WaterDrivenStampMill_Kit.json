@@ -108,7 +108,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_stamp_mill_kit",
         "LocalizationKey": "Water_Sawmill_StampMillKit_Disassemble_ActionDescription",
-        "DefaultText": "Break down the kit: the Water Mill, metal parts and fittings come back whole, bulk materials at half."
+        "DefaultText": "Break down the kit: the Water Mill, metal parts, fittings and 8 metal nails come back whole, bulk materials at half."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -250,6 +250,18 @@
               "Quantity": {
                 "x": 1,
                 "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_copper_nails",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 8,
+                "y": 8
               }
             }
           ]

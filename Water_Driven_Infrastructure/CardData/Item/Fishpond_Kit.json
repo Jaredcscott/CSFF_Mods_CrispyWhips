@@ -88,7 +88,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_fishpond_kit",
         "LocalizationKey": "Water_Sawmill_FishpondKit_Place_ActionDescription",
-        "DefaultText": "Place the pre-stocked fishpond at the river. Fish will mature in 7 days."
+        "DefaultText": "Place the fishpond near the river."
       },
       "DaytimeCost": 4,
       "UseMiniTicks": 0,
@@ -120,7 +120,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_fishpond_kit",
         "LocalizationKey": "Water_Sawmill_FishpondKit_Disassemble_ActionDescription",
-        "DefaultText": "Break down the kit and recover half of the planks and heavy stones."
+        "DefaultText": "Break down the kit and recover half of the planks and heavy stones, and its 4 metal nails."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -150,6 +150,12 @@
               "DroppedCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
               "DroppedCardWarpType": 3,
               "Quantity": {"x": 7, "y": 7}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "advanced_copper_tools_copper_nails",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 4, "y": 4}
             }
           ]
         }

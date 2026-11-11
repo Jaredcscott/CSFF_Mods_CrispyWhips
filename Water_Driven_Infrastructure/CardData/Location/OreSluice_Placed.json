@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_ore_sluice_placed",
     "LocalizationKey": "Water_Sawmill_OreSluicePlaced_CardHelpSection",
-    "DefaultText": "<b>Operation:</b> Load mud piles, dirt piles, or fine dirt into the sluice, then press Sluice All. Each drop is rolled independently: a single pile can yield several items, and a pile whose rolls all miss leaves a Stone behind.\n\nDrop chances (Mud / Dirt / Fine Dirt):\nIron Nugget: 1% / 0.5% / 0.25%\nCopper Nugget: 2% / 1% / 0.5%\nTin Nugget: 1% / 0.5% / 0.25%\nGreenstone: 3% / 2% / 1%\nFlint: 30% / 20% / 10%\nStone: 40% / 20% / 10%\nClay: 10% / 20% / 55%\n\nNuggets spawn at 35% quality.\n\n<b>Time:</b> Sluice All takes 45 minutes.\n\n<b>Overshot Wheel:</b> Drag an Overshot Wheel onto the sluice to fit it (30 minutes): Sluice All then takes 15 minutes. Pack Up (Overshot) packs the sluice and gives the wheel back."
+    "DefaultText": "<b>Requirements:</b> Requires a local mill race for water power.\n\n<b>Operation:</b> Load mud piles, dirt piles, or fine dirt into the sluice, then press Sluice All. Each drop is rolled independently: a single pile can yield several items, and a pile whose rolls all miss leaves a Stone behind.\n\nDrop chances (Mud / Dirt / Fine Dirt):\nIron Nugget: 1% / 0.5% / 0.25%\nCopper Nugget: 2% / 1% / 0.5%\nTin Nugget: 1% / 0.5% / 0.25%\nGreenstone: 3% / 2% / 1%\nFlint: 30% / 20% / 10%\nStone: 40% / 20% / 10%\nClay: 10% / 20% / 55%\n\nNuggets spawn at 35% quality.\n\n<b>Time:</b> Sluice All takes 45 minutes.\n\n<b>Overshot Wheel:</b> Drag an Overshot Wheel onto the sluice to fit it (30 minutes): Sluice All then takes 15 minutes. Pack Up (Overshot) packs the sluice and gives the wheel back."
   },
   "CardType": 2,
   "ObjectWeight": 800.0,
@@ -84,7 +84,7 @@
     "CardFilters": [],
     "TagFilters": []
   },
-  "SpillsInventoryOnDestroy": false,
+  "SpillsInventoryOnDestroy": true,
   "InventorySlotsText": {
     "ParentObjectID": "",
     "LocalizationKey": "",
@@ -547,7 +547,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_ore_sluice_placed",
         "LocalizationKey": "Water_Sawmill_OreSluicePlaced_SluiceAll_ActionDescription",
-        "DefaultText": "Run water through the sluice to wash all loaded soil. Each item produces greenstone, flint, or stone."
+        "DefaultText": "Run water through the sluice to wash all loaded soil. Each item yields minerals or a rare metal nugget."
       },
       "DaytimeCost": 3,
       "UseMiniTicks": 0,

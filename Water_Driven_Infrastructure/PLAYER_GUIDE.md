@@ -11,9 +11,9 @@ How to build, connect, and operate every machine and structure in the mod.
 Water-powered machines require a river, lake, or stream. Locate one early — your entire infrastructure will be built around it.
 
 **Prerequisites:**
-- CSFFModFramework (required)
+- CSFFModFramework 2.29.1 or later (required)
 - Access to a river, lake, or stream for the Mill Race
-- **AdvancedCopperTools is optional, not required.** WDI's recipes take the shared Metal Nail, Tin Solder and Metal Sheet that CSFFModFramework 2.28.0 ships, so WDI is fully playable with only the framework installed, and the Workshop's Hammer Copper Sheet / Forge Copper Nails / Hammer Iron Sheet / Forge Iron Nails actions hand over those shared cards. WDI's own rivets, Alloy Solder and cast sheets are retired since 1.12.3 (see Fasteners & Sheets below).
+- **AdvancedCopperTools is optional, not required.** WDI's recipes take the shared Metal Nail, Tin Solder and Metal Sheet the framework ships, so WDI is fully playable with only the framework installed, and the Workshop's Hammer Copper Sheet / Forge Copper Nails / Hammer Iron Sheet / Forge Iron Nails actions hand over those shared cards. WDI's own rivets, Alloy Solder and cast sheets are retired since 1.12.3 (see Fasteners & Sheets below).
 
 **Suggested build order:**
 1. Mill Race → Water Wheel → Water Mill (the foundation)
@@ -114,7 +114,7 @@ The **Copper Saw Blade** (Metal Crafts tab): one large molten copper crucible + 
 
 ### Pack Up
 
-Use the **Pack Up** dismantle action (1 hour) to return the sawmill to a portable kit. The kit keeps the blade wear.
+Use the **Pack Up** dismantle action (1 hour) to return the sawmill to a portable kit. The kit keeps the blade wear. Anything still inside a station drops on the ground beside the kit when you pack it up.
 
 ---
 

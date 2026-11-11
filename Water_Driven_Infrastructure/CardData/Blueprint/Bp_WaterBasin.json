@@ -92,8 +92,12 @@
             "FloatValue": 0.0,
             "MaxValue": 140.0
           },
-          "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
-          "RequiredCardWarpType": 3
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_FW_MetalSheet",
+          "RequiredTabGroupWarpType": 3
         }
       ],
       "StepActionTags": [],

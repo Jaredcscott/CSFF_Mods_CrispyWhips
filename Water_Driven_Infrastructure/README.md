@@ -1,9 +1,9 @@
 # Water Driven Infrastructure
 
-**Version:** 1.12.17
+**Version:** 1.13.1
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
-**Requires:** CSFFModFramework 2.29.0 or later. Advanced Copper Tools is optional and adds extras, but nothing needs it.
+**Requires:** CSFFModFramework 2.29.1 or later. Advanced Copper Tools is optional and adds extras, but nothing needs it.
 
 ---
 
@@ -42,6 +42,8 @@ Water Source (river / lake)
                                  ├── Ore Sluice
                                  └── Fishpond
 ```
+
+Packing up a station that still holds items (the Sawmill, Forge, Workshop, Grinding, Stamp and Fulling Mills, and the Ore Sluice) drops them on the ground beside the kit.
 
 ### Blueprint tabs
 
@@ -415,13 +417,13 @@ A Partner works only the stations you mark. The Grinding Mill, Ore Sluice, Stamp
 
 ## Installation
 
-**Requirements:** BepInEx 5.x, CSFFModFramework 2.29.0 or later, and Card Survival: Fantasy Forest (EA 0.69c). Advanced Copper Tools is optional: it adds Blast melting for its metal items, the lit Copper Brazier as winter heat, bronze gears and the plumbed bathtub.
+**Requirements:** BepInEx 5.x, CSFFModFramework 2.29.1 or later, and Card Survival: Fantasy Forest (EA 0.69c). Advanced Copper Tools is optional: it adds Blast melting for its metal items, the lit Copper Brazier as winter heat, bronze gears and the plumbed bathtub.
 
 1. Install BepInEx 5.x if you have not already.
 2. Install CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. (Optional) Install Advanced Copper Tools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game and look for `WaterDrivenInfrastructure v1.12.17 loaded.` in `BepInEx/LogOutput.log`.
+5. Launch the game and look for `WaterDrivenInfrastructure v1.13.1 loaded.` in `BepInEx/LogOutput.log`.
 
 ---
 
@@ -449,14 +451,14 @@ Most features were checked by scripted tests in a running game. Confirmed in scr
 Every card picture and animation, the 1.12.6 Sawmill, Grinding Mill, Forge, Workshop, Ore Sluice and Water Basin animations included, has passed the owner's art review. Still open:
 
 - The animated Water Wheel (also on the Overshot Wheel): seen changing frames in a scripted run, not yet watched turning in a game by a person.
-- The Fish Funnel Kit borrows the Fishpond Kit picture, whose box reads "Fishing Pond Kit": not yet judged by a person.
-- Part of the 1.12.10 balance pass (the slower pond, once-a-day feeding, the empty drained pond, the Partner duty limit, Winter Station Lock on by default): its scripted checks in a running game are being repeated.
+- The Fish Funnel has no picture of its own yet: its blueprint and kit borrow the Fishpond Kit picture, whose box reads "Fishing Pond Kit", and the placed funnel borrows the Mill Race picture. Not yet judged by a person.
+- Part of the 1.12.10 balance pass (the slower pond, the Partner duty limit, Winter Station Lock on by default): its scripted checks in a running game are being repeated. Once-a-day feeding and the empty drained pond passed theirs again on 2026-11-11.
 
 ---
 
 ## Troubleshooting
 
-- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.17 loaded.`
+- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.13.1 loaded.`
 - **Forge won't smelt?** It must reach 1,100. Feed it charcoal and Blast first.
 - **Outlet not producing water?** It must be outdoors with a Mill Race built first. In winter it freezes: wait for spring, or keep a heat source there. Stations keep working, but a Rain Cistern stays unfed.
 - **Rain Cistern not filling?** It must stand at the same location as a running outlet and be empty or hold River Water.
@@ -501,7 +503,7 @@ BepInEx/plugins/Water_Driven_Infrastructure/
 | **MillDutyPatch** | Grafts the 12 `NPCDuty` files onto the vanilla Partner template. A postfix on `NPCDuty.RequiredActionsAreDoable` stops the mill, sluice and stamp mill duties while no marked station holds work. Every duty sets `RequiresMarkedCard`. Base weight 850. A postfix on `GameStatsToNPCStats.Init` adds the pond frog stat to `StatsStillAffectedByNPCS`, so a Partner's Catch Frog spends the pool. |
 | **FishFunnelPatch** | Prefix on `InGameCardBase.AddExternalPassiveEffect`: a Funnel Trap that already carries one live Fish Funnel's boost refuses a second. |
 | **IrrigationChannelPatch** | `Priority.Last` prefix on `GameManager.ChangeCardDurabilities`: holds a channel-fed field at 1921 Hydration instead of letting the +20 a tick cycle it under the 1920 drought line. |
-| **BaseTemperatureHeal** | On `GameManager.OnGMInitialized`, resets a positive vanilla BaseTemperature base to 0, repairing saves warmed by Blast before 1.12.3. |
+| **BaseTemperatureHeal** | On the framework's `FrameworkEvents.RunStarted` (every run start and save reload), resets a positive vanilla BaseTemperature base to 0, repairing saves warmed by Blast before 1.12.3. |
 
 Patches filter on this mod's UniqueIDs. Apart from BaseTemperatureHeal, they never modify vanilla cards, drops or stats.
 
@@ -513,6 +515,7 @@ Patches filter on this mod's UniqueIDs. Apart from BaseTemperatureHeal, they nev
 
 Full notes are in CHANGELOG.md.
 
+- **1.13.1:** disassembling a kit gives its Metal Nails back; packing up a station drops what it holds instead of deleting it; nail, sheet and solder slots take any mod's shared metal parts; the Fishpond's dead "Fill with Unsafe Water" drag is gone. Needs CSFFModFramework 2.29.1.
 - **1.12.13:** the Fulling Mill Kit has boxed kit art like the other water-mill kits.
 - **1.12.12:** the new Retting Pit and Irrigation Channel; Hammer All raises copper nuggets; a Partner's Catch Frog spends the frog pool; a second Fish Funnel no longer speeds a Funnel Trap; Fulling Mill kit planks come back as oak.
 - **1.12.11:** the new Water-Driven Fulling Mill raises the Quality of finished cloth; the Water Basin's animation sits where its still picture does; the Overshot Wheel's help text gives the right Saw All time.

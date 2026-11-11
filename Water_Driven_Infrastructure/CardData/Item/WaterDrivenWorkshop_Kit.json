@@ -100,7 +100,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_workshop_kit",
         "LocalizationKey": "Water_Sawmill_WorkshopKit_Disassemble_ActionDescription",
-        "DefaultText": "Break down the workshop kit: the forge kit, Water Mill, tools, metal parts and gears come back whole, the charcoal at half."
+        "DefaultText": "Break down the workshop kit: the forge kit, Water Mill, tools, metal parts, gears and 8 metal nails come back whole, the charcoal at half."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -178,6 +178,12 @@
               "DroppedCardWarpData": "water_sawmill_copper_gear_large",
               "DroppedCardWarpType": 3,
               "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "advanced_copper_tools_copper_nails",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 8, "y": 8}
             }
           ]
         }

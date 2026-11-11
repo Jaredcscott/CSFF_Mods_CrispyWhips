@@ -606,13 +606,13 @@ namespace WaterDrivenInfrastructure.Patcher
             // framework's own Animals/DutyBuilder.cs.
             move.hideFlags = HideFlags.DontUnloadUnusedAsset;
             Reflect.SetMember(move, "RequiredForSelectingDuty", false);
-            SetEnumField(move, "MovementType", "Pathfind");
+            NpcDuties.SetEnumField(move, "MovementType", "Pathfind");
             // Neither the mill nor the sluice has a dedicated CardTag (CardTagsWarpData is just
             // tag_Wood/tag_Stone/tag_Bag, confirmed by grep) — target the CardData directly via
             // MoveToItems rather than MoveToEnvTag/MoveToTags (which resolve ENVIRONMENT tags,
             // not card tags — confirmed by reading MoveDutyAction.FindDestination's
             // MoveToEnvTag case).
-            SetEnumField(move, "MoveDestination", "MoveToItem");
+            NpcDuties.SetEnumField(move, "MoveDestination", "MoveToItem");
 
             var target = Activator.CreateInstance(_cardOrTagRefWithDurabilitiesType);
             Reflect.SetMember(target, "Target", targetCard);
@@ -625,7 +625,7 @@ namespace WaterDrivenInfrastructure.Patcher
             Reflect.SetMember(move, "MoveToEnvironments", Array.CreateInstance(_cardDataType, 0));
             Reflect.SetMember(move, "MoveToTags", Array.CreateInstance(_cardTagType, 0));
             Reflect.SetMember(move, "MoveCosts", Array.CreateInstance(_npcStatInstantModifierType, 0));
-            SetEnumField(move, "CostRequirements", "IgnoreCost");
+            NpcDuties.SetEnumField(move, "CostRequirements", "IgnoreCost");
 
             return move;
         }
@@ -662,11 +662,11 @@ namespace WaterDrivenInfrastructure.Patcher
                 Plugin.Logger?.LogWarning($"[MillDutyPatch] NPCItemSelectionSettings.ItemPool not found on the receiving-card selection for '{affectName}' (game update?) — duty step not built.");
                 return null;
             }
-            SetEnumField(itemSelection, "SearchPriority", "OnlyEnvironment");
+            NpcDuties.SetEnumField(itemSelection, "SearchPriority", "OnlyEnvironment");
             // The mechanism that makes the player's Duty Assignment toggle actually matter —
             // ItemScore.Exclude = !card.AssociatedDuties.Contains(thisDuty) when set to
             // OnlyItemsMarkedWithDuty (confirmed via research doc + ItemScore.cs citation).
-            SetEnumField(itemSelection, "DutyPriority", "OnlyItemsMarkedWithDuty");
+            NpcDuties.SetEnumField(itemSelection, "DutyPriority", "OnlyItemsMarkedWithDuty");
             if (!Reflect.SetMember(affect, "ItemSelection", itemSelection))
             {
                 // AffectItemsDutyAction.StartDutyAction dereferences ItemSelection with no null
@@ -675,10 +675,10 @@ namespace WaterDrivenInfrastructure.Patcher
                 return null;
             }
 
-            SetEnumField(affect, "AffectType", "PerformActionOnCard");
+            NpcDuties.SetEnumField(affect, "AffectType", "PerformActionOnCard");
 
             var actionToPerform = Activator.CreateInstance(_npcCardActionSelectionSettingsType);
-            SetEnumField(actionToPerform, "ActionType", cardOnCard ? "CardOnCardAction" : "DismantleAction");
+            NpcDuties.SetEnumField(actionToPerform, "ActionType", cardOnCard ? "CardOnCardAction" : "DismantleAction");
             Reflect.SetMember(actionToPerform, "ActionTagFilter", Array.CreateInstance(_actionTagType, 0));
 
             if (cardOnCard)
@@ -716,9 +716,9 @@ namespace WaterDrivenInfrastructure.Patcher
                     Plugin.Logger?.LogWarning("[MillDutyPatch] NPCItemSelectionSettings.ItemPool not found on the given-card selection — CardOnCard duty may not source its dragged item.");
                 // Prefer a log already lying in the environment, but fall back to one the Partner
                 // is carrying (SelectItems' PrioritizeEnvironment case searches env, then inventory).
-                SetEnumField(givenSelection, "SearchPriority", "PrioritizeEnvironment");
-                SetEnumField(givenSelection, "DutyPriority", "IgnoreDuty");           // see (3) above
-                SetEnumField(givenSelection, "OwnershipPriority", "IgnoreOwnership");
+                NpcDuties.SetEnumField(givenSelection, "SearchPriority", "PrioritizeEnvironment");
+                NpcDuties.SetEnumField(givenSelection, "DutyPriority", "IgnoreDuty");           // see (3) above
+                NpcDuties.SetEnumField(givenSelection, "OwnershipPriority", "IgnoreOwnership");
                 // MANDATORY on this path — CollectCardOnCardActionsList dereferences
                 // GivenCardSelection with no null guard, so a silent miss here is an NRE inside
                 // a duty coroutine rather than a graceful skip.
@@ -727,7 +727,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     Plugin.Logger?.LogWarning("[MillDutyPatch] NPCCardActionSelectionSettings.GivenCardSelection not found (game update?) — a CardOnCard duty without it NREs at dispatch, so this duty is deliberately NOT attached.");
                     return null; // GraftOneDuty treats null as build failure and skips the graft
                 }
-                SetEnumField(actionToPerform, "GivenCardSelectionMethod", "UseActionCompatibleCards");
+                NpcDuties.SetEnumField(actionToPerform, "GivenCardSelectionMethod", "UseActionCompatibleCards");
             }
 
             // Also dereferenced unguarded (AffectItemsDutyAction passes it straight into
@@ -780,9 +780,9 @@ namespace WaterDrivenInfrastructure.Patcher
                 Plugin.Logger?.LogWarning("[MillDutyPatch] NPCDutyRef.TargetDuty not found (game update?) — duty not attached.");
                 return false;
             }
-            SetEnumField(dutyRef, "ActivatingMode", "ActivateAutomatically");
+            NpcDuties.SetEnumField(dutyRef, "ActivatingMode", "ActivateAutomatically");
             Reflect.SetMember(dutyRef, "StartActive", true);
-            Reflect.SetMember(dutyRef, "ActivatingConditions", EmptyCondition());
+            Reflect.SetMember(dutyRef, "ActivatingConditions", NpcDuties.EmptyCondition());
             if (!Reflect.SetMember(dutyRef, "PreferenceWeights", weights))
             {
                 // footgun #1: PreferenceWeights lives on NPCDutyRef, not NPCDuty. If this write
@@ -800,27 +800,11 @@ namespace WaterDrivenInfrastructure.Patcher
             return Reflect.SetMember(agent, "AgentDuties", merged);
         }
 
-        private static object EmptyCondition()
-        {
-            object boxed = Activator.CreateInstance(_generalConditionType);
-            foreach (var field in _generalConditionType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
-            {
-                if (!field.FieldType.IsArray) continue;
-                field.SetValue(boxed, Array.CreateInstance(field.FieldType.GetElementType(), 0));
-            }
-            return boxed;
-        }
-
-        private static void SetEnumField(object instance, string fieldName, string enumValueName)
-        {
-            var field = instance.GetType().GetField(fieldName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            if (field == null)
-            {
-                Plugin.Logger?.LogWarning($"[MillDutyPatch] Enum field '{fieldName}' not found on {instance.GetType().Name}.");
-                return;
-            }
-            try { field.SetValue(instance, Enum.Parse(field.FieldType, enumValueName)); }
-            catch (Exception ex) { Plugin.Logger?.LogWarning($"[MillDutyPatch] Failed to set {instance.GetType().Name}.{fieldName} = {enumValueName}: {ex.Message}"); }
-        }
+        // EmptyCondition and SetEnumField moved onto Api.NpcDuties (Fleet APE Port row 2, Prompt 44):
+        // byte-identical (resp. log-prefix-only) copies that AshPartnerDutyPatch.cs,
+        // CottageResidentWorkDutyPatch.cs and GuardDutyPatch.cs each also carried. BuildMoveAction,
+        // BuildAffectAction and AttachDutyRefToAgent keep their own bespoke, failure-mode-aware logic
+        // (idempotent merge onto an existing AgentDuties array, abort-on-miss for load-bearing fields) -
+        // not a plain duplicate of anything NpcDuties exposes, so left untouched.
     }
 }

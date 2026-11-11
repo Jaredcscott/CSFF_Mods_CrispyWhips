@@ -81,7 +81,7 @@
     "CardFilters": [],
     "TagFilters": []
   },
-  "SpillsInventoryOnDestroy": false,
+  "SpillsInventoryOnDestroy": true,
   "InventorySlotsText": {
     "ParentObjectID": "",
     "LocalizationKey": "",

@@ -78,8 +78,12 @@
             "FloatValue": 200.0,
             "MaxValue": 200.0
           },
-          "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
-          "RequiredCardWarpType": 3
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_FW_MetalSheet",
+          "RequiredTabGroupWarpType": 3
         },
         {
           "RequiredCard": {
@@ -128,8 +132,12 @@
           },
           "RequiredQuantity": 8,
           "DontSpend": false,
-          "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
-          "RequiredCardWarpType": 3
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_FW_MetalNail",
+          "RequiredTabGroupWarpType": 3
         },
         {
           "RequiredCard": {
@@ -145,8 +153,12 @@
                   "y": -1.0
               }
           },
-          "RequiredCardWarpData": "act_tin_solder",
-          "RequiredCardWarpType": 3
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_FW_Solder",
+          "RequiredTabGroupWarpType": 3
         }
       ],
       "StepActionTags": [],

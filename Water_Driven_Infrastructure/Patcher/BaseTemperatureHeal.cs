@@ -18,8 +18,9 @@ namespace WaterDrivenInfrastructure.Patcher
     /// moves a base above 0 back to 0 through the game's own permanent change (StatAccess.Modify), so the
     /// stat's statuses update. A base BELOW 0 is left alone: nothing WDI did can lower it.
     ///
-    /// GameManager.OnGMInitialized fires at the end of FinishInitializing, after LoadCards has restored the
-    /// save's stats, and re-fires on every save reload; the handler is idempotent and the subscription is
+    /// FrameworkEvents.RunStarted fires at the same point GameManager.OnGMInitialized does (end of
+    /// FinishInitializing, after LoadCards has restored the save's stats), and re-fires on every save reload
+    /// the same way (fleet plan section 10, W0.10 row 6); the handler is idempotent and the subscription is
     /// made once per process.
     /// </summary>
     internal static class BaseTemperatureHeal
@@ -32,18 +33,10 @@ namespace WaterDrivenInfrastructure.Patcher
         public static void Initialize()
         {
             if (_subscribed) return;
-
-            var gmType = CardUtil.FindGameType("GameManager");
-            var field = gmType?.GetField("OnGMInitialized", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
-            if (field == null || field.FieldType != typeof(Action))
-            {
-                Plugin.Logger?.LogWarning("[BaseTemperatureHeal] GameManager.OnGMInitialized not found (game update?): a save warmed by an old Blast keeps its raised temperature.");
-                return;
-            }
-
-            var current = (Action)field.GetValue(null);
-            field.SetValue(null, (Action)Delegate.Combine(current, (Action)OnRunStart));
             _subscribed = true;
+
+            FrameworkEvents.RunStarted -= OnRunStart;
+            FrameworkEvents.RunStarted += OnRunStart;
         }
 
         private static void OnRunStart()

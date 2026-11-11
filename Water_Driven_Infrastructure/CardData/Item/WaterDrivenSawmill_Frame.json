@@ -83,7 +83,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_frame",
         "LocalizationKey": "Water_Sawmill_Frame_Disassemble_ActionDescription",
-        "DefaultText": "Break down the kit: the Water Mill, saw blade, metal parts and gears come back whole, bulk materials at half."
+        "DefaultText": "Break down the kit: the Water Mill, saw blade, metal parts, gears and 12 metal nails come back whole, bulk materials at half."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -167,6 +167,12 @@
               "DroppedCardWarpData": "water_sawmill_iron_axle",
               "DroppedCardWarpType": 3,
               "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "advanced_copper_tools_copper_nails",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 12, "y": 12}
             }
           ]
         }

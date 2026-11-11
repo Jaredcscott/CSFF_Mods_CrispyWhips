@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_fishpond_winter",
     "LocalizationKey": "Water_Sawmill_FishpondWinter_CardHelpSection",
-    "DefaultText": "<b>Populations:</b> Pike, perch, and minnow are preserved beneath the ice (no growth until thaw). Trout, char, sturgeon, and eel are tracked separately and preserved across the freeze.\n\n<b>Ice Fish:</b> Each ice fishing action takes longer than open water and requires a spear.\n\n<b>Water Draw:</b> Disabled while frozen.\n\n<b>Thaw:</b> The pond returns to its working state automatically when winter ends. Population is preserved across the freeze."
+    "DefaultText": "<b>Populations:</b> Pike, perch, and minnow are preserved beneath the ice (no growth until thaw). Trout, char, sturgeon, and eel are tracked separately and preserved across the freeze.\n\n<b>Ice Fish:</b> Chop a hole and spear a fish at a time (45 minutes; Crayfish 30 minutes, no spear needed).\n\n<b>Water Draw:</b> Disabled while frozen.\n\n<b>Thaw:</b> The pond returns to its working state automatically when winter ends. Population is preserved across the freeze."
   },
   "CardType": 2,
   "ObjectWeight": 1500.0,

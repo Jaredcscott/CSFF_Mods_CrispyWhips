@@ -2,6 +2,44 @@
 
 All notable changes to this mod are documented here.
 
+## [1.13.1] - 2026-11-11
+
+### Changed
+
+- Technical: `Patcher/MillDutyPatch.cs`'s `EmptyCondition` and `SetEnumField` now call the framework's new `Api.NpcDuties` instead of carrying their own byte-identical copies (fleet plan section 10, W0.10 row 2, Fleet APE Prompt 44 step 3). `BuildMoveAction`, `BuildAffectAction` and `AttachDutyRefToAgent` keep their own bespoke, failure-mode-aware logic unchanged (idempotent merge onto an existing `AgentDuties` array, abort-on-miss for load-bearing fields) - not a plain duplicate of anything `Api.NpcDuties` exposes. Same duty behavior. Needs CSFF Mod Framework 2.29.1 or later. Gate: `Development_Tools/Tests/Framework-NpcDuties.Tests.ps1` (new, in Community_Mod_Chest's own test file since it drives the shared framework surface through its two migrated consumers; WaterDrivenInfrastructure's own suite confirms this file still builds and its existing specs stay green).
+
+### Fixed
+
+- **Disassembling a kit gives its Metal Nails back.** Nine kits took nails to build and returned none when broken down: the Water-Driven Forge (10), the Workshop (8), the Grinding Mill (8), the Stamp Mill (8), the Fulling Mill (8), the Sawmill frame (12), the Ore Sluice kit (6) and its empty frame (6), and the Fishpond (4). Each now returns every nail it took, as the Mill Race Outlet already did, and the Workshop kit's "metal parts come back whole" is now true.
+- Technical: one `advanced_copper_tools_copper_nails` drop (the `GpTag_FW_MetalNail` group's canonical member) at the blueprint's spent quantity on each kit's Disassemble or Dismantle `DroppedCards`. Gate WDI-B12 (`Development_Tools/Tests/WaterDrivenInfrastructure.Tests.ps1`) now also fails a kit that keeps any non-bulk ingredient its blueprint spent, and covers the Fulling Mill. Found by the 69th fleet review (`workshop` module critical-analysis WDI-WORKSHOP-1).
+- **The placed Stamp Mill's card no longer promises better crushing than by hand.** It said each piece came out "a little better than by hand"; the mill gives exactly a hand-hammer crush's Quality bonus, as its own help text already said. Its strength is crushing the whole hopper at once. The card now says so, in English and Chinese (`WaterDrivenStampMill_Placed.json` and both CSV rows). Found by the 69th fleet review (`grinding` module critical-analysis).
+- **The frozen Fishpond's help gives the real ice fishing times.** It said ice fishing takes longer than open water and always needs a spear. Ice Fish takes 45 minutes a fish (open water takes 1 hour), and Ice Fish Crayfish takes 30 minutes and needs no spear. Text only, English and Chinese.
+- **The Ore Sluice Frame's description names heavy stones, not rope.** It said the frame needs rope to become an Ore Sluice. The Ore Sluice recipe takes no rope: it takes the frame, 10 Wooden Planks, 4 Heavy Stone and 6 Metal Nails. Text only, English and Chinese.
+- Technical: a new check holds the fishpond's empty-pond and Scatter Fish Food text to the code that implements them (`FishpondKitUnstocked`, `FishpondDrainFlagsKit` and `FishpondFeedOneSpecies` in `Patcher/ActionInterceptPatch.cs`). No player-visible change. Gate: the "WDI-B2 and WDI-B15 text" check in `Development_Tools/Tests/WaterDrivenInfrastructure.Tests.ps1`.
+- **The Fishpond Kit's Disassemble text names the 4 metal nails it returns**, beside the planks and heavy stones.
+- Technical: `SimpCn.csv`'s English anchor for the Fishpond (Frozen) help text (`Water_Sawmill_FishpondWinter_CardHelpSection`) still carried the old "Each ice fishing action takes longer than open water and requires a spear" sentence after `SimpEn.csv` and the card JSON were corrected; it now matches them, and the Chinese column already read the corrected timing (45 minutes, crayfish 30 minutes, no spear needed for crayfish). No player-visible change. Localization parity E23 is clean again (71st fleet review gap prompt A1).
+- **Every other kit's Disassemble or Dismantle text now names the metal nails it gives back**, as the Fishpond Kit's does: the Ore Sluice frame (6) and kit (6), the Water-Driven Forge (10), the Grinding Mill (8), the Stamp Mill (8), the Sawmill frame (12) and the Workshop (8), in English and Chinese. The Fulling Mill and Mill Race Outlet already said so (71st fleet review gap prompt A2, WDI-B12).
+- **Packing up a station no longer destroys what is inside it.** Pack Up on a Grinding Mill, Stamp Mill, Fulling Mill, Ore Sluice, Forge, Workshop or Sawmill (expanded ones included) that still held grain, ore, cloth, logs or anything else deleted it all; the contents now drop on the ground beside the kit. Technical: `SpillsInventoryOnDestroy` true on the 9 placed cards with an inventory (vanilla `RemoveCard` spills only when it is set; no WDI kit has an inventory, so the Sawmill's `TransferInventory` never helped). Gate in `Development_Tools/Tests/WaterDrivenInfrastructure.Tests.ps1`; in-game row T2.2220 (71st fleet review gap prompt A5, grinding module M1).
+
+## [1.13.0] - 2026-11-06
+
+### Added
+
+- **Another mod's metal sheet, nail or solder now works in these recipes too.** The Water Basin, Stamp Mill, Fishpond, Fulling Mill, Mill Race Outlet, Ore Sluice, Ore Sluice Kit, Water-Driven Forge, Grinding Mill, Sawmill and Workshop Kit took Advanced Copper Tools' Metal Sheet, Copper Nails or Tin Solder by name; they now take any card tagged the same way the framework's part groups already let Advanced Copper Tools' own recipes accept (CSFF Mod Framework 2.29.0's `GpTag_FW_MetalSheet`, `GpTag_FW_MetalNail`, `GpTag_FW_Solder`). Nothing changes if you only have Advanced Copper Tools' own parts: the quantities, the "keep the solder stick and spend one use" rule and every other requirement are unchanged, and a saved game's progress on these recipes is unaffected.
+- Technical: 17 blueprint slots across 11 files (2 sheet: `Bp_WaterBasin.json`, `Bp_WaterDrivenStampMill.json`; 10 nail: `Bp_WaterDrivenStampMill.json`, `Bp_Fishpond.json`, `Bp_FullingMill.json`, `Bp_MillRaceOutlet.json`, `Bp_OreSluice.json`, `Bp_OreSluiceEmpty.json`, `Bp_WaterDrivenForge.json`, `Bp_WaterDrivenGrindingMill.json`, `Bp_WaterDrivenSawmill.json`, `Bp_WaterDrivenWorkshopKit.json`; 5 solder: `Bp_WaterDrivenStampMill.json`, `Bp_WaterDrivenForge.json`, `Bp_WaterDrivenGrindingMill.json`, `Bp_WaterDrivenSawmill.json`, `Bp_WaterDrivenWorkshopKit.json`) move from `RequiredCardWarpData`/`RequiredCardWarpType` (the literal framework part UID) onto `RequiredTabGroup`/`RequiredTabGroupWarpData`/`RequiredTabGroupWarpType` naming the shared group, copying Advanced Copper Tools' own already-shipped slot shape exactly; `RequiredQuantity`, `DontSpend`, `EffectOnIngredient` (the five solder slots' "keep the stick, spend one use" `Special1Change: -1`) and every `Special4` Metal Type gate are unchanged. A `CardsOnBoard` reveal gate, a `DroppedCard` dismantle reward and `Bp_AlloySolder.json`'s `CardImageWarpData` icon reference all still name the literal UID on purpose (not ingredient slots; Interop Registry R26-R28). Needs CSFF Mod Framework 2.29.0 or later. Gate: `Development_Tools/Tests/WDI-CMC-MetalPartGroups.Tests.ps1` (new; fleet plan section 10, row 2, Prompt 43).
+
+### Changed
+
+- Technical: `Patcher/BaseTemperatureHeal.cs` now subscribes to the framework's `FrameworkEvents.RunStarted` instead of reflect-subscribing its own handler to `GameManager.OnGMInitialized` (fleet plan section 10, W0.10 row 6). Same run-start timing, same behavior. Gate: `Development_Tools/Tests/Framework-Events.Tests.ps1`.
+
+## [1.12.18] - 2026-11-04
+
+### Fixed
+
+- **The Fishpond offers one water action, and its help says what it gives.** Dragging a water container onto a filled or stocked pond always ran "Draw Unclean Water"; a second action on the same drag, "Fill with Unsafe Water", could never run, yet the pond's help described it. That dead action is gone, and the help now says the pond fills a container with unclean water. Nothing changes in play.
+- **Card text matches what the recipes use.** The Ore Sluice Kit no longer claims iron bearing and axle hardware it is never built from: it is a planked box weighted with heavy stones and fastened with metal nails. The Fulling Mill Kit's Disassemble now names the planks and heavy stones as the materials that come back at half.
+- Technical: the two `*_Fill_*` CardInteractions (index 12) and their four SimpEn/SimpCn rows are removed from `Fishpond_Filled.json` and `Fishpond_Stocked.json`; the gate-class table in `Development_Tools/Tests/WaterDrivenInfrastructure.Tests.ps1` loses their rows. New gate `Development_Tools/Tests/WaterDrivenInfrastructure-DragCollisions.Tests.ps1`: no two CardInteractions on one WDI card share a trigger tag or card (watched red on the 1.12.17 ponds). Audit 2026-11-04 W1, W3, W4.
+
 ## [1.12.17] - 2026-10-30
 
 ### Fixed

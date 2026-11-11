@@ -82,7 +82,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_fulling_mill_kit",
         "LocalizationKey": "Water_Sawmill_FullingMillKit_Disassemble_ActionDescription",
-        "DefaultText": "Break down the kit: the water mill and iron parts come back whole, bulk materials at half."
+        "DefaultText": "Break down the kit: the water mill, iron parts and nails come back whole, the planks and heavy stones at half."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -124,6 +124,12 @@
               "DroppedCardWarpData": "water_sawmill_iron_parts",
               "DroppedCardWarpType": 3,
               "Quantity": {"x": 2, "y": 2}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "advanced_copper_tools_copper_nails",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 8, "y": 8}
             }
           ]
         }
