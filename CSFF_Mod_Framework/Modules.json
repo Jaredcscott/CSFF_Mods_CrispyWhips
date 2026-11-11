@@ -49,7 +49,7 @@
       "name": "Declarative Content Injectors",
       "summary": "Blueprint tabs and container fix, perks (injection, relocation, origin tag, starting stats), drops, improvements, smelting, tag groups (TagGroups.json), cross-slot matching rules (MatchAcross), trading values, flavour matrix, modifier packages, quests, STA activation and the blueprint flag fix.",
       "paths": ["Injection/BlueprintInjector.cs", "Injection/PerkInjector.cs", "Injection/PerkStartingItemStats.cs", "Injection/DropInjector.cs", "Injection/ImprovementInjector.cs",
-                "Injection/SmeltingRecipeInjector.cs", "Injection/TagGroupService.cs", "Injection/LiquidConversionTable.cs", "Injection/LiquidConversionInjector.cs", "Injection/KitContentsTable.cs", "Injection/KitContentsService.cs", "Injection/StatResetsTable.cs", "Injection/StatResetsService.cs", "Injection/MatchAcrossRules.cs", "Injection/MatchAcrossService.cs", "Injection/TradingValueInjector.cs", "Injection/FlavourMatrixInjector.cs",
+                "Injection/SmeltingRecipeInjector.cs", "Injection/TagGroupService.cs", "Injection/LiquidConversionTable.cs", "Injection/LiquidConversionInjector.cs", "Injection/KitContentsTable.cs", "Injection/KitContentsService.cs", "Injection/StatResetsTable.cs", "Injection/StatResetsService.cs", "Injection/EnvPreCreateTable.cs", "Injection/EnvPreCreateService.cs", "Injection/MatchAcrossRules.cs", "Injection/MatchAcrossService.cs", "Injection/TradingValueInjector.cs", "Injection/FlavourMatrixInjector.cs",
                 "Injection/ModifierPackageInjector.cs", "Injection/QuestInjector.cs", "Injection/StaActivationService.cs",
                 "Loading/PerkRelocationService.cs", "Loading/BlueprintContainerSaveLoadFix.cs", "Patching/PerkOriginTagPatch.cs", "Patching/BlueprintFlagFix.cs", "TagGroups.json"]
     },
@@ -85,7 +85,7 @@
       "id": "encounters",
       "name": "Encounters, NPCs and Triggers",
       "summary": "Encounter guards (loader and both patches), character rosters, NPC agent activation, NPC action-row and button-text fixes, and spawn triggers (Triggers/).",
-      "paths": ["Triggers/**", "Loading/EncounterGuardLoader.cs", "Patching/EncounterGuardPatch.cs", "Patching/AgentEncounterGuardPatch.cs",
+      "paths": ["Triggers/**", "Loading/EncounterGuardLoader.cs", "Patching/EncounterGuardPatch.cs", "Patching/AgentEncounterGuardPatch.cs", "Patching/MoveGuardPatch.cs",
                 "Injection/CharacterRosterInjector.cs", "Injection/NPCAgentActivationService.cs", "Patching/BugFixes/NPCActionRowOverflowFix.cs", "Patching/BugFixes/NPCButtonTextFit.cs"]
     },
     {
@@ -117,7 +117,7 @@
     {
       "id": "brine",
       "name": "Brine and Brine Curing",
-      "summary": "Brine (APE_LQ_SaltWater) and Concentrated Brine (APE_LQ_SaltSyrup) hosted from Chiwei's Additional Processing Equipment, the Brine's salting effect, the soaking cards Meat in Brine and Fish in Brine, and Salt-Cured Meat and Fish (moved from Advanced Copper Tools under its UIDs) with their pictures. The Salt and Clay Bowl GameSourceModify patches that make Brine and cure in it sit in the lampoil module's GameSourceModify/**.",
+      "summary": "Brine (APE_LQ_SaltWater) and Concentrated Brine (APE_LQ_SaltSyrup) hosted from Chiwei's Additional Processing Equipment, the Brine's salting effect, the soaking cards Meat in Brine and Fish in Brine, and Salt-Cured Meat and Fish (moved from Advanced Copper Tools under its UIDs) with their pictures. The Salt and Clay Bowl GameSourceModify patches that make Brine and cure in it sit in the lampoil module's GameSourceModify/**. Brine's and Concentrated Brine's picture-recipe rows also sit in the lampoil module's .art/liquid_bowls.json (both liquids are vanilla's clay bowl recoloured, same as Lamp Oil's row).",
       "paths": ["CardData/Brine/**", ".art/SaltCuredMeat.json", ".art/SaltCuredFish.json", "Resource/Picture/SaltCuredMeat.png", "Resource/Picture/SaltCuredFish.png"]
     },
     {

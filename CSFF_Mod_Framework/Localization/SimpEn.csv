@@ -75,8 +75,8 @@ APE_LQ_LampOil_CardName,Lamp Oil
 APE_LQ_LampOil_CardDescription,"A refined oil used for oil lamps.
 It's also fine to use it for frying food or as a seasoning."
 APE_Bp_LampOil_CardHelpSection,"<b>Operation steps:</b>
-1. Need to heat fat liquid. 
-2. Heat and melt 12 pieces of fat in a bowl to obtain a bowl of liquid fat."
+1. Melt fat in a clay bowl until it holds at least 280 liquid fat.
+2. While the fat is still hot, press it with a Cloth and a Heavy Stone: the bowl fills with Lamp Oil and you get 8 Stearin Cakes. The bowl is kept; the cloth and the stone wear a little."
 APE_Bp_LampOil_UnlockConditionsDesc,Cloth Needed
 APE_Action_Mince,Mince
 APE_Action_FeedFuel,Feed Fuel

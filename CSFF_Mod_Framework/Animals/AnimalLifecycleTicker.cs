@@ -26,6 +26,9 @@ namespace CSFFModFramework.Animals;
 /// immediate relocate as the safety net for a missed post-tame retirement). Once the card is
 /// gone, a second timer counts to <c>Spawn.SuppressedRespawnTicks</c>, then restores exists
 /// and heals blood — a fresh wild individual.</item>
+/// <item><b>More suppressor cards</b> (2.29.2): <c>Spawn.AlsoSuppressWhileCardsOnBoard</c> lists further
+/// cards that suppress the same way (a young animal that grows into the companion). The agent stays
+/// retired while ANY listed card is on the board, and the timer above starts only once none of them is.</item>
 /// <item><b>Spawn conditions</b> (2.27.0): while any <c>Spawn.Conditions</c> entry is false the
 /// agent is suppressed the same way, parked in the Spirit World. When nothing suppresses it any
 /// more it is restored after <c>Spawn.ConditionRespawnTicks</c> (0 = the first tick), or after
@@ -48,7 +51,10 @@ internal static class AnimalLifecycleTicker
         public int ActiveStart, ActiveEnd;
         public CardData RoostEnv;                  // SpiritWorld card when roost is off-stage
         public int DeathRespawnTicks;              // 0 = kill-respawn timer disabled
-        public string SuppressCardUid;             // null = suppression disabled
+        /// <summary>Suppressor card UIDs: Spawn.SuppressWhileCardOnBoard first, then any
+        /// Spawn.AlsoSuppressWhileCardsOnBoard entries (2.29.2). Null = suppression disabled. The agent
+        /// is retired while ANY of them is on the board, and the restore timer counts only while none is.</summary>
+        public List<string> SuppressCardUids;
         public int SuppressedRespawnTicks;
         /// <summary>Spawn.Conditions; null = none. All must hold for the agent to be in the world.</summary>
         public List<WorldMapLoader.GateConditionDefinition> Conditions;
@@ -236,7 +242,7 @@ internal static class AnimalLifecycleTicker
 
     private static void TickSuppressedRespawn(SpeciesLifecycle s)
     {
-        if (s.SuppressCardUid == null && s.Conditions == null) return;
+        if (s.SuppressCardUids == null && s.Conditions == null) return;
         if (!TryGetStat(s, s.Stats.Exists, out var exists))
         {
             WarnOnce(s, "exists", "its Exists stat has no live instance on the agent; suppression and spawn conditions are not applied");
@@ -265,7 +271,7 @@ internal static class AnimalLifecycleTicker
         // Retired and nothing suppresses it any more. A species with a suppressor card keeps its
         // one delay (0 = never respawns, as shipped); a conditions-only species uses
         // ConditionRespawnTicks, where 0 means now.
-        bool bySuppressor = s.SuppressCardUid != null;
+        bool bySuppressor = s.SuppressCardUids != null;
         int delay = bySuppressor ? s.SuppressedRespawnTicks : s.ConditionRespawnTicks;
         if (bySuppressor && delay <= 0) return;
         if (timer == null && delay > 0)
@@ -308,22 +314,44 @@ internal static class AnimalLifecycleTicker
 
     // ------------------------------------------------------ suppression cause ---
 
-    /// <summary>What keeps the wild agent retired right now: -1 for the suppressor card, the index
-    /// of the first false Spawn.Conditions entry, or null when nothing does. An index rather than
-    /// a string, so a species that stays retired for a whole season allocates nothing per tick.</summary>
+    /// <summary>What keeps the wild agent retired right now: a negative number for a suppressor card
+    /// (-1 - k for entry k of SuppressCardUids, so -1 is still Spawn.SuppressWhileCardOnBoard itself),
+    /// the index of the first false Spawn.Conditions entry, or null when nothing does. An index rather
+    /// than a string, so a species that stays retired for a whole season allocates nothing per tick.</summary>
     private static int? SuppressionCause(SpeciesLifecycle s)
     {
-        if (s.SuppressCardUid != null && CardOnBoard(s.SuppressCardUid)) return -1;
+        int found = FirstSuppressorOnBoard(s.SuppressCardUids, CardOnBoardCheck);
+        if (found >= 0) return -1 - found;
         if (s.Conditions == null) return null;
         for (int i = 0; i < s.Conditions.Count; i++)
             if (!ConnectionGateService.EvalSingleGateCond(s.Conditions[i])) return i;
         return null;
     }
 
+    // One delegate for the process, so the per-tick suppressor check allocates nothing.
+    private static readonly Func<string, bool> CardOnBoardCheck = CardOnBoard;
+
+    /// <summary>Index of the first suppressor UID whose card is on the board, or -1 when none is (or
+    /// the species has no suppressor). The board lookup is passed in so
+    /// Development_Tools/Tests/Framework-AnimalAlsoSuppress.Tests.ps1 can run this from the built DLL.
+    /// A one-entry list asks the board exactly once, as the single-UID field did before 2.29.2.</summary>
+    internal static int FirstSuppressorOnBoard(List<string> suppressorUids, Func<string, bool> cardOnBoard)
+    {
+        if (suppressorUids == null) return -1;
+        for (int i = 0; i < suppressorUids.Count; i++)
+            if (cardOnBoard(suppressorUids[i])) return i;
+        return -1;
+    }
+
+    /// <summary>The diagnostic text for a suppressor cause: it names the card that was actually found
+    /// on the board, which with AlsoSuppressWhileCardsOnBoard need not be the first one listed.</summary>
+    internal static string DescribeSuppressor(List<string> suppressorUids, int cause)
+        => $"suppressor card '{suppressorUids[-1 - cause]}' is on the board";
+
     private static string Describe(SpeciesLifecycle s, int? cause)
     {
         if (cause is not { } i) return "nothing suppresses it";
-        if (i < 0) return $"suppressor card '{s.SuppressCardUid}' is on the board";
+        if (i < 0) return DescribeSuppressor(s.SuppressCardUids, i);
         var c = s.Conditions[i];
         string detail = c.Type?.Trim().ToLowerInvariant() switch
         {

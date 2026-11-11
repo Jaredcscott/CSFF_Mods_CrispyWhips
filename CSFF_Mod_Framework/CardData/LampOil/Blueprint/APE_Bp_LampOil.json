@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "APE_Bp_LampOil",
     "LocalizationKey": "APE_Bp_LampOil_CardHelpSection",
-    "DefaultText": "<b>Operation steps:</b>\n1. Need to heat fat liquid. \n2. Heat and melt 12 pieces of fat in a bowl to obtain a bowl of liquid fat."
+    "DefaultText": "<b>Operation steps:</b>\n1. Melt fat in a clay bowl until it holds at least 280 liquid fat.\n2. While the fat is still hot, press it with a Cloth and a Heavy Stone: the bowl fills with Lamp Oil and you get 8 Stearin Cakes. The bowl is kept; the cloth and the stone wear a little."
   },
   "CardImageWarpData": "CSFFMFW_LQ_LampOil",
   "CardImageWarpType": 3,
@@ -85,22 +85,11 @@
           "RequiredCardWarpType": 3,
           "RequiredQuantity": 1,
           "DontSpend": true,
-          "RequiredLiquidContent": {
-            "RequiredQuantity": {
-              "x": 100,
-              "y": 0
-            }
-          },
           "EffectOnIngredient": {
             "ModType": 1,
-            "ModifyLiquid": true,
             "UsageChange": {
               "x": -1,
               "y": -1
-            },
-            "LiquidQuantityChange": {
-              "x": -100,
-              "y": -100
             }
           }
         },
@@ -109,22 +98,11 @@
           "RequiredCardWarpType": 3,
           "RequiredQuantity": 1,
           "DontSpend": true,
-          "RequiredLiquidContent": {
-            "RequiredQuantity": {
-              "x": 100,
-              "y": 0
-            }
-          },
           "EffectOnIngredient": {
             "ModType": 1,
-            "ModifyLiquid": true,
             "UsageChange": {
               "x": -1,
               "y": -1
-            },
-            "LiquidQuantityChange": {
-              "x": -100,
-              "y": -100
             }
           }
         }
@@ -142,8 +120,8 @@
       "DroppedCardWarpData": "APE_LQ_LampOil",
       "DroppedCardWarpType": 3,
       "Quantity": {
-        "x": 150,
-        "y": 150
+        "x": 0,
+        "y": 0
       },
       "TransferRules": {
         "SpoilageFrom": 1,

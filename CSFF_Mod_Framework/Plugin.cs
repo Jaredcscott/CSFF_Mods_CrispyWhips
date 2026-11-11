@@ -6,7 +6,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.29.0";
+    public const string PluginVersion = "2.29.2";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -37,6 +37,15 @@ public class Plugin : BaseUnityPlugin
             + "Off by default — enable only when investigating research-timer regressions.",
             "在 WarpResolver 前后运行蓝图研究诊断。默认关闭，仅在排查研究计时回归问题时启用。");
         Loading.LoadOrchestrator.EnableLoadDiagnostics = diagConfig.Value;
+
+        // Config: Portal Kit blueprint in the journal (default shown). rinpine, Nexus c178484586.
+        var showPortalBlueprint = Config.Bind("General", "ShowPortalBlueprint", true,
+            "Show the Portal Kit blueprint in the blueprint list (Magic > Implements). Set false to leave it out "
+            + "if you do not use portals. Only the blueprint goes: Portal Hubs you have already built, and a "
+            + "Portal Kit you already hold, keep working, and the Arcane Wayfinder perk still gives its kit. "
+            + "Takes effect at the next launch.",
+            "在蓝图列表（魔法 > 灵具）中显示传送门套件蓝图。如果你不使用传送门，设为 false 可将其从列表中移除。只移除蓝图：已建成的传送门枢纽和已持有的传送门套件仍可正常使用，奥术引路者特质仍会给予套件。下次启动时生效。");
+        Portal.PortalService.ShowPortalBlueprint = showPortalBlueprint.Value;
 
         // Config: load-time authoring lint (default on: one Warn per affected mod, silent otherwise).
         Loading.AuthoringLint.Configure(Config);
@@ -145,8 +154,8 @@ public class Plugin : BaseUnityPlugin
         Patching.Performance.AmbienceArrayReuse.ApplyPatch(Harmony, Config);
 
         // Performance: throttle InGameCardBase.LateUpdate for off-screen, non-animating cards.
-        // Biggest remaining win for card-heavy saves — hundreds of cards in other environments
-        // stop paying per-frame CheckIfVisibleOnScreen cost.
+        // Off by default (Chiwei, Nexus c177496068; no measured gain on 0.69c, see
+        // Documentation/Benches/Framework_Perf_069c/ and the note in OffScreenCardThrottle.cs).
         Patching.Performance.OffScreenCardThrottle.Configure(Config, Harmony);
 
         // Performance: cap ChangeEnvironment's per-game-tick catch-up replay when
@@ -297,6 +306,10 @@ public class Plugin : BaseUnityPlugin
         // StartEncounterDutyAction.CanBePerformed so a guard that NAMES an agent or an encounter stops
         // that agent's own attack. Zero-cost when no guard opts into agent starts.
         Patching.AgentEncounterGuardPatch.ApplyPatch(Harmony);
+
+        // Move guards (plan Fleet APE Port, Row 11): the single GameManager.MoveNPC prefix all
+        // Api.Npc.RegisterMoveGuard predicates flow through. Zero-cost when no guard is registered.
+        Patching.MoveGuardPatch.ApplyPatch(Harmony);
 
         // Connection gates (Tier 2): re-evaluate ImprovementBuilt / PerkEquipped gates
         // when an improvement is completed, updating map connection visibility immediately.

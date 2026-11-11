@@ -584,13 +584,6 @@ public static class CardUtil
     }
 
     /// <summary>
-    /// Returns true if <paramref name="impUID"/> is present in the <c>CurrentlyBuiltImprovements</c>
-    /// list of the <see cref="GameManager"/>.EnvironmentsData entry for <paramref name="envUID"/>.
-    /// Matches the entry by <c>EnvironmentID</c>, <c>DictionaryKey</c>, or raw dictionary key,
-    /// since different EnvID construction paths populate different fields. False on any
-    /// missing link or reflection failure.
-    /// </summary>
-    /// <summary>
     /// True when a bare env UID (or composite env key) matches an <c>EnvironmentsData</c>
     /// entry's <c>DictionaryKey</c>. Entries that have been through a leave/save cycle carry
     /// the names-annotated key form (e.g. <c>"2b19b942…(Env_River_ClearingOak_RiverClearing)"</c>

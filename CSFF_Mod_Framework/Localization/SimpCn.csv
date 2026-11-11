@@ -82,10 +82,10 @@ APE_LQ_LampOil_CardDescription,"A refined oil used for oil lamps.
 It's also fine to use it for frying food or as a seasoning.","一种用于油灯照明的精炼油料。
 你要是拿来油炸食物或作为调料，也不是不行。"
 APE_Bp_LampOil_CardHelpSection,"<b>Operation steps:</b>
-1. Need to heat fat liquid. 
-2. Heat and melt 12 pieces of fat in a bowl to obtain a bowl of liquid fat.","<b>操作步骤：</b>
-1. 需要热脂肪液体。
-2. 将12块脂肪放在碗中加热融化，得到一碗液体脂肪。"
+1. Melt fat in a clay bowl until it holds at least 280 liquid fat.
+2. While the fat is still hot, press it with a Cloth and a Heavy Stone: the bowl fills with Lamp Oil and you get 8 Stearin Cakes. The bowl is kept; the cloth and the stone wear a little.","<b>操作步骤：</b>
+1. 在陶碗中融化脂肪，直到碗中至少有280单位液体脂肪。
+2. 趁脂肪还热时，用布和重石压榨：碗中会盛满灯油，并得到8块硬脂块。碗会保留，布和石头会有少许磨损。"
 APE_Bp_LampOil_UnlockConditionsDesc,Cloth Needed,需要布
 APE_Action_Mince,Mince,绞碎
 APE_Action_FeedFuel,Feed Fuel,添入燃料

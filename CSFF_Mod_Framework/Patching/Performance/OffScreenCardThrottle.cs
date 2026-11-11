@@ -32,10 +32,19 @@ namespace CSFFModFramework.Patching.Performance;
 // nstripped Assembly-CSharp reference, so we reach them via cached compiled
 // delegates bound once at startup — direct callvirt overhead per-frame, no
 // per-call reflection.
+//
+// OFF BY DEFAULT since the release after 2.29.0 (Chiwei, Nexus c177496068: turning the [Performance]
+// options off "significantly reduced stuttering over time" on 2.26.12). The one bench of it on EA
+// 0.69c (Documentation/Benches/Framework_Perf_069c/) found no measurable gain: idle mean frame
+// 10.49-10.67 ms on, 9.33-10.76 ms off, inside the 15% run-to-run noise. A card that is first seen
+// on the same frame as its neighbours keeps their phase, so the skipped LateUpdates can bunch onto
+// every Nth frame instead of spreading out; that is a candidate mechanism for uneven frame pacing,
+// not a measured one. With no shown benefit and a player report against it, the default is the
+// vanilla path. An existing .cfg keeps the value already written in it.
 internal static class OffScreenCardThrottle
 {
     private static int _throttleFrames = 3;
-    private static bool _enabled = true;
+    private static bool _enabled = false;
 
     // Map InGameCardBase.GetInstanceID() → frame index of last LateUpdate run.
     // Cleaned periodically to bound memory when cards are destroyed over a session.
@@ -56,11 +65,12 @@ internal static class OffScreenCardThrottle
     public static void Configure(ConfigFile config, Harmony harmony)
     {
         var enabledCfg = config.Bind(
-            "Performance", "OffScreenCardThrottleEnabled", true,
+            "Performance", "OffScreenCardThrottleEnabled", false,
             "Throttle InGameCardBase.LateUpdate for off-screen, non-animating cards. "
-            + "Reduces per-frame cost on late-game saves with many placed improvements. "
-            + "Set false to disable if you observe visual glitches at screen edges.",
-            "限制屏幕外、没有动画的卡牌的 InGameCardBase.LateUpdate 运行频率。在放置了许多环境改良的后期存档中降低每帧开销。如果在屏幕边缘看到显示异常，可设为 false 关闭。");
+            + "Off by default: on game version 0.69c it showed no measurable gain, and a player found the game "
+            + "stuttered less over time with it off. Set true to try it on a very large late-game save; set false "
+            + "again if you see stutter or visual glitches at screen edges.",
+            "限制屏幕外、没有动画的卡牌的 InGameCardBase.LateUpdate 运行频率。默认关闭：在游戏 0.69c 版本上没有测出可见的收益，且有玩家发现关闭后长时间游玩的卡顿更少。在非常大的后期存档上可设为 true 试用；如果出现卡顿或屏幕边缘显示异常，再设回 false。");
         var framesCfg = config.Bind(
             "Performance", "OffScreenCardThrottleFrames", 3,
             "Number of frames between LateUpdate runs for eligible off-screen cards. "

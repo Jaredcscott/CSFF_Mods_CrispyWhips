@@ -31,6 +31,17 @@ namespace CSFFModFramework.Api;
 /// non-throwing no-op that no catch ever sees. The shape gate
 /// <c>Development_Tools/Tests/Framework-NpcMoveTo.Tests.ps1</c> reads this file for exactly that, and for
 /// the rule that no <c>EnvID</c> is ever held in a field.</para>
+///
+/// <para><b><see cref="RegisterMoveGuard"/>.</b> A second, unrelated member (plan Fleet APE Port, Row
+/// 11): a MoveNPC-refusal registry, parallel to <see cref="EncounterGuards.Register(string, Func{EncounterContext, bool})"/>
+/// but for the move itself rather than the fight that can follow it. Replaces three mods' own
+/// <c>GameManager.MoveNPC</c> prefixes (Community Mod Chest's <c>GuardTerritoryLeashPatch</c> and
+/// <c>WildlifeIndoorGuardPatch</c>, Far Territory's <c>OwlIslandGuard</c>), each built around the same
+/// type-lookup-and-prefix skeleton with its own per-mod refusal decision. <c>Patching.MoveGuardPatch</c>
+/// owns the one real Harmony prefix; a registered predicate is asked on every attempted move and never
+/// patches Harmony itself. <paramref name="npc"/> and the destination are handed through as
+/// <c>object</c> (the live <c>InGameNPC</c> and <c>EnvID</c>), so a reflection-only mod can keep using
+/// <c>Reflect</c>/<c>CardUtil</c> on them exactly as it did inside its own prefix.</para>
 /// </summary>
 public static class Npc
 {
@@ -41,6 +52,50 @@ public static class Npc
     private static void WarnOnce(string cause, string subject, string message)
     {
         if (_warned.Add(cause + ":" + subject)) Log.Warn(message);
+    }
+
+    private static readonly List<Func<object, object, bool>> _moveGuards = new();
+    private static Func<object, object, bool>[] _moveGuardSnapshot = Array.Empty<Func<object, object, bool>>();
+
+    /// <summary>Number of registered move guards (zero-cost check for <c>Patching.MoveGuardPatch</c>).</summary>
+    public static int MoveGuardCount => _moveGuardSnapshot.Length;
+
+    /// <summary>
+    /// Registers a guard asked on every attempted <c>GameManager.MoveNPC</c> call: <paramref name="refuse"/>
+    /// takes the live NPC and the destination <c>EnvID</c>, both as <c>object</c>, and returns true to
+    /// refuse that move (the move is then a no-op, exactly as if the caller's own old prefix had returned
+    /// false). Predicates run on the main thread, in registration order, until one refuses; exceptions
+    /// are caught and logged per guard, and that guard is then treated as not refusing. There is no
+    /// Unregister: every current caller is a permanent per-mod guard, like its predecessor prefix.
+    /// </summary>
+    public static void RegisterMoveGuard(Func<object, object, bool> refuse)
+    {
+        if (refuse == null) return;
+        lock (_moveGuards)
+        {
+            _moveGuards.Add(refuse);
+            _moveGuardSnapshot = _moveGuards.ToArray();
+        }
+        Log.Debug($"Npc.RegisterMoveGuard: registered ({_moveGuardSnapshot.Length} total).");
+    }
+
+    /// <summary>Framework-internal: true when any registered guard refuses this move.</summary>
+    internal static bool EvaluateMoveGuards(object npc, object destEnvId)
+    {
+        var snapshot = _moveGuardSnapshot;
+        foreach (var guard in snapshot)
+        {
+            try
+            {
+                if (guard(npc, destEnvId)) return true;
+            }
+            catch (Exception ex)
+            {
+                WarnOnce("move-guard-threw", guard.Method?.Name ?? "?", $"Npc.RegisterMoveGuard: a guard ('{guard.Method?.Name ?? "?"}') threw, so it was treated as not refusing this move: {ex.GetType().Name}: {Log.ExceptionText(ex)}");
+            }
+        }
+        // silent-ok: no registered guard refused this move, the ordinary case for almost every call.
+        return false;
     }
 
     /// <summary>

@@ -85,6 +85,12 @@ internal static class SpriteResolver
                         cardImageField.SetValue(card, imgSprite);
                         cardsFixed++;
                     }
+                    else
+                    {
+                        // Mirror the perk-icon path: a card whose JSON declared a CardImageWarpData
+                        // but whose name does not resolve renders BLANK with no other signal.
+                        Log.Warn($"SpriteResolver: missing card image '{imgName}' for {card.UniqueID}");
+                    }
                 }
 
                 // Durability override icons
@@ -111,7 +117,12 @@ internal static class SpriteResolver
                         if (current != null) continue;
 
                         var sprite = LookupSprite(kvp.Value);
-                        if (sprite == null) continue;
+                        if (sprite == null)
+                        {
+                            // Inert rather than blank (the stat bar keeps its default glyph), so Debug not Warn.
+                            Log.Debug($"SpriteResolver: missing durability icon '{kvp.Value}' on {card.UniqueID}.{kvp.Key}");
+                            continue;
+                        }
 
                         overrideIconField.SetValue(durObj, sprite);
                         if (durObj.GetType().IsValueType)

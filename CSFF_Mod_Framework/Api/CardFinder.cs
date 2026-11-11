@@ -15,6 +15,7 @@ namespace CSFFModFramework.Api;
 public static class CardFinder
 {
     private static Type _cardBaseType;
+    private static bool _cardBaseTypeWarned;
     private static object[] _cache = Array.Empty<object>();
     private static bool _cacheValid;
     private static long _lastFingerprint;
@@ -76,7 +77,16 @@ public static class CardFinder
     private static void RefreshIfBoardChanged()
     {
         _cardBaseType ??= CardUtil.FindGameType("InGameCardBase");
-        if (_cardBaseType == null) { _cache = Array.Empty<object>(); return; }
+        if (_cardBaseType == null)
+        {
+            if (!_cardBaseTypeWarned)
+            {
+                _cardBaseTypeWarned = true;
+                Log.Warn("[CardFinder] InGameCardBase type could not be resolved - every card lookup returns empty. A game update probably renamed it; re-check CardUtil.FindGameType(\"InGameCardBase\").");
+            }
+            _cache = Array.Empty<object>();
+            return;
+        }
 
         long fingerprint = GetAllCardsFingerprint();
         if (_cacheValid && fingerprint == _lastFingerprint) return;

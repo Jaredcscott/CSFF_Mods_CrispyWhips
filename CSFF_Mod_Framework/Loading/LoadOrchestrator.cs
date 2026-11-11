@@ -280,6 +280,15 @@ internal static class LoadOrchestrator
             else
                 Log.Debug("[Skip] StatResetsService: no mod ships StatResets.json");
 
+            // 5f8. Non-clone environment pre-create (EnvPreCreate.json, fleet plan section 10, W0.10 row 3): check
+            //      every listed UID against the loaded cards (after WarpResolver) and arm the run-start pre-create,
+            //      which creates EnvironmentsData for whatever is still missing on OnGMInitialized. No ordering
+            //      dependency with 5f3-5f7.
+            if (mods.Any(m => m.HasEnvPreCreate))
+                RunPhase(sw, "EnvPreCreateService", () => EnvPreCreateService.LoadAll(mods));
+            else
+                Log.Debug("[Skip] EnvPreCreateService: no mod ships EnvPreCreate.json");
+
             // 5g. Validate mod SelfTriggeredActions and arm the run-start activation check.
             //     No injection needed: GameManager.InitializeStatsAndActions() discovers STAs
             //     by iterating DataBase.AllData, where JsonDataLoader already registered them.
@@ -532,6 +541,7 @@ internal static class LoadOrchestrator
             {
                 LoadSucceeded = true;
                 Api.FrameworkEvents.RaiseLoaded();
+                Api.FrameworkEvents.ArmRunStarted();
             }
         }
         catch (Exception ex)

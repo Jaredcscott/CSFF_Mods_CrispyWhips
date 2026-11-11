@@ -1,7 +1,5 @@
 # Interop Registry - shared resources between CSFF mods
 
-> Published 2026-11-05 (owner decision K7, Fleet plan 7). A handful of citations below point at the author's internal development history (`Documentation/Research/...`, `Documentation/Design/...`) that is not part of this public repo; read them as provenance, not as a link you can follow here. To propose a new row, post on this mod's Nexus page per README.md "Making mods work together" step 12.
-
 **Status:** authoritative from 2026-10-09. It graduates from `Documentation/Ideas/IDEAS_OVERVIEW.md` section 3.4
 (which now points here, as 3.4 itself said it would) under the Fleet plan, feature 10
 (`Documentation/Design/Fleet_Cross_Mod_Decoupling_As_Built.md`). The doctrine it serves stays in IDEAS_OVERVIEW section 3 (3.1 the
@@ -55,7 +53,7 @@ foreign, disarmed by `HarshWilds/Patcher/HeronRaidGuard.cs`). Adds to IDEAS_OVER
 Fleet plan feature 2, Community Mod Chest 1.69.5).** The framework hosts the shared metal parts (Metal Nail,
 Metal Sheet, Tin Solder; `Documentation/Design/CSFFModFramework_Content_Update_Round2_As_Built.md` section 31, framework 2.28.0) and
 the Market Stall builds from a vanilla chest (Fleet feature 1), so `Community_Mod_Chest/Plugin.cs` no longer
-declares the dependency. No content mod may now hard-depend on another: the Fleet plan's end state is no
+declares the dependency. No content mod may now hard-depend on another; the Fleet plan's end state is no
 `[BepInDependency]` between content mods at all (feature 4).
 
 ## R - Resource rows

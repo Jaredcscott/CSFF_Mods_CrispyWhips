@@ -39,7 +39,7 @@ internal static class AnimalValidator
         ValidateAgent(m, errors);
         ValidateActivityWindow(m, errors);
         ValidateMovement(m, errors);
-        ValidateSpawnLifecycle(m, errors);
+        ValidateSpawnLifecycle(m, errors, uid => GameRegistry.GetByUid<CardData>(uid) != null);
         ValidateSpawnConditions(m, errors);
         ValidateCarcass(m, errors);
         ValidateTracks(m, errors);
@@ -219,7 +219,16 @@ internal static class AnimalValidator
             errors.Add("Field 'Movement.PlayerAttraction': BaseWeight <= 0 with no DistanceWeight — the duty would never be selected");
     }
 
-    private static void ValidateSpawnLifecycle(AnimalManifest m, List<string> errors)
+    /// <summary>The Spawn timer and suppressor rules. The card lookup is passed in
+    /// (<paramref name="resolvesToCardData"/>: true when a UID is a loaded CardData) so
+    /// Development_Tools/Tests/Framework-AnimalAlsoSuppress.Tests.ps1 can run these same rules from the
+    /// built DLL, where GameRegistry has no game behind it.
+    ///
+    /// <para>AlsoSuppressWhileCardsOnBoard (2.29.2) only ADDS cards to SuppressWhileCardOnBoard, so it is
+    /// rejected on its own: a framework before 2.29.2 ignores the key, and a manifest carrying only it
+    /// would suppress nothing there. Every rule that asks "does this species have a suppressor" (the
+    /// Agent.Ref stat requirement below, Traps, Spawn.Conditions) keeps reading SuppressWhileCardOnBoard.</para></summary>
+    internal static void ValidateSpawnLifecycle(AnimalManifest m, List<string> errors, Func<string, bool> resolvesToCardData)
     {
         if (m.DeathRespawnTicks < 0)
             errors.Add($"Field 'Spawn.DeathRespawnTicks': expected >= 0, got {m.DeathRespawnTicks}");
@@ -227,8 +236,22 @@ internal static class AnimalValidator
             errors.Add($"Field 'Spawn.SuppressedRespawnTicks': expected >= 0, got {m.SuppressedRespawnTicks}");
 
         if (m.SuppressWhileCardOnBoard != null
-            && GameRegistry.GetByUid<CardData>(m.SuppressWhileCardOnBoard) == null)
+            && !resolvesToCardData(m.SuppressWhileCardOnBoard))
             errors.Add($"Field 'Spawn.SuppressWhileCardOnBoard': \"{m.SuppressWhileCardOnBoard}\" does not resolve to a CardData");
+
+        if (m.HasAlsoSuppressWhileCardsOnBoard)
+        {
+            if (m.AlsoSuppressNotAList)
+                errors.Add("Field 'Spawn.AlsoSuppressWhileCardsOnBoard': expected an array of CardData UIDs, e.g. [\"<uid>\"]");
+            if (m.AlsoSuppressMalformed > 0)
+                errors.Add($"Field 'Spawn.AlsoSuppressWhileCardsOnBoard': {m.AlsoSuppressMalformed} entr(y/ies) are not non-empty strings (expected CardData UIDs)");
+            if (m.SuppressWhileCardOnBoard == null)
+                errors.Add("Field 'Spawn.AlsoSuppressWhileCardsOnBoard': only valid alongside 'Spawn.SuppressWhileCardOnBoard' (a single CardData UID string). "
+                         + "This key adds cards to that suppressor; on its own, a framework before 2.29.2 would suppress nothing");
+            for (int i = 0; i < m.AlsoSuppressWhileCardsOnBoard.Count; i++)
+                if (!resolvesToCardData(m.AlsoSuppressWhileCardsOnBoard[i]))
+                    errors.Add($"Field 'Spawn.AlsoSuppressWhileCardsOnBoard[{i}]': \"{m.AlsoSuppressWhileCardsOnBoard[i]}\" does not resolve to a CardData");
+        }
 
         if (m.AgentRef != null && m.DeathRespawnTicks > 0)
         {

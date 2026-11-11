@@ -292,6 +292,7 @@ internal static class ModDiscovery
         mod.HasLiquidConversions = File.Exists(Path.Combine(dir, "LiquidConversions.json"));
         mod.HasKitContents = File.Exists(Path.Combine(dir, "KitContents.json"));
         mod.HasStatResets = File.Exists(Path.Combine(dir, "StatResets.json"));
+        mod.HasEnvPreCreate = File.Exists(Path.Combine(dir, "EnvPreCreate.json"));
     }
 
     private static bool HasGSMBulkMatch(string modDir)

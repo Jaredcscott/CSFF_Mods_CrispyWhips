@@ -425,6 +425,17 @@ internal static class PortalService
         && (string.Equals(uid, WayfinderPerkUid, StringComparison.OrdinalIgnoreCase)
             || string.Equals(uid, PortalKitBlueprintUid, StringComparison.OrdinalIgnoreCase));
 
+    // [General] ShowPortalBlueprint (default true), set by Plugin.Awake. rinpine (Nexus c178484586)
+    // installs the framework only for another mod and does not want the Portal Kit taking a journal
+    // slot. False drops ONLY the blueprint from BlueprintInjector's tab queue: the kit card, the placed
+    // hub, the hub's travel buttons and the Wayfinder perk are untouched, so built portals keep working
+    // and CMC's village keeps its other ways in (River Bridge, Village Pathfinder trait, river swim).
+    internal static bool ShowPortalBlueprint = true;
+
+    internal static bool IsPortalBlueprintHiddenByConfig(string uid) =>
+        !ShowPortalBlueprint
+        && string.Equals(uid, PortalKitBlueprintUid, StringComparison.OrdinalIgnoreCase);
+
     /// <summary>
     /// <strong>Phase 5i-b (data-load).</strong> Injects one travel <c>DismantleCardAction</c>
     /// per registered mod world into the placed Portal Hub CT2 (<c>csffmfwportalplaced</c>) so

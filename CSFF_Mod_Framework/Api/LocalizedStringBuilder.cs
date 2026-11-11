@@ -29,6 +29,8 @@ public static class LocalizedStringBuilder
         {
             _typeResolved = true;
             _localizedStringType = Reflect.TryGetType("LocalizedString");
+            if (_localizedStringType == null)
+                Log.Warn("[LocalizedStringBuilder] LocalizedString type could not be resolved - every Create/CreateLike returns null. A game update probably renamed it; re-check Reflect.TryGetType(\"LocalizedString\").");
         }
         if (_localizedStringType == null) return null;
         try

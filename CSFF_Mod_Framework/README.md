@@ -4,7 +4,7 @@ The shared base for Card Survival: Fantasy Forest mods. It loads mod content fro
 
 It also fixes several base-game bugs and speeds up travel to long-unvisited places.
 
-- **Version:** 2.29.0
+- **Version:** 2.29.2
 - **Game version:** EA 0.69c
 - **Requires:** BepInEx 5.x
 - **Languages:** English and Simplified Chinese
@@ -109,7 +109,7 @@ Entering a place you have not visited for a long time makes the game replay ever
 
 The framework caps that replay at 14 in-game days, limits it to 2 seconds of real time and replays the ticks in batches.
 
-It also throttles off-screen cards, caches decoded pictures so later launches load faster, pre-sizes the animation pool and cuts per-frame log spam. Two more options are off by default: compressed mod pictures, and slower decision-making for NPCs outside your current location.
+It also caches decoded pictures so later launches load faster, pre-sizes the animation pool and cuts per-frame log spam. Three more options are off by default: compressed mod pictures, slower decision-making for NPCs outside your current location, and less frequent updates for off-screen cards.
 
 ### Configuration
 
@@ -120,7 +120,8 @@ Settings live in `BepInEx/config/crispywhips.CSFFModFramework.cfg`, created on f
 | General | `VerboseLogging` | `false` | Detailed per-item log lines, for bug reports |
 | General | `ForceChineseMode` | `false` | Loads the Chinese text whatever the game language, for testing translations |
 | General | `EnableLoadDiagnostics` | `false` | Two extra scans at load, for investigating research-timer problems |
-| Performance | `OffScreenCardThrottleEnabled` | `true` | Updates off-screen, still cards less often |
+| General | `ShowPortalBlueprint` | `true` | `false` leaves the Portal Kit blueprint out of the blueprint list; built Portal Hubs and a kit you hold keep working |
+| Performance | `OffScreenCardThrottleEnabled` | `false` | Updates off-screen, still cards less often. Off by default: no measured gain on 0.69c, and a player saw less stutter over time with it off |
 | Performance | `OffScreenCardThrottleFrames` | `3` | Throttled cards update once every N frames (2 to 10) |
 | Performance | `DOTweenTweenerCapacity` / `DOTweenSequenceCapacity` | `1000` / `200` | Pre-sizes the animation pool to avoid stutter mid-session |
 | Performance | `DOTweenQuietLogs` | `true` | Logs animation errors only |
@@ -216,6 +217,7 @@ Every `*WarpData` key needs its `*WarpType` sibling: 3 Reference, 4 Add, 5 Modif
 | `LiquidConversions.json` | `[{ "Solid": "<CardData UID>", "Liquid": "<CT9 CardData UID>", "Quantity": 5 }]` (2.29.0). Lets a powder go into a jar, pouch or barrel as its liquid form and come back out with the liquid's Empty button, as vanilla salt and flour do. `Quantity` is the liquid units one solid card becomes (vanilla: 5 for a pinch-class powder, about 1.5 x `ObjectWeight` for bulk); it must be above 0. Give the liquid `tag_PowderLiquid`, as vanilla's powder liquids have, so a Pouch takes it. A card can be in one pair only: across mods the first in load order keeps it, a later row naming it is skipped with a warning naming both mods, and a pair naming a card vanilla already pairs is skipped. Vanilla's own pairs always win |
 | `KitContents.json` | `[{ "Kit": "<kit card UID>", "ActionNamePrefix": "Place", "Name": "...", "LogTag": "...", "Items": [{ "Card": "<UID>", "Count": 15, "Stats": { "SpecialDurability4": 1 }, "OnlyIfCardExists": false }] }]` (2.29.0). When the player's action on the kit card ends, each item spawns `Count` times (1 to 100) on the current board, in order, with its stat values. An `OnlyIfCardExists` item is skipped, with one Debug line (`LogIfMissing`), when its card is not loaded. A kit card can be declared once across all mods |
 | `StatResets.json` | `[{ "Stat": "<GameStat UID>", "Latch": "<hidden saved GameStat UID, 0..1>", "Target": "default", "When": "FirstTick", "LogTag": "...", "LogReset": "... {before} -> {target} ...", "LogUnchanged": "..." }]` (2.29.0). Resets a stat's base once per save, for a mod whose older versions wrote the stat permanently. The base goes to `Target` (`"default"`, the stat's own base value, or a number) through the game's own stat change, is checked, and only then is the latch set to 1, so a failed reset is tried again. `When`: `FirstTick` (on each in-game tick until done) or `RunStart` (as the save loads, then each tick until done). `LogReset` is written at Info, `LogUnchanged` at Debug when the base was already there (without it, `LogReset` either way). Two rows may reset one stat; a latch belongs to one row across all mods |
+| `EnvPreCreate.json` | `["<environment card UID>", ...]`. Pre-creates `GameManager.EnvironmentsData` for each listed non-clone environment as every run starts, so the player's first visit finds its default board (the vanilla and the framework's own clone-node pre-create already do this; this is for everything else). An environment already visited (an entry already exists) is left untouched. An environment UID can be listed once across all mods |
 | `CardData/Trigger/*.json` | Spawns a card on the player's board on a timer |
 | `SelfTriggeredAction/*.json` | Vanilla stat-triggered events. The game runs them; the framework checks them at load |
 | `EncounterGuards/*.json` | Stops encounters while a guard card or guard place is present |
@@ -315,7 +317,7 @@ The framework looks for `ModInfo.json` up to two folder levels deep under `BepIn
 
 When Pikachu ModLoader or ModCore is installed, a mod whose `ModInfo.json` has the `ModLoaderVerison` field is left to that loader. Leave the field out of a framework mod, along with `ModEditorVersion`.
 
-A mod with that field is still loaded by the framework when it ships a framework-only file: `BlueprintTabs.json`, `SmeltingRecipes.json`, `DropInjections.json`, `InjectImprovementInto.json`, `TradingValues.json`, `WorldMap/MapNodes.json`, `WorldMap/FullMap.json`, `EncounterGuards/*.json`, `Quests.json`, `Characters.json`, `MapMod.json`, `Modifiers.json`, `LiquidConversions.json`, `KitContents.json`, `StatResets.json`, `FlavourMatrix/*.json`, `Animals/*.json`, or a `GameSourceModify/` patch using `MatchTagWarpData` or `MatchTypeWarpData`.
+A mod with that field is still loaded by the framework when it ships a framework-only file: `BlueprintTabs.json`, `SmeltingRecipes.json`, `DropInjections.json`, `InjectImprovementInto.json`, `TradingValues.json`, `WorldMap/MapNodes.json`, `WorldMap/FullMap.json`, `EncounterGuards/*.json`, `Quests.json`, `Characters.json`, `MapMod.json`, `Modifiers.json`, `LiquidConversions.json`, `KitContents.json`, `StatResets.json`, `EnvPreCreate.json`, `FlavourMatrix/*.json`, `Animals/*.json`, or a `GameSourceModify/` patch using `MatchTagWarpData` or `MatchTypeWarpData`.
 
 ### Unresolved references
 
@@ -323,7 +325,7 @@ A row in a declarative file that names a UID nothing loaded is skipped and logge
 
 The log level follows the likely cause. A UID from a partner mod that is not installed logs at Debug (drop injections, trading values, a `BlueprintAlternates` alternate), and an authoring error at Warn or Error.
 
-`GameSourceModify`, `InjectImprovementInto.json`, `LiquidConversions.json`, `KitContents.json` and `StatResets.json` choose per UID: Warn when a GUID, vanilla name or installed mod should have supplied it, Debug otherwise.
+`GameSourceModify`, `InjectImprovementInto.json`, `LiquidConversions.json`, `KitContents.json`, `StatResets.json` and `EnvPreCreate.json` choose per UID: Warn when a GUID, vanilla name or installed mod should have supplied it, Debug otherwise.
 
 Three kinds keep the row, because dropping it would change what it protects. A gate condition naming a missing UID reads false (`ConnectionGates`, `SealableGates`, a `ConditionalDrops` condition), and an `EncounterGuards` `EncounterUids` or `AgentUids` entry stays so the list never empties into "every encounter".
 
@@ -505,6 +507,8 @@ The framework builds the `NPCAgent` with its duties and timers, plus the tracks,
 
 Use them for a winter-only visitor, or for an animal players can switch off through a hidden GameStat.
 
+`Spawn.SuppressWhileCardOnBoard` (one card UID) keeps the wild animal away while that card, such as its tamed companion, is on the board. `Spawn.AlsoSuppressWhileCardsOnBoard` (2.29.2) is an optional array of more cards that do the same, for a young animal that grows into the companion. It is only valid beside `SuppressWhileCardOnBoard`, which stays a single string: an older framework ignores the new key and keeps the one-card behaviour.
+
 The Approach button reads the framework's `CSFFMFW_Animal_Approach` row, so it follows the game language. `Encounter.ApproachLabelLocalizationKey` gives a species its own wording, and `Encounter.EnemyNameLocalizationKey` names a generated encounter's enemy. The NPC popup's description reads the manifest's `LocalizationKey` row, or an optional top-level `DescriptionLocalizationKey`, which is ignored when `Agent.Ref` is set. A key with no row in the mod's `SimpEn.csv` logs a warning.
 
 An `AffectItems` duty can be limited to the containers it may open with `ContainerCards` (card UIDs), `ContainerTags` and `ContainerRequired`, alongside `InTrapContainers`. With `InTrapContainers` false and neither list set, the raider may take food from every container, and the loader warns.
@@ -515,7 +519,7 @@ Examples: `Sirus23_Mod_Collection/Animals/Owl.json` (its `Ref` names a hand-writ
 
 ### Making mods work together
 
-Two mods can share a card, a recipe slot or a tag without knowing about each other, as long as neither needs the other installed. The steps below are the order the suite follows, each with the shape of a real shipped file. Every shared resource is listed in the suite's Interop Registry, kept in the author's development repo (not the public mod repo). A Chinese version of this page is [README.zh.md](README.zh.md).
+Two mods can share a card, a recipe slot or a tag without knowing about each other, as long as neither needs the other installed. The steps below are the order the suite follows, each with the shape of a real shipped file. Every shared resource is listed in the suite's Interop Registry (`Interop_Registry.md`, published beside this README). A Chinese version of this page is [README.zh.md](README.zh.md).
 
 **1. Use a vanilla tag first.** When the base game already has a tag for what you share, put it on your card and stop: nothing to agree on, and it works in any load order. The suite does this for lamp oil (`tag_Oil`), burnables (`tag_Fuel`), safe water (`tag_WaterSafe`) and more. The vanilla names are in the extracted game data's `CardTag.txt` (`Documentation/GameData/CSFF-JsonData_Current/ScriptableObjectObjectName/CardTag.txt` in the source repository). Tags go in by name, beside a `*WarpType` of 3. This is the Tin Solder card (`CardData/MetalParts/Item/TinSolder.json`): three vanilla tags and one interop tag.
 
@@ -622,7 +626,7 @@ Prefix every name with your mod; call `Set` from a running game, not at the main
 
 **11. Escape sequences in mod CSVs.** A literal `\n` (and `\r\n`) in a value of a mod's `Localization/*.csv` now shows as a line break, in the English and the Chinese column, as it does in vanilla text. A `SimpCn.csv` row is Key, English, Chinese, so `Key,"First line.\nSecond line.",第一行。\n第二行。` is two lines in both languages. A real line break inside a quoted value still works, a lone `\r` is left alone, and there is no way to show a literal backslash-n. A Chinese column left empty shows the English text.
 
-**12. Ask for an Interop Registry row before you share something new.** The suite keeps an Interop Registry (in the author's development repo, not in the public mod repo) that lists every resource shared between mods, one row each (the R rows): the resource, its tier, its owner, its producers and its consumers. The tiers are V (a vanilla tag), X (an interop tag `tag_x_*`) and U (a card UID that is used only while the partner mod is present, for what a tag cannot say: a trade row, an alternate ingredient, a drop or recipe injection). R26 to R29, for example, are the metal part and brine tags above. The row's owner (a mod, not a person) defines what the resource means, such as units and which stat holds what. Producers tag their own cards without asking, and consumers ship the acceptance on their side. The S rows say which mod owns a stat, and the C rows are claims on concepts and UIDs so two mods do not make the same card; a UID belongs to whichever mod ships it, never by prefix. A content mod does not hard-depend on another: a partner mod's UID goes only where a missing card is skipped (a drop slot, a list), never into a required ingredient. To propose a row for your mod, post the resource, the tag or UID, what its owner defines, and who produces and consumes it on the framework's Nexus page; the author adds the row and the framework docs name it.
+**12. Ask for an Interop Registry row before you share something new.** The suite keeps an Interop Registry (`Interop_Registry.md`, published beside this README) that lists every resource shared between mods, one row each (the R rows): the resource, its tier, its owner, its producers and its consumers. The tiers are V (a vanilla tag), X (an interop tag `tag_x_*`) and U (a card UID that is used only while the partner mod is present, for what a tag cannot say: a trade row, an alternate ingredient, a drop or recipe injection). R26 to R29, for example, are the metal part and brine tags above. The row's owner (a mod, not a person) defines what the resource means, such as units and which stat holds what. Producers tag their own cards without asking, and consumers ship the acceptance on their side. The S rows say which mod owns a stat, and the C rows are claims on concepts and UIDs so two mods do not make the same card; a UID belongs to whichever mod ships it, never by prefix. A content mod does not hard-depend on another: a partner mod's UID goes only where a missing card is skipped (a drop slot, a list), never into a required ingredient. To propose a row for your mod, read the published registry, then post the resource, the tag or UID, what its owner defines, and who produces and consumes it on the framework's Nexus page; the author adds the row and republishes the registry.
 
 ### C# API
 
@@ -637,6 +641,7 @@ Public helpers live under `CSFFModFramework.Api` and `CSFFModFramework.Util.Card
 | `Api.Inventory` | `Cards(container)` across all slots; `Find` / `Count` by UID or `tag_*`; `Consume`; `Eject`, which removes a card without the game moving it to a neighbouring container |
 | `Api.Gate` | `OncePerFrame`, `OncePerDtpTick` and `OncePerDayRollover` dedup gates |
 | `Api.LocalizedStringBuilder` | `Create` / `CreateLike` / `Populate` for LocalizedStrings built in code |
+| `Api.Localized` | `Text(key, englishDefault)` returns the current-language row for a plain string (a log line, a UI label), or `englishDefault` when the key is not loaded. `Format(key, englishDefault, args...)` also substitutes `args` into it, falling back to formatting `englishDefault` when the resolved template's placeholders don't match. Never throws |
 | `Api.VanillaIds` | Name-to-GUID lookup from the game data (`Get`, `GetStat`, `Group`) with curated groups `LargeTrees`, `Fires`, `OpenStorage`, `WaterSources`, `AnimalFoods`, `BearEncounters` and `BearAgents` |
 | `Api.ContentRegistry.RegisterWithResult` | Returns `Registered`, `DuplicateSkipped` or `Failed`. `Register` returns the same as a bool |
 | `CardUtil.GetDurability` / `SetDurability` / `GetDurabilityMax` | Read and write a card's stats by JSON or runtime name, across both runtime shapes |
@@ -652,6 +657,7 @@ Public helpers live under `CSFFModFramework.Api` and `CSFFModFramework.Util.Card
 | `Api.ActionRouter` | One shared patch over the game's action routines. Register an `ActionHandler { CardUid or CardPredicate, ActionKeyPrefix or ActionNamePrefix, Timing = Cancel / Before / AfterWrapped, Before, After }`. A card-on-card action dispatches once, and its `Cancel` and `Before` handlers run before the dragged card is used up. An `AfterWrapped` context carries `Produced` / `ProducedUids`: cards spawned while the action ran, which can include cards other cards made during its ticks. It patches only on the first `Register` |
 | `Api.SpawnService` | `Spawn(uidOrCardData)` puts a card on the current board through `GameManager.GiveCard`; it returns null even on success. `Spawn(uid, statOverrides)` applies the overrides through the game's drop path (a liquid still spawns at its defaults). `OnNextSpawn` and a card's JSON `SpawnStatDefaults` are accepted but do nothing: use a drop's `TransferRules` or a perk's `AddedCardsStats` instead. `CardSpawned(card, uid)` fires for every card the game spawns |
 | `Api.TickEvents` | `DtpTick` and `DayRollover` events and `Interval(seconds, callback)` timers, each subscriber isolated from the others' exceptions |
+| `Api.FrameworkEvents` | `Loaded` fires once when the framework finishes loading, and `GameDataReady` once when the game's data is in memory. `RunStarted` fires on every run start (each save load or return from the menu), as `GameManager.OnGMInitialized` does. Subscribe once in `Awake`; a subscriber that throws is logged and the rest still run |
 | `Api.EncounterGuards` | `Register(name, ctx => suppress)` stops encounter starts with no NPC. `Register(name, fn, includeAgentStarts: true)` also sees an agent's own attack, with `ctx.Source`, `ctx.AgentUid` and `ctx.EncounterUid` set. The same scope rules as the JSON guards apply |
 | `Api.ContentModPlugin` | Optional plugin base class: Harmony setup, `RegisterPatches` with per-patch `TryApply`, the standard one-line load log, and `OnModAwake` / `OnModDestroy`. Subclassing makes the framework a hard requirement; keep the soft `[BepInDependency]` for load order |
 
@@ -666,8 +672,10 @@ Public helpers live under `CSFFModFramework.Api` and `CSFFModFramework.Util.Card
 | `Api.ContainerSort` | Reorders a container's slots in place by a durability (Usage, Spoilage, Special1 to 4, or Quality where the card has one), ascending or descending. No mod calls it yet |
 | `Api.BlueprintAlternates` | `AddAlternateIngredient(allData, primaryUid, alternateUid)` lets every blueprint slot that takes the primary accept the alternate too, which leaks into vanilla recipes when the primary is a vanilla material. `AddAlternateIngredientIn(allData, primaryUid, alternateUid, blueprintUids, label)` limits it to the listed blueprints. Both return the number of slots patched; an empty list patches nothing and warns |
 | `GameQuery.EquippedCards` | A fresh list of the card in each filled equipment slot, in slot order, that you may keep and change. Empty with a warning when equipment cannot be read (such as at the main menu) |
+| `GameQuery.IsInPlayerEnv(card)` | True when a live card is on the board the player is on. `GameManager.AllCards` holds every card in the save, so pair a UID match with this test when you scan it. `GameQuery.CardsInPlayerEnv()` returns the cards that pass |
 | `CardUtil.GetLiquidQuantity` / `CardUtil.ModifyLiquid` | How much liquid a card or container holds, and adding or removing it through the game's own change, which clamps to capacity and empties the container properly. `ModifyLiquid` never creates or swaps a liquid |
-| `Api.Npc` | `MoveTo(object npc, string envUid)` moves a live NPC to the CT4 environment you name through `GameManager.MoveNPC`, true when it arrives. It builds the destination every call; never cache an `EnvID` yourself, because a mod environment's key reads 0 at the main menu and the move then silently goes nowhere. Instanced environments are out of scope. No mod calls it yet |
+| `Api.Npc` | `MoveTo(object npc, string envUid)` moves a live NPC to the CT4 environment you name through `GameManager.MoveNPC`, true when it arrives. It builds the destination every call; never cache an `EnvID` yourself, because a mod environment's key reads 0 at the main menu and the move then silently goes nowhere. Instanced environments are out of scope. No mod calls it yet. `RegisterMoveGuard(Func<object, object, bool> refuse)` registers a predicate asked on every attempted `GameManager.MoveNPC` (the live NPC and destination `EnvID`, both as `object`); returning true refuses that move. Guards run in registration order until one refuses, a guard that throws is logged once and treated as not refusing, and there is no Unregister. The framework owns the one MoveNPC prefix, so a mod registers a guard instead of patching it. Used by Community Mod Chest's `GuardTerritoryLeashPatch` and `WildlifeIndoorGuardPatch` and Far Territory's `OwlIslandGuard` |
+| `Api.NpcDuties` | Hand-builds an `NPCDuty`/`MoveDutyAction`/`NPCDutyRef` graft at runtime, every member `object`-typed since your own Assembly-CSharp reference cannot name these types: `NewDuty(uid, soName, displayText)`, `NewMoveAction(soName)`, `SetActionSequence(duty, actions...)`, `BuildDutyRef(duty, baseWeight)`, `ToDutyRefArray(dutyRefs...)`, `EmptyCondition()`, `EmptyWeights(baseWeight)`, `BuildHourWindow(startHour, endHour)`, `SetEnumField(instance, fieldName, enumValueName)` (plain `Reflect.SetMember` cannot parse an enum from a string), `SetDutyConditions(duty, condition)`. `NewDuty` sets only the fields every existing duty-graft site already set identically (a stamped UniqueID, NOT registered into the game's UID table; a localized name; `MaxPerformPerDay = 0`; `EarlyBeforeDurabilities`/`GiveUpInstantly`; empty `ValidTimesOfDay`/`ActionSequence`; an always-true `DutyConditions`) - set anything else (gate conditions, `CanOnlyPerformAtHome`, `CannotPerformWhileHidden`, `CanPerformWhileInDialog`, hour windows, move destinations) yourself afterward. Used by Community Mod Chest's `AshPartnerDutyPatch.cs` and `CottageResidentWorkDutyPatch.cs`, and WaterDrivenInfrastructure's `MillDutyPatch.cs` |
 
 ### Architecture
 
@@ -689,6 +697,12 @@ Localization, audio, perks and blueprint tabs come last. Read that file for the 
 | `Stubs/LitJson/` | Source of the bundled `LitJSON.dll` (v0.19.0.0) |
 
 ## Recent releases
+
+**2.29.2.** For mod authors: an animal manifest can list more cards that keep the wild animal away (`Spawn.AlsoSuppressWhileCardsOnBoard`), so a young animal and the companion it grows into count as one.
+
+**2.29.1.** A setting hides the Portal Kit blueprint, the off-screen card throttle is off by default, and a Metal Nail weighs what its metal does. For mod authors: `EnvPreCreate.json`, `FrameworkEvents.RunStarted`, `Api.Localized`, `Api.NpcDuties` and `Api.Npc.RegisterMoveGuard`.
+
+**2.29.0.** Lamp Oil, Stearin Cake, Brine and Concentrated Brine are framework cards: lamps take the oil, the cake works as wax and waterproofing, and brine cures meat and fish.
 
 **2.28.9.** Dragging a card no longer freezes the board when one card's data is broken, and a card animation can be a folder of PNG frames, so soft shadows and glows keep their transparency.
 

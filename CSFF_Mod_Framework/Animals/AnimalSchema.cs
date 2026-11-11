@@ -62,6 +62,20 @@ internal sealed class AnimalManifest
     /// <summary>While a card with this UID is on the board (e.g. a tamed companion), the wild
     /// agent is kept retired (exists forced to 0). Enables the suppressed-respawn timer below.</summary>
     public string SuppressWhileCardOnBoard;
+    /// <summary>Spawn.AlsoSuppressWhileCardsOnBoard (2.29.2): more card UIDs that keep the wild agent
+    /// retired exactly as <see cref="SuppressWhileCardOnBoard"/> does (a young animal that grows into
+    /// the companion, say). It is a separate, additive key and never an array form of the old one: a
+    /// framework before 2.29.2 reads an array there as "no suppressor" and ignores a Spawn key it does
+    /// not know, so a manifest using this key keeps its single-card suppression on an older build.
+    /// Only legal beside SuppressWhileCardOnBoard.</summary>
+    public List<string> AlsoSuppressWhileCardsOnBoard = new();
+    /// <summary>True when Spawn carries the AlsoSuppressWhileCardsOnBoard key with a non-null value (the
+    /// validator's "only beside SuppressWhileCardOnBoard" rule keys on presence, not on content).</summary>
+    public bool HasAlsoSuppressWhileCardsOnBoard;
+    /// <summary>The key's value was not a JSON array (reported by the validator).</summary>
+    public bool AlsoSuppressNotAList;
+    /// <summary>Array entries that were not non-empty strings (reported by the validator).</summary>
+    public int AlsoSuppressMalformed;
     /// <summary>DTP ticks after the suppressor card leaves the board until the wild agent's
     /// exists flag is restored (fresh wild spawn eligible). Only meaningful with
     /// SuppressWhileCardOnBoard. 0 = never respawns after suppression.</summary>
@@ -77,6 +91,19 @@ internal sealed class AnimalManifest
     /// SuppressWhileCardOnBoard, whose SuppressedRespawnTicks is the single restore delay.</summary>
     public int ConditionRespawnTicks;
     public bool HasConditionRespawnTicks;
+
+    /// <summary>Every suppressor card UID the lifecycle ticker watches: SuppressWhileCardOnBoard first,
+    /// then each AlsoSuppressWhileCardsOnBoard entry not already listed. Null when the manifest has no
+    /// SuppressWhileCardOnBoard (suppression is off), so a manifest without the new key yields exactly
+    /// its one card.</summary>
+    public List<string> SuppressorCardUids()
+    {
+        if (SuppressWhileCardOnBoard == null) return null;
+        var uids = new List<string> { SuppressWhileCardOnBoard };
+        foreach (var uid in AlsoSuppressWhileCardsOnBoard)
+            if (!uids.Contains(uid)) uids.Add(uid);
+        return uids;
+    }
 
     // ActivityWindow (M1: SpiritWorld roost; M2: on-stage roost + HiddenWhileRoosting)
     public bool HasActivityWindow;
@@ -388,6 +415,8 @@ internal sealed class AnimalManifest
             m.HomeEnv = GetString(spawn, "HomeEnv");
             if (TryGetNumber(spawn, "DeathRespawnTicks", out var drt)) m.DeathRespawnTicks = (int)drt;
             m.SuppressWhileCardOnBoard = GetString(spawn, "SuppressWhileCardOnBoard");
+            m.HasAlsoSuppressWhileCardsOnBoard = TryGetStringList(spawn, "AlsoSuppressWhileCardsOnBoard",
+                m.AlsoSuppressWhileCardsOnBoard, out m.AlsoSuppressNotAList, out m.AlsoSuppressMalformed);
             if (TryGetNumber(spawn, "SuppressedRespawnTicks", out var srt)) m.SuppressedRespawnTicks = (int)srt;
             if (GetList(spawn, "Conditions") is { } conditions)
                 foreach (var entry in conditions)
@@ -755,6 +784,25 @@ internal sealed class AnimalManifest
 
     private static List<object> GetList(Dictionary<string, object> d, string key)
         => d.TryGetValue(key, out var v) ? v as List<object> : null;
+
+    /// <summary>Reads an optional array of non-empty strings into <paramref name="into"/> and says what
+    /// was wrong with it instead of dropping it silently: <paramref name="notAList"/> when the value is
+    /// not an array, <paramref name="malformed"/> counting entries that are not non-empty strings.
+    /// Returns true when the key is present with a non-null value (an explicit null reads as absent).</summary>
+    private static bool TryGetStringList(Dictionary<string, object> d, string key, List<string> into,
+        out bool notAList, out int malformed)
+    {
+        notAList = false;
+        malformed = 0;
+        if (!d.TryGetValue(key, out var v) || v == null) return false;
+        if (v is not List<object> list) { notAList = true; return true; }
+        foreach (var entry in list)
+        {
+            if (entry is string s && !string.IsNullOrEmpty(s)) into.Add(s);
+            else malformed++;
+        }
+        return true;
+    }
 
     private static bool HasRealKeysBeyond(Dictionary<string, object> d, params string[] known)
         => d.Keys.Any(k => !k.StartsWith("//", StringComparison.Ordinal) && !known.Contains(k, StringComparer.Ordinal));

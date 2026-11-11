@@ -68,8 +68,8 @@ internal class ModManifest
     /// <c>EncounterGuards/*.json</c>, <c>Quests.json</c>, <c>Characters.json</c>,
     /// <c>WorldMap/HubPortals.json</c>, <c>MapMod.json</c>, <c>Animals/*.json</c>,
     /// <c>TradingValues.json</c>, <c>FlavourMatrix/*.json</c>, <c>Modifiers.json</c>,
-    /// <c>LiquidConversions.json</c>, <c>KitContents.json</c>, <c>StatResets.json</c>, or a
-    /// <c>GameSourceModify/</c> patch
+    /// <c>LiquidConversions.json</c>, <c>KitContents.json</c>, <c>StatResets.json</c>,
+    /// <c>EnvPreCreate.json</c>, or a <c>GameSourceModify/</c> patch
     /// using the framework's bulk-match extension (<c>MatchTagWarpData</c>/<c>MatchTypeWarpData</c>
     /// — Pikachu's own GameSourceModify only supports single-UID targeting). Some mods are exported
     /// by the ModEditor tool with <see cref="ModLoaderVerison"/> stamped in regardless of which
@@ -81,7 +81,7 @@ internal class ModManifest
         HasBlueprintTabs || HasSmeltingRecipes || HasDropInjections || HasImprovementInjections ||
         HasWorldMapNodes || HasEncounterGuards || HasQuestManifest || HasCharacterManifest ||
         HasHubPortals || HasMapMod || HasAnimals || HasTradingValues || HasFlavourMatrix ||
-        HasModifiers || HasLiquidConversions || HasKitContents || HasStatResets || HasGSMTagOrTypeMatch;
+        HasModifiers || HasLiquidConversions || HasKitContents || HasStatResets || HasEnvPreCreate || HasGSMTagOrTypeMatch;
 
     // ── Feature flags (populated by ModDiscovery after JSON parse; never deserialized) ──
     // These let LoadOrchestrator skip phases whose content isn't present in any mod.
@@ -112,6 +112,7 @@ internal class ModManifest
     [NonSerialized] public bool HasLiquidConversions;   // LiquidConversions.json (solid-to-liquid pairs, 2.29.0)
     [NonSerialized] public bool HasKitContents;         // KitContents.json (what a kit card spawns when unpacked, 2.29.0)
     [NonSerialized] public bool HasStatResets;          // StatResets.json (one-time stat base resets, latched per save, 2.29.0)
+    [NonSerialized] public bool HasEnvPreCreate;        // EnvPreCreate.json (non-clone env EnvironmentsData pre-create)
 
     public static ModManifest FromJson(string json, string directoryPath)
     {

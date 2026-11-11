@@ -317,7 +317,8 @@ internal static class AnimalAssetFactory
             ActiveEnd = m.ActiveEnd,
             RoostEnv = roostEnv,
             DeathRespawnTicks = wantsKillTimer ? m.DeathRespawnTicks : 0,
-            SuppressCardUid = wantsSuppression ? m.SuppressWhileCardOnBoard : null,
+            // SuppressWhileCardOnBoard first, then any AlsoSuppressWhileCardsOnBoard entries (2.29.2).
+            SuppressCardUids = wantsSuppression ? m.SuppressorCardUids() : null,
             SuppressedRespawnTicks = m.SuppressedRespawnTicks,
             Conditions = wantsConditions ? m.SpawnConditions : null,
             ConditionRespawnTicks = m.ConditionRespawnTicks,

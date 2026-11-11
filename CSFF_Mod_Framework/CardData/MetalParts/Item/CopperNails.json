@@ -661,7 +661,7 @@
   "CardType": 0,
   "CannotBeTransferred": false,
   "NotAutoSolvableEvent": false,
-  "ObjectWeight": 30.0,
+  "ObjectWeight": 100.0,
   "TradingValue": 375.0,
   "CardTags": [],
   "CardTagsWarpData": [

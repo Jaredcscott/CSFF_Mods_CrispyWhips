@@ -774,7 +774,18 @@ public static class GameQuery
     // line; it now warns once per (type, member).
     private static readonly HashSet<(Type, string)> _missingEnvMember = new();
 
-    private static bool IsInPlayerEnv(object card)
+    /// <summary>
+    /// True when <paramref name="card"/> is on the player's current board: its <c>CardEnvironment</c>
+    /// (an <c>EnvID</c>) then that struct's own <c>MatchesPlayerEnv</c>, which resolves to
+    /// <c>MatchesEnv(GameManager.Instance.CurrentEnvironment)</c>. <c>GameManager.AllCards</c> (what
+    /// <see cref="CardsInPlayerEnv"/> and every hand-rolled board scan iterate) holds every live card
+    /// in the save, not just the current board's (carried inventory, <c>IndependentFromEnv</c> cards,
+    /// hand/weather/event cards included), so a UID match alone is never enough; this is the env test
+    /// every such scan must pair it with (Fleet APE Port, Row 14; formerly private and duplicated by
+    /// Community Mod Chest's <c>TownWoodPilePatch</c>/<c>VillageFireplacePatch</c> and Sirus23's
+    /// <c>SheepPenPatch</c>, each under its own name).
+    /// </summary>
+    public static bool IsInPlayerEnv(object card)
     {
         var env = CardUtil.GetMemberValue(card, "CardEnvironment");
         if (env == null) { WarnMissingEnvMember(card, "CardEnvironment"); return false; }

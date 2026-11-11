@@ -1,40 +1,48 @@
 # Roadmap: CSFF Mod Framework
-Version at time of writing: 2.28.10
-Date: 2026-10-27 (refreshed by `/consolidate-audit` after the 2.28.10 release)
-Audit score: 10/10 - PASS (2026-10-27 core/assets/portal module re-audits all returned SOLID / 10-10; whole-mod critical-analysis SOLID, code-quality 10/10, mod-report PASS, 0 CRITICAL; two portal-module MINOR polish items, non-blocking)
+Version at time of writing: 2.29.1
+Date: 2026-11-05 (refreshed by `/consolidate-audit`)
+Audit score: 10/10 - PASS (2026-11-05 consolidation: 17 per-module audits all SOLID / 10-10, whole-mod verdict corroborated; 0 CRITICAL, 0 DESIGN GAP; four actionable maintainability WARNINGs - README recap refresh, injection PerkRelocationService breadcrumb, animals reflection-field breadcrumbs, performance partial-patch guard; three D17 silent-catch WARNINGs all adjudicated false positives; four MINOR polish items. All non-blocking)
 
 > **This is the framework, not a content mod.** The content-mod roadmap template (Tier 2 migration,
 > theme expansion, art) mostly does not apply: the framework DEFINES Tier 2, and its own content is a
-> minimal Portal Hub reference set plus the shared Metal Sheet / Metal Nail / Tin Solder parts that
-> downstream mods build with. "Expansion" here means new ENGINE surfaces that downstream mods consume,
-> and "polish" means removing the last dead API and boilerplate. Player-facing content, recipes and
-> balance belong in downstream mods, not here. The `Documentation/Plans/CSFFModFramework/MASTER_PLAN.md`
-> drained and was removed on 2026-10-12 (its round-2 pack closed by Prompt 33); the framework is
-> feature-complete. The owner chose 2026-10-12 to keep it at the repo root rather than move it to `Stable/`.
+> minimal Portal Hub reference set plus the shared parts and consumables downstream mods build with -
+> Metal Sheet / Metal Nail / Tin Solder, Brine with its Salt-Cured Meat & Fish cure chain, and Lamp
+> Oil / Stearin Cake. "Expansion" here means new ENGINE surfaces that downstream mods consume, and
+> "polish" means removing the last dead API and boilerplate. Player-facing content, recipes and balance
+> belong in downstream mods, not here. The round-2 engine MASTER_PLAN drained and was removed 2026-10-12;
+> the only open plan doc is a small Nexus-player-request plan whose one item (hide the Portal Kit
+> blueprint) is already BUILT and awaiting its harness row. The framework is feature-complete. The owner
+> chose 2026-10-12 to keep it at the repo root rather than move it to `Stable/`.
 
 ## Current State
 
 **Theme**: The shared engine for Card Survival: Fantasy Forest mods - JSON-driven content loading, WarpData
 resolution, sprite/localization loading, perk/blueprint/improvement/drop injection, declarative WorldMap,
 Portal Hub, the declarative Animal System, encounter guards, GameModifierPackage and flavour-synergy
-injection, a shared GpTag vocabulary (`TagGroups.json`, GpTag_FW_Oil/OilIngredient), plus a set of
-base-game bug fixes. 17 content mods (2,622 UIDs) load through it.
+injection, a shared GpTag vocabulary (`TagGroups.json`), plus a set of base-game bug fixes and shared
+hosted content. 17 content mods (2,630 UIDs) load through it.
 
-**Content**: 4 internal items / 8 blueprints / 2 structures (Portal Hub) / 1 perk (Wayfinder) / 19 custom
-images / 3 shared parts (Metal Sheet, Metal Nail, Tin Solder) + their blueprints. 178 `.cs` source files.
+**Content** (framework-hosted, not player-expansion): Portal Hub (kit item + placed hub + exit + 2 GIF cards)
+/ 1 perk (Wayfinder) / Metal parts (Metal Sheet, Copper Nails, Tin Solder + 8 blueprints) / Brine cure chain
+(Salt-Cured Meat & Fish + brine intermediates + 2 liquids) / Lamp Oil (Stearin Cake + blueprint + liquid) /
+29 custom images / 196 `.cs` source files / 17 audited modules.
 
-**Stability**: 10/10 - PASS. Build clean (Release, 0/0), versions synchronized at 2.28.10, localization and
-Chinese parity CLEAN (62/62), bin/Release in sync, 0 cross-mod structural refs or tag collisions across the
-17 dependent mods. No advertised dead code. New since 2.28.7 and audited clean: `TagGroupService`
-(TagGroups.json), `DragStartCrashGuard`, GIF PNG-frame sequences - all wired, documented, consumed live and gated green.
-The 2026-10-27 portal module re-audit surfaced two maintainability items (hoist a load-time `GetFields()` out of a loop;
-delete a dead private method), both non-blocking - see Phase 4.
+**Stability**: 10/10 - PASS. Build clean (Release, 0/0), versions synchronized at 2.29.1, localization and
+Chinese parity CLEAN, bin/Release in sync, 0 cross-mod structural refs or tag collisions across the 17
+dependent mods. No advertised dead code. Two silent-miss findings closed and verified in source since 2.28.10:
+the assets module's asymmetric card-image miss (`SpriteResolver.cs`) and the api module's two G5 null-return
+reflection paths (`10a450ce0e`). The portal module re-audit (2026-11-03) confirms two maintainability items
+unchanged (hoist a load-time `GetFields()` out of a loop; delete a dead private method) - see Phase 4. The
+2026-11-05 core re-audit (`dc4e577ed`) surfaced a stale README "Recent releases" recap (features documented
+elsewhere, not dead code) and a cosmetic duplicate XML-doc block in `CardUtil.cs`; the lampoil re-audit
+(`e8c2e236a`/`fb1cbf3b0`) found no drift and cleared the prior STALE mod-report row. Three module
+code-quality runs carry version-drift reflection-field guards that are latent (not live on EA 0.69c):
+injection `PerkRelocationService` (G5), animals `AnimalAssetFactory`/`SpawnRegistrar`/`DutyBuilder` (A2/G5),
+performance `CatchUpTickBatching` (I4) - all in Phase 4.
 
 **Open work**: 0 red (Open) retrospectives. 2 yellow debts: `wikimod-old-save-load-crash` (2.25.25/26 rescue
 patches not re-verified in-game) and `questinjector-blueprint-reset-risk` / `RETRO_CLOSURE_PLAN_2026-07-23`
-(`QuestInjector` dormant behind `EnableQuestInjection=false`, blueprint-reset root cause undiagnosed). Three
-framework retros graduated 2026-10-12 (river-bridge-east-click-noop, worldmap-clone-duplicate-terrain,
-cmc-village-conditional-drop-fixtures-missing); vanilla-pen-coop-null-tag-wedge graduated.
+(`QuestInjector` dormant behind `EnableQuestInjection=false`, blueprint-reset root cause undiagnosed).
 
 **Framework compliance**: N/A - this IS the framework. It defines Tier 2 (`Api.ActionRouter`,
 `Api.SpawnService`, `Api.TickEvents`, `Api.EncounterGuards`, `Api.ContentModPlugin`) and is the dependency
@@ -51,14 +59,14 @@ target for every content mod.
 
 ## Phase 1: Foundation / Close-out
 
-> The framework is feature-complete. "Foundation" here is the release tail and the two open verification debts.
+> The framework is feature-complete. "Foundation" here is the release tail and the open verification debts.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Nexus release batch: framework 2.28.10 is ahead of Nexus 2.26.12; ship with the dependent-mod batch (`/nexus-publish upload --behind`) | Release tail | P1 | Medium |
+| Nexus release batch: framework 2.29.1 is ahead of Nexus 2.26.12; ship with the dependent-mod batch (`/nexus-publish upload --behind`) | Release tail | P1 | Medium |
 | `/package-mod-suite` + Mod_Update_Manager repack per the MUM-last rule | Release tail | P1 | Quick |
 | Verify `wikimod-old-save-load-crash` fix in-game on an old WikiMod save, then `/resolve-retro` | Retro close | P2 | Medium |
-| Decide `OffEnvNpcAiThrottle` ship/keep: feature-17 measurement showed ~310/385 ms per off-location tick is vanilla agent actions (16% is a lower bound vs the 20% bar); owner kept it default-off 2026-10-12 | Decision (settled) | P3 | Quick |
+| Refresh the three seed module audits (worldmap, animation, encounters) to real runs when next touched | Tidiness | P3 | Quick |
 
 ---
 
@@ -92,10 +100,16 @@ target for every content mod.
 **Complexity**: Medium (in the consumer, not here)
 
 ### `DropInjections.json` biome-conditional parity
-**What**: H&F still carries ~1,200 lines of hand-rolled biome forage C#; the declarative drop path could replace it.
+**What**: H&F still carries hand-rolled biome forage C#; the declarative drop path could replace it.
 **Why**: Removes a large hand-rolled surface from a downstream mod onto the shared engine.
 **Requires**: Coordination with HerbsAndFungi.
 **Complexity**: Complex
+
+### Shared Brine / Salt-Cure chain uptake
+**What**: The framework now hosts Brine, Salt-Cured Meat and Salt-Cured Fish (dissolve salt in water, cure raw meat/fish in a clay bowl) with no per-mod C#.
+**Why**: Any food or preservation mod can lean on the shared cure chain instead of re-authoring it.
+**Requires**: A consuming food/preservation mod to reference it.
+**Complexity**: Quick (in the consumer)
 
 ---
 
@@ -105,9 +119,15 @@ target for every content mod.
 
 | Item | What | Complexity |
 |------|------|------------|
+| Refresh README "Recent releases" (core W1) | `README.md:694-696` recap stops at 2.28.9/2.28.8 while 2.29.1 ships; prepend `**2.29.1.**`/`**2.29.0.**` summaries. Doc-honesty - the features themselves are already documented in "What the framework adds"/"Configuration" | Quick |
+| Delete orphaned `CardUtil` XML doc (core M1) | `Util/CardUtil.cs:586-592` carries a duplicate `<summary>` block (pre-2.23.0 `IsImprovementBuilt` residue) above `EnvKeyMatchesUid`; harmless (XML-doc gen off) but misleading - delete it | Quick |
+| `PerkRelocationService` miss breadcrumb (injection W2/G5) | `Loading/PerkRelocationService.cs:28` returns on a null reflected field with no log; add a one-line `Log.Warn` so a future field rename is not silent | Quick |
+| Cache `DropInjector` reflection (injection F1) | `Injection/DropInjector.cs:254,499,501` - route `CardName`/`GetStringMember` reads through `CardUtil.GetCachedField` like the rest of the file (load-time slow-load nit) | Quick |
+| Guard animals reflection-field sets (animals W3/A2/G5) | Mirror `TrapIntegrator.AddStat`'s guarded idiom at the unguarded `?.SetValue` sites in `AnimalAssetFactory`/`SpawnRegistrar`/`DutyBuilder`; latent on a future game-update field rename. Framework-source - batch with the next build/redeploy | Medium |
+| Guard `CatchUpTickBatching` arm (performance W4/I4) | `Patching/Performance/CatchUpTickBatching.cs:229` - gate `ArmForHop` on the ApplyRates patch-install result so a SafePatcher soft-fail can't silently under-decay by K | Quick |
 | Hoist `GetFields()` out of the world loop (M1) | `Portal/PortalService.cs:525` re-enumerates `daType.GetFields(...)` once per registered world inside `foreach (var world in worlds)`; hoist above the loop (the `lkFieldLS`/`dtFieldLS` lookups at :513-518 already are). Load-time, small N - cleanup, not a perf fix | Quick |
 | Delete dead private `FindField` (M2) | `Portal/PortalService.cs:806-814` defines `FindField(Type, string)` but nothing calls it; remove the clutter | Quick |
-| D17 out-param breadcrumb shape | Teach the preflight D17 check the `causeKey=`/`cause=` out-param pattern so it stops re-flagging WorldMapInjector.cs:2078 as a false positive | Quick |
+| D17 false-positive shapes | Teach the preflight D17 check the caller-logs-the-catch (`Fail`/`Issue` indirection), `cause=` out-param, and finalizer-guard patterns so it stops re-flagging `StatResetsTable.cs`, `WorldMapInjector.cs:2082` and `DragStartCrashGuard.cs:65` | Quick |
 | Author-time gate-misconfig detection | Fold a `LockConditions`/`GateConditions` mutual-exclusion check into the F21-F27 WorldMap validators | Medium |
 | Foreign-plugin PatchAll isolation seam | Only if a second plugin (beyond WikiMod) exhibits the abort-cascade; general `Api`-level seam | Complex |
 
@@ -128,7 +148,8 @@ target for every content mod.
 
 These live in the framework's archived as-built docs (`Documentation/Design/CSFFModFramework_*_As_Built.md`)
 and the dormant-surface dispositions in `.audit/ideas.md`; none is a `Documentation/Plans/` entry today
-(the plan drained). Never create a stub under `Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
+(apart from the built-and-awaiting-verification Portal Kit setting). Never create a stub under
+`Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
 
 ---
 
@@ -389,3 +410,10 @@ and the dormant-surface dispositions in `.audit/ideas.md`; none is a `Documentat
 - **Pruned:** section 1's six-row table collapsed to one as-built paragraph (full table at `147c11532`). A dated status paragraph appended to the plan.
 - **Evidence:** at `efe084587`: `git grep -l -F` over CSFFModFramework, AdvancedCopperTools, HerbsAndFungi and Community_Mod_Chest (bin and obj excluded) returned 0 files for each new UID, file name and tag the plan introduces (`APE_LQ_LampOil`, `APE_StearinCake`, `APE_LQ_SaltWater`, `APE_LQ_SaltSyrup`, `APE_MetalSheet`, `LiquidConversions`, `MatchAcross`, `tag_x_MetalSheet`, `tag_x_Brine`, `GpTag_FW_Brine`, `GpTag_FW_MetalSheet`) and a word grep for `CardState` in CSFFModFramework returned nothing, while the controls returned 24 files (`GpTag_FW_Oil`) and 2 (`LoadFrameFolders`). Section 1 read from code: `TagGroups.json` tag_Oil groups, ACT `SimpEn.csv` Pour Oil from Container rows, `Interop_Registry.md` R16-R18 and C7, `Loading/UidAliasService.cs`, the armor-merge As_Built. Tracker: T2.1990, T2.1994 and T2.2007 pending; T2.1991 to T2.1993 and T2.2000 to T2.2006 and T2.2008 in `confirmedItems`.
 - **Verification debt:** T2.1990 (PNG frames), T2.1994 (any-oil recipes and liquid refuel), T2.2007 (armor merge look and old save), all person rows.
+
+### 2026-11-05 - MASTER_PLAN (Nexus player requests), drained and archived
+- **Verdict:** 1 of 1 claim (item 1.1, hide-Portal-Kit-blueprint setting) VERIFIED-DONE by `/audit-plan`: built in `11d4fa4b2`, released in framework 2.29.1 (`CHANGELOG.md` [2.29.1] - 2026-11-03), confirmed in-game via harness row T2.2140 (PASS, `confirmedOn` 2026-11-04T05:54:40Z, 18/18 steps in `TestHarness/client/reports/t2-2140-...-20261103-224545/report.md`). 0 OPEN, 0 FAILED, 0 OBSOLETE. The doc's only other content, the "Considered, not selected" table (one rejected alternative: force the blueprint back on with CMC installed), carries real design-decision value not duplicated elsewhere.
+- **Disposition:** ARCHIVE to `Documentation/Design/CSFFModFramework_Portal_Kit_Visibility_As_Built.md` (plan verbatim, Considered table carried with it).
+- **Pruned:** the whole plan doc moved out of `Documentation/Plans/`; nothing left as a stub. (Item 1.1's own heading had already been deleted by the `/audit-plan` pass earlier the same day, leaving only the title, `> Status:` history and the Considered table for this disposition to act on.)
+- **Evidence:** per the `/audit-plan` pass's own citations (`Plugin.cs` lines 41-48, `Portal/PortalService.cs` lines 420-437, `Injection/BlueprintInjector.cs` lines 89-93, all matching the plan's description exactly); commit `11d4fa4b2` confirmed via `git show --stat` touching exactly the 11 files the plan describes; gate `Development_Tools/Tests/Framework-ShowPortalBlueprint.Tests.ps1` (15 cases, 3 self-demonstration). Citation sweep (repo, excluding `bin/`/`obj/`, plus the memory dir) for `Documentation/Plans/CSFFModFramework/MASTER_PLAN` found and fixed: `.claude/playthrough-test-status.json` row T2.2140's `source` field; `CSFFModFramework/.audit/ideas.md` line 3's Source line; `CSFFModFramework/.audit/modules/injection/mod-report.md` line 41. Left alone as dated/historical: every `git show <sha>:...MASTER_PLAN.md` citation inside `CSFFModFramework_Content_Update_Round2_As_Built.md` and `CSFFModFramework/CLAUDE.md` (sha-pinned, stays resolvable via git regardless of the live file); `Documentation/PlayerFeedback/Nexus/drafts/replies-2026-10-31.md` (a dated reply draft describing 2026-10-31); `Database.cs:112`'s "section 29" citation (already dangling before this pass, from the earlier-archived round-2 engine plan, out of this sweep's scope).
+- **Verification debt:** none - T2.2140 is already in `confirmedItems`, PASS.
