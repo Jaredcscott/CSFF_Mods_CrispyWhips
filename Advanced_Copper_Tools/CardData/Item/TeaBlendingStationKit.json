@@ -116,10 +116,6 @@
         },
         "TransformIntoWarpData": "advanced_copper_tools_tea_blending_station",
         "TransformIntoWarpType": 3,
-        "TransferFuel": true,
-        "TransferSpecial1": true,
-        "TransferSpecial2": true,
-        "TransferSpecial4": true,
         "SpawnTransformAtSource": true
       }
     }

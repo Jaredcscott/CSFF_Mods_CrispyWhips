@@ -61,7 +61,7 @@
   },
   "PassiveStatModifiers": [],
   "PerkDescription": {
-    "DefaultText": "Start with all materials needed to build a copper bathtub: bucket, copper stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks, and 3 leather.",
+    "DefaultText": "Start with the main materials for a copper bathtub: bucket, copper stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks and 3 small leather. You still need a Tin Solder and a hammer to build it.",
     "LocalizationKey": "Advanced_Copper_Tools_Perk_BathtubKit_PerkDescription",
     "ParentObjectID": "advanced_copper_tools_perk_bathtub_kit"
   },

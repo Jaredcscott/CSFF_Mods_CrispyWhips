@@ -2,9 +2,9 @@
 Advanced_Copper_Tools_Oil_CardDescription,Rendered animal fat collected in a clay bowl. A rich food source that also burns as clean lamp fuel.,从动物脂肪中提炼、收集在陶碗中的油脂。既是富含营养的食物，也可作为清洁的灯油。
 Advanced_Copper_Tools_Oil_CardHelpSection,"<b>Crafted:</b> By rendering 2 animal fat or 2 fatty fish meat in a clay bowl.
 
-<b>Uses:</b> Drink for nutrition (returns empty clay bowl), or pour into a lantern, brazier or oil flask as lamp fuel. Any other lamp oil in a clay bowl works as fuel too. Each bowl is worth 48 fuel: 12 hours in a lit oilwell, 24 in a ceramic lamp, 27.6 in a metal lantern.","<b>制作：</b> 将2块动物脂肪或2块肥鱼肉放入陶碗中熬制。
+<b>Uses:</b> Drink for nutrition (returns empty clay bowl), or pour into a lantern, brazier or oil flask as lamp fuel. Any other lamp oil in a clay bowl works as fuel too. Each bowl is worth 48 fuel (55.2 in a metal lantern): 12 hours in a lit oilwell, 24 in a ceramic lamp, 27.6 in a metal lantern.","<b>制作：</b> 将2块动物脂肪或2块肥鱼肉放入陶碗中熬制。
 
-<b>用途：</b> 饮用补充营养（返回空陶碗），或倒入提灯、火盆或油瓶作为灯油。其他装在陶碗中的灯油同样可作燃料。每碗油价值48点燃料：在点燃的提灯油井中可燃烧12小时，在陶灯中可燃烧24小时，在金属提灯中可燃烧27.6小时。"
+<b>用途：</b> 饮用补充营养（返回空陶碗），或倒入提灯、火盆或油瓶作为灯油。其他装在陶碗中的灯油同样可作燃料。每碗油价值48点燃料（在金属提灯中为55.2点）：在点燃的提灯油井中可燃烧12小时，在陶灯中可燃烧24小时，在金属提灯中可燃烧27.6小时。"
 Advanced_Copper_Tools_Oil_Drink_ActionName,Drink,饮用
 Advanced_Copper_Tools_Bp_Oil_CardName,Rendered Oil,熬制油脂
 Advanced_Copper_Tools_Bp_Oil_CardDescription,Render 2 animal fat or fatty fish meat in a clay bowl to produce cooking oil and lamp fuel.,将2块动物脂肪或肥鱼肉放入陶碗熬制，制成烹饪油和灯油。
@@ -66,6 +66,8 @@ Advanced_Copper_Tools_Bp_CopperBathtub_CardDescription,"Assemble a copper bathtu
 Advanced_Copper_Tools_Bp_CopperBathtub_UnlockConditionsDesc,Wheelbarrow Bucket and Copper Stove Needed,需要手推车桶和铜炉
 Advanced_Copper_Tools_CopperBathtub_Empty_CardName,Copper Bathtub Kit,铜制浴缸套件
 Advanced_Copper_Tools_CopperBathtub_Empty_CardDescription,An assembled copper bathtub kit. Place it in your camp to set it up then fill with water.,一套组装好的铜制浴缸套件。将其放置在营地中安装，然后注入水。
+Advanced_Copper_Tools_CopperBathtub_Empty_Placed_CardName,Copper Bathtub (Empty),铜制浴缸（空）
+Advanced_Copper_Tools_CopperBathtub_Empty_Placed_CardDescription,A large copper bathtub. Fill with water to prepare for a bath.,一个大号铜制浴缸。注水后即可准备沐浴。
 Advanced_Copper_Tools_CopperBathtub_Empty_Place_ActionName,Place,放置
 Advanced_Copper_Tools_CopperBathtub_Empty_Place_ActionDescription,Place the empty bathtub on the ground.,将空浴缸放置在地面上。
 Advanced_Copper_Tools_CopperBathtub_Empty_FillRiver_ActionName,Fill from River,从河流取水
@@ -75,10 +77,10 @@ Advanced_Copper_Tools_CopperBathtub_Empty_FillWater_ActionDescription,Fill the b
 Advanced_Copper_Tools_CopperBathtub_Full_CardName,Copper Bathtub (Full),铜制浴缸（满水）
 Advanced_Copper_Tools_CopperBathtub_Full_CardDescription,A copper bathtub filled with cold water. Add firewood and light it to heat the water.,一个装满冷水的铜制浴缸。添加柴火并点火以加热水。
 Advanced_Copper_Tools_CopperBathtub_Full_FuelCapacity_CardStatName,Fuel,燃料
-Advanced_Copper_Tools_CopperBathtub_Full_AddFuel_ActionName,Add Firewood,添加柴火
-Advanced_Copper_Tools_CopperBathtub_Full_AddFuel_ActionDescription,Add fuel to the stove.,向炉子添加燃料。
+Advanced_Copper_Tools_CopperBathtub_Full_AddFuel_ActionName,Add Fuel,添加燃料
+Advanced_Copper_Tools_CopperBathtub_Full_AddFuel_ActionDescription,Add fuel to heat the bath water.,添加燃料以加热洗澡水。
 Advanced_Copper_Tools_CopperBathtub_Full_Light_ActionName,Light Fire,点火
-Advanced_Copper_Tools_CopperBathtub_Full_Light_ActionDescription,Light the stove to heat the water.,用火源点燃炉子以加热水。
+Advanced_Copper_Tools_CopperBathtub_Full_Light_ActionDescription,Light the firewood to heat the bath water.,点燃柴火以加热洗澡水。
 Advanced_Copper_Tools_CopperBathtub_Full_ColdBath_ActionName,Take Cold Bath,冷水浴
 Advanced_Copper_Tools_CopperBathtub_Full_ColdBath_ActionDescription,"Wash in the cold water. Cleans a little less than the river does, clears rashes and wolfsbane from your skin, and leaves you wet. Not very comfortable.",在冷水中清洗。清洁效果略逊于河水，能清除皮疹和乌头接触，但会让你浑身湿透，也不太舒适。
 Advanced_Copper_Tools_CopperBathtub_Full_Empty_ActionName,Empty Water,倒空水
@@ -86,7 +88,8 @@ Advanced_Copper_Tools_CopperBathtub_Full_Empty_ActionDescription,Dump out all th
 Advanced_Copper_Tools_CopperBathtub_Warm_CardName,Copper Bathtub (Warm),铜制浴缸（温水）
 Advanced_Copper_Tools_CopperBathtub_Warm_CardDescription,"A copper bathtub with warm, steaming water. Perfect for a relaxing bath.",一个盛有温热蒸腾水的铜制浴缸。适合放松沐浴。
 Advanced_Copper_Tools_CopperBathtub_Warm_FuelCapacity_CardStatName,Fuel,燃料
-Advanced_Copper_Tools_CopperBathtub_Warm_AddFuel_ActionName,Add Firewood,添加柴火
+Advanced_Copper_Tools_CopperBathtub_Warm_AddFuel_ActionName,Feed Fuel,添加燃料
+Advanced_Copper_Tools_CopperBathtub_WarmCarried_AddFuel_ActionName,Add Firewood,添加柴火
 Advanced_Copper_Tools_CopperBathtub_Warm_AddFuel_ActionDescription,Add more fuel to keep the water warm.,添加更多燃料以保持水温。
 Advanced_Copper_Tools_CopperBathtub_Warm_WarmBath_ActionName,Warm Bath,温水浴
 Advanced_Copper_Tools_CopperBathtub_Warm_WarmBath_ActionDescription,"Soak in the warm water. Very relaxing and warming, and as cleansing as washing in the river: it clears rashes and wolfsbane from your skin. You come out wet, so dry off at a stove or brazier.",浸泡在温水中。非常放松、令人温暖，清洁效果与在河中清洗相当，还能清除皮疹和乌头接触。出浴后身上是湿的，可在炉子或火盆旁烘干。
@@ -119,8 +122,6 @@ Advanced_Copper_Tools_CopperStove_WarmUp_ActionName,Warm Up,取暖
 Advanced_Copper_Tools_CopperStove_WarmUp_ActionDescription,Warm yourself by the stove.,靠在炉子旁取暖。
 Advanced_Copper_Tools_CopperStove_WaitByFire_ActionName,Wait by Fire,守火等待
 Advanced_Copper_Tools_CopperStove_WaitByFire_ActionDescription,Pass time warming yourself by the stove.,靠在炉子旁取暖以打发时间。
-Advanced_Copper_Tools_CopperStove_LightFire_ActionName,Light Fire,点火
-Advanced_Copper_Tools_CopperStove_LightFire_ActionDescription,Use the stove's flame to light tinder or a campfire.,用炉火点燃引火物或营地火堆。
 Advanced_Copper_Tools_CopperStove_BurnMediumHeat_ActionName,Burn things which burn on medium heat,燃烧中热物品
 Advanced_Copper_Tools_CopperStove_CookCookables_ActionName,Cook Cookables,烹饪可烹饪物
 Advanced_Copper_Tools_CopperStove_HeatContainers_ActionName,Heat up Cooking and Water Containers and Heatables,加热烹饪和水容器及可加热物
@@ -180,6 +181,7 @@ Advanced_Copper_Tools_CopperBathtub_Empty_Special1_CardStatName,Ash Amount,灰�
 Advanced_Copper_Tools_CopperBathtub_FeedCharcoal_ActionName,Feed Charcoal,添加木炭
 Advanced_Copper_Tools_CopperBathtub_Full_AddFirewood_ActionDescription,Add firewood to heat the bath water.,添加柴火以加热洗澡水。
 Advanced_Copper_Tools_CopperBathtub_Full_AddFirewood_ActionName,Feed Fuel,添加燃料
+Advanced_Copper_Tools_CopperBathtub_FullCarried_AddFirewood_ActionName,Add Firewood,添加柴火
 Advanced_Copper_Tools_CopperBathtub_Full_CardHelpSection,"<b>Usage:</b> Add firewood to the bathtub, then light it with a fire source to heat the water for a warm bath.",<b>用途：</b> 向浴缸中添加柴火，然后用火源点燃以加热水，享受温水浴。
 Advanced_Copper_Tools_CopperBathtub_Full_Placed_CardHelpSection,"<b>Usage:</b> Add firewood to the bathtub, then light it with a fire source to heat the water for a warm bath. Or take a cold bath now: it cleans a little less than the river, clears rashes and wolfsbane, and leaves you wet.",<b>用途：</b> 向浴缸中添加柴火，然后用火源点燃以加热水，享受温水浴。也可以直接洗冷水浴：清洁效果略逊于河水，能清除皮疹和乌头接触，并让你身上变湿。
 Advanced_Copper_Tools_CopperBathtub_Full_FeedFirewood_ActionName,Feed Firewood,添加柴火
@@ -201,8 +203,8 @@ Advanced_Copper_Tools_CopperStove_Dismantle_ActionDescription,Take apart the sto
 Advanced_Copper_Tools_CopperStove_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_CopperStove_Feed_Twigs_ActionDescription,Add 3 twigs as fuel (+7 fuel),添加3根树枝作为燃料（+7燃料）
 Advanced_Copper_Tools_CopperStove_Feed_Twigs_ActionName,Feed Twigs,添加树枝
-Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionDescription,Add oak wood as fuel (+42 fuel),添加橡木作为燃料（+42燃料）
-Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionName,Feed Oak Wood,添加橡木
+Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionDescription,Add wood as fuel (+42 fuel),添加木材作为燃料（+42燃料）
+Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionName,Feed Wood,添加木材
 Advanced_Copper_Tools_CopperStove_Light_ActionDescription,Light the stove with any fire source.,用任何火源点燃炉子。
 Advanced_Copper_Tools_CopperStove_Light_ActionName,Light Fire,点火
 Advanced_Copper_Tools_CopperStove_NeedsFuel,The stove needs fuel first.,炉子需要先添加燃料。
@@ -315,15 +317,15 @@ Advanced_Copper_Tools_WearableMetalPan_UsageDurability.CardStatName,Durability,�
 Advanced_Copper_Tools_WearableMetalPan_UsageDurability.OnZero.ActionDescription,Pan Broken!,平底锅破损！
 Advanced_Copper_Tools_WheelHub_FuelCapacity.CardStatName,Temperature,温度
 Advanced_Copper_Tools_WheelRim_FuelCapacity.CardStatName,Temperature,温度
-Advanced_Copper_Tools_Perk_BathtubKit_PerkDescription,"Start with all materials needed to build a copper bathtub: bucket, copper stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks, and 3 leather (raw: tan before using in blueprints).",初始携带建造铜制浴缸所需的所有材料：桶、铜炉、4块木板、8块泥砖、1块大布料、4根长棍和3块皮革（原皮，用于蓝图前需制革）。
+Advanced_Copper_Tools_Perk_BathtubKit_PerkDescription,"Start with the main materials for a copper bathtub: bucket, copper stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks and 3 small leather. You still need a Tin Solder and a hammer to build it.",初始携带建造铜制浴缸的主要材料：桶、铜炉、4块木板、8块泥砖、1块大布料、4根长棍和3块小块皮革。建造时仍需一块锡焊料和一把锤子。
 Advanced_Copper_Tools_Perk_BathtubKit_PerkName,Bathtub Kit,浴缸套件
-Advanced_Copper_Tools_Perk_BuildingMaterials_PerkDescription,"Start with essential building materials: 10 planks, 10 small leather (raw: tan before using in blueprints), 10 long sticks, 20 mud bricks and a large cloth.",初始携带基本建筑材料：10块木板、10块小块生皮革（未鞣制，用于蓝图前需先鞣制）、10根长棍、20块泥砖和1块大布料。
+Advanced_Copper_Tools_Perk_BuildingMaterials_PerkDescription,"Start with essential building materials: 10 planks, 10 small leather, 10 long sticks, 20 mud bricks and a large cloth.",初始携带基本建筑材料：10块木板、10块小块皮革、10根长棍、20块泥砖和1块大布料。
 Advanced_Copper_Tools_Perk_BuildingMaterials_PerkName,Building Materials,建筑材料
 Advanced_Copper_Tools_Perk_CopperBathtub_PerkDescription,Start with a copper bathtub. A luxurious way to stay clean and relax.,初始携带一个铜制浴缸。保持清洁和放松的豪华方式。
 Advanced_Copper_Tools_Perk_CopperBathtub_PerkName,Copper Bathtub,铜制浴缸
 Advanced_Copper_Tools_Perk_Wheelbarrow_PerkDescription,Start with a sturdy wheelbarrow for hauling heavy loads. Reduces weight of stored items when traveling.,初始携带一辆用于搬运重物的坚固手推车。旅行时减少存储物品的重量。
 Advanced_Copper_Tools_Perk_Wheelbarrow_PerkName,Wheelbarrow,手推车
-Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkDescription,"Start with all the components needed to assemble a wheelbarrow: bucket, handles, and wheel assembly.",初始携带组装手推车所需的所有部件：桶、把手和车轮总成。
+Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkDescription,"Start with the metal parts for a wheelbarrow: bucket, handles and wheel assembly. You still need a wooden wheelbarrow and a Tin Solder to build it.",初始携带手推车的金属部件：桶、把手和车轮总成。组装时仍需一辆木制手推车和一块锡焊料。
 Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkName,Wheelbarrow Kit,手推车套件
 eTag_WearablePan_InGameName,Pan,平底锅
 Advanced_Copper_Tools_CopperBathtub_WaterLevel_CardStatName,Water Level,水位
@@ -410,15 +412,15 @@ Advanced_Copper_Tools_TeaBlendingStation_CardDescription,"A dedicated workbench 
 Advanced_Copper_Tools_Bp_TeaBlendingStation_CardName,Tea Station,茶站
 Advanced_Copper_Tools_Bp_TeaBlendingStation_CardDescription,"Build a tea station with an integrated copper tea kettle, copper stove, and rotary quern for grinding tea leaves. Requires 2 planks, 4 twine, 1 copper tea kettle, 1 copper stove, 1 rotary quern, and 15 Heavy Stones.",建造一个带有内置铜茶壶、铜炉和旋转磨盘的茶站，用于研磨茶叶。需要2块木板、4根麻绳、1个铜茶壶、1个铜炉、1个旋转磨盘和15块重石。
 Advanced_Copper_Tools_Bp_TeaBlendingStation_UnlockConditionsDesc,Copper Tea Kettle Needed,需要铜制茶壶
-Advanced_Copper_Tools_TeaBlendingStation_CardHelpSection,"<b>Slots (×6):</b> Place fresh herbs and they dry passively over time. Use 'Grind All' to mill every dried or millable item at once. <b>Water Tank:</b> Drag a water container to add a Water Charge (up to 8), or drag a river, pond, or stream card directly (1 charge, 15 min). Drag an empty clay bowl to draw cold water back out. Light the stove to heat the water for tea brewing.","<b>槽位（共6个）：</b> 放置新鲜草药——它们会随时间被动晾干。使用「研磨全部」一次性研磨所有已干燥或可研磨的物品。
+Advanced_Copper_Tools_TeaBlendingStation_CardHelpSection,"<b>Slots (×6):</b> Place fresh herbs and they dry passively over time. Use 'Grind All' to mill every dried or millable item at once. Grind All also mills dried willow bark, wild garlic and spirit mushrooms: take out any you mean to brew. <b>Water Tank:</b> Drag a water container to add a Water Charge (up to 8), or drag a river, pond, or stream card directly (1 charge, 15 min). Drag an empty clay bowl to draw cold water back out. Light the stove to heat the water for tea brewing.","<b>槽位（共6个）：</b> 放置新鲜草药——它们会随时间被动晾干。使用「研磨全部」一次性研磨所有已干燥或可研磨的物品。研磨全部也会研磨干柳树皮、干野蒜和干灵菇：要用来泡茶的请先取出。
 
 <b>水箱：</b> 拖动水容器以添加一格水量（最多8格），或直接拖动河流、池塘或溪流卡（每次1格，15分钟）。拖动空陶碗以取出冷水。点燃炉子以加热水用于泡茶。"
 Advanced_Copper_Tools_TeaBlendingStation_Special1_CardStatName,Ash Amount,灰烬量
 Advanced_Copper_Tools_TeaBlendingStation_Progress_CardStatName,Charcoal,木炭
 Advanced_Copper_Tools_TeaBlendingStation_WaterTemp_CardStatName,Water Temp,水温
 Advanced_Copper_Tools_TeaBlendingStation_WaterHot_ActionName,Water is Hot,水已沸腾
-Advanced_Copper_Tools_TeaBlendingStation_Feed_Wood_ActionName,Feed Oak Wood,添加橡木
-Advanced_Copper_Tools_TeaBlendingStation_Feed_Wood_ActionDescription,Add oak wood as fuel (96h),添加橡木作为燃料（96小时）
+Advanced_Copper_Tools_TeaBlendingStation_Feed_Wood_ActionName,Feed Wood,添加木材
+Advanced_Copper_Tools_TeaBlendingStation_Feed_Wood_ActionDescription,Add wood as fuel (96h),添加木材作为燃料（96小时）
 Advanced_Copper_Tools_TeaBlendingStation_Feed_Twigs_ActionName,Feed Twigs,添加树枝
 Advanced_Copper_Tools_TeaBlendingStation_Feed_Twigs_ActionDescription,Add 3 twigs as fuel (24h),添加3根树枝作为燃料（24小时）
 Advanced_Copper_Tools_TeaBlendingStation_FeedCharcoal_ActionName,Feed Charcoal,添加木炭
@@ -447,14 +449,12 @@ Advanced_Copper_Tools_TeaBlendingStation_TakeCharcoalAsh_ActionDescription,Colle
 Advanced_Copper_Tools_TeaBlendingStation_TakeCharcoalAsh_FailMessage,Charcoal not ready yet.,木炭尚未就绪。
 Advanced_Copper_Tools_TeaBlendingStation_Lit_CardName,Tea Station (Lit),茶站（已点燃）
 Advanced_Copper_Tools_TeaBlendingStation_Lit_CardDescription,"A lit tea station. The stove burns steadily, heating the built-in water tank. Fresh herbs in the six slots dry rapidly. Drag a water container or shallow water source to add a Water Charge; drag an empty clay bowl to draw boiled water once Water Temp reaches 50%. Fire will go out when fuel runs empty.",一个已点燃的茶站。炉子稳定燃烧，加热内置水箱。六个槽位中的新鲜草药迅速干燥。拖动水容器或浅水源以添加水量格；拖动空陶碗以在水温达到50%时取出沸水。燃料耗尽时火焰熄灭。
-Advanced_Copper_Tools_TeaBlendingStation_Lit_CardHelpSection,<b>Slots (×6):</b> Herbs dry faster while lit. Use 'Grind All' to mill dried or millable items. <b>Water Tank:</b> Drag a water container or river/pond card to add a Water Charge (max 8). Drag an empty clay bowl to draw boiled water: requires at least 1 Water Charge AND Water Temp ≥ 50%. Consumes fuel over time.,"<b>槽位（共6个）：</b> 点燃时草药干燥更快。使用「研磨全部」研磨已干燥或可研磨的物品。
+Advanced_Copper_Tools_TeaBlendingStation_Lit_CardHelpSection,"<b>Slots (×6):</b> Herbs dry faster while lit. Use 'Grind All' to mill dried or millable items. Grind All also mills dried willow bark, wild garlic and spirit mushrooms: take out any you mean to brew. <b>Water Tank:</b> Drag a water container or river/pond card to add a Water Charge (max 8). Drag an empty clay bowl to draw boiled water: requires at least 1 Water Charge AND Water Temp ≥ 50%. Consumes fuel over time.","<b>槽位（共6个）：</b> 点燃时草药干燥更快。使用「研磨全部」研磨已干燥或可研磨的物品。研磨全部也会研磨干柳树皮、干野蒜和干灵菇：要用来泡茶的请先取出。
 
 <b>水箱：</b> 拖动水容器或河流/池塘卡以添加水量格（最多8格）。拖动空陶碗以取出沸水——需要至少1格水量且水温≥50%。随时间消耗燃料。"
 Advanced_Copper_Tools_TeaBlendingStation_Extinguish_ActionName,Fire Goes Out,火焰熄灭
 Advanced_Copper_Tools_TeaBlendingStation_Extinguish_ActionDescription,The fire goes out.,火焰熄灭了。
 Advanced_Copper_Tools_TeaBlendingStation_GenerateAsh_ActionName,Generate Ash,生成灰烬
-Advanced_Copper_Tools_TeaBlendingStation_LightFire_ActionName,Light Fire,点火
-Advanced_Copper_Tools_TeaBlendingStation_LightFire_ActionDescription,Use the stove's flame to light tinder or a campfire.,用炉火点燃引火物或营地火堆。
 Advanced_Copper_Tools_TeaBlendingStation_Extinguish_Manual_ActionName,Extinguish,熄灭
 Advanced_Copper_Tools_TeaBlendingStation_Extinguish_Manual_ActionDescription,Put out the fire.,熄灭火焰。
 Advanced_Copper_Tools_TeaBlendingStation_PickUp_ActionName,Pick Up,拾起
@@ -489,7 +489,7 @@ Advanced_Copper_Tools_Bp_CopperPantry_CardName,Copper Chest,铜制箱子
 Advanced_Copper_Tools_Bp_CopperPantry_CardDescription,"Build a sealed copper chest with thick insulated walls. Slows food spoilage and keeps vanilla wildlife out. Requires 4 metal sheets, 4 planks, 6 copper nails, 1 Tin Solder and a hammer.",建造一个带有厚实隔热墙的密封铜制箱子。减缓食物腐败并阻止原版野生动物入侵。需要4块金属片、4块木板、6颗铜钉、1块锡焊料和一把锤子。
 Advanced_Copper_Tools_Bp_CopperPantry_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_CopperOilFlask_CardName,Copper Oil Flask,铜制油瓶
-Advanced_Copper_Tools_CopperOilFlask_CardDescription,"A hammered copper flask for storing lamp oil. Holds 4 bowls of oil (192 fuel), enough to fully refuel a lantern twice. Drag onto a lantern, oilwell or brazier to pour in one bowl's worth (48).",一个用于储存灯油的锤制铜瓶。可储存4碗油（192点燃料），足以为提灯完全补充两次燃料。拖到提灯、提灯油井或火盆上，可倒入一碗油的量（48点）。
+Advanced_Copper_Tools_CopperOilFlask_CardDescription,"A hammered copper flask for storing lamp oil. Holds 4 bowls of oil (192 fuel), enough to fully refuel a lantern twice. Drag onto a lantern, oilwell or brazier to pour in one bowl's worth: 48 out of the flask, and 48 into an oilwell or brazier or 55.2 into a Metal Lantern.",一个用于储存灯油的锤制铜瓶。可储存4碗油（192点燃料），足以为提灯完全补充两次燃料。拖到提灯、提灯油井或火盆上，可倒入一碗油的量：从油瓶中倒出48点，倒入提灯油井或火盆为48点，倒入金属提灯为55.2点。
 Advanced_Copper_Tools_CopperOilFlask_CardHelpSection,"<b>Fill:</b> Drag any lamp oil served in a clay bowl onto the flask (4 bowls = full). You get the bowl back.
 
 <b>Use:</b> Drag the flask onto a Metal Lantern, Lantern Oilwell or Copper Brazier to pour in one bowl's worth of oil (48 fuel).","<b>注油：</b> 将任意装在陶碗中的灯油拖到油瓶上（4碗 = 满格），陶碗会退还。
@@ -504,7 +504,7 @@ Advanced_Copper_Tools_Bp_CopperOilFlask_CardName,Copper Oil Flask,铜制油瓶
 Advanced_Copper_Tools_Bp_CopperOilFlask_CardDescription,"Hammer two copper sheets into a sealed flask for storing lamp oil, wrapped with a leather carry strap. Holds enough for two full lantern refills. Requires 2 copper sheets, 1 medium leather, 1 Tin Solder and a hammer. Takes copper, tin or bronze sheets, not iron.",将两块铜片锤打成密封油瓶用于储存灯油，并缠绕皮革提手。可存储两次完整提灯补充量。需要2块铜片、1块中型皮革、1块锡焊料和一把锤子。只接受铜、锡或青铜片，不接受铁片。
 Advanced_Copper_Tools_Bp_CopperOilFlask_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
 Advanced_Copper_Tools_Perk_TeaBlendingStation_PerkName,Tea Blending Station,茶站
-Advanced_Copper_Tools_Perk_TeaBlendingStation_PerkDescription,"Start with a Tea Blending Station Kit. Place it to set up a 6-slot workstation that passively dries herbs and, once lit, cooks, heats, and boils. Perfect for crafting teas and tinctures.",初始携带一个茶站套件。放置后可设置一个6槽工作台，被动晾干草药，点燃后可烹饪、加热和煮沸——非常适合制作茶饮和酊剂。
+Advanced_Copper_Tools_Perk_TeaBlendingStation_PerkDescription,"Start with a Tea Blending Station Kit. Place it to set up a 6-slot workstation that passively dries herbs and, once lit, cooks, heats, and boils. Perfect for brewing calming, focus, and warming teas.",初始携带一个茶站套件。放置后可设置一个6槽工作台，被动晾干草药，点燃后可烹饪、加热和煮沸——非常适合冲泡安神茶、凝神茶和暖身茶。
 Advanced_Copper_Tools_TeaBlendingStation_WaterCharges_CardStatName,Water Charges,水量格
 Advanced_Copper_Tools_CopperCauldron_FuelCapacity,Container Temperature,容器温度
 Advanced_Copper_Tools_CopperCauldron_Burn_ActionName,Slowly Overcook (Burn) and Reduce Quality,慢速过火（烧焦）并降低质量
@@ -585,9 +585,9 @@ Advanced_Copper_Tools_CalmingTea_CardName,Calming Tea,安神茶
 Advanced_Copper_Tools_CalmingTea_CardDescription,A soothing brew of dried willow bark steeped in hot water. Quiets the nerves and eases stress.,用干柳树皮在热水中冲泡的舒缓茶饮。能安定神经、缓解压力。
 Advanced_Copper_Tools_CalmingTea_CardHelpSection,"<b>Brewed:</b> At a lit Tea Station, from dried willow bark plus a Water Charge, once the reservoir is hot.
 
-<b>Uses:</b> Drink for hydration and a strong Stress reduction.","<b>冲泡：</b>在点燃的茶饮站——需要干柳树皮和一份水量，且水箱已加热。
+<b>Uses:</b> Drink for hydration, a little food value, and a strong Stress reduction.","<b>冲泡：</b>在点燃的茶饮站——需要干柳树皮和一份水量，且水箱已加热。
 
-<b>用途：</b>饮用可补水，并大幅降低压力。"
+<b>用途：</b>饮用可补水、获得少量食物价值，并大幅降低压力。"
 Advanced_Copper_Tools_CalmingTea_Drink_ActionName,Drink,饮用
 Advanced_Copper_Tools_WarmingTea_CardName,Warming Tea,暖身茶
 Advanced_Copper_Tools_WarmingTea_CardDescription,A pungent brew of dried wild garlic steeped in hot water. Chases off the cold from the inside.,用干野蒜在热水中冲泡的辛辣茶饮。能从体内驱散寒意。
@@ -666,8 +666,12 @@ Advanced_Copper_Tools_Bp_CopperRimChamberpot_CardDescription,"Hammer a copper ri
 Advanced_Copper_Tools_Bp_CopperRimChamberpot_UnlockConditionsDesc,Copper Sheet Needed,需要铜板
 Advanced_Copper_Tools_IronSheet_CardName,Iron Sheet (old),铁板（旧）
 Advanced_Copper_Tools_IronSheet_CardDescription,An iron sheet from before Iron Sheets became Metal Sheets. Within a quarter of an hour it becomes a Metal Sheet of iron (Metal Type 200) by itself; Reforge as Metal Sheet does it at once. Nothing makes this card any more.,铁板并入金属片之前的旧铁板。一刻钟内它会自行变成一块铁质金属片（金属类型200）；“重铸为金属片”可立即完成。已没有任何配方产出这张卡。
+Advanced_Copper_Tools_IronSheet_CardHelpSection,"<b>Retired:</b> Iron sheets are now the Metal Sheet card at Metal Type 200 (named Iron Sheet). This old card turns into one by itself within a quarter of an hour, or at once with Reforge as Metal Sheet.
+
+<b>Uses:</b> Until then it still fits the Large Saw recipe and the five armor recipes (Metal Helmet, Armor, Bracers, Greaves and Shield).","<b>已停用：</b>铁板现在是金属类型为200的金属片（名为铁板）。这张旧卡会在一刻钟内自行变成金属片，或用“重铸为金属片”立即完成。
+
+<b>用途：</b>在此之前，它仍可用于大型锯配方和五种护甲配方（金属头盔、金属铠甲、金属护腕、金属护胫和金属盾）。"
 Advanced_Copper_Tools_IronSheet_SpecialDurability4.CardStatName,Metal Type,金属类型
-Advanced_Copper_Tools_IronSheet_FuelCapacity.CardStatName,Temperature,温度
 Advanced_Copper_Tools_IronSheet_Progress.CardStatName,Reforging,重铸中
 Advanced_Copper_Tools_IronSheet_OnFull_ActionName,Becomes a Metal Sheet,变为金属片
 Advanced_Copper_Tools_IronSheet_OnFull_ActionDescription,An old card becomes the merged Metal Sheet of iron.,旧卡牌变为合并后的铁质金属片。
@@ -716,6 +720,7 @@ Advanced_Copper_Tools_Bp_RenderFishOil_CardDescription,Render 2 fatty fish meat 
 Advanced_Copper_Tools_Bp_RenderFishOil_UnlockConditionsDesc,Fatty Fish Meat Needed,需要肥鱼肉
 Advanced_Copper_Tools_TinOre_CardName,Tin Ore,锡矿石
 Advanced_Copper_Tools_TinOre_CardDescription,"A crude tin ore chunk, panned from river gravel with a wearable metal pan. Smelt it in a forge or furnace at 900°C to produce a tin-grade metal nugget.",一块原始锡矿石，可在河边用可穿戴金属锅从砂砾中淘得。在锻炉或熔炉中加热至900℃以上，可冶炼出一块锡块。
+Advanced_Copper_Tools_TinOre_SpecialDurability1.CardStatName,Quality,质量
 Advanced_Copper_Tools_IronNail_CardName,Iron Nail (old),铁钉（旧）
 Advanced_Copper_Tools_IronNail_CardDescription,An iron nail from before Iron Nails became Metal Nails. Within a quarter of an hour it becomes a Metal Nail of iron (Metal Type 200) by itself; Reforge as Metal Nail does it at once. Nothing makes this card any more.,铁钉并入金属钉之前的旧铁钉。一刻钟内它会自行变成一枚铁质金属钉（金属类型200）；“重铸为金属钉”可立即完成。已没有任何配方产出这张卡。
 Advanced_Copper_Tools_IronNail_CardHelpSection,"<b>Retired:</b> Iron nails are now the Metal Nail card at Metal Type 200 (named Iron Nail). This old card turns into one by itself within a quarter of an hour, or at once with Reforge as Metal Nail.
@@ -926,6 +931,8 @@ Advanced_Copper_Tools_LargeSaw_Grease_ActionName,Grease with Fat,涂抹油脂
 Advanced_Copper_Tools_LargeSaw_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
 Advanced_Copper_Tools_LargeSaw_Oil_ActionName,Oil,上油
 Advanced_Copper_Tools_LargeSaw_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_LargeSaw_OilContainer_ActionName,Oil from Container,从容器取油
+Advanced_Copper_Tools_LargeSaw_OilContainer_ActionDescription,Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil.,从容器中取油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。会消耗容器里的一些油。
 Advanced_Copper_Tools_CopperStove_AlternateNames[0].Name,Small Copper Stove,小型铜炉
 Advanced_Copper_Tools_CopperStove_AlternateNames[1].Name,Small Ghost Bronze Stove,小型幽灵青铜炉
 Advanced_Copper_Tools_CopperStove_AlternateNames[2].Name,Small Tin Stove,小型锡炉
@@ -1089,6 +1096,10 @@ Advanced_Copper_Tools_IronSheet_Reforge_ActionName,Reforge as Metal Sheet,重铸
 Advanced_Copper_Tools_IronSheet_Reforge_ActionDescription,"Turn this old Iron Sheet into a Metal Sheet of iron, the one card every iron recipe now takes.",把这块旧铁板变成一块铁质金属片，现在所有铁制配方都使用这张卡。
 Advanced_Copper_Tools_IronNail_Reforge_ActionName,Reforge as Metal Nail,重铸为金属钉
 Advanced_Copper_Tools_IronNail_Reforge_ActionDescription,"Turn this old Iron Nail into a Metal Nail of iron, the one nail card every recipe now takes.",把这枚旧铁钉变成一枚铁质金属钉，现在所有配方都使用这张钉子卡。
+Advanced_Copper_Tools_IronNail_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_IronNail_Progress.CardStatName,Reforging,重铸中
+Advanced_Copper_Tools_IronNail_OnFull_ActionName,Becomes a Metal Nail,变为金属钉
+Advanced_Copper_Tools_IronNail_OnFull_ActionDescription,An old card becomes the merged Metal Nail of iron.,旧卡牌变为合并后的铁质金属钉。
 Advanced_Copper_Tools_CopperSapBucket_CardName,Copper Sap Bucket,铜制树汁桶
 Advanced_Copper_Tools_CopperSapBucket_CardDescription,"A small copper bucket with a wire bail, made to hang under a tap. Put it in a Sap Tap and it catches the sap: it holds 900, a whole flow from a spigot tap. Put it in a Resin Tap (Spigot) and it gathers up to four lumps of resin, one every 18 hours.",一只带铜丝提梁的小铜桶，专为挂在采集点下面而做。放进树汁采集点，它就接住流出的树汁：能装900，正好是带龙头的采集点一整轮的流量。放进松脂采集点（带龙头），它会收集松脂，每18小时一块，最多四块。
 Advanced_Copper_Tools_CopperSapBucket_CardHelpSection,"<b>Sap:</b> Place the bucket in a Sap Tap (plain or with a Copper Spigot). The tap pours its sap into it. It holds 900, the whole three-day flow of a spigot tap.
@@ -1113,36 +1124,50 @@ Advanced_Copper_Tools_IronHelmet_Grease_ActionName,Grease with Fat,涂抹油脂
 Advanced_Copper_Tools_IronHelmet_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
 Advanced_Copper_Tools_IronHelmet_Oil_ActionName,Oil,上油
 Advanced_Copper_Tools_IronHelmet_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronHelmet_OilContainer_ActionName,Oil from Container,从容器取油
+Advanced_Copper_Tools_IronHelmet_OilContainer_ActionDescription,Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil.,从容器中取油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。会消耗容器里的一些油。
 Advanced_Copper_Tools_IronBreastplateM_SpecialDurability2.CardStatName,Oil Coat,油膜
 Advanced_Copper_Tools_IronBreastplateM_Grease_ActionName,Grease with Fat,涂抹油脂
 Advanced_Copper_Tools_IronBreastplateM_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
 Advanced_Copper_Tools_IronBreastplateM_Oil_ActionName,Oil,上油
 Advanced_Copper_Tools_IronBreastplateM_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronBreastplateM_OilContainer_ActionName,Oil from Container,从容器取油
+Advanced_Copper_Tools_IronBreastplateM_OilContainer_ActionDescription,Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil.,从容器中取油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。会消耗容器里的一些油。
 Advanced_Copper_Tools_IronBreastplateF_SpecialDurability2.CardStatName,Oil Coat,油膜
 Advanced_Copper_Tools_IronBreastplateF_Grease_ActionName,Grease with Fat,涂抹油脂
 Advanced_Copper_Tools_IronBreastplateF_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
 Advanced_Copper_Tools_IronBreastplateF_Oil_ActionName,Oil,上油
 Advanced_Copper_Tools_IronBreastplateF_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronBreastplateF_OilContainer_ActionName,Oil from Container,从容器取油
+Advanced_Copper_Tools_IronBreastplateF_OilContainer_ActionDescription,Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil.,从容器中取油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。会消耗容器里的一些油。
 Advanced_Copper_Tools_IronGauntlets_SpecialDurability2.CardStatName,Oil Coat,油膜
 Advanced_Copper_Tools_IronGauntlets_Grease_ActionName,Grease with Fat,涂抹油脂
 Advanced_Copper_Tools_IronGauntlets_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
 Advanced_Copper_Tools_IronGauntlets_Oil_ActionName,Oil,上油
 Advanced_Copper_Tools_IronGauntlets_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronGauntlets_OilContainer_ActionName,Oil from Container,从容器取油
+Advanced_Copper_Tools_IronGauntlets_OilContainer_ActionDescription,Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil.,从容器中取油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。会消耗容器里的一些油。
 Advanced_Copper_Tools_IronGreaves_SpecialDurability2.CardStatName,Oil Coat,油膜
 Advanced_Copper_Tools_IronGreaves_Grease_ActionName,Grease with Fat,涂抹油脂
 Advanced_Copper_Tools_IronGreaves_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
 Advanced_Copper_Tools_IronGreaves_Oil_ActionName,Oil,上油
 Advanced_Copper_Tools_IronGreaves_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronGreaves_OilContainer_ActionName,Oil from Container,从容器取油
+Advanced_Copper_Tools_IronGreaves_OilContainer_ActionDescription,Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil.,从容器中取油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。会消耗容器里的一些油。
 Advanced_Copper_Tools_IronShield_SpecialDurability2.CardStatName,Oil Coat,油膜
 Advanced_Copper_Tools_IronShield_Grease_ActionName,Grease with Fat,涂抹油脂
 Advanced_Copper_Tools_IronShield_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
 Advanced_Copper_Tools_IronShield_Oil_ActionName,Oil,上油
 Advanced_Copper_Tools_IronShield_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronShield_OilContainer_ActionName,Oil from Container,从容器取油
+Advanced_Copper_Tools_IronShield_OilContainer_ActionDescription,Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil.,从容器中取油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。会消耗容器里的一些油。
 Advanced_Copper_Tools_IronLargeSaw_SpecialDurability2.CardStatName,Oil Coat,油膜
 Advanced_Copper_Tools_IronLargeSaw_Grease_ActionName,Grease with Fat,涂抹油脂
 Advanced_Copper_Tools_IronLargeSaw_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
 Advanced_Copper_Tools_IronLargeSaw_Oil_ActionName,Oil,上油
 Advanced_Copper_Tools_IronLargeSaw_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_IronLargeSaw_OilContainer_ActionName,Oil from Container,从容器取油
+Advanced_Copper_Tools_IronLargeSaw_OilContainer_ActionDescription,Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil.,从容器中取油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。会消耗容器里的一些油。
 Advanced_Copper_Tools_TinnedPot_CardName,Tinned Storage Pot,镀锡储物罐
 Advanced_Copper_Tools_TinnedPot_CardDescription,"A clay storage pot lined with a thin coat of tin and fitted with a tin lid. Food spoils more slowly in it than in a plain clay pot. The tin wears away over about a season, then the pot turns back into a plain clay pot and keeps its contents.",内衬薄锡、配有锡盖的陶制储物罐。比普通陶罐更能延缓食物腐坏。锡层约一个季节后磨损殆尽，罐子变回普通陶罐，里面的东西不会丢失。
 Advanced_Copper_Tools_TinnedPot_CardHelpSection,"<b>Spoilage:</b> Slows to 50% of normal rate (a plain clay pot is 70%, a sealed one 40%).

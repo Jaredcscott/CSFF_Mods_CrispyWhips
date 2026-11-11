@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_copper_oil_flask",
     "LocalizationKey": "Advanced_Copper_Tools_CopperOilFlask_CardDescription",
-    "DefaultText": "A hammered copper flask for storing lamp oil. Holds 4 bowls of oil (192 fuel), enough to fully refuel a lantern twice. Drag onto a lantern, oilwell or brazier to pour in one bowl's worth (48)."
+    "DefaultText": "A hammered copper flask for storing lamp oil. Holds 4 bowls of oil (192 fuel), enough to fully refuel a lantern twice. Drag onto a lantern, oilwell or brazier to pour in one bowl's worth: 48 out of the flask, and 48 into an oilwell or brazier or 55.2 into a Metal Lantern."
   },
   "CanBeRenamed": false,
   "AlternateNames": [

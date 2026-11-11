@@ -282,6 +282,65 @@
           ]
         }
       ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "act_iron_breastplate_f",
+        "LocalizationKey": "Advanced_Copper_Tools_IronBreastplateF_OilContainer_ActionName",
+        "DefaultText": "Oil from Container"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_iron_breastplate_f",
+        "LocalizationKey": "Advanced_Copper_Tools_IronBreastplateF_OilContainer_ActionDescription",
+        "DefaultText": "Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [],
+        "TriggerCardsWarpType": 3,
+        "TriggerTagsWarpData": [
+          "tag_WaterContainer",
+          "tag_ContainerOpenLarge",
+          "tag_WaterContainerLarge"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "StackCompatible": false,
+      "RequiredGivenLiquidContent": {
+        "IsActive": true,
+        "RequiredLiquid": { "m_FileID": 0, "m_PathID": 0 },
+        "RequiredGroup": { "m_FileID": 0, "m_PathID": 0 },
+        "RequiredGroupWarpData": "GpTag_FW_Oil",
+        "RequiredGroupWarpType": 3,
+        "RequiredQuantity": {
+          "x": 1.0,
+          "y": 0.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 0,
+        "ModifyLiquid": true,
+        "LiquidEffectScaling": 1,
+        "LiquidQuantityChange": {
+          "x": -50.0,
+          "y": -50.0
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special2Change": {
+          "x": 288.0,
+          "y": 288.0
+        }
+      }
     }
   ],
   "DismantleActions": [

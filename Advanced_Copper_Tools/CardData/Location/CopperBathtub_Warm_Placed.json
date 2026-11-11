@@ -556,7 +556,9 @@
         },
         "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_empty_placed",
         "TransformIntoWarpType": 3,
-        "SpawnTransformAtSource": true
+        "SpawnTransformAtSource": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true
       }
     },
     {

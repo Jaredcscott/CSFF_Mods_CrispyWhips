@@ -5,7 +5,7 @@ This mod ships custom project artwork under `Resource/Picture/`.
 During the April 26, 2026 compliance pass, no attribution-required third-party image source was identified in the shipped PNG assets.
 
 
-`CopperArmor.png`, `CopperBracers.png`, `CopperGreaves.png`, and `CopperHemlet.png` were added as user-supplied armor artwork for this mod.
+`CopperArmor.png`, `CopperBracers.png`, `CopperGreaves.png`, and `CopperHelmet.png` were added as user-supplied armor artwork for this mod.
 
 The per-metal card images `ACT_MetalSheet_*`, `ACT_MetalPan_Shaped_*`, `ACT_MetalPan_Wearable_*`, `ACT_MetalStoveTop_*`, `ACT_MetalCauldron_*`, `ACT_LargeSaw_*`, `ACT_MetalNails_*`, `ACT_MetalStove_Off_*` and `ACT_MetalStove_On_*` were drawn by Chiwei (a Nexus Mods player) and sent to this mod on 2026-09-28 as the set `Advanced_Copper_Tools_0928`, for use in this mod. `ACT_MetalPan_Shaped_*` includes the heated pan, `ACT_MetalPan_Shaped_Heated`. Every one ships on the 512x768 card canvas with transparency; the first batch (the sheet, pans, stove top, cauldron and the iron nails and saw) was finished with GIMP (the 600x800 cauldrons were padded on top, not cropped). The layered `.psd` sources are kept in `.art/chiwei_0928/` and are not shipped.
 

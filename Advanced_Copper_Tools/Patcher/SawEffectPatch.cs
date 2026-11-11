@@ -72,7 +72,8 @@ namespace Advanced_Copper_Tools.Patcher
             "41fbf7771da1b9f4ea13af0bc1ea4341", // TreePineLarge
             "14201221856a7b34fb86d602e0359b83", // TreeOakLarge
             "e8287a79ea2ea4245b4a83ce727c4c9d", // TreeBirchLarge
-            "f27a6838066ae10428aa6df6d6259221"  // TreeWillowLarge
+            "f27a6838066ae10428aa6df6d6259221", // TreeWillowLarge
+            "3fbe36a6c9ef2e746affc9a5e91ed81a"  // TreeLargeAlder (ACT 1.18.16: was missing, so the saw's bonus never fired on Alder; its Progress total of 75 matches Birch's, so it falls in the same pull counts)
         };
 
         // Never let a Before-side wear write reach 0 itself: OnZero fires only on the game's own change.

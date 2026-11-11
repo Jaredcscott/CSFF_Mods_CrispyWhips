@@ -20,7 +20,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_tea_blending_station",
     "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_CardHelpSection",
-    "DefaultText": "<b>Slots (×6):</b> Place fresh herbs and they dry passively over time. Use 'Grind All' to mill every dried or millable item at once. <b>Water Tank:</b> Drag a water container to add a Water Charge (up to 8), or drag a river, pond, or stream card directly (1 charge, 15 min). Drag an empty clay bowl to draw cold water back out. Light the stove to heat the water for tea brewing."
+    "DefaultText": "<b>Slots (×6):</b> Place fresh herbs and they dry passively over time. Use 'Grind All' to mill every dried or millable item at once. Grind All also mills dried willow bark, wild garlic and spirit mushrooms: take out any you mean to brew. <b>Water Tank:</b> Drag a water container to add a Water Charge (up to 8), or drag a river, pond, or stream card directly (1 charge, 15 min). Drag an empty clay bowl to draw cold water back out. Light the stove to heat the water for tea brewing."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -186,7 +186,7 @@
       },
       "StackCompatible": true,
       "RequiredGivenDurabilities": {
-        "RequiredLiquidQuantity": 1.0,
+        "RequiredLiquidQuantity": 300.0,
         "HideActionIfNotMet": true
       },
       "GivenCardChanges": {
@@ -310,23 +310,19 @@
         }
       },
       "ReceivingCardChanges": {
-        "ModType": 1,
-        "Special4Change": {
-          "x": -1.0,
-          "y": -1.0
-        }
+        "ModType": 0
       }
     },
     {
       "ActionName": {
         "ParentObjectID": "advanced_copper_tools_tea_blending_station",
         "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_Feed_Wood_ActionName",
-        "DefaultText": "Feed Oak Wood"
+        "DefaultText": "Feed Wood"
       },
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_tea_blending_station",
         "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_Feed_Wood_ActionDescription",
-        "DefaultText": "Add oak wood as fuel (96h)"
+        "DefaultText": "Add wood as fuel (96h)"
       },
       "DaytimeCost": 1,
       "UseMiniTicks": 0,
@@ -536,10 +532,6 @@
         },
         "TransformIntoWarpData": "advanced_copper_tools_tea_station_kit",
         "TransformIntoWarpType": 3,
-        "TransferFuel": true,
-        "TransferSpecial1": true,
-        "TransferSpecial2": true,
-        "TransferSpecial4": true,
         "SpawnTransformAtSource": true
       }
     },
@@ -762,6 +754,10 @@
         "Special2Change": {
           "x": -16.0,
           "y": -16.0
+        },
+        "Special1Change": {
+          "x": -48.0,
+          "y": -48.0
         }
       }
     }

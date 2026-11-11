@@ -495,50 +495,13 @@
     {
       "ActionName": {
         "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
-        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_LightFire_ActionName",
-        "DefaultText": "Light Fire"
-      },
-      "ActionDescription": {
-        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
-        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_LightFire_ActionDescription",
-        "DefaultText": "Use the stove's flame to light tinder or a campfire."
-      },
-      "DaytimeCost": 0,
-      "UseMiniTicks": 0,
-      "ActionSounds": [],
-      "ActionTags": [],
-      "ActionTagsWarpData": [],
-      "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [],
-      "ActionSoundsWarpType": 3,
-      "CompatibleCards": {
-        "TriggerCards": [],
-        "TriggerTags": [],
-        "TriggerTagsWarpData": [
-          "tag_Lightable"
-        ],
-        "TriggerTagsWarpType": 3
-      },
-      "DontCloseInspectionWindow": false,
-      "AppearsOnCardsInInventory": false,
-      "StatModifications": [],
-      "ReceivingCardChanges": {
-        "ModType": 0
-      },
-      "GivenCardChanges": {
-        "ModType": 0
-      }
-    },
-    {
-      "ActionName": {
-        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
         "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionName",
-        "DefaultText": "Feed Oak Wood"
+        "DefaultText": "Feed Wood"
       },
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
         "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionDescription",
-        "DefaultText": "Add oak wood as fuel (+42 fuel)"
+        "DefaultText": "Add wood as fuel (+42 fuel)"
       },
       "DaytimeCost": 1,
       "UseMiniTicks": 0,

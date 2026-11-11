@@ -10,6 +10,11 @@
     "LocalizationKey": "Advanced_Copper_Tools_IronSheet_CardDescription",
     "DefaultText": "An iron sheet from before Iron Sheets became Metal Sheets. Within a quarter of an hour it becomes a Metal Sheet of iron (Metal Type 200) by itself; Reforge as Metal Sheet does it at once. Nothing makes this card any more."
   },
+  "CardHelpSection": {
+    "ParentObjectID": "act_iron_sheet",
+    "LocalizationKey": "Advanced_Copper_Tools_IronSheet_CardHelpSection",
+    "DefaultText": "<b>Retired:</b> Iron sheets are now the Metal Sheet card at Metal Type 200 (named Iron Sheet). This old card turns into one by itself within a quarter of an hour, or at once with Reforge as Metal Sheet.\n\n<b>Uses:</b> Until then it still fits the Large Saw recipe and the five armor recipes (Metal Helmet, Armor, Bracers, Greaves and Shield)."
+  },
   "CardType": 0,
   "ObjectWeight": 100.0,
   "TradingValue": 500.0,
@@ -53,23 +58,7 @@
     "Active": false
   },
   "FuelCapacity": {
-    "Active": true,
-    "FloatValue": 0.0,
-    "CardStatName": {
-      "ParentObjectID": "act_iron_sheet",
-      "LocalizationKey": "Advanced_Copper_Tools_IronSheet_FuelCapacity.CardStatName",
-      "DefaultText": "Temperature"
-    },
-    "MaxValue": 1300.0,
-    "RatePerDaytimePoint": 0.0,
-    "HidingOptions": 1,
-    "TextDisplay": 2,
-    "NumberPrecision": 0,
-    "HasActionOnZero": false,
-    "HasActionOnFull": false,
-    "CountsForTradingValue": false,
-    "OverrideIconWarpData": "Hot",
-    "OverrideIconWarpType": 3
+    "Active": false
   },
   "Progress": {
     "Active": true,
@@ -114,8 +103,7 @@
         "TransformIntoWarpData": "advanced_copper_tools_metal_sheet",
         "TransformIntoWarpType": 3,
         "SpawnTransformAtSource": true,
-        "TransferSpecial4": true,
-        "TransferFuel": true
+        "TransferSpecial4": true
       },
       "ProducedCards": []
     }
@@ -155,8 +143,7 @@
         "TransformIntoWarpData": "advanced_copper_tools_metal_sheet",
         "TransformIntoWarpType": 3,
         "SpawnTransformAtSource": true,
-        "TransferSpecial4": true,
-        "TransferFuel": true
+        "TransferSpecial4": true
       },
       "ProducedCards": []
     }

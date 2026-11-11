@@ -29,6 +29,7 @@ namespace Advanced_Copper_Tools.Patcher
         private const string StationLitID   = "advanced_copper_tools_tea_blending_station_lit";
         private const string GrindAllName   = "Grind All";
         private const string DrawBoiledWaterName = "Draw Boiled Water";
+        private const string DrawColdWaterName = "Draw Cold Water";
         private const float  BoiledWaterTemperature = 200f;
 
         private const string GrindingToolTag = "tag_GrindingTool";
@@ -104,6 +105,18 @@ namespace Advanced_Copper_Tools.Patcher
                     ActionNamePrefix = DrawBoiledWaterName,
                     Timing = ActionTiming.AfterWrapped,
                     After = ctx => HandleDrawBoiledWater(ctx.Action, ctx.Card, ctx.GivenCard)
+                });
+
+                // The unlit station's "Draw Cold Water" had the same ModType 1 + Special4Change +
+                // CreatedLiquidInGivenCard shape the lit station's boiled draw was moved off (see
+                // DrainWaterCharge). Its JSON is ModType 0 now, so the water charge drains here.
+                ActionRouter.Register(new ActionHandler
+                {
+                    Name = "TeaDrawColdWater",
+                    CardPredicate = ctx => ctx.CardUid == StationUnlitID,
+                    ActionNamePrefix = DrawColdWaterName,
+                    Timing = ActionTiming.AfterWrapped,
+                    After = ctx => DrainWaterCharge(ctx.Card)
                 });
             }
             catch (Exception ex)
@@ -504,6 +517,7 @@ namespace Advanced_Copper_Tools.Patcher
         // still takes its own null exit (and its WarnOnce) on every call, exactly as before.
         private static readonly Dictionary<(Type, string), FieldInfo> _fieldCache = new Dictionary<(Type, string), FieldInfo>();
         private static readonly Dictionary<(Type, string, int), MethodInfo> _floatMethodCache = new Dictionary<(Type, string, int), MethodInfo>();
+        private static readonly Dictionary<(Type, string), MethodInfo> _methodCache = new Dictionary<(Type, string), MethodInfo>();
 
         private static FieldInfo CachedField(Type type, string name)
         {
@@ -517,6 +531,26 @@ namespace Advanced_Copper_Tools.Patcher
                     _fieldCache[key] = field;
                 }
                 return field;
+            }
+        }
+
+        // One by-name method lookup per (type, name) for the per-ground-card paths (code-quality
+        // F1): RestorePlacement's SetCurrentContainer and LogPileState's GetCardPile both resolved
+        // once per transformed card before this cache. Behaviour-preserving: the same
+        // GetMethod(name, Flags) call, so a miss still caches null and an ambiguous name still
+        // throws into the caller's own try/catch exactly as before.
+        private static MethodInfo CachedMethod(Type type, string name)
+        {
+            if (type == null) return null;
+            var key = (type, name);
+            lock (_methodCache)
+            {
+                if (!_methodCache.TryGetValue(key, out var method))
+                {
+                    method = type.GetMethod(name, Flags);
+                    _methodCache[key] = method;
+                }
+                return method;
             }
         }
 
@@ -535,6 +569,30 @@ namespace Advanced_Copper_Tools.Patcher
                     _floatMethodCache[key] = method;
                 }
                 return method;
+            }
+        }
+
+        // GenerateStartingValue is resolved per active stat per ground card inside the reset loop
+        // (code-quality F1); cache the resolved overload per stat type like the Snap/Approve
+        // methods above. The EA 0.68b overload takes a bool (_Random); older builds had none, so
+        // the tuple records which. A miss caches (null, false) so the warn-once path still runs.
+        private static readonly Dictionary<Type, (MethodInfo method, bool takesBool)> _startingValueCache
+            = new Dictionary<Type, (MethodInfo, bool)>();
+
+        private static (MethodInfo method, bool takesBool) CachedStartingValueMethod(Type type)
+        {
+            if (type == null) return (null, false);
+            lock (_startingValueCache)
+            {
+                if (!_startingValueCache.TryGetValue(type, out var entry))
+                {
+                    var withBool = type.GetMethod("GenerateStartingValue", Flags, null, new[] { typeof(bool) }, null);
+                    entry = withBool != null
+                        ? (withBool, true)
+                        : (type.GetMethod("GenerateStartingValue", Flags, null, Type.EmptyTypes, null), false);
+                    _startingValueCache[type] = entry;
+                }
+                return entry;
             }
         }
 
@@ -573,7 +631,7 @@ namespace Advanced_Copper_Tools.Patcher
             {
                 if (placement.Container != null && CardUtil.GetMemberValue(card, "CurrentContainer") == null)
                 {
-                    var setContainer = card.GetType().GetMethod("SetCurrentContainer", Flags);
+                    var setContainer = CachedMethod(card.GetType(), "SetCurrentContainer");
                     if (setContainer != null)
                         setContainer.Invoke(card, new[] { placement.Container });
                     else
@@ -593,11 +651,11 @@ namespace Advanced_Copper_Tools.Patcher
         }
 
         // ============================================================
-        //  DIAGNOSTIC — pile/container membership around the transform.
+        //  DIAGNOSTIC - pile/container membership around the transform.
         //  Originally added chasing the "ground powder vanishes when put into
         //  bottles/cloth bags" report as a pile-desync hypothesis. Root cause
         //  turned out to be ResetRuntimeStateForNewModel zeroing
-        //  CurrentLiquidQuantity (see comment there) — pile linkage was never
+        //  CurrentLiquidQuantity (see comment there) - pile linkage was never
         //  at fault. Kept at Debug level for future station debugging.
         // ============================================================
         private static void LogPileState(string label, object card)
@@ -616,7 +674,7 @@ namespace Advanced_Copper_Tools.Patcher
                 bool pileContainsCard = false;
                 if (slot != null)
                 {
-                    var getCardPile = slot.GetType().GetMethod("GetCardPile", Flags);
+                    var getCardPile = CachedMethod(slot.GetType(), "GetCardPile");
                     if (getCardPile != null)
                     {
                         var ps = getCardPile.GetParameters();
@@ -662,11 +720,11 @@ namespace Advanced_Copper_Tools.Patcher
                 }
 
                 // Powders (solids with a pourable liquid form: flour, medicine powder)
-                // carry their pour quantity in CurrentLiquidQuantity — vanilla fresh-card
+                // carry their pour quantity in CurrentLiquidQuantity - vanilla fresh-card
                 // init sets it to SolidToLiquidInfo.LiquidQuantity. The game's generated
                 // solid→liquid pour action (CardData.GenerateSolidToLiquidTransferAction)
                 // ALWAYS destroys the given solid (GivenCardChanges.ModType = Destroy) and
-                // adds CurrentLiquidQuantity of liquid to the container — leaving this at 0
+                // adds CurrentLiquidQuantity of liquid to the container - leaving this at 0
                 // made station-ground powder vanish when dragged onto bottles / cloth bags /
                 // barrels (Nexus report 2026-08-10). ReinitCard→SetModel has already
                 // populated SolidToLiquidInfo for the NEW model when this runs.
@@ -746,21 +804,18 @@ namespace Advanced_Copper_Tools.Patcher
                 // EA 0.68b: GenerateStartingValue(bool _Random = true). An optional parameter
                 // is still a parameter to reflection, so an EmptyTypes lookup never matched it
                 // and every reset fell back to FloatValue without the random starting offset.
-                object value = null;
-                var method = stat.GetType().GetMethod("GenerateStartingValue", Flags, null, new[] { typeof(bool) }, null);
-                if (method != null)
-                    value = method.Invoke(stat, new object[] { true });
+                var (method, takesBool) = CachedStartingValueMethod(stat.GetType());
+                if (method == null)
+                {
+                    WarnOnce("generatestartingvalue-missing", "DurabilityStat.GenerateStartingValue not found; using FloatValue as the starting value");
+                }
                 else
                 {
-                    method = stat.GetType().GetMethod("GenerateStartingValue", Flags, null, Type.EmptyTypes, null);
-                    if (method != null)
-                        value = method.Invoke(stat, null);
-                    else
-                        WarnOnce("generatestartingvalue-missing", "DurabilityStat.GenerateStartingValue not found; using FloatValue as the starting value");
+                    object value = takesBool ? method.Invoke(stat, new object[] { true }) : method.Invoke(stat, null);
+                    if (value is float f) return f;
+                    if (value is double d) return (float)d;
+                    if (value is int i) return i;
                 }
-                if (value is float f) return f;
-                if (value is double d) return (float)d;
-                if (value is int i) return i;
             }
             catch (Exception ex)
             {
@@ -796,7 +851,7 @@ namespace Advanced_Copper_Tools.Patcher
         /// null if the card has no such interaction.
         ///
         /// We do NOT require tag_Millable: vanilla grindable herbs (Dry Frostleaf,
-        /// Dry Appleweed, Wheat Grains, Edible Acorns, etc.) lack that tag — they're
+        /// Dry Appleweed, Wheat Grains, Edible Acorns, etc.) lack that tag - they're
         /// identified solely by carrying a CardInteraction with the grinding-tool
         /// trigger. The slot's InventoryFilter already pre-screens what gets in.
         /// </summary>
@@ -857,7 +912,7 @@ namespace Advanced_Copper_Tools.Patcher
                         foreach (var t in tags)
                         {
                             if (t == null) continue;
-                            // CardTag is not UniqueIDScriptable — use SO .name (tag identifier)
+                            // CardTag is not UniqueIDScriptable - use SO .name (tag identifier)
                             string tagName = (t is UnityEngine.Object uo) ? uo.name : null;
                             if (tagName == GrindingToolTag || tagName == HammerToolTag)
                             {
@@ -916,7 +971,7 @@ namespace Advanced_Copper_Tools.Patcher
         }
 
         // ============================================================
-        //  DRAW BOILED WATER — TEMPERATURE FIX
+        //  DRAW BOILED WATER - TEMPERATURE FIX
         // ============================================================
         private static void HandleDrawBoiledWater(object action, object receivingCard, object givenCard)
         {
@@ -995,7 +1050,7 @@ namespace Advanced_Copper_Tools.Patcher
         // Drain one Water Charge (CurrentSpecial4) from the tea station after dispensing
         // boiled water. RCC.ModType was changed from 1→0 to fix a WikiMod NullRef crash
         // (FormatCardStateChange hits null when ModType=1 + Special4Change + CreatedLiquidInGivenCard
-        // are combined — all 14 vanilla CIs with CreatedLiquidInGivenCard use ModType=0 on both sides).
+        // are combined - all 14 vanilla CIs with CreatedLiquidInGivenCard use ModType=0 on both sides).
         private static void DrainWaterCharge(object stationCard)
         {
             try

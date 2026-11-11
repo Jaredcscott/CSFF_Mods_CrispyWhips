@@ -39,7 +39,7 @@
   },
   "PassiveStatModifiers": [],
   "PerkDescription": {
-    "DefaultText": "Start with all the components needed to assemble a wheelbarrow: bucket, handles, and wheel assembly.",
+    "DefaultText": "Start with the metal parts for a wheelbarrow: bucket, handles and wheel assembly. You still need a wooden wheelbarrow and a Tin Solder to build it.",
     "LocalizationKey": "Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkDescription",
     "ParentObjectID": "advanced_copper_tools_perk_hauling_wheelbarrow_kit"
   },

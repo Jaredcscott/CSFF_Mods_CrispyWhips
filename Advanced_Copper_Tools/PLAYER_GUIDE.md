@@ -54,7 +54,7 @@ A portable fireplace that holds cooking like a campfire. Burns longer than a cam
 
 **How to use:**
 1. Place the stove anywhere (outdoors or in a sheltered location).
-2. Add firewood, twigs, or charcoal as fuel. Fuel capacity: 144 units (oak +42, charcoal +8, twigs +7).
+2. Add firewood, twigs, or charcoal as fuel. Fuel capacity: 144 units (wood +42, charcoal +8, twigs +7).
 3. Drag a fire source (tinder, torch, another fire) onto the stove to light it.
 4. Place food items or liquid containers on it. It holds 600 weight, the same as a Campfire: one cooking pot or two clay bowls. A clay or copper cauldron is too heavy for it.
 5. The stove generates charcoal and ash during burning. Collect them for other uses.
@@ -101,9 +101,9 @@ A two-handed saw that fells large trees faster than any vanilla axe while it is 
 
 **Recipe:** 3 metal sheets of one metal (iron too) + 2 wood + 2 metal nails of that same metal + hammer (not consumed) + 1 Tin Solder. The saw is the metal of its sheets, and a nail of another metal than the sheets is refused.
 
-**How to use:** Drag the saw onto a tree (just like any cutting tool). On large trees (pine, oak, birch, willow) the saw adds extra damage on top of the vanilla −25, and how much, and how fast it wears, depends on its metal:
+**How to use:** Drag the saw onto a tree (just like any cutting tool). On large trees (pine, oak, birch, alder, willow) the saw adds extra damage on top of the vanilla −25, and how much, and how fast it wears, depends on its metal:
 
-| Saw | Large pine or willow | Large birch | Large oak | Lasts about |
+| Saw | Large pine or willow | Large birch or alder | Large oak | Lasts about |
 |-----|:--:|:--:|:--:|:--:|
 | Copper | 2 pulls | 3 pulls | 3 pulls | 100 pulls |
 | Ghost Bronze | 2 pulls | 3 pulls | 3 pulls | 166 pulls |
@@ -124,7 +124,7 @@ These per-metal numbers may change in a later version.
 
 ### Iron
 
-A Large Saw built from Iron Sheets and Iron Nails is a Large Iron Saw; there is no separate recipe. It adds **−25 Progress** while sharp, so −50 per swing: a large pine or willow falls in one swing and a large birch or oak in two. It blunts and sharpens like the copper saw. It lasts about 150 pulls against the copper saw's 100, weighs 250 against 375, and rusts while you are wet unless it carries an Oil Coat (**Grease with Fat** and **Oil** show on an iron saw only). An Iron Large Saw from an older save turns into this saw by itself within a quarter of an hour (it keeps its wear and Dullness; oil it again), and so does the old recipe. The wear, weight, price and recipe figures are placeholders.
+A Large Saw built from Iron Sheets and Iron Nails is a Large Iron Saw; there is no separate recipe. It adds **−25 Progress** while sharp, so −50 per swing: a large pine or willow falls in one swing and a large birch, alder or oak in two. It blunts and sharpens like the copper saw. It lasts about 150 pulls against the copper saw's 100, weighs 250 against 375, and rusts while you are wet unless it carries an Oil Coat (**Grease with Fat**, **Oil** and **Oil from Container** show on an iron saw only). An Iron Large Saw from an older save turns into this saw by itself within a quarter of an hour (it keeps its wear and Dullness; oil it again), and so does the old recipe. The wear, weight, price and recipe figures are placeholders.
 
 ---
 
@@ -434,13 +434,27 @@ Place fresh herbs, mushrooms, or dry-able items directly into the six slots:
 
 The "Grind All" action button reads each slot item's own Grind interaction and grinds everything in one step, 15 minutes for each item ground. Works on any dried or millable item, with no need to drag grinding tools individually. Each powder keeps the freshness and quality a hand grind would give it, so an old herb makes old powder.
 
+**Warning:** Grind All also grinds a dried herb that is only waiting to be brewed into tea (see below) - the dried willow bark, spirit mushrooms, and wild garlic all have their own Grind interaction, so leaving one in a slot during Grind All turns it into powder instead of tea. Pull a tea-bound herb out of the station before using Grind All.
+
+### Brewing Teas (lit station only)
+
+Once the station is lit and the reservoir has at least one hot Water Charge (≥50% Water Temp), drag one of the three dried herbs onto the station to brew:
+
+| Tea | Dried Herb | Effect |
+|-----|-----------|--------|
+| Calming Tea | Dried Willow Bark | Hydration, a little food value, and a strong Stress reduction |
+| Focus Tea | Dried Spirit Mushrooms | Hydration + Focus and Energy boost |
+| Warming Tea | Dried Wild Garlic | Hydration, a little food value, and a Body Temperature boost |
+
+Each brew consumes one Water Charge and takes 30 in-game minutes (2 ticks).
+
 ### Water Reservoir (built-in, 8 bowls of water)
 
-1. Drag clay bowls of water onto the station to fill the reservoir.
+1. Drag a full clay bowl of water onto the station to fill the reservoir by one charge (a near-empty bowl no longer counts).
 2. **Draw Cold Water:** drag an empty bowl onto the station → fills it from the reservoir.
 3. **Draw Boiled Water (Hot):** when the station is lit and the reservoir is at 50%+ heat, drag an empty bowl → fills it with boiled water and consumes one charge.
 
-The lit station heats its own reservoir: cold water in a lit station warms to usable temperature in about 30 in-game minutes.
+The lit station heats its own reservoir: cold water in a lit station warms to usable temperature (50% Water Temp) in about 90 in-game minutes.
 
 ### Lighting and Extinguishing
 

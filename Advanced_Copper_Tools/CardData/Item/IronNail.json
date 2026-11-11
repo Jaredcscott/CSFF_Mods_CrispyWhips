@@ -58,7 +58,7 @@
     "FloatValue": 0.0,
     "CardStatName": {
       "ParentObjectID": "act_iron_nail",
-      "LocalizationKey": "",
+      "LocalizationKey": "Advanced_Copper_Tools_IronNail_Progress.CardStatName",
       "DefaultText": "Reforging"
     },
     "MaxValue": 1.0,
@@ -72,12 +72,12 @@
     "OnFull": {
       "ActionName": {
         "ParentObjectID": "act_iron_nail",
-        "LocalizationKey": "",
+        "LocalizationKey": "Advanced_Copper_Tools_IronNail_OnFull_ActionName",
         "DefaultText": "Becomes a Metal Nail"
       },
       "ActionDescription": {
         "ParentObjectID": "act_iron_nail",
-        "LocalizationKey": "",
+        "LocalizationKey": "Advanced_Copper_Tools_IronNail_OnFull_ActionDescription",
         "DefaultText": "An old card becomes the merged Metal Nail of iron."
       },
       "DaytimeCost": 0,
@@ -115,7 +115,7 @@
     "FloatValue": 200.0,
     "CardStatName": {
       "ParentObjectID": "act_iron_nail",
-      "LocalizationKey": "",
+      "LocalizationKey": "Advanced_Copper_Tools_IronNail_SpecialDurability4.CardStatName",
       "DefaultText": "Metal Type"
     },
     "MaxValue": 1000.0,

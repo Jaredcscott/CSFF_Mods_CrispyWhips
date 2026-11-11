@@ -2,12 +2,12 @@
   "UniqueID": "advanced_copper_tools_copper_bathtub_empty_placed",
   "CardName": {
     "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty_placed",
-    "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_CardName",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_Placed_CardName",
     "DefaultText": "Copper Bathtub (Empty)"
   },
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty_placed",
-    "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_CardDescription",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_Placed_CardDescription",
     "DefaultText": "A large copper bathtub. Fill with water to prepare for a bath."
   },
   "CardHelpSection": {

@@ -122,7 +122,7 @@
   },
   "SpecialDurability2": {
     "Active": true,
-    "FloatValue": 0.0,
+    "FloatValue": 2400.0,
     "CardStatName": {
       "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm",
       "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_WaterLevel_CardStatName",
@@ -150,7 +150,7 @@
     {
       "ActionName": {
         "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm",
-        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_AddFuel_ActionName",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_WarmCarried_AddFuel_ActionName",
         "DefaultText": "Add Firewood"
       },
       "ActionDescription": {

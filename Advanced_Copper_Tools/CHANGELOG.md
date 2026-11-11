@@ -2,6 +2,69 @@
 
 All notable changes to this mod are documented here.
 
+## [1.18.16] - 2026-11-11
+
+### Changed
+
+- Technical: `Patcher/GameLoadPatch.cs` now subscribes to the framework's `FrameworkEvents.RunStarted` instead of reflect-subscribing its own handler to `GameManager.OnGMInitialized` (fleet plan section 10, W0.10 row 6). Same run-start timing, same behavior. Gate: `Development_Tools/Tests/Framework-Events.Tests.ps1`. Needs CSFF Mod Framework 2.29.1 or later.
+
+### Fixed
+
+- **Large Saw (copper and iron) now gets its felling bonus on a Large Alder, not just pine, oak, birch and willow.** `SawEffectPatch`'s tree list was missing Alder's GUID entirely, so dragging the saw onto one silently fell back to the plain vanilla-axe rate (-25 Progress, wear 1) with no bonus Progress, no per-metal wear discount and no log line. Alder's Progress total (75) matches Birch's, so it now falls in the same pull counts as Birch at every metal. README's per-species tables and prose updated to match. Found by `/audit-mod AdvancedCopperTools tools`.
+- **An iron Large Saw can be oiled from a container.** Drag a bowl, pot or other container of liquid oil, such as Lamp Oil, onto an iron Large Saw and **Oil from Container** gives it the same Oil Coat as the Oil action. It takes 15 minutes, uses 50 of the liquid and you keep the container. Iron armor and the Iron Shield do not have this action yet: oil them with Fat or a bowl of Oil as before. Technical: the action reads the framework's oil group (`RequiredGivenLiquidContent.RequiredGroupWarpData: "GpTag_FW_Oil"`), as the lamps do; the retired iron armor cards from before 1.18.13 also carry it, but they turn into the merged Metal armor cards within a quarter of an hour.
+- **Bathtub Kit, Wheelbarrow Kit and Building Materials perks now describe what you actually get.** The Bathtub Kit promised "all materials needed" for a copper bathtub, but the bathtub also needs a Tin Solder (a mid-game item) and a hammer, which no kit perk gives; the Wheelbarrow Kit promised "all the components" but the Metal Wheelbarrow is built on a wooden wheelbarrow and also uses a Tin Solder. Both now name what you still need. The Bathtub Kit and Building Materials text also told you to tan the leather first; the leather they give has been ready to use since 1.17.3, so that warning is gone from the perk text and README. English and Chinese, text only. Found by `/critical-analysis AdvancedCopperTools bathing` (BATH-03).
+
+- **Copper Bathtub: filling the tub while still carried, then placing it, no longer leaves it dry.** The carried Full and Warm kits' own Water Level stat defaulted to 0 instead of 2400 (full), unlike their placed counterparts; since "Place" and "Light Fire" carry the current Water Level across the transform, a tub filled before being placed arrived empty, silently hiding every bath action (Cold Bath, Wash with Soap, Warm Bath, Hot Bath all require at least 10% water) with no feedback and no way back short of noticing the unrelated "Refill from River" action. This is the same bug class the 2026-07-27 "Bathtub pick-up now preserves invested state" entry below meant to close; that fix wired the Transfer flags correctly but left the carried kits' own default at 0. Found by `/audit-mod AdvancedCopperTools bathing`.
+
+- **Copper Bathtub: you can light the fire while carrying a full tub again, without filling the firewood bar to the brim first.** The carried Full tub's "Light Fire" needed its Firewood at 100% before the action would even appear (it was authored as `RequiredFuelPercent` 1.0 on the 0–1 scale, where its placed twin and every other bath gate use a fraction like 0.05); with the action hidden until then and no fail message, adding a few logs and expecting to light it did nothing. It now lights at 5% firewood, matching the placed bathtub. Found by `/critical-analysis AdvancedCopperTools bathing`.
+
+- **Copper Bathtub: "Collect Charcoal" on the emptied tub can now actually find charcoal.** "Empty Water" dumped the fuel, ash and part-made charcoal together, so the emptied tub's own "Collect Charcoal" button - which has always been there, gated the same way as the lit tub's - could never see enough progress to fire; it only ever showed "Charcoal not ready yet." Emptying now keeps whatever charcoal and ash had already built up (only the fuel and the fire itself are lost), so charcoal made before you dumped the water is still there to collect afterward. Found by `/audit-mod AdvancedCopperTools bathing`.
+
+- **Tea Station: README's reservoir heating time is back to 90 minutes.** It had regressed to "about 30 minutes," the figure a prior pass already corrected (the real time, from the station's own Water Temp rate and the 50% brew gate, is about 90 in-game minutes; PLAYER_GUIDE already said so). Found by `/audit-mod AdvancedCopperTools tea`.
+
+- **Calming Tea's help text now names its food value.** Drinking it has always given a small Satiation boost alongside the hydration and Stress reduction it describes; Warming Tea already names its own comparable boost ("a little food value"), and Calming Tea's text now does too. No stat change, text only. Found by `/audit-mod AdvancedCopperTools tea`.
+- **Iron Sheet (old) has help text.** The retired card now says it turns into a Metal Sheet of iron within a quarter of an hour, or at once with Reforge as Metal Sheet, and which recipes still take it until then (the Large Saw and the five armor recipes). Text only, English and Chinese.
+
+- **Tea Station Kit's "Place" action no longer carries fuel/ash/charcoal/water-charge transfer flags that did nothing.** The Kit's own stats are all inactive, so it can never hold anything but zero for a newly-placed station to inherit; this is the same dead-JSON shape already removed from "Pick Up" below, left on the reverse action. No player-visible change. Found by `/audit-mod AdvancedCopperTools tea`.
+
+- **Copper Stove: "Feed Oak Wood" is now "Feed Wood", and its dead "Light Fire" is gone.** The stove always took any wood (the base game's Wood card), not only oak; README and the player guide now say "wood +42" too. The lit stove's "Light Fire" answered only to a tag no card carries, so it could never be offered and did nothing; it is removed with its two text rows. English and Chinese. Same fixes as the Tea Station's below.
+
+- **Tin Ore's Quality bar now has a name.** Its quality stat showed the Quality icon with no label; it now reads "Quality" (质量 in Chinese), like the other ACT cards that carry that icon. Found by `/audit-mod AdvancedCopperTools materials`.
+
+- Technical: `CopperStove_Placed_Lit.json` loses its `tag_Lightable` CardInteraction; `CopperStove_Feed_Wood_*` rows reworded and `CopperStove_LightFire_*` rows removed in both CSVs; `TinOre.json` `SpecialDurability1` gains a `CardStatName` (`Advanced_Copper_Tools_TinOre_SpecialDurability1.CardStatName`) with a row in each CSV.
+
+- **Tea Station: the in-game help now warns that Grind All mills your tea herbs.** Dried willow bark, wild garlic and spirit mushrooms each have their own Grind, so Grind All turns one left in a slot into powder, which no tea takes. README and the player guide already said so; now both stations' help text says it too. Found by the 66th fleet review (`/critical-analysis AdvancedCopperTools tea`).
+
+- **Tea Station: "Take Charcoal and Ash" now empties the ash gauge.** It handed out 2 Ash but left the station's hidden ash count where it was, so the lit station could drop another Ash soon after. Taking the charcoal and ash now resets that count, as the name says.
+
+- **Tea Station: "Feed Oak Wood" is now "Feed Wood".** It always took any wood, not only oak (the card it accepts is the base game's Wood). English and Chinese text only.
+
+- **Tea Station: the lit station's "Light Fire" interaction is gone.** It answered only to a tag no card carries, so it could never be offered, and it did nothing if it had been. No player-visible change.
+
+- **Copper Oil Flask and Oil now give the Metal Lantern's real number.** Their text said a bowl is worth 48 fuel; the Metal Lantern takes 55.2 from a bowl (15% more, as README and the player guide say). The flask now reads "48 out of the flask, and 48 into an oilwell or brazier or 55.2 into a Metal Lantern", and Oil's help says "48 fuel (55.2 in a metal lantern)". Text only. Found by the 66th fleet review (`lighting` module).
+
+- **Iron Nail (old): its reforge text is now translated.** The "Becomes a Metal Nail" action and the card's Reforging and Metal Type labels had no localization key, so Chinese players saw them in English; they now have keys and rows in both localization files, as the Iron Sheet (old) already had.
+
+- **Iron Sheet (old) no longer carries a Temperature bar.** The retired card could not be heated (it has no heatable tag), so the bar always read 0 and the value it passed on to the Metal Sheet was always 0. The stat is now inactive and the transfer is gone; the card still turns into a Metal Sheet of iron within a quarter of an hour.
+
+- Technical: `TeaBlendingStation.json` "Take Charcoal and Ash" gains `Special1Change` -48; `TeaBlendingStationLit.json` loses the `tag_Lightable` CardInteraction and its two CSV rows; `IronSheet.json` `FuelCapacity` is `Active: false` with `TransferFuel` dropped from both transforms and the `IronSheet_FuelCapacity.CardStatName` row removed; four `IronNail_*` rows added to both CSVs. README's Harmony Patches list gains `PanMeltFatPatch` and `LargeSawPartQualityPatch` and says `TeaStationPatch` has three handlers (Draw Cold Water's). The copper stove's same two defects are fixed in the entry above.
+
+- **Tea Blending Station: drawing cold water from the unlit station no longer uses the action shape that crashes WikiMod.** "Draw Cold Water" combined a water-charge change with filling a liquid on one action, the same combination the lit station's "Draw Boiled Water" was moved off after a WikiMod error (vanilla never combines them). The charge now drains in code after the draw, as it does for boiled water; you still lose one water charge per draw. Found by the 66th fleet review (`/audit-mod AdvancedCopperTools tea`); gate `Mods-LiquidFillModType.Tests.ps1`.
+
+- **Tea Blending Station: "Pour Water In" needed only a trace of liquid to grant a full Water Charge.** The gate checked for 1 ml in the dragged container while draining 300 ml and awarding one full charge either way, so a nearly-empty container worked as well as a full bowl. It now requires a full 300 ml bowl, matching what it actually drains and what "Fetch from Shallow Water" already requires as a free alternative. Found by `/audit-mod AdvancedCopperTools tea`.
+
+- **Tea Blending Station Kit's perk no longer promises tinctures.** `PerkDescription` said "Perfect for crafting teas and tinctures," but the station only ever brewed the three teas - no tincture recipe exists. Reworded to name the three teas it actually makes. Found by `/audit-mod AdvancedCopperTools tea`.
+
+- **Tea Blending Station's "Pick Up" action no longer carries fuel/ash/charcoal/water-charge transfer flags that did nothing.** The Tea Station Kit it transforms into has all of those stats inactive, so the flags never transferred anything; picking up and re-placing the station has always reset those values to zero, and still does - only the misleading dead JSON is gone. No player-visible change.
+
+- **README and PLAYER_GUIDE corrected on the Tea Blending Station.** PLAYER_GUIDE said a cold reservoir warms to brewing temperature in "about 30 in-game minutes"; the real figure, from the station's own Water Temp rate and the 50% brew gate, is about 90 minutes. Both docs now say so, and both now warn that Grind All will mill a dried herb you meant to brew instead (the three brew herbs each carry their own Grind interaction). PLAYER_GUIDE also gained a table of the three teas, their herbs, and their effects, which it previously never named. Found by `/audit-mod AdvancedCopperTools tea`.
+
+- **Copper Bathtub: several wrong or swapped button labels/descriptions.** The placed empty bathtub showed "Copper Bathtub Kit" and told you to place it even once it was already placed (it now reads "Copper Bathtub (Empty)", matching the Full/Warm placed cards). The carried tub's Firewood-only fuel action and the placed tub's generic-fuel action shared one localization key in both the Full and Warm states, so one of each pair showed the other's label ("Feed Fuel" vs "Add Firewood"); each now has its own text. Two Full-state descriptions still referred to "the stove" instead of the bathtub/bath water. Audit found by `/audit-mod AdvancedCopperTools bathing`; fixed in the same session (no mechanic or balance change, English and Chinese text only).
+
+### Changed
+
+- **A Metal Nail weighs 100 (was 30), as Chiwei suggested.** A nail is made from one nugget (a cast of six from one bar) and smelts back into one nugget, and a vanilla copper nugget weighs 100, so the nail now weighs what its metal does. The card ships in CSFF Mod Framework, so this needs CSFF Mod Framework 2.29.1 or later. Prices are unchanged: a copper nail trades at 375 and an iron one at 1500, Chiwei's figures. An iron sheet stays at 9000, not the 18000 Chiwei proposed: a sheet is priced at 1.5 bars of its metal in every metal (copper 2250 is 1.5 copper bars, Chiwei's own figure), and 1.5 vanilla iron bars come to 9000 (`Documentation/Research/AdvancedCopperTools/metal-trading-values.md`, owner decision 2026-10-06).
+
 ## [1.18.15] - 2026-10-30
 
 ### Added

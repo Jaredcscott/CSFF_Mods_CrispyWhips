@@ -207,23 +207,17 @@ namespace Advanced_Copper_Tools.Patcher
             }
         }
 
+        // FrameworkEvents.RunStarted fires at the same point GameManager.OnGMInitialized does
+        // (fleet plan section 10, W0.10 row 6).
         private static void TrySubscribeToGameManagerInitialized()
         {
             if (_subscribedToGmInitialized) return;
 
             try
             {
-                var gmType = CardUtil.FindGameType("GameManager");
-                var field = gmType?.GetField("OnGMInitialized", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
-                if (field == null || field.FieldType != typeof(Action))
-                {
-                    Logger.LogError("[ACT] GameManager.OnGMInitialized not found; save-load armor repair unavailable.");
-                    return;
-                }
-
                 _gmInitializedHandler = OnGameManagerInitialized;
-                var current = (Action)field.GetValue(null);
-                field.SetValue(null, (Action)Delegate.Combine(current, _gmInitializedHandler));
+                CSFFModFramework.Api.FrameworkEvents.RunStarted -= _gmInitializedHandler;
+                CSFFModFramework.Api.FrameworkEvents.RunStarted += _gmInitializedHandler;
                 _subscribedToGmInitialized = true;
             }
             catch (Exception ex)
@@ -232,20 +226,14 @@ namespace Advanced_Copper_Tools.Patcher
             }
         }
 
-        // Removes the OnGMInitialized subscription so a post-teardown fire can't run against
+        // Removes the RunStarted subscription so a post-teardown fire can't run against
         // a nulled Logger / destroyed Plugin instance. Called from Plugin.OnModDestroy.
         public static void Unsubscribe()
         {
             if (!_subscribedToGmInitialized || _gmInitializedHandler == null) return;
             try
             {
-                var gmType = CardUtil.FindGameType("GameManager");
-                var field = gmType?.GetField("OnGMInitialized", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
-                if (field != null && field.FieldType == typeof(Action))
-                {
-                    var current = (Action)field.GetValue(null);
-                    field.SetValue(null, (Action)Delegate.Remove(current, _gmInitializedHandler));
-                }
+                CSFFModFramework.Api.FrameworkEvents.RunStarted -= _gmInitializedHandler;
             }
             catch (Exception ex)
             {

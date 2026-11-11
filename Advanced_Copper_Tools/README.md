@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.18.15
+**Version:** 1.18.16
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -11,7 +11,7 @@
 
 Advanced Copper Tools turns copper, and the other metals where it makes sense, into crafted gear for comfort, throughput and light. It runs on [CSFFModFramework](https://github.com/jscott3/CSFF_Mods), so blueprints appear in the right crafting tabs and perks appear on the Situational tab by themselves.
 
-The mod ships 63 blueprints, 74 items, 16 location and structure cards, 7 character perks, 1 effect stat, 1 equipment slot.
+The mod ships 64 blueprints, 75 items, 16 location and structure cards, 7 character perks, 1 effect stat, 1 equipment slot.
 
 | Area | What it covers | Section |
 |------|----------------|---------|
@@ -49,7 +49,7 @@ In the tables below, **Build** is the time to build each stage and **Research** 
 
 ## Base Materials
 
-These blueprints and the Metal Sheet, Metal Nail and Tin Solder cards ship in CSFFModFramework 2.28.0 or later. A save keeps its sheets, nails, solder and researched blueprints. They are listed here because ACT's recipes are built from them.
+These blueprints and the Metal Sheet, Metal Nail and Tin Solder cards ship in CSFFModFramework; this version of ACT needs 2.29.1 or later. A save keeps its sheets, nails, solder and researched blueprints. They are listed here because ACT's recipes are built from them.
 
 | Item | Recipe | Build | Research |
 |------|--------|------:|-------:|
@@ -59,7 +59,7 @@ These blueprints and the Metal Sheet, Metal Nail and Tin Solder cards ship in CS
 | **Iron Sheet** | 6 iron nuggets + hammer (not used up); makes a Metal Sheet of iron | 1 h | 4 h |
 | **Forge Tin Solder** | 1 tin nugget (smelted from Tin Ore) + hammer (not used up); makes 2 Tin Solder. Researchable once you hold a tin nugget | 1 h | 2 h |
 
-**One sheet card, one nail card.** Each is named and drawn for its metal: Copper, Ghost Bronze, Tin, Tin Bronze, White Bronze or Iron. A Metal Nail weighs 30 whatever its metal. Both sell by their metal, so an iron sheet is worth four times a copper one.
+**One sheet card, one nail card.** Each is named and drawn for its metal: Copper, Ghost Bronze, Tin, Tin Bronze, White Bronze or Iron. A Metal Nail weighs 100 whatever its metal, the weight of the one nugget it is made from and smelts back into. Both sell by their metal, so an iron sheet is worth four times a copper one: a sheet is priced at 1.5 bars of its metal (2250 in copper, 9000 in iron), the same rule for every metal, rather than a flat 18000 for iron.
 
 **Old Iron Sheets and Iron Nails** from an earlier save, or from an older Water-Driven Infrastructure Workshop, turn into the new iron cards within 15 minutes. Their **Reforge** button does it at once. Until then they still fit the iron recipes and every nail slot.
 
@@ -90,7 +90,7 @@ A portable fireplace that holds cooking like a campfire. It burns longer than on
 **Research:** holding a Metal Sheet makes the stove researchable (24 hours). A Stove Top Mold or Stove Top you already hold still loads, and the Stove Top's **Cut Up** button turns it into 2 metal sheets of its own metal.
 
 - Holds 600 weight of cooking, like a vanilla Campfire: one cooking pot or two clay bowls. A clay or copper cauldron does not fit.
-- Holds 144 fuel (oak +42, twigs +7, charcoal +8), the same scale as a vanilla Campfire (96). The fuel stays in the stove when you pick it up.
+- Holds 144 fuel (wood +42, twigs +7, charcoal +8), the same scale as a vanilla Campfire (96). The fuel stays in the stove when you pick it up.
 - Sanctuary while placed, lit or not: +75 copper, +80 Ghost Bronze, +65 Tin, +75 Tin Bronze, +90 White Bronze.
 - A full lit stove burns about 36 hours in copper or White Bronze, 40 in Ghost Bronze, 29 in Tin and 45 in Tin Bronze.
 - It keeps its metal through Place, Pick Up, lighting, putting out and burning out. Dismantling returns its 4 sheets in its metal, but not the cast top.
@@ -129,10 +129,10 @@ A two-handled saw that fells large trees faster than the vanilla advanced axe wh
 
 - **Recipe:** 3 metal sheets of one metal + 2 Wood + 2 metal nails + 1 Tin Solder + hammer (not used up). Build 1 hour, research 8 hours. The saw takes the sheets' metal, iron included (the sheets are of one metal, and the 2 nails must be the same metal as the sheets: a nail of another metal is refused).
 - **Counts as** an axe and an advanced axe.
-- **Bonus:** on a large pine, oak, birch or willow, each pull takes extra Progress on top of the vanilla Cut Tree's -25 and wears the saw by its metal's amount. Vanilla wear is 1 of 100 uses a pull. The numbers are placeholders for tuning.
+- **Bonus:** on a large pine, oak, birch, alder or willow, each pull takes extra Progress on top of the vanilla Cut Tree's -25 and wears the saw by its metal's amount. Vanilla wear is 1 of 100 uses a pull. The numbers are placeholders for tuning.
 
-| Metal | Extra Progress | Per pull | Pine / Willow, Birch, Oak | Wear per pull | Lasts about |
-|-------|---------------:|---------:|---------------------------|--------------:|------------:|
+| Metal | Extra Progress | Per pull | Pine / Willow, Birch / Alder, Oak | Wear per pull | Lasts about |
+|-------|---------------:|---------:|------------------------------------|--------------:|------------:|
 | Copper | −12 | −37 | 2, 3, 3 pulls | 1 | 100 pulls |
 | Ghost Bronze | −12 | −37 | 2, 3, 3 pulls | 0.6 | 166 pulls |
 | Tin | −15 | −40 | 2, 2, 3 pulls | 1.5 | 66 pulls |
@@ -140,9 +140,11 @@ A two-handled saw that fells large trees faster than the vanilla advanced axe wh
 | White Bronze | −25 | −50 | 1, 2, 2 pulls | 1.25 | 80 pulls |
 | Iron | −25 | −50 | 1, 2, 2 pulls | 0.667 | 150 pulls |
 
+Alder's Progress total (75) matches Birch's, so it falls in the same number of pulls as Birch in every row above (1.18.16: Alder was missing from the saw's tree list entirely and got no bonus; it's folded into the Birch column here rather than given its own, since the two never differ).
+
 **Dullness:** each pull that gets the bonus adds 1 Dullness. At 25 the saw is blunt and fells at the axe rate (2, 3, 4 pulls) until you drag a heavy stone, a stone or a whetstone onto it to **Sharpen** it, as you would a metal axe. Saws made before 1.18.9 start sharp.
 
-The saw cuts small trees like any axe. The bonus and the per-metal wear apply only to the four large trees, and any other axe use wears it 1 whatever its metal.
+The saw cuts small trees like any axe. The bonus and the per-metal wear apply only to the five large trees, and any other axe use wears it 1 whatever its metal.
 
 **Parts' quality:** a saw built since 1.18.15 remembers the average smithing Quality of the 3 sheets and 2 nails it was made from and shows it under its description ("Its sheets and nails were smithed to quality 24."). It changes nothing about how the saw fells or wears. Older saws, and saws from parts without a Quality, show no line. It is kept in CSFF Mod Framework's per-card values (2.29.0), beside the save.
 
@@ -151,8 +153,8 @@ The saw cuts small trees like any axe. The bonus and the per-metal wear apply on
 The Large Saw in iron (a Large Iron Saw) is the same card: build it from Iron Sheets and Iron Nails by the recipe above, no separate recipe.
 
 - **Durability:** about 150 pulls (wear 0.667 of the card's 100 uses; the copper saw wears 1). It weighs 250 against the copper saw's 375 and sells for 150 more.
-- **Bonus:** an extra -25 Progress, so -50 a pull while sharp. Pine and willow fall in 1 pull, birch and oak in 2. It blunts and sharpens like the copper saw.
-- **Rust:** an iron saw rusts like iron armor (see Rust and the oil coat); **Grease with Fat** and **Oil** appear on it only when it is iron.
+- **Bonus:** an extra -25 Progress, so -50 a pull while sharp. Pine and willow fall in 1 pull, birch, alder and oak in 2. It blunts and sharpens like the copper saw.
+- **Rust:** an iron saw rusts like iron armor (see Rust and the oil coat); **Grease with Fat**, **Oil** and **Oil from Container** appear on it only when it is iron.
 - **Older saves:** an Iron Large Saw (and its recipe) turns into this saw by itself within a quarter of an hour, or at once with **Reforge as Large Saw**, keeping its wear scaled to 100 uses, its Dullness and its warmth. Its Oil Coat does not carry over. A big saw from Additional Processing Equipment loads as this saw (always sharp, wear capped at 100).
 - The wear, weight, price and recipe figures are placeholders.
 
@@ -448,8 +450,8 @@ Every change between forms keeps the water and fuel. Lighting and putting out al
 
 - **Slots:** fresh herbs dry over time, even unlit, at the vanilla Drying Rack pace. Lighting the stove dries them half again as fast and lets the slots cook, heat and boil.
 - **Grind All** grinds everything grindable in the slots at once and takes 15 minutes for each item it grinds, stacked items included. Each powder keeps what a hand grind keeps: freshness, quality and the grind's own quality change.
-- **Reservoir (8 Water Charges):** drag clay bowls of water onto the station to fill it, and use **Draw Cold Water** with an empty bowl to take some out.
-- **Lit:** the station heats its water from cold to hot in about 30 minutes, and **Draw Boiled Water** works once the reservoir is at least half hot.
+- **Reservoir (8 Water Charges):** drag a full clay bowl of water (300) onto the station to add one Water Charge; a bowl holding less is not accepted. Use **Draw Cold Water** with an empty bowl to take some out.
+- **Lit:** the station heats its water from cold to hot in about 90 minutes, and **Draw Boiled Water** works once the reservoir is at least half hot.
 - **Lighting:** drag a fire source onto it (it needs at least 10% fuel). Put it out with its button. Pick Up appears only on the unlit station.
 
 ---
@@ -529,7 +531,7 @@ A clay chamberpot with a hammered copper rim (Construction → Furniture; takes 
 
 ## Teas
 
-The Tea Station brews three herbal teas from herbs you dry or grind there. Each has a **Drink** button.
+The Tea Station brews three herbal teas, once lit, from the dried herb plus a hot Water Charge in its own reservoir. Each tea has a **Drink** button. (Grind All also accepts these dried herbs - pull the one you mean to brew out of the station first, or it gets ground into powder instead.)
 
 | Tea | Made from | Effect |
 |-----|-----------|--------|
@@ -585,12 +587,12 @@ Water-Driven Infrastructure 1.12.3 or later builds with the same Tin Solder, and
 | Perk | Cost | You start with |
 |------|------|-------------|
 | **Wheelbarrow** | 3 Moons | a fully assembled Metal Wheelbarrow |
-| **Wheelbarrow Kit** | 2 Moons | bucket, handles and wheel assembly |
+| **Wheelbarrow Kit** | 2 Moons | bucket, handles and wheel assembly (you still need a wooden wheelbarrow and a Tin Solder) |
 | **Copper Bathtub** | 2 Moons | a copper bathtub |
-| **Bathtub Kit** | 2 Moons | the bathtub materials: bucket, Small Copper Stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks and 3 leather (raw, tan it before use) |
+| **Bathtub Kit** | 2 Moons | the bathtub materials: bucket, Small Copper Stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks and 3 small leather, ready to use (you still need a Tin Solder and a hammer) |
 | **Large Saw** | 30 Suns | a Large Copper Saw at half durability |
 | **Tea Blending Station** | 3 Moons | a Tea Station Kit ready to place |
-| **Building Materials** | 2 Moons | 10 planks, 10 small leather (raw, tan it before use), 10 long sticks, 20 mud bricks and 1 large cloth |
+| **Building Materials** | 2 Moons | 10 planks, 10 small leather (ready to use), 10 long sticks, 20 mud bricks and 1 large cloth |
 
 All seven perks are on the Situational tab.
 
@@ -600,13 +602,15 @@ All seven perks are on the Situational tab.
 
 For modders. Each hook is scoped to this mod's own cards unless noted.
 
-- **`SawEffectPatch`**: an ActionRouter `AfterWrapped` handler. Adds the per-metal extra Progress (Large Saw, iron included at -25, the same as white bronze) when a saw is dragged onto one of the four large-tree GUIDs; the retired Iron Large Saw card keeps its own -25 until it reforges.
-- **`TeaStationPatch`**: two ActionRouter handlers. Resolves Grind All for both station forms once the action's time is spent, and fixes Draw Boiled Water after JSON fills the bowl.
+- **`SawEffectPatch`**: an ActionRouter `AfterWrapped` handler. Adds the per-metal extra Progress (Large Saw, iron included at -25, the same as white bronze) when a saw is dragged onto one of the five large-tree GUIDs; the retired Iron Large Saw card keeps its own -25 until it reforges.
+- **`PanMeltFatPatch`**: an ActionRouter `AfterWrapped` handler on the Wearable Metal Pan's Melt Fat. Once the action is done it uses up one empty Clay Bowl from the board, so the Oil (which gives its bowl back) no longer makes a free bowl. A bowl holding anything is never taken.
+- **`TeaStationPatch`**: three ActionRouter handlers. Resolves Grind All for both station forms once the action's time is spent, fixes Draw Boiled Water after JSON fills the bowl, and takes the Water Charge for Draw Cold Water on the unlit station (the JSON action only fills the bowl).
 - **`GameLoadPatch`**: a `LoadMainGameData` postfix. Every Metal Nail slot also accepts an old Iron Nail, and only the Large Saw and the five armor recipes accept an old Iron Sheet.
-- **`GameLoadPatch` (armor)**: prefixes `EncounterPopup.GenerateAndApplyPlayerWound` and subscribes to `GameManager.OnGMInitialized`, keeping equipped and carried ACT armor and shields in the game's combat armor list, including after a save loads. It also raises a piece saved before 1.18.9 to leather-parity durability once, on the old card or the merged one.
+- **`GameLoadPatch` (armor)**: prefixes `EncounterPopup.GenerateAndApplyPlayerWound` and subscribes to the framework's `FrameworkEvents.RunStarted` (the run-start event where `GameManager.OnGMInitialized` fires), keeping equipped and carried ACT armor and shields in the game's combat armor list, including after a save loads. It also raises a piece saved before 1.18.9 to leather-parity durability once, on the old card or the merged one.
 - **`ArmorWardPatch`**: a postfix on `CardData.ArmorValueMultiplier`, active only while `GenerateAndApplyPlayerWound` is rolling a blow whose every damage type is spiritual. For the five merged armor cards it returns the multiplier that gives each metal its spiritual armor (table in `ArmorWardTable.cs`); any other blow, card or caller is left alone.
 - **`HammerGroupPatch`**: fills `GpTag_ACT_ShapingHammer`, the hammer slot of the pan blank, wearable pan and stove blueprints, with the forge hammer, mallet, stone, antler and shovel.
 - **`PartnerBlueprintGatePatch`**: a `GameManager.InitializeStatsAndActions` postfix over (blueprint, partner card) rows. Copper Shears needs Sirus23's `sh_shears`. A missing partner hides that blueprint unless it is already researched.
+- **`LargeSawPartQualityPatch`**: declares a framework per-card value (`CardState`, framework 2.29.0) that a Large Saw built from Metal Sheets and Metal Nails seeds from the average of their smithing Quality (Special3) and keeps through a transform, and a postfix on `InGameCardBase.CardDescription` that shows it as one line under the saw's description. It changes no stat.
 - **`HeatHeldLiquidPatch`**: off by default. Enable `Compatibility.EnableLegacyStationLiquidHeater` only for old beta layouts where a lit Tea Station stores liquid on the station card itself.
 - **`VanillaFireKettlePatch`**: the one hook that edits vanilla cards, described under Compatibility.
 
@@ -614,12 +618,12 @@ For modders. Each hook is scoped to this mod's own cards unless noted.
 
 ## Installation
 
-**Requirements:** BepInEx 5.x, CSFFModFramework 2.29.0 or later (it ships the Metal Sheet, Metal Nail and Tin Solder this mod builds with, gives the solder its five uses, moves a save made inside one of the caves removed in 1.18.9 to the Waterfall Caves, and carries the oil tag group that lets the lamps take liquid oil from a container), and Card Survival: Fantasy Forest (EA 0.69c).
+**Requirements:** BepInEx 5.x, CSFFModFramework 2.29.1 or later (it ships the Metal Sheet, Metal Nail and Tin Solder this mod builds with, gives the solder its five uses, moves a save made inside one of the caves removed in 1.18.9 to the Waterfall Caves, and carries the oil tag group that lets the lamps take liquid oil from a container), and Card Survival: Fantasy Forest (EA 0.69c).
 
 1. Install BepInEx if you have not already.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Put this mod's folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.15 loaded.`
+4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.16 loaded.`
 
 ### Configuration
 
@@ -638,7 +642,7 @@ The optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.C
 - Works alongside Herbs and Fungi, Water-Driven Infrastructure, RepeatAction and other framework-based mods. Load order does not matter.
 - Needs CSFFModFramework and no other content mod.
 - With Sirus23 Mod Collection installed, the Copper Shears shear its tame sheep. Without it their recipe is hidden. ACT changes no Sirus23 file.
-- **Vanilla fires:** ACT adds the Copper Tea Kettle and Copper Cauldron to the cards that the Campfire, Fireplace, Fire Pit, their put-out forms, the Hearth, the Awakened Hearth and the lit Oven accept, plus a heating recipe for those two cards. The lit Oven takes the kettle only.
+- **Vanilla fires:** ACT adds the Copper Tea Kettle, Copper Cauldron and Wearable Metal Pan to the cards that the Campfire, Fireplace, Fire Pit, their put-out forms, the Hearth, the Awakened Hearth and the lit Oven accept, plus a heating recipe for those three cards. The lit Oven takes the kettle and the pan, not the cauldron.
 - ACT never changes a fire's weight capacity, never touches the Sauna Stove, and never lets a fire accept or heat other vanilla items.
 - Safe to add to an existing save. Safe to remove: the mod's items disappear without corrupting the save.
 
@@ -651,7 +655,7 @@ The optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.C
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.15 loaded.`
+**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.16 loaded.`
 
 **Pan or kettle won't boil?** It must sit on a lit fire with fuel left, and hold a liquid the game can heat.
 
@@ -667,6 +671,7 @@ The optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.C
 
 Full detail for every version is in `CHANGELOG.md`.
 
+- **1.18.16:** the Large Saw gets its bonus on a Large Alder; an iron Large Saw takes oil from a container; a Copper Bathtub filled while carried keeps its water when placed, lights at 5% firewood and keeps its charcoal when emptied; the Tea Station needs a full bowl for each Water Charge; Feed Oak Wood is now Feed Wood; the kit perks name what you still need. Needs CSFFModFramework 2.29.1.
 - **1.18.13:** each armor piece is one card and one recipe in every metal (Metal Helmet, Armor, Bracers, Greaves, Shield), with the old numbers per metal; new Tin, Tin Bronze and White Bronze Shields; one recipe list for every metal, no Tin Solder; every shield 5500 durability; Iron Armor's cut switches with Refit; old armor turns into the new cards by itself and learned recipes carry over. Lamps take liquid oil from a container, any oil coats iron, and smelted Tin Ore makes a tin nugget again.
 - **1.18.12:** the Tea Station recipe names its 15 Heavy Stones; the mod list description is up to date (Partner refuelling, Tinned Storage Pot, Iron Lantern and Oilwell, rust and the Oil Coat).
 - **1.18.11:** Melt Fat on the Wearable Metal Pan shows once the pan is half hot (it never showed before); a lit lantern, oilwell or stove of any metal shows that metal's picture instead of copper's; the women's Iron Armor has a new, plain picture; building a Tinned Storage Pot makes a sound.

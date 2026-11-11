@@ -20,7 +20,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_oil",
     "LocalizationKey": "Advanced_Copper_Tools_Oil_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> By rendering 2 animal fat or 2 fatty fish meat in a clay bowl.\n\n<b>Uses:</b> Drink for nutrition (returns empty clay bowl), or pour into a lantern, brazier or oil flask as lamp fuel. Any other lamp oil in a clay bowl works as fuel too. Each bowl is worth 48 fuel: 12 hours in a lit oilwell, 24 in a ceramic lamp, 27.6 in a metal lantern."
+    "DefaultText": "<b>Crafted:</b> By rendering 2 animal fat or 2 fatty fish meat in a clay bowl.\n\n<b>Uses:</b> Drink for nutrition (returns empty clay bowl), or pour into a lantern, brazier or oil flask as lamp fuel. Any other lamp oil in a clay bowl works as fuel too. Each bowl is worth 48 fuel (55.2 in a metal lantern): 12 hours in a lit oilwell, 24 in a ceramic lamp, 27.6 in a metal lantern."
   },
   "CardImage": {
     "m_FileID": 0,

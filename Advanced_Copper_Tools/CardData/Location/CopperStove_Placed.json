@@ -412,12 +412,12 @@
       "ActionName": {
         "ParentObjectID": "advanced_copper_tools_copper_stove_placed",
         "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionName",
-        "DefaultText": "Feed Oak Wood"
+        "DefaultText": "Feed Wood"
       },
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_stove_placed",
         "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionDescription",
-        "DefaultText": "Add oak wood as fuel (+42 fuel)"
+        "DefaultText": "Add wood as fuel (+42 fuel)"
       },
       "DaytimeCost": 1,
       "UseMiniTicks": 0,
