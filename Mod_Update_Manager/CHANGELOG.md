@@ -5,6 +5,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.77] - 2026-11-11
+
+### Fixed
+
+- **The "Tested: EA" line under a changelog rates the build again.** On EA 0.69e the game reports its version as "EA_beta_0.69e", which the line could not read, so it never said whether a mod was tested on your build and never warned when it was tested on an older one.
+- Technical: `CompatibilityChip.BuildPattern` takes the first MAJOR.MINOR anywhere in the string (was anchored at the start, with an optional "EA " prefix); `Compare("0.69", "EA_beta_0.69e")` read Unknown. Found by the NetRig harness scenario T2.371; gate `Development_Tools/Tests/MUM-CompiledLogic.Tests.ps1` (three EA_beta_0.69e cases, watched red on the old pattern).
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds CSFF Mod Framework 2.29.2, Herbs and Fungi 1.14.19, Advanced Copper Tools 1.18.16, Water Driven Infrastructure 1.13.1, Community Mod Chest 1.70.2, Homestead Perks 1.3.10, Repeat Action 2.2.5, Quick Transfer 1.9.4, Skill Speed Boost 1.11.2, and the pre-release Partner Overhaul 1.1.7, Harsh Wilds 0.11.11, Far Territory 0.1.15, Forest Lore 0.1.10, Utility Belt 0.1.9 and Sirus23 Mod Collection 1.22.14. The framework adds `Api.NpcDuties`, `EnvPreCreate.json`, `FrameworkEvents.RunStarted`, `Api.Npc.RegisterMoveGuard` and `Api.Localized`, a setting that hides the Portal Kit blueprint, and turns the off-screen card throttle off by default; Water Driven Infrastructure and Community Mod Chest need this framework, which the suite carries. Community Mod Chest's Garden Trellis and Hunting Stand show in the journal again after the Miller's thanks; Water Driven Infrastructure's kits refund their Metal Nails; the Harsh Wilds package no longer carries leftover golden hind files.
+
 ## [2.1.76] - 2026-10-30
 
 ### Changed

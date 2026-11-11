@@ -28,11 +28,12 @@ namespace mod_update_manager
             @"Compatible with[^\n]*?\bEA\s*(\d+\.\d+[a-z]?)\b",
             RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
 
-        // Application.version on this game is MAJOR.MINOR plus an optional hotfix letter ("0.68b",
-        // the one version string in globalgamemanagers, EA 0.68b, 2026-09-26). An "EA " prefix is
-        // tolerated in case a build ever carries one.
+        // Application.version on this game read MAJOR.MINOR plus an optional hotfix letter ("0.68b",
+        // EA 0.68b, 2026-09-26) and reads "EA_beta_0.69e" on EA 0.69e (harness, 2026-11-03), so the
+        // first MAJOR.MINOR anywhere in the string is the build: a start-anchored pattern rated every
+        // build Unknown on 0.69e. The lookbehind keeps it from starting inside a longer number.
         private static readonly Regex BuildPattern = new Regex(
-            @"^\s*(?:EA\s*)?(\d+\.\d+)", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+            @"(?<![\d.])(\d+\.\d+)", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
 
         /// <summary>
         /// Returns the tested-build token ("0.68a") from the newest changelog version that carries

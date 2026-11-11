@@ -1,7 +1,7 @@
 # Mod Update Manager - Implementation Summary
 
-Date: 2026-10-29
-Version: 2.1.75
+Date: 2026-11-03
+Version: 2.1.77
 
 ## Active Runtime Flow
 

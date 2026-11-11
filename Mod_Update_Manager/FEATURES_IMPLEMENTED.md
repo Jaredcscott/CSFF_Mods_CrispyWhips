@@ -1,6 +1,6 @@
 # Mod Update Manager - Feature Status
 
-Date: 2026-10-29
+Date: 2026-11-03
 
 This document describes what is actually wired in the shipped mod. Planned features live in `Documentation/Design/Mod_Update_Manager_Round2_As_Built.md`.
 
