@@ -57,6 +57,7 @@
         <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="DropInjections.json" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="EnvPreCreate.json" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="WorldMap\*.json" CopyToOutputDirectory="PreserveNewest" Link="WorldMap\%(Filename)%(Extension)" />
         <Content Include="CardData\**\*.json" CopyToOutputDirectory="PreserveNewest" Link="CardData\%(RecursiveDir)%(Filename)%(Extension)" />
         <Content Include="CharacterPerk\*.json" CopyToOutputDirectory="PreserveNewest" Link="CharacterPerk\%(Filename)%(Extension)" />

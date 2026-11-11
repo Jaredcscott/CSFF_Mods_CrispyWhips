@@ -1,8 +1,8 @@
 # Far Territory
 
-**Version:** 0.1.14
+**Version:** 0.1.15
 **Author:** Jared
-**Requires:** CSFFModFramework 2.28.2 or later
+**Requires:** CSFFModFramework 2.29.1 or later
 **Status:** pre-release. Version 0.1.7 brought the numbers in line with the base game (crops need care, forage and fishing can come up empty, the crossing takes effort, carcasses give a hide); they may still be tuned. Version 0.1.8 added swamp fever and its cure, fish gutting, cooked island food and sea salt, and 0.1.9 the Island Start perk; their numbers are first guesses.
 
 Far Territory adds lands beyond the forest, reached by ordinary travel. Follow the river to the sea and cross to a warm island that recreates Card Survival: Tropical Island's island as a tribute: all text is new, and the island's places, plants and finds draw that game's own art, used with its developers' permission (see `ASSET_CREDITS.md`). Past the forest lie a grassland, mountains and fjords.
@@ -312,7 +312,7 @@ Fights are sized like the base game's animals of similar size: a seagull or bat 
 
 - The **cobra** strikes on its own, once a day between 08:00 and 18:00, when it is on your board. The others fight only when approached.
 - The macaque, monitor lizard and cobra leave the base game's tracks. A killed animal comes back after a week (seagull and bat after three days).
-- **Carcasses**: drag a knife onto one to **Butcher** it (15 minutes) for raw Meat (macaque 2 to 3 and a Bone, monitor lizard 2 and a Bone, cobra 1, bat 1). They rot in about 2.5 days.
+- **Carcasses**: drag a knife onto one to **Butcher** it (15 minutes) for raw Meat (macaque 2 to 3 and a Bone, monitor lizard 2 and a Bone, cobra 1, bat 1). The macaque and monitor lizard carcasses rot in about 2.5 days, the cobra's in 2 and the bat's in 1.5.
 - **Seagull Nest** (Gull Stack): **Search the Nest** (15 minutes, needs daylight and stamina) gives Wild Eggs, feathers and twigs, or Bird Bones. It can be searched twice from full and refills over 10 days.
 
 ## Sea dangers
@@ -413,12 +413,13 @@ A cold, steep coast beyond the mountains. There is no boat.
 - Each new place adds a small entry (about 5 KB) to the save.
 - **Long island stays:** when you return to a place you left, the game catches up on the time that passed, but the framework caps that at 14 in-game days. After a longer island stay your home base catches up for 14 days only: food spoils, fires burn down and crops grow as if you had been away 14 days.
 
-**For modders.** The code is four small classes, one of them a Harmony patch:
+**For modders.** The code is three small classes. Far Territory applies no Harmony patch of its own:
 
-- `EnvSaveDataPreCreate` creates each non-clone board's save entry at run start.
 - `ClimateService` applies the island, volcano, mountain and fjord temperature offsets from the place you stand on.
 - `LandmarkSeed` keeps one ring of Forest Lore's Standing Stones on Wildrye Plain when Forest Lore is installed.
-- `OwlIslandGuard`, the Harmony patch, refuses the Sirus23 Mod Collection's wild Owl a move onto any Far Territory board, and does nothing without that mod.
+- `OwlIslandGuard` refuses the Sirus23 Mod Collection's wild Owl a move onto any Far Territory board, through the framework's `Api.Npc.RegisterMoveGuard`. It does nothing without that mod.
+
+`EnvPreCreate.json` lists every non-clone board. The framework creates each one's save entry at run start.
 
 **Optional companions** (nothing breaks without them): Harsh Wilds (wisent and musk ox carcasses), Forest Lore (Standing Stones on Wildrye Plain), Sirus23 Mod Collection (wild sheep on island places), Advanced Copper Tools (its Grappling Hook also raises Climbing Aid).
 
@@ -430,7 +431,7 @@ Download Far Territory from its [Nexus Mods page](https://www.nexusmods.com/card
 
 ### Requirements
 - [BepInEx 5.x](https://github.com/BepInEx/BepInEx/releases) for Card Survival: Fantasy Forest
-- CSFF Mod Framework 2.28.2 or later (`CSFF_Mod_Framework`)
+- CSFF Mod Framework 2.29.1 or later (`CSFF_Mod_Framework`)
 
 ### Steps
 1. Install BepInEx 5 and CSFF Mod Framework.
@@ -454,6 +455,7 @@ BepInEx/
 
 See `CHANGELOG.md` for the full list.
 
+- **0.1.15:** Island Start replaces the other starting-location perks instead of stacking with them. Needs CSFF Mod Framework 2.29.1 or later.
 - **0.1.13:** the island's places, paths, sea, plants and many of its finds now draw Card Survival: Tropical Island's own art, used with its developers' permission; Conch, Oyster and Sea Urchin get pictures of their own.
 - **0.1.12:** the set Fish Trap and Funnel Trap say they catch about once a day; Chewing Ginger Root names the right effect in Chinese; the unused Ginger Warmth is gone.
 - **0.1.11:** Sago Pith's Drying bar shows the base game's drying icon; this README now says which features a scripted run in the game has confirmed.

@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.15] - 2026-11-11
+
+### Fixed
+
+- **Island Start now replaces the other starting-location perks.** It could be taken together with Lake Start, River Clearing Start and the rest. It now sits on the Situational tab beside them and taking one removes the other, as the README always said.
+- Technical: `CharacterPerk/FT_Perk_IslandStart.json` named vanilla's Starting Location exclusion group (`Pkg_StartingLocation`, a PerkGroup) in `CharacterPerkPerkGroup`, a field for a creator TAB; the framework's PerkInjector fills only tabs, so the perk joined neither. It now names the Situational tab, and the new `GameSourceModify/0dcc7ebeafa81c345accf285880b364c.json` appends it to the group's `PerksList` (WarpType 4), the two places vanilla's Lake Start sits. Found by harness row T2.1911; gated by `Development_Tools/Tests/FarTerritory-IslandStart.Tests.ps1`, which now also holds every mod perk's `CharacterPerkPerkGroup` to a tab GUID or `None`.
+
+### Changed
+
+- **Far Territory now needs CSFF Mod Framework 2.29.1 or later.** Update the framework before you update Far Territory.
+- Technical: non-clone board `EnvironmentsData` pre-create moved off `Patcher/EnvSaveDataPreCreate.cs` onto the framework's declarative `EnvPreCreate.json` (fleet plan section 10, W0.10 row 3). Same ~50 boards, same behavior: a board's first seed is still frozen at the version that first created it. Gate: `Development_Tools/Tests/Framework-EnvPreCreate.Tests.ps1`.
+- Technical: `Patcher/OwlIslandGuard.cs` no longer patches `GameManager.MoveNPC` itself. It registers with the framework's `Api.Npc.RegisterMoveGuard` (Fleet APE Port, row 11). Same behaviour: the Sirus23 wild Owl is refused a move onto any Far Territory board.
+
 ## [0.1.14] - 2026-10-30
 
 ### Changed

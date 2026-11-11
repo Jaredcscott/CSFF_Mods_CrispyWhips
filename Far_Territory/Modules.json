@@ -12,7 +12,7 @@
       "name": "Getting There and Island Start",
       "summary": "Brackwater Mouth, Driftwood Shore and Seaward Sands, the Dugout and Outrigger Canoes with their moored-boat shores, and the Island Start perk with its Choose Your Landing card.",
       "paths": ["GameSourceModify/ftLocRiverMouth.json", "CardData/*/FT_Shore.json", "CardData/*/FT_ShoreLocation.json", "CardData/*/FT_LandingBeach*", "CardData/**/*FT_Canoe*", "**/*Outrigger*",
-                "CardData/Location/FT_MooredBoat*", "CharacterPerk/**", "CardData/Item/FT_CastawayLanding.json"]
+                "CardData/Location/FT_MooredBoat*", "CharacterPerk/**", "GameSourceModify/0dcc7ebeafa81c345accf285880b364c.json", "CardData/Item/FT_CastawayLanding.json"]
     },
     {
       "id": "travel",
@@ -112,9 +112,9 @@
       "id": "modwide",
       "name": "Mod-wide",
       "modWide": true,
-      "summary": "Plugin entry, EnvSaveDataPreCreate (pre-creates every board's save entry), OwlIslandGuard (Sirus23 compatibility), project files, player docs, card motion, and art tooling state.",
+      "summary": "Plugin entry, EnvPreCreate.json (pre-creates every board's save entry through the framework), OwlIslandGuard (Sirus23 compatibility), project files, player docs, card motion, and art tooling state.",
       "paths": ["Plugin.cs", "GlobalUsing.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "PLAYER_GUIDE.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore",
-                "Features.json", "Modules.json", "Patcher/EnvSaveDataPreCreate.cs", "Patcher/OwlIslandGuard.cs", "CardData/Motion/**",
+                "Features.json", "Modules.json", "EnvPreCreate.json", "Patcher/OwlIslandGuard.cs", "CardData/Motion/**",
                 ".art/RUN_LOG.md", ".art/compositions.json", ".art/liquid_bowls.json", ".art/reference-uploads.json", ".art/review/**"]
     }
   ]

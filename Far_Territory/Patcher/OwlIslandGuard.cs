@@ -12,7 +12,9 @@ namespace FarTerritory.Patcher;
 /// whichever board the player stands on, with no map check, so it appeared on Cliffbound Cove (owner report,
 /// 2026-10-11: "the owl must never be on the island"). Every route onto a board ends in
 /// <c>GameManager.MoveNPC(InGameNPC, EnvID)</c>, the same choke point as Community Mod Chest's
-/// <c>WildlifeIndoorGuardPatch</c>, so refusing there stops the arrival. It refuses a move and suppresses no
+/// <c>WildlifeIndoorGuardPatch</c>, so refusing there stops the arrival; this registers through
+/// <c>Api.Npc.RegisterMoveGuard</c>, the framework's shared MoveNPC-refusal registry, rather than
+/// patching that method itself. It refuses a move and suppresses no
 /// encounter. By agent UID and env UID prefix, reflection-only, so Far Territory needs no reference to the
 /// Sirus23 mod and the guard is inert when that mod is absent.
 ///
@@ -31,57 +33,45 @@ internal static class OwlIslandGuard
     {
         if (_initialized) return;
         _initialized = true;
-
-        var gmType = CardUtil.FindGameType("GameManager");
-        var inGameNpcType = CardUtil.FindGameType("InGameNPC");
-        var envIdType = CardUtil.FindGameType("EnvID");
-        var moveNpc = gmType != null && inGameNpcType != null && envIdType != null
-            ? AccessTools.Method(gmType, "MoveNPC", new[] { inGameNpcType, envIdType })
-            : null;
-        if (moveNpc == null)
-        {
-            Plugin.ModLog.LogWarning("[OwlIslandGuard] GameManager.MoveNPC(InGameNPC, EnvID) not found, so the guard is inactive and the Wild Owl can fly onto the island.");
-            return;
-        }
-        harmony.Patch(moveNpc, prefix: new HarmonyMethod(typeof(OwlIslandGuard), nameof(Prefix)));
+        Npc.RegisterMoveGuard(Refuse);
     }
 
-    private static bool Prefix(object __0, object __1)
+    private static bool Refuse(object npc, object destEnvId)
     {
         try
         {
-            if (__0 == null) return true;
-            var npcModel = Reflect.GetMember(__0, "NPCModel");
+            if (npc == null) return false;
+            var npcModel = Reflect.GetMember(npc, "NPCModel");
             if (npcModel == null)
             {
                 WarnOnce("npc-model", "[OwlIslandGuard] InGameNPC.NPCModel could not be read, so no owl move is guarded.");
-                return true;
+                return false;
             }
-            if (!string.Equals(CardUtil.GetCardUniqueId(npcModel), OwlAgentUid, StringComparison.Ordinal)) return true;
+            if (!string.Equals(CardUtil.GetCardUniqueId(npcModel), OwlAgentUid, StringComparison.Ordinal)) return false;
 
-            if (!Reflect.TryGetMember(__1, "EnvCard", out var envCard))
+            if (!Reflect.TryGetMember(destEnvId, "EnvCard", out var envCard))
             {
                 WarnOnce("dest-envcard", "[OwlIslandGuard] EnvID.EnvCard could not be read, so no owl move is guarded.");
-                return true;
+                return false;
             }
-            if (envCard == null) return true;
+            if (envCard == null) return false;
 
             string destUid = CardUtil.GetCardUniqueId(envCard);
             if (destUid == null)
             {
                 WarnOnce("dest-uid", "[OwlIslandGuard] The destination env card's UniqueID could not be read, so no owl move is guarded.");
-                return true;
+                return false;
             }
-            if (!destUid.StartsWith(IslandEnvPrefix, StringComparison.Ordinal)) return true;
+            if (!destUid.StartsWith(IslandEnvPrefix, StringComparison.Ordinal)) return false;
 
             if (_warned.Add("blocked-" + destUid))
                 Plugin.ModLog.LogInfo($"[OwlIslandGuard] Refused the Wild Owl's move onto '{destUid}'.");
-            return false;
+            return true;
         }
         catch (Exception ex)
         {
             WarnOnce("exception-" + ex.GetType().Name, $"[OwlIslandGuard] The guard threw, so this move was allowed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-            return true;
+            return false;
         }
     }
 
