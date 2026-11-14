@@ -108,6 +108,7 @@
             "UseMiniTicks": 1,
             "ActionTags": [],
             "ActionTagsWarpData": [
+                "VegetarianAction",
                 "EatingAction"
             ],
             "ActionTagsWarpType": 3,

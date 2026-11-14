@@ -151,6 +151,7 @@
             "UseMiniTicks": 1,
             "ActionTags": [],
             "ActionTagsWarpData": [
+                "CarnivorousAction",
                 "EatingAction"
             ],
             "ActionTagsWarpType": 3,

@@ -133,6 +133,65 @@
     ],
     "InventoryFilter": {
         "AcceptedCards": [],
+        "AcceptedCardsWarpData": [
+            "4093dde8982306b4d8a5a9108ac5f0bb",
+            "692c88d91a4fdf0498749339ae6d53f8",
+            "5dc9560f81be57c4b9e22780f8a5ad78",
+            "36860ef667fc70e499a0a9a40c7d56a0",
+            "2aebab781b32680488505b5d3a4d4c48",
+            "3e0478645b7f2f844a020f5e273fe6a3",
+            "7d9938e4be871234e9fa635825ac92f8",
+            "8d8d76a5cd03061468620cc8adba259b",
+            "699fbc1ecfaa48648a4dc3d7cb9a4f82",
+            "4c15287719fce024ea0986bbda731c58",
+            "c3aa52fe507984b4ea3ac3df7f20e6ea",
+            "3103c059d34608a4bb95c426d9ac77e0",
+            "c709607574554e040942d989881bb08c",
+            "9fc65684183943e49a402bc16aaa7909",
+            "272fe32c20eebef4d82290c7a31ac885",
+            "91168c5978471d54aaad816581f63ffd",
+            "dadc938eb0cb653428ebabbd671cb6f6",
+            "e292e8faac1041f4ab1da9bcf900e751",
+            "81900cc23c9ec504dba82785ebe4ffc7",
+            "1048cf27a1d44cc4cab746b8c82deefb",
+            "c7316260c15f62d4388ac38f348e30ba",
+            "feabefd4af242ff4c980b3ef6282c9fd",
+            "219ab8bcb5a7677468ee642754b89a1e",
+            "84d0e7f1c3991ac40ad70277e7119674",
+            "1cc530047705fca458ddcdf24153d6dd",
+            "d5e93724ef75fbb408e530df9e87fc3f",
+            "3526465cc526f074ca120bf2324ceae8",
+            "10af65312486dc0489499362f75ae8bc",
+            "1952653c957ceaf45aea2c8770035f16",
+            "fe07d4d800bcc8646a0ff2513c78d5df",
+            "545ea8617264fb549aafb59a8d0e7434",
+            "0b1846782db91ec48996a57cda4281c8",
+            "9ec32273450206143bf89a3db4badb54",
+            "54df01f1779a24945a4c24fe0851f5b9",
+            "5348869f82fde8140b4f91124c6f5222",
+            "34b5f8337972b154982553b9352da650",
+            "817f682d9869db649aa2b631a8807379",
+            "44a84ff12c3d43d4ea2c5c8162bf35c1",
+            "b477d8613038a2f45a83f24ab3d24d9d",
+            "0e4108f9784d20c4a9aafd550b20cf23",
+            "098ace4b5caa9684eaea835397a5abf6",
+            "51e9df54deb31b042a564c3eee5510a1",
+            "f0ae976a7a78a8748ac91c3c676141df",
+            "herbs_fungi_lions_mane",
+            "herbs_fungi_black_trumpet",
+            "herbs_fungi_hemp_flower",
+            "herbs_fungi_king_oyster",
+            "herbs_fungi_morel_mushroom",
+            "herbs_fungi_death_cap",
+            "herbs_fungi_golden_oyster",
+            "herbs_fungi_reishi",
+            "herbs_fungi_chaga",
+            "herbs_fungi_shiitake",
+            "herbs_fungi_yarrow",
+            "herbs_fungi_ginseng",
+            "herbs_fungi_chanterelle"
+        ],
+        "AcceptedCardsWarpType": 3,
         "AcceptedTypes": [],
         "AcceptedTags": [],
         "NOTAcceptedCards": [],
@@ -140,16 +199,6 @@
         "NOTAcceptedTags": [],
         "CardFilters": [],
         "TagFilters": [
-            {
-                "Tag": {
-                    "m_FileID": 0,
-                    "m_PathID": 0
-                },
-                "NOT": false,
-                "OnlyWithLiquid": false,
-                "TagWarpData": "tag_Flower",
-                "TagWarpType": 3
-            },
             {
                 "Tag": {
                     "m_FileID": 0,
@@ -178,26 +227,6 @@
                 "NOT": false,
                 "OnlyWithLiquid": false,
                 "TagWarpData": "tag_QuickDryable",
-                "TagWarpType": 3
-            },
-            {
-                "Tag": {
-                    "m_FileID": 0,
-                    "m_PathID": 0
-                },
-                "NOT": false,
-                "OnlyWithLiquid": false,
-                "TagWarpData": "tag_Cookable",
-                "TagWarpType": 3
-            },
-            {
-                "Tag": {
-                    "m_FileID": 0,
-                    "m_PathID": 0
-                },
-                "NOT": false,
-                "OnlyWithLiquid": false,
-                "TagWarpData": "tag_Heatable",
                 "TagWarpType": 3
             },
             {

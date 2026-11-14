@@ -89,6 +89,7 @@
             "UseMiniTicks": 1,
             "ActionTags": [],
             "ActionTagsWarpData": [
+                "CarnivorousAction",
                 "DrinkingAction"
             ],
             "ActionTagsWarpType": 3,

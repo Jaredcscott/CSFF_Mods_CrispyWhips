@@ -1533,7 +1533,7 @@ herbsfungimushroombroth_Spoiled,The mushroom broth has spoiled.,蘑菇汤已变�
 herbsfungimushroombroth_Drink,Drink,饮用
 herbsfungimushroombroth_Drink_Desc,Drink the mushroom broth. Earthy and warming.,饮用蘑菇汤。风味浓郁温暖。
 Herbs_And_Fungi_Bp_MushroomBroth_CardName,Mushroom Broth,蘑菇汤
-Herbs_And_Fungi_Bp_MushroomBroth_CardDescription,"Simmer dried shiitake and king oyster mushrooms in a clay bowl holding at least 150 of freshly boiled water (an amount, not a temperature: build before it cools) to make a rich, earthy mushroom broth. Warming and deeply nourishing.",将干香菇和干杏鲍菇放入盛有至少150份刚烧开的水的陶碗（150是水量，不是温度；趁水未凉时制作）中慢燉，制成浓郁的蘑菇汤。温暖滋补。
+Herbs_And_Fungi_Bp_MushroomBroth_CardDescription,"Simmer dried shiitake and king oyster mushrooms in a clay bowl holding at least 150 of hot water (heat the bowl on a fire until the water is at least half hot, then build before it cools) to make a rich, earthy mushroom broth. Warming and deeply nourishing.",将干香菇和干杏鲍菇放入盛有至少150份热水的陶碗（先把陶碗放在火上，把水加热到至少一半热度，趁水未凉时制作）中慢燉，制成浓郁的蘑菇汤。温暖滋补。
 Herbs_And_Fungi_Bp_MushroomBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Shiitake and Dried King Oyster,获得干香菇和干杏鲍菇后解锁
 herbsfungihealersmosstincture_CardHelpSection,"<b>Made by:</b> Blueprint: Healer's Moss Tincture
 
@@ -1705,7 +1705,7 @@ Herbs_And_Fungi_KingOysterGround_Eat,Eat,食用
 Herbs_And_Fungi_KingOysterGround_Eat_Desc,"Eat the concentrated king oyster powder. Savory, earthy umami flavor straight from the jar.",食用浓缩的杏鲍菇粉。咸鲜风味扑面而来。
 Herbs_And_Fungi_Spice_PeanutOil_SpiceName,Peanut Oil,花生油
 Herbs_And_Fungi_Bp_ReishiBroth_CardName,Reishi Broth,灵芝汤
-Herbs_And_Fungi_Bp_ReishiBroth_CardDescription,"Simmer dried reishi mushroom in a clay bowl holding at least 150 of freshly boiled water (an amount, not a temperature: build before it cools) to make a rich, earthy broth with powerful immune support and stress relief.",将干灵芝放入盛有至少150份刚烧开的水的陶碗（150是水量，不是温度；趁水未凉时制作）中慢燉，制成浓郁的汤品，提供强大的免疫支持和压力缓解。
+Herbs_And_Fungi_Bp_ReishiBroth_CardDescription,"Simmer dried reishi mushroom in a clay bowl holding at least 150 of hot water (heat the bowl on a fire until the water is at least half hot, then build before it cools) to make a rich, earthy broth with powerful immune support and stress relief.",将干灵芝放入盛有至少150份热水的陶碗（先把陶碗放在火上，把水加热到至少一半热度，趁水未凉时制作）中慢燉，制成浓郁的汤品，提供强大的免疫支持和压力缓解。
 Herbs_And_Fungi_Bp_ReishiBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Reishi,获得干灵芝后解锁
 herbsfungireishibroth_CardName,Reishi Broth,灵芝汤
 herbsfungireishibroth_CardDescription,A rich broth simmered from dried reishi mushroom in a clay bowl. Powerful immune support and stress relief in a warming bowl.,用干灵芝在陶碗中慢燉而成的浓郁汤品。温暖的一碗，提供强大的免疫支持和压力缓解。
@@ -1723,7 +1723,7 @@ herbsfungireishibroth_Spoiled,The reishi broth has spoiled.,灵芝汤已变质�
 herbsfungireishibroth_Drink,Drink,饮用
 herbsfungireishibroth_Drink_Desc,Drink the reishi broth. Earthy and warming.,饮用灵芝汤。风味浓郁温暖。
 Herbs_And_Fungi_Bp_LionsManeBroth_CardName,Lion's Mane Broth,狮鬃菇汤
-Herbs_And_Fungi_Bp_LionsManeBroth_CardDescription,"Simmer dried lion's mane mushroom in a clay bowl holding at least 150 of freshly boiled water (an amount, not a temperature: build before it cools) to make a rich, nutty broth known for boosting cognitive focus.",将干狮鬃菇放入盛有至少150份刚烧开的水的陶碗（150是水量，不是温度；趁水未凉时制作）中慢燉，制成坚果香浓郁的汤品，以增强专注力而闻名。
+Herbs_And_Fungi_Bp_LionsManeBroth_CardDescription,"Simmer dried lion's mane mushroom in a clay bowl holding at least 150 of hot water (heat the bowl on a fire until the water is at least half hot, then build before it cools) to make a rich, nutty broth known for boosting cognitive focus.",将干狮鬃菇放入盛有至少150份热水的陶碗（先把陶碗放在火上，把水加热到至少一半热度，趁水未凉时制作）中慢燉，制成坚果香浓郁的汤品，以增强专注力而闻名。
 Herbs_And_Fungi_Bp_LionsManeBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Lion's Mane,获得干狮鬃菇后解锁
 herbsfungilionsmanebroth_CardName,Lion's Mane Broth,狮鬃菇汤
 herbsfungilionsmanebroth_CardDescription,A rich broth simmered from dried lion's mane mushroom in a clay bowl. Known for boosting cognitive function and focus.,用干狮鬃菇在陶碗中慢燉而成的坚果香浓郁汤品。以增强认知功能和专注力而闻名。
@@ -1741,7 +1741,7 @@ herbsfungilionsmanebroth_Spoiled,The lion's mane broth has spoiled.,狮鬃菇汤
 herbsfungilionsmanebroth_Drink,Drink,饮用
 herbsfungilionsmanebroth_Drink_Desc,Drink the lion's mane broth. Nutty and warming.,饮用狮鬃菇汤。坚果香浓郁温暖。
 Herbs_And_Fungi_Bp_ChanterelleBroth_CardName,Chanterelle Broth,鸡油菌汤
-Herbs_And_Fungi_Bp_ChanterelleBroth_CardDescription,"Simmer dried chanterelle mushroom in a clay bowl holding at least 150 of freshly boiled water (an amount, not a temperature: build before it cools) to make a rich, earthy broth known for lifting morale.",将干鸡油菌放入盛有至少150份刚烧开的水的陶碗（150是水量，不是温度；趁水未凉时制作）中慢燉，制成浓郁的汤品，以提升情绪而闻名。
+Herbs_And_Fungi_Bp_ChanterelleBroth_CardDescription,"Simmer dried chanterelle mushroom in a clay bowl holding at least 150 of hot water (heat the bowl on a fire until the water is at least half hot, then build before it cools) to make a rich, earthy broth known for lifting morale.",将干鸡油菌放入盛有至少150份热水的陶碗（先把陶碗放在火上，把水加热到至少一半热度，趁水未凉时制作）中慢燉，制成浓郁的汤品，以提升情绪而闻名。
 Herbs_And_Fungi_Bp_ChanterelleBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Chanterelle,获得干鸡油菌后解锁
 herbsfungichanterellebroth_CardName,Chanterelle Broth,鸡油菌汤
 herbsfungichanterellebroth_CardDescription,A rich broth simmered from dried chanterelle mushroom in a clay bowl. Known for lifting morale.,用干鸡油菌在陶碗中慢燉而成的浓郁汤品。以提升情绪而闻名。

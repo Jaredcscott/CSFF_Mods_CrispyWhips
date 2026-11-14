@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_bp_reishi_broth",
         "LocalizationKey": "Herbs_And_Fungi_Bp_ReishiBroth_CardDescription",
-        "DefaultText": "Simmer dried reishi mushroom in a clay bowl holding at least 150 of freshly boiled water (an amount, not a temperature: build before it cools) to make a rich, earthy broth with powerful immune support and stress relief."
+        "DefaultText": "Simmer dried reishi mushroom in a clay bowl holding at least 150 of hot water (heat the bowl on a fire until the water is at least half hot, then build before it cools) to make a rich, earthy broth with powerful immune support and stress relief."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
@@ -75,13 +75,18 @@
                     },
                     "RequiredQuantity": 1,
                     "DontSpend": false,
+                    "Fuel": {
+                        "Active": true,
+                        "FloatValue": 100.0,
+                        "MaxValue": 200.0
+                    },
                     "RequiredLiquidContent": {
                         "IsActive": true,
                         "RequiredLiquid": {
                             "m_FileID": 0,
                             "m_PathID": 0
                         },
-                        "RequiredLiquidWarpData": "a0e1cf6d47685a741b5cd9889fb39227",
+                        "RequiredLiquidWarpData": "425259cb06b869d45be2e7f1b5b54aff",
                         "RequiredLiquidWarpType": 3,
                         "RequiredGroup": {
                             "m_FileID": 0,

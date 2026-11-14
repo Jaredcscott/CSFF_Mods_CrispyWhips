@@ -1,6 +1,6 @@
 # Herbs and Fungi: Player Guide
 
-**Version:** 1.14.19
+**Version:** 1.14.20
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -29,7 +29,7 @@ Many numbers added since 1.14.0 are starting values and may change, and a few ca
 | **Chicken of the Woods** | Meaty. Food poisoning raw, safe cooked |
 | **Shiitake Mushroom** | Savoury, supports the immune system |
 | **Giant Puffball** | Mild and filling, safe raw or cooked. Left uneaten until its spoilage runs out, it ripens into a Ripe Puffball |
-| **Ripe Puffball** | Not food. **Dust a Wound** raises Yarrow Clotting by 24 (half of Ground Yarrow's Apply to Wound), slowing bleeding for a while. It gives 3 dustings and rots away after twice as long as the fresh puffball took to ripen |
+| **Ripe Puffball** | Not food. **Dust a Wound** raises Yarrow Clotting by 24 (the same as Ground Yarrow's Apply to Wound, without the yarrow's pain relief), slowing bleeding for a while. It gives 3 dustings and rots away after five times as long as the fresh puffball took to ripen |
 | **Black Trumpet** | Gourmet, smoky truffle flavour |
 | **King Oyster** | Dense and meaty |
 | **Golden Oyster** | Nutty. Found all year, winter included, at oak, alder, pine and willow woods |
@@ -55,7 +55,7 @@ Eat them raw, stew them or dry them. They stack to 20 and spoil in about 6 days 
 - **Wild Ginseng**: dry and grind it for Ginseng Tea. Grow it with **Plant Ginseng**.
 - **Chamomile**: dry the flowers for a calming tea. Grow it with **Plant Chamomile**.
 - **Dandelion**: eat it fresh or dried, or brew dried flowers into tea. Grow it with **Plant Dandelion**.
-- **Ginger**: a foraged spice. Dry it, cut it into Cut Ginger, or process it. Eating Cut Ginger or Dried Ginger also gives vanilla's Ginger status (Small Dose): Pain drops, Courage, Appetite and the immune system rise for a few hours.
+- **Ginger**: a foraged spice. Cut it into Cut Ginger, which dries into Dried Ginger, or process it. Eating Cut Ginger or Dried Ginger also gives vanilla's Ginger status (Small Dose): Pain drops, Courage, Appetite and the immune system rise for a few hours.
 - **Common Plantain**: dry the leaves for a Plantain Poultice. Grow it with **Plant Plantain**.
 - **Wild Flowers**: dry them and make a Flower Garland.
 
@@ -184,7 +184,7 @@ Blueprints are in the Cooking tab unless noted. No vanilla card changes.
 | **Healer's Moss Tincture** | Strong pain relief |
 | **Pain Relief Powder** | A ground herbal painkiller |
 | **Death Cap Tincture** | A bitter extract that kills gut parasites |
-| **Mushroom Broth** | A broth of dried mushrooms simmered in a clay bowl of freshly boiled water; quenches thirst and feeds you a little |
+| **Mushroom Broth** | A broth of dried mushrooms simmered in a clay bowl of hot water (heat the bowl on a fire first); quenches thirst and feeds you a little |
 
 **Herbal Tonic.** Some forms of ginseng, lion's mane, reishi and shiitake, Black Trumpet Powder, King Oyster Powder, Bowl of Truffle Oil, the Ginseng, Reishi and Lion's Mane teas, Reishi Broth, Chaga Tea, Herbal Ferment and Vigor Elixir strengthen your immune system through a **Herbal Tonic** status.
 
@@ -229,7 +229,7 @@ All 16 perks appear in the **Situational** tab. The items from a perk land on th
 ### Drying and Preservation
 1. Craft a **Drying Tray** (Support tab).
 2. Optionally craft a **Drying Stack** (Furniture tab), which holds 3 trays.
-3. Put herbs, mushrooms, hemp flowers, ginger or meat on a tray. Meat dries slowly here, at a quarter of the herb speed; the vanilla Drying Rack is the faster way while you keep it smoking.
+3. Put herbs, mushrooms, hemp flowers, cut ginger or meat on a tray. The tray takes only what it can dry. Meat dries slowly here, at a quarter of the herb speed; the vanilla Drying Rack is the faster way while you keep it smoking.
 4. Items dry in place and their quality builds up.
 5. Dried items keep longer and can be ground into medicinal powders.
 
@@ -480,6 +480,7 @@ Patch classes in `Patcher/`:
 
 Full notes are in `CHANGELOG.md`.
 
+- **1.14.20** (2026-11-14): the four mushroom broths can be made again (since 1.14.9 the recipe refused every bowl; it now takes a Clay Bowl of at least 150 hot water, heated on a fire and taken off it); build-menu pictures show the thing you are building; breads, plant dishes and meat and fish dishes carry the right diet tag for the Carnivore, Herbivore, Meat Lover and Salad Lover traits, and rubbing in a Herbal Oil no longer counts as eating vegetables; the Drying Tray takes only what it can dry (cut Ginger first); the Forager's Notebook has a picture of its own.
 - **1.14.19** (2026-11-11): two four-step stews cooked in a Clay Bowl, Forager's Mushroom Stew and Herbalist's Root Stew; stews and broths show the game's taste line when eaten; look-alike plants are folded into Wild Plums, Chestnuts, Turnroot Greens, Golden Oyster and Camas Bulb, and saves keep working; each of this mod's drinks has its own picture in a Clay Bowl; Uncap gives the clay bowl back; a refused pickle build no longer empties the vat's Brine; the Botanical Field Guide reads in five pages; the Drying Tray's Finish Drying step runs; honest text for burning hemp and the Wooden Pantry.
 - **1.14.18** (2026-10-30): pickle vats use the CSFF Mod Framework's Brine, made by dissolving salt in water; Pickle Brine and Make Brine are retired and a saved vat keeps its brine; actions that were silent make a sound. Needs CSFF Mod Framework 2.29.0.
 - **1.14.15**: Turnroot Flatbread is a dense brick that nourishes like Dried Turnroot, a little less filling; Turnroot Chips can be eaten; both have their own pictures.

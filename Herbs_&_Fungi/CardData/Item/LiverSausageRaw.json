@@ -227,6 +227,7 @@
             "ActionSoundsWarpType": 3,
             "ActionTags": [],
             "ActionTagsWarpData": [
+                "CarnivorousAction",
                 "EatingAction"
             ],
             "ActionTagsWarpType": 3,

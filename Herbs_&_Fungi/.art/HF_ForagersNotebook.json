@@ -1,0 +1,46 @@
+{
+  "target": "HF_ForagersNotebook.png",
+  "sourceCard": "CardData/Item/ForagersNotebook.json",
+  "subject": "a thin home-made notebook: about eight sheets of coarse pale tan hemp paper folded once and tied shut with one loop of brown twine knotted in a bow; no cover, no leaf emblem (distinct from the Botanical Field Guide)",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Parchment (style) YRkCtzySsxQXQ0BE47qP",
+      "vanilla Journal (style) q81PLib7f5CXVeG409Ev"
+    ]
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are vanilla Card Survival paper items, used as STYLE references only: match their flat posterized colour fills, thin dark ink outline, paper colour and muted palette; do not copy their subjects, the feather or the runes.\nDraw: a Forager's Notebook. A thin home-made notebook: a small stack of about eight sheets of coarse pale tan hemp paper with slightly ragged uneven edges, folded once down the middle and tied shut by one loop of plain brown twine wrapped around its middle and knotted in a small bow on the front. It lies flat, seen from a slight three-quarter angle, about one and a half times as long as it is wide, and thin, no thicker than a finger. It has no cover: the top sheet is plain blank paper.\nStyle: plain vanilla Card Survival game art: flat colour fills in three or four tonal steps, a thin continuous dark brown-black ink outline, muted natural colours, no glossy highlights, no decorative patterns, no cartoon, no comic shading. Single object only, in the lower two-thirds of the frame, comfortably inset from every edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: a leather cover, a hard cover, a thick book, a spine, a leaf emblem, a feather, a quill, a pencil, writing, runes, drawings on the paper, a strap, a buckle, photo, photorealistic, 3D render, cartoon, comic book, glossy highlights, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "historyId": "KiK14EGFWZNX0kmOSKVI",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794587983436_da7c3cd7_1794587983764_01460f10.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794587983436_da7c3cd7_1794587983764_01460f10.png",
+      "verdict": "one sample (owner rule 2026-10-11); checked against its subject phrase by phrase and applied as a new picture; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "keyed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "b22223848256e716ed5ba3286605fd98c34e69bfcd676a2363f6f044a91cdc82"
+  },
+  "generated": "2026-11-13",
+  "cards": [
+    "CardData/Item/ForagersNotebook.json",
+    "CardData/Blueprint/Bp_ForagersNotebook.json"
+  ],
+  "replaces": {
+    "stand_in": "HF_BotanicalFieldGuide",
+    "reason": "HerbsAndFungi .audit/summary.md W6 (owner tile 2, 2026-11-12: generate its own art)"
+  }
+}

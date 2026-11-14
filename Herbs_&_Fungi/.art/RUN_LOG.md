@@ -178,3 +178,4 @@
 | 2026-10-21 | HF_PeanutButter (owner rework: more creamy; bowl recolour #d1a66a, smooth 16, flatten 0.6) | liquid_bowl.py make_bowl | - | 0 | - | OK |
 | 2026-10-22 | TurnrootFlatbread (new: borrowed vanilla Flatbread_Wheat; dense little brick per Banana Monk) | nano-banana-2 image2image | 1K | 20 | FAhpM8m4oi286eQMbb8u | OK |
 | 2026-10-22 | TurnrootChips (new: borrowed vanilla Turnroot_Fresh) | nano-banana-2 image2image | 1K | 20 | ZlYE1az7ChFM2RtKyBwr | OK |
+| 2026-11-13 | HF_ForagersNotebook (stand-in replacement, was HF_BotanicalFieldGuide; refs: vanilla Parchment (style), vanilla Journal (style)) | nano-banana-2 image2image | 1K | 20 | KiK14EGFWZNX0kmOSKVI | OK |

@@ -1421,7 +1421,7 @@ herbsfungimushroombroth_Spoiled,The mushroom broth has spoiled.
 herbsfungimushroombroth_Drink,Drink
 herbsfungimushroombroth_Drink_Desc,Drink the mushroom broth. Earthy and warming.
 Herbs_And_Fungi_Bp_MushroomBroth_CardName,Mushroom Broth
-Herbs_And_Fungi_Bp_MushroomBroth_CardDescription,"Simmer dried shiitake and king oyster mushrooms in a clay bowl holding at least 150 of freshly boiled water (an amount, not a temperature: build before it cools) to make a rich, earthy mushroom broth. Warming and deeply nourishing."
+Herbs_And_Fungi_Bp_MushroomBroth_CardDescription,"Simmer dried shiitake and king oyster mushrooms in a clay bowl holding at least 150 of hot water (heat the bowl on a fire until the water is at least half hot, then build before it cools) to make a rich, earthy mushroom broth. Warming and deeply nourishing."
 Herbs_And_Fungi_Bp_MushroomBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Shiitake and Dried King Oyster
 herbsfungihealersmosstincture_CardName,Healer's Moss Tincture
 herbsfungihealersmosstincture_CardDescription,A concentrated extract of healer's moss pressed in a clay bowl. The longest-lasting pain relief the herbalist can brew.
@@ -1572,7 +1572,7 @@ Herbs_And_Fungi_KingOysterGround_Eat,Eat
 Herbs_And_Fungi_KingOysterGround_Eat_Desc,"Eat the concentrated king oyster powder. Savory, earthy umami flavor straight from the jar."
 Herbs_And_Fungi_Spice_PeanutOil_SpiceName,Peanut Oil
 Herbs_And_Fungi_Bp_ReishiBroth_CardName,Reishi Broth
-Herbs_And_Fungi_Bp_ReishiBroth_CardDescription,"Simmer dried reishi mushroom in a clay bowl holding at least 150 of freshly boiled water (an amount, not a temperature: build before it cools) to make a rich, earthy broth with powerful immune support and stress relief."
+Herbs_And_Fungi_Bp_ReishiBroth_CardDescription,"Simmer dried reishi mushroom in a clay bowl holding at least 150 of hot water (heat the bowl on a fire until the water is at least half hot, then build before it cools) to make a rich, earthy broth with powerful immune support and stress relief."
 Herbs_And_Fungi_Bp_ReishiBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Reishi
 herbsfungireishibroth_CardName,Reishi Broth
 herbsfungireishibroth_CardDescription,A rich broth simmered from dried reishi mushroom in a clay bowl. Powerful immune support and stress relief in a warming bowl.
@@ -1586,7 +1586,7 @@ herbsfungireishibroth_Spoiled,The reishi broth has spoiled.
 herbsfungireishibroth_Drink,Drink
 herbsfungireishibroth_Drink_Desc,Drink the reishi broth. Earthy and warming.
 Herbs_And_Fungi_Bp_LionsManeBroth_CardName,Lion's Mane Broth
-Herbs_And_Fungi_Bp_LionsManeBroth_CardDescription,"Simmer dried lion's mane mushroom in a clay bowl holding at least 150 of freshly boiled water (an amount, not a temperature: build before it cools) to make a rich, nutty broth known for boosting cognitive focus."
+Herbs_And_Fungi_Bp_LionsManeBroth_CardDescription,"Simmer dried lion's mane mushroom in a clay bowl holding at least 150 of hot water (heat the bowl on a fire until the water is at least half hot, then build before it cools) to make a rich, nutty broth known for boosting cognitive focus."
 Herbs_And_Fungi_Bp_LionsManeBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Lion's Mane
 herbsfungilionsmanebroth_CardName,Lion's Mane Broth
 herbsfungilionsmanebroth_CardDescription,A rich broth simmered from dried lion's mane mushroom in a clay bowl. Known for boosting cognitive function and focus.
@@ -1600,7 +1600,7 @@ herbsfungilionsmanebroth_Spoiled,The lion's mane broth has spoiled.
 herbsfungilionsmanebroth_Drink,Drink
 herbsfungilionsmanebroth_Drink_Desc,Drink the lion's mane broth. Nutty and warming.
 Herbs_And_Fungi_Bp_ChanterelleBroth_CardName,Chanterelle Broth
-Herbs_And_Fungi_Bp_ChanterelleBroth_CardDescription,"Simmer dried chanterelle mushroom in a clay bowl holding at least 150 of freshly boiled water (an amount, not a temperature: build before it cools) to make a rich, earthy broth known for lifting morale."
+Herbs_And_Fungi_Bp_ChanterelleBroth_CardDescription,"Simmer dried chanterelle mushroom in a clay bowl holding at least 150 of hot water (heat the bowl on a fire until the water is at least half hot, then build before it cools) to make a rich, earthy broth known for lifting morale."
 Herbs_And_Fungi_Bp_ChanterelleBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Chanterelle
 herbsfungichanterellebroth_CardName,Chanterelle Broth
 herbsfungichanterellebroth_CardDescription,A rich broth simmered from dried chanterelle mushroom in a clay bowl. Known for lifting morale.

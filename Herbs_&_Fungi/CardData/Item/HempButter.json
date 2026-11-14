@@ -151,6 +151,7 @@
             "ActionSounds": [],
             "ActionTags": [],
             "ActionTagsWarpData": [
+                "VegetarianAction",
                 "EatingAction"
             ],
             "ActionTagsWarpType": 3,
@@ -501,6 +502,7 @@
             "ActionSounds": [],
             "ActionTags": [],
             "ActionTagsWarpData": [
+                "VegetarianAction",
                 "EatingAction"
             ],
             "ActionTagsWarpType": 3,
@@ -860,6 +862,7 @@
             "ActionSounds": [],
             "ActionTags": [],
             "ActionTagsWarpData": [
+                "VegetarianAction",
                 "EatingAction"
             ],
             "ActionTagsWarpType": 3,

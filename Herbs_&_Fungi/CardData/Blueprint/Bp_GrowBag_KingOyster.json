@@ -21,7 +21,7 @@
     "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
     "BlueprintActionTagsWarpType": 3,
     "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-    "CardImageWarpData": "ReadyKingOysterLog",
+    "CardImageWarpData": "HF_GrowBagKingOyster",
     "CardImageWarpType": 3,
     "ResearchedNotification": 0
 }

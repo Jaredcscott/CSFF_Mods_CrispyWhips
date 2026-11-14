@@ -37,7 +37,7 @@ All foraged mushrooms are found in forests. Most spawn on the surface; Truffles 
 
 **Unknown Chanterelle:** about a quarter of the chanterelles you forage turn up as Unknown Chanterelles, which may be the real thing or a False Chanterelle look-alike. Identify one before eating it, in any of three ways: **Identify (Herbalism)** once your Herbalism skill is 25 or more; **Identify (Field Guide)** by dragging a Botanical Field Guide onto it (the guide is kept); or, **only with Community Mod Chest installed**, **Identify (Academy training)**, which appears once you have graduated the Academy's Herbalism course. Each takes 15 minutes and turns it into a Chanterelle (3 times in 4) or a False Chanterelle (1 time in 4). **Eat Unidentified** fills you a little but gives food poisoning, and a False Chanterelle is not food at all (**Eat Anyway** gives food poisoning too). The share, the skill threshold and the odds are placeholder starting values, not tuned; both cards share the Chanterelle picture; not checked in game.
 
-**Ripe Puffball:** a Giant Puffball left uneaten until its spoilage runs out ripens into a Ripe Puffball instead of rotting. You cannot eat it. Use its **Dust a Wound** action (1 daytime) to raise Yarrow Clotting by 24, half of what Ground Yarrow's Apply to Wound gives, so bleeding slows for a while. Each puffball holds 3 dustings, and a ripe one rots away after twice as long as the fresh one takes to ripen. These numbers are starting values, not tuned.
+**Ripe Puffball:** a Giant Puffball left uneaten until its spoilage runs out ripens into a Ripe Puffball instead of rotting. You cannot eat it. Use its **Dust a Wound** action (1 daytime) to raise Yarrow Clotting by 24, the same as Ground Yarrow's Apply to Wound gives (the yarrow also eases pain, the puffball does not), so bleeding slows for a while. Each puffball holds 3 dustings, and a ripe one rots away after five times as long as the fresh one takes to ripen. These numbers are starting values, not tuned.
 
 ### Medicinal Mushrooms
 
@@ -149,7 +149,7 @@ Three more wild finds, foraged at a few vanilla woods and meadows. Forage chance
 
 Crafted from the **Support** tab. Holds 6 items simultaneously.
 
-1. Place fresh herbs, mushrooms, hemp flowers, ginger, or meat on the tray.
+1. Place fresh herbs, mushrooms, hemp flowers, cut ginger, or meat on the tray. It takes only what it can dry.
 2. The tray auto-ticks — each item dries over time.
 3. When an item reaches its dry threshold, it transforms into its dried form (Dried Yarrow, Dried Shiitake, etc.).
 

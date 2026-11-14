@@ -142,7 +142,7 @@
             "UseMiniTicks": 1,
             "ActionSounds": [],
             "ActionTags": [],
-            "ActionTagsWarpData": ["EatingAction"],
+            "ActionTagsWarpData": ["CarnivorousAction", "EatingAction"],
             "ActionTagsWarpType": 3,
             "StatModifications": [
                 {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 11.5,  "y": 11.5},  "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "930cf914322e9f145af1315d96f85a28", "StatWarpType": 3},
