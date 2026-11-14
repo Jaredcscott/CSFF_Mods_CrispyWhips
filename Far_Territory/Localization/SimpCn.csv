@@ -1882,9 +1882,9 @@ Far_Territory_RootwaterThicket_CardHelpSection,"<b>Rootwater Thicket:</b> A brac
 Far_Territory_ReedMarsh_CardHelpSection,"<b>Reed Marsh:</b> A reedy freshwater marsh. <b>Flora:</b> Reeds. <b>Fauna:</b> Mosquitoes. Mosquitoes breed here, worst in summer, and their bites can bring on swamp fever.",<b>芦苇沼泽：</b>一片长满芦苇的淡水沼泽。<b>植物：</b>芦苇。<b>动物：</b>蚊子。这里滋生蚊子，夏季最盛，被叮咬可能引发沼泽热。
 Far_Territory_CinchonaDecoction_CardName,Cinchona Decoction,金鸡纳煎剂
 Far_Territory_CinchonaDecoction_CardDescription,"Cinchona bark boiled down in a pot to a bitter red-brown liquor. It turns the stomach, but it works against swamp fever far better than chewing the bark. It goes off in about two days.",金鸡纳树皮在锅中熬成的苦涩红褐色药汁。喝下会让胃里翻腾，但对沼泽热的效果远胜直接嚼树皮。大约两天后就会变质。
-Far_Territory_CinchonaDecoction_CardHelpSection,"<b>Preparation:</b> Boil clean water in a cooking pot, then simmer 2 Cinchona Bark in it for an hour.
+Far_Territory_CinchonaDecoction_CardHelpSection,"<b>Preparation:</b> Heat a bowlful of clean water in a cooking pot until it is at least half hot, then simmer 2 Cinchona Bark in it for an hour.
 
-<b>Benefits:</b> Each dose lowers Swamp Fever by 1 but adds Nausea.","<b>制作：</b>在炊锅中烧开清水，再放入2份金鸡纳树皮煮一小时。
+<b>Benefits:</b> Each dose lowers Swamp Fever by 1 but adds Nausea.","<b>制作：</b>在炊锅中把一碗清水加热到至少一半热度，再放入2份金鸡纳树皮煮一小时。
 
 <b>功效：</b>每剂使沼泽热减轻1，但会增加恶心。"
 Far_Territory_CinchonaDecoction_Spoilage_StatName,Bacteria,细菌
@@ -1892,7 +1892,7 @@ Far_Territory_CinchonaDecoction_Spoiled,The decoction has gone off.,煎剂已经
 Far_Territory_CinchonaDecoction_DA_Drink,Drink,饮用
 Far_Territory_CinchonaDecoction_DA_Drink_Desc,"Drink a dose of the bitter decoction. Swamp fever eases by one step, and your stomach turns.",喝下一剂苦涩的煎剂。沼泽热减轻一档，胃里随之翻腾。
 Far_Territory_BpCinchonaDecoction_CardName,Cinchona Decoction,金鸡纳煎剂
-Far_Territory_BpCinchonaDecoction_CardDescription,Simmer 2 Cinchona Bark for an hour in a cooking pot of freshly boiled water to make a decoction that eases swamp fever. The pot is not used up. Boil the water first: it cools within the hour.,把2份金鸡纳树皮放入盛有刚烧开清水的炊锅中煮一小时，制成缓解沼泽热的煎剂。炊锅不会消耗。请先烧水：水在一小时内就会变凉。
+Far_Territory_BpCinchonaDecoction_CardDescription,Simmer 2 Cinchona Bark for an hour in a cooking pot holding one bowlful (290 to 300) of hot water to make a decoction that eases swamp fever. The pot is not used up. Heat the water on a fire until it is at least half hot and start at once: it cools quickly off the fire.,把2份金鸡纳树皮放入盛有一碗（290至300份）热水的炊锅中煮一小时，制成缓解沼泽热的煎剂。炊锅不会消耗。请先在火上把水加热到至少一半热度，然后马上开始：水离火后很快变凉。
 Far_Territory_Bonefish_CI_Gut,Gut,开膛
 Far_Territory_Bonefish_CI_Gut_Desc,Gut the bonefish with a blade for its meat.,用刀把骨鱼开膛，取出鱼肉。
 Far_Territory_Goatfish_CI_Gut,Gut,开膛

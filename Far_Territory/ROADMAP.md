@@ -1,31 +1,35 @@
 # Roadmap: Far Territory
 Version at time of writing: 0.1.15
-Date: 2026-11-07
-Audit score: 8/10 - SHIPS WITH CAVEATS (3 open WARNING, 1 release-gating; see `.audit/summary.md`)
+Date: 2026-11-14
+Audit score: 9/10 - SHIPS WITH CAVEATS (0 CRITICAL, 0 design gaps, 1 open WARNING [M3], 2 MINOR. See `.audit/summary.md`)
 
 ## Current State
 
 **Theme**: Lands beyond the forest, reached by ordinary travel - a tropical island (a tribute to Card Survival: Tropical Island, now drawing CSTI's own art), plus a mainland grassland, snowy mountains and cold fjords. Fishing, foraging, climbing, butchery, sea dangers and a castaway start, for a mid-to-late survival loop.
 
-**Content**: 99 items / 5 blueprints / 167 location + 50 environment cards / 1 perk (Island Start) / 2 liquids / 9 animals / 184 custom images.
+**Content**: 99 items / 5 blueprints / 167 location + 50 environment cards / 1 perk (Island Start) / 9 animals / 9 GIF cards / 184 custom images.
 
-**Stability**: 8/10 - SHIPS WITH CAVEATS. 0 CRITICAL, 0 design gaps. The 2026-11-06/07 fleet module re-audit (15 modules, all CURRENT) surfaced three open WARNINGs, two of them docs/version-string lag behind two 2026-11-05/06 code refactors: **W1 (release-gating)** - ModInfo/README/ROADMAP say "Requires CSFFModFramework 2.28.3 or later", but FT 0.1.15 now depends on `EnvPreCreate.json` + `Api.Npc.RegisterMoveGuard`, both in the framework's `[Unreleased]` section (latest tag 2.29.1, Nexus serves 2.29.0); **W2** - README "For modders" (lines 416-421) names the deleted `EnvSaveDataPreCreate` class and mislabels the owl guard as a Harmony patch; **W3** - outdoor Forage passes its Light gate at night on ~31 cards (gate `x=10`, should be `15` like vanilla `Clearing*`), against README line 169. The three 2026-11-04 garden/cave CRITICALs remain refuted false positives, gated by FT-B1b / FT-B13; the animals carcass-rot README was fixed per-species (`10ebc9f69`).
+**Stability**: 9/10 - SHIPS WITH CAVEATS. 0 CRITICAL, 0 design gaps, **1 open WARNING (M3)**. The 2026-11-14 grassland critical-analysis re-stamp (`74ef899fd`, SHIPS WITH CAVEATS) re-opened M3: Wildrye Plain's `DefaultEnvCardDrops` lists the vanilla Meadowgrass Patch twice, but that card is `UniqueOnBoard: true`, so the board holds one; README `:340` ("Two Meadowgrass Patches") is a verified false claim and the second entry is dead data. Low impact (one extra grass clump), awaiting an owner design call (one patch vs two distinct forageables). A MINOR doc-drift (As-Built `:382` fjord musk-ox still "15%" vs shipped 6%) and the accepted cosmetic N1 (cave ambient-sound falloff) are also open. Everything else is resolved and verified: W1 (framework floor) + W2 (dead-code modder docs) shipped 0.1.15; W3 (night Forage) fixed 2026-11-12 (`2e9b8a9c3`); the Harsh Wilds carcass drop-chance *player-facing* README docs fixed in `68cfe1093`; the cosmetic unused-`Harmony` parameter dropped 2026-11-12. The 2026-11-04 garden/cave CRITICALs remain refuted false positives, gated by FT-B1b / FT-B13.
 
-**Open work**: No open or pending retrospective names Far Territory, `crispywhips.far_territory` or FT. No plan file is open; the open findings above are promoted into `Documentation/Plans/FarTerritory/MASTER_PLAN.md` by `/audit-to-plan`. The CSTI art adoption plan built in v0.1.13 and the balance/niche plans closed into `Documentation/Design/FarTerritory_As_Built.md` sections 23/24.
+**Open work**: No open or pending retrospective names Far Territory, `crispywhips.far_territory` or FT. One open WARNING (M3) + one MINOR doc fix (As-Built `:382`), both filed in `.audit/summary.md` and recorded, not fixed, this consolidation pass (the run edited nothing under `FarTerritory/` outside `.audit/`+`ROADMAP.md`; M3 needs an owner decision). No plan file is open (`Documentation/Plans/FarTerritory/` does not exist); the CSTI art adoption plan built in v0.1.13 and the balance/niche plans closed into `Documentation/Design/FarTerritory_As_Built.md` sections 23/24.
 
-**Framework compliance**: Tier 2. C# is **three** small classes (`ClimateService`, `LandmarkSeed`, `OwlIslandGuard`) plus `Plugin`, using `ContentModPlugin`, `SpawnService`, `TickEvents` and the framework's `Api.Npc.RegisterMoveGuard` registry; FT patches Harmony nowhere directly (the one `MoveNPC` prefix lives in the framework's `Patching/MoveGuardPatch.cs`). Board pre-create is the declarative `EnvPreCreate.json`, read by the framework's `EnvPreCreateService` (replaced the deleted `Patcher/EnvSaveDataPreCreate.cs`, `8e4d185cd`). No deprecated patterns (no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no manual perk/blueprint injection, no `ModLoaderVerison`). **Requires the framework release that first publishes `EnvPreCreate.json` support + `Api.Npc.RegisterMoveGuard` - currently `[Unreleased]`; name it (2.29.2 / 2.30.0) once tagged (W1).**
+**Framework compliance**: Tier 2. C# is **three** small classes (`Patcher/ClimateService.cs`, `Patcher/LandmarkSeed.cs`, `Patcher/OwlIslandGuard.cs`) plus `Plugin`, using `ContentModPlugin`, `SpawnService`, `TickEvents` and the framework's `Api.Npc.RegisterMoveGuard` registry; FT patches Harmony nowhere directly (the one `MoveNPC` prefix lives in the framework's `Patching/MoveGuardPatch.cs`). Board pre-create is the declarative `EnvPreCreate.json`, read by the framework's `EnvPreCreateService` (replaced the deleted `Patcher/EnvSaveDataPreCreate.cs`, `8e4d185cd`). **Framework floor is 2.29.1** (in `ModInfo.json`, `README.md` 5/434/458) - the release that first publishes `EnvPreCreate.json` support (tagged 2026-11-08) and `Api.Npc.RegisterMoveGuard`; the framework is on Nexus as 2.29.2, uploaded before FT 0.1.15, so players are covered. No deprecated patterns (no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no manual perk/blueprint injection, no `ModLoaderVerison`).
 
 ---
 
 ## Phase 0: Stabilize
 
-> Three open WARNINGs. W1 blocks publishing 0.1.15; W2 rides the same files; W3 is a low-severity data sweep. None breaks the mod on the intended (unreleased) framework.
+> One open warning (M3) awaiting an owner design call, plus one quick doc fix. Nothing is a crash/corruption blocker; the resolved rows are held as the record.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **W1 (release gate):** bump the framework requirement in `ModInfo.json`, `README.md` (5, 433), `ROADMAP.md`, `CardData/Motion/CardMotion.json` `_about` to the release that publishes `EnvPreCreate.json` + `Api.Npc.RegisterMoveGuard`; ship 0.1.15 only batched with that framework | Feature honesty / release | P0 | Quick (blocked on the framework being tagged) |
-| **W2:** reword README "For modders" (416-421) + ROADMAP line 16 to three real classes, drop "one of them a Harmony patch", describe the owl guard as a registered move guard, add an `EnvPreCreate.json` line | Docs honesty | P0 | Quick (fold into the W1 commit) |
-| **W3:** set Forage gate `TriggerRange.x` 10 -> 15 on the ~31 FT outdoor Forage actions (3 mountain hubs + island/crossing/fjords/grassland/cave-adjacent shores), or amend README line 169; corroborate with a 02:00 harness forage on Scree Slope | Mechanic vs docs | P1 | Medium (data sweep) |
+| **M3 (OPEN): "Two Meadowgrass Patches" is one** - `FT_WildryePlain.json` lists the `UniqueOnBoard` Meadowgrass Patch twice (one spawns); README `:340` overstates. **Owner design call:** (a) remove the duplicate entry + README `:340` -> "A Meadowgrass Patch"; or (b) swap the duplicate for a *different* non-unique forageable to actually give two clumps. When fixed, re-run the grassland mod-report dimension (its "intentional" line is stale). Both files under `FarTerritory/`, not touched this .audit-only pass. | Mechanic vs docs | P0 (design decision) | Quick |
+| **M3-doc (OPEN): As-Built `:382` fjord musk-ox** still reads "15%" where shipped `Chance` is 6% (FT-B2 tune). Section 15 + README already correct. Fix: `:382` "15%" -> "6%" + FT-B2 pointer. Claude-facing doc, filed not fixed this pass. | Docs honesty | P1 | Quick |
+| ~~W1 (framework requirement)~~ **RESOLVED 0.1.15** - floor raised 2.28.3 -> 2.29.1; the two needed APIs shipped in framework 2.29.1 (Nexus 2.29.2, uploaded before FT 0.1.15) | Feature honesty / release | done | - |
+| ~~W2 (dead-code modder docs)~~ **RESOLVED 0.1.15** - README "For modders" reworded to three real classes, no Harmony patch, owl guard via `Api.Npc.RegisterMoveGuard`, `EnvPreCreate.json` line added | Docs honesty | done | - |
+| ~~W3 (outdoor Forage offered at night)~~ **RESOLVED 2026-11-12** (`2e9b8a9c3`) - Forage `TriggerRange.x` 10 -> 15 on the outdoor-with-passive-Light+10 subset + 4 node actions; dark caves (no passive) left at 10; gate `FarTerritory-OutdoorForageNeedsDaylight.Tests.ps1` 15/15 | Mechanic vs docs | done | - |
+| ~~Harsh Wilds carcass drop-chance *player-facing* README mismatch~~ **RESOLVED** (`68cfe1093`) - README 347/402 and As-Built section 15 aligned to the tuned data (wisent 4%, musk ox 6%). As-Built section 14 missed = M3-doc above | Docs honesty | done (section 14 open) | - |
+| ~~Unused `Harmony` parameter on `OwlIslandGuard.Initialize`~~ **RESOLVED 2026-11-12** - method group wiring in `Plugin.cs`; modwide/code-quality 10/10 | Cosmetic | done | - |
 
 ---
 
@@ -36,8 +40,8 @@ Audit score: 8/10 - SHIPS WITH CAVEATS (3 open WARNING, 1 release-gating; see `.
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
 | Versions in sync across ModInfo / Plugin.cs / README (all 0.1.15) | Version hygiene | - | met |
-| Chinese localization parity (SimpCn CLEAN, 0 missing/extra/no-CJK/stale) | Localization | - | met |
-| Framework Tier 2 (ContentModPlugin / SpawnService / TickEvents / Api.Npc) | Framework | - | met |
+| Chinese localization parity (SimpCn CLEAN, 1958/1958, 0 missing/extra/no-CJK/stale) | Localization | - | met |
+| Framework Tier 2 (ContentModPlugin / SpawnService / TickEvents / Api.Npc) on a released framework floor (2.29.1) | Framework | - | met |
 | bin/Release in sync with source (BinSync 0/0/0) | Build hygiene | - | met |
 | Garden-crop and cave mechanics pinned by FT-B1b / FT-B13 gates | Regression guard | - | met |
 
@@ -45,7 +49,7 @@ Audit score: 8/10 - SHIPS WITH CAVEATS (3 open WARNING, 1 release-gating; see `.
 
 ## Phase 2: Core Expansion
 
-> No plan is open. The items below are README-acknowledged gaps, not scheduled work; the mod is pre-release and its author has flagged its numbers as first guesses.
+> No plan is open. The items below are README-acknowledged gaps, not scheduled work; the mod is pre-release and its author has flagged its numbers as first guesses. (M3 option (b) - a second distinct grassland forageable - is small content that would also close M3 while adding depth.)
 
 ### Cooked shellfish / seaweed (README gap, unplanned)
 **What**: A cook path (steam or boil) for Conch, Oyster, Sea Urchin and Seaweed, mirroring the gutted-fish cook chain already shipped.
@@ -67,12 +71,12 @@ Audit score: 8/10 - SHIPS WITH CAVEATS (3 open WARNING, 1 release-gating; see `.
 
 ### Spice flavour synergy (README gap)
 **What**: Confirm (in game or via a `FlavourMatrix/*.json` row) that Ginger, Chilli, Lemongrass and Jasmine actually flavour base-game dishes as the README implies.
-**Why**: README says "Whether a base-game dish picks these up has not been checked in game" - an advertised interaction with no verification. Note the FlavourTags Intensity enum rules in CLAUDE.md (0 = Medium, 1 = Strong, 2 = Subtle) before authoring any intensity.
+**Why**: README says "Whether a base-game dish picks these up has not been checked in game" - an advertised interaction with no verification. Note the FlavourTags Intensity enum rules in CLAUDE.md (0 = Medium, 1 = Strong, 2 = Subtle) before authoring any intensity, and that an eat/drink action needs `ReceivingCardFlavourBonus: true` to taste its card.
 **Requires**: a FlavourTag authoring pass or a tracker row.
 **Complexity**: Medium.
 
 ### Keep crossovers current
-**What**: Re-verify the Harsh Wilds carcass hand-off, Forest Lore Standing Stones seed, Sirus23 owl guard (`OwlIslandGuard`, now on `Api.Npc.RegisterMoveGuard`) and ACT Grappling Hook / Climbing Aid stack whenever those partner mods release.
+**What**: Re-verify the Harsh Wilds carcass hand-off (data 4%/6%, player-facing README now matches; As-Built `:382` is M3-doc), Forest Lore Standing Stones seed, Sirus23 owl guard (`OwlIslandGuard`, on `Api.Npc.RegisterMoveGuard`) and ACT Grappling Hook / Climbing Aid stack whenever those partner mods release.
 **Why**: cross-mod UID references break silently when a partner renames content.
 **Requires**: coordination with each partner mod's version.
 **Complexity**: Quick per check.
@@ -85,11 +89,10 @@ Audit score: 8/10 - SHIPS WITH CAVEATS (3 open WARNING, 1 release-gating; see `.
 
 | Item | What | Complexity |
 |------|------|------------|
-| Forage Light-gate sweep (W3) | 10 -> 15 on ~31 outdoor Forage gates; ride a tuning pass | Medium |
 | Cave/shore forage tuning | README: "Every cave's forage is a first draft" - a balance pass once play data exists; pin any tuned number in the FT-B* gates | Medium |
 | Cooked-food / fishing number tuning | README calls these "first guesses" - rebalance against real runs | Medium |
-| Close the person-only tracker rows | Net/funnel-trap feel (T2.1393), the owl through a real night (T2.1524 human half), existing-save animals/path cards | Quick per row (needs a human at a running build) |
-| Cosmetics | caves N1 ambient-sound-falloff quirk; drop the unused `Harmony` param on `OwlIslandGuard.Initialize` | Quick (fold into next touch) |
+| Close the person-only tracker rows | Net/funnel-trap feel (T2.1393), the owl through a real night (T2.1524 human half), Sour Crater injected return travel (island CA), existing-save animals/path cards | Quick per row (needs a human at a running build) |
+| N1 cosmetic (caves) | ambient-sound-falloff quirk for NPCAgents inside caves - accepted, "not worth a build"; fold into the next cave-ambient touch | Quick |
 
 ---
 
@@ -97,11 +100,12 @@ Audit score: 8/10 - SHIPS WITH CAVEATS (3 open WARNING, 1 release-gating; see `.
 
 > Where Far Territory should be at v1.0.
 
-A complete, CSTI-faithful island tribute with its own art (shipped), sitting beside a fleshed-out mainland (grassland, mountains, fjords), where every advertised loop - fishing, foraging, climbing, butchery, cooking, the castaway start and the crossovers - is live-verified and tuned against real play, and shipping cleanly on a tagged framework. With the art plan done, the open work is the W1/W2 release honesty, the W3 forage sweep, tuning passes and closing the person-only tracker rows, not new systems.
+A complete, CSTI-faithful island tribute with its own art (shipped), sitting beside a fleshed-out mainland (grassland, mountains, fjords), where every advertised loop - fishing, foraging, climbing, butchery, cooking, the castaway start and the crossovers - is live-verified and tuned against real play, shipping cleanly on a released framework floor (met at 2.29.1). With the art plan done and every crash/corruption-class warning closed, the remaining open work is M3 (an owner design call on grassland forageable count), tuning passes and closing the person-only tracker rows, not new systems.
 
 **Potential major additions** (not yet justified - revisit after a tuning pass):
 - Coconut Milk liquid feeding a richer stew variant - README notes its absence; only worth it if it earns its weight in the food chain.
 - Deeper mainland content (more fjord/mountain fauna and structures) - the mainland is thinner than the island; a natural expansion now that the island is art-complete.
+- A salvage action and/or bespoke art for the Wrecked Ship (currently decoration-only, reusing the Driftwood sprite) - island CA flagged this as a judged trade-off.
 
 Any of these worth building belongs in a plan under `Documentation/Plans/FarTerritory/` (or its Considered table, with the reason); never a stub under `Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
 
@@ -111,12 +115,11 @@ Any of these worth building belongs in a plan under `Documentation/Plans/FarTerr
 
 | Trigger | Action |
 |---------|--------|
-| Before publishing 0.1.15 | Clear W1: the framework must be tagged and the requirement text must name that release (never ship on "2.28.3 or later") |
 | After any new content phase | Run `/audit-mod FarTerritory` and update this roadmap |
 | Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
 | After fixing a finding | Run `/critical-analysis FarTerritory` to verify the fix |
 | After a content phase complete | Run `/export-to-repo FarTerritory` / `/nexus-publish` and bump the version |
-| Stale top-level trio / per-category reports | `/critical-analysis FarTerritory` + `/audit-mod FarTerritory` to re-seat the 2026-10-20/21 reports (they describe a C# surface two commits since changed) |
+| Stale top-level trio / per-category reports | `/critical-analysis FarTerritory` + `/audit-mod FarTerritory` to re-seat the 2026-10-20/21 reports (they describe a C# surface, a framework requirement and numbers the refactors + release-prep + balance passes changed; the module wave already supersedes them) |
 
 ---
 

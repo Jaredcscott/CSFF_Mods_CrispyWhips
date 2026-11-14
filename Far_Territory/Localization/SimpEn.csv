@@ -1876,7 +1876,7 @@ Far_Territory_RootwaterThicket_CardHelpSection,"<b>Rootwater Thicket:</b> A brac
 Far_Territory_ReedMarsh_CardHelpSection,"<b>Reed Marsh:</b> A reedy freshwater marsh. <b>Flora:</b> Reeds. <b>Fauna:</b> Mosquitoes. Mosquitoes breed here, worst in summer, and their bites can bring on swamp fever."
 Far_Territory_CinchonaDecoction_CardName,Cinchona Decoction
 Far_Territory_CinchonaDecoction_CardDescription,"Cinchona bark boiled down in a pot to a bitter red-brown liquor. It turns the stomach, but it works against swamp fever far better than chewing the bark. It goes off in about two days."
-Far_Territory_CinchonaDecoction_CardHelpSection,"<b>Preparation:</b> Boil clean water in a cooking pot, then simmer 2 Cinchona Bark in it for an hour.
+Far_Territory_CinchonaDecoction_CardHelpSection,"<b>Preparation:</b> Heat a bowlful of clean water in a cooking pot until it is at least half hot, then simmer 2 Cinchona Bark in it for an hour.
 
 <b>Benefits:</b> Each dose lowers Swamp Fever by 1 but adds Nausea."
 Far_Territory_CinchonaDecoction_Spoilage_StatName,Bacteria
@@ -1884,7 +1884,7 @@ Far_Territory_CinchonaDecoction_Spoiled,The decoction has gone off.
 Far_Territory_CinchonaDecoction_DA_Drink,Drink
 Far_Territory_CinchonaDecoction_DA_Drink_Desc,"Drink a dose of the bitter decoction. Swamp fever eases by one step, and your stomach turns."
 Far_Territory_BpCinchonaDecoction_CardName,Cinchona Decoction
-Far_Territory_BpCinchonaDecoction_CardDescription,Simmer 2 Cinchona Bark for an hour in a cooking pot of freshly boiled water to make a decoction that eases swamp fever. The pot is not used up. Boil the water first: it cools within the hour.
+Far_Territory_BpCinchonaDecoction_CardDescription,Simmer 2 Cinchona Bark for an hour in a cooking pot holding one bowlful (290 to 300) of hot water to make a decoction that eases swamp fever. The pot is not used up. Heat the water on a fire until it is at least half hot and start at once: it cools quickly off the fire.
 Far_Territory_Bonefish_CI_Gut,Gut
 Far_Territory_Bonefish_CI_Gut_Desc,Gut the bonefish with a blade for its meat.
 Far_Territory_Goatfish_CI_Gut,Gut

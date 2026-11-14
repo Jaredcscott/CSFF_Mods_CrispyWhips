@@ -10,7 +10,7 @@
     "CardDescription": {
         "ParentObjectID": "ft_bp_cinchona_decoction",
         "LocalizationKey": "Far_Territory_BpCinchonaDecoction_CardDescription",
-        "DefaultText": "Simmer 2 Cinchona Bark for an hour in a cooking pot of freshly boiled water to make a decoction that eases swamp fever. The pot is not used up. Boil the water first: it cools within the hour."
+        "DefaultText": "Simmer 2 Cinchona Bark for an hour in a cooking pot holding one bowlful (290 to 300) of hot water to make a decoction that eases swamp fever. The pot is not used up. Heat the water on a fire until it is at least half hot and start at once: it cools quickly off the fire."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -75,9 +75,9 @@
                         "MaxValue": 0.0
                     },
                     "Fuel": {
-                        "Active": false,
-                        "FloatValue": 0.0,
-                        "MaxValue": 0.0
+                        "Active": true,
+                        "FloatValue": 100.0,
+                        "MaxValue": 200.0
                     },
                     "Progress": {
                         "Active": false,
@@ -115,7 +115,7 @@
                             "m_FileID": 0,
                             "m_PathID": 0
                         },
-                        "RequiredLiquidWarpData": "a0e1cf6d47685a741b5cd9889fb39227",
+                        "RequiredLiquidWarpData": "425259cb06b869d45be2e7f1b5b54aff",
                         "RequiredLiquidWarpType": 3,
                         "RequiredGroup": {
                             "m_FileID": 0,

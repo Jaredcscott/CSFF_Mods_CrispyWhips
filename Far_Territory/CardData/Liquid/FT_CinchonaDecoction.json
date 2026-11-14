@@ -16,7 +16,7 @@
     "CardHelpSection": {
         "ParentObjectID": "ft_lq_cinchona_decoction",
         "LocalizationKey": "Far_Territory_CinchonaDecoction_CardHelpSection",
-        "DefaultText": "<b>Preparation:</b> Boil clean water in a cooking pot, then simmer 2 Cinchona Bark in it for an hour.\n\n<b>Benefits:</b> Each dose lowers Swamp Fever by 1 but adds Nausea."
+        "DefaultText": "<b>Preparation:</b> Heat a bowlful of clean water in a cooking pot until it is at least half hot, then simmer 2 Cinchona Bark in it for an hour.\n\n<b>Benefits:</b> Each dose lowers Swamp Fever by 1 but adds Nausea."
     },
     "CardImage": {
         "m_FileID": 0,

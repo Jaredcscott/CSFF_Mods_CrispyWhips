@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using CSFFModFramework.Api;
 using CSFFModFramework.Util;
-using HarmonyLib;
 
 namespace FarTerritory.Patcher;
 
@@ -29,7 +28,7 @@ internal static class OwlIslandGuard
     private static readonly HashSet<string> _warned = new(StringComparer.Ordinal);
     private static bool _initialized;
 
-    public static void Initialize(Harmony harmony)
+    public static void Initialize()
     {
         if (_initialized) return;
         _initialized = true;

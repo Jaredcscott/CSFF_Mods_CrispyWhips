@@ -21,7 +21,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.far_territory";
     public const string PluginName = "Far Territory";
-    public const string PluginVersion = "0.1.15";
+    public const string PluginVersion = "0.1.16";
 
     /// <summary>This mod's BepInEx logger, for the static patch classes.</summary>
     internal static ManualLogSource ModLog;
@@ -34,7 +34,7 @@ internal class Plugin : ContentModPlugin
     protected override void RegisterPatches(Harmony harmony)
     {
         TryApply("LandmarkSeed", LandmarkSeed.Initialize);
-        TryApply("OwlIslandGuard", () => OwlIslandGuard.Initialize(harmony));
+        TryApply("OwlIslandGuard", OwlIslandGuard.Initialize);
         TryApply("ClimateService", ClimateService.Initialize);
     }
 }

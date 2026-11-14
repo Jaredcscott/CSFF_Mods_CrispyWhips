@@ -1,6 +1,6 @@
 # Far Territory
 
-**Version:** 0.1.15
+**Version:** 0.1.16
 **Author:** Jared
 **Requires:** CSFFModFramework 2.29.1 or later
 **Status:** pre-release. Version 0.1.7 brought the numbers in line with the base game (crops need care, forage and fishing can come up empty, the crossing takes effort, carcasses give a hide); they may still be tuned. Version 0.1.8 added swamp fever and its cure, fish gutting, cooked island food and sea salt, and 0.1.9 the Island Start perk; their numbers are first guesses.
@@ -153,7 +153,7 @@ The mod adjusts how warm you feel (the base game's Perceived Temperature) from t
 
 - A forest winter's day is milder on the island but still cold, and a summer midday there is hot: find shade or water. Winter nights stay chilly.
 - Weather, season and day length are the forest's own: a forest blizzard still shows on the island, though no snow lies there. The forest itself is unaffected.
-- Fire Mountain can overheat you, more so in summer.
+- Fire Mountain's heat is steady year-round, unlike the rest of the island: it does not rise further in summer.
 
 **Other mods.** With Sirus23 Mod Collection installed, its wild sheep can turn up on island places. Its wild **Owl**, which flies to wherever you are at night, is kept off every Far Territory board, so it never turns up on a beach, in a cave or on the plains. Without that mod this does nothing, and an owl already on a Far Territory board in an older save stays until dawn. A scripted run in the game on 2026-10-18 confirmed that the owl is refused on island boards and still moves on the mainland; it has not been watched through a real night yet.
 
@@ -279,7 +279,7 @@ Eight wild plants stand where the original game places them. Each has a pick, cu
 
 Cinchona Bitters brings a fever down. It does not cure the base game's Swamp Fever infection.
 
-**Cinchona Decoction.** The way to wear Swamp Fever down. Research the Cinchona Decoction blueprint (Survival, Medical), boil clean water in a cooking pot, then make it with 2 Cinchona Bark: it takes an hour, and the pot is kept. The pot's water becomes 300 of decoction, three doses of 100. Each Drink lowers the base game's Swamp Fever by 1 (it cannot go below 0) and adds Nausea +6, which fades by itself. The decoction goes off in about two days. These numbers are first guesses, not yet balanced. Confirmed in a scripted run in the game on 2026-10-18 (on the 0.1.10 fix): the blueprint was offered, the pot was kept, its water became exactly 300 of decoction, and each of the three Drinks lowered Swamp Fever by 1 and added Nausea +6.
+**Cinchona Decoction.** The way to wear Swamp Fever down. Research the Cinchona Decoction blueprint (Survival, Medical), heat one bowlful (290 to 300) of clean water in a cooking pot on a fire until it is at least half hot, then make it at once with 2 Cinchona Bark: it takes an hour, and the pot is kept. The pot's water becomes 300 of decoction, three doses of 100. Each Drink lowers the base game's Swamp Fever by 1 (it cannot go below 0) and adds Nausea +6, which fades by itself. The decoction goes off in about two days. These numbers are first guesses, not yet balanced. Confirmed in a scripted run in the game on 2026-10-18 (on the 0.1.10 fix): the blueprint was offered, the pot was kept, its water became exactly 300 of decoction, and each of the three Drinks lowered Swamp Fever by 1 and added Nausea +6.
 
 **Spices.** Ginger Root, Chillies, Lemongrass and Jasmine Flowers carry the base game's flavour tags (Pungent, Spicy, Herbal, Sour, Floral). Whether a base-game dish picks these up has not been checked in game.
 
@@ -344,7 +344,7 @@ Open grassland well west of the forest, with the forest's own weather and season
 
 **Search the Grazing Grounds** (45 minutes, needs daylight and stamina) finds Bones now and then, or nothing. It works off a **Herd Sign** bar: one search empties it, and it refills in 3 days.
 
-**With Harsh Wilds installed**, the same search can also turn up a **Wisent Carcass** (about 2 searches in 100) and, in winter, a **Musk Ox Carcass** (about 3 in 100). They are Harsh Wilds' own cards, butchered with its own actions. The living animals do not come here. Without Harsh Wilds nothing breaks: the search gives bones or nothing.
+**With Harsh Wilds installed**, the same search can also turn up a **Wisent Carcass** (about 4 searches in 100) and, in winter, a **Musk Ox Carcass** (about 6 in 100). They are Harsh Wilds' own cards, butchered with its own actions. The living animals do not come here. Without Harsh Wilds nothing breaks: the search gives bones or nothing.
 
 **With Forest Lore installed**, its **Standing Stones** also stand on Wildrye Plain, one ring only, with Forest Lore's own actions. Without it nothing is placed.
 
@@ -399,7 +399,7 @@ A cold, steep coast beyond the mountains. There is no boat.
 
 - **Seal Carcass**: **Butcher** (45 minutes) for 3 to 4 raw Meat, 1 to 2 Fat Chunks, one Fresh Skin that fleshes into a large hide and 1 to 2 Bones. It rots in 2.5 days, and a killed seal returns after a week.
 - **Walrus Carcass**: **Butcher** (1.5 hours) for 30 to 40 raw Meat, 6 to 8 Fat Chunks, one Fresh Skin that fleshes into a very large hide, 3 Bones and 2 Tusks. It rots in 3.75 days, and a killed walrus returns after two weeks (a puffin after three days).
-- **Search the Snowfield** (Fjord Head, 45 minutes, needs daylight and stamina) finds Bones or nothing, once per 3 days (its own Herd Sign bar). With Harsh Wilds installed it can also turn up a **Musk Ox Carcass** in winter (about 3 searches in 100). Without it nothing breaks.
+- **Search the Snowfield** (Fjord Head, 45 minutes, needs daylight and stamina) finds Bones or nothing, once per 3 days (its own Herd Sign bar). With Harsh Wilds installed it can also turn up a **Musk Ox Carcass** in winter (about 6 searches in 100). Without it nothing breaks.
 
 ## Notes on existing saves
 
@@ -455,6 +455,7 @@ BepInEx/
 
 See `CHANGELOG.md` for the full list.
 
+- **0.1.16:** the Cinchona Decoction can be made (its recipe refused every pot; it now takes a Cooking Pot holding one bowlful of hot water, heated on a fire and taken off it); foraging in the open, tide pools, shell sand, seagull nests and palm climbing need daylight or a light, as this README said; the Harsh Wilds carcass odds given here match the game.
 - **0.1.15:** Island Start replaces the other starting-location perks instead of stacking with them. Needs CSFF Mod Framework 2.29.1 or later.
 - **0.1.13:** the island's places, paths, sea, plants and many of its finds now draw Card Survival: Tropical Island's own art, used with its developers' permission; Conch, Oyster and Sea Urchin get pictures of their own.
 - **0.1.12:** the set Fish Trap and Funnel Trap say they catch about once a day; Chewing Ginger Root names the right effect in Chinese; the unused Ginger Warmth is gone.
