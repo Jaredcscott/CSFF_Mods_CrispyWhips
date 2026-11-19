@@ -1,6 +1,6 @@
 # Sirus23 Mod Collection
 
-**Version:** 1.22.14
+**Version:** 1.22.15
 **Author:** Sirus, Jared
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFF Mod Framework 2.29.2 or later. The Recall Whistle and the nightly check on unpenned sheep call framework code that older versions do not have.

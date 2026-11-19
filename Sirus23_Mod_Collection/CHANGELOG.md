@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.22.15] - 2026-11-18
+
+### Changed
+
+- Technical: the fox's "Give Berry Mix" and the owl's "Give Owl Treat" interactions use the same text keys as their other interactions (`FC_FoxCompanion_CI4_ActionName` and `FC_OwlCompanion_CI4_ActionName`, each with its `_ActionDescription` key, renamed in the two card files and both CSVs). The text is unchanged in English and Chinese.
+
 ## [1.22.14] - 2026-11-11
 
 ### Fixed

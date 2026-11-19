@@ -227,12 +227,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "fc_owl_companion",
-                "LocalizationKey": "fc_owl_companion_CardInteractions[4].ActionName",
+                "LocalizationKey": "FC_OwlCompanion_CI4_ActionName",
                 "DefaultText": "Give Owl Treat"
             },
             "ActionDescription": {
                 "ParentObjectID": "fc_owl_companion",
-                "LocalizationKey": "fc_owl_companion_CardInteractions[4].ActionDescription",
+                "LocalizationKey": "FC_OwlCompanion_CI4_ActionDescription",
                 "DefaultText": "Offer the salted strips one at a time. The owl takes each from your fingers without a sound."
             },
             "DaytimeCost": 1,

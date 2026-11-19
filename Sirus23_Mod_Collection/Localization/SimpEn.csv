@@ -430,10 +430,10 @@ sh_buttermilk_CardInteractions[0].ActionName,Soak the Hardtack,泡软硬饰
 sh_buttermilk_CardInteractions[0].ActionDescription,Leave the hardtack in buttermilk until it gives under a thumb.,将硬饰泡在酥乳里，直到按下去发软。
 FC_WolfCompanion_CI5_ActionName,Give Bone Treat,给予骨头零食
 FC_WolfCompanion_CI5_ActionDescription,"Hand over the marrow bone you saved back. The wolf takes it carefully, then will not put it down.",递上你特意留下的骸骸。狼小心地叼住，一直不肯松口。
-fc_owl_companion_CardInteractions[4].ActionName,Give Owl Treat,给予猫头鹰零食
-fc_owl_companion_CardInteractions[4].ActionDescription,Offer the salted strips one at a time. The owl takes each from your fingers without a sound.,一条一条地递上盐渍肉条。猫头鹰无声地从你指间叼走。
-fc_fox_companion_CardInteractions[4].ActionName,Give Berry Mix,给予混合果干
-fc_fox_companion_CardInteractions[4].ActionDescription,Tip the mixed berries into your palm. The fox eats them out of your hand and stays close afterwards.,将混合果干倒在掌心。狐狸从你手中吃完，之后一直待在身边。
+FC_OwlCompanion_CI4_ActionName,Give Owl Treat,给予猫头鹰零食
+FC_OwlCompanion_CI4_ActionDescription,Offer the salted strips one at a time. The owl takes each from your fingers without a sound.,一条一条地递上盐渍肉条。猫头鹰无声地从你指间叼走。
+FC_FoxCompanion_CI4_ActionName,Give Berry Mix,给予混合果干
+FC_FoxCompanion_CI4_ActionDescription,Tip the mixed berries into your palm. The fox eats them out of your hand and stays close afterwards.,将混合果干倒在掌心。狐狸从你手中吃完，之后一直待在身边。
 sh_ox_plough_CardName,Ox Plough,Ox Plough
 sh_ox_plough_CardDescription,A wooden ard for a Bull to pull. Drag it onto a Fallow or Tilled Field while a Bull is with you to plough it.,A wooden ard for a Bull to pull. Drag it onto a Fallow or Tilled Field while a Bull is with you to plough it.
 sh_ox_plough_UsageDurability_CardStatName,Durability,Durability

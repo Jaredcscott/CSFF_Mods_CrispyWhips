@@ -236,12 +236,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "fc_fox_companion",
-                "LocalizationKey": "fc_fox_companion_CardInteractions[4].ActionName",
+                "LocalizationKey": "FC_FoxCompanion_CI4_ActionName",
                 "DefaultText": "Give Berry Mix"
             },
             "ActionDescription": {
                 "ParentObjectID": "fc_fox_companion",
-                "LocalizationKey": "fc_fox_companion_CardInteractions[4].ActionDescription",
+                "LocalizationKey": "FC_FoxCompanion_CI4_ActionDescription",
                 "DefaultText": "Tip the mixed berries into your palm. The fox eats them out of your hand and stays close afterwards."
             },
             "DaytimeCost": 1,

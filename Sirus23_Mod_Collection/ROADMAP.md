@@ -1,74 +1,85 @@
 # Roadmap: Sirus23 Mod Collection
-Version at time of writing: 1.22.12
-Date: 2026-11-07
-Audit score: 9/10 - PASS (consolidated 2026-11-07)
+Version at time of writing: 1.22.14
+Date: 2026-11-15
+Audit score: 10/10 - PASS (consolidated 2026-11-15)
 
 ## Current State
 
 **Theme**: Animal companions (Wolf, Fox, Owl, Hawk, plus Ferret and Truffle Hog), a full working sheep farm (milking, wool, cheese, butter, dairy dishes, pens and perks), draught oxen, and Felt Working (felted wool clothing, a bedroll, a rug, dyeing, a set bonus and Lanolin waterproofing) - a companionship-and-husbandry layer over base-game survival.
 
-**Content**: 74 items / 30 blueprints / 8 structures / 9 perks / 78 custom images (plus 4 declarative `Animals/*.json` species manifests and 2 spawn triggers).
+**Content**: 74 items / 30 blueprints / 8 structures / 9 perks / 78 custom images (plus 4 declarative `Animals/*.json` species manifests, 1 liquid and 2 spawn triggers).
 
-**Stability**: 9/10 - 0 CRITICAL, 2 WARNING (hawk/owl "only one companion" not enforced young-animal-first; four companion patches have no static regression gate), 1 cosmetic minor. Build clean (0/0), versions synced at 1.22.12, Bin/Release in sync, EN/CN parity CLEAN (704/704).
+**Stability**: 10/10 - 0 CRITICAL, 3 WARNING, 0 minor. All three warnings are code-quality / long-term-support items, each filed by a module lane that scored its own module 10/10: W3 (two owl patches read `GameManager` transition members through the raw silent-miss `CardUtil.GetMemberValue` with no signatures-table row), W4 (Truffle Hog `ActionSounds` reflection miss is silent while its two siblings are loud), and W5 (the Truffle Hog "Train to Root" action is appended behind the vanilla piglet's three Feeds - a potential-softlock-if-live on Truffle Hog obtainability, unconfirmed statically because the vanilla Feed trigger tags are obfuscated in the export). Build clean (0/0), versions synced at 1.22.14, Bin/Release in sync, EN/CN parity CLEAN (704/704). The prior pass's two open items both closed: W2 (companion regression gate) was built (`3dd52c540`, 72/0) and m1 (Fox/Owl CI4 LocalizationKey style) was renamed (`4a08ae16c`).
 
-**Open work**: none - no retrospective in `Documentation/Retrospectives/INDEX.md` names Sirus23 / S23 (0 open, 0 pending). The prior pass's two findings (reciprocal hawk companionship, README under-claiming) are both closed.
+**Open work**: no open or pending retrospectives name Sirus23 / S23 (INDEX.md confirmed). Three open WARNINGs, all code-quality / LTS: W5 (Truffle Hog Train-action ordering, the highest-stakes - a potential silent softlock on obtainability if a vanilla piglet Feed accepts acorns, not confirmable offline; safe-either-way fix is to insert Train at the FRONT of `piglet.CardInteractions`), W3 (the two owl transition-guard reads) and W4 (the Truffle Hog `ActionSounds` read) - both W3 and W4 are latent game-update-drift gaps, maintainability not current bugs. Verification debt otherwise: in-game rows T2.2205 (hawk/owl uniqueness fix), T2.2167/T2.2200 (hawk/owl reciprocal companionship), T2.2144 (Wild Sheep live trap/hunt loop), the owl recall-whistle night clause, and a new row for the W5 Truffle Hog training path await a human/harness pass. Code is not blocked on them.
 
-**Framework compliance**: Tier 2, fully adopted. `ContentModPlugin` (`Plugin.RegisterPatches`), `ActionRouter` (companion fetch/recall handlers), `SpawnService.Spawn(uid, stats)`, `TickEvents.Interval` (companion upkeep, recall poll), declarative `EncounterGuards/*.json` (wildlife-vs-companion), and the declarative `Animals/*.json` species system. Hard-requires CSFF Mod Framework 2.28.0 (`CardUtil.GrantInRunPerk`, `Api.Localized.Text`), so it batch-ships with the framework (enforced at upload by `nexus_publish.py` RefCheck). No deprecated patterns (no `DropCollectionGuardPatch`, no `ModLoaderVerison`/`ModEditorVersion`, no unfiltered hot-path prefix, no manual perk/blueprint injection).
+**Framework compliance**: Tier 2 throughout (ActionRouter / SpawnService / TickEvents / EncounterGuards / ContentModPlugin across 9 C# files); no `DropCollectionGuardPatch`, no unfiltered hot-path prefix, no `ModLoaderVerison`/`ModEditorVersion` in ModInfo.json. Blueprints/perks inject declaratively (BlueprintTabs.json / CharacterPerk/), wild animals via `Animals/*.json`. Hard-requires CSFFModFramework 2.29.2 (the Recall Whistle, the unpenned-sheep nightly check, and the young-bird suppressor call framework code older versions lack).
 
 ---
 
-## Phase 0: Stabilize  *(skipped - audit score 9/10 >= 8 and 0 open retrospectives)*
+## Phase 0: Stabilize  *(skipped - audit score 10/10 >= 8 and 0 open retrospectives)*
 
-> No CRITICAL issues and no open retrospectives, so there is nothing that must land before new content. The one correctness-adjacent item (W1, the young-animal-first companion duplicate) is non-blocking and over-delivers rather than breaking, so it leads Phase 1 instead of gating the mod.
+> No CRITICAL issue and no open retrospectives, so there is nothing that must land before new content. W5 is a potential-softlock-if-live, not a confirmed break (its liveness cannot be resolved offline), so it is a Phase 1 hardening/fix item rather than a Phase 0 blocker - but it is the top of Phase 1, because the inverse outcome would be a silent softlock of the Truffle Hog. The prior pass's one correctness-adjacent item (W1) is built; the two items the last roadmap listed in Phase 1 (W2 gate, m1 rename) both shipped, so Phase 1 is now a short hardening row set.
 
 ---
 
 ## Phase 1: Foundation
 
-> Close the two open warnings and the cosmetic minor; keep the hygiene that is already green. These harden an otherwise ship-ready mod.
+> One potential-softlock fix and two long-term-support hardening rows remain open; everything else in this phase is already green. They harden an otherwise ship-ready mod against a vanilla-interaction ordering hazard and a future game update.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **Enforce "only one companion" young-animal-first for hawk AND owl** (W1). Pick one shared fix: hide the Tame interaction while `fc_eyas`/`fc_owlet` is held, or gate the young animal's grow-into-companion to check for an existing companion on the board, or extend `SuppressWhileCardOnBoard` to accept a second UID. The reachable duplicate (raise young, tame wild mid-growth, young matures -> two companions) contradicts the card's own "only one" text. | Mechanical-contradiction fix (shared, 2 species) | P1 | Medium (data-only option) / Complex (framework multi-UID schema) |
-| **Add `Sirus23-CompanionRecallAndStay.Tests.ps1`** (W2): pin `IndoorOrCaveEnv.EnvUids`, the Recall Whistle UID match + 6-second verify/restore window, and `CompanionContainerGuardPatch.ProtectedUids` = the four companion UIDs. Four of five companion patches currently ship with only a one-time human/harness PASS and no static gate. | Regression gate | P1 | Medium |
-| **Rename Fox/Owl `CardInteractions[4]` LocalizationKeys** (m1) from the `fc_<x>_companion_CardInteractions[4].*` bracket-index style to the `FC_<X>Companion_CI4_*` convention (+ matching SimpEn/SimpCn rows in the same commit). Cosmetic, no functional effect. | Cosmetic / key hygiene | P2 | Quick |
-| **Re-stamp the five STALE module dimensions** (owl mod-report + CA, companions CA, modwide mod-report + CA) to the current HEAD at the next module pass. Content is already 2026-11-07 and re-verified; this is commit-hash-lag housekeeping only. | Audit housekeeping | P2 | Quick |
-| Version hygiene / localization / framework tier - **already green** (synced 1.22.12, SimpCn parity CLEAN 704/704, Tier 2 adopted). Maintain, do not redo. | Hygiene (maintained) | - | - |
+| **Put the Truffle Hog "Train to Root" action FIRST on the vanilla piglet** (W5): `Patcher/TruffleHogPatch.cs:144-201` appends the acorn-triggered, 95%-Trust-gated Train `CardOnCardAction` to the END of `piglet.CardInteractions`, behind the vanilla `BoarFreePiglet`'s three ungated Feeds. Per CLAUDE.md "only the FIRST drag action whose conditions pass fires," IF a vanilla Feed accepts Edible Acorns the full-Trust training drag fires the Feed and the Truffle Hog becomes unobtainable, silently. The vanilla Feed trigger tags are obfuscated in the 0.69e export so this is UNCONFIRMED offline, but the fix is safe regardless: insert Train at the FRONT (below 95% Trust its condition fails and the game falls through to Feed). Confirm with a harness/playthrough row (H&F present, drag Edible Acorns onto a full-Trust piglet, verify the Truffle Hog transform). | Potential-softlock fix + verify | P1 | Quick (fix) + 1 harness row |
+| **Add signatures-table coverage for the owl and Truffle Hog string-reflection sites** (W3 + W4): `Patcher/OwlRoostPatch.cs:99-100` and `Patcher/OwlPestControlPatch.cs:75` read `GameManager.EnvironmentTransition` / `LeavingEnvironment` through the raw silent-miss `CardUtil.GetMemberValue` (W3); `Patcher/TruffleHogPatch.cs:160-161` reaches `CardAction.ActionSounds` by `GetField` and `?.SetValue` swallows a null lookup (W4). None has a row in `Development_Tools/Tests/Framework-ReflectedSignatures.Tests.ps1`. Add `bool`-typed rows for the two owl members (attributed to the two owl paths) and a `TruffleHogPatch.cs` row for `CardAction.ActionSounds` (which also retires the two sibling unguarded-but-loud sites), OR route the owl reads through the framework's loud `RequiredMember`/`WarnMissingMember` wrappers and give the `ActionSounds` null branch a one-line warning. The same raw-reflection idiom appears in 14 mod C# files / 118 sites (`lts_signals reflect_guard.uncovered`: companions/wolf/working/sheep/owl/modwide), so the full version is a mod-wide signatures-table sweep; W3 + W4 are the first three files. | LTS / reflection gate | P1 | Medium |
+| **Companion regression gate** (W2) - **DONE** `3dd52c540` (2026-11-12), re-verified 72/0 on 2026-11-14. `Sirus23-CompanionRecallAndStay.Tests.ps1` pins `IndoorOrCaveEnv.EnvUids`, the Recall Whistle companion-UID match + 6-second verify/restore window, `CompanionStayPatch.StayCapableCompanionUids` and `CompanionContainerGuardPatch.ProtectedUids`. No longer open. | Regression gate (shipped) | - | - |
+| **Fox/Owl CI4 LocalizationKey rename** (m1) - **DONE** `4a08ae16c` (2026-11-14). Both CI4 actions now use the `FC_<X>Companion_CI4_*` form; CSV rows renamed in place, text byte-identical, parity CLEAN. No longer open. | Cosmetic / key hygiene (shipped) | - | - |
+| Version hygiene / localization / framework tier / module-report staleness - **already green** (synced 1.22.14, SimpCn parity CLEAN 704/704, Tier 2 adopted, all module dimensions CURRENT). Maintain, do not redo. | Hygiene (maintained) | - | - |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> The mod's core loops are mature and complete. The one natural content addition is the flip side of the W1 fix.
+> The mod's core loops are mature and complete. W1's young-animal uniqueness closed by simply retiring the wild bird (no alternate-reward branch was built), so the one remaining optional content beat is below.
 
-### Alternate young-animal payoff when a companion is already held
-**What**: When the W1 fix blocks a second companion, make the young animal's grow or the wild-tame hand the player an alternate reward instead of nothing - a juvenile that stays a wild follower, or a down/feather/pelt drop - so closing the duplicate does not feel like lost effort.
-**Why**: Turns a bug fix into a small content beat; keeps the raise-an-eyas / find-an-owlet loop rewarding even for a player who already bonded the grown bird.
-**Requires**: W1 (Phase 1) - this is the branch W1's grow-gate creates.
+### Optional: alternate young-animal payoff when a companion is already held
+**What**: The shipped W1 fix retires the wild bird while the young bird (or the grown companion) is on the board; it does not hand the player an alternate reward for a young animal raised when a companion is already bonded. If Sirus wants the raise-an-eyas / find-an-owlet loop to stay rewarding in that case, the grow hook could yield a down/feather/pelt drop or a wild-follower juvenile instead of simply being suppressed.
+**Why**: Turns the uniqueness rule into a small content beat rather than a dead branch. Purely optional - the current behaviour is correct and coherent as shipped.
+**Requires**: none (W1 is built); this is additive content, not a fix.
 **Complexity**: Medium
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> Cross-mod hooks already exist (H&F Truffle Hog, ACT/CMC interior follow, Lanolin-for-Fat in six base recipes, wool yarn onto any base-game loom). The remaining depth is a framework generalization that also closes W1 the clean way.
+> Cross-mod hooks are already live (H&F Truffle Hog + Lanolin-for-Fat; Partner Overhaul dairy dishes; Harsh Wilds predator-raid doubling; Far Territory owl-island exclusion; ACT/CMC interior follow; wool yarn onto any base-game loom). The framework generalization that was the clean W1 fix is now SHIPPED.
 
-### Multi-UID `SuppressWhileCardOnBoard` (framework)
-**What**: Extend the declarative `Animals/*.json` `Spawn.SuppressWhileCardOnBoard` field (today single-UID, `AnimalSchema.cs:64`) to accept a list, so a wild species can be suppressed while EITHER its grown companion OR its juvenile is held.
-**Why**: It is the cleanest W1 fix and it is reusable - any future "find young, then tame wild" species (and both of Sirus23's current ones) gets correct uniqueness from one manifest field instead of per-mod C#.
-**Requires**: Coordination with CSFFModFramework (schema + validator + loader); already in the framework batch Sirus23 ships with.
-**Complexity**: Medium
+### Multi-UID young-animal suppression (framework) - DONE
+**What**: The declarative `Animals/*.json` `Spawn.AlsoSuppressWhileCardsOnBoard` key (framework 2.29.2, `275b52b3d`) lets a wild species be suppressed while EITHER its grown companion OR its juvenile is on the board.
+**Status**: Built and wired end to end (schema parse -> validator -> asset factory -> `AnimalLifecycleTicker`); Sirus23 1.22.14 uses it on both the Hawk (`fc_eyas`) and the Owl (`fc_owlet`). Gated fleet-wide by `Sirus23-YoungBirdSuppressor.Tests.ps1`. This is the reusable path for any future "find young, then tame wild" species - a manifest field, not per-mod C#.
+
+### Reflection-site hardening sweep (mod-wide)
+**What**: W3 and W4 are the owl-and-working slice of a mod-wide gap: `lts_signals reflect_guard.uncovered` lists 14 C# files / 118 string-reflection sites with zero Sirus23 rows in `Framework-ReflectedSignatures.Tests.ps1`. A full sweep adds one signatures-table row per reflected game member across companions/wolf/working/sheep/owl/modwide, so any update rename is caught by the test harness rather than by a player.
+**Why**: Closes the silent game-update-drift class across the whole mod, not just the three files W3/W4 name. The framework already ships the loud `RequiredMember`/`WarnMissingMember` wrappers; this is the static-gate complement.
+**Requires**: none; W3 (the two owl files) and W4 (the one Truffle Hog file) are the first increment.
+**Complexity**: Medium (per module), Complex in aggregate.
+
+### Front-insert discipline for mod drag actions on vanilla cards
+**What**: W5 is one instance of a general shape - a mod `CardOnCardAction` injected onto a vanilla card that already carries same-given-card interactions should go at the FRONT and carry a condition that fails in the non-target state, so the vanilla action still works below the gate. The owlet-nest Climb append and any future vanilla-card drag are the same shape.
+**Why**: Avoids the documented silent-softlock class (only the first matching drag action fires) for every vanilla-card injection, not just the Truffle Hog Train action.
+**Requires**: W5 (the Truffle Hog fix) is the first increment.
+**Complexity**: Quick per site.
 
 ---
 
 ## Phase 4: Polish
 
-> Art and text are in strong shape (78 custom images, descriptions re-verified honest this pass). Little remains.
+> Art and text are in strong shape (78 custom images, descriptions re-verified honest). Little remains.
 
 | Item | What | Complexity |
 |------|------|------------|
-| Fox/Owl CI4 key rename | The m1 cosmetic LocalizationKey cleanup (also listed in Phase 1) | Quick |
-| Description / caption watch | README captions are all honest as of `46f2692ff`; re-check the three still-unconfirmed captions (Wild Sheep live loop / T2.2144, owl recall night clause, milked-dry-to-Tame) when their tracker rows pass, and flip them then | Quick |
+| Description / caption watch | README captions are all honest as of `46f2692ff`; re-check the still-unconfirmed captions (hawk/owl uniqueness / T2.2205, hawk/owl reciprocity / T2.2167-T2.2200, Wild Sheep live loop / T2.2144, owl recall night clause) when their tracker rows pass, and flip them then | Quick |
+| Eyas placeholder art | The Eyas uses the Owlet's picture for now (README:140); a dedicated Eyas sprite would finish the hawk-raising loop's art. | Quick |
+| Washed Wool placeholder art | Washed Wool uses Wool's picture for now (README:249). | Quick |
 | J27 self-sink heuristic (fleet, not this mod) | Teach `/audit-items`'s J27 check to count a card's own self-targeted destroying CI as downstream use, so the four carcass false positives stop costing an adjudication line every pass | Medium |
 
 ---
@@ -77,13 +88,13 @@ Audit score: 9/10 - PASS (consolidated 2026-11-07)
 
 > Where this mod should be at v1.23+.
 
-Sirus23 is a mature, feature-complete companion-and-husbandry collection; its next version is about edge-case correctness and reuse, not new systems. The natural endpoint is a mod where every "only one at a time" rule is actually enforced in both directions (via the framework's multi-UID suppression), every patch has a static regression gate rather than a one-time playthrough PASS, and the declarative `Animals/*.json` system it helped prove out is clean enough that a new species is a manifest, not a patcher. The biggest addition that is not yet justified is a second tier of husbandry depth (a goat or a second dairy animal) - natural only once the sheep/dairy loop's own verification debt (T2.2144 and the live-play rows) is cleared.
+Sirus23 is a mature, feature-complete companion-and-husbandry collection; its next version is about ordering-and-reflection hardening and reuse, not new systems. With W1 built, the framework's multi-UID suppression shipped, and the W2 companion regression gate in place, the remaining gaps are one ordering fix (W5, a safe front-insert plus a harness confirm) and coverage: the mod's string-reflection sites still have no signatures-table rows (W3 names the two owl files, W4 the one Truffle Hog file; the mod-wide set is 14 files). The natural endpoint is a mod where every mod drag action injected onto a vanilla card is placed FRONT-first behind a failing-in-the-wrong-state gate, every patch has a regression gate, every reflected game member has a drift-catching signature row, and the declarative `Animals/*.json` system it helped prove out is clean enough that a new species is a manifest, not a patcher. The biggest addition not yet justified is a second tier of husbandry depth (a goat or a second dairy animal) - natural only once the sheep/dairy loop's own verification debt (T2.2144 and the live-play rows) is cleared.
 
 **Potential major additions** (not yet justified - revisit after Phase 3):
 - A second dairy/husbandry species reusing the sheep system's pen/feeder/perk scaffolding - fits the farm theme, but only after the sheep live-play rows confirm the existing loop end to end.
 - A companion "command" or recall depth pass (multi-companion coordination) - fits the companion theme, but current scope (one of each, mutual-exclusion bonuses) is already coherent and complete.
 
-Any of these worth building belongs in a new `Documentation/Plans/Sirus23_Mod_Collection/` plan (or its Considered table, with the reason, if not); do not create a stub under `Documentation/Ideas/`.
+Any of these worth building belongs in `Documentation/Plans/Sirus23_Mod_Collection/MASTER_PLAN.md` (or its Considered table, with the reason, if not); do not create a stub under `Documentation/Ideas/`.
 
 ---
 
@@ -93,8 +104,8 @@ Any of these worth building belongs in a new `Documentation/Plans/Sirus23_Mod_Co
 |---------|--------|
 | After any new content phase | Run `/audit-mod Sirus23_Mod_Collection` and update this roadmap |
 | Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log`; refresh `lib/Assembly-CSharp.dll` |
-| After fixing W1 (or any correctness item) | Run `/critical-analysis Sirus23_Mod_Collection` (or the hawk/owl module pass) to verify |
-| Before a Nexus upload | Batch-ship with the framework (2.28.0+ minimum); run `/nexus-publish status` and confirm the RefCheck gate |
+| After the W5 fix or adding the W3/W4 signatures rows (or any correctness/LTS item) | Run `/critical-analysis Sirus23_Mod_Collection` (or the owl/working module pass) to verify |
+| Before a Nexus upload | Batch-ship with the framework (2.29.2+ minimum); run `/nexus-publish status` and confirm the RefCheck gate |
 
 ---
 
@@ -113,6 +124,7 @@ Any of these worth building belongs in a new `Documentation/Plans/Sirus23_Mod_Co
 ```
 
 ---
+
 
 ## Plan Reconciliation Log
 
