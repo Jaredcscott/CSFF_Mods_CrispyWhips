@@ -1,0 +1,45 @@
+{
+  "target": "hw_underworld.png",
+  "sourceCard": "CardData/Realm/hwlocunderworld.json",
+  "subject": "a low wide hall of black stone with four rough rock pillars receding into grey distance, old pale bones and two skulls scattered thinly on the floor, cold sourceless grey light",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Tunnel_1 (style) e9YQnVgbXc0sJ2UeVvtx",
+      "vanilla Bones (material) yhcQYqkNMqEYyEgHppYH"
+    ]
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is a vanilla Card Survival cave interior, used as the STYLE reference: match its flat posterized colour fills in a few cold blue-grey and black tonal steps, its thin dark ink outlines, its rough rock shapes and its cold dim light; do not copy its layout.\nReference image 2 is vanilla Card Survival bones, a MATERIAL reference only: the bones in the new picture are drawn like these, plain and pale.\nDraw: the Underworld. A low, wide hall of black stone seen from inside: a low rough ceiling close overhead, four thick rough pillars of black rock, two on each side, receding into a grey distance, and a flat stone floor. Old pale bones lie scattered thinly on the floor, about ten long bones and two skulls, mostly along the foot of the walls. The light is a cold even grey with no visible source, a little brighter in the far distance.\nStyle: plain vanilla Card Survival game art: a full-bleed painted scene reaching every edge of the frame, flat colour fills in a few tonal steps, thin dark ink outlines, muted cold colours: black, charcoal, cold blue-grey and bone grey. No text, no watermark, no signature, no border, no frame.\nAvoid: torches, fire, lava, warm light, daylight, a river, a throne, carved columns, statues, a heap of skulls, a whole skeleton, chains, ghosts, people, mist, glow, light beams, sparkles, magic particles, dramatic lighting, rim light, ornate patterns, photo, photorealistic, 3D render, cartoon, comic book, anime, glossy highlights, neon colours, lens flare, cropped, blurry, plain white background, vignette, white border, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground.",
+  "historyId": "hkBVxDiuzJ1qWxJDUgdG",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794588012015_a1f10473_1794588012120_02f00b75.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794588012015_a1f10473_1794588012120_02f00b75.png",
+      "verdict": "one sample (owner rule 2026-10-11); checked against its subject phrase by phrase and applied as a new picture; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "full-bleed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py --full-bleed",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "c77928777f124699bf94240a7c71509b8ad4e6e80230960c1f080c0584e39b0d"
+  },
+  "generated": "2026-11-13",
+  "cards": [
+    "CardData/Realm/hwlocunderworld.json"
+  ],
+  "replaces": {
+    "stand_in": "Skull&Bones",
+    "reason": "HarshWilds .audit/summary.md m5: base-game stand-in art"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "target": "hw_fairy_stone.png",
+  "sourceCard": null,
+  "vanillaCard": "NOT_USED_FairyStone (563078cfd4356834f960cdd2e3085b3f), patched by GameSourceModify/563078cfd4356834f960cdd2e3085b3f.json",
+  "subject": "one small smooth water-worn pebble, a flattened oval, pale milky grey-white with a faint blue-green pearly sheen, one natural round hole worn straight through it; no cord, no carving, no glow",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Stone (style) lPKdrbkb4RDB6abjJOEc",
+      "vanilla Greenstone (style) sfmi0SQPRTl0MExz5kUD"
+    ]
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is a vanilla Card Survival small stone and reference image 2 is a vanilla Card Survival greenstone. Both are STYLE and MATERIAL references only: the new object is a stone drawn with the same flat posterized colour fills, thin dark ink outline and muted colours. Do not copy either stone's shape or colour.\nDraw: a Fairy Stone. One single small smooth water-worn pebble, a flattened oval a little wider than it is tall, pale milky grey-white with a faint cool blue-green pearly sheen on its upper left side. One clean natural round hole is worn straight through the stone, a little above and to the right of its centre, about one fifth of the stone's width, and the plain white background shows through the hole. The surface is smooth and unmarked, with two or three thin short ink lines to show its rounded form. It lies flat, seen from a slight three-quarter angle.\nStyle: plain vanilla Card Survival game art: flat colour fills in three or four tonal steps, a thin continuous dark brown-black ink outline, muted natural colours, no glossy highlights, no decorative patterns, no cartoon, no comic shading. Single object only, in the lower two-thirds of the frame, comfortably inset from every edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: a cord, a string, a thong, a necklace, a pendant loop, carving, runes, symbols, engraved lines, a spiral, a face, glow, sparkles, light rays, magic aura, crystals, facets, a gemstone cut, moss, cracks, several stones, a heap of pebbles, a ring shape, a doughnut shape, a bead, photo, photorealistic, 3D render, cartoon, comic book, glossy highlights, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "historyId": "sbKlw6s6q8aQCJ4ZrlxX",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794670174446_a8509267_1794670174820_958888fd.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794670174446_a8509267_1794670174820_958888fd.png",
+      "verdict": "one sample (owner rule 2026-10-11); checked against its subject phrase by phrase and applied as a new picture; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "keyed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "ba90c98e1083e34397e0c21aa52879ba08d30653cb241e2523e679b7d48b33b2",
+    "post": "the keyer removes only paper connected to the border, so the white seen through the hole stayed opaque: a flood fill from inside the hole over near-white opaque pixels (6,287 pixels, box 275,355 to 367,441) made it transparent, then trim_card_art.py --apply re-encoded the palette PNG; subject box unchanged (41,261 to 471,660)"
+  },
+  "generated": "2026-11-14",
+  "cards": [
+    "GameSourceModify/563078cfd4356834f960cdd2e3085b3f.json"
+  ],
+  "note": "New picture, not a replacement: the vanilla card had none. The design (a holed stone, the hag stone of British folklore) is a session reading of 'fairy stone', not an owner decision; the vanilla card carries no description to draw from. Not yet seen by the owner."
+}

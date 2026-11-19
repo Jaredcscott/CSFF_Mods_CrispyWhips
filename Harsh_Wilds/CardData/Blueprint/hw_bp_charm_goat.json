@@ -127,6 +127,10 @@
         }
     ],
     "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "SticksAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
     "BlueprintActionTagsWarpData": [
         "HandAction",
         "CraftAction"

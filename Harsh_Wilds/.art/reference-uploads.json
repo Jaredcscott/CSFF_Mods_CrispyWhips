@@ -13,6 +13,13 @@
     "uploaded": "2026-10-21",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_spirit_goat_1792600667986_1861716a.png"
   },
+  "21a44613e6bc5e5fc8b798881267279dbc9836d188775ef4a906bf6ae4983464": {
+    "id": "3wIf6ZB5zMzDGyE0u2Rv",
+    "label": "vanilla Candle_Off (subject)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/f2b7a0222956a6c4/9840d0fa-632f-4162-b5b8-a975cc9f9ecb/scratchpad/art/vanilla/Candle_Off.png",
+    "uploaded": "2026-11-13",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/Candle_Off_1794587760196_70691f17.png"
+  },
   "32a809476784c71aa73c990cc8e44ba217479d579a5ac9f558d02442cfe02853": {
     "id": "Ju03hx9jJmk6b9i2cAuM",
     "label": "vanilla Twigs (style)",
@@ -33,6 +40,20 @@
     "source": "HarshWilds/Resource/Picture/hw_charm_lynx.png",
     "uploaded": "2026-10-21",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/hw_charm_lynx_1792600669282_485e7e6c.png"
+  },
+  "45a3d5186f5359a143dee1666bae2f9fd3689f46ce08eb1b198cc41321aec210": {
+    "id": "uEcjykgFIgxCydxqjYvX",
+    "label": "vanilla Moonstone (subject)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/f2b7a0222956a6c4/9840d0fa-632f-4162-b5b8-a975cc9f9ecb/scratchpad/art/vanilla/Moonstone.png",
+    "uploaded": "2026-11-13",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/Moonstone_1794587761749_4334784c.png"
+  },
+  "4aee999a4bd8bb8e1d114c37290897d265500992b8768a865dee8120d537c62f": {
+    "id": "wv5DrDEXA7i6hB8zErNN",
+    "label": "vanilla Candle_On (subject)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/f2b7a0222956a6c4/9840d0fa-632f-4162-b5b8-a975cc9f9ecb/scratchpad/art/vanilla/Candle_On.png",
+    "uploaded": "2026-11-13",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/Candle_On_1794587760862_0f4481f2.png"
   },
   "53e775953693341064285243266246c5743304f5734372016b628936e63403ce": {
     "id": "lJHzelJfKcWBqd1rKtF3",
@@ -61,6 +82,13 @@
     "source": "C:/Users/jared/AppData/Local/Temp/claude/c--Rocky-CSFF-Mods-Private/2af4e41e-f7b2-49ea-8b8a-f48ab32d2b2f/scratchpad/hw/vanilla2/Bowl_Clay_Water.png",
     "uploaded": "2026-10-12",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bowl_Clay_Water_1791798310806_41f9ddf1.png"
+  },
+  "67ddd7b61e81c86c5a7a340ca130b8ad349aeba53dee3e020319fe77cdd4c363": {
+    "id": "bS5nez87uNVJZYCiBURS",
+    "label": "vanilla BogMyrtle_Dry (material)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/f2b7a0222956a6c4/9840d0fa-632f-4162-b5b8-a975cc9f9ecb/scratchpad/art/vanilla/BogMyrtle_Dry.png",
+    "uploaded": "2026-11-13",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/BogMyrtle_Dry_1794587759548_092c0e0c.png"
   },
   "78824732d5676c5974a3129133e3b1ee7e56776c4510d4782779a74b47bc364e": {
     "id": "ZEvIx9nGUTPXPLqZK0v4",
@@ -124,6 +152,20 @@
     "source": "HarshWilds/Resource/Picture/hw_muskox_carcass.png",
     "uploaded": "2026-09-28",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/hw_muskox_carcass_1790625774959_06275433.png"
+  },
+  "c90aa402db099cd7c2380d2ec034500b4b0f70572c62b35a5f5e90d36eb2dc59": {
+    "id": "p1jeALgBOUJ9IjX4Z2FI",
+    "label": "hw_faerie_realm (sibling scene)",
+    "source": "HarshWilds/Resource/Picture/hw_faerie_realm.png",
+    "uploaded": "2026-11-13",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/hw_faerie_realm_1794587763643_9398affb.png"
+  },
+  "caa937607b3fa247736edc603f48f0f9750eda451a07f5b9f553009b66e1d870": {
+    "id": "ZthEhmP3C6vKxBNv4SEu",
+    "label": "hw_fairy_ring (framing sibling)",
+    "source": "HarshWilds/Resource/Picture/hw_fairy_ring.png",
+    "uploaded": "2026-11-13",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/hw_fairy_ring_1794587764532_7e1ddaf1.png"
   },
   "d4af2b330bd34b0cd5b72875e850f545a57b9a313be2f5588a90b4a27f943c68": {
     "id": "EWQQiWCt5XDiiNhT3D7x",

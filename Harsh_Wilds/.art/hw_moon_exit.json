@@ -1,0 +1,45 @@
+{
+  "target": "hw_moon_exit.png",
+  "sourceCard": "CardData/Realm/hw_moon_exit.json",
+  "subject": "one round pool of still pale steel-blue water seen from above at a steep angle, one round white moon reflection in its centre, a narrow rim of silver-grey sand with eight pebbles; framed like the fairy ring",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "hw_fairy_ring (framing sibling) ZthEhmP3C6vKxBNv4SEu",
+      "vanilla Stone (style) lPKdrbkb4RDB6abjJOEc"
+    ]
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is a sibling card: a round patch of ground seen from above at a steep angle and drawn as one single object on white. Match its framing, its viewing angle, its size in the frame and its ink outline; do not copy its toadstools or its grass.\nReference image 2 is a vanilla Card Survival stone, a STYLE reference only: match its flat posterized colour fills, thin dark ink outline and grey stone colours.\nDraw: the Silver Pool. One round pool of perfectly still water, seen from above at a steep angle so it reads as a slightly flattened oval. The water is a flat pale steel-blue grey, clearly darker than white paper, and in its centre lies one soft round white reflection of a full moon, about one fifth as wide as the pool. Around the water runs a narrow band of pale silver-grey sand, about one tenth as wide as the pool, with eight small smooth grey pebbles set along it. The outer edge of the sand is drawn with a continuous dark ink outline.\nStyle: plain vanilla Card Survival game art: flat colour fills in three or four tonal steps, a thin continuous dark brown-black ink outline, muted natural colours, no glossy highlights, no decorative patterns, no cartoon, no comic shading. Single object only, in the lower two-thirds of the frame, comfortably inset from every edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: ripples, waves, a glow, light rays, sparkles, stars, mist, plants, grass, toadstools, reeds, lily pads, fish, a stone wall, a well, a fountain, a crescent moon, the moon itself in a sky, photo, photorealistic, 3D render, cartoon, comic book, glossy highlights, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "historyId": "gNAxznZj3VEj5p8d5HQr",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794588003315_0d35b65e_1794588003386_930e0290.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794588003315_0d35b65e_1794588003386_930e0290.png",
+      "verdict": "one sample (owner rule 2026-10-11); checked against its subject phrase by phrase and applied as a new picture; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "keyed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "a6e32e6f5661b93fc52b631a99e75b4c075689721d2867836feaa4fe0390edf9"
+  },
+  "generated": "2026-11-13",
+  "cards": [
+    "CardData/Realm/hw_moon_exit.json"
+  ],
+  "replaces": {
+    "stand_in": "Moon",
+    "reason": "HarshWilds .audit/summary.md m5: base-game stand-in art"
+  }
+}

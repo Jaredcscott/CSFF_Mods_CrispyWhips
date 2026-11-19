@@ -13,7 +13,7 @@
     "LocalizationKey": "HarshWilds_UnderworldRealm_LocDescription",
     "DefaultText": "Low halls of black stone and old bone, lit by a cold grey glow with no source. No raid comes for your food here, and no lynx or bandit follows you in. The stair will send you up before long."
   },
-  "CardImageWarpData": "Skull&Bones",
+  "CardImageWarpData": "hw_underworld",
   "CardImageWarpType": 3,
   "ObjectWeight": 0.0,
   "PassiveStatEffects": [

@@ -16,7 +16,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpData": "hw_lq_brew_muscle",
     "CardImageWarpType": 3,
     "UnlockConditionsDesc": {
         "LocalizationKey": "IGNOREKEY",
@@ -325,6 +325,10 @@
         }
     ],
     "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "SticksAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
     "BlueprintActionTagsWarpData": [
         "HandAction",
         "CraftAction"

@@ -16,7 +16,7 @@
     "m_FileID": 0,
     "m_PathID": 0
   },
-  "CardImageWarpData": "Moonstone",
+  "CardImageWarpData": "hw_moon_basin",
   "CardImageWarpType": 3,
   "UnlockConditionsDesc": {
     "ParentObjectID": "hw_bp_moon_basin",
@@ -133,6 +133,10 @@
     }
   ],
   "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": [
+    "SticksAppear"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
   "BlueprintActionTagsWarpData": [
     "HandAction"
   ],

@@ -1,0 +1,45 @@
+{
+  "target": "hw_fairy_king.png",
+  "sourceCard": "CardData/Realm/hw_fairy_king.json",
+  "subject": "a tall lean man standing still in the Faerie Realm's silver grass, a crown of two stag antlers on a plain band, a moss cloak over a dull gold tunic, a thin smile; drawn the way vanilla draws the Moon Maiden, no magic effects",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla MoonMaiden (treatment) 6pblZZqtdyzL6iZIX5lI",
+      "hw_faerie_realm (scene) p1jeALgBOUJ9IjX4Z2FI"
+    ]
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is how vanilla Card Survival draws a supernatural person: a natural-looking full-length figure in a dark place, small in the frame, drawn with flat colour fills and thin dark ink outlines, with no magic effects. Match that treatment, that figure scale and that plainness, but draw a different person, a man, in a different place.\nReference image 2 is the PLACE: the Faerie Realm, silver-grey grass under a huge full moon in a deep blue starry night sky, with dark tree trunks at the sides. Set the picture in exactly this place and keep its colours; leave out its ring of toadstools.\nDraw: the Fairy King. A tall lean man standing still in the silver grass, facing the viewer, seen full length, his head at about one third of the way down the frame. On his head a crown made of two real brown stag antlers rising from a plain narrow band. Shoulder-length dark hair, a long narrow face, a thin closed-lip smile and cold watchful eyes. He wears a long cloak of dull green moss over a plain knee-length tunic of dull muted gold cloth, and plain dark boots; his hands are folded in front of him. The full moon is in the sky behind him, to the upper right.\nStyle: plain vanilla Card Survival game art: a full-bleed painted scene reaching every edge of the frame, flat colour fills in a few tonal steps, thin dark ink outlines, muted colours. No text, no watermark, no signature, no border, no frame.\nAvoid: wings, pointed ears, antlers growing from his skull, a stag head, a beard, a glow around him, mist, sparkles, swirls, aura, magic particles, jewellery, a metal crown, shining gold, a sword, a staff, a throne, other people, toadstools, dramatic lighting, rim light, ornate patterns, photo, photorealistic, 3D render, cartoon, comic book, anime, cute, glossy highlights, neon colours, lens flare, cropped, blurry, plain white background, vignette, white border, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground.",
+  "historyId": "RsfKZk4LLMIhu4sf6PXD",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794588000209_05dc5ace_1794588000325_3a87b2b1.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794588000209_05dc5ace_1794588000325_3a87b2b1.png",
+      "verdict": "one sample (owner rule 2026-10-11); checked against its subject phrase by phrase and applied as a new picture; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "full-bleed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py --full-bleed",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "71f4db6c305f3834f8bf09fdd4f5adcf1259b66a7f9209bd0304f626235b8bdf"
+  },
+  "generated": "2026-11-13",
+  "cards": [
+    "CardData/Realm/hw_fairy_king.json"
+  ],
+  "replaces": {
+    "stand_in": "Antler",
+    "reason": "HarshWilds .audit/summary.md m5: base-game stand-in art"
+  }
+}

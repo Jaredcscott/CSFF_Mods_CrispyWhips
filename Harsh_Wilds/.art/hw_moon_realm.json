@@ -1,0 +1,45 @@
+{
+  "target": "hw_moon_realm.png",
+  "sourceCard": "CardData/Realm/hwlocmoonrealm.json",
+  "subject": "a huge full moon over a lake as still as glass, a pale shore of silver-grey sand with five stones across the bottom third, low bare hills beyond; nothing grows",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "hw_faerie_realm (sibling sky and palette) p1jeALgBOUJ9IjX4Z2FI",
+      "vanilla Lake1 (style) B4MANqvKWzgDhnjUm5F0"
+    ]
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is a sibling card, the Faerie Realm: the new picture is another otherworld drawn by the same hand. Use the same deep blue starry night sky, the same huge full moon and the same silver-grey and blue palette; do not copy its grass, its tree trunks or its ring of toadstools.\nReference image 2 is a vanilla Card Survival lake, a STYLE reference: match its flat posterized colour fills, its thin dark ink outlines and the way it draws a shoreline and still water; do not copy its daylight colours or its trees.\nDraw: the Moon Realm. A huge full moon hangs in the upper centre of a deep blue starry night sky. Below it a lake as still as glass fills the middle of the picture, perfectly flat, dark blue, with the moon reflected in it as one clean round disc and no ripples. Across the bottom third of the picture runs a pale shore of smooth silver-grey sand with five small smooth grey stones. The far shore is a low dark line of bare hills. Nothing grows here: no trees, no grass, no plants.\nStyle: plain vanilla Card Survival game art: a full-bleed painted scene reaching every edge of the frame, flat colour fills in a few tonal steps, thin dark ink outlines, muted cold colours. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the sand, trees, tree trunks, grass, toadstools, flowers, a boat, a pier, buildings, people, animals, waves, ripples, clouds covering the moon, a crescent moon, two moons, mist, glow, light beams, sparkles, magic particles, dramatic lighting, rim light, ornate patterns, photo, photorealistic, 3D render, cartoon, comic book, anime, glossy highlights, neon colours, lens flare, cropped, blurry, plain white background, vignette, white border, text, watermark, signature, logo, border, frame.",
+  "historyId": "2ZNZPSOQqrOb85ZtvtBK",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794588009345_f34b2bae_1794588009423_d21d080e.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794588009345_f34b2bae_1794588009423_d21d080e.png",
+      "verdict": "one sample (owner rule 2026-10-11); checked against its subject phrase by phrase and applied as a new picture; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "full-bleed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py --full-bleed",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "79d363833f2e7d04bb169dd28b4f3bc96408e15b3246f240d52707d74ef8237b"
+  },
+  "generated": "2026-11-13",
+  "cards": [
+    "CardData/Realm/hwlocmoonrealm.json"
+  ],
+  "replaces": {
+    "stand_in": "Moon",
+    "reason": "HarshWilds .audit/summary.md m5: base-game stand-in art"
+  }
+}

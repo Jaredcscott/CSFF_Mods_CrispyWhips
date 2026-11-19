@@ -16,7 +16,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Witchstone_Dust",
+    "CardImageWarpData": "hw_witchfire",
     "CardImageWarpType": 3,
     "UnlockConditionsDesc": {
         "LocalizationKey": "IGNOREKEY",
@@ -132,6 +132,10 @@
         }
     ],
     "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "SticksAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
     "BlueprintActionTagsWarpData": [
         "HandAction",
         "CraftAction"

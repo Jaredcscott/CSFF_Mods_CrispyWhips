@@ -1,5 +1,5 @@
 {
- "_note": "Liquid card pictures: vanilla Bowl_Clay_Water with the liquid recoloured. Owner 2026-10-11. The four spirit liquids (hw_lq_spirit_*) keep their own spirit art by owner choice. Build with Development_Tools/CardArt/liquid_bowl.py make HarshWilds --source <Bowl_Clay_Water.png> --link",
+ "_note": "Liquid card pictures: vanilla Bowl_Clay_Water with the liquid recoloured. Owner 2026-10-11. The five spirit liquids (hw_lq_spirit_*: four when the owner chose, hw_lq_spirit_dragon added later the same day on the same rule) keep their own spirit art by owner choice. Build with Development_Tools/CardArt/liquid_bowl.py make HarshWilds --source <Bowl_Clay_Water.png> --link",
  "bowls": [
   {
    "image": "hw_lq_brew_beast",

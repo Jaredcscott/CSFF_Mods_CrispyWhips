@@ -1,0 +1,44 @@
+{
+  "target": "hw_witchfire_lit.png",
+  "sourceCard": "CardData/Item/hw_witchfire_lit.json",
+  "subject": "the same red-flecked beeswax stub burning with one small cold pale blue-white flame, no yellow or orange",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Candle_On (subject) wv5DrDEXA7i6hB8zErNN"
+    ]
+  },
+  "prompt": "Use the attached reference image for one purpose.\nReference image 1 shows the vanilla Card Survival beeswax candle, lit: draw this same kind of hand-dipped beeswax candle, with the same yellow-ochre wax colour, the same lumpy hand-dipped surface and the same flat colour fills and thin dark ink outline, changed only as follows. It is a short stub: about one and a half times as tall as it is wide. Pressed into the wax all over its surface are about thirty small bright red grains, like coarse red sand, scattered evenly. It burns with one small cold flame, the same size and teardrop shape as the flame in reference image 1, but pale blue-white: almost white at its core with a thin pale blue edge, drawn with a dark ink outline. There is no yellow or orange anywhere in the flame.\nStyle: plain vanilla Card Survival game art: flat colour fills in three or four tonal steps, a thin continuous dark brown-black ink outline, muted natural colours, no glossy highlights, no decorative patterns, no cartoon, no comic shading. Single object only, standing upright in the lower two-thirds of the frame, comfortably inset from every edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: a yellow flame, an orange flame, a warm flame, a glow halo, light rays, sparkles, smoke, a tall candle, a candle holder, a dish, melted wax pool, red wax, a red candle, gems, runes, carved symbols, photo, photorealistic, 3D render, cartoon, comic book, glossy highlights, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "historyId": "ziJrW2zaCWHbODUUTLVt",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794587993412_e887d7b9_1794587993584_b0649cad.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794587993412_e887d7b9_1794587993584_b0649cad.png",
+      "verdict": "one sample (owner rule 2026-10-11); checked against its subject phrase by phrase and applied as a new picture; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "keyed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "de27bd7d204d518ee5243a9d8cf7976a66d687fa5fb46869571dcfd9eda90bcc"
+  },
+  "generated": "2026-11-13",
+  "cards": [
+    "CardData/Item/hw_witchfire_lit.json"
+  ],
+  "replaces": {
+    "stand_in": "Candle_On",
+    "reason": "HarshWilds .audit/summary.md m5: base-game stand-in art"
+  }
+}

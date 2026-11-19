@@ -1,0 +1,45 @@
+{
+  "target": "hw_underworld_exit.png",
+  "sourceCard": "CardData/Realm/hw_underworld_exit.json",
+  "subject": "a flight of about twelve worn rough-cut stone steps climbing through black rock to a narrow dark opening, three old bones at its foot, cold grey light",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Tunnel_1 (style) e9YQnVgbXc0sJ2UeVvtx",
+      "vanilla Tunnel_Shaft (style) J1XFtDinPxFyJP32gM94"
+    ]
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are vanilla Card Survival cave interiors, used as STYLE references: match their flat posterized colour fills in a few cold blue-grey and black tonal steps, their thin dark ink outlines, their rough rock shapes and their cold dim light; do not copy their layouts.\nDraw: the Way Up, a worn stone stair in the underworld. Inside a cave of black stone, one flight of about twelve rough-cut stone steps climbs from the lower centre of the picture up and away, growing narrower with distance, to a narrow dark opening in the rock near the top of the frame. The steps are old: their front edges are rounded and dished in the middle by wear. Rough black rock walls close in on both sides. Three old pale bones lie on the floor at the foot of the stair. The light is a cold even grey with no visible source.\nStyle: plain vanilla Card Survival game art: a full-bleed painted scene reaching every edge of the frame, flat colour fills in a few tonal steps, thin dark ink outlines, muted cold colours: black, charcoal, cold blue-grey and bone grey. No text, no watermark, no signature, no border, no frame.\nAvoid: torches, fire, lava, warm light, daylight at the top, a doorway with a door, railings, carved pillars, statues, skulls piled up, a skeleton, people, mist, glow, light beams, sparkles, magic particles, dramatic lighting, rim light, ornate patterns, photo, photorealistic, 3D render, cartoon, comic book, anime, glossy highlights, neon colours, lens flare, cropped, blurry, plain white background, vignette, white border, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground.",
+  "historyId": "1Sqb0Mxl7o6KtZ4sWphV",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794588005701_5b035227_1794588005766_abe7aa9c.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794588005701_5b035227_1794588005766_abe7aa9c.png",
+      "verdict": "one sample (owner rule 2026-10-11); checked against its subject phrase by phrase and applied as a new picture; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "full-bleed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py --full-bleed",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "634de265ec9ddabc32567eb8467bf90857a197a8b765bd09f408007c1d8bed83"
+  },
+  "generated": "2026-11-13",
+  "cards": [
+    "CardData/Realm/hw_underworld_exit.json"
+  ],
+  "replaces": {
+    "stand_in": "Cave",
+    "reason": "HarshWilds .audit/summary.md m5: base-game stand-in art"
+  }
+}

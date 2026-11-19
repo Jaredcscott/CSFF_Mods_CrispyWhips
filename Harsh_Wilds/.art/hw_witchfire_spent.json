@@ -1,0 +1,27 @@
+{
+  "target": "hw_witchfire_spent.png",
+  "sourceCard": "CardData/Item/hw_witchfire_spent.json",
+  "subject": "the grey ash of a burnt-out witchfire: vanilla's powder heap in ash grey",
+  "model": null,
+  "mode": "recolour of a vanilla sprite (no generation, no credits)",
+  "source_sprite": "Witchstone_Dust_Dead (exported with Development_Tools/SpriteCheck/extract_vanilla_sprites.py)",
+  "method": "each pixel keeps its lightness (mid-tones lifted by 1.12 plus 6, capped at 235; pixels at or below 60 untouched so the ink line stays dark), hue and saturation removed, blue raised 3 percent; framed with trim_card_art.trim(). Vanilla draws every powder as this same heap in another colour (Documentation/CSFF_Art_Profile.md section 1). This is a recoloured copy of a vanilla sprite shipped inside the mod, as the liquid bowls are.",
+  "credits": 0,
+  "finish": "keyed",
+  "processed": {
+    "tool": "trim_card_art.trim (scratch script ash_heap.py, not committed)",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "34f3547658a20d0c248b6d7f79357c23a75f9aeb7acade2be5e53c0940a2779c"
+  },
+  "generated": "2026-11-13",
+  "cards": [
+    "CardData/Item/hw_witchfire_spent.json"
+  ],
+  "replaces": {
+    "stand_in": "Witchstone_Dust_Dead",
+    "reason": "HarshWilds .audit/summary.md m5: base-game stand-in art"
+  }
+}

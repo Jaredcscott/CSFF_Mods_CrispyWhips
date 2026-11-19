@@ -149,7 +149,7 @@
                 }
             ],
             "ReceivingCardChanges": {
-                "ModType": 0,
+                "ModType": 2,
                 "ModifyLiquid": true,
                 "LiquidEffectScaling": 2,
                 "SpoilageChange": {

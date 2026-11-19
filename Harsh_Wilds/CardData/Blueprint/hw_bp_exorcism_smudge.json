@@ -13,7 +13,7 @@
         "DefaultText": "Bind bog myrtle (fresh, dried or powdered) and dry juniper needles into a smudge bundle. Burned at a lit fire, it drives out spirit sickness."
     },
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
-    "CardImageWarpData": "BogMyrtle_Dry",
+    "CardImageWarpData": "hw_exorcism_smudge",
     "CardImageWarpType": 3,
     "UnlockConditionsDesc": {"LocalizationKey": "IGNOREKEY", "DefaultText": ""},
     "StartUnlocked": false,
@@ -69,6 +69,8 @@
         }
     ],
     "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["SticksAppear"],
+    "WhenCreatedSoundsWarpType": 3,
     "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
     "BlueprintActionTagsWarpType": 3,
     "ResearchedNotification": 0

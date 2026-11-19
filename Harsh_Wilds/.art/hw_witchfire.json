@@ -1,0 +1,45 @@
+{
+  "target": "hw_witchfire.png",
+  "sourceCard": "CardData/Item/hw_witchfire.json",
+  "subject": "the vanilla beeswax candle as a short stub, about one and a half times as tall as wide, with about thirty bright red witchstone grains pressed into the wax; unlit",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Candle_Off (subject) 3wIf6ZB5zMzDGyE0u2Rv"
+    ]
+  },
+  "prompt": "Use the attached reference image for one purpose.\nReference image 1 shows the vanilla Card Survival beeswax candle, unlit: draw this same kind of hand-dipped beeswax candle, with the same yellow-ochre wax colour, the same lumpy hand-dipped surface, the same short dark wick and the same flat colour fills and thin dark ink outline, changed only as follows. It is a short stub: about one and a half times as tall as it is wide. Pressed into the wax all over its surface are about thirty small bright red grains, like coarse red sand, scattered evenly. It is unlit: the wick is short and blackened, with no flame.\nStyle: plain vanilla Card Survival game art: flat colour fills in three or four tonal steps, a thin continuous dark brown-black ink outline, muted natural colours, no glossy highlights, no decorative patterns, no cartoon, no comic shading. Single object only, standing upright in the lower two-thirds of the frame, comfortably inset from every edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: a flame, a glow, smoke, a tall candle, a candle holder, a dish, melted wax pool, red wax, a red candle, gems, runes, carved symbols, photo, photorealistic, 3D render, cartoon, comic book, glossy highlights, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "historyId": "LEiyq6axg57vIiZEGQC6",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794587991840_2de3d84f_1794587992507_05ef8a19.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794587991840_2de3d84f_1794587992507_05ef8a19.png",
+      "verdict": "one sample (owner rule 2026-10-11); checked against its subject phrase by phrase and applied as a new picture; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "keyed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "3bc631c05e863b3a27f2dce039473676250e7b667dc5cd05b94a270e27dc504f"
+  },
+  "generated": "2026-11-13",
+  "cards": [
+    "CardData/Item/hw_witchfire.json",
+    "CardData/Blueprint/hw_bp_witchfire.json"
+  ],
+  "replaces": {
+    "stand_in": "Witchstone_Dust",
+    "reason": "HarshWilds .audit/summary.md m5: base-game stand-in art"
+  }
+}

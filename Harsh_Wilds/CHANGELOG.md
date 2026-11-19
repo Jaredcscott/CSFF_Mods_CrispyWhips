@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.11.12 (2026-11-18)
+
+### Changed
+
+- **Seventeen cards that borrowed a base-game picture have their own.** The Cleansing Smudge, the Witchfire (unlit, lit and burnt out), the Moon Basin, the Fairy King and Queen, the Silver Pool, the Way Up, the Moon Realm and the Underworld are newly drawn, and the three brew recipes now show their brew.
+- Technical: eleven new files in `Resource/Picture/` (`hw_exorcism_smudge`, `hw_witchfire`, `hw_witchfire_lit`, `hw_witchfire_spent`, `hw_moon_basin`, `hw_fairy_king`, `hw_fairy_queen`, `hw_moon_exit`, `hw_underworld_exit`, `hw_moon_realm`, `hw_underworld`) and `CardImageWarpData` on 17 card files (audit minor m5). `hw_witchfire_spent` is the base game's `Witchstone_Dust_Dead` heap recoloured grey. The Ancestor Enchantment keeps the cairn's picture.
+- **Laying out a blueprint from this mod now makes the same sound a base-game blueprint does.** Twenty-five of the mod's blueprints (the charms, coats, brews, bug traps and ritual objects, the cairn, the Moon Basin and the threshold among them) appeared without a sound; the spirit rites, the grove blessing and the Tooth Puller already had one. Building them is unchanged: the build and the finished card sound as they did. Not yet heard in a running game.
+- Technical: the 25 files in `CardData/Blueprint/` that had neither key gain `WhenCreatedSoundsWarpData: ["SticksAppear"]` and `WhenCreatedSoundsWarpType: 3` (audit minor m3). That is the base game's own convention: in the EA 0.69e export every blueprint except three developer test cards carries exactly that clip. In the game code the field is the card-appearance sound (`SoundManager.PlayNewCardSounds`), not a build sound; `BuildSounds` is untouched and still falls back to the construction popup's default. Gate: `Development_Tools/Tests/HarshWilds-BlueprintCompletionSound.Tests.ps1`.
+
+### Fixed
+
+- **The Fairy Stone has a picture.** The stones the Fairy Ring, the Faerie Realm and the Fairy King give showed as a blank card, in your pack and on the Threshold Stone alike, because the base game ships that card with no art. It is now drawn as a pale stone with a hole worn through it. Not yet seen in a running game.
+- Technical: `Resource/Picture/hw_fairy_stone.png` and `GameSourceModify/563078cfd4356834f960cdd2e3085b3f.json`, which sets `CardImageWarpData` on the base game's cut `NOT_USED_FairyStone` (audit CRITICAL C2). `Development_Tools/Tests/Art-ArtlessVanillaGrant.Tests.ps1` now pins that card, watched red without the patch.
+- The Wisent Coat's Armor stat (the number shown on the character panel) read +15 while the coat's actual torso protection in a fight was 10, same as the Lynx and Musk Ox Coats and the base game's own coats. The two numbers come from separate fields (`PassiveEffects`' display stat and `ArmorValues.TorsoArmor`) that every other armor piece in this mod, and every base-game coat checked, keeps equal; the Wisent Coat's display number is now 10 to match (module audit, HarshWilds objects).
+
 ## 0.11.11 (2026-11-11)
 
 ### Changed

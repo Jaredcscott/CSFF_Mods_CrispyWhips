@@ -1,0 +1,46 @@
+{
+  "target": "hw_exorcism_smudge.png",
+  "sourceCard": "CardData/Item/hw_exorcism_smudge.json",
+  "subject": "one tight cigar-shaped bundle, about four times as long as thick, of dried bog myrtle sprigs with a few juniper sprigs, spiral-bound in pale twine, lying diagonally, unlit",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla BogMyrtle_Dry (material) bS5nez87uNVJZYCiBURS",
+      "vanilla Juniper_Needles (material) PTMz6yWKWI7RwzF7MwDr"
+    ]
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is vanilla Card Survival dried bog myrtle leaves and reference image 2 is vanilla Card Survival juniper needles. Both are MATERIAL and STYLE references: the new object is made of exactly these leaves and needles, drawn with the same flat posterized colour fills, thin dark ink outlines and muted colours. Do not draw a loose heap.\nDraw: a Cleansing Smudge. One tight cigar-shaped bundle, about four times as long as it is thick, of dried olive-brown bog myrtle sprigs with their small narrow leaves pressed flat along the bundle, and a few dark green juniper needle sprigs showing among them. A thin pale twine is wound around the bundle in an even spiral along its whole length, about eight turns, and tied in a small knot at the stem end, where a few bare cut stems stick out. The bundle lies diagonally, the stem end at the lower left and the leafy end at the upper right. It is unlit: no smoke, no ember, no char.\nStyle: plain vanilla Card Survival game art: flat colour fills in three or four tonal steps, a thin continuous dark brown-black ink outline, muted natural colours, no glossy highlights, no decorative patterns, no cartoon, no comic shading. Single object only, in the lower two-thirds of the frame, comfortably inset from every edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: smoke, wisps, a glowing ember, flame, ash, a bowl, a shell, feathers, flowers, sage leaves, ribbon, beads, a loose heap of leaves, several bundles, photo, photorealistic, 3D render, cartoon, comic book, glossy highlights, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "historyId": "kCsROtjgV1ZjwON7d5Fn",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794587989917_c91d6f31_1794587990232_de645974.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794587989917_c91d6f31_1794587990232_de645974.png",
+      "verdict": "one sample (owner rule 2026-10-11); checked against its subject phrase by phrase and applied as a new picture; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "keyed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "1267acecb380b847bc8345e4e0ae49fbb4dcb22846a51120ebb55b29c8202d7b"
+  },
+  "generated": "2026-11-13",
+  "cards": [
+    "CardData/Item/hw_exorcism_smudge.json",
+    "CardData/Blueprint/hw_bp_exorcism_smudge.json"
+  ],
+  "replaces": {
+    "stand_in": "BogMyrtle_Dry",
+    "reason": "HarshWilds .audit/summary.md m5: base-game stand-in art"
+  }
+}

@@ -1,6 +1,6 @@
 {
     "UniqueID": "hw_charm_dragon",
-    "//RitualObject": "Niche N4 (MASTER_PLAN section 2, pack Prompt 3): the Dragon Spirit's charm, the fourth beside the lynx, goat and blood charms. It differs from them in one way: its blueprint (CardData/Blueprint/hw_bp_charm_dragon.json) also needs a Lindwurm Fang, the lindwurm's Butcher trophy. Same shape and scale as the blood charm (neck slot, +1 a tick, about four weeks of wear); the effect is the Dragon Spirit's Alertness Aid at its lowest level. Player-made, so no [Threats] switch. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play. The picture is the vanilla sprite Amulet (PARTIAL: no card art was generated, the OpenArt tool was not reachable).",
+    "//RitualObject": "Niche N4 (MASTER_PLAN section 2, pack Prompt 3): the Dragon Spirit's charm, the fourth beside the lynx, goat and blood charms. It differs from them in one way: its blueprint (CardData/Blueprint/hw_bp_charm_dragon.json) also needs a Lindwurm Fang, the lindwurm's Butcher trophy. Same shape and scale as the blood charm (neck slot, +1 a tick, about four weeks of wear); the effect is the Dragon Spirit's Alertness Aid at its lowest level. Player-made, so no [Threats] switch. Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play. Art: a real picture shipped commit cec6690b9 (2026-10-21), replacing the vanilla Amulet stand-in (.art/hw_charm_dragon.json); still an unreviewed /review-art candidate.",
     "CardType": 0,
     "CardName": {
         "ParentObjectID": "hw_charm_dragon",

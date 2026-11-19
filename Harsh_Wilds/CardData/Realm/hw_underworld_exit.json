@@ -13,7 +13,7 @@
     "LocalizationKey": "HarshWilds_UnderworldExit_CardDescription",
     "DefaultText": "The worn stair you came down. Climb it whenever you like; when the cold light runs out the stair carries you up anyway, back to the cairn you came from."
   },
-  "CardImageWarpData": "Cave",
+  "CardImageWarpData": "hw_underworld_exit",
   "CardImageWarpType": 3,
   "ObjectWeight": 0.0,
   "UsageDurability": {

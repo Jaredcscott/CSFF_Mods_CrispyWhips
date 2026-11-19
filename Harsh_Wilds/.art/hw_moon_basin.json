@@ -1,0 +1,45 @@
+{
+  "target": "hw_moon_basin.png",
+  "sourceCard": "CardData/Location/hw_moon_basin.json",
+  "subject": "the vanilla Moon Stone scene unchanged except for one addition: a shallow round grey stone basin of still dark water at the foot of the stone, with one small reflection of the moon",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla Moonstone (subject) uEcjykgFIgxCydxqjYvX"
+    ]
+  },
+  "prompt": "Use the attached reference image for one purpose.\nReference image 1 is the vanilla Card Survival Moon Stone in its forest clearing: draw this same scene, with the same pointed standing stone, the same clearing, the same forested slopes, the same pale sky, the same viewpoint, the same colours and the same flat colour fills and thin ink outlines, changed only by one addition. On the grass at the foot of the standing stone, in front of it and slightly to the right, sits a shallow round basin carved from grey stone: about as wide as the standing stone is at its base, and about one fifth as tall as it is wide, with a thick plain rim. It is filled to the brim with still dark water, and on the water lies one small pale round reflection of the moon. Nothing else is added and nothing is removed.\nStyle: plain vanilla Card Survival game art: a full-bleed painted scene reaching every edge of the frame, flat colour fills in a few tonal steps, thin dark ink outlines, muted natural colours. No text, no watermark, no signature, no border, no frame.\nAvoid: mist, glow, light beams, sparkles, swirls, aura, magic particles, runes, carvings on the basin, a pedestal, a fountain, a second standing stone, night sky, dramatic lighting, rim light, ornate patterns, people, animals, photo, photorealistic, 3D render, cartoon, comic book, anime, glossy highlights, neon colours, lens flare, cropped, blurry, plain white background, vignette, white border, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground.",
+  "historyId": "RTDKCA9qVICI1v5M1ErP",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794587997497_39028d7f_1794587997689_c25fff19.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794587997497_39028d7f_1794587997689_c25fff19.png",
+      "verdict": "one sample (owner rule 2026-10-11); checked against its subject phrase by phrase and applied as a new picture; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "full-bleed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py --full-bleed",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "2b4e0b7a3b07a7bbfd721c2dc54d0bf659456717527ae68952997e3209c02652"
+  },
+  "generated": "2026-11-13",
+  "cards": [
+    "CardData/Location/hw_moon_basin.json",
+    "CardData/Blueprint/hw_bp_moon_basin.json"
+  ],
+  "replaces": {
+    "stand_in": "Moonstone",
+    "reason": "HarshWilds .audit/summary.md m5: base-game stand-in art"
+  }
+}

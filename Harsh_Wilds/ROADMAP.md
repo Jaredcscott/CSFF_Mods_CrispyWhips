@@ -1,62 +1,57 @@
 # Roadmap: Harsh Wilds
-Version at time of writing: 0.11.10
-Date: 2026-11-07
-Audit score: 5/10 - FAIL (1 CRITICAL at the shipping layer; source tree clean). That CRITICAL was cleared 2026-11-10; the score waits for the next consolidation.
+Version at time of writing: 0.11.11
+Date: 2026-11-15
+Audit score: 9/10 - PASS. Re-consolidated 2026-11-15 at HarshWilds HEAD (latest source commit `e177213fe`): the four comment-only cleanups the prior consolidation carried (W3 court-card comments, W4 mistletoe-blueprint comment, m8 spirit-sickness comment, m9 liquid-bowls note) all shipped 2026-11-15 and are closed. The one historical CRITICAL (C2, the blank Fairy Stone art) stays closed since 2026-11-14 (`0a1c8754c`). The only finding still open is W5, an owner-gallery art rework.
 
 ## Current State
 
 **Theme**: Optional threats for a harder forest (creatures, raids, hazards, world events, afflictions, fair folk) plus the forest's old powers - spirits, rites, brews, ritual objects and three timed realms - each danger behind its own config switch. For players who want a rougher, more mythic survival run.
 
-**Content**: 46 items / 36 blueprints / 3 placed Locations (CT2) + 11 Realm env/location/exit cards (CT4/CT8) / 0 perks / 62 custom images. Plus 57 SelfTriggeredActions, 13 Animal manifests, 8 Encounters.
+**Content**: 46 items / 36 blueprints / 3 placed Locations (CT2) + 11 Realm env/location/exit cards (CT4/CT8) / 0 perks / 74 custom images. Plus 57 SelfTriggeredActions, 13 Animal manifests, 8 Encounters, 2 GameSourceModify art/door patches.
 
-**Stability**: the 2026-11-07 audit scored 5/10 - FAIL on one CRITICAL (`.audit/summary.md` C1: stale build output kept shipping the golden-hind content cut in 0.11.5). C1 was cleared on 2026-11-10 (Plan Reconciliation Log, 2026-11-11); the score is not re-run yet. The tracked **source tree is clean** (build 0/0, localization + Chinese parity + acquisition all clean). Also 2 warnings (README species-agent contract omits the shaman; owner confirmation pending on the HandAction-only ritual blueprint convention) and 7 minor polish items.
+**Stability**: 9/10 - PASS (2026-11-15 re-consolidation). No open CRITICAL and no design gap. The one historical blocker - the Fairy Stone the mod grants and spends is vanilla's cut `NOT_USED_FairyStone` (`563078cfd4356834f960cdd2e3085b3f`), which had no Sprite and rendered blank - was fixed on 2026-11-14 (`0a1c8754c`): a `GameSourceModify` `CardImageWarpData` patch now points it at the shipped `hw_fairy_stone.png`, and the UID is pinned in `Art-ArtlessVanillaGrant.Tests.ps1` against regression. The four comment-only cleanups the prior roadmap listed as Phase 1 work (W3, W4, m8, m9) all shipped 2026-11-15 in `e177213fe` and are done. The mod is otherwise sound: all 15 real module runs SOLID for their own scope, the source tree is clean (build 0/0, localization + Chinese parity + acquisition all clean, 0 released UIDs removed/renamed), and the earlier C1 (golden-hind orphans) stays closed and reconfirmed. **What remains open is W5, an owner-gallery art rework**: `hw_muskox.png`/`hw_wisent.png` still ship the isolated-white-background style the owner rejected for the lynx, and `hw_frostdemon.png`/`hw_bandit.png` are in the same state.
 
 **Open work**: No open or pending retrospective in `Documentation/Retrospectives/INDEX.md` names HarshWilds, its abbreviation, or its plugin GUID.
 
-**Framework compliance**: Tier 2 - the mod routes everything through framework services (ActionRouter via `ActionUser`/`SmithingBurnHook`/`ForageBiteHook`, EncounterGuards for the heron/realm/owl guards, declarative Animals/Encounter/SelfTriggeredAction loading, `ContentModPlugin` base). No deprecated patterns: no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`, no manual perk/blueprint injection. Requires CSFFModFramework 2.28.0+.
+**Framework compliance**: Tier 2 - the mod routes everything through framework services (ActionRouter via `ActionUser`/`SmithingBurnHook`/`ForageBiteHook`, EncounterGuards for the heron/realm/owl guards, SpawnService, declarative Animals/Encounter/SelfTriggeredAction loading, `ContentModPlugin` base). No deprecated patterns: no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`, no manual perk/blueprint injection. Requires CSFFModFramework 2.29.1+ (the floor follows its use of `Api.Localized` in `HwNotice.cs`).
 
 ---
 
-## Phase 0: Stabilize
+## Phase 0: Stabilize  *(cleared - skipped: audit score 9/10 >= 8, no open retrospectives)*
 
-> Fix before any new content lands or any upload. The source is clean; this phase is build-output hygiene and two docs fixes.
-
-| Item | Type | Priority | Complexity |
-|------|------|----------|------------|
-| ~~Clear the golden-hind build-output orphans (C1), verify the live Nexus 0.11.10 file, extend the preflight orphan scan~~ **Done 2026-11-10.** The installed copy and its release zip were rebuilt at 0.11.11 with none of the five files; the live Nexus 0.11.10 file never carried them; the preflight now scans every build-output folder (`dec663077`). See the Plan Reconciliation Log, 2026-11-11. | CRITICAL fix (build/deploy) | Done | - |
-| ~~README species-agent contract (W1)~~ **Done** in `699e6be8a`: the README lists the shaman's agent UID. | Docs accuracy | Done | - |
-| **Two stale rarebeasts comments (m1, m2).** `hw_lindwurm_fang.json` `//LindwurmFang` still claims the art is the `Hook_Bone` stand-in; `Tgr_HW_Lindwurm.json` `//Roll` names "LakeBeast" instead of "Lindwurm". | Comment fix | P1 | Quick |
+> No stabilization blocker remains. The one true blocker (C2, the blank Fairy Stone art) shipped its fix in `0a1c8754c`; its in-game check is tracker row T2.2224. The remaining open item is owner-gallery art (W5), folded into Phase 4 below.
 
 ---
 
 ## Phase 1: Foundation
 
-> Mostly already in place - recorded here as the maintained baseline, not new work.
+> Mostly already in place - recorded here as the maintained baseline. The comment cleanups left after C2 all shipped 2026-11-15.
 
 | Item | Type | State |
 |------|------|-------|
-| Versions synchronized across ModInfo.json / Plugin.cs / README.md at 0.11.10 | Version hygiene | DONE - keep synced via `/update-mod-version` |
+| Versions synchronized across ModInfo.json / Plugin.cs / README.md at 0.11.11 | Version hygiene | DONE - keep synced via `/update-mod-version` |
 | Chinese localization parity (`SimpCn.csv`, 1162/1162, no stale/no-CJK/extra) | Localization | DONE - keep rows paired per commit |
-| Framework Tier 2 adoption (ActionRouter / EncounterGuards / declarative loaders) | Framework | DONE |
-| Close pending in-game verification rows (`.claude/playthrough-test-status.json`): the heron-feel row T2.1327 and T2.1811-T2.1814, then drop the matching "not yet confirmed in a running game" caveats from the README in the same commit | Verification | P1, ongoing |
+| Framework Tier 2 adoption (ActionRouter / SpawnService / EncounterGuards / declarative loaders) | Framework | DONE |
+| Stale court-card art comments (W3): `hw_fairy_king.json` / `hw_fairy_queen.json` `//Court` comments now name their own shipped pictures and say the candidate awaits `/review-art`, not a vanilla PLACEHOLDER. | Comment fix | DONE - shipped 2026-11-15 (`e177213fe`) |
+| Missing design-rationale comment (W4): `hw_bp_bless_grove_mistletoe.json` gained a `//Mistletoe` header naming plan section 26 and the vanilla clone source `Bp_BlessGrove`. | Comment fix | DONE - shipped 2026-11-15 (`e177213fe`) |
+| Loose comment phrasing (m8): `hw_spiritsickness.json`'s comment now names the live gate, the `hw_stat_*_spirit_angry_pending` marker, not the angry event card. | Comment fix | DONE - shipped 2026-11-15 (`e177213fe`) |
+| Liquid-bowls exemption count (m9): `.art/liquid_bowls.json`'s `_note` now counts five spirit liquids. | Comment fix | DONE - shipped 2026-11-15 (`e177213fe`) |
+| Run the owner `/review-art` gallery on the new pictures: the Fairy Stone (`0a1c8754c`), the 11 shipped 2026-11-13 (incl. the realms images) **and the W5 rework candidates (muskox, wisent, frost demon, bandit)**, then retire the "newly drawn and not yet seen in a game" caveats | Art review | P1 |
+| Close pending in-game verification rows (`.claude/playthrough-test-status.json`): the Fairy Stone art row T2.2224, the heron-feel row T2.1327 and T2.1811-T2.1814, then drop the matching "not yet confirmed in a running game" caveats from the README in the same commit | Verification | P1, ongoing |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> The mod's two archived plans are drained; its remaining substance is tuning, not new systems.
+> The mod's three archived plans are drained; its remaining substance is tuning, not new systems.
 
 ### Threat-balance tuning pass
 **What**: tune the threats' chances, numbers and lengths (raids, world events, afflictions, hazards, rare-beast arrival rolls) from recorded harness and person runs. ModInfo and README both disclose these as "first guesses not yet balanced against play".
 **Why**: every threat is wired and honest, but un-tuned; this is the single largest lever on how the mod actually feels.
-**Requires**: Phase 0 (ship a clean build first) + the pending tracker rows reporting.
+**Requires**: the pending tracker rows reporting.
 **Complexity**: Complex (spans sessions; feed from the Benches/measurement discipline, not ad-hoc probes).
 
-### Owner decision - HandAction-only ritual/shrine/calling blueprints (W2)
-**What**: a one-time yes/no on whether 13 ritual/shrine/calling blueprints shipping `BlueprintActionTagsWarpData: ["HandAction"]` with no `CraftAction` is deliberate ("a rite, not a craft").
-**Why**: if confirmed, note it so audits stop re-flagging it; if not, add the appropriate `CraftAction` tags.
-**Requires**: none.
-**Complexity**: Quick (decision) / Medium (if tags must be added).
+> The former Phase 2 owner-decision (W2, the HandAction-only ritual/shrine/calling blueprint convention) is **resolved by-design** (2026-11-12): it matches vanilla's own convention (87/87 vanilla rite-named blueprints carry a one-entry action-tag list) and is pinned by `HarshWilds-RiteActionTags.Tests.ps1`. No longer open.
 
 ---
 
@@ -72,21 +67,24 @@ Shipped integrations (keep working on game/framework updates): H&F/CMC lit incen
 
 | Item | What | Complexity |
 |------|------|------------|
-| Own art for stand-in ritual/realm cards (m5) | Replace base-game stand-ins: Cleansing Smudge (Dry Bog Myrtle picture), witchfire/brews/ritual-object group, Ancestor Enchantment (cairn picture), the three realm cards. Use `/create-image-refs` for cards that must match a shipped sibling. | Medium |
-| Completion sounds on crafted items/structures (m3) | 24 blueprints ship no `WhenCreatedSoundsWarpData`. Add a real vanilla AudioClip (check the clip fixture; a material word is not a clip) or `[]` where nothing fits. | Quick |
-| Description / caveat pass | Once Phase 1 verification rows close, drop the "not yet confirmed" caveats from the README in the same commit as each confirmation. | Quick |
+| **Rework the muskox/wisent (and frost demon/bandit) pictures off the white background (W5)** | `hw_muskox.png`, `hw_wisent.png`, `hw_frostdemon.png`, `hw_bandit.png` still render as an isolated animal on flat `#FFFFFF`, the style the owner rejected for `hw_lynx.png` (redrawn full-bleed 2026-10-12). Queue all four for the same full-bleed forest/habitat rework, referencing `Bear_Wild`/`Wolf_Wild` and the current `hw_lynx.png`, through the owner's `/review-art` / `/create-image-variants` gallery. It is a pre-release Warning, but the rework call is the owner's. | Medium |
+| Owner `/review-art` pass on the Fairy Stone (C2 art) | `hw_fairy_stone.png` is one freshly generated sample awaiting the owner's gallery look; T2.2224 holds the in-game render check. | Quick |
+| Own art for the three danger events still on base-game pictures | Moonstruck (on `Moontouched`), The Mud Volcano Erupts (on `Dirt_Pile`), The Restless Dead (on `Skull`) - not named by m5, disclosed stand-ins. Optional. | Quick-Medium |
+| Description / caveat pass | As each Phase 1 verification row and the `/review-art` pass close, drop the matching "not yet confirmed" / "newly drawn" caveat from the README in the same commit. | Quick |
+
+> Resolved since the last roadmap: W3, W4, m8, m9 (the four comment-only cleanups, shipped 2026-11-15 in `e177213fe`). Earlier: C2 (the Fairy Stone art shipped `0a1c8754c`), m3 (25 blueprints gained `WhenCreatedSoundsWarpData`), m5 (11 new pictures replaced base-game stand-ins), m1/m2 (stale rarebeasts comments). No longer Phase 0/1/4 blockers.
 
 ---
 
 ## Long-term Vision
 
-Harsh Wilds is feature-complete against both of its archived plans: the threat/powers content update and the vanilla-balance/niche pass are built and shipped. Its natural endpoint at v1.0 is a **balanced, fully-illustrated** version of the current scope - every threat's numbers tuned against real play, every card on its own art, and every "not yet confirmed" caveat retired as its tracker row passes. The role it fills is the studio's "harder, more mythic forest" layer, composed of optional switches so a player tunes their own difficulty.
+Harsh Wilds is feature-complete against all three of its archived plans: the threat/powers content update, the vanilla-balance/niche pass and the two audit-remediation rows are built and shipped, and the last card that rendered blank (the Fairy Stone) now has art. Its natural endpoint at v1.0 is a **balanced, fully-illustrated** version of the current scope - every threat's numbers tuned against real play, every card on its own owner-approved art (the four creature portraits still on the owner-rejected white background being the last art-style gap, W5), and every "not yet confirmed" caveat retired as its tracker row passes. The role it fills is the studio's "harder, more mythic forest" layer, composed of optional switches so a player tunes their own difficulty.
 
 **Potential major additions** (not yet justified - revisit after the tuning pass):
 - A difficulty "preset" meta-switch that sets several threat switches at once - fits the config-switch architecture if players find per-threat tuning fiddly.
 - Deeper realm progression (a reason to return to a realm beyond the one-bargain-a-run limit) - fits the realms theme but needs a designed loop before it earns a slot.
 
-Anything worth building belongs in a fresh `Documentation/Plans/HarshWilds/MASTER_PLAN.md` (or its Considered table, with the reason, if ruled out). The C1 remediation plan is done and archived at `Documentation/Design/Harsh_Wilds_Audit_Remediation_2026-11_As_Built.md`. Never create a stub under `Documentation/Ideas/`.
+Anything worth building belongs in a fresh `Documentation/Plans/HarshWilds/MASTER_PLAN.md` (or its Considered table, with the reason, if ruled out); none exists now: the Fairy Stone remediation (AF1) is built and its plan archived at `Documentation/Design/Harsh_Wilds_Audit_Remediation_2026-11-14_As_Built.md`. The C1 remediation plan is done and archived at `Documentation/Design/Harsh_Wilds_Audit_Remediation_2026-11_As_Built.md`. Never create a stub under `Documentation/Ideas/`.
 
 ---
 
@@ -95,6 +93,8 @@ Anything worth building belongs in a fresh `Documentation/Plans/HarshWilds/MASTE
 | Trigger | Action |
 |---------|--------|
 | After any new content phase | Run `/audit-mod HarshWilds` and update this roadmap |
+| When reviving any vanilla `NOT_USED_`/art-less card | Ship its `GameSourceModify` `CardImageWarpData` patch + PNG in the same change and pin the UID (the C2 class, now realised for the Fairy Stone) |
+| When one same-role picture is reworked in a gallery pass | Sweep every sibling in the same role (board Sprite + EncounterImage) so none is left behind in the rejected style (the W5 class) |
 | Before any Nexus upload | Confirm the release zip carries no removed-content orphans (the C1 class); `dotnet clean -c Release` if in doubt |
 | Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log`; refresh `lib/Assembly-CSharp.dll` |
 | After fixing a critical issue | Run `/critical-analysis HarshWilds` to verify the fix |
@@ -109,6 +109,7 @@ Anything worth building belongs in a fresh `Documentation/Plans/HarshWilds/MASTE
 /critical-analysis HarshWilds   - adversarial review
 /repair-items HarshWilds        - auto-fix item JSON issues
 /repair-blueprints HarshWilds   - auto-fix blueprint JSON issues
+/review-art HarshWilds          - owner gallery pass (Fairy Stone + 11 pending + W5 rework)
 /build-mod HarshWilds           - build Release DLL
 /deploy-mods HarshWilds         - build + deploy to game
 /package-mod-suite              - rebuild MUM suite (HW is a suite mod)
@@ -200,3 +201,10 @@ Scope: Fleet
 - **Pruned:** this roadmap's three Phase 0 rows for C1 collapsed to one done line. `Documentation/Ideas/IDEAS_OVERVIEW.md` repointed; `.audit/summary.md`, `.audit/ideas.md` and the modwide critical-analysis given dated resolution lines; four `Documentation/Fleet_Review_Queue.md` checkboxes ticked. Dated records left as written.
 - **Evidence:** `Documentation/Benches/HW_GoldenHind_Shipping_2026-11-10/` (two read-only scan scripts, raw results, a generated `SUMMARY.md`): installed folder 415 files, 0 golden-hind files; `Harsh_Wilds_0-11-11.zip` 416 entries, 0; the Nexus MAIN 0.11.10 manifest 416 paths, 0, its archive md5 equal to the recorded upload, with the control that the archived 0.11.2 to 0.11.4 manifests each list all five; HarshWilds `bin/Release` 409 files under subfolders, 0 with no source. Deploy: `Deploy-Mods.ps1 -CSFFMFW -HarshWilds`, 2026-11-10 10:48, the framework with it because 0.11.11 calls `Api.Localized` and the installed framework build lacked it. A four-agent read-only sweep on 2026-11-11 (local artifacts and rigs, git and the public repo, the Mothership and Harman over ssh, runtime residue) found nothing that ships still carrying the files; what it found and left is in the bench README. Rig 2's game log of 2026-11-11 01:52 loads 0.11.11 with no hind line. Preflight on HarshWilds with G20d: 0 CRITICAL, 0 WARNING.
 - **Verification debt:** none added. The row named no in-game acceptance check; its runtime check was the Nexus file read. The `.audit/items-report.md` and `.audit/images-report.md` bodies still describe the removed files; re-running them is on the next `/fleet-review` pass item in `Documentation/Fleet_Review_Queue.md`.
+
+### 2026-11-14 - MASTER_PLAN (audit remediation AF1, the Fairy Stone picture), drained and archived
+- **Verdict:** DRAINED. The plan held one row (AF1, audit CRITICAL C2: the revived vanilla `NOT_USED_FairyStone` has no sprite and drew a blank card), 0 feature rows and no pack. Built 2026-11-14 in `0a1c8754c`: `GameSourceModify/563078cfd4356834f960cdd2e3085b3f.json`, `Resource/Picture/hw_fairy_stone.png`, and the UID pinned in `Development_Tools/Tests/Art-ArtlessVanillaGrant.Tests.ps1`.
+- **Disposition:** ARCHIVE to `Documentation/Design/Harsh_Wilds_Audit_Remediation_2026-11-14_As_Built.md`. `Documentation/Plans/HarshWilds/` no longer exists.
+- **Pruned:** nothing from the plan body (`/audit-to-plan` had already marked AF1 resolved in `3b391630a`). This roadmap's pointer to the plan, `Documentation/Ideas/IDEAS_OVERVIEW.md` and `.audit/ideas.md` repointed; `.audit/summary.md` and the realms module report given dated lines. Dated records left as written.
+- **Evidence:** the gate test failed 1 of 6 with only its pin applied and passes 6 of 6 with the patch (commit message of `0a1c8754c`); both `realms` module reports of 2026-11-14 read the card as carrying art (`b80695bb9`); the 2026-11-14 summary reads 9/10 PASS with C2 closed (`3b391630a`). Not seen in a running game: the installed copy predates the commit.
+- **Verification debt:** tracker row T2.2224 (`hw_fairy_stone_card_image`, person). The picture is one generated sample that waits on the owner's `/review-art` look.

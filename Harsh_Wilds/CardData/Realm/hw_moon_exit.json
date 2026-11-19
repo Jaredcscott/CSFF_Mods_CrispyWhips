@@ -13,7 +13,7 @@
     "LocalizationKey": "HarshWilds_MoonExit_CardDescription",
     "DefaultText": "The still water you stepped through, bright with the moon. Step back through it whenever you like; when its moonlight runs out the pool sends you home anyway, back to the place you came from."
   },
-  "CardImageWarpData": "Moon",
+  "CardImageWarpData": "hw_moon_exit",
   "CardImageWarpType": 3,
   "ObjectWeight": 0.0,
   "UsageDurability": {

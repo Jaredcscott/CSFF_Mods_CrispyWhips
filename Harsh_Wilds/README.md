@@ -1,6 +1,6 @@
 # Harsh Wilds
 
-**Version:** 0.11.11
+**Version:** 0.11.12
 **Author:** Jared
 **Requires:** CSFFModFramework 2.29.1 or later
 **Status:** pre-release. Rewards (meat, affinity, coats, rites) were tuned to their base-game equivalents in 0.11.6; the threats' chances, numbers and lengths are still first guesses not yet balanced against play. Where a feature is not yet confirmed in a running game, its section says so.
@@ -162,7 +162,7 @@ Each is a status with an icon and an alert at each new stage. Each has a recipe 
 ### Fleas and lice (`FleasAndLice`)
 - **How you get it:** sleeping or napping with an Improvised Bed, Improvised Shelter or Hideout in the room (about 1 sleep in 10), or a Bedroll or Log Bed (about 1 in 20); Filth of 250 or more (about 1 day in 8); keeping a Dog Friend, or with Sirus23's Mod Collection a tamed wolf or fox (about 1 day in 20 each). Each hit moves you up a stage.
 - **Cost:** three stages (Flea Bites, Fleas, Infested) take 10, 25 and 40 off Comfort and make stress build faster by 0.25, 0.5 and 1.0 a quarter hour.
-- **Cure:** stay clean (Filth 100 or less recedes a quarter stage every six hours); smoke or rub of bog myrtle or juniper, or bug repellent salve (a dose clears about a stage and a third); or the Herbal Wash, made from bog myrtle, Dry Juniper Needles and a kept Clay Bowl. **Wash with Herbs** takes a stage and a half and 100 Filth.
+- **Cure:** stay clean (Filth 100 or less recedes a quarter stage every six hours); smoke or rub of bog myrtle or juniper (less, up to about half a stage), or bug repellent salve (a dose clears about a stage and a third); or the Herbal Wash, made from bog myrtle, Dry Juniper Needles and a kept Clay Bowl. **Wash with Herbs** takes a stage and a half and 100 Filth.
 - With Herbs and Fungi, drag one of its herbs onto the Herbal Wash for **Wash with Herb Infusion**, which clears the fleas completely.
 
 ### Tooth decay (`ToothDecay`)
@@ -174,7 +174,7 @@ Each is a status with an icon and an alert at each new stage. Each has a recipe 
 - **How you get it:** when you fail to bind the Lynx, Goat or Blood Spirit and it is angered, its angry card waits on the board until you press Continue. While it waits, a roll once a game day (two in three) may leave you spirit-sick. The base game's own spirits are never a source.
 - **Cost:** three stages (Uneasy, Spirit Sickness, Spirit-Ridden) take 10, 20 and 30 off Focus and make stress build faster by 0.25, 0.5 and 0.75 a quarter hour.
 - **Cure:** it never fades by itself. The Cleansing Smudge (bog myrtle and Dry Juniper Needles, Magic > Rituals) is burned at a lit campfire, fire pit, fireplace or hearth: **Burn the Smudge** takes half an hour and removes one stage.
-- Checked in a test harness, not yet in real play. The smudge uses the Dry Bog Myrtle picture for now.
+- Checked in a test harness, not yet in real play. The smudge has a picture of its own.
 
 ### Dancing plague (`DancingPlague`)
 - **How you get it:** **Dance in the Ring** at a fairy ring, at night (an hour). When the dance ends, one time in two you cannot stop.
@@ -193,7 +193,7 @@ These use the base game's own spirit system. You meet a spirit, bind it once wit
 - **Goat Spirit.** No carcass holds it. Its Summoning is listed in Magic > Calling Rituals once you have any Insight, and builds only while a goat you keep (the penned female) is on the board, with twelve fresh clover, meadow grass or heather stems and one spirit herb. It follows the Deer spirit's gates. Held, it raises Climbing Aid and Resilience and feeds the Deer Urge.
 - **Blood Spirit.** Also no carcass. Its Summoning and Calling both need the base game's Blood Spilled to be high, which lasts about a week and a half after a fight. They follow the Wolf spirit's gates, with a large-prey carcass offered (not spent) and a spirit herb for the summoning. Held, it raises Strength and Dodge Bonus and feeds the Wolf Urge. It has no tracking and its essence is no weapon.
 - **Dragon Spirit.** A lindwurm carcass holds it. It binds like the Lynx Spirit. Held, it raises Strength and Alertness Aid and feeds the Fox Urge. It is as rare as the lindwurm.
-- **Ancestor Spirit.** It lives in a **Stone Cairn** you build, as the base game's West Stone holds its spirit. After a vigil of about a day at the cairn, **Keep Vigil** brings "The Ancestors". Then the cairn's **Blessing** gives the **Ancestor Blessing** for a day or so: Courage up by 3 to 18 as it fades, less Loneliness, and it recharges after about three days. Unlike the West Stone's blessing it gives no combat armour and does not wear down your mental structure. The met cairn also offers the **Ancestor Enchantment** (an enchantable item, four stones and a flint). It shows the cairn's picture for now.
+- **Ancestor Spirit.** It lives in a **Stone Cairn** you build, as the base game's West Stone holds its spirit. After a vigil of about a day at the cairn, **Keep Vigil** brings "The Ancestors". Then the cairn's **Blessing** gives the **Ancestor Blessing** for a day or so: Courage up by 3 to 18 as it fades, less Loneliness, and it recharges after about three days. Unlike the West Stone's blessing it gives no combat armour and does not wear down your mental structure. The met cairn also offers the **Ancestor Enchantment** (an enchantable item, four stones and a flint). It shows the cairn's picture, as each other spirit's recipes show that spirit.
 
 ## Rites
 
@@ -213,7 +213,7 @@ Made from base-game ingredients. No switch. Checked in a test harness, not yet i
 - **Beast Brew** (bonemeal and fat), **Earth Brew** (ash and dry moss) and **Musclebrew** (a wild egg and dried pine nuts). Research each in Magic > Rituals and make it from a bowl of ordinary clean water; you keep the bowl.
 - Drinking one quenches some thirst and starts a timer of about half a day (a second draught makes it a day). Beast Brew and Earth Brew raise Beast or Earth Affinity by 0.5 a tick (about 24 over half a day), the pace of the base game's Sacred Oak; each takes 8 hours to research. Musclebrew makes hard work and heavy loads grow muscle sooner, and does nothing if you only sit. Each shows in the status strip.
 - **Witchfire** (Survival > Fire; witchstone dust and beeswax). Kindle it (a quarter hour) and it gives light for 12 hours while you carry it, then burns out to ash, which **Scatter the Ash** removes. It needs no fuel and gives no heat.
-- The three brews have pictures of their own. Their recipes and the witchfire use base-game pictures for now.
+- The three brews, their recipes and the witchfire have pictures of their own. The burnt-out witchfire is the base game's dust heap in ash grey.
 
 ## Ritual objects
 
@@ -261,9 +261,9 @@ There are three: the Faerie Realm, the Moon Realm and the Underworld. You go on 
 |---|---|---|---|---|
 | Faerie Realm | Fairy Ring: **Enter the Ring**, night under a full moon | 4 hours | **Wander the Moonlit Meadow** (2 h): Fairyweed; by chance Spirit Mushrooms, Mistletoe, a Fairy Stone | `FaerieTricks`: about hourly, one in five, **Pixie-Led**; **Find Your Way Back** costs 10 Stamina |
 | Moon Realm | **Moon Basin** (Magic > Shrines; a clay bowl and two small stones; only beside a Moon Stone, one to a place): **Step into the Moonlight**, night under a full moon | 3 hours | **Search the Silver Shallows** (2 h): feathers; by chance moon moss, Niter Crystals, Flint | `MoonGlamour`: about hourly, one in five, **Moonstruck**; **Shake Off the Glamour** adds 20 Stress |
-| Underworld | Stone Cairn: **Descend Beneath the Cairn**, at night. With Forest Lore, its Ancient Cairn offers **Go Down the Tomb Stair** | 3 hours | **Search the Barrow Halls** (2 h): Bones; by chance Ash, Bird Bones, a Sulphurous Stone | `RestlessDead`: about hourly, one in five, **The Restless Dead**; **Break Free** costs 14 Stamina and adds 12 Stress |
+| Underworld | Stone Cairn: **Descend Beneath the Cairn**, at night. With Forest Lore, its Ancient Cairn offers **Go Down the Tomb Stair** | 3 hours | **Search the Barrow Halls** (2 h): Bones; by chance Ash, Bird Bones, a Sulphurous Stone | `RestlessDead`: about hourly, one in four, **The Restless Dead**; **Break Free** costs 14 Stamina and adds 12 Stress |
 
-The realms were checked in a test harness (going in, the clock running out, save and reload, raids held back, finds, dangers), not yet in real play. The Forest Lore door was checked the same way with Forest Lore installed. Their pictures are mostly base-game stand-ins.
+The realms were checked in a test harness (going in, the clock running out, save and reload, raids held back, finds, dangers), not yet in real play. The Forest Lore door was checked the same way with Forest Lore installed. The realms, their ways out, and the Fairy King and Queen have pictures of their own, newly drawn and not yet seen in a game by a person.
 
 ## Wandering shaman
 

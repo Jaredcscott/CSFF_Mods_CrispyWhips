@@ -1,6 +1,6 @@
 {
     "UniqueID": "hw_lq_brew_earth",
-    "//Brew": "Feature 27 (plan section 27, Prompt 38; W0-16: no vanilla LQ_Spirit liquid raises an affinity by rate, W0-22: MuscleGrower is the muscle-growth stimulus). NOT a spirit brew: it is made from vanilla ingredients, never from a spirit, and names none of vanilla's NOT_USED_ placeholders. No switch: what the player makes on purpose gets none. Every timed effect goes through the brew's own effect stat (its status carries the modifier); the Drink writes only that stat and Thirst, never a base-rate-0 stat. The liquid is Herbs and Fungi's tea liquid shape with this mod's keys, made by a blueprint on vanilla Bp_NightBroth's chassis (a clay bowl of clean water kept, the bowl's water becoming the brew). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play: the dose is 48 on a 96 stat that falls 1 a tick (12 hours a dose); the effect stat's status adds a RateModifier of 2.0 a tick to the affinity (net +1.9 against its own -0.1; the stat is 0 to 1000 and no vanilla trigger reads it).",
+    "//Brew": "Feature 27 (plan section 27, Prompt 38; W0-16: no vanilla LQ_Spirit liquid raises an affinity by rate, W0-22: MuscleGrower is the muscle-growth stimulus). NOT a spirit brew: it is made from vanilla ingredients, never from a spirit, and names none of vanilla's NOT_USED_ placeholders. No switch: what the player makes on purpose gets none. Every timed effect goes through the brew's own effect stat (its status carries the modifier); the Drink writes only that stat and Thirst, never a base-rate-0 stat. The liquid is Herbs and Fungi's tea liquid shape with this mod's keys, made by a blueprint on vanilla Bp_NightBroth's chassis (a clay bowl of clean water kept, the bowl's water becoming the brew). Every number is a TUNABLE PLACEHOLDER, session-inferred and unmeasured against play: the dose is 48 on a 96 stat that falls 1 a tick (12 hours a dose); the effect stat's status adds a RateModifier of 0.5 a tick to the affinity (net +0.4 against its own -0.1; the stat is 0 to 1000 and no vanilla trigger reads it).",
     "CardName": {
         "ParentObjectID": "hw_lq_brew_earth",
         "LocalizationKey": "HarshWilds_BrewEarth_CardName",
@@ -149,7 +149,7 @@
                 }
             ],
             "ReceivingCardChanges": {
-                "ModType": 0,
+                "ModType": 2,
                 "ModifyLiquid": true,
                 "LiquidEffectScaling": 2,
                 "SpoilageChange": {

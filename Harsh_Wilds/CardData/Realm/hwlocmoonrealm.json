@@ -13,7 +13,7 @@
     "LocalizationKey": "HarshWilds_MoonRealm_LocDescription",
     "DefaultText": "A pale shore of silver sand under a huge full moon, and a lake as still as glass. No raid comes for your food here, and no lynx or bandit follows you in. The basin will send you home before long."
   },
-  "CardImageWarpData": "Moon",
+  "CardImageWarpData": "hw_moon_realm",
   "CardImageWarpType": 3,
   "ObjectWeight": 0.0,
   "PassiveStatEffects": [

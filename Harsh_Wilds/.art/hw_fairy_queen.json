@@ -1,0 +1,45 @@
+{
+  "target": "hw_fairy_queen.png",
+  "sourceCard": "CardData/Realm/hw_fairy_queen.json",
+  "subject": "a tall slender pale woman standing still in the Faerie Realm's silver grass, long pale hair, a crown of small white flowers, a plain silver-white gown; drawn the way vanilla draws the Moon Maiden, no magic effects",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "vanilla MoonMaiden (treatment) 6pblZZqtdyzL6iZIX5lI",
+      "hw_faerie_realm (scene) p1jeALgBOUJ9IjX4Z2FI"
+    ]
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is how vanilla Card Survival draws a supernatural woman: a natural-looking full-length figure in a dark place, small in the frame, drawn with flat colour fills and thin dark ink outlines, with no magic effects. Match that treatment, that figure scale and that plainness, but draw a different woman in a different place.\nReference image 2 is the PLACE: the Faerie Realm, silver-grey grass under a huge full moon in a deep blue starry night sky, with dark tree trunks at the sides. Set the picture in exactly this place and keep its colours; leave out its ring of toadstools.\nDraw: the Fairy Queen. A tall slender woman standing still in the silver grass, facing the viewer, seen full length, her head at about one third of the way down the frame. Skin pale as moonlight, long straight pale hair to her waist, a simple crown of small white flowers on her head, a plain long pale silver-white gown with no ornament, hands loosely at her sides, a calm unsmiling face. The full moon is in the sky behind her, to the upper left.\nStyle: plain vanilla Card Survival game art: a full-bleed painted scene reaching every edge of the frame, flat colour fills in a few tonal steps, thin dark ink outlines, muted colours. No text, no watermark, no signature, no border, no frame.\nAvoid: wings, pointed ears, a glow around her, mist, sparkles, swirls, aura, magic particles, jewellery, a metal crown, a throne, dancers, other people, toadstools, a walking pose, flowing wind-blown cloth, dramatic lighting, rim light, ornate patterns, photo, photorealistic, 3D render, cartoon, comic book, anime, cute, glossy highlights, neon colours, lens flare, cropped, blurry, plain white background, vignette, white border, text, watermark, signature, logo, border, frame, footprints, tracks, prints in the ground.",
+  "historyId": "e0bIp1hauJKdjHewHGGz",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794588000336_2fd12c5c_1794588000435_aba571fb.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794588000336_2fd12c5c_1794588000435_aba571fb.png",
+      "verdict": "one sample (owner rule 2026-10-11); checked against its subject phrase by phrase and applied as a new picture; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "full-bleed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py --full-bleed",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "993b2b52e6f96fcc70d95abb4581439f0be07ebe6cb6f49ff9758f572f527add"
+  },
+  "generated": "2026-11-13",
+  "cards": [
+    "CardData/Realm/hw_fairy_queen.json"
+  ],
+  "replaces": {
+    "stand_in": "MoonMaiden",
+    "reason": "HarshWilds .audit/summary.md m5: base-game stand-in art"
+  }
+}

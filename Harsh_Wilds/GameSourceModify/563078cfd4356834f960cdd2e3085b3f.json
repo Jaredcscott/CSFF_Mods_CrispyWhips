@@ -1,0 +1,5 @@
+{
+    "//FairyStone": "Vanilla NOT_USED_FairyStone, the Fairy Stone this mod hands out (Fairy Ring 'Pick Toadstools', the Faerie Realm's 'Wander', the Fairy King's bargain) and takes back (the Threshold Stone and Fairy Ring offerings). The game ships it with no card art (EA 0.69e: CardImageWarpData is null in the export and no FairyStone sprite exists), so it gets this mod's picture. Audit CRITICAL C2, 2026-11-13.",
+    "CardImageWarpData": "hw_fairy_stone",
+    "CardImageWarpType": 3
+}
