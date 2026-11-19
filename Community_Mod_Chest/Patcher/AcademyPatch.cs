@@ -65,12 +65,18 @@ namespace CommunityModChest.Patcher
         private const float AccountMax = 1000f;
         private const float SessionHours = 2f;
 
-        private static string NoTuitionMessageFor(float price) =>
-            "Enrollment draws " + price.ToString("0") + " from the Tuition Account - deposit Salt, coins, or nuggets on the lectern first.";
-        private const string AlreadyGraduatedMessage =
-            "You have already completed this course.";
-        private const string IntroductionsFirstMessage =
-            "The Professor doesn't take students he hasn't met properly — present yourself to the Keeper at the Village Inn first.";
+        // Blocked-button tooltips. Each is a Localization/SimpEn.csv + SimpCn.csv row read through BlockedMessage
+        // (framework Api.Localized); the English here is the fallback and must equal the row's English column.
+        private static BlockedMessage NoTuitionMessageFor(float price) => new BlockedMessage(
+            "CMC_Academy_TuitionTooLow_BlockedMessage",
+            "Enrollment draws {0} from the Tuition Account - deposit Salt, coins, or nuggets on the lectern first.",
+            price.ToString("0"));
+        private static readonly BlockedMessage AlreadyGraduatedMessage = new BlockedMessage(
+            "CMC_Academy_AlreadyGraduated_BlockedMessage",
+            "You have already completed this course.");
+        private static readonly BlockedMessage IntroductionsFirstMessage = new BlockedMessage(
+            "CMC_Academy_IntroductionsFirst_BlockedMessage",
+            "The Professor doesn't take students he hasn't met properly: present yourself to the Keeper at the Village Inn first.");
 
         private sealed class CourseInfo
         {
@@ -485,13 +491,13 @@ namespace CommunityModChest.Patcher
                 string actionName = CardUtil.GetActionName(__instance);
                 if (!IsStudyAction(actionName)) return;
 
-                string message = BlockReason(actionName, __0);
-                if (message == null) return; // course affordable and not yet taken — leave untouched
+                BlockedMessage message = BlockReason(actionName, __0);
+                if (message.IsNone) return; // course affordable and not yet taken — leave untouched
 
                 // Don't clobber a message another mechanism may have already set this pass.
-                if (Reflect.GetMember(__instance, "ActionBlockedMessage") is string existing && !string.IsNullOrEmpty(existing)) return;
+                if (BlockedMessage.AlreadySetOn(__instance)) return;
 
-                Reflect.SetMember(__instance, "ActionBlockedMessage", message);
+                message.WriteTo(__instance);
             }
             catch (Exception ex)
             {
@@ -503,10 +509,10 @@ namespace CommunityModChest.Patcher
 
         /// <summary>Why this Study/Final Exam action is blocked right now, or null if
         /// allowed. Every session — including the final exam — draws 100 tuition.</summary>
-        private static string BlockReason(string actionName, object lecternCard)
+        private static BlockedMessage BlockReason(string actionName, object lecternCard)
         {
             var course = CourseForAction(actionName);
-            if (course == null) return null;
+            if (course == null) return default;
 
             // PR-1 village phase gate (Event Timeline plan §2): study opens with the intro.
             if (!VillageClock.PhaseAtLeast(1f))
@@ -518,15 +524,15 @@ namespace CommunityModChest.Patcher
             if (!HasTuition(lecternCard))
                 return NoTuitionMessageFor(VillagePricing.Apply(TuitionPrice));
 
-            return null;
+            return default;
         }
 
         private static bool StudyGate(ActionContext ctx)
         {
-            string reason = BlockReason(ctx.ActionName, ctx.Card);
-            if (reason != null)
-                Plugin.Logger.LogDebug($"[AcademyPatch] '{ctx.ActionName}' blocked — {reason}");
-            return reason != null; // return true = cancel
+            BlockedMessage reason = BlockReason(ctx.ActionName, ctx.Card);
+            if (!reason.IsNone)
+                Plugin.Logger.LogDebug($"[AcademyPatch] '{ctx.ActionName}' blocked — {reason.EnglishText}");
+            return !reason.IsNone; // return true = cancel
         }
 
         // ── Tuition (drawn from the Tuition Account balance) ──────────────────

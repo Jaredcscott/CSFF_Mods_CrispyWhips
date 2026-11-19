@@ -28,8 +28,9 @@ namespace CommunityModChest.Patcher
     /// <c>InnOddJobDelivered</c>. Nothing here reaches VillagePricing or InnPatch.BalanceGate: the board is ungated
     /// by crime, so a Banished player keeps a way to raise restitution money, and both handlers are on
     /// VillagePricing.RestitutionHandlers (CMC-Round2.Tests.ps1 keeps it that way). The key prefix does not start
-    /// with any other counter prefix, and no action name contains one of InnPatch's four words (Night, Meal,
-    /// Deposit, Firewood).</para>
+    /// with any other counter prefix, and no action name contains Night, Meal, Deposit or Firewood: the words
+    /// InnPatch picked its own four actions by until 2026-11-12 (it matches exact action keys now; the job names
+    /// are still kept clear of them by CMC-Round2.Tests.ps1).</para>
     ///
     /// <para>Registration runs once per process from Plugin.Awake under an _initialized guard (CLAUDE.md
     /// "Per-Run Event Registration", pattern b).</para>

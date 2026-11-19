@@ -6,7 +6,7 @@
     },
     "Description": {
         "LocalizationKey": "CMC_ApothPowderProgress_StatDescription",
-        "DefaultText": "Hidden tracker for A2 (powders and dyes): 0 = not delivered, 1 = one of charcoal/dried flowers delivered, 2 = both delivered, ready to be thanked. Resets to 0 once thanked."
+        "DefaultText": "Hidden tracker for A2 (powders and dyes): 0 = not delivered, 1 = one of charcoal or dried heather flowers delivered, 2 = both delivered, ready to be thanked. Each ingredient counts once. It stays at 2 after the thanks; the quest chain stat closes the errand."
     },
     "IsRuntimeOnly": false,
     "BaseValue": 0.0,

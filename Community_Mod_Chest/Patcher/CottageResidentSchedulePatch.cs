@@ -588,6 +588,13 @@ namespace CommunityModChest.Patcher
         // Fires a named AgentAction with `associatedCard` as the receiving container — same
         // ToAction+PerformAction idiom ProfessorSchedulePatch.FireAgentAction and
         // CottageResidentSpawnPatch.FireAgentAction each already carry their own copy of.
+        private static readonly HashSet<string> _fireWarned = new HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnFireOnce(string cause, string message)
+        {
+            if (_fireWarned.Add(cause)) Plugin.Logger.LogWarning(message);
+        }
+
         private static bool FireAgentAction(Resident resident, object npc, object associatedCard, string actionId)
         {
             if (_toActionMethod == null || _performActionMethod == null || _inGameNpcOrPlayerCtor == null)
@@ -600,7 +607,14 @@ namespace CommunityModChest.Patcher
                 return false;
             }
 
-            if (Reflect.GetMember(resident.Agent, "AgentActions") is not Array agentActions) return false;
+            // Both exits below warn once by cause, as PotterSchedulePatch.FireAgentAction does (residents G5):
+            // FireProduceStockIfDue reads a false as "not fired yet" and retries every tick without stamping
+            // the day, so a typo'd or dropped ActionID left the resident never restocking with nothing logged.
+            if (Reflect.GetMember(resident.Agent, "AgentActions") is not Array agentActions)
+            {
+                WarnFireOnce("produce-actions-" + resident.Name, $"[CottageResidentSchedulePatch] {resident.Name}'s AgentActions could not be read (renamed by a game update?), so '{actionId}' was not fired. Logged once.");
+                return false;
+            }
             object matched = null;
             foreach (var action in agentActions)
             {
@@ -610,7 +624,11 @@ namespace CommunityModChest.Patcher
                     break;
                 }
             }
-            if (matched == null) return false;
+            if (matched == null)
+            {
+                WarnFireOnce("produce-action-" + actionId, $"[CottageResidentSchedulePatch] No AgentAction with ActionID '{actionId}' on {resident.Name}'s agent JSON; it was not fired. Logged once per action.");
+                return false;
+            }
 
             try
             {
@@ -692,7 +710,13 @@ namespace CommunityModChest.Patcher
 
         private static void SyncPortrait(object npc, Resident resident)
         {
-            if (_setCardImageMethod == null) return;
+            if (_setCardImageMethod == null)
+            {
+                // Resolved once in ResolveTypes with no log on a miss (G5); the Potter's twin warns
+                // the same way (PotterSchedulePatch.SyncPortrait).
+                WarnFireOnce("set-card-image", "[CottageResidentSchedulePatch] CardData.SetCardImage(Sprite) not found (game update?), so the Miller's and the Weaver's cards keep one picture wherever they are. Logged once.");
+                return;
+            }
 
             var portrait = ActualPortrait(npc, resident);
             if (portrait == Portrait.None || portrait == resident.LastPortrait) return;

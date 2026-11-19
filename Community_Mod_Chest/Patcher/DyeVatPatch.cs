@@ -196,10 +196,11 @@ namespace CommunityModChest.Patcher
 
                     // SetModel does not reset durabilities: capture, swap, write back.
                     var carried = new Dictionary<string, float>();
+                    object plainModel = CardUtil.GetCardData(garment);
                     foreach (var stat in CardUtil.AllDurabilityStats)
                     {
                         float value = CardUtil.GetDurability(garment, stat);
-                        if (!float.IsNaN(value) && value != 0f) carried[stat] = value;
+                        if (ShouldCarry(value, value == 0f && StatIsActive(plainModel, stat))) carried[stat] = value;
                     }
 
                     if (!CardUtil.TransformCardInPlace(garment, dyedUid))
@@ -251,6 +252,37 @@ namespace CommunityModChest.Patcher
                 return;
             }
             setup.Invoke(popup, new object[] { "", line.Trim(), null });
+        }
+
+        /// <summary>
+        /// Whether a durability reading taken off the plain garment is written back onto the dyed one. Pure.
+        /// An unreadable stat (NaN) is never carried and a non-zero reading always is. A reading of exactly 0
+        /// is carried only when the caller says the plain garment actually HAS that stat
+        /// (<paramref name="zeroIsReal"/>): the flat runtime value of a stat the card does not use is 0 too.
+        ///
+        /// <para>Until 2026-11-12 the test was <c>value != 0f</c> (apparel I, the falsy-zero shape): a stat
+        /// the garment has, sitting at a real 0, was read as "no stat" and never written back, so the swap
+        /// left the dyed card's default there and dyeing reset it. A 0 on a stat the garment does not have
+        /// still stays out, because writing it onto a dyed form that does use the stat would start that form
+        /// at zero.</para>
+        /// </summary>
+        internal static bool ShouldCarry(float value, bool zeroIsReal)
+        {
+            if (float.IsNaN(value)) return false;
+            return value != 0f || zeroIsReal;
+        }
+
+        /// <summary>Whether the card's own definition has this durability stat switched on
+        /// (<c>CardData.&lt;stat&gt;.Active</c>). False, with one warning naming the member, when it cannot be
+        /// read: a 0 reading is then left out, which is what this code did before.</summary>
+        private static bool StatIsActive(object model, string stat)
+        {
+            if (model == null) return false;
+            if (Reflect.TryGetMember(model, stat, out var durability) && durability != null
+                && Reflect.TryGetMember(durability, "Active", out var active) && active is bool on)
+                return on;
+            WarnOnce("stat-active-unreadable", $"[DyeVatPatch] {model.GetType().Name}.{stat}.Active could not be read (renamed by a game update?), so a dyed garment whose stat reads exactly 0 takes the dyed card's default for it. Logged once.");
+            return false;
         }
 
         private static void WarnOnce(string cause, string message)

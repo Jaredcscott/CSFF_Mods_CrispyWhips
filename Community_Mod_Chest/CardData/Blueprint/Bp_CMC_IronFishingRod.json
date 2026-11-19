@@ -14,7 +14,7 @@
   "UnlockConditionsDesc": {
     "ParentObjectID": "BpCMCIronFishingRod",
     "LocalizationKey": "Bp_CMC_IronFishingRod_UnlockConditionsDesc",
-    "DefaultText": "Iron Fishing Rod Fittings Needed"
+    "DefaultText": "Graduate the Academy's Fishing course"
   },
   "BuildingStatConditions": [],
   "StartUnlocked": false,

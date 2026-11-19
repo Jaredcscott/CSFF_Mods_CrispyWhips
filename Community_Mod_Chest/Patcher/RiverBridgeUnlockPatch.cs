@@ -174,8 +174,12 @@ internal static class RiverBridgeUnlockPatch
                     BindingFlags.Instance | BindingFlags.Public);
                 if (completeMethod == null)
                 {
-                    Plugin.Logger.LogDebug("[RiverBridgeUnlock] CompleteAlreadySpawnedBridge: " +
-                        "InGameCardBase.CompleteImprovement not found — skipping.");
+                    // Warning, not Debug (BepInEx hides Debug by default): a renamed method would
+                    // leave the perk holder's bridge unbuilt with nothing in the log. This runs
+                    // once per run start, so it cannot repeat every tick.
+                    Plugin.Logger.LogWarning("[RiverBridgeUnlock] InGameCardBase.CompleteImprovement not found " +
+                        "(game update?): a River Bridge already on the board is not completed for the " +
+                        "Village Pathfinder perk holder.");
                     continue;
                 }
 
@@ -186,7 +190,8 @@ internal static class RiverBridgeUnlockPatch
         }
         catch (Exception ex)
         {
-            Plugin.Logger.LogDebug($"[RiverBridgeUnlock] CompleteAlreadySpawnedBridge: reflection scan threw: {ex}");
+            Plugin.Logger.LogWarning("[RiverBridgeUnlock] completing a River Bridge already on the board failed: " +
+                $"{ex.InnerException?.ToString() ?? ex.ToString()}");
             return false;
         }
     }

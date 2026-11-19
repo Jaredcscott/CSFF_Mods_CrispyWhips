@@ -24,7 +24,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.70.2";
+    public const string PluginVersion = "1.70.3";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }
@@ -53,7 +53,9 @@ internal class Plugin : ContentModPlugin
             false,
             "Keeps re-logging each Town Guard's duty list, weight, and the engine's own " +
             "NPCDutySelectionInfo.GetNotSelectableReport() every poll while tuning patrols. Off by " +
-            "default; a ONE-SHOT report per guard is always logged at Info regardless of this flag.");
+            "default; a ONE-SHOT report per guard is always logged at Info regardless of this flag. " +
+            "Also turns on the [GuardCombatDiag] line: the Attack/Defense/wound breakdown of every enemy " +
+            "attack round in any fight. Read once at game start, so relaunch the game after changing it.");
         EnableJailSafetyNet = Config.Bind(
             "Debug",
             "EnableJailSafetyNet",
@@ -260,7 +262,18 @@ internal class Plugin : ContentModPlugin
         // TEMP diagnostic (2026-08-14) — player report: guard "hits" land no real damage. Logs
         // the live Attack/Defense/WoundSeverity breakdown for every enemy attack round. Remove or
         // demote to LogDebug once the root cause is confirmed and fixed.
-        TryApply("GuardCombatDiagnosticPatch", () => GuardCombatDiagnosticPatch.Initialize());
+        // Behind EnableGuardDiagnostics since 2026-11-12 (modwide A10): it logged an Info line for every enemy
+        // attack round of EVERY fight in the game. It is still the confirmation signal of the open retro
+        // Documentation/Retrospectives/cmc-guard-combat-no-damage.md, so it is gated, not deleted: turn the
+        // flag on and relaunch the game (a .cfg edit is read once, at plugin start) before playing T4.35.
+        if (EnableGuardDiagnostics.Value)
+        {
+            TryApply("GuardCombatDiagnosticPatch", () => GuardCombatDiagnosticPatch.Initialize());
+        }
+        else
+        {
+            Logger.LogDebug("[Plugin] Guard combat diagnostic not registered (EnableGuardDiagnostics=false).");
+        }
         // The Village Jail (§10.8.7) — sentencing, the daily sentence decrement (without which
         // the cell is a softlock) and the warden-absence window. MUST initialize after
         // GuardOutcomePatch: it subscribes to that class's ArrestPendingRaised event.

@@ -91,6 +91,7 @@ namespace CommunityModChest.Patcher
         private static MethodInfo _findNpcMethod;
         private static MethodInfo _hasStatMethod;
         private static MethodInfo _getStatValueMethod;
+        private static bool _npcStatMethodsWarned;
         private static readonly Dictionary<string, object> _statCache = new(StringComparer.Ordinal);
 
         public static void Initialize()
@@ -233,7 +234,20 @@ namespace CommunityModChest.Patcher
 
         private static void MirrorTrust(object gm, TrustMirror mirror)
         {
-            if (!ResolveNpcStatMethods()) return;
+            if (!ResolveNpcStatMethods())
+            {
+                // The invoke failures below are logged, but a method that no longer resolves never
+                // reaches them (G5): without this line the trust-gated quest blueprints stay locked
+                // with nothing in the log.
+                if (!_npcStatMethodsWarned)
+                {
+                    _npcStatMethodsWarned = true;
+                    Plugin.Logger.LogWarning("[QuestChainSchedulePatch] trust mirror inactive (game update?): " +
+                        $"GameManager.FindNPC found={_findNpcMethod != null}, InGameNPC.HasStat found={_hasStatMethod != null}, " +
+                        $"InGameNPC.GetStatValue found={_getStatValueMethod != null}. The quest blueprints gated on a resident's trust stay locked until all three resolve. Logged once.");
+                }
+                return;
+            }
 
             var agentSo = StatRef(mirror.AgentUid);
             var npcStatSo = StatRef(mirror.NpcStatUid);

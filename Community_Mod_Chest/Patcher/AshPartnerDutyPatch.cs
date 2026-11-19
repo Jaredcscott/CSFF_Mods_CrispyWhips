@@ -61,19 +61,39 @@ namespace CommunityModChest.Patcher
 
         private static bool ResolveTypes()
         {
-            if (_uidType != null) return true;
+            // Resolved means the LAST handle is in hand. This tested _uidType until 2026-11-12, so a poll after a
+            // partial resolve (the first type found, a later one or GetFromID missing) returned true and
+            // EnsureDutiesBuilt then threw on the null handle every 2 s.
+            if (_getFromIdMethod != null) return true;
 
             _uidType = CardUtil.FindGameType("UniqueIDScriptable");
             _statValueTriggerType = CardUtil.FindGameType("StatValueTrigger");
             _cardDataType = CardUtil.FindGameType("CardData");
 
             if (_uidType == null || _statValueTriggerType == null || _cardDataType == null)
+            {
+                // Name the first one that did not resolve (companions G5): FindGameType is silent on a plain
+                // not-found, and AshPartnerSpawnPatch waits on DutiesReady, so without this line a renamed type
+                // meant the spike never spawned with nothing to say which type moved.
+                string missing = _uidType == null ? "UniqueIDScriptable"
+                    : _statValueTriggerType == null ? "StatValueTrigger" : "CardData";
+                WarnResolveOnce("type:" + missing, $"game type '{missing}' not found (renamed by a game update?); the Ash Partner duties are not built, so the spike never spawns.");
                 return false;
+            }
 
             _getFromIdMethod = _uidType.GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .FirstOrDefault(m => m.Name == "GetFromID" && !m.IsGenericMethodDefinition
                     && m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == typeof(string));
+            if (_getFromIdMethod == null)
+                WarnResolveOnce("method:GetFromID", "UniqueIDScriptable.GetFromID(string) not found (renamed or re-typed by a game update?); the Ash Partner duties are not built, so the spike never spawns.");
             return _getFromIdMethod != null;
+        }
+
+        private static readonly System.Collections.Generic.HashSet<string> _resolveWarned = new System.Collections.Generic.HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnResolveOnce(string cause, string message)
+        {
+            if (_resolveWarned.Add(cause)) Plugin.Logger.LogWarning("[AshPartnerDutyPatch] " + message + " Logged once.");
         }
 
         private static void EnsureDutiesBuilt()

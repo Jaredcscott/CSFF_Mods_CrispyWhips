@@ -83,7 +83,9 @@ namespace CommunityModChest.Patcher
         // a one-shot commission BP; the day-gated one needs its day-count check bridged into an
         // NPCStat the same way BridgeNews bridges CardUtil.IsImprovementBuilt. The subject-gated
         // task reuses the existing cmcStatProfEligibleHerbalism eligibility stat directly — no new
-        // bridge needed since course graduation is already mirrored there.
+        // bridge needed since course graduation is already mirrored there. (True only since 2026-11-12:
+        // the stat used to carry a satchel-room term as well, which hid this task and the course
+        // acknowledgment lines whenever he was stocked. See CourseStatEligible.)
         private const string FieldSamplesReadyStatUid = "cmcStatProfFieldSamplesReady"; // one-shot day latch
         private const int FieldSamplesUnlockDay = 10;
 
@@ -603,7 +605,7 @@ namespace CommunityModChest.Patcher
                     Plugin.Logger.LogDebug($"[ProfessorSchedulePatch] satchel={heldCount}, phase={(phase < 0.5f ? "Foraging" : "Resident")}, withPlayer={SharesPlayerEnv(npc)}.");
                 }
 
-                SyncCourseEligibility(npc, associatedCard, phase);
+                SyncCourseEligibility(npc, phase);
                 SyncNarrativeStats(npc);
 
                 if (QuietVillagePerkPatch.IsActive())
@@ -760,26 +762,33 @@ namespace CommunityModChest.Patcher
             return _hasCourseCache[courseIndex];
         }
 
-        private static void SyncCourseEligibility(object npc, object associatedCard, float phase)
+        /// <summary>
+        /// What <c>cmcStatProfEligible&lt;Course&gt;</c> reads: the Professor is in his Resident phase and the
+        /// player has passed the course. Pure, so the gate can pin it.
+        ///
+        /// <para>It deliberately carries NO satchel term (academy G3, 2026-11-12). Until then it also needed
+        /// "he holds fewer than <see cref="SpecialtyCap"/> of this course's stock", and because the same stat
+        /// gates the "I passed your course" acknowledgment lines (<c>CMC_ProfessorGreeting_Menu.json</c>) and
+        /// the Applied Herbalism commission (<c>Bp_CMC_ProfAppliedHerbalism.json</c>), both vanished the tick
+        /// he was stocked. The stock cap never depended on this stat: his specialty stock is fired only from
+        /// <see cref="FireSpecialtyStock"/> (the JSON actions are OnlyWhenTriggered and nothing triggers them;
+        /// <c>NPCAction.ToAction</c> does not read an action's Conditions), which counts his held stock and
+        /// applies <see cref="SpecialtyHasRoom"/> itself.</para>
+        /// </summary>
+        internal static bool CourseStatEligible(bool resident, bool graduated) => resident && graduated;
+
+        /// <summary>Whether he may be handed one more specialty item of a course. Pure. The ONLY place the
+        /// stock cap is applied.</summary>
+        internal static bool SpecialtyHasRoom(int held) => held < SpecialtyCap;
+
+        private static void SyncCourseEligibility(object npc, float phase)
         {
             bool resident = phase >= 0.5f;
-            List<object> heldCards = null;
 
             for (int i = 0; i < Courses.Length; i++)
             {
                 var course = Courses[i];
-                bool eligible = false;
-                if (resident && HasCourseCached(i))
-                {
-                    heldCards ??= Inventory.Cards(associatedCard);
-                    int held = 0;
-                    foreach (var card in heldCards)
-                    {
-                        var uid = CardUtil.GetCardUniqueId(card);
-                        if (uid != null && course.PoolUids.Contains(uid)) held++;
-                    }
-                    eligible = held < SpecialtyCap;
-                }
+                bool eligible = CourseStatEligible(resident, resident && HasCourseCached(i));
 
                 var stat = ResolveNpcStat(course.StatUid);
                 if (stat == null) continue;
@@ -869,7 +878,13 @@ namespace CommunityModChest.Patcher
         /// </summary>
         private static void SyncPortrait(object npc)
         {
-            if (_setCardImageMethod == null) return;
+            if (_setCardImageMethod == null)
+            {
+                // Resolved once in ResolveTypes with no log on a miss (G5): a renamed method would
+                // leave the Professor on his boot-time art everywhere with nothing in the log.
+                WarnOnce("set-card-image", "[ProfessorSchedulePatch] CardData.SetCardImage(Sprite) not found (game update?), so the Professor's card keeps one picture wherever he is. Logged once.");
+                return;
+            }
 
             var currentEnv = ReadOrWarn(npc, "CurrentEnvironment");
             if (currentEnv == null || ReadOrWarn(currentEnv, "IsNull") is true) return;
@@ -896,11 +911,14 @@ namespace CommunityModChest.Patcher
                 return;
             }
 
-            Reflect.SetMember(_agent, "AgentImage", sprite);
-            ApplyCardImage(Reflect.GetMember(npc, "ModelCard"), sprite);
-            ApplyCardImage(Reflect.GetMember(npc, "CommissionsModelCard"), sprite);
-            RefreshCardVisuals(Reflect.GetMember(npc, "AssociatedCard"));
-            RefreshCardVisuals(Reflect.GetMember(npc, "CommissionsAssociatedCard"));
+            // Each by-name member below warns once when it stops resolving (G5); a card that is
+            // simply absent (null) stays silent.
+            if (!Reflect.SetMember(_agent, "AgentImage", sprite))
+                WarnOnce("agent-image-write", "[ProfessorSchedulePatch] NPCAgent.AgentImage could not be written (game update?), so the Professor's dialog and trading portrait keeps its first picture. Logged once.");
+            ApplyCardImage(ReadOrWarn(npc, "ModelCard"), sprite);
+            ApplyCardImage(ReadOrWarn(npc, "CommissionsModelCard"), sprite);
+            RefreshCardVisuals(ReadOrWarn(npc, "AssociatedCard"));
+            RefreshCardVisuals(ReadOrWarn(npc, "CommissionsAssociatedCard"));
             _lastPortrait = portrait;
         }
 
@@ -935,6 +953,11 @@ namespace CommunityModChest.Patcher
             if (visuals == null) return;
             _refreshVisualsMethod ??= visuals.GetType().GetMethod("RefreshCookingStatus",
                 BindingFlags.Public | BindingFlags.Instance, null, Type.EmptyTypes, null);
+            if (_refreshVisualsMethod == null)
+            {
+                WarnOnce("refresh-visuals", $"[ProfessorSchedulePatch] {visuals.GetType().Name}.RefreshCookingStatus() not found (game update?), so a Professor card already on the board keeps its old picture until it is redrawn. Logged once.");
+                return;
+            }
             // Destroyed-but-not-null Unity objects throw inside — harmless to swallow here;
             // the next real render reads CurrentArt (and thus the new image) anyway.
             try { _refreshVisualsMethod?.Invoke(visuals, null); }
@@ -1096,7 +1119,7 @@ namespace CommunityModChest.Patcher
                     var uid = CardUtil.GetCardUniqueId(card);
                     if (uid != null && Courses[i].PoolUids.Contains(uid)) held++;
                 }
-                if (held >= SpecialtyCap) continue;
+                if (!SpecialtyHasRoom(held)) continue;
 
                 FireAgentAction(npc, associatedCard, SpecialtyActionIds[i]);
             }

@@ -56,6 +56,7 @@ namespace CommunityModChest.Patcher
                 if (gm == null) return;
 
                 int existing = CountBoards(gm);
+                if (existing < 0) return; // the card list is unreadable (CountBoards said why): spawn nothing
                 if (existing > 0)
                 {
                     if (existing > 1)
@@ -83,11 +84,25 @@ namespace CommunityModChest.Patcher
             }
         }
 
+        private static bool _allCardsWarned;
+
         /// <summary>Counts every current-board card matching <see cref="BoardUid"/> — never stops
         /// at the first match, so a genuine duplicate is detected and logged rather than masked.</summary>
         private static int CountBoards(object gm)
         {
-            if (Reflect.GetMember(gm, "AllCards") is not IEnumerable allCards) return 0;
+            // A GameManager whose AllCards no longer reads as a list is a game-update rename, not an empty board.
+            // It used to count 0 here, and the caller answers 0 by spawning a board: one more every poll, since
+            // the placed latch only sets once a board is counted. -1 makes the caller stand down, and the cause
+            // is said once (achievements G5).
+            if (!Reflect.TryGetMember(gm, "AllCards", out var cards) || cards is not IEnumerable allCards)
+            {
+                if (!_allCardsWarned)
+                {
+                    _allCardsWarned = true;
+                    Plugin.Logger.LogWarning("[AchievementBoardSeedPatch] GameManager.AllCards did not resolve to a list (renamed by a game update?); the Town Achievement Board cannot be counted, so none is backfilled. Logged once.");
+                }
+                return -1;
+            }
             int count = 0;
             foreach (var card in allCards)
             {

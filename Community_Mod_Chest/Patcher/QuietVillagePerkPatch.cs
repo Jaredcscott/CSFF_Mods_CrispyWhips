@@ -72,6 +72,14 @@ namespace CommunityModChest.Patcher
             Plugin.Logger.LogDebug("[QuietVillagePerkPatch] initialized.");
         }
 
+        // One latch per cause, the idiom of this module's TraitCompositeResyncPatch (traits G5, 2026-11-12).
+        private static readonly HashSet<string> _warned = new HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning("[QuietVillagePerkPatch] " + message + " Logged once.");
+        }
+
         private static bool ResolveGetFromId()
         {
             if (_getFromIdMethod != null) return true;
@@ -95,25 +103,56 @@ namespace CommunityModChest.Patcher
             {
                 bool active = IsActive();
                 if (_appliedSuppressed == active) return;
-                if (!ResolveGetFromId()) return;
+                if (!ResolveGetFromId())
+                {
+                    WarnOnce("getfromid-missing", "UniqueIDScriptable.GetFromID(string) not found (renamed by a game update?): the Miller's and Weaver's work duty is never suppressed or restored.");
+                    return;
+                }
 
                 int targetWeight = active ? SuppressedWorkWeight : CottageResidentWorkDutyPatch.WorkBaseWeight;
                 bool allResolved = true;
+                // An agent that does not resolve is normal until the game data has loaded; once a run is up it is
+                // a drifted UID, and only then worth a line.
+                bool inRun = CardUtil.GetGameManagerInstance() != null;
 
                 foreach (var agentUid in ResidentWorkAgentUids)
                 {
                     var agent = _getFromIdMethod.Invoke(null, new object[] { agentUid });
-                    if (agent == null) { allResolved = false; continue; }
+                    if (agent == null)
+                    {
+                        if (inRun) WarnOnce("agent-missing:" + agentUid, $"NPCAgent '{agentUid}' did not resolve in a running game: its work duty is never suppressed or restored.");
+                        allResolved = false;
+                        continue;
+                    }
 
-                    if (Reflect.GetMember(agent, "AgentDuties") is not Array duties) { allResolved = false; continue; }
+                    // A missing member is a game-update rename (said once); a present but unbuilt list is the
+                    // normal wait for CottageResidentWorkDutyPatch and stays quiet.
+                    if (!Reflect.TryGetMember(agent, "AgentDuties", out var dutiesValue))
+                    {
+                        WarnOnce("agentduties-unresolved", $"{agent.GetType().Name}.AgentDuties did not resolve (renamed by a game update?): the Miller's and Weaver's work duty is never suppressed or restored.");
+                        allResolved = false;
+                        continue;
+                    }
+                    if (dutiesValue is not Array duties) { allResolved = false; continue; }
                     if (duties.Length == 0) { allResolved = false; continue; } // CottageResidentWorkDutyPatch hasn't built it yet
 
                     foreach (var dutyRef in duties)
                     {
                         if (dutyRef == null) continue;
-                        var weights = Reflect.GetMember(dutyRef, "PreferenceWeights");
+                        if (!Reflect.TryGetMember(dutyRef, "PreferenceWeights", out var weights))
+                        {
+                            WarnOnce("preferenceweights-unresolved", $"{dutyRef.GetType().Name}.PreferenceWeights did not resolve (renamed by a game update?): the work duty weight for '{agentUid}' is not written.");
+                            allResolved = false;
+                            continue;
+                        }
                         if (weights == null) continue;
-                        Reflect.SetMember(weights, "BaseWeight", targetWeight);
+                        // The write result decides the latch below (traits G5): a refused write used to latch
+                        // _appliedSuppressed and log success, so the perk did nothing and never retried.
+                        if (!Reflect.SetMember(weights, "BaseWeight", targetWeight))
+                        {
+                            WarnOnce("baseweight-write-refused", $"{weights.GetType().Name}.BaseWeight could not be written (renamed by a game update?): the work duty weight for '{agentUid}' stays as it was, and this is retried every poll.");
+                            allResolved = false;
+                        }
                     }
                 }
 

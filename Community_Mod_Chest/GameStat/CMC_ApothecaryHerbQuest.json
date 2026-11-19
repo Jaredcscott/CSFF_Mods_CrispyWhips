@@ -6,7 +6,7 @@
     },
     "Description": {
         "LocalizationKey": "CMC_ApothecaryHerbQuest_StatDescription",
-        "DefaultText": "Hidden tracker: 0 = not offered, 0.5 = accepted, then +1 per fresh herb delivered (billberries, springberries, spirit mushrooms); 3.5 = all three in, 4.5 = thanked and cleared."
+        "DefaultText": "Hidden tracker: 0 = not offered, 0.5 = accepted, then +1 per kind of fresh herb delivered, each kind once (billberries, springberries, spirit mushrooms); 3.5 = all three in, 4.5 = thanked and cleared."
     },
     "IsRuntimeOnly": false,
     "BaseValue": 0.0,

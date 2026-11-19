@@ -20,7 +20,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_traderfound_locked_Name",
-        "DefaultText": "Finding a Friend — unclaimed"
+        "DefaultText": "Finding a Friend - unclaimed"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_traderfound_locked_Desc",
@@ -50,7 +50,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_traderfound_earned_Name",
-        "DefaultText": "Finding a Friend — earned"
+        "DefaultText": "Finding a Friend - earned"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_traderfound_earned_Desc",
@@ -80,7 +80,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_fullkit_locked_Name",
-        "DefaultText": "Full Kit — unclaimed"
+        "DefaultText": "Full Kit - unclaimed"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_fullkit_locked_Desc",
@@ -110,11 +110,11 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_fullkit_earned_Name",
-        "DefaultText": "Full Kit — earned"
+        "DefaultText": "Full Kit - earned"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_fullkit_earned_Desc",
-        "DefaultText": "Axe, pickaxe, hoe, knife, shovel, sickle — a full metal kit, ready for anything."
+        "DefaultText": "Axe, pickaxe, hoe, knife, shovel, sickle: a full metal kit, ready for anything."
       },
       "DaytimeCost": 0,
       "UseMiniTicks": 0,
@@ -140,7 +140,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_bearslain_locked_Name",
-        "DefaultText": "Right to Bear Arms — unclaimed"
+        "DefaultText": "Right to Bear Arms - unclaimed"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_bearslain_locked_Desc",
@@ -170,7 +170,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_bearslain_earned_Name",
-        "DefaultText": "Right to Bear Arms — earned"
+        "DefaultText": "Right to Bear Arms - earned"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_bearslain_earned_Desc",
@@ -200,7 +200,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_hunter_locked_Name",
-        "DefaultText": "Master Hunter — unclaimed"
+        "DefaultText": "Master Hunter - unclaimed"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_hunter_locked_Desc",
@@ -230,7 +230,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_hunter_earned_Name",
-        "DefaultText": "Master Hunter — earned"
+        "DefaultText": "Master Hunter - earned"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_hunter_earned_Desc",
@@ -260,7 +260,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_explorer_locked_Name",
-        "DefaultText": "Forest Explorer — unclaimed"
+        "DefaultText": "Forest Explorer - unclaimed"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_explorer_locked_Desc",
@@ -290,7 +290,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_explorer_earned_Name",
-        "DefaultText": "Forest Explorer — earned"
+        "DefaultText": "Forest Explorer - earned"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_explorer_earned_Desc",
@@ -320,7 +320,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_yearsurvived_locked_Name",
-        "DefaultText": "Happy New Year — unclaimed"
+        "DefaultText": "Happy New Year - unclaimed"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_yearsurvived_locked_Desc",
@@ -350,7 +350,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_yearsurvived_earned_Name",
-        "DefaultText": "Happy New Year — earned"
+        "DefaultText": "Happy New Year - earned"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_yearsurvived_earned_Desc",
@@ -380,7 +380,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_angler_locked_Name",
-        "DefaultText": "Master Angler — unclaimed"
+        "DefaultText": "Master Angler - unclaimed"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_angler_locked_Desc",
@@ -410,7 +410,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_angler_earned_Name",
-        "DefaultText": "Master Angler — earned"
+        "DefaultText": "Master Angler - earned"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_angler_earned_Desc",
@@ -440,7 +440,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_spelunker_locked_Name",
-        "DefaultText": "Spelunker — unclaimed"
+        "DefaultText": "Spelunker - unclaimed"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_spelunker_locked_Desc",
@@ -470,7 +470,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_spelunker_earned_Name",
-        "DefaultText": "Spelunker — earned"
+        "DefaultText": "Spelunker - earned"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_spelunker_earned_Desc",
@@ -500,7 +500,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_shaman_locked_Name",
-        "DefaultText": "Master Shaman — unclaimed"
+        "DefaultText": "Master Shaman - unclaimed"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_shaman_locked_Desc",
@@ -530,7 +530,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_shaman_earned_Name",
-        "DefaultText": "Master Shaman — earned"
+        "DefaultText": "Master Shaman - earned"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_shaman_earned_Desc",
@@ -560,7 +560,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_noisemax_locked_Name",
-        "DefaultText": "Spiritual Overcrowding — unclaimed"
+        "DefaultText": "Spiritual Overcrowding - unclaimed"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_noisemax_locked_Desc",
@@ -590,7 +590,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_noisemax_earned_Name",
-        "DefaultText": "Spiritual Overcrowding — earned"
+        "DefaultText": "Spiritual Overcrowding - earned"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_noisemax_earned_Desc",
@@ -620,7 +620,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_stinkyjar_locked_Name",
-        "DefaultText": "Stinky Jar — unclaimed"
+        "DefaultText": "Stinky Jar - unclaimed"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_stinkyjar_locked_Desc",
@@ -650,7 +650,7 @@
     {
       "ActionName": {
         "LocalizationKey": "CMC_BoardAchievements_DA_stinkyjar_earned_Name",
-        "DefaultText": "Stinky Jar — earned"
+        "DefaultText": "Stinky Jar - earned"
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_BoardAchievements_DA_stinkyjar_earned_Desc",

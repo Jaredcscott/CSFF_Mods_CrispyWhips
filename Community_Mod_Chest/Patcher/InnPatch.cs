@@ -43,8 +43,26 @@ namespace CommunityModChest.Patcher
         internal const string FirewoodCountStatUid = "cmcStatInnFirewoodCount";
         internal const int FirewoodPerSalt = 4;
 
-        private static string NoBalanceMessageFor(float price) =>
-            "Inn account balance too low - deposit Salt, coins, or nuggets on the counter. This costs " + price.ToString("0") + ".";
+        // Blocked-button tooltips. Each is a Localization/SimpEn.csv + SimpCn.csv row read through BlockedMessage
+        // (framework Api.Localized); the English here is the fallback and must equal the row's English column.
+        private static BlockedMessage NoBalanceMessageFor(float price) => new BlockedMessage(
+            "CMC_Inn_BalanceTooLow_BlockedMessage",
+            "Inn account balance too low - deposit Salt, coins, or nuggets on the counter. This costs {0}.",
+            price.ToString("0"));
+
+        private static BlockedMessage RoomAlreadyRentedMessage() => new BlockedMessage(
+            "CMC_Inn_RoomAlreadyRented_BlockedMessage",
+            "You already have a room: sleep in the Rented Bed.");
+
+        // The counter's four C#-handled actions, by ActionName.LocalizationKey (CardData/Location/CMC_InnCounter.json).
+        // Matched exactly, like every other handler on this card (InnWagerPatch, InnOddJobPatch, InnEveningPatch
+        // dispatch by key): until 2026-11-12 (inn W1) these four matched a word inside the English display name
+        // ("Night", "Meal", "Deposit", "Firewood"), so a new counter action whose name merely contained one of
+        // those words would have been charged, gated or counted as the wrong thing.
+        internal const string SleepActionKey        = "CMC_InnCounter_DA_Sleep";
+        internal const string MealActionKey         = "CMC_InnCounter_DA_Meal";
+        internal const string DepositActionKey      = "CMC_InnCounter_CI_Deposit";
+        internal const string FirewoodSellActionKey = "CMC_InnCounter_CI_SellFirewood";
 
         private static bool _initialized;
 
@@ -75,7 +93,7 @@ namespace CommunityModChest.Patcher
             ActionRouter.Register(new ActionHandler
             {
                 Name          = "InnSleepGate",
-                CardPredicate = ctx => ctx.CardUid == CounterUid && IsSleepAction(ctx.ActionName),
+                CardPredicate = ctx => ctx.CardUid == CounterUid && IsSleepAction(ctx.ActionKey),
                 Timing        = ActionTiming.Cancel,
                 // One room at a time: a Rented Bed already on this board refuses a second rental.
                 Before        = ctx => RentedBedOnBoard() || BalanceGate(ctx, SleepPrice),
@@ -84,7 +102,7 @@ namespace CommunityModChest.Patcher
             ActionRouter.Register(new ActionHandler
             {
                 Name          = "InnMealGate",
-                CardPredicate = ctx => ctx.CardUid == CounterUid && IsMealAction(ctx.ActionName),
+                CardPredicate = ctx => ctx.CardUid == CounterUid && IsMealAction(ctx.ActionKey),
                 Timing        = ActionTiming.Cancel,
                 Before        = ctx => BalanceGate(ctx, MealPrice),
             });
@@ -93,7 +111,7 @@ namespace CommunityModChest.Patcher
             ActionRouter.Register(new ActionHandler
             {
                 Name          = "InnSleepConsume",
-                CardPredicate = ctx => ctx.CardUid == CounterUid && IsSleepAction(ctx.ActionName),
+                CardPredicate = ctx => ctx.CardUid == CounterUid && IsSleepAction(ctx.ActionKey),
                 Timing        = ActionTiming.AfterWrapped,
                 After         = ctx => DeductBalance(ctx, SleepPrice),
             });
@@ -101,7 +119,7 @@ namespace CommunityModChest.Patcher
             ActionRouter.Register(new ActionHandler
             {
                 Name          = "InnMealConsume",
-                CardPredicate = ctx => ctx.CardUid == CounterUid && IsMealAction(ctx.ActionName),
+                CardPredicate = ctx => ctx.CardUid == CounterUid && IsMealAction(ctx.ActionKey),
                 Timing        = ActionTiming.AfterWrapped,
                 After         = ctx => DeductBalance(ctx, MealPrice),
             });
@@ -112,7 +130,7 @@ namespace CommunityModChest.Patcher
             ActionRouter.Register(new ActionHandler
             {
                 Name          = "InnDepositGate",
-                CardPredicate = ctx => ctx.CardUid == CounterUid && IsDepositAction(ctx.ActionName),
+                CardPredicate = ctx => ctx.CardUid == CounterUid && IsDepositAction(ctx.ActionKey),
                 Timing        = ActionTiming.Cancel,
                 Before        = DepositGate,
             });
@@ -125,7 +143,7 @@ namespace CommunityModChest.Patcher
             ActionRouter.Register(new ActionHandler
             {
                 Name          = "InnDepositApply",
-                CardPredicate = ctx => ctx.CardUid == CounterUid && IsDepositAction(ctx.ActionName),
+                CardPredicate = ctx => ctx.CardUid == CounterUid && IsDepositAction(ctx.ActionKey),
                 Timing        = ActionTiming.Before,
                 Before        = DepositApply,
             });
@@ -134,7 +152,7 @@ namespace CommunityModChest.Patcher
             ActionRouter.Register(new ActionHandler
             {
                 Name          = "InnFirewoodSpawnSalt",
-                CardPredicate = ctx => ctx.CardUid == CounterUid && IsFirewoodSellAction(ctx.ActionName),
+                CardPredicate = ctx => ctx.CardUid == CounterUid && IsFirewoodSellAction(ctx.ActionKey),
                 Timing        = ActionTiming.AfterWrapped,
                 After         = FirewoodSpawnSalt,
             });
@@ -142,16 +160,15 @@ namespace CommunityModChest.Patcher
             Plugin.Logger.LogDebug("[InnPatch] initialized.");
         }
 
-        // ── Action name predicates ────────────────────────────────────────────
+        // ── Action key predicates (exact LocalizationKey, see the key constants above) ──
 
-        private static bool IsSleepAction(string name) =>
-            name != null && name.Contains("Night");
+        internal static bool IsSleepAction(string actionKey) =>
+            string.Equals(actionKey, SleepActionKey, StringComparison.Ordinal);
 
         // "Stay the Night" rents a room (plan 1.6, Nexus c178551927): it drops this bed on the Inn board for
         // 6 hours (its own SpoilageTime, destroyed at 0) instead of starting a sleep, so an interrupted
         // sleep can be taken up again while the room lasts.
         internal const string RentedBedUid = "cmcInnRentedBed";
-        private const string RoomAlreadyRentedMessage = "You already have a room: sleep in the Rented Bed.";
 
         private static bool RentedBedOnBoard()
         {
@@ -160,14 +177,14 @@ namespace CommunityModChest.Patcher
             return false;
         }
 
-        private static bool IsMealAction(string name) =>
-            name != null && name.Contains("Meal");
+        internal static bool IsMealAction(string actionKey) =>
+            string.Equals(actionKey, MealActionKey, StringComparison.Ordinal);
 
-        private static bool IsDepositAction(string name) =>
-            name != null && name.Contains("Deposit");
+        internal static bool IsDepositAction(string actionKey) =>
+            string.Equals(actionKey, DepositActionKey, StringComparison.Ordinal);
 
-        private static bool IsFirewoodSellAction(string name) =>
-            name != null && name.Contains("Firewood");
+        internal static bool IsFirewoodSellAction(string actionKey) =>
+            string.Equals(actionKey, FirewoodSellActionKey, StringComparison.Ordinal);
 
         // ── Sell Firewood CI ───────────────────────────────────────────────────────
 
@@ -237,25 +254,25 @@ namespace CommunityModChest.Patcher
                 if (__instance == null || __0 == null) return;
                 if (CardUtil.GetCardUniqueId(__0) != CounterUid) return;
 
-                string actionName = CardUtil.GetActionName(__instance);
-                bool isMeal = IsMealAction(actionName);
-                bool isSleep = IsSleepAction(actionName);
+                string actionKey = CardUtil.GetActionLocalizationKey(__instance);
+                bool isMeal = IsMealAction(actionKey);
+                bool isSleep = IsSleepAction(actionKey);
                 if (!isMeal && !isSleep) return;
 
                 if (isSleep && RentedBedOnBoard())
                 {
-                    Reflect.SetMember(__instance, "ActionBlockedMessage", RoomAlreadyRentedMessage);
+                    RoomAlreadyRentedMessage().WriteTo(__instance);
                     return;
                 }
 
                 float price = VillagePricing.Apply(isMeal ? MealPrice : SleepPrice);
                 float balance = CardUtil.GetDurability(__0, BalanceStat);
-                if (!float.IsNaN(balance) && balance >= price) return; // affordable — leave message untouched
+                if (!float.IsNaN(balance) && balance >= price) return; // affordable: leave message untouched
 
                 // Don't clobber a message another mechanism may have already set this pass.
-                if (Reflect.GetMember(__instance, "ActionBlockedMessage") is string existing && !string.IsNullOrEmpty(existing)) return;
+                if (BlockedMessage.AlreadySetOn(__instance)) return;
 
-                Reflect.SetMember(__instance, "ActionBlockedMessage", NoBalanceMessageFor(price));
+                NoBalanceMessageFor(price).WriteTo(__instance);
             }
             catch (Exception ex)
             {

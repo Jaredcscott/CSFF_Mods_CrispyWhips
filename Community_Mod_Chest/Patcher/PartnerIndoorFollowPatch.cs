@@ -113,7 +113,9 @@ namespace CommunityModChest.Patcher
                 if (!enteringInn && !enteringAcademy && !leavingInn && !leavingAcademy) return;
 
                 string label = enteringInn ? "the Inn" : enteringAcademy ? "the Academy" : "the village";
-                Plugin.Logger.LogInfo($"[PartnerIndoorFollowPatch] boundary crossed: '{fromEnv}' -> '{currentEnv}' (heading into {label}).");
+                // Per-crossing trace lines are Debug since 2026-11-12 (companions A10): tracker T2.237 confirmed the
+                // mechanism twice and no open retro names them. A partner that actually follows still logs at Info.
+                Plugin.Logger.LogDebug($"[PartnerIndoorFollowPatch] boundary crossed: '{fromEnv}' -> '{currentEnv}' (heading into {label}).");
 
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null)
@@ -150,7 +152,7 @@ namespace CommunityModChest.Patcher
                 string npcEnv = EnvUidOf(npc);
                 if (!Is(npcEnv, fromEnvUid))
                 {
-                    Plugin.Logger.LogInfo($"[PartnerIndoorFollowPatch] {npcUid} not relocated: currently in '{npcEnv}', expected '{fromEnvUid}'.");
+                    Plugin.Logger.LogDebug($"[PartnerIndoorFollowPatch] {npcUid} not relocated: currently in '{npcEnv}', expected '{fromEnvUid}'.");
                     continue;
                 }
 
@@ -167,11 +169,11 @@ namespace CommunityModChest.Patcher
 
             if (alliedCount == 0)
             {
-                Plugin.Logger.LogInfo("[PartnerIndoorFollowPatch] no allied NPCs exist right now (nothing to relocate).");
+                Plugin.Logger.LogDebug("[PartnerIndoorFollowPatch] no allied NPCs exist right now (nothing to relocate).");
             }
             else if (movedCount == 0)
             {
-                Plugin.Logger.LogInfo($"[PartnerIndoorFollowPatch] {alliedCount} allied NPC(s) checked, none were co-located with the player.");
+                Plugin.Logger.LogDebug($"[PartnerIndoorFollowPatch] {alliedCount} allied NPC(s) checked, none were co-located with the player.");
             }
         }
 

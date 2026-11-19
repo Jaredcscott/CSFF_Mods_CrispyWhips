@@ -51,7 +51,7 @@ namespace CommunityModChest.Patcher
 
             if (!ResolveTypes())
             {
-                Plugin.Logger.LogWarning("[AshPartnerSpawnPatch] Required game types not found — Ash Partner spike spawn inactive.");
+                Plugin.Logger.LogWarning("[AshPartnerSpawnPatch] Ash Partner spike spawn inactive: a game member it needs did not resolve (named in the line above).");
                 return;
             }
 
@@ -65,7 +65,10 @@ namespace CommunityModChest.Patcher
 
         private static bool ResolveTypes()
         {
-            if (_gmType != null) return true;
+            // Resolved means EVERY handle is in hand. This tested _gmType (the first handle), the shape
+            // AshPartnerDutyPatch.ResolveTypes was fixed away from on 2026-11-12: a call after a partial
+            // resolve would have returned true with null method handles.
+            if (_resolved) return true;
 
             _gmType = CardUtil.FindGameType("GameManager");
             _npcAgentType = CardUtil.FindGameType("NPCAgent");
@@ -76,10 +79,21 @@ namespace CommunityModChest.Patcher
             _savedNpcCharacterDataType = CardUtil.FindGameType("SavedNPCCharacterData");
             var uidType = CardUtil.FindGameType("UniqueIDScriptable");
 
-            if (_gmType == null || _npcAgentType == null || _envIdType == null || _inGameNpcType == null
-                || _saveDataByRefType == null || _gameSaveDataByRefType == null || uidType == null
-                || _savedNpcCharacterDataType == null)
+            // Name the first member that did not resolve (companions B6): FindGameType and
+            // AccessTools.Method are both silent on a plain not-found.
+            string missingType = _gmType == null ? "GameManager"
+                : _npcAgentType == null ? "NPCAgent"
+                : _envIdType == null ? "EnvID"
+                : _inGameNpcType == null ? "InGameNPC"
+                : _saveDataByRefType == null ? "NPCAgentSaveDataByReference"
+                : _gameSaveDataByRefType == null ? "GameSaveDataByReference"
+                : _savedNpcCharacterDataType == null ? "SavedNPCCharacterData"
+                : uidType == null ? "UniqueIDScriptable" : null;
+            if (missingType != null)
+            {
+                WarnResolveOnce($"game type '{missingType}' not found (renamed by a game update?).");
                 return false;
+            }
 
             _getFromIdMethod = uidType.GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .FirstOrDefault(m => m.Name == "GetFromID" && !m.IsGenericMethodDefinition
@@ -90,8 +104,29 @@ namespace CommunityModChest.Patcher
             _assignOrCreateCardsMethod = AccessTools.Method(_gmType, "AssignOrCreateNPCCards");
             _envIdEmpty = Activator.CreateInstance(_envIdType);
 
-            return _getFromIdMethod != null && _createNpcMethod != null && _initMethod != null
-                && _getNpcDataMethod != null && _assignOrCreateCardsMethod != null;
+            string missingMethod = _getFromIdMethod == null ? "UniqueIDScriptable.GetFromID(string)"
+                : _createNpcMethod == null ? "GameManager.CreateNPC(NPCAgent, SavedNPCCharacterData, bool)"
+                : _initMethod == null ? "InGameNPC.Init(NPCAgentSaveDataByReference, EnvID)"
+                : _getNpcDataMethod == null ? "GameSaveDataByReference.GetNPCData(NPCAgent)"
+                : _assignOrCreateCardsMethod == null ? "GameManager.AssignOrCreateNPCCards" : null;
+            if (missingMethod != null)
+            {
+                WarnResolveOnce($"method {missingMethod} not found (renamed or re-typed by a game update?).");
+                return false;
+            }
+
+            _resolved = true;
+            return true;
+        }
+
+        private static bool _resolved;
+        private static bool _resolveWarned;
+
+        private static void WarnResolveOnce(string message)
+        {
+            if (_resolveWarned) return;
+            _resolveWarned = true;
+            Plugin.Logger.LogWarning("[AshPartnerSpawnPatch] " + message + " Logged once.");
         }
 
         private static bool _agentUnresolvedWarned;

@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "cmcSilverwortBlossom",
         "LocalizationKey": "CMC_SilverwortBlossom_CardDescription",
-        "DefaultText": "A pale, silver-petaled flower found only in the deepest, undisturbed corners of the Foraging Forest. Apothecaries prize it for its potency."
+        "DefaultText": "A pale, silver-petaled flower found only in the deepest, undisturbed corners of the Foraging Forest and the Highland Pines. Apothecaries prize it for its potency."
     },
     "CardType": 0,
     "ObjectWeight": 15.0,

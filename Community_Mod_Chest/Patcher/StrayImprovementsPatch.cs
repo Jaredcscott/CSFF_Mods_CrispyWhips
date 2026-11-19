@@ -123,6 +123,16 @@ namespace CommunityModChest.Patcher
             Plugin.Logger.LogDebug("[StrayImprovementsPatch] initialized.");
         }
 
+        // One latch per cause, the idiom of this module's siblings (SeasonalObstacleCleanupPatch,
+        // StrayLocationCardRepairPatch): a renamed game field says so once instead of reading as
+        // "empty / already clean" (world G5, 2026-11-12).
+        private static readonly HashSet<string> _warned = new HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning("[StrayImprovementsPatch] " + message + " Logged once.");
+        }
+
         // ------------------------------------------------------------- part 1 ---
 
         private static void InitStats_Postfix()
@@ -160,8 +170,13 @@ namespace CommunityModChest.Patcher
             }
 
             var field = CardUtil.GetCachedField(location.GetType(), "EnvironmentImprovements");
-            if (field?.GetValue(location) is not Array arr || arr.Length == 0)
+            if (field == null)
+            {
+                WarnOnce("envimprovements-field", $"{location.GetType().Name}.EnvironmentImprovements not found (game update?) - the stray road and fence improvements are not stripped from the clone locations.");
                 return 0;
+            }
+            if (field.GetValue(location) is not Array arr || arr.Length == 0)
+                return 0; // empty or already clean: quiet
 
             var kept = new List<object>();
             int removed = 0;
@@ -233,7 +248,12 @@ namespace CommunityModChest.Patcher
             if (gm == null) return 0;
 
             var envDataField = CardUtil.GetCachedField(gm.GetType(), "EnvironmentsData");
-            if (envDataField?.GetValue(gm) is not IDictionary envData) return 0;
+            if (envDataField == null)
+            {
+                WarnOnce("envdata-field", "GameManager.EnvironmentsData not found (game update?) - already-built stray improvements are not cleared from saved environments.");
+                return 0;
+            }
+            if (envDataField.GetValue(gm) is not IDictionary envData) return 0;
 
             int totalRemoved = 0;
             foreach (DictionaryEntry entry in envData)
@@ -241,8 +261,14 @@ namespace CommunityModChest.Patcher
                 var value = entry.Value;
                 if (value == null) continue;
                 var vt = value.GetType();
-                var envId = CardUtil.GetCachedField(vt, "EnvironmentID")?.GetValue(value) as string;
-                var dictKey = CardUtil.GetCachedField(vt, "DictionaryKey")?.GetValue(value) as string;
+                // EnvironmentID is the older identity field and is absent from EnvironmentSaveDataByReference on
+                // EA 0.69e, where DictionaryKey carries it: one missing is normal, BOTH missing is a rename.
+                var envIdField = CardUtil.GetCachedField(vt, "EnvironmentID");
+                var dictKeyField = CardUtil.GetCachedField(vt, "DictionaryKey");
+                if (envIdField == null && dictKeyField == null)
+                    WarnOnce("envkey-fields", $"{vt.Name} has neither DictionaryKey nor EnvironmentID (game update?) - saved environments are matched by raw dictionary key only, so already-built stray improvements may not be cleared.");
+                var envId = envIdField?.GetValue(value) as string;
+                var dictKey = dictKeyField?.GetValue(value) as string;
                 bool isTarget =
                     envUid.Equals(envId, StringComparison.Ordinal) ||
                     CardUtil.EnvKeyMatchesUid(envUid, dictKey) ||
@@ -250,7 +276,12 @@ namespace CommunityModChest.Patcher
                 if (!isTarget) continue;
 
                 var cbiField = CardUtil.GetCachedField(vt, "CurrentlyBuiltImprovements");
-                if (cbiField?.GetValue(value) is not IList built || built.Count == 0) continue;
+                if (cbiField == null)
+                {
+                    WarnOnce("built-list-field", $"{vt.Name}.CurrentlyBuiltImprovements not found (game update?) - already-built stray improvements are not cleared from saved environments.");
+                    continue;
+                }
+                if (cbiField.GetValue(value) is not IList built || built.Count == 0) continue; // nothing built: quiet
 
                 for (int i = built.Count - 1; i >= 0; i--)
                 {

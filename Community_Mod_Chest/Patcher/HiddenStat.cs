@@ -65,7 +65,12 @@ namespace CommunityModChest.Patcher
         {
             var instance = ResolveInstance(statUid);
             if (instance == null) return float.NaN;
-            return Reflect.GetMember(instance, "CurrentBaseValue") is float f ? f : float.NaN;
+            // A stat that is not resolvable yet (above) is normal before a run boots and stays quiet. A resolved
+            // stat whose CurrentBaseValue cannot be read as a float is a game-update rename: say so once, by name
+            // (modwide A13), because every caller reads the NaN as "not readable yet" and silently does nothing.
+            if (Reflect.TryGetMember(instance, "CurrentBaseValue", out var raw) && raw is float f) return f;
+            WarnOnce("member-unresolved:CurrentBaseValue", $"{instance.GetType().Name}.CurrentBaseValue did not resolve to a float (renamed by a game update?); base-value reads return NaN and base-value writes are refused, so the one-time stat fix-ups that use them do not run. First stat: '{statUid}'. Logged once.");
+            return float.NaN;
         }
 
         private static bool _gameModifyResolved;
@@ -110,7 +115,8 @@ namespace CommunityModChest.Patcher
             }
             var instance = ResolveInstance(statUid);
             if (instance == null) return false;
-            Reflect.SetMember(instance, "CurrentBaseValue", baseValue);
+            if (!Reflect.SetMember(instance, "CurrentBaseValue", baseValue))
+                WarnOnce("base-raw-write-refused", $"{instance.GetType().Name}.CurrentBaseValue could not be written (member missing or read-only after a game update?); '{statUid}' keeps its old base. Logged once.");
             float raw = GetBase(statUid);
             return !float.IsNaN(raw) && Math.Abs(raw - baseValue) < 0.01f;
         }

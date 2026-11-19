@@ -17,6 +17,14 @@ namespace CommunityModChest.Patcher
     {
         private static string _rottenRemainsUid;
 
+        // One latch per cause (root CLAUDE.md Silent Catch Blocks; modwide A13 and G5, 2026-11-12).
+        private static readonly System.Collections.Generic.HashSet<string> _warned = new System.Collections.Generic.HashSet<string>(System.StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning("[NpcRottenRemainsCleanupPatch] " + message);
+        }
+
         public static void Initialize()
         {
             _rottenRemainsUid = VanillaIds.Get("RottenRemains");
@@ -34,12 +42,23 @@ namespace CommunityModChest.Patcher
         {
             var gm = CardUtil.GetGameManagerInstance();
             if (gm == null) return;
-            if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs) return;
+            // The gm == null return above is quiet on purpose (it fires every tick before a run boots). A
+            // GameManager whose AllNPCs no longer reads as a list is a game-update rename: one line, by name.
+            if (!Reflect.TryGetMember(gm, "AllNPCs", out var roster) || roster is not IEnumerable allNpcs)
+            {
+                WarnOnce("allnpcs-unreadable", "GameManager.AllNPCs did not resolve to a list (renamed by a game update?); Rotten Remains are no longer cleared from NPC inventories. Logged once.");
+                return;
+            }
 
             foreach (var npc in allNpcs)
             {
                 if (npc == null) continue;
-                var associatedCard = Reflect.GetMember(npc, "AssociatedCard");
+                // TryGetMember tells a missing member from an NPC that simply has no board card yet (null value).
+                if (!Reflect.TryGetMember(npc, "AssociatedCard", out var associatedCard))
+                {
+                    WarnOnce("associatedcard-unreadable", npc.GetType().Name + ".AssociatedCard did not resolve (renamed by a game update?); Rotten Remains are no longer cleared from NPC inventories. Logged once.");
+                    return;
+                }
                 if (associatedCard == null) continue;
 
                 int removed = Inventory.Consume(associatedCard, _rottenRemainsUid, int.MaxValue);

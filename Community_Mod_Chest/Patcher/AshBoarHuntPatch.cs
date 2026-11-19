@@ -378,7 +378,8 @@ namespace CommunityModChest.Patcher
                         // invisible helper whose OWN active SpoilageTime the real tick DOES
                         // evaluate, so its OnZero (ModType 3 = Destroy) actually removes the card,
                         // the same pattern already used below to remove the tracking card at state 0.
-                        CardUtil.SetDurability(trailCard, "SpoilageTime", 0f);
+                        if (!CardUtil.SetDurability(trailCard, "SpoilageTime", 0f))
+                            WarnOnce(route, "trail-spoilage-write-failed", route.Name + "'s old trail could not have its SpoilageTime zeroed before it is cleared; the helper it becomes may linger until its own timer runs out.");
                         if (CardUtil.TransformCardInPlace(trailCard, BeastTracksInvisibleUid))
                             Plugin.Logger.LogInfo(route.LogTag + route.MsgTrailFaded);
                         else
@@ -405,7 +406,7 @@ namespace CommunityModChest.Patcher
                     // Remove the tracking card from wherever it appeared; trail will be placed at the village.
                     if (CardUtil.TransformCardInPlace(trackingCard, BeastTracksInvisibleUid))
                     {
-                        StatAccess.Set(route.SpotStatUid, 1f);
+                        WriteSpotState(route, 1f);
                         Plugin.Logger.LogInfo(route.LogTag + route.MsgDeparted);
                     }
                     else
@@ -438,7 +439,7 @@ namespace CommunityModChest.Patcher
                     if (FindCardByUid(gm, route.AwayCardUid) != null)
                     {
                         // Already present (e.g. after a save/reload while at HC): just latch.
-                        StatAccess.Set(route.SpotStatUid, 2f);
+                        WriteSpotState(route, 2f);
                         return;
                     }
 
@@ -448,7 +449,7 @@ namespace CommunityModChest.Patcher
                     SpawnService.Spawn(route.AwayCardUid);
                     if (FindCardByUid(gm, route.AwayCardUid) != null)
                     {
-                        StatAccess.Set(route.SpotStatUid, 2f);
+                        WriteSpotState(route, 2f);
                         Plugin.Logger.LogInfo(route.LogTag + route.MsgAtQuarry);
                     }
                     else
@@ -484,8 +485,11 @@ namespace CommunityModChest.Patcher
 
                 if (CardUtil.TransformCardInPlace(trackingCard, route.CatUid))
                 {
-                    foreach (var stat in route.ReturnStats)
-                        CardUtil.SetDurability(trackingCard, stat.Key, stat.Value);
+                    // He transforms back from an all-0 inactive card, so a stat this fails to write stays 0 and
+                    // his own on-zero action ("Wanders Off") fires on the next tick: say which one, once.
+                    string unwritten = WriteQuarryReturnStats(trackingCard, route.ReturnStats);
+                    if (unwritten != null)
+                        WarnOnce(route, "quarry-return-stats-write-failed", route.Name + "'s " + unwritten + " could not be written when he came home from the hunt, so it reads 0 and he may wander off.");
                     Plugin.Logger.LogInfo(route.LogTag + route.MsgResolved);
                 }
                 else
@@ -526,7 +530,31 @@ namespace CommunityModChest.Patcher
 
         private static void ResetHuntSpotStat(object gm, CatHuntRoute route)
         {
-            StatAccess.Set(route.SpotStatUid, 0f);
+            WriteSpotState(route, 0f);
+        }
+
+        /// <summary>Writes every return stat onto the card and returns the names of the ones the card refused,
+        /// comma separated, or null when all were written. Every write is attempted: one refusal does not skip
+        /// the rest.</summary>
+        private static string WriteQuarryReturnStats(object card, KeyValuePair<string, float>[] stats)
+        {
+            if (stats == null) return null;
+            string unwritten = null;
+            foreach (var stat in stats)
+            {
+                if (CardUtil.SetDurability(card, stat.Key, stat.Value)) continue;
+                unwritten = unwritten == null ? stat.Key : unwritten + ", " + stat.Key;
+            }
+            return unwritten;
+        }
+
+        /// <summary>Writes a quarry route's hunt state (0 home, 1 trail due, 2 at the quarry). A refused write
+        /// leaves the hunt stuck in its previous state with nothing else to show for it, so it warns once per
+        /// route and target state.</summary>
+        private static void WriteSpotState(CatHuntRoute route, float state)
+        {
+            if (StatAccess.Set(route.SpotStatUid, state)) return;
+            WarnOnce(route, "spot-state-write-failed:" + state.ToString("0"), route.Name + "'s hunt state stat '" + route.SpotStatUid + "' could not be set to " + state.ToString("0") + ", so the hunt stays in its previous state.");
         }
 
         // ================= cooldown routes (Shadow) =================

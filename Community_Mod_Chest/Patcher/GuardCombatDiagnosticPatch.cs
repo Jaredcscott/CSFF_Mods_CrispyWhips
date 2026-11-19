@@ -26,6 +26,12 @@ namespace CommunityModChest.Patcher
     /// #2: diagnostics before fixes, always LogInfo so a single restart + one guard fight is
     /// enough to read real numbers instead of guessing a damage-value fix blind.
     ///
+    /// Since 2026-11-12 (modwide A10) <c>Plugin.cs</c> registers this class only when the
+    /// <c>EnableGuardDiagnostics</c> config entry is on (default off), because it logged one Info line
+    /// per enemy attack round of every fight in the game. The line itself stays at LogInfo, so with the
+    /// flag on and the game relaunched it still reaches LogOutput.log as retro
+    /// <c>cmc-guard-combat-no-damage</c> expects.
+    ///
     /// Demote to LogDebug (or delete this file) once the root cause is confirmed and fixed.
     /// </summary>
     internal static class GuardCombatDiagnosticPatch

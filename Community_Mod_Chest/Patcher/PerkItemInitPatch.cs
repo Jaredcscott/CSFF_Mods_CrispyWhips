@@ -49,9 +49,20 @@ namespace CommunityModChest.Patcher
                 return;
             }
 
-            Reflect.SetMember(durBox, "FloatValue", startValue);
-            Reflect.SetMember(card, "UsageDurability", durBox);
-            Plugin.Logger.LogDebug($"[PerkItemInit] {uid} UsageDurability.FloatValue set to {startValue}.");
+            // Both writes are checked (traits G5): this runs once per load, and the success line used to print
+            // whatever happened, so a renamed FloatValue put the rod back at 0 durability with a log that said
+            // it was set. Both are attempted, as before.
+            bool valueWritten = Reflect.SetMember(durBox, "FloatValue", startValue);
+            bool statWritten = Reflect.SetMember(card, "UsageDurability", durBox);
+            if (valueWritten && statWritten)
+            {
+                Plugin.Logger.LogDebug($"[PerkItemInit] {uid} UsageDurability.FloatValue set to {startValue}.");
+                return;
+            }
+            Plugin.Logger.LogWarning($"[PerkItemInit] {uid} starting durability was NOT set to {startValue}: "
+                + (valueWritten ? "" : "UsageDurability.FloatValue could not be written. ")
+                + (statWritten ? "" : "CardData.UsageDurability could not be written back. ")
+                + "A perk-granted one starts at its default (renamed by a game update?).");
         }
     }
 }

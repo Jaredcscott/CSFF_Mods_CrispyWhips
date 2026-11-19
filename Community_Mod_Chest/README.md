@@ -1,6 +1,6 @@
 # Community Mod Chest
 
-**Version:** 1.70.2
+**Version:** 1.70.3
 
 **Language:** English, Simplified Chinese
 
@@ -37,7 +37,7 @@ Thank you, Chiwei.
 
 - **Apparel:** Cloth Scarf, Cloth Mask, Hand Wraps, Reed Hand Wraps (no loom needed), Foot Wraps, Leather Sandals, Leather Apron, Cloth Coat, Long Johns, Straw Hat, Chaperon, Quilted Cap, Quilted Vest and Cloth Hood.
   - **Dyeing:** drag Charcoal, Ochre or Billberry Pigment onto a plain Chaperon, Cloth Coat, Cloth Scarf, Quilted Cap, Straw Hat, Leather Apron or Cloth Mask. Dyed garments are cosmetic, keep their protection and wear, and trade for a little more.
-  - **Disguises:** the Cloth Mask and the Cloth Hood (researched once the Weaver's Trust is 25 or more). A guard who spots you in the Wanted band adds 2.5 Suspicion instead of 5. It is a soft edge, not invisibility.
+  - **Disguises:** the Cloth Mask (researched once the Weaver-and-Apothecary cross-quest is underway) and the Cloth Hood (researched once the Weaver's Trust is 25 or more). A guard who spots you in the Wanted band adds 2.5 Suspicion instead of 5. It is a soft edge, not invisibility.
   - **With Sirus23 Mod Collection:** Wool-Quilted Cap and Vest (Tailoring > Equipment) add raw Wool padding for +2.0 and +3.0 perceived temperature and Comfort +10 and +12 (plain pieces give +1.0, +1.5, +8 and +10). They come undyed.
 - **Layered warmth** - wearing three or more cold-weather pieces adds +1.0 perceived temperature (placeholder). Pieces that count: scarf, mask, hand wraps (cloth or reed) and foot wraps, coat, long johns, chaperon, quilted and wool-quilted cap and vest, hood, in any dye. The Straw Hat, Sandals, Apron and Bone Lamellar do not. The bonus lands a few seconds after you dress.
 - **Pigments:** ground on the Utensils tab with a hammering tool, three per grind: Charcoal Pigment (2 Charcoal), Ochre Pigment (2 Crushed Bog Iron) and Billberry Pigment (2 Dried Billberries). Charcoal Pigment also paints pottery.
@@ -144,7 +144,7 @@ Twelve explorable locations east of the River Clearing. Build the **River Bridge
   - **Break Rocks** is the other way to work time off: four hours and 30 Stamina for a quarter day off and 2 crime points, twice a day at most, with at least 2 days left.
   - **The tunnel:** the four guards stand warden in shifts (Sterling 05:00 to 11:00, Thorne 11:00 to 17:00, Corrin 17:00 to 23:00, Vane 23:00 to 05:00). About every twelve hours the whole Watch is off the step for a couple of hours. Shove the bed aside for a **Hidden Tunnel** and **Dig** (30 minutes a dig, only while the step is empty). Caught with it exposed, it caves in and the sentence grows by half plus a little crime. Dig enough and **Crawl through the tunnel** leads not out but into the **Skylit Cave** beneath the jail; the escape is two projects. The tunnel gets you down; getting out is the second: a **Branch Ladder** (2 Long Sticks, 8 Wood, 4 Alder Bark over three stages of an hour and a half each) built in the cave opens a Rock Wall climb to the Ledge, where clearing the Collapsed Tunnel (16 hauls of an hour each, shored up as you go, by torchlight: a pitch torch from the cave burns about nine hours) and crawling out cuts the sentence by 8 days and brands you an escaped convict (+15 crime). Measured with a test bot playing a prisoner with no stash who does nothing but escape, it took 3.5 to 4.8 in-game days from the first dig to the way out: about three days of work and sleep, plus however long you wait in the cell for the Watch to leave the step. Below, the risk is the **headcount**: the Watch counts the prisoners at 06:00 and 21:00 (placeholder hours), even if you sleep through it. Be in the cave or on the ledge then, with a day or more left to serve, and you are caught once (half the sentence again plus a little crime) and the hole under your bed is filled in. Whatever you built in the cave and on the ledge stays, but the crawl back to the cell is closed: the only way out is forward, so do not go down without a way to make light (the cave lets you make a pitch torch and fire from what grows there).
   - **Ration:** a Meager Prison Ration and a Water Jug appear daily, with an emergency top-up (on by default). **Meditate**, Nap and Sleep pass time.
-- **Residents and your standing:** while Wanted, every resident's Trade charges up to 0.5 more on buying and pays up to 0.25 less. At Banished it holds at that maximum but they still trade. Their chests still buy from you and the Miller's takes restitution. Inn prices, tuition and the stall rise or fall as described above. Chest sales, restitution, Player's Pay, odd jobs, deposits and firewood are never marked up. Residents also greet you coldly while Wanted and warmly again below 25, with every Trade still working and thanks for handed-in errands still played.
+- **Residents and your standing:** while Wanted, every resident's Trade charges up to 0.5 more on buying and pays up to 0.25 less. At Banished it holds at that maximum but they still trade. Their chests still buy from you and the Miller's takes restitution. Inn prices, tuition and the stall rise or fall as described above. Chest sales, restitution, Player's Pay, odd jobs, deposits and firewood are never marked up. Residents also greet you coldly while Wanted and warmly again below 25, with every Trade still working and thanks for handed-in errands still played (the Apothecary's turn curt while you are Wanted or Banished, and still hand over the recipe).
 
 ## Residents
 
@@ -154,7 +154,7 @@ Twelve explorable locations east of the River Clearing. Build the **River Bridge
   - **Ash, the inn's lost cat:** agree to help and Ash prowls the Foraging Forest from 17:00 to 06:00. Win him over with meat or fish. Around village week 6 he may track a boar toward Hunter's Crossing; follow and face the boar to send him home.
   - Give a **Wild Garlic** gift to unlock the Market Stall blueprint.
 - **Miller and Weaver:** each moves in a week after their cottage is finished, sleeps at home (22:00 to 06:00), works there by day, visits the Inn each evening and spends one day a week at the Academy. The Miller sells Planks and flours, the Weaver Spindle, Bone Needle, Twine and Yarn Fiber. Their cottage blueprints stay available at any time. After the Weaver's seven-errand chain, **Talk** to her for the **Climbing Rope** (four Rope and a Plank): build it at Greenfalls, past Sett Warren, to open the cliff path both ways.
-- **Apothecary:** once you gift her a Market Stall Kit she commutes: her cabin overnight, the Market Stall by day, the Inn every evening (19:15 to 21:00) and one Academy afternoon a week. **Trade** restocks her herbs and tinctures. Drop a **Rare Herb Mixture** on her and she brews a Powerful Healing Potion over two days. From 9:00 until she leaves for the Inn, if your Market Stall stands in the Village, her notice board says she is minding the Market Stall.
+- **Apothecary:** once you gift her a Market Stall Kit she commutes: her cabin overnight, the Market Stall by day, the Inn every evening (19:15 to 21:00) and one Academy afternoon a week. **Trade** restocks her herbs and tinctures. Drop a **Rare Herb Mixture** on her and she brews a Powerful Healing Potion over two days. Her herb errand takes one each of fresh Billberries, Springberries and Spirit Mushrooms, in any order; a second helping of a kind she already has is not taken. Her powder errand takes one Charcoal and one Dried Heather Flowers the same way. From 9:00 until she leaves for the Inn, if your Market Stall stands in the Village, her notice board says she is minding the Market Stall.
 - **Professor:** lodges at the Inn, forages the outskirts by day until his satchel fills, then holds his post at the Academy. His **Trade** stock improves with course graduates and his prices with Trust. Errands: a weekly specimen request (Nettle Leaves), Field Samples from day 10 (five Billberries) and, after Herbalism, Applied Herbalism (four Dried Nettle Leaves). He gives gifts for your first degree, all six original courses (Carpentry does not count) and Trust 80, and remarks on village news.
 - **Potter:** takes a room at the Inn once the Inn Keeper has introduced you. On the summer market day he works the Village's market corner from 08:00 to 18:00. **Trade** sells painted bowls, cups, plates, glazed plates, beads, vases and raw Clay, restocked daily at the Inn. Ask **Need anything fired?** and hand him a plain fired bowl, plate, jar or vase with **Give Fired Pottery** for 3 Salt and 3 Trust, once.
 - **Chance meetings on the road:** meet the Apothecary on her commute or the Professor while he forages for a word (+3 Morale, +1 Trust), at most once every 18 hours each. The Miller and Weaver never meet you this way, since the only outdoor tile they use is the Village. With the Quiet Village perk the residents do not commute, so nothing happens.
@@ -200,7 +200,7 @@ Pieces for modders, with the files that hold them:
 - **Armor and graduate perks:** `Patcher/ArmorCardsPatch.cs` applies bone-tier armor damage reduction through the framework's APIs. The seven graduate perks use `CharacterPerkPerkGroup: "None"`, so they are granted only at runtime.
 - **Water source tag:** the built Village Well carries the cross-mod tag `tag_x_WaterSource` by name (no CardTag file ships). Nothing in the suite reads it yet.
 - **Data patches** (`GameSourceModify/`): the Stomach stat's Digestion status text, a Sunburn rate change, the Spear Throw success log line and the `GpTag_SpiritHerb` group. `cmcEnvVillagePath.json` adds the Village Path's daytime sounds, and the twelve `cmcLoc*` files patch the cloned map locations.
-- **Debug-only code:** `Patcher/AshPartner*.cs` is an unfinished Partner-companion spike for Ash, spawned only when `EnableAshPartnerSpike` is on. `GuardCombatDiagnosticPatch.cs` only adds log output.
+- **Debug-only code:** `Patcher/AshPartner*.cs` is an unfinished Partner-companion spike for Ash, spawned only when `EnableAshPartnerSpike` is on. `GuardCombatDiagnosticPatch.cs` only adds log output, and only while `EnableGuardDiagnostics` is on.
 
 ## Configuration
 
@@ -210,7 +210,7 @@ Four BepInEx options in the `Debug` section of this mod's file in `BepInEx/confi
 |---|---|---|
 | `EnableJailSafetyNet` | on | Emergency ration top-up if a jailed player's Weight or Hydration drops dangerously low. |
 | `ForceClearVillageCrime` | off | Holds Village Crime at 0, to recover a run locked out of the village. Turn it off afterwards. |
-| `EnableGuardDiagnostics` | off | Logs each Town Watch guard's duty list every poll. |
+| `EnableGuardDiagnostics` | off | Logs each Town Watch guard's duty list every poll, and a per-round `[GuardCombatDiag]` breakdown of every fight. Read at launch: relaunch after changing it. |
 | `EnableAshPartnerSpike` | off | Spawns the unfinished Ash Partner test NPC. Not shipped content. |
 
 ## Known limits
@@ -238,4 +238,4 @@ Full history is in `CHANGELOG.md`.
 
 ## Install
 
-Copy the mod folder into `BepInEx/plugins/Community_Mod_Chest/`, with `Community_Mod_Chest.dll` inside it. A clean load logs `Community Mod Chest v1.70.2 loaded.`
+Copy the mod folder into `BepInEx/plugins/Community_Mod_Chest/`, with `Community_Mod_Chest.dll` inside it. A clean load logs `Community Mod Chest v1.70.3 loaded.`

@@ -639,8 +639,7 @@ namespace CommunityModChest.Patcher
             var stat = ResolveKilledStat();
             if (stat == null) return 0f;
 
-            var getStatValue = npc.GetType().GetMethod("GetStatValue",
-                BindingFlags.Instance | BindingFlags.Public, null, new[] { stat.GetType() }, null);
+            var getStatValue = GetStatValueMethod(npc, stat);
             if (getStatValue == null)
             {
                 Plugin.Logger.LogDebug("[GuardOutcomePatch] InGameNPC.GetStatValue(NPCStat) not found — killed markers unreadable.");
@@ -887,7 +886,11 @@ namespace CommunityModChest.Patcher
 
                 _matchesEncounterMethod ??= saved.GetType().GetMethod("MatchesEncounter",
                     BindingFlags.Instance | BindingFlags.Public);
-                if (_matchesEncounterMethod == null) return null;
+                if (_matchesEncounterMethod == null)
+                {
+                    WarnOnce("matchesencounter-missing", $"{saved.GetType().Name}.MatchesEncounter not found (renamed by a game update?): the guard combat status tell is disabled (display only). Logged once.");
+                    return null;
+                }
 
                 if (_matchesEncounterMethod.Invoke(saved, new[] { encounter }) is true) return encounter;
             }
@@ -1003,8 +1006,7 @@ namespace CommunityModChest.Patcher
             var stat = ResolveDownedStat();
             if (stat == null) return 0f;
 
-            var getStatValue = npc.GetType().GetMethod("GetStatValue",
-                BindingFlags.Instance | BindingFlags.Public, null, new[] { stat.GetType() }, null);
+            var getStatValue = GetStatValueMethod(npc, stat);
             if (getStatValue == null)
             {
                 Plugin.Logger.LogDebug("[GuardOutcomePatch] InGameNPC.GetStatValue(NPCStat) not found — downed markers unreadable.");
@@ -1027,10 +1029,21 @@ namespace CommunityModChest.Patcher
             var stat = ResolveDownedStat();
             if (stat == null) return;
 
-            if (Reflect.GetMember(npc, "NPCStatsDict") is not IDictionary statsDict) return;
+            // A miss here is gameplay, not display: the marker stays set, Run re-arms her cooldown every poll
+            // and she never returns to the Watch. Each cause says so once. "Stat not on this NPC yet" (the
+            // Contains test) is a normal negative answer and stays quiet.
+            if (Reflect.GetMember(npc, "NPCStatsDict") is not IDictionary statsDict)
+            {
+                WarnOnce("npcstatsdict-unreadable", $"{npc.GetType().Name}.NPCStatsDict did not resolve to a dictionary (renamed by a game update?): downed markers cannot be cleared, so a downed guard never returns to the Watch. Logged once.");
+                return;
+            }
             if (!statsDict.Contains(stat)) return;
             var inGameStat = statsDict[stat];
-            if (inGameStat == null) return;
+            if (inGameStat == null)
+            {
+                WarnOnce("downed-ingamestat-null", $"NPCStatsDict holds a null entry for '{GuardDutyPatch.GuardDownedStatUid}' on '{agentUid}': her downed marker cannot be cleared. Logged once.");
+                return;
+            }
 
             var setter = inGameStat.GetType().GetMethod("SetStatValueFromEditor",
                 BindingFlags.Instance | BindingFlags.Public, null, new[] { typeof(float) }, null);
@@ -1040,6 +1053,32 @@ namespace CommunityModChest.Patcher
                 return;
             }
             setter.Invoke(inGameStat, new object[] { 0f });
+        }
+
+        // One latch per cause for the breadcrumbs added 2026-11-12 (law G5); the older one-shot bools above
+        // keep their own latches.
+        private static readonly HashSet<string> _warnedCauses = new HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warnedCauses.Add(cause)) Plugin.Logger.LogWarning("[GuardOutcomePatch] " + message);
+        }
+
+        private static MethodInfo _getStatValueMethod;
+        private static bool _getStatValueResolved;
+
+        /// <summary><c>InGameNPC.GetStatValue(NPCStat)</c>, resolved once (law F1): both marker reads run for
+        /// every guard on every poll, and both stats are the one <c>NPCStat</c> type on the one
+        /// <c>InGameNPC</c> type. A miss is latched too and warns once.</summary>
+        private static MethodInfo GetStatValueMethod(object npc, object stat)
+        {
+            if (_getStatValueResolved) return _getStatValueMethod;
+            _getStatValueResolved = true;
+            _getStatValueMethod = npc.GetType().GetMethod("GetStatValue",
+                BindingFlags.Instance | BindingFlags.Public, null, new[] { stat.GetType() }, null);
+            if (_getStatValueMethod == null)
+                WarnOnce("getstatvalue-missing", $"{npc.GetType().Name}.GetStatValue({stat.GetType().Name}) not found (renamed by a game update?): guard killed and downed markers read 0, so a beaten guard is never stood down. Logged once.");
+            return _getStatValueMethod;
         }
 
         private static object ResolveDownedStat()

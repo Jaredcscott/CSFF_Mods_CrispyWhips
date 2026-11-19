@@ -335,9 +335,9 @@ Combat_And_Armor_QuiltedVest_OnZero,Vest Destroyed!
 Combat_And_Armor_BoneLamellar_OnZero,Armor Destroyed!
 Combat_And_Armor_QuiltedCap_OnZero,Cap Destroyed!
 CMC_IronFishingRodFittings_CardName,Iron Fishing Rod Fittings
-CMC_IronFishingRodFittings_CardDescription,Iron hook eyelet and reel fittings for a superior fishing rod. Combine with a long stick and fishing line to complete the rod.
+CMC_IronFishingRodFittings_CardDescription,"Iron hook, eyelet, and reel fittings for a superior fishing rod. Combine with a long stick and fishing line to complete the rod, once the Academy's Fishing course has taught you its recipe."
 Bp_CMC_IronFishingRodFittings_CardName,Iron Fishing Rod Fittings
-Bp_CMC_IronFishingRodFittings_CardDescription,Forge iron fittings for a superior fishing rod. Requires a heated iron nugget and a forge hammer.
+Bp_CMC_IronFishingRodFittings_CardDescription,Forge iron fittings for a superior fishing rod. Requires a heated iron nugget and a forge hammer. The rod itself is a recipe taught by the Academy's Fishing course.
 Bp_CMC_IronFishingRodFittings_UnlockConditionsDesc,Iron Nugget and Forge Hammer Needed
 CMC_IronFishingRod_CardName,Iron Fishing Rod
 CMC_IronFishingRod_CardDescription,"A well-crafted rod with iron fittings, a long stick and rustic line. Held in hand, it gives a steady fishing advantage."
@@ -349,7 +349,7 @@ CMC_IronFishingRod_Fish_ActionName,Cast Line
 CMC_IronFishingRod_Fish_ActionDescription,Cast your iron-fitted line into the water and wait for a bite.
 Bp_CMC_IronFishingRod_CardName,Iron Fishing Rod
 Bp_CMC_IronFishingRod_CardDescription,"Assemble a superior fishing rod from iron fittings, a long stick and a rustic fishing line. Held in hand, it gives a steady fishing advantage."
-Bp_CMC_IronFishingRod_UnlockConditionsDesc,Iron Fishing Rod Fittings Needed
+Bp_CMC_IronFishingRod_UnlockConditionsDesc,Graduate the Academy's Fishing course
 CMC_OldGrowthBark_CardName,Old Growth Bark
 CMC_OldGrowthBark_CardDescription,"Thick bark peeled from the ancient oaks of the Foraging Forest. Rich with aromatic tannins, ground together with wild garlic into a soothing herb paste."
 CMC_GardenTrellis_Placed_CardName,Garden Trellis
@@ -357,7 +357,7 @@ CMC_GardenTrellis_Placed_CardDescription,A wooden trellis erected in the garden.
 CMC_GardenTrellis_Placed_DA_Dismantle,Dismantle
 CMC_GardenTrellis_Placed_Weathered,The garden trellis has rotted away.
 Bp_CMC_GardenTrellis_CardName,Garden Trellis
-Bp_CMC_GardenTrellis_CardDescription,Lash long sticks together with rope into a climbing-plant frame.
+Bp_CMC_GardenTrellis_CardDescription,Lash long sticks together with twine into a climbing-plant frame for the garden.
 Pottery_Sculpture_FigurineCastle_CardName,Castle Figurine
 Pottery_Sculpture_FigurineCastle_CardDescription,A small clay figurine shaped like a miniature tower with crenellations. Intricate work prized by traders and collectors.
 Pottery_Sculpture_FigurineCastle_UsageDurability,Durability
@@ -628,6 +628,7 @@ CMC_InnCounter_DA_Meal_Desc,"Draws 30 from your Inn Account (more while you are 
 CMC_InnCounter_DA_Sleep,Stay the Night
 CMC_InnCounter_DA_Sleep_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished) for a room: a Rented Bed appears here for the next 6 hours. Sleep in it when you are ready, and if something wakes you, lie down again while the time lasts. One room at a time."
 CMC_InnRentedBed_CardName,Rented Bed
+CMC_Inn_RoomAlreadyRented_BlockedMessage,You already have a room: sleep in the Rented Bed.
 CMC_InnRentedBed_CardDescription,"A made-up bed in one of the Inn's rooms, yours for the next 6 hours. Sleep in it, and if something wakes you, lie down again while the time lasts. When the time runs out the Inn Keeper takes the room back."
 CMC_InnRentedBed_RentalTime,Room Time Left
 CMC_InnRentedBed_TimeUp,"Your time in the room is up, and the Inn Keeper takes the bed back."
@@ -1293,6 +1294,7 @@ CMC_ApothecaryTalk_HerbQuestOffer_Answer_Accept,I'll keep an eye out for all thr
 CMC_ApothecaryTalk_HerbQuestOffer_Answer_Decline,I'll see what I can do.
 CMC_ApothecaryTalk_HerbQuestThanks_Line,"All three, and none of them bruised. You've got a forager's hands, whether you know it or not. Give me a day or so and I'll have something worth more than a tea for it. Here, the recipe's yours too; you've earned the knowing of it."
 CMC_ApothecaryTalk_HerbQuestThanks_Answer_Thanks,Happy to forage for you.
+CMC_ApothecaryTalk_HerbQuestThanksCold_Line,"All three, and fresh. I've heard what the village is saying about you, and I'll not pretend I haven't. But a bargain is a bargain, and you kept your side of it. The recipe's yours, as promised. That squares us."
 CMC_Professor_Menu_Specimen,Need anything pressed for your herbarium?
 CMC_ProfessorGreeting_SpecimenPointer_Line,"As it happens, I've a standing request on the board for nettle leaves, three fresh ones, whenever you've a moment in the forest. Small thing, but my herbarium thanks you all the same."
 CMC_ProfessorGreeting_SpecimenPointer_Answer_Close,I'll keep an eye out.
@@ -1321,7 +1323,19 @@ CMC_WeaverStoryStep_StatDescription,Hidden tracker for how far into the Weaver's
 CMC_WeaverFlaxQuest_StatName,The Weaver's Flax Errand
 CMC_WeaverFlaxQuest_StatDescription,"Hidden tracker: 0 = not offered, 1 = active (bring dried flax stems), 2 = delivered and thanked."
 CMC_ApothecaryHerbQuest_StatName,The Apothecary's Herb Request
-CMC_ApothecaryHerbQuest_StatDescription,"Hidden tracker: 0 = not offered, 0.5 = accepted, then +1 per fresh herb delivered (billberries, springberries, spirit mushrooms); 3.5 = all three in, 4.5 = thanked and cleared."
+CMC_ApothecaryHerbQuest_StatDescription,"Hidden tracker: 0 = not offered, 0.5 = accepted, then +1 per kind of fresh herb delivered, each kind once (billberries, springberries, spirit mushrooms); 3.5 = all three in, 4.5 = thanked and cleared."
+CMC_ApothHerbBillberries_StatName,Herb Request: Billberries Delivered
+CMC_ApothHerbBillberries_StatDescription,"Hidden marker for the Apothecary's herb request: 0 = fresh billberries not yet handed over, 1 = handed over. Clamped to that range, so each kind of herb counts once."
+CMC_ApothHerbSpringberries_StatName,Herb Request: Springberries Delivered
+CMC_ApothHerbSpringberries_StatDescription,"Hidden marker for the Apothecary's herb request: 0 = fresh springberries not yet handed over, 1 = handed over. Clamped to that range, so each kind of herb counts once."
+CMC_ApothHerbSpiritMushrooms_StatName,Herb Request: Spirit Mushrooms Delivered
+CMC_ApothHerbSpiritMushrooms_StatDescription,"Hidden marker for the Apothecary's herb request: 0 = fresh spirit mushrooms not yet handed over, 1 = handed over. Clamped to that range, so each kind of herb counts once."
+CMC_ApothPowderProgress_StatName,The Apothecary's Powder Request
+CMC_ApothPowderProgress_StatDescription,"Hidden tracker for A2 (powders and dyes): 0 = not delivered, 1 = one of charcoal or dried heather flowers delivered, 2 = both delivered, ready to be thanked. Each ingredient counts once. It stays at 2 after the thanks; the quest chain stat closes the errand."
+CMC_ApothPowderCharcoal_StatName,Powder Request: Charcoal Delivered
+CMC_ApothPowderCharcoal_StatDescription,"Hidden marker for the Apothecary's powder request: 0 = charcoal not yet handed over, 1 = handed over. Clamped to that range, so each ingredient counts once."
+CMC_ApothPowderFlowers_StatName,Powder Request: Dried Heather Flowers Delivered
+CMC_ApothPowderFlowers_StatDescription,"Hidden marker for the Apothecary's powder request: 0 = dried heather flowers not yet handed over, 1 = handed over. Clamped to that range, so each ingredient counts once."
 CMC_QuestRenownMillerGrain_StatName,Renown: Miller's Errand
 CMC_QuestRenownMillerGrain_StatDescription,Hidden one-shot flag: 1 once the Miller's grain errand is completed. Contributes to Village Renown.
 CMC_QuestRenownWeaverFlax_StatName,Renown: Weaver's Errand
@@ -1361,11 +1375,13 @@ CMC_ApothecaryTalk_InterlockS2Offer_Answer_Ok,I'll see what she can spare.
 CMC_ApothecaryTalk_InterlockS2Offer_Line,"Grinding powders kicks up more dust than you'd think, gets in the eyes, the nose, everywhere. If the Weaver can spare a length of cloth, I could sew myself a proper mask instead of tying a rag over my face like some bandit."
 CMC_ApothecaryTalk_InterlockS2Thanks_Answer_Ok,I'll pass that along.
 CMC_ApothecaryTalk_InterlockS2Thanks_Line,"Good weave, tight enough to keep the worst of the dust out. Tell the Weaver her cloth's finally doing honest work for someone other than herself. Here, the pattern's yours, in case you've a dusty errand of your own someday."
+CMC_ApothecaryTalk_InterlockS2ThanksCold_Line,"The weave is tight enough to keep the dust out. I'll thank the Weaver for it myself. Your name isn't one I'd care to stand beside in the village just now, but the pattern was promised, so take it."
 CMC_ApothecaryTalk_PowderQuestOffer_Answer_Accept,I'll bring you both.
 CMC_ApothecaryTalk_PowderQuestOffer_Answer_Decline,I'll see what I can find.
 CMC_ApothecaryTalk_PowderQuestOffer_Line,"Since you're asking, I could use charcoal and a good handful of dried heather flowers. Grind them right and you get a pigment worth more than the sum of its parts, dyes, paints, all sorts of uses."
 CMC_ApothecaryTalk_PowderQuestThanks_Answer_Glad,Glad to help.
 CMC_ApothecaryTalk_PowderQuestThanks_Line,"Good char, good flowers, no waste in either. Grind them together and you've got yourself a proper pigment. Take the trick, I've no use hoarding it."
+CMC_ApothecaryTalk_PowderQuestThanksCold_Line,"Char and flowers, both sound. The talk about you has reached me out here, mind, but I pay what I owe. Grind the two together and you have a pigment. That's the trick, and that's us settled."
 CMC_ApothecaryTalk_Start_Answer_InterlockS2,Could the Weaver help with your dust problem?
 CMC_ApothecaryTalk_Start_Answer_PowderQuest,What about powders and dyes?
 CMC_Apothecary_GiveCharcoal_ActionDescription,Hand over a piece of charcoal for the Apothecary's powder work. She sets it aside with the rest of her grinding stock.
@@ -2357,49 +2373,49 @@ CMC_ThorneTalk_SceneTitle,Guard Nella Thorne
 CMC_VaneTalk_SceneTitle,Guard Iris Vane
 CMC_BoardAchievements_CardName,Town Achievement Board
 CMC_BoardAchievements_CardDescription,"A board where the village keeps a record of this settler's notable deeds -- some hard-won, some merely notable, all worth a look."
-CMC_BoardAchievements_DA_traderfound_locked_Name,Finding a Friend — unclaimed
+CMC_BoardAchievements_DA_traderfound_locked_Name,Finding a Friend - unclaimed
 CMC_BoardAchievements_DA_traderfound_locked_Desc,Cross paths with a traveling trader somewhere out in the wilds.
-CMC_BoardAchievements_DA_traderfound_earned_Name,Finding a Friend — earned
+CMC_BoardAchievements_DA_traderfound_earned_Name,Finding a Friend - earned
 CMC_BoardAchievements_DA_traderfound_earned_Desc,"A trader's cart rattled into view, and for a moment the road felt a little less lonely."
-CMC_BoardAchievements_DA_fullkit_locked_Name,Full Kit — unclaimed
+CMC_BoardAchievements_DA_fullkit_locked_Name,Full Kit - unclaimed
 CMC_BoardAchievements_DA_fullkit_locked_Desc,"Assemble the complete set of six metal tools: Axe, Pickaxe, Hoe, Knife, Shovel, and Sickle."
-CMC_BoardAchievements_DA_fullkit_earned_Name,Full Kit — earned
-CMC_BoardAchievements_DA_fullkit_earned_Desc,"Axe, pickaxe, hoe, knife, shovel, sickle — a full metal kit, ready for anything."
-CMC_BoardAchievements_DA_bearslain_locked_Name,Right to Bear Arms — unclaimed
+CMC_BoardAchievements_DA_fullkit_earned_Name,Full Kit - earned
+CMC_BoardAchievements_DA_fullkit_earned_Desc,"Axe, pickaxe, hoe, knife, shovel, sickle: a full metal kit, ready for anything."
+CMC_BoardAchievements_DA_bearslain_locked_Name,Right to Bear Arms - unclaimed
 CMC_BoardAchievements_DA_bearslain_locked_Desc,Fell a Bear in the wild.
-CMC_BoardAchievements_DA_bearslain_earned_Name,Right to Bear Arms — earned
+CMC_BoardAchievements_DA_bearslain_earned_Name,Right to Bear Arms - earned
 CMC_BoardAchievements_DA_bearslain_earned_Desc,"One less bear in these woods, and quite a story to tell about it."
-CMC_BoardAchievements_DA_hunter_locked_Name,Master Hunter — unclaimed
+CMC_BoardAchievements_DA_hunter_locked_Name,Master Hunter - unclaimed
 CMC_BoardAchievements_DA_hunter_locked_Desc,"Hunt every kind of huntable animal in the forest: Badger, Bear, Beaver, Boar, Doe, Duck, Fox, Hare, Partridge, Squirrel, Stag, and Wolf."
-CMC_BoardAchievements_DA_hunter_earned_Name,Master Hunter — earned
+CMC_BoardAchievements_DA_hunter_earned_Name,Master Hunter - earned
 CMC_BoardAchievements_DA_hunter_earned_Desc,Every creature of the forest has fallen to your bow at least once.
-CMC_BoardAchievements_DA_explorer_locked_Name,Forest Explorer — unclaimed
+CMC_BoardAchievements_DA_explorer_locked_Name,Forest Explorer - unclaimed
 CMC_BoardAchievements_DA_explorer_locked_Desc,"Set foot in ten of the forest's varied surface groves, thickets, and glades."
-CMC_BoardAchievements_DA_explorer_earned_Name,Forest Explorer — earned
+CMC_BoardAchievements_DA_explorer_earned_Name,Forest Explorer - earned
 CMC_BoardAchievements_DA_explorer_earned_Desc,"Ten distinct corners of the forest, all walked, all known."
-CMC_BoardAchievements_DA_yearsurvived_locked_Name,Happy New Year — unclaimed
+CMC_BoardAchievements_DA_yearsurvived_locked_Name,Happy New Year - unclaimed
 CMC_BoardAchievements_DA_yearsurvived_locked_Desc,Survive long enough to see a full year pass.
-CMC_BoardAchievements_DA_yearsurvived_earned_Name,Happy New Year — earned
+CMC_BoardAchievements_DA_yearsurvived_earned_Name,Happy New Year - earned
 CMC_BoardAchievements_DA_yearsurvived_earned_Desc,"A full year survived, seasons and all. Here's to the next one."
-CMC_BoardAchievements_DA_angler_locked_Name,Master Angler — unclaimed
+CMC_BoardAchievements_DA_angler_locked_Name,Master Angler - unclaimed
 CMC_BoardAchievements_DA_angler_locked_Desc,"Bring home every kind of fish: Char, Eel, Perch, Pike, Sturgeon, and Trout."
-CMC_BoardAchievements_DA_angler_earned_Name,Master Angler — earned
+CMC_BoardAchievements_DA_angler_earned_Name,Master Angler - earned
 CMC_BoardAchievements_DA_angler_earned_Desc,Every fish in these waters has passed through your hands at least once.
-CMC_BoardAchievements_DA_spelunker_locked_Name,Spelunker — unclaimed
+CMC_BoardAchievements_DA_spelunker_locked_Name,Spelunker - unclaimed
 CMC_BoardAchievements_DA_spelunker_locked_Desc,Explore eight of the region's caves and hollows.
-CMC_BoardAchievements_DA_spelunker_earned_Name,Spelunker — earned
+CMC_BoardAchievements_DA_spelunker_earned_Name,Spelunker - earned
 CMC_BoardAchievements_DA_spelunker_earned_Desc,"Eight caverns explored, torch held high through every one."
-CMC_BoardAchievements_DA_shaman_locked_Name,Master Shaman — unclaimed
+CMC_BoardAchievements_DA_shaman_locked_Name,Master Shaman - unclaimed
 CMC_BoardAchievements_DA_shaman_locked_Desc,"Come to possess a bound spirit of every kind, animal and fish alike -- nineteen in all."
-CMC_BoardAchievements_DA_shaman_earned_Name,Master Shaman — earned
+CMC_BoardAchievements_DA_shaman_earned_Name,Master Shaman - earned
 CMC_BoardAchievements_DA_shaman_earned_Desc,"Nineteen bound spirits, a complete communion with the wild."
-CMC_BoardAchievements_DA_noisemax_locked_Name,Spiritual Overcrowding — unclaimed
+CMC_BoardAchievements_DA_noisemax_locked_Name,Spiritual Overcrowding - unclaimed
 CMC_BoardAchievements_DA_noisemax_locked_Desc,The innkeeper refuses to explain this entry.
-CMC_BoardAchievements_DA_noisemax_earned_Name,Spiritual Overcrowding — earned
+CMC_BoardAchievements_DA_noisemax_earned_Name,Spiritual Overcrowding - earned
 CMC_BoardAchievements_DA_noisemax_earned_Desc,"Your Spiritual Noise reached its very limit. The spirits are... a lot, right now."
-CMC_BoardAchievements_DA_stinkyjar_locked_Name,Stinky Jar — unclaimed
+CMC_BoardAchievements_DA_stinkyjar_locked_Name,Stinky Jar - unclaimed
 CMC_BoardAchievements_DA_stinkyjar_locked_Desc,The innkeeper refuses to explain this entry.
-CMC_BoardAchievements_DA_stinkyjar_earned_Name,Stinky Jar — earned
+CMC_BoardAchievements_DA_stinkyjar_earned_Name,Stinky Jar - earned
 CMC_BoardAchievements_DA_stinkyjar_earned_Desc,"A storage pot, sealed to the brim with aged Urine. The innkeeper wants to know why."
 CMC_BoardAchievements_DA_orderup_locked_Name,Order Up! - unclaimed
 CMC_BoardAchievements_DA_orderup_locked_Desc,Fill a travelling trader's commission.
@@ -2438,7 +2454,7 @@ CMC_MillerAcademyToday_StatDescription,"Hidden tracker for whether today is the 
 CMC_WeaverAcademyToday_StatName,Weaver Academy Day
 CMC_WeaverAcademyToday_StatDescription,"Hidden tracker for whether today is the Weaver's weekly Academy visit — 1 all day, 0 otherwise. Keeps her workplace duty from fighting her Academy commute."
 CMC_SilverwortBlossom_CardName,Silverwort Blossom
-CMC_SilverwortBlossom_CardDescription,"A pale, silver-petaled flower found only in the deepest, undisturbed corners of the Foraging Forest. Apothecaries prize it for its potency."
+CMC_SilverwortBlossom_CardDescription,"A pale, silver-petaled flower found only in the deepest, undisturbed corners of the Foraging Forest and the Highland Pines. Apothecaries prize it for its potency."
 CMC_HollowSage_CardName,Hollow Sage
 CMC_HollowSage_CardDescription,"A hardy, silver-leafed sage that grows near old hollows and root-shadowed ground. Its bitter scent lingers on the hands long after picking."
 CMC_ClayShoalFlood_CardName,Flooded Ford
@@ -3583,3 +3599,8 @@ CMC_Professor_Amends_ActionName,Make Amends: Candle
 CMC_Professor_Amends_ActionDescription,"Hand over an unlit Candle for the Professor's late reading, as asked when you spoke about the chest. Fetching it takes about two hours. Talk to the Professor again for the thanks; the Trust comes back after that."
 CeramicLamp_RefuelLiquid_ActionName,Pour Oil from Container
 CeramicLamp_RefuelLiquid_ActionDescription,Pour oil from a container into the lamp's reservoir. A full clay bowl of liquid oil burns as long as a bowl of oil.
+CMC_Inn_BalanceTooLow_BlockedMessage,"Inn account balance too low - deposit Salt, coins, or nuggets on the counter. This costs {0}."
+CMC_Academy_TuitionTooLow_BlockedMessage,"Enrollment draws {0} from the Tuition Account - deposit Salt, coins, or nuggets on the lectern first."
+CMC_Academy_AlreadyGraduated_BlockedMessage,You have already completed this course.
+CMC_Academy_IntroductionsFirst_BlockedMessage,The Professor doesn't take students he hasn't met properly: present yourself to the Keeper at the Village Inn first.
+CMC_Jail_WardenWantsSalt_BlockedMessage,The warden wants {0} Salt in hand first. You have {1}.

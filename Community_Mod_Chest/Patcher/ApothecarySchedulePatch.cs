@@ -202,6 +202,11 @@ namespace CommunityModChest.Patcher
             var initStatsMethod = AccessTools.Method(_gmType, "InitializeStatsAndActions");
             if (initStatsMethod != null)
                 harmony.Patch(initStatsMethod, postfix: new HarmonyMethod(typeof(ApothecarySchedulePatch), nameof(ResetSessionState_Postfix)));
+            else
+                // Resolved by name, unguarded by any signature gate (apothecary B6): if this method ever
+                // drifts the postfix silently never installs and ResetSessionState stops running, so
+                // portrait/stall/restock caches leak across save reloads. Say so once rather than silently.
+                Plugin.Logger.LogWarning("[ApothecarySchedulePatch] GameManager.InitializeStatsAndActions not found - ResetSessionState will not run; portrait/stall/restock caches may carry across save reloads.");
 
             TickEvents.Interval(1f, RunScheduler, "ApothecarySchedule");
             Plugin.Logger.LogDebug("[ApothecarySchedulePatch] initialized.");
@@ -770,10 +775,24 @@ namespace CommunityModChest.Patcher
 
         private static void SyncPortrait(object npc, ApPortrait portrait)
         {
-            if (_setCardImageMethod == null || portrait == ApPortrait.None || portrait == _lastPortrait) return;
+            if (portrait == ApPortrait.None || portrait == _lastPortrait) return;
+            if (_setCardImageMethod == null)
+            {
+                // CardData.SetCardImage(Sprite) is resolved by name in ResolveTypes and no JSON gate covers
+                // it (apothecary B6): if it drifts in a game update, say so once instead of leaving her art
+                // silently static for the whole session.
+                WarnOnce("setcardimage-missing", "[ApothecarySchedulePatch] CardData.SetCardImage(Sprite) did not resolve - her portrait will not follow her schedule this session. Logged once.");
+                return;
+            }
 
             var sprite = ResolvePortraitSprite(portrait);
-            if (sprite == null) return;
+            if (sprite == null)
+            {
+                // Her portrait names are C# constants no JSON sprite gate reads (apothecary G5): a renamed or
+                // dropped PNG is said once per portrait instead of leaving her art silently static.
+                WarnOnce($"portrait-sprite:{portrait}", $"[ApothecarySchedulePatch] Portrait sprite for {portrait} did not resolve - her art stays as it was. Logged once.");
+                return;
+            }
 
             Reflect.SetMember(_agent, "AgentImage", sprite);
             ApplyCardImage(Reflect.GetMember(npc, "ModelCard"), sprite);
@@ -813,9 +832,17 @@ namespace CommunityModChest.Patcher
             if (visuals == null) return;
             _refreshVisualsMethod ??= visuals.GetType().GetMethod("RefreshCookingStatus",
                 BindingFlags.Public | BindingFlags.Instance, null, Type.EmptyTypes, null);
-            // Destroyed-but-not-null Unity objects throw inside — harmless to swallow here;
+            if (_refreshVisualsMethod == null)
+            {
+                // Resolved by name, unguarded by any signature gate (apothecary B6): say so once if it
+                // drifts. Low impact - the next natural render reads CurrentArt (and thus the new image).
+                WarnOnce($"refreshvisuals-missing:{visuals.GetType().Name}",
+                    $"[ApothecarySchedulePatch] {visuals.GetType().Name}.RefreshCookingStatus() did not resolve - her portrait updates on the next natural render instead. Logged once.");
+                return;
+            }
+            // Destroyed-but-not-null Unity objects throw inside - harmless to swallow here;
             // the next real render reads CurrentArt (and thus the new image) anyway.
-            try { _refreshVisualsMethod?.Invoke(visuals, null); }
+            try { _refreshVisualsMethod.Invoke(visuals, null); }
             catch (Exception ex)
             {
                 if (!_refreshVisualsFailureLogged)

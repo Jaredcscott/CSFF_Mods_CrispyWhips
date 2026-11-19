@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "CMCIronFishingRodFittings",
     "LocalizationKey": "CMC_IronFishingRodFittings_CardDescription",
-    "DefaultText": "Iron hook, eyelet, and reel fittings for a superior fishing rod. Combine with a long stick and fishing line to complete the rod."
+    "DefaultText": "Iron hook, eyelet, and reel fittings for a superior fishing rod. Combine with a long stick and fishing line to complete the rod, once the Academy's Fishing course has taught you its recipe."
   },
   "CardType": 0,
   "ObjectWeight": 150.0,

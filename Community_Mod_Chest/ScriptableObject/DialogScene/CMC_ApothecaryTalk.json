@@ -5,8 +5,11 @@
     },
     "SceneLinesWarpData": [
         "CMC_ApothecaryTalk_AmendsOpener",
+        "CMC_ApothecaryTalk_HerbQuestThanksCold",
         "CMC_ApothecaryTalk_HerbQuestThanks",
+        "CMC_ApothecaryTalk_PowderQuestThanksCold",
         "CMC_ApothecaryTalk_PowderQuestThanks",
+        "CMC_ApothecaryTalk_InterlockS2ThanksCold",
         "CMC_ApothecaryTalk_InterlockS2Thanks",
         "CMC_ApothecaryTalk_AmendsThanks",
         "CMC_ApothecaryTalk_CrimeWanted",

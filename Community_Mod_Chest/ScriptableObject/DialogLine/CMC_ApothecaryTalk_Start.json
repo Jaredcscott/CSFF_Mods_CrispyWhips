@@ -69,7 +69,8 @@
                 "RequiredStatValues": [
                     {"StatWarpData": "cmcStatApothecaryStallGifted", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}},
                     {"StatWarpData": "cmcStatApothQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
-                    {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+                    {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}},
+                    {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
                 ]
             },
             "Answer": {
@@ -115,53 +116,6 @@
             "NewNextLine": {
                 "NextStep": 0,
                 "NextLineWarpData": "CMC_ApothecaryTalk_InterlockS2Offer",
-                "NextLineWarpType": 3
-            }
-        },
-        {
-            "Conditions": {
-                "RequiredStatValues": [
-                    {
-                        "StatWarpData": "cmcStatApothecaryAmendsArmed",
-                        "StatWarpType": 3,
-                        "TriggerRange": {
-                            "x": 0.5,
-                            "y": 1.5
-                        }
-                    },
-                    {
-                        "StatWarpData": "cmcStatApothecaryAmendsDebt",
-                        "StatWarpType": 3,
-                        "TriggerRange": {
-                            "x": 0.5,
-                            "y": 40.0
-                        }
-                    },
-                    {
-                        "StatWarpData": "cmcStatApothecaryAmendsCooldown",
-                        "StatWarpType": 3,
-                        "TriggerRange": {
-                            "x": 0.0,
-                            "y": 0.0
-                        }
-                    },
-                    {
-                        "StatWarpData": "cmcStatApothecaryAmendsPaid",
-                        "StatWarpType": 3,
-                        "TriggerRange": {
-                            "x": 0.0,
-                            "y": 0.25
-                        }
-                    }
-                ]
-            },
-            "Answer": {
-                "LocalizationKey": "CMC_ApothecaryTalk_Start_Answer_Amends",
-                "DefaultText": "About your chest..."
-            },
-            "NewNextLine": {
-                "NextStep": 0,
-                "NextLineWarpData": "CMC_ApothecaryTalk_AmendsOffer",
                 "NextLineWarpType": 3
             }
         },

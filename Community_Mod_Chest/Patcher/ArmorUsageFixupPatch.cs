@@ -18,9 +18,12 @@ namespace CommunityModChest.Patcher
     /// <para><b>Idempotent by value, no latch</b> (the shape ACT's plan uses for ACT-B7). An old piece that was ever
     /// hit is already destroyed (any hit took more than its whole Usage), and the old pieces had no wear rate, so
     /// every surviving old piece sits EXACTLY at its old maximum. Only a card reading exactly that value is lifted;
-    /// a new piece starts at the new maximum, and the cloth pieces wear by -0.5 a tick while worn plus 250 a hit, so a
-    /// worn new piece lands on an old maximum only after months of continuous wear, at its last hit. The class only
-    /// ever RAISES a value that equals an old maximum and never lowers anything, so a second pass changes nothing.</para>
+    /// a new piece starts at the new maximum. <b>Known value collision, accepted:</b> the cloth caps and vests wear by
+    /// -0.5 a tick while worn, and their old maxima (60, 80) are multiples of 0.5, so a worn new piece can pass through
+    /// its old maximum near the end of its life with no hit involved. The scan reads a board only on the first tick
+    /// after an environment change or a load, so the piece has to sit on that exact value at that tick; when it does
+    /// it is refilled to full once, never lowered. The class only ever RAISES a value that equals an old maximum and
+    /// never lowers anything, so a second pass changes nothing.</para>
     ///
     /// <para><b>Every board.</b> <c>GameManager.AllCards</c> holds the current board plus what the player carries
     /// (root CLAUDE.md "An AllCards UID scan is NOT 'the cards in this room'"), so a piece left on another board is
@@ -77,7 +80,14 @@ namespace CommunityModChest.Patcher
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null) return;
                 if (ReferenceEquals(gm, _scannedGm) && string.Equals(env, _scannedEnv, StringComparison.Ordinal)) return;
-                if (Reflect.GetMember(gm, "AllCards") is not IEnumerable allCards) return;
+                if (!Reflect.TryGetMember(gm, "AllCards", out var allCardsValue))
+                {
+                    // The member itself is gone or unreadable (G5), not a list that is briefly null.
+                    if (_warned.Add("allcards-unreadable"))
+                        Plugin.Logger.LogWarning("[ArmorUsageFixupPatch] GameManager.AllCards did not resolve or could not be read (game update?); armor from before 1.69.17 keeps its old durability until it does. Logged once.");
+                    return;
+                }
+                if (allCardsValue is not IEnumerable allCards) return;
 
                 int lifted = 0;
                 var list = new List<object>();

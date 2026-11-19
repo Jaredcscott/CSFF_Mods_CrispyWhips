@@ -234,19 +234,19 @@ namespace CommunityModChest.Patcher
             // and 30s (restock) forever, so once the Keeper is spawned and stable this avoids
             // re-scanning the whole NPC roster every tick. Falls through to the full scan
             // (with its duplicate-detection warning intact) for every less-certain state.
-            if (Alive(_liveNpc) != null && IsInnKeeperAgent(Reflect.GetMember(_liveNpc, "NPCModel")) && Alive(Reflect.GetMember(_liveNpc, "AssociatedCard")) != null)
+            if (Alive(_liveNpc) != null && IsInnKeeperAgent(ReadOrWarn(_liveNpc, "NPCModel")) && Alive(ReadOrWarn(_liveNpc, "AssociatedCard")) != null)
                 return _liveNpc;
 
-            if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs) return null;
+            if (ReadOrWarn(gm, "AllNPCs") is not IEnumerable allNpcs) return null;
             object firstMatch = null;
             int matchCount = 0;
             foreach (var npc in allNpcs)
             {
                 if (npc == null) continue;
-                if (!IsInnKeeperAgent(Reflect.GetMember(npc, "NPCModel"))) continue;
+                if (!IsInnKeeperAgent(ReadOrWarn(npc, "NPCModel"))) continue;
                 matchCount++;
                 firstMatch ??= npc;
-                if (Alive(Reflect.GetMember(npc, "AssociatedCard")) != null) { _liveNpc = npc; return npc; }
+                if (Alive(ReadOrWarn(npc, "AssociatedCard")) != null) { _liveNpc = npc; return npc; }
             }
             if (matchCount > 1)
                 Plugin.Logger.LogWarning($"[InnKeeperSpawnPatch] {matchCount} '{InnKeeperAgentUid}' NPC instances found in AllNPCs and none has a board card yet — falling back to the first found; this can desync from whichever instance the player actually sees once cards exist.");
@@ -255,6 +255,31 @@ namespace CommunityModChest.Patcher
         }
 
         private static bool AlreadySpawned(object gm) => FindLiveNpc(gm) != null;
+
+        // One latch per cause (root CLAUDE.md Silent Catch Blocks; inn A13, 2026-11-12).
+        private static readonly System.Collections.Generic.HashSet<string> _warned = new(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
+        }
+
+        // Every reflected read of a game member on the spawn, restore, presence and restock paths goes through
+        // here (same shape as ProfessorSchedulePatch.ReadOrWarn). Reflect.GetMember returns null with no log
+        // when a member name stops resolving, and these callers read that null as "the player is not in the
+        // Inn", "the Keeper is not spawned" or "his satchel is empty": a game update that renamed
+        // GameManager.CurrentEnvironment or AllNPCs would make the Keeper never appear with nothing in the log.
+        // TryGetMember tells a missing or unreadable member from a legitimate null value, so only that case
+        // warns, once per type and member; the value returned is exactly what GetMember returned.
+        // EnvLabel alone keeps plain GetMember: it only formats a log line and has its own fallback.
+        private static object ReadOrWarn(object instance, string member)
+        {
+            if (instance == null) return null;
+            if (Reflect.TryGetMember(instance, member, out var value)) return value;
+            string owner = instance.GetType().Name;
+            WarnOnce("member-unresolved:" + owner + "." + member, $"[InnKeeperSpawnPatch] {owner}.{member} did not resolve or could not be read (renamed by a game update?); the Inn Keeper's spawn, placement and restock checks that read it fall back to 'not there' until it does. Logged once.");
+            return null;
+        }
 
         // Board status line (C5): the CSV key of his one place. He never leaves the Inn, so there is one leg.
         private const string LegInnKey = "CMC_BoardLeg_InnKeeper_Inn";
@@ -280,9 +305,9 @@ namespace CommunityModChest.Patcher
                     var npc = FindLiveNpc(gm);
                     if (npc == null) return null;
 
-                    var env = Reflect.GetMember(npc, "CurrentEnvironment");
-                    if (env == null || Reflect.GetMember(env, "IsNull") is true) return null;
-                    return ReferenceEquals(Reflect.GetMember(env, "EnvCard"), _innInterior) ? LegInnKey : null;
+                    var env = ReadOrWarn(npc, "CurrentEnvironment");
+                    if (env == null || ReadOrWarn(env, "IsNull") is true) return null;
+                    return ReferenceEquals(ReadOrWarn(env, "EnvCard"), _innInterior) ? LegInnKey : null;
                 }
                 catch (Exception ex)
                 {
@@ -306,7 +331,7 @@ namespace CommunityModChest.Patcher
         {
             if (_canonicalInnEnv != null) return _canonicalInnEnv;
             var env = _envIdFromCardCtor.Invoke(new object[] { _innInterior, false });
-            if (env == null || Reflect.GetMember(env, "IsNull") is true) return null;
+            if (env == null || ReadOrWarn(env, "IsNull") is true) return null;
             _canonicalInnEnv = env;
             return _canonicalInnEnv;
         }
@@ -321,7 +346,7 @@ namespace CommunityModChest.Patcher
         private static bool ReconcileEnvironment(object gm, object npc, object targetEnv, string context)
         {
             if (targetEnv == null) return false;
-            var npcEnv = Reflect.GetMember(npc, "CurrentEnvironment");
+            var npcEnv = ReadOrWarn(npc, "CurrentEnvironment");
             if (npcEnv != null && _matchesEnvMethod.Invoke(npcEnv, new[] { targetEnv }) is true) return false;
 
             _moveNpcMethod.Invoke(gm, new[] { npc, targetEnv });
@@ -366,9 +391,9 @@ namespace CommunityModChest.Patcher
         // gets past vanilla's early-return so the card relocation actually runs.
         private static void EnsureKeeperPresent(object gm, object npc, object playerEnv)
         {
-            var npcEnv = Reflect.GetMember(npc, "CurrentEnvironment");
-            var card = Alive(Reflect.GetMember(npc, "AssociatedCard"));
-            var cardEnv = card == null ? null : Reflect.GetMember(card, "CardEnvironment");
+            var npcEnv = ReadOrWarn(npc, "CurrentEnvironment");
+            var card = Alive(ReadOrWarn(npc, "AssociatedCard"));
+            var cardEnv = card == null ? null : ReadOrWarn(card, "CardEnvironment");
 
             bool npcEnvOk = EnvMatches(npcEnv, playerEnv);
             bool cardEnvOk = card != null && EnvMatches(cardEnv, playerEnv);
@@ -435,14 +460,14 @@ namespace CommunityModChest.Patcher
         private static object SpawnAndReturn(object gm)
         {
             _createNpcMethod.Invoke(gm, new object[] { _agent, null, false });
-            if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs)
+            if (ReadOrWarn(gm, "AllNPCs") is not IEnumerable allNpcs)
             {
                 Plugin.Logger.LogWarning("[InnKeeperSpawnPatch] SpawnAndReturn: CreateNPC invoked but GameManager.AllNPCs did not resolve — spawn cannot be confirmed.");
                 return null;
             }
             object last = null;
             foreach (var npc in allNpcs)
-                if (IsInnKeeperAgent(Reflect.GetMember(npc, "NPCModel")))
+                if (IsInnKeeperAgent(ReadOrWarn(npc, "NPCModel")))
                     last = npc;
             if (last == null)
                 Plugin.Logger.LogWarning("[InnKeeperSpawnPatch] SpawnAndReturn: CreateNPC succeeded but the post-spawn AllNPCs identity lookup found no matching NPCModel — Inn Keeper spawn effectively failed silently.");
@@ -456,7 +481,7 @@ namespace CommunityModChest.Patcher
                 if (!ResolveRefs()) return;
                 if (AlreadySpawned(__instance)) return;
 
-                var saveData = Reflect.GetMember(__instance, "CurrentSaveData");
+                var saveData = ReadOrWarn(__instance, "CurrentSaveData");
                 if (saveData == null) return;
                 var npcSaveData = _getNpcDataMethod.Invoke(saveData, new object[] { _agent });
                 if (npcSaveData == null) return; // never placed yet — the arrival check handles first placement
@@ -489,9 +514,9 @@ namespace CommunityModChest.Patcher
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null) return;
 
-                var currentEnv = Reflect.GetMember(gm, "CurrentEnvironment");
+                var currentEnv = ReadOrWarn(gm, "CurrentEnvironment");
                 if (currentEnv == null) return;
-                if (Reflect.GetMember(currentEnv, "IsNull") is true) return;
+                if (ReadOrWarn(currentEnv, "IsNull") is true) return;
 
                 if (!ResolveRefs())
                 {
@@ -503,7 +528,7 @@ namespace CommunityModChest.Patcher
                     return;
                 }
 
-                var envCard = Reflect.GetMember(currentEnv, "EnvCard");
+                var envCard = ReadOrWarn(currentEnv, "EnvCard");
                 string envUid = CardUtil.GetCardUniqueId(envCard);
                 if (envUid != _lastLoggedEnvUid)
                 {
@@ -582,7 +607,7 @@ namespace CommunityModChest.Patcher
 
                 var npc = FindLiveNpc(gm);
                 if (npc == null) return;
-                var associatedCard = Reflect.GetMember(npc, "AssociatedCard");
+                var associatedCard = ReadOrWarn(npc, "AssociatedCard");
                 if (associatedCard == null) return; // AssignOrCreateNPCCards hasn't finished yet
 
                 int currentDay = Reflect.GetInt(gm, "CurrentDay");
@@ -603,7 +628,7 @@ namespace CommunityModChest.Patcher
                 if (_chestConfig != null)
                     CopperChestPatch.TryAccrue(_chestConfig, npc, currentDay, FireAgentAction);
 
-                int stockCount = (Reflect.GetMember(associatedCard, "CardsInInventory") as ICollection)?.Count ?? 0;
+                int stockCount = (ReadOrWarn(associatedCard, "CardsInInventory") as ICollection)?.Count ?? 0;
 
                 if (_lastRestockDay == int.MinValue)
                 {
@@ -634,10 +659,10 @@ namespace CommunityModChest.Patcher
         {
             try
             {
-                var associatedCard = Reflect.GetMember(npc, "AssociatedCard");
+                var associatedCard = ReadOrWarn(npc, "AssociatedCard");
                 if (associatedCard == null) return;
                 int currentDay = Reflect.GetInt(gm, "CurrentDay");
-                int stockCount = (Reflect.GetMember(associatedCard, "CardsInInventory") as ICollection)?.Count ?? 0;
+                int stockCount = (ReadOrWarn(associatedCard, "CardsInInventory") as ICollection)?.Count ?? 0;
                 PerformRestock(gm, npc, associatedCard, currentDay, stockCount);
             }
             catch (Exception ex)
@@ -663,7 +688,7 @@ namespace CommunityModChest.Patcher
 
             _lastRestockDay = currentDay;
 
-            int newStockCount = (Reflect.GetMember(associatedCard, "CardsInInventory") as ICollection)?.Count ?? 0;
+            int newStockCount = (ReadOrWarn(associatedCard, "CardsInInventory") as ICollection)?.Count ?? 0;
             Plugin.Logger.LogInfo($"[InnKeeperSpawnPatch] Pantry restocked on day {currentDay} (stock {stockCountBefore} -> {newStockCount}).");
         }
 
@@ -682,13 +707,13 @@ namespace CommunityModChest.Patcher
         // the action isn't found (harmless — not every seasonal action needs to exist).
         private static bool FireAgentAction(object npc, object associatedCard, string actionId)
         {
-            var agentActions = Reflect.GetMember(_agent, "AgentActions") as Array;
+            var agentActions = ReadOrWarn(_agent, "AgentActions") as Array;
             object matchedAction = null;
             if (agentActions != null)
             {
                 foreach (var action in agentActions)
                 {
-                    if (action != null && Reflect.GetMember(action, "ActionID") as string == actionId)
+                    if (action != null && ReadOrWarn(action, "ActionID") as string == actionId)
                     {
                         matchedAction = action;
                         break;

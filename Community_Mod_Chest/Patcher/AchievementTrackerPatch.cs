@@ -301,6 +301,37 @@ namespace CommunityModChest.Patcher
             Plugin.Logger.LogDebug("[AchievementTrackerPatch] initialized.");
         }
 
+        // One latch per cause (root CLAUDE.md Silent Catch Blocks; achievements G5, 2026-11-12).
+        private static readonly HashSet<string> _warned = new HashSet<string>(StringComparer.Ordinal);
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (_warned.Add(cause)) Plugin.Logger.LogWarning(message);
+        }
+
+        // Reflect.GetMember returns null with no log when a member name stops resolving, and each detector
+        // reads that null as "nothing to count": one renamed game member would switch off one achievement
+        // while everything else kept working. TryGetMember tells a missing or unreadable member from a
+        // legitimate null (an empty jar, a card with no model), so only that case warns, once per type and
+        // member; the value returned is exactly what GetMember returned.
+        private static object ReadOrWarn(object instance, string member)
+        {
+            if (instance == null) return null;
+            if (Reflect.TryGetMember(instance, member, out var value)) return value;
+            string owner = instance.GetType().Name;
+            WarnOnce("member-unresolved:" + owner + "." + member, $"[AchievementTrackerPatch] {owner}.{member} did not resolve or could not be read (renamed by a game update?); the achievement detectors that read it find nothing until it does. Logged once.");
+            return null;
+        }
+
+        // Writes an achievement's earned latch (1). HiddenStat.Set reports a dropped write only at Debug, and
+        // CheckEnvSet recomputes its earned flip only on a poll that latches a NEW member, so a single
+        // dropped write there is never retried: a refusal is said once per stat.
+        private static void SetLatch(string earnedStatUid)
+        {
+            if (HiddenStat.Set(earnedStatUid, 1f)) return;
+            WarnOnce("latch-write-dropped:" + earnedStatUid, $"[AchievementTrackerPatch] earned latch '{earnedStatUid}' could not be written; that achievement does not show as earned on the board. Logged once.");
+        }
+
         private static void Tick()
         {
             try
@@ -326,7 +357,7 @@ namespace CommunityModChest.Patcher
 
             if (GameQuery.CurrentDay < GameQuery.DaysPerYear) return;
 
-            HiddenStat.Set(YearSurvivedStatUid, 1f);
+            SetLatch(YearSurvivedStatUid);
             Plugin.Logger.LogInfo("[AchievementTrackerPatch] Achievement earned: Happy New Year.");
         }
 
@@ -361,7 +392,7 @@ namespace CommunityModChest.Patcher
 
             if (count < HunterMemberStatUids.Length) return;
 
-            HiddenStat.Set(HunterEarnedStatUid, 1f);
+            SetLatch(HunterEarnedStatUid);
             Plugin.Logger.LogInfo("[AchievementTrackerPatch] Achievement earned: Master Hunter.");
         }
 
@@ -387,7 +418,7 @@ namespace CommunityModChest.Patcher
 
             if (count < members.Count) return;
 
-            HiddenStat.Set(QuarryEarnedStatUid, 1f);
+            SetLatch(QuarryEarnedStatUid);
             Plugin.Logger.LogInfo("[AchievementTrackerPatch] Achievement earned: Northern Quarry.");
         }
 
@@ -401,7 +432,7 @@ namespace CommunityModChest.Patcher
             var gm = CardUtil.GetGameManagerInstance();
             if (gm == null) return;
 
-            if (Reflect.GetMember(gm, "VisitedEnvironments") is not IEnumerable visited) return;
+            if (ReadOrWarn(gm, "VisitedEnvironments") is not IEnumerable visited) return;
 
             var visitedUids = new HashSet<string>(StringComparer.Ordinal);
             foreach (var envCard in visited)
@@ -428,7 +459,7 @@ namespace CommunityModChest.Patcher
 
             if (count >= envUids.Length)
             {
-                HiddenStat.Set(earnedStatUid, 1f);
+                SetLatch(earnedStatUid);
                 Plugin.Logger.LogInfo($"[AchievementTrackerPatch] Achievement earned: {achievementName}.");
             }
         }
@@ -453,7 +484,7 @@ namespace CommunityModChest.Patcher
 
             var gm = CardUtil.GetGameManagerInstance();
             if (gm == null) return;
-            if (Reflect.GetMember(gm, "AllCards") is not IEnumerable allCards) return;
+            if (ReadOrWarn(gm, "AllCards") is not IEnumerable allCards) return;
 
             bool fullKitNewlyLatched = false;
             bool anglerNewlyLatched = false;
@@ -462,9 +493,9 @@ namespace CommunityModChest.Patcher
             foreach (var card in allCards)
             {
                 if (card == null) continue;
-                var model = Reflect.GetMember(card, "CardModel");
+                var model = ReadOrWarn(card, "CardModel");
                 if (model == null) continue;
-                var uid = Reflect.GetMember(model, "UniqueID") as string;
+                var uid = ReadOrWarn(model, "UniqueID") as string;
                 if (string.IsNullOrEmpty(uid)) continue;
 
                 if (!fullKitDone && LatchIfMember(uid, ToolItemUids, ToolMemberStatUids))
@@ -476,7 +507,7 @@ namespace CommunityModChest.Patcher
 
                 if (!stinkyDone && StinkyJarPotUids.Contains(uid) && IsJarFullOfAgedUrine(card))
                 {
-                    HiddenStat.Set(StinkyJarEarnedStatUid, 1f);
+                    SetLatch(StinkyJarEarnedStatUid);
                     stinkyDone = true; // stop re-checking pots for the rest of this scan
                     Plugin.Logger.LogInfo("[AchievementTrackerPatch] Achievement earned: Stinky Jar.");
                 }
@@ -511,17 +542,21 @@ namespace CommunityModChest.Patcher
         /// </summary>
         private static bool IsJarFullOfAgedUrine(object potCard)
         {
-            var liquidModel = Reflect.GetMember(potCard, "ContainedLiquidModel");
+            var liquidModel = ReadOrWarn(potCard, "ContainedLiquidModel");
             if (liquidModel == null) return false;
 
-            var liquidUid = Reflect.GetMember(liquidModel, "UniqueID") as string;
+            var liquidUid = ReadOrWarn(liquidModel, "UniqueID") as string;
             if (liquidUid == null || !StinkyJarUrineUids.Contains(liquidUid)) return false;
 
-            var containedLiquid = Reflect.GetMember(potCard, "ContainedLiquid");
+            var containedLiquid = ReadOrWarn(potCard, "ContainedLiquid");
             if (containedLiquid == null) return false;
 
+            // -1 is the fallback of a read that failed, never a real quantity: say which member, once, so a
+            // renamed field is not mistaken for a jar that is simply not full.
             float quantity = Reflect.GetFloat(containedLiquid, "CurrentLiquidQuantity", -1f);
             float capacity = Reflect.GetFloat(potCard, "CurrentMaxLiquidQuantity", -1f);
+            if (quantity < 0f) WarnOnce("member-unresolved:CurrentLiquidQuantity", $"[AchievementTrackerPatch] {containedLiquid.GetType().Name}.CurrentLiquidQuantity could not be read (renamed by a game update?); Stinky Jar cannot be earned until it can. Logged once.");
+            if (capacity < 0f) WarnOnce("member-unresolved:CurrentMaxLiquidQuantity", $"[AchievementTrackerPatch] {potCard.GetType().Name}.CurrentMaxLiquidQuantity could not be read (renamed by a game update?); Stinky Jar cannot be earned until it can. Logged once.");
             if (quantity < 0f || capacity <= 0f) return false;
 
             return quantity >= capacity;
@@ -542,7 +577,7 @@ namespace CommunityModChest.Patcher
 
             if (count >= memberStatUids.Length)
             {
-                HiddenStat.Set(earnedStatUid, 1f);
+                SetLatch(earnedStatUid);
                 Plugin.Logger.LogInfo($"[AchievementTrackerPatch] Achievement earned: {achievementName}.");
             }
         }
@@ -557,15 +592,25 @@ namespace CommunityModChest.Patcher
         {
             if (HiddenStat.Get(NoiseMaxEarnedStatUid) >= 0.5f) return; // already earned
 
-            float current = HiddenStat.Get(SpiritualNoiseGameStatUid);
-            if (current < 0f) return; // not readable yet
+            // gm-gate so a persistent unreadable read can be told from the pre-run window: before a run
+            // boots the vanilla Spiritual Noise stat is legitimately -1 every poll, and warning there
+            // would be noise. Once gm is non-null that stat is always in StatsDict, so a -1/<=0 read is a
+            // renumbered vanilla GUID (game-update maintenance surface), warned once - the same loud
+            // discipline CheckFindingAFriend and AchievementKillEffectsPatch apply to every other
+            // vanilla-content UID (root CLAUDE.md B6 / Game-Update Reference Refresh).
+            if (CardUtil.GetGameManagerInstance() == null) return; // pre-run window
 
+            float current = HiddenStat.Get(SpiritualNoiseGameStatUid);
             float max = HiddenStat.GetMax(SpiritualNoiseGameStatUid);
-            if (max <= 0f) return; // not readable yet (or a degenerate max)
+            if (current < 0f || max <= 0f)
+            {
+                WarnOnce("noise-unresolved:" + SpiritualNoiseGameStatUid, $"[AchievementTrackerPatch] vanilla Spiritual Noise GameStat '{SpiritualNoiseGameStatUid}' did not resolve in a running game (renamed by a game update?); Spiritual Overcrowding cannot be earned until it does. Logged once.");
+                return;
+            }
 
             if (current < max) return;
 
-            HiddenStat.Set(NoiseMaxEarnedStatUid, 1f);
+            SetLatch(NoiseMaxEarnedStatUid);
             Plugin.Logger.LogInfo("[AchievementTrackerPatch] Achievement earned: Spiritual Overcrowding.");
         }
 
@@ -612,7 +657,13 @@ namespace CommunityModChest.Patcher
                 var agent = UniqueIDScriptable.GetFromID<NPCAgent>(npcAgentUid);
                 if (agent == null)
                 {
-                    Plugin.Logger.LogDebug($"[AchievementTrackerPatch] Trader NPCAgent '{npcAgentUid}' ({label}) not resolvable yet — retrying next poll.");
+                    // gm is non-null here (the method returned early above otherwise), so in a running
+                    // game the Trader NPCAgents are already in AllData: a persistent null is a renumbered
+                    // GUID (game-update maintenance surface), not a transient. Warn once per UID - the
+                    // sibling GUID lookups in AchievementKillEffectsPatch warn on the same miss - so
+                    // Finding a Friend is never silently unearnable. Never fires in the main menu: the
+                    // null-gm early return above guards the pre-run window.
+                    WarnOnce("trader-unresolved:" + npcAgentUid, $"[AchievementTrackerPatch] Trader NPCAgent '{npcAgentUid}' ({label}) did not resolve (renamed by a game update?); Finding a Friend cannot be earned through this trader until it does. Logged once.");
                     continue;
                 }
 
@@ -624,7 +675,7 @@ namespace CommunityModChest.Patcher
                 // co-location on the player's current board.
                 if (!npc.CurrentEnvironment.MatchesPlayerEnv) continue;
 
-                HiddenStat.Set(TraderFoundEarnedStatUid, 1f);
+                SetLatch(TraderFoundEarnedStatUid);
                 Plugin.Logger.LogInfo($"[AchievementTrackerPatch] Achievement earned: Finding a Friend (crossed paths with {label}).");
                 return;
             }

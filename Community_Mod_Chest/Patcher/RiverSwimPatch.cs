@@ -333,7 +333,11 @@ internal static class RiverSwimPatch
     private static bool BuildTravelDrop(DismantleCardAction swim, DismantleCardAction template, CardData destEnv)
     {
         var droppedCardsField = typeof(CardsDropCollection).GetField("DroppedCards", BF);
-        if (droppedCardsField == null) return false;
+        if (droppedCardsField == null)
+        {
+            Plugin.Logger.LogWarning("[RiverSwimPatch] CardsDropCollection.DroppedCards not found (game update?) - the swim's travel drop cannot be built.");
+            return false;
+        }
 
         var templateCollections = template.ProducedCards;
         if (templateCollections == null || templateCollections.Length == 0 || templateCollections[0] == null) return false;
@@ -417,6 +421,7 @@ internal static class RiverSwimPatch
             fi.SetValue(target, value);
             return;
         }
-        Plugin.Logger.LogDebug($"[RiverSwimPatch] field '{fieldName}' not found on {target.GetType().Name} - left as copied from the template.");
+        // Warning, not Debug: this runs at data load only, and a renamed field is otherwise invisible.
+        Plugin.Logger.LogWarning($"[RiverSwimPatch] field '{fieldName}' not found on {target.GetType().Name} (game update?) - left as copied from the template.");
     }
 }

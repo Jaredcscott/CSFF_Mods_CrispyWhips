@@ -123,10 +123,10 @@
       "id": "modwide",
       "name": "Mod-wide",
       "modWide": true,
-      "summary": "Plugin entry, project files, player docs, card motion, shared helpers serving every subsystem (hidden stats, card visuals refresh, NPC tile walker, rotten-remains cleanup, luck readers, interior save data, UID index fallback, env-improvement twin guard, stat tab injection, comfort fixup) and art tooling state.",
+      "summary": "Plugin entry, project files, player docs, card motion, shared helpers serving every subsystem (hidden stats, blocked-button reasons, card visuals refresh, NPC tile walker, rotten-remains cleanup, luck readers, interior save data, UID index fallback, env-improvement twin guard, stat tab injection, comfort fixup) and art tooling state.",
       "paths": ["Plugin.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "PLAYER_GUIDE.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore", "Features.json", "Modules.json",
                 "CardData/Motion/**", "GameStat/CMC_ComfortFixupDone.json",
-                "Patcher/HiddenStat.cs", "Patcher/CardVisualsRefresh.cs", "Patcher/NpcTileWalker.cs", "Patcher/NpcRottenRemainsCleanupPatch.cs", "Patcher/LuckBonus.cs", "EnvPreCreate.json",
+                "Patcher/HiddenStat.cs", "Patcher/BlockedMessage.cs", "Patcher/CardVisualsRefresh.cs", "Patcher/NpcTileWalker.cs", "Patcher/NpcRottenRemainsCleanupPatch.cs", "Patcher/LuckBonus.cs", "EnvPreCreate.json",
                 "Patcher/UniqueIdIndexFallbackPatch.cs", "Patcher/EnvImprovementTwinGuard.cs", "Patcher/StatTabInjectionPatch.cs", "StatResets.json",
                 ".art/compositions.json", ".art/RUN_LOG.md", ".art/reference-uploads.json", ".art/review/**"]
     }

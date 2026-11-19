@@ -1,0 +1,38 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+            {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 2.0}},
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 25.0, "y": 100.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_PowderQuestThanksCold_Line",
+        "DefaultText": "Char and flowers, both sound. The talk about you has reached me out here, mind, but I pay what I owe. Grind the two together and you have a pigment. That's the trick, and that's us settled."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_PowderQuestThanks_Answer_Glad",
+                "DefaultText": "Glad to help."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatApothQuestChain",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": ["potterysculpturebppigment"],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

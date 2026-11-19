@@ -350,7 +350,7 @@ namespace CommunityModChest.Patcher
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogDebug($"[JailEscapePatch] DaySettings read threw: {ex.Message}");
+                Plugin.Logger.LogWarning($"[JailEscapePatch] DaySettings read threw: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
             return AssumedDayStartingHour;
         }

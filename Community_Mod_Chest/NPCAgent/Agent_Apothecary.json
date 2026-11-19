@@ -133,13 +133,15 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 3.25}}
+                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 3.25}},
+                {"StatWarpData": "cmcStatApothHerbBillberries", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
             ],
             "HideIfConditionsNotMet": true,
             "ReceivingCardChanges": {"ModType": 0},
             "GivenCardChanges": {"ModType": 3},
             "StatModifications": [
-                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "cmcStatApothHerbBillberries", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
             ],
             "CompatibleCards": {
                 "TriggerCardsWarpData": ["d615853632d85db458d14016156b1a82"],
@@ -160,13 +162,15 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 3.25}}
+                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 3.25}},
+                {"StatWarpData": "cmcStatApothHerbSpringberries", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
             ],
             "HideIfConditionsNotMet": true,
             "ReceivingCardChanges": {"ModType": 0},
             "GivenCardChanges": {"ModType": 3},
             "StatModifications": [
-                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "cmcStatApothHerbSpringberries", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
             ],
             "CompatibleCards": {
                 "TriggerCardsWarpData": ["2bfd683e2c81d9e4ea993221475673ee"],
@@ -187,13 +191,15 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 3.25}}
+                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 3.25}},
+                {"StatWarpData": "cmcStatApothHerbSpiritMushrooms", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
             ],
             "HideIfConditionsNotMet": true,
             "ReceivingCardChanges": {"ModType": 0},
             "GivenCardChanges": {"ModType": 3},
             "StatModifications": [
-                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "cmcStatApothHerbSpiritMushrooms", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
             ],
             "CompatibleCards": {
                 "TriggerCardsWarpData": ["e41ab416339b3c9459a37b4942f8f57b"],
@@ -215,13 +221,15 @@
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
                 {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
-                {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 1.5}}
+                {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 1.5}},
+                {"StatWarpData": "cmcStatApothPowderCharcoal", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
             ],
             "HideIfConditionsNotMet": true,
             "ReceivingCardChanges": {"ModType": 0},
             "GivenCardChanges": {"ModType": 3},
             "StatModifications": [
-                {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "cmcStatApothPowderCharcoal", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
             ],
             "CompatibleCards": {
                 "TriggerCardsWarpData": ["51c751469bd15ce46804e399479d1764"],
@@ -243,13 +251,15 @@
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
                 {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
-                {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 1.5}}
+                {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 1.5}},
+                {"StatWarpData": "cmcStatApothPowderFlowers", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
             ],
             "HideIfConditionsNotMet": true,
             "ReceivingCardChanges": {"ModType": 0},
             "GivenCardChanges": {"ModType": 3},
             "StatModifications": [
-                {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "cmcStatApothPowderFlowers", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
             ],
             "CompatibleCards": {
                 "TriggerCardsWarpData": ["bb2b60e54f65da4449a62faa8c84654a"],

@@ -53,7 +53,13 @@ namespace CommunityModChest.Patcher
             try
             {
                 var tabType = CardUtil.FindGameType("StatListTab");
-                if (tabType == null) return;
+                if (tabType == null)
+                {
+                    // The one exit both injections depend on (modwide A13 and G5): once, by name.
+                    if (_warnedTabMissing.Add("type:StatListTab"))
+                        Plugin.Logger.LogWarning("[StatTabInjectionPatch] StatListTab type not resolved at game boot (renamed by a game update?): no stat-tab injections run, so Village Reputation and Melee Fighting stay off the detailed stats screen. Logged once.");
+                    return;
+                }
 
                 // Re-found every boot on purpose: StatListTab assets are scene-scoped and can be
                 // unloaded and reloaded between runs, and a cached destroyed UnityEngine.Object
@@ -103,7 +109,10 @@ namespace CommunityModChest.Patcher
             var containedField = CardUtil.GetCachedField(tabType, "ContainedStats");
             if (containedField?.GetValue(tab) is not IList list)
             {
-                Plugin.Logger.LogDebug($"[StatTabInjectionPatch] '{tabName}' tab has no ContainedStats list — skipped.");
+                // Was a Debug line on every boot; a StatListTab without a ContainedStats list is a game-update
+                // rename, so it is a warning, once per tab, naming the member.
+                if (_warnedTabMissing.Add("member:ContainedStats:" + tabName))
+                    Plugin.Logger.LogWarning($"[StatTabInjectionPatch] StatListTab.ContainedStats {(containedField == null ? "did not resolve" : "is not a list")} on the '{tabName}' tab (renamed by a game update?): {statUid} stays untabbed. Logged once.");
                 return;
             }
 

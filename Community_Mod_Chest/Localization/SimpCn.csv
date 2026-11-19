@@ -397,9 +397,9 @@ Combat_And_Armor_QuiltedVest_OnZero,Vest Destroyed!,背心已损毁！
 Combat_And_Armor_BoneLamellar_OnZero,Armor Destroyed!,铠甲已损毁！
 Combat_And_Armor_QuiltedCap_OnZero,Cap Destroyed!,帽子已损毁！
 CMC_IronFishingRodFittings_CardName,Iron Fishing Rod Fittings,铁制钓竿配件
-CMC_IronFishingRodFittings_CardDescription,Iron hook eyelet and reel fittings for a superior fishing rod. Combine with a long stick and fishing line to complete the rod.,用于制作优质钓竿的铁制导环和卷线器配件，与长木棍和钓线组合即可制成完整的钓竿。
+CMC_IronFishingRodFittings_CardDescription,"Iron hook, eyelet, and reel fittings for a superior fishing rod. Combine with a long stick and fishing line to complete the rod, once the Academy's Fishing course has taught you its recipe.",用于制作优质钓竿的铁制导环和卷线器配件。等学院的钓鱼课程教会你钓竿的配方后，与长木棍和钓线组合即可制成完整的钓竿。
 Bp_CMC_IronFishingRodFittings_CardName,Iron Fishing Rod Fittings,铁制钓竿配件
-Bp_CMC_IronFishingRodFittings_CardDescription,Forge iron fittings for a superior fishing rod. Requires a heated iron nugget and a forge hammer.,锻造优质钓竿所需的铁制配件。需要一块加热过的铁块和一把锻造锤。
+Bp_CMC_IronFishingRodFittings_CardDescription,Forge iron fittings for a superior fishing rod. Requires a heated iron nugget and a forge hammer. The rod itself is a recipe taught by the Academy's Fishing course.,锻造优质钓竿所需的铁制配件。需要一块加热过的铁块和一把锻造锤。钓竿本身的配方由学院的钓鱼课程传授。
 Bp_CMC_IronFishingRodFittings_UnlockConditionsDesc,Iron Nugget and Forge Hammer Needed,需要铁块与锻锤
 CMC_IronFishingRod_CardName,Iron Fishing Rod,铁制钓竿
 CMC_IronFishingRod_CardDescription,"A well-crafted rod with iron fittings, a long stick and rustic line. Held in hand, it gives a steady fishing advantage.",一根用铁制配件、长木棍和粗制钓线精心制作的钓竿。握在手中时能稳定提升钓鱼效率。
@@ -411,7 +411,7 @@ CMC_IronFishingRod_Fish_ActionName,Cast Line,抛竿垂钓
 CMC_IronFishingRod_Fish_ActionDescription,Cast your iron-fitted line into the water and wait for a bite.,把这根带铁制配件的钓线抛入水中，等待鱼儿上钩。
 Bp_CMC_IronFishingRod_CardName,Iron Fishing Rod,铁制钓竿
 Bp_CMC_IronFishingRod_CardDescription,"Assemble a superior fishing rod from iron fittings, a long stick and a rustic fishing line. Held in hand, it gives a steady fishing advantage.",用铁制配件、长木棍和粗制钓线组装出一根优质钓竿。握在手中时能稳定提升钓鱼效率。
-Bp_CMC_IronFishingRod_UnlockConditionsDesc,Iron Fishing Rod Fittings Needed,需要铁制钓竿配件
+Bp_CMC_IronFishingRod_UnlockConditionsDesc,Graduate the Academy's Fishing course,从学院的钓鱼课程毕业
 CMC_OldGrowthBark_CardName,Old Growth Bark,古树皮
 CMC_OldGrowthBark_CardDescription,"Thick bark peeled from the ancient oaks of the Foraging Forest. Rich with aromatic tannins, ground together with wild garlic into a soothing herb paste.",从觅食林古老橡树上剥下的厚实树皮，富含芳香单宁，与野蒜一同研磨可制成舒缓的草药糊。
 CMC_GardenTrellis_Placed_CardName,Garden Trellis,花园棚架
@@ -419,7 +419,7 @@ CMC_GardenTrellis_Placed_CardDescription,A wooden trellis erected in the garden.
 CMC_GardenTrellis_Placed_DA_Dismantle,Dismantle,拆解
 CMC_GardenTrellis_Placed_Weathered,The garden trellis has rotted away.,花园棚架已经腐朽消失。
 Bp_CMC_GardenTrellis_CardName,Garden Trellis,花园棚架
-Bp_CMC_GardenTrellis_CardDescription,Lash long sticks together with rope into a climbing-plant frame.,用绳子把长木棍绑扎在一起，制成攀爬植物的支架。
+Bp_CMC_GardenTrellis_CardDescription,Lash long sticks together with twine into a climbing-plant frame for the garden.,用细绳把长木棍绑扎在一起，制成花园里攀爬植物的支架。
 Pottery_Sculpture_FigurineCastle_CardName,Castle Figurine,城堡陶像
 Pottery_Sculpture_FigurineCastle_CardDescription,A small clay figurine shaped like a miniature tower with crenellations. Intricate work prized by traders and collectors.,一尊形似带雉堞微型塔楼的小陶像，工艺精细，深受商人和收藏家青睐。
 Pottery_Sculpture_FigurineCastle_UsageDurability,Durability,耐久度
@@ -690,6 +690,7 @@ CMC_InnCounter_DA_Meal_Desc,"Draws 30 from your Inn Account (more while you are 
 CMC_InnCounter_DA_Sleep,Stay the Night,留宿一晚
 CMC_InnCounter_DA_Sleep_Desc,"Draws 50 from your Inn Account (more while you are Wanted or Banished) for a room: a Rented Bed appears here for the next 6 hours. Sleep in it when you are ready, and if something wakes you, lie down again while the time lasts. One room at a time.",从你的旅店账户中扣除50（被通缉或被放逐期间会更多）租一间房：这里会出现一张租来的床，供你使用接下来的6小时。准备好了就去睡，如果中途被吵醒，只要时间还没到，可以再躺下继续睡。一次只能租一间。
 CMC_InnRentedBed_CardName,Rented Bed,租来的床
+CMC_Inn_RoomAlreadyRented_BlockedMessage,You already have a room: sleep in the Rented Bed.,你已经有房间了：去租来的床上睡吧。
 CMC_InnRentedBed_CardDescription,"A made-up bed in one of the Inn's rooms, yours for the next 6 hours. Sleep in it, and if something wakes you, lie down again while the time lasts. When the time runs out the Inn Keeper takes the room back.",旅店客房里一张铺好的床，接下来6小时归你使用。可以在上面睡觉，如果中途被吵醒，只要时间还没到，就可以再躺下。时间一到，旅店老板就会收回房间。
 CMC_InnRentedBed_RentalTime,Room Time Left,剩余租房时间
 CMC_InnRentedBed_TimeUp,"Your time in the room is up, and the Inn Keeper takes the bed back.",你的租房时间到了，旅店老板收回了这张床。
@@ -1387,6 +1388,7 @@ CMC_ApothecaryTalk_HerbQuestOffer_Answer_Accept,I'll keep an eye out for all thr
 CMC_ApothecaryTalk_HerbQuestOffer_Answer_Decline,I'll see what I can do.,我看看能做些什么。
 CMC_ApothecaryTalk_HerbQuestThanks_Line,"All three, and none of them bruised. You've got a forager's hands, whether you know it or not. Give me a day or so and I'll have something worth more than a tea for it. Here, the recipe's yours too; you've earned the knowing of it.",三样都齐了，一个都没压坏。你这双手天生就是采集的料，不管你自己知不知道。给我一天左右的时间，我会做出比一杯茶更值钱的东西。来，这个方子也给你，你配得上知道它。
 CMC_ApothecaryTalk_HerbQuestThanks_Answer_Thanks,Happy to forage for you.,很乐意为你去采集。
+CMC_ApothecaryTalk_HerbQuestThanksCold_Line,"All three, and fresh. I've heard what the village is saying about you, and I'll not pretend I haven't. But a bargain is a bargain, and you kept your side of it. The recipe's yours, as promised. That squares us.",三样都齐了，也都新鲜。村里怎么说你，我听到了，也不打算装作没听见。不过说好的就是说好的，你的那一半你做到了。方子按约定归你。这样我们就两清了。
 CMC_Professor_Menu_Specimen,Need anything pressed for your herbarium?,你的标本室还需要压制什么标本吗？
 CMC_ProfessorGreeting_SpecimenPointer_Line,"As it happens, I've a standing request on the board for nettle leaves, three fresh ones, whenever you've a moment in the forest. Small thing, but my herbarium thanks you all the same.",说来正好，告示板上我留了个长期的请求——三片新鲜荨麻叶，等你有空进森林的时候顺手采一下。小事一桩，不过我的标本室仍会因此感激你。
 CMC_ProfessorGreeting_SpecimenPointer_Answer_Close,I'll keep an eye out.,我会留意的。
@@ -1415,7 +1417,19 @@ CMC_WeaverStoryStep_StatDescription,Hidden tracker for how far into the Weaver's
 CMC_WeaverFlaxQuest_StatName,The Weaver's Flax Errand,织工的亚麻差事
 CMC_WeaverFlaxQuest_StatDescription,"Hidden tracker: 0 = not offered, 1 = active (bring dried flax stems), 2 = delivered and thanked.",隐藏追踪器：0=尚未提出，1=进行中（需带来晒干的亚麻茎），2=已交付并道谢。
 CMC_ApothecaryHerbQuest_StatName,The Apothecary's Herb Request,药剂师的草药请求
-CMC_ApothecaryHerbQuest_StatDescription,"Hidden tracker: 0 = not offered, 0.5 = accepted, then +1 per fresh herb delivered (billberries, springberries, spirit mushrooms); 3.5 = all three in, 4.5 = thanked and cleared.",隐藏追踪器：0=尚未提出，0.5=已接受，之后每交付一种新鲜草药+1（越橘、春莓、灵魂菇）；3.5=三样全部交齐，4.5=已道谢并结清。
+CMC_ApothecaryHerbQuest_StatDescription,"Hidden tracker: 0 = not offered, 0.5 = accepted, then +1 per kind of fresh herb delivered, each kind once (billberries, springberries, spirit mushrooms); 3.5 = all three in, 4.5 = thanked and cleared.",隐藏追踪器：0=尚未提出，0.5=已接受，之后每交付一种新鲜草药+1，每种只计一次（越橘、春莓、灵魂菇）；3.5=三样全部交齐，4.5=已道谢并结清。
+CMC_ApothHerbBillberries_StatName,Herb Request: Billberries Delivered,草药请求：越橘已交付
+CMC_ApothHerbBillberries_StatDescription,"Hidden marker for the Apothecary's herb request: 0 = fresh billberries not yet handed over, 1 = handed over. Clamped to that range, so each kind of herb counts once.",药剂师草药请求的隐藏标记：0=尚未交付新鲜越橘，1=已交付。数值限制在此范围内，因此每种草药只计一次。
+CMC_ApothHerbSpringberries_StatName,Herb Request: Springberries Delivered,草药请求：春莓已交付
+CMC_ApothHerbSpringberries_StatDescription,"Hidden marker for the Apothecary's herb request: 0 = fresh springberries not yet handed over, 1 = handed over. Clamped to that range, so each kind of herb counts once.",药剂师草药请求的隐藏标记：0=尚未交付新鲜春莓，1=已交付。数值限制在此范围内，因此每种草药只计一次。
+CMC_ApothHerbSpiritMushrooms_StatName,Herb Request: Spirit Mushrooms Delivered,草药请求：灵魂菇已交付
+CMC_ApothHerbSpiritMushrooms_StatDescription,"Hidden marker for the Apothecary's herb request: 0 = fresh spirit mushrooms not yet handed over, 1 = handed over. Clamped to that range, so each kind of herb counts once.",药剂师草药请求的隐藏标记：0=尚未交付新鲜灵魂菇，1=已交付。数值限制在此范围内，因此每种草药只计一次。
+CMC_ApothPowderProgress_StatName,The Apothecary's Powder Request,药剂师的粉末请求
+CMC_ApothPowderProgress_StatDescription,"Hidden tracker for A2 (powders and dyes): 0 = not delivered, 1 = one of charcoal or dried heather flowers delivered, 2 = both delivered, ready to be thanked. Each ingredient counts once. It stays at 2 after the thanks; the quest chain stat closes the errand.",A2（粉末与染料）的隐藏追踪器：0=尚未交付，1=木炭或风干石楠花已交付其一，2=两样都已交付，可以道谢。每种材料只计一次。道谢后保持为2，由任务链数值结束这项委托。
+CMC_ApothPowderCharcoal_StatName,Powder Request: Charcoal Delivered,粉末请求：木炭已交付
+CMC_ApothPowderCharcoal_StatDescription,"Hidden marker for the Apothecary's powder request: 0 = charcoal not yet handed over, 1 = handed over. Clamped to that range, so each ingredient counts once.",药剂师粉末请求的隐藏标记：0=尚未交付木炭，1=已交付。数值限制在此范围内，因此每种材料只计一次。
+CMC_ApothPowderFlowers_StatName,Powder Request: Dried Heather Flowers Delivered,粉末请求：风干石楠花已交付
+CMC_ApothPowderFlowers_StatDescription,"Hidden marker for the Apothecary's powder request: 0 = dried heather flowers not yet handed over, 1 = handed over. Clamped to that range, so each ingredient counts once.",药剂师粉末请求的隐藏标记：0=尚未交付风干石楠花，1=已交付。数值限制在此范围内，因此每种材料只计一次。
 CMC_QuestRenownMillerGrain_StatName,Renown: Miller's Errand,声望：磨坊主的差事
 CMC_QuestRenownMillerGrain_StatDescription,Hidden one-shot flag: 1 once the Miller's grain errand is completed. Contributes to Village Renown.,隐藏的一次性标记：磨坊主的粮食差事完成后置为1。计入村庄声望。
 CMC_QuestRenownWeaverFlax_StatName,Renown: Weaver's Errand,声望：织工的差事
@@ -1455,11 +1469,13 @@ CMC_ApothecaryTalk_InterlockS2Offer_Answer_Ok,I'll see what she can spare.,我�
 CMC_ApothecaryTalk_InterlockS2Offer_Line,"Grinding powders kicks up more dust than you'd think, gets in the eyes, the nose, everywhere. If the Weaver can spare a length of cloth, I could sew myself a proper mask instead of tying a rag over my face like some bandit.",磨粉末扬起的灰尘，比你想的要多，眼睛里、鼻子里，哪儿都是。织工要是能匀出一段布，我就能给自己缝一个像样的口罩，不用再拿块破布蒙脸，跟个强盗似的。
 CMC_ApothecaryTalk_InterlockS2Thanks_Answer_Ok,I'll pass that along.,我会带话给她的。
 CMC_ApothecaryTalk_InterlockS2Thanks_Line,"Good weave, tight enough to keep the worst of the dust out. Tell the Weaver her cloth's finally doing honest work for someone other than herself. Here, the pattern's yours, in case you've a dusty errand of your own someday.",织得真好，密实得能挡住大部分灰尘。跟织工说一声，她的布终于替她自己以外的人干了件实在活。给，这花样也给你，说不定哪天你自己也要干灰尘满天的活儿呢。
+CMC_ApothecaryTalk_InterlockS2ThanksCold_Line,"The weave is tight enough to keep the dust out. I'll thank the Weaver for it myself. Your name isn't one I'd care to stand beside in the village just now, but the pattern was promised, so take it.",这布织得够密，挡得住灰尘。织工那边我会亲自去道谢。眼下在村里，我可不想和你的名字扯在一起，不过花样是答应过你的，拿去吧。
 CMC_ApothecaryTalk_PowderQuestOffer_Answer_Accept,I'll bring you both.,我会把两样都带给你的。
 CMC_ApothecaryTalk_PowderQuestOffer_Answer_Decline,I'll see what I can find.,我看看能找到些什么。
 CMC_ApothecaryTalk_PowderQuestOffer_Line,"Since you're asking, I could use charcoal and a good handful of dried heather flowers. Grind them right and you get a pigment worth more than the sum of its parts, dyes, paints, all sorts of uses.",你既然问了，我正好需要木炭和一大把风干的石楠花。磨对了法子，能磨出一种颜料，比原材料本身值钱得多，染色、上漆，各种用途都有。
 CMC_ApothecaryTalk_PowderQuestThanks_Answer_Glad,Glad to help.,很高兴能帮上忙。
 CMC_ApothecaryTalk_PowderQuestThanks_Line,"Good char, good flowers, no waste in either. Grind them together and you've got yourself a proper pigment. Take the trick, I've no use hoarding it.",木炭好，花也好，两样都没浪费。一起磨碎，你就有了一份像样的颜料。这个诀窍你拿去吧，我留着也没用。
+CMC_ApothecaryTalk_PowderQuestThanksCold_Line,"Char and flowers, both sound. The talk about you has reached me out here, mind, but I pay what I owe. Grind the two together and you have a pigment. That's the trick, and that's us settled.",木炭和花，两样都不错。提醒你一句，关于你的那些话也传到我这儿了，不过我欠的账我会还。把两样一起磨碎，就是颜料。诀窍就是这个，我们也就两清了。
 CMC_ApothecaryTalk_Start_Answer_InterlockS2,Could the Weaver help with your dust problem?,织工能帮你解决灰尘的问题吗？
 CMC_ApothecaryTalk_Start_Answer_PowderQuest,What about powders and dyes?,粉末和染料的事怎么样了？
 CMC_Apothecary_GiveCharcoal_ActionDescription,Hand over a piece of charcoal for the Apothecary's powder work. She sets it aside with the rest of her grinding stock.,把一块木炭交给药剂师，用于她的制粉工作。她把它和其他待磨的存货放在一起。
@@ -2457,50 +2473,50 @@ CMC_CorrinTalk_SceneTitle,Guard Old Corrin,老卫兵科林
 CMC_ThorneTalk_SceneTitle,Guard Nella Thorne,卫兵内拉·索恩
 CMC_VaneTalk_SceneTitle,Guard Iris Vane,卫兵艾莉丝·维恩
 CMC_BoardAchievements_CardName,Town Achievement Board,镇成就公告板
-CMC_BoardAchievements_CardDescription,"A board where the village keeps a record of this settler's notable deeds -- some hard-won, some merely notable, all worth a look.",村庄用来记录这位定居者种种事迹的公告板——有些来之不易，有些只是趣闻，但都值得一看。
-CMC_BoardAchievements_DA_traderfound_locked_Name,Finding a Friend — unclaimed,结识旅伴——未达成
+CMC_BoardAchievements_CardDescription,"A board where the village keeps a record of this settler's notable deeds -- some hard-won, some merely notable, all worth a look.",村庄用来记录这位定居者种种事迹的公告板：有些来之不易，有些只是趣闻，但都值得一看。
+CMC_BoardAchievements_DA_traderfound_locked_Name,Finding a Friend - unclaimed,结识旅伴-未达成
 CMC_BoardAchievements_DA_traderfound_locked_Desc,Cross paths with a traveling trader somewhere out in the wilds.,在荒野中的某处，与一位行商相遇。
-CMC_BoardAchievements_DA_traderfound_earned_Name,Finding a Friend — earned,结识旅伴——已达成
+CMC_BoardAchievements_DA_traderfound_earned_Name,Finding a Friend - earned,结识旅伴-已达成
 CMC_BoardAchievements_DA_traderfound_earned_Desc,"A trader's cart rattled into view, and for a moment the road felt a little less lonely.",一辆商队的推车嘎吱作响地出现在眼前，这条路一时间不再那么孤单。
-CMC_BoardAchievements_DA_fullkit_locked_Name,Full Kit — unclaimed,全套工具——未达成
+CMC_BoardAchievements_DA_fullkit_locked_Name,Full Kit - unclaimed,全套工具-未达成
 CMC_BoardAchievements_DA_fullkit_locked_Desc,"Assemble the complete set of six metal tools: Axe, Pickaxe, Hoe, Knife, Shovel, and Sickle.",集齐六件金属工具：斧头、镐子、锄头、小刀、铲子和镰刀。
-CMC_BoardAchievements_DA_fullkit_earned_Name,Full Kit — earned,全套工具——已达成
-CMC_BoardAchievements_DA_fullkit_earned_Desc,"Axe, pickaxe, hoe, knife, shovel, sickle — a full metal kit, ready for anything.",斧头、镐子、锄头、小刀、铲子、镰刀——一整套金属工具，万事俱备。
-CMC_BoardAchievements_DA_bearslain_locked_Name,Right to Bear Arms — unclaimed,持械之权——未达成
+CMC_BoardAchievements_DA_fullkit_earned_Name,Full Kit - earned,全套工具-已达成
+CMC_BoardAchievements_DA_fullkit_earned_Desc,"Axe, pickaxe, hoe, knife, shovel, sickle: a full metal kit, ready for anything.",斧头、镐子、锄头、小刀、铲子、镰刀：一整套金属工具，万事俱备。
+CMC_BoardAchievements_DA_bearslain_locked_Name,Right to Bear Arms - unclaimed,持械之权-未达成
 CMC_BoardAchievements_DA_bearslain_locked_Desc,Fell a Bear in the wild.,在野外击倒一只熊。
-CMC_BoardAchievements_DA_bearslain_earned_Name,Right to Bear Arms — earned,持械之权——已达成
+CMC_BoardAchievements_DA_bearslain_earned_Name,Right to Bear Arms - earned,持械之权-已达成
 CMC_BoardAchievements_DA_bearslain_earned_Desc,"One less bear in these woods, and quite a story to tell about it.",这片森林里少了一只熊，也多了一个值得一讲的故事。
-CMC_BoardAchievements_DA_hunter_locked_Name,Master Hunter — unclaimed,狩猎大师——未达成
+CMC_BoardAchievements_DA_hunter_locked_Name,Master Hunter - unclaimed,狩猎大师-未达成
 CMC_BoardAchievements_DA_hunter_locked_Desc,"Hunt every kind of huntable animal in the forest: Badger, Bear, Beaver, Boar, Doe, Duck, Fox, Hare, Partridge, Squirrel, Stag, and Wolf.",猎杀森林中每一种可猎动物：獾、熊、河狸、野猪、母鹿、野鸭、狐狸、野兔、山鹑、松鼠、公鹿和狼。
-CMC_BoardAchievements_DA_hunter_earned_Name,Master Hunter — earned,狩猎大师——已达成
+CMC_BoardAchievements_DA_hunter_earned_Name,Master Hunter - earned,狩猎大师-已达成
 CMC_BoardAchievements_DA_hunter_earned_Desc,Every creature of the forest has fallen to your bow at least once.,森林中的每一种生物都曾倒在你的弓下。
-CMC_BoardAchievements_DA_explorer_locked_Name,Forest Explorer — unclaimed,森林探索者——未达成
+CMC_BoardAchievements_DA_explorer_locked_Name,Forest Explorer - unclaimed,森林探索者-未达成
 CMC_BoardAchievements_DA_explorer_locked_Desc,"Set foot in ten of the forest's varied surface groves, thickets, and glades.",踏足森林地表十处各具特色的树丛、灌木林与林间空地。
-CMC_BoardAchievements_DA_explorer_earned_Name,Forest Explorer — earned,森林探索者——已达成
+CMC_BoardAchievements_DA_explorer_earned_Name,Forest Explorer - earned,森林探索者-已达成
 CMC_BoardAchievements_DA_explorer_earned_Desc,"Ten distinct corners of the forest, all walked, all known.",森林中十处各不相同的角落，皆已踏遍，皆已知悉。
-CMC_BoardAchievements_DA_yearsurvived_locked_Name,Happy New Year — unclaimed,新年快乐——未达成
+CMC_BoardAchievements_DA_yearsurvived_locked_Name,Happy New Year - unclaimed,新年快乐-未达成
 CMC_BoardAchievements_DA_yearsurvived_locked_Desc,Survive long enough to see a full year pass.,存活足够长的时间，见证一整年的流转。
-CMC_BoardAchievements_DA_yearsurvived_earned_Name,Happy New Year — earned,新年快乐——已达成
+CMC_BoardAchievements_DA_yearsurvived_earned_Name,Happy New Year - earned,新年快乐-已达成
 CMC_BoardAchievements_DA_yearsurvived_earned_Desc,"A full year survived, seasons and all. Here's to the next one.",整整一年，四季轮转，你都挺过来了。敬下一年。
-CMC_BoardAchievements_DA_angler_locked_Name,Master Angler — unclaimed,钓鱼大师——未达成
+CMC_BoardAchievements_DA_angler_locked_Name,Master Angler - unclaimed,钓鱼大师-未达成
 CMC_BoardAchievements_DA_angler_locked_Desc,"Bring home every kind of fish: Char, Eel, Perch, Pike, Sturgeon, and Trout.",带回每一种鱼：红点鲑、鳗鱼、河鲈、狗鱼、鲟鱼和鳟鱼。
-CMC_BoardAchievements_DA_angler_earned_Name,Master Angler — earned,钓鱼大师——已达成
+CMC_BoardAchievements_DA_angler_earned_Name,Master Angler - earned,钓鱼大师-已达成
 CMC_BoardAchievements_DA_angler_earned_Desc,Every fish in these waters has passed through your hands at least once.,这片水域中的每一种鱼，都曾至少一次落入你手中。
-CMC_BoardAchievements_DA_spelunker_locked_Name,Spelunker — unclaimed,洞穴探险者——未达成
+CMC_BoardAchievements_DA_spelunker_locked_Name,Spelunker - unclaimed,洞穴探险者-未达成
 CMC_BoardAchievements_DA_spelunker_locked_Desc,Explore eight of the region's caves and hollows.,探索这片区域中的八处洞穴与地穴。
-CMC_BoardAchievements_DA_spelunker_earned_Name,Spelunker — earned,洞穴探险者——已达成
+CMC_BoardAchievements_DA_spelunker_earned_Name,Spelunker - earned,洞穴探险者-已达成
 CMC_BoardAchievements_DA_spelunker_earned_Desc,"Eight caverns explored, torch held high through every one.",八处洞穴，全部探索完毕，火把从未熄灭。
-CMC_BoardAchievements_DA_shaman_locked_Name,Master Shaman — unclaimed,萨满大师——未达成
+CMC_BoardAchievements_DA_shaman_locked_Name,Master Shaman - unclaimed,萨满大师-未达成
 CMC_BoardAchievements_DA_shaman_locked_Desc,"Come to possess a bound spirit of every kind, animal and fish alike -- nineteen in all.",集齐每一种可猎动物与鱼类的束缚之灵，共十九种。
-CMC_BoardAchievements_DA_shaman_earned_Name,Master Shaman — earned,萨满大师——已达成
+CMC_BoardAchievements_DA_shaman_earned_Name,Master Shaman - earned,萨满大师-已达成
 CMC_BoardAchievements_DA_shaman_earned_Desc,"Nineteen bound spirits, a complete communion with the wild.",十九个被束缚的灵魂，与荒野的完整沟通。
-CMC_BoardAchievements_DA_noisemax_locked_Name,Spiritual Overcrowding — unclaimed,灵魂过载——未达成
+CMC_BoardAchievements_DA_noisemax_locked_Name,Spiritual Overcrowding - unclaimed,灵魂过载-未达成
 CMC_BoardAchievements_DA_noisemax_locked_Desc,The innkeeper refuses to explain this entry.,店主拒绝解释这一条记录。
-CMC_BoardAchievements_DA_noisemax_earned_Name,Spiritual Overcrowding — earned,灵魂过载——已达成
+CMC_BoardAchievements_DA_noisemax_earned_Name,Spiritual Overcrowding - earned,灵魂过载-已达成
 CMC_BoardAchievements_DA_noisemax_earned_Desc,"Your Spiritual Noise reached its very limit. The spirits are... a lot, right now.",你的灵魂噪动已达到上限。此刻，灵魂们……确实有点多。
-CMC_BoardAchievements_DA_stinkyjar_locked_Name,Stinky Jar — unclaimed,臭气罐子——未达成
+CMC_BoardAchievements_DA_stinkyjar_locked_Name,Stinky Jar - unclaimed,臭气罐子-未达成
 CMC_BoardAchievements_DA_stinkyjar_locked_Desc,The innkeeper refuses to explain this entry.,店主拒绝解释这一条记录。
-CMC_BoardAchievements_DA_stinkyjar_earned_Name,Stinky Jar — earned,臭气罐子——已达成
+CMC_BoardAchievements_DA_stinkyjar_earned_Name,Stinky Jar - earned,臭气罐子-已达成
 CMC_BoardAchievements_DA_stinkyjar_earned_Desc,"A storage pot, sealed to the brim with aged Urine. The innkeeper wants to know why.",一只储物罐，密封着满满的陈年尿液。店主很想知道这是为什么。
 CMC_BoardAchievements_DA_orderup_locked_Name,Order Up! - unclaimed,准时送达-未达成
 CMC_BoardAchievements_DA_orderup_locked_Desc,Fill a travelling trader's commission.,完成一位行商的委托。
@@ -2541,7 +2557,7 @@ CMC_MillerAcademyToday_StatDescription,"Hidden tracker for whether today is the 
 CMC_WeaverAcademyToday_StatName,Weaver Academy Day,织工学院日
 CMC_WeaverAcademyToday_StatDescription,"Hidden tracker for whether today is the Weaver's weekly Academy visit — 1 all day, 0 otherwise. Keeps her workplace duty from fighting her Academy commute.",隐藏追踪器：记录今天是否为织工每周学院探访日——探访日全天为1，其余时间为0。用于防止她的工作日程与学院行程冲突。
 CMC_SilverwortBlossom_CardName,Silverwort Blossom,银草花
-CMC_SilverwortBlossom_CardDescription,"A pale, silver-petaled flower found only in the deepest, undisturbed corners of the Foraging Forest. Apothecaries prize it for its potency.",一种苍白、银色花瓣的花朵，只生长在覓食森林最深处未受打扰的角落。药剂师们珍视它的药效。
+CMC_SilverwortBlossom_CardDescription,"A pale, silver-petaled flower found only in the deepest, undisturbed corners of the Foraging Forest and the Highland Pines. Apothecaries prize it for its potency.",一种苍白、银色花瓣的花朵，只生长在觅食林和高地松林最深处未受打扰的角落。药剂师们珍视它的药效。
 CMC_HollowSage_CardName,Hollow Sage,幽谷鼠尾草
 CMC_HollowSage_CardDescription,"A hardy, silver-leafed sage that grows near old hollows and root-shadowed ground. Its bitter scent lingers on the hands long after picking.",一种耐寒的银叶鼠尾草，生长在古老树洞附近和树根阴蔽的地面上。采摘后，它的苦涩气味会在手上残留很久。
 CMC_ClayShoalFlood_CardName,Flooded Ford,被淹的渡口
@@ -3712,3 +3728,8 @@ CMC_Professor_Amends_ActionName,Make Amends: Candle,赔礼：蜡烛
 CMC_Professor_Amends_ActionDescription,"Hand over an unlit Candle for the Professor's late reading, as asked when you spoke about the chest. Fetching it takes about two hours. Talk to the Professor again for the thanks; the Trust comes back after that.",把一支未点燃的蜡烛交给教授，供夜读，这是你们谈起箱子时提的。取烛要花大约两小时。再和教授交谈，对方会道谢，信任随后回升。
 CeramicLamp_RefuelLiquid_ActionName,Pour Oil from Container,从容器倒入油
 CeramicLamp_RefuelLiquid_ActionDescription,Pour oil from a container into the lamp's reservoir. A full clay bowl of liquid oil burns as long as a bowl of oil.,把容器里的油倒进灯的油槽里。一满陶碗的液态油和一碗油烧得一样久。
+CMC_Inn_BalanceTooLow_BlockedMessage,"Inn account balance too low - deposit Salt, coins, or nuggets on the counter. This costs {0}.",旅店账户余额不足：请在柜台存入盐、硬币或金属块。此项花费{0}。
+CMC_Academy_TuitionTooLow_BlockedMessage,"Enrollment draws {0} from the Tuition Account - deposit Salt, coins, or nuggets on the lectern first.",报名需从学费账户中扣除{0}：请先在讲台存入盐、硬币或金属块。
+CMC_Academy_AlreadyGraduated_BlockedMessage,You have already completed this course.,你已经修完这门课程了。
+CMC_Academy_IntroductionsFirst_BlockedMessage,The Professor doesn't take students he hasn't met properly: present yourself to the Keeper at the Village Inn first.,教授不收没有正式见过面的学生：请先去旅店向旅店老板报到。
+CMC_Jail_WardenWantsSalt_BlockedMessage,The warden wants {0} Salt in hand first. You have {1}.,狱卒要先看到你手里有{0}份盐。你现在有{1}份。

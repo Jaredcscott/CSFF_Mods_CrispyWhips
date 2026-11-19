@@ -291,9 +291,13 @@ namespace CommunityModChest.Patcher
                 if (CardUtil.GetCardUniqueId(__0) != JailCellLocationUid) return;
                 if (CardUtil.GetActionName(__instance) != PayWardenActionName) return;
                 if (TryAssessWardenPayment(out int needed, out int held)) return;
-                if (Reflect.GetMember(__instance, "ActionBlockedMessage") is string existing && !string.IsNullOrEmpty(existing)) return;
-                Reflect.SetMember(__instance, "ActionBlockedMessage",
-                    "The warden wants " + needed + " Salt in hand first. You have " + held + ".");
+                if (BlockedMessage.AlreadySetOn(__instance)) return;
+                // A Localization/SimpEn.csv + SimpCn.csv row read through BlockedMessage (framework Api.Localized);
+                // the English here is the fallback and must equal the row's English column.
+                new BlockedMessage(
+                    "CMC_Jail_WardenWantsSalt_BlockedMessage",
+                    "The warden wants {0} Salt in hand first. You have {1}.",
+                    needed, held).WriteTo(__instance);
             }
             catch (Exception ex)
             {

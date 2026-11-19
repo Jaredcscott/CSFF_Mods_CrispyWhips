@@ -685,7 +685,16 @@ namespace CommunityModChest.Patcher
                 if (Reflect.GetMember(npc, "NPCStatsDict") is not IDictionary statsDict || !statsDict.Contains(stat)) return false;
                 var getStatValue = npc.GetType().GetMethod("GetStatValue",
                     BindingFlags.Instance | BindingFlags.Public, null, new[] { stat.GetType() }, null);
-                if (getStatValue?.Invoke(npc, new[] { stat }) is not float npcValue) return false;
+                if (getStatValue == null)
+                {
+                    // The one silent exit of the three trust paths (residents G5): nothing throws on a null
+                    // lookup, so the catch below never ran, and every caller read the false as "resident not
+                    // spawned": the sale bump, the caught-theft Trust loss and the amends repair all stopped.
+                    if (_missingActionWarned.Add("member:GetStatValue"))
+                        Plugin.Logger.LogWarning($"[CopperChestPatch] {npc.GetType().Name}.GetStatValue({stat.GetType().Name}) not found (renamed by a game update?): resident Trust cannot be read, so the sale bump, theft Trust loss and amends do nothing. Logged once.");
+                    return false;
+                }
+                if (getStatValue.Invoke(npc, new[] { stat }) is not float npcValue) return false;
                 value = npcValue;
                 return true;
             }

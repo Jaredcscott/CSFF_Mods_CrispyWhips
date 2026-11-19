@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "BpCMCGardenTrellis",
         "LocalizationKey": "Bp_CMC_GardenTrellis_CardDescription",
-        "DefaultText": "Lash long sticks together with rope into a climbing-plant frame for the garden."
+        "DefaultText": "Lash long sticks together with twine into a climbing-plant frame for the garden."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {

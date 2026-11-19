@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "BpCMCIronFishingRodFittings",
     "LocalizationKey": "Bp_CMC_IronFishingRodFittings_CardDescription",
-    "DefaultText": "Forge iron fittings for a superior fishing rod. Requires a heated iron nugget and a forge hammer."
+    "DefaultText": "Forge iron fittings for a superior fishing rod. Requires a heated iron nugget and a forge hammer. The rod itself is a recipe taught by the Academy's Fishing course."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {

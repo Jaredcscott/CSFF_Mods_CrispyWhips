@@ -1,64 +1,72 @@
 # Roadmap: Community Mod Chest
 Version at time of writing: 1.70.2
-Date: 2026-11-07
+Date: 2026-11-15
 Audit score: 9/10 - PASS (0 CRITICAL)
 
 ## Current State
 
 **Theme**: A broad community-suggested content collection for Card Survival: Fantasy Forest - apparel/armor, character traits, pottery and sculpting, camp decor, fishing gear, cats/companions, and a full east-of-the-river village simulation (Inn with an achievement board, Academy with seven courses, residents with errands and schedules, a Town Watch with crime/jail/escape, clay digging, a market stall) plus disciplined optional cross-mod interop. Audited module-by-module (`Modules.json`: 14 content modules + a mod-wide bucket).
 
-**Content**: 118 items / 109 blueprints / 98 locations / 60 perks / 256 custom images / 363 GameStats / 2 STA / 97 C# patcher files.
+**Content**: 118 items / 109 blueprints / 98 locations (86 CT2 + 7 CT10 + CT8/other) / 60 perks / 256 custom images / 9 environments / 2 STA / 98 C# patcher files.
 
-**Stability**: 9/10 - 0 CRITICAL (3 X1 cross-mod refs HIDE/STRIP-covered; the B7b version mismatch is resolved, all three strings 1.70.2), 0 open Design Gap, 0 red retrospectives. The one-point dock is the 69th-pass module re-audits crossing the 5-warning threshold: seven module critical-analyses read SHIPS WITH CAVEATS (academy, apothecary, companions, forage, gear, home, modwide) and two code-quality modules score 9/10 (companions, inn). None is progression-blocking; every advertised loop is wired. Two prior defects closed this pass (companions W1/W2 silent stat helpers; home G3 Garden Trellis unbuildable). Score unchanged from the 2026-11-04 consolidation.
+**Stability**: 9/10 - 0 CRITICAL (3 X1 cross-mod refs HIDE/STRIP-covered; versions synced at 1.70.2), 0 open Design Gap, 0 red retrospectives. The 2026-11-14/15 module re-audit wave re-stamped gear, world, achievements, residents, academy, companions and modwide at HEAD, and the 2026-11-15 domain re-runs refreshed items, perks, structures and blueprints. All 15 modules are now CURRENT across all three audit dimensions (achievements no longer STALE). Fourteen of fifteen module critical-analyses are SOLID (only home SHIPS WITH CAVEATS, on a MINOR Wicker Chair note); achievements, companions and gear each rose to SOLID this pass. The one-point dock is still the 5-warning threshold, now carried by three shallow 2026-11-15 domain warnings, two env-interior completeness warnings and a forage reflection-breadcrumb warning from the 2026-11-15 post-consolidation re-runs, plus a reliability/LTS breadcrumb cluster and a cosmetic perk flag.
 
 **Open work**:
-- 1 CMC yellow Pending Verification retro: `cmc-guard-combat-no-damage` (law, T4.35) - a live in-game read, not code. This retro also pins the modwide A10 fix (its diagnostic is the confirmation signal).
-- Reliability/mechanical fixes surfaced by the module re-audits (Phase 1): academy G3 (satchel-contaminated eligibility stat hides Professor dialog/commission - now reaches ALL installs); companions Ash-loss G5 + A10; gear G5/M5; apothecary MC1/MC2; modwide A10; inn W1; law G5/F1; text fixes (forage Silverwort, home rope/twine, Wicker Chair); a low defensive cluster across most modules.
-- Unshipped built work: `Documentation/Design/Community_Mod_Chest_Nexus_Requests_As_Built.md` rows 1.1-1.9 (archived 2026-11-06; Nexus player requests) are built and in `CHANGELOG.md`, not released - and must batch with `CSFFModFramework` 2.29.0 to Nexus (framework-batching rule; Nexus serves CMC 1.69.26).
+- 3 NEW shallow warnings (Phase 1), all from the 2026-11-15 domain re-runs: **items W1** (`ReedHandWraps.json` draws the FootWraps sandal sprite on an arm-armour card, identical to FootWraps in inventory/equip; same ref on `Bp_ReedHandWraps.json`), **structures S-W3** (five Copper Chest cards carry 10 slots + 50000 weight but no `SpillsInventoryOnDestroy`; not reachable today, defensive), and **residents no-em-dash** (227 U+2014 em-dash characters across five residents C# files, a fleet house-rule violation in log/comment strings; mod-wide in character).
+- 3 further audit-only warnings from the 2026-11-15 post-consolidation re-runs (no source changed, so the latest source commit stays 2026-11-14): **forage B6/G5** (`HerbalismForagePatch.cs` `IsNpcUser` reads `InGameNPCOrPlayer.NPC` with no `WarnOnce`; silent, balance-leak-only, member present at EA 0.69e; the one silent-miss site the 2026-11-14 B6 cluster did not reach), and **env W1/W3** (all 9 CT4 interiors omit `CardDescription`, cosmetic; all 9 CT8 locations omit `CardTagsWarpData`/`CardTagsWarpType`, latent; both carried from the 2026-09-05 env pass and re-confirmed at 9/9).
+- 1 mod-wide A13 reflection-drift LTS residual (Phase 1): the silent-miss paths are hardened (`51ff18e95` + `4da232b50`); the remaining item is the signatures-table COVERAGE itself (~44 files / ~163-167 sites uncovered by `Framework-ReflectedSignatures.Tests.ps1`). Latent; every member present in EA 0.69e.
+- Minors: Wicker Chair inert "Sit" (home G8), `CMC_MarketStall` `CardHelpSection` missing LocalizationKey (structures S-M1; Chinese players see English), traits Usage-600 redundant write, items M1-M7 cosmetic groups, 17 perks `SunsCost`/`MoonsCost`-both-0 soft warnings.
+- 1 in-game check (not code): `Perk_MineralRich` / `Perk_PottersApprentice` Encumbrance read (their item counts already match their descriptions); plus the companions `cmc_stray_cat_no_second_stray` and gear fishing-population Runtime Verification rows.
+- 1 CMC yellow Pending Verification retro: `cmc-guard-combat-no-damage` (law, T4.35) - a live in-game read, not code. Its diagnostic is gated behind `EnableGuardDiagnostics` (`51ff18e95`) with the retro signal preserved.
+- Unshipped built work: `Documentation/Design/Community_Mod_Chest_Nexus_Requests_As_Built.md` rows 1.1-1.9 (Nexus player requests) are built and in `CHANGELOG.md`, not released, and must batch with `CSFFModFramework` 2.29.0/2.29.1 to Nexus (framework-batching rule; Nexus serves CMC 1.69.26).
 
-**Framework compliance**: Tier 2. ~78 C# files use `ActionRouter` / `SpawnService` / `TickEvents` / `ContentModPlugin` / `Api.*`. `ContentModPlugin` base with `SoftDependency` and per-patch `TryApply` (no `PatchAll`), no ModCore/ModLoader/Pikachu dependency, no deprecated `DropCollectionGuardPatch`, no unfiltered hot-path prefixes. On the proven H&F architecture. The Fleet StatAccess migration (69th pass) moved several modules' hand-rolled stat reads onto `StatAccess.Get/Set`, which `WarnOnce`s per cause - this is what closed companions W1/W2.
+**Framework compliance**: Tier 2. ~78 C# files use `ActionRouter` / `SpawnService` / `TickEvents` / `ContentModPlugin` / `Api.*`. `ContentModPlugin` base with `SoftDependency` and per-patch `TryApply` (no `PatchAll`), no ModCore/ModLoader/Pikachu dependency, no deprecated `DropCollectionGuardPatch`, no unfiltered hot-path prefixes. On the proven H&F architecture. The `51ff18e95`/`4da232b50` sweeps routed every shared-helper silent reflection miss through a member-named `WarnOnce`; the remaining framework-hardening gap is A13 signatures-table coverage.
 
 ---
 
 ## Phase 0: Stabilize  *(no blocking work - audit score 9/10, 0 red retrospectives)*
 
-No CRITICAL, no Design Gap, no red retro. The open items are reliability polish and an unshipped release, not blockers; they live in Phase 1. The one yellow retro (`cmc-guard-combat-no-damage`) is human-verification debt in the playthrough tracker, not a code phase.
+No CRITICAL, no Design Gap, no red retro. The open items are reliability polish, three shallow warnings, and an unshipped release, not blockers; they live in Phase 1. The one yellow retro (`cmc-guard-combat-no-damage`) is human-verification debt in the playthrough tracker, not a code phase.
 
 ---
 
 ## Phase 1: Foundation
 
-> The live code items this pass. All are one-line breadcrumbs, a stat-split, a log demotion, a dialog-gate reword, a signpost edit, a Sanctuary-passive parity, or release hygiene - none architectural.
+> The live code/data items this pass. All are a one-field art swap, a defensive spill flag, a fleet em-dash sweep, a signatures-table entry, a Sanctuary-passive parity, a redundant-write removal, or release hygiene - none architectural. The 2026-11-12/13 fix wave and the 2026-11-14 em-dash / LostCat / breadcrumb closures are RESOLVED and moved to the Done rows below.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **Academy G3**: split the satchel-contaminated `cmcStatProfEligible<Course>` - give the six course-acknowledgment dialog options and the Applied Herbalism commission a graduation-only NPCStat (no `held < cap` term), keep `cmcStatProfEligible<Course>` for the specialty-stock AgentAction. `ProfessorSchedulePatch.cs:763`. **Reaches all installs** (five of six pools resolve a vanilla/CMC card); hides a one-time line + the Herbalism commission | Mechanical fix | P1 | Medium |
-| **Companions Ash silent-loss (G5)**: capture the combined `SetDurability` bool across `ResolveQuarry`'s `ReturnStats` loop (and the `:381` trail write) and `WarnOnce` on a dropped `false` - today a silently-failed write brings Ash home at 0 stats and loses him with only a Debug line. Match the sibling Shadow `WriteReturnStats`. `AshBoarHuntPatch.cs:487-488` | Reliability | P1 | Quick |
-| **Companions A10**: demote `PartnerIndoorFollowPatch`'s Info lines on the Inn/Academy door path (`:116,153,170,174`) to `LogDebug`; keep the real-relocation line + the MoveTo-failed warning | Log hygiene | P1 | Quick |
-| **Gear G5 + M5**: warn-once before each null/`is not` return in `ArmorCardsPatch` (armor silently stops reducing damage on a game-update rename); set the Iron Fishing Rod's `UnlockConditionsDesc` + both CSV rows to name the Academy Fishing course (as `Bp_CMC_TrainingPost` does) | Reliability + player clarity | P1 | Quick |
-| **Apothecary MC1 + MC2**: reword the Herb Quest offer/thanks (+ CSV) to "three forest herbs" (or sub-counter each ingredient) so the "all three" line is true; gate the three quest-thanks lines on `cmcStatVillageCrime [0,59]` (NOT `[0,24]` - they carry the `BlueprintsFullUnlock`) or make them tone-neutral toward a Wanted player | Narrative/mechanic | P1 | Quick |
-| **Modwide A10**: gate `GuardCombatDiagnosticPatch`'s `TryApply` behind `EnableGuardDiagnostics` and/or demote its per-round `LogDamage` line - **but only in step with retiring retro `cmc-guard-combat-no-damage`, which names that Info line as its confirmation signal** | Log hygiene (retro-gated) | P1 | Quick |
-| **Inn W1 + law G5/F1**: prefer exact `ActionKeyPrefix` over substring `Contains` in `InnPatch`; `WarnOnce` on `GuardOutcomePatch`'s reflection-miss combat-tell exit and cache its per-poll `GetStatValue` MethodInfo | Reliability + maintainability | P1 | Quick |
-| **Text fixes**: drop "only" from Silverwort Blossom's description (or remove its High Grove drop); change "rope" -> "twine" in the Garden Trellis BP + `SimpEn.csv:360` + `SimpCn.csv:422`; give the Wicker Chair a Sanctuary passive or drop its no-op "Sit" | Description/content | P2 | Quick |
-| **Defensive cluster**: warn-once breadcrumbs on the non-throwing reflection-miss exits (modwide A2/G5x2, world, residents x2, achievements, apothecary SyncPortrait, apparel falsy-zero + F2, companions AshPartnerDuty, traits x2). All below each module's own dock; batch them | Reliability (low) | P2 | Quick |
-| **Tooling (not a mod change)**: teach `Development_Tools/Audit-Mod-Preflight.ps1` to read GameStat `Statuses[].IconWarpData` for M11 and to treat `KitContents.json` `Items[].Card` as a producer for acquisition coverage - the M11 trait-art and K33 landmark rows are pre-flight false positives | Tooling | P2 | Quick |
-| **Release the built Nexus-fix work** (rows 1.1-1.9) with a version bump + CHANGELOG lines, batched with `CSFFModFramework` 2.29.0 to Nexus | Release hygiene | P1 | Medium |
+| **items W1** (NEW): point `ReedHandWraps.json` (and `Bp_ReedHandWraps.json`) `CardImageWarpData` at a dedicated sprite or `HandWraps` so the arm wraps stop sharing the FootWraps sandal image; the two cards currently look identical in inventory and on the equipment screen. Player-visible, no gameplay effect | Mechanical (player-visible art) | P1 | Quick |
+| **structures S-W3** (NEW): add `"SpillsInventoryOnDestroy": true` to the five `CMC_CopperChest*.json` files, matching every other destroyable capacity-bearing CT2 card in the mod. Not reachable today (no action destroys these UIDs); defensive, before later work gives a chest a destroy/transform action | Mechanical (latent, defensive) | P1 | Quick |
+| **residents no-em-dash** (NEW): run the cross-module em-dash sweep over the five residents C# files (and the rest of the mod's C#), replacing U+2014 with " - " in log/comment strings. Does not change any module verdict; the same sweep already runs on sibling mods | Fleet house-rule (code text) | P1 | Quick |
+| **A13 reflection-drift signatures-table coverage (residual, mod-wide)**: add the ~44-file / ~163-167-site CMC reflection sites to `Development_Tools/Tests/Framework-ReflectedSignatures.Tests.ps1` (full repo path per file). The silent-miss `WarnOnce` paths already landed in `51ff18e95`/`4da232b50`. Order by risk: (1) `EnvImprovementTwinGuard.BlueprintComplete` (player-content loss); (2) `InnKeeperSpawnPatch` spawn-path reads; (3) the remaining shared helpers. Latent today (all members present in EA 0.69e) | Reliability (latent) | P1 | Medium |
+| **forage B6/G5** (NEW): add a `WarnOnce("InGameNPCOrPlayer-shape")` to `HerbalismForagePatch.cs` `IsNpcUser` (`:195-200`), reading both members via `Reflect.TryGetMember` and firing only when BOTH `Player` and `NPC` are absent. The one silent reflection-miss site the 2026-11-14 B6 breadcrumb cluster did not reach; balance-leak-only on a future `NPC` rename, member present at EA 0.69e | Reliability (hardening) | P1 | Quick |
+| **env W1/W3** (NEW): add `CardDescription` + EN/CN rows to the 9 CT4 interior cards (or record the deliberate absence - W1, cosmetic), and `CardTagsWarpData: ["tag_EnvIndoors"]` + `CardTagsWarpType: 3` to the 9 CT8 interior locations to match their CT4 partner (W3, latent). Carried from 2026-09-05, re-confirmed at 9/9; neither is read today | Env metadata completeness | P2 | Quick |
+| **Minor fixes**: add the `CMC_MarketStall` `CardHelpSection` LocalizationKey (reuse `CMC_MarketStallDressed_CardHelpSection`, EN/CN same commit - S-M1); give the Wicker Chair a Sanctuary passive (Log Bench parity) or drop its no-op "Sit" (home G8); drop the redundant `CMCIronFishingRod` Usage-600 write in `PerkItemInitPatch.cs` (traits). The items M1-M7 and perks soft-cost groups are cosmetic/inert | Description/content | P2 | Quick |
+| **In-game check (not a code change)**: one Encumbrance check on the `Perk_MineralRich` / `Perk_PottersApprentice` starting bundles (counts already match their descriptions) | Verification | P2 | Quick (human) |
+| **Tooling (not a mod change)**: teach the pre-flight to read GameStat `Statuses[].IconWarpData` for M11 and to treat `KitContents.json` `Items[].Card` as a producer for acquisition coverage - the M11 trait-art and K33 landmark rows are pre-flight false positives | Tooling | P2 | Quick |
+| **Release the built Nexus-fix work** (rows 1.1-1.9 = CMC 1.70.2), batched with `CSFFModFramework` 2.29.0/2.29.1 to Nexus | Release hygiene | P1 | Medium |
+| Achievements em-dash board text (23 U+2014 in board JSON + both CSVs) | Mechanical (text) | - | Done (`CMC-AchievementBoardDash.Tests.ps1`, re-verified by the achievements CA 2026-11-15) |
+| Companions LostCat-DupeGuard (saved-board read in `LostCatPatch.cs`) | Mechanical | - | Done (`4da232b50`; companions CA 2026-11-15 SOLID; `CannotBeTransferred` route refuted) |
+| Gear armor-idempotency (value-collision comment fix) | Clarity | - | Done (gear CA 2026-11-15 rose to SOLID) |
+| Modwide "all three cats" ModInfo wording -> "both tamed cats" | Description | - | Done (`4da232b50`) |
+| Code-quality B6 breadcrumb cluster (academy/companions/gear/residents/world LogDebug->LogWarning) | Reliability (low) | - | Done (`CMC-WarningGap-2026-11`, release build 0 warnings) |
+| Academy G3 / apothecary MC1/MC2+powder errand+double-accept / gear M5/G5 / forage M3 / home M3 / companions A10/G5 / modwide A10/A13 silent-miss / inn W1/W2/A13 / defensive cluster | Mechanical/reliability | - | Done (`91966efff`/`51ff18e95`, gated) |
 | Versions synced across ModInfo/Plugin.cs/README (1.70.2); B7b mismatch resolved | Version hygiene | - | Done |
-| Chinese localization parity (CLEAN 3456/3456) | Localization | - | Done |
-| Framework Tier 2 adoption (~78 C# files; StatAccess migration) | Framework | - | Done |
-| Companions W1/W2 (silent stat helpers); home G3 (trellis unbuildable); civic/inn G5; academy G5/G2/room-check | Reliability | - | Done (StatAccess / `4c2fdf998` / 1.69.25 / `a782767567`) |
+| Chinese localization parity (CLEAN, 3477/3477) | Localization | - | Done |
+| Framework Tier 2 adoption (~78 C# files; StatAccess migration); home G3 (trellis unbuildable) | Framework/reliability | - | Done (StatAccess / `4c2fdf998` / 70th-74th passes) |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> CMC is already very broad; there is no obvious core-loop gap. Expansion should be demand-driven (new community suggestions), not invented here.
+> CMC is already very broad; there is no obvious core-loop gap. Expansion should be demand-driven (new community suggestions), not invented here. The 2026-11-14/15 audit-refresh work below is now DONE.
 
-### Refresh the stale domain sub-audits
-**What**: `items-report` and `perks-report` were fully re-run 2026-10-20 (both clean). The blueprints, structures, environments and images reports still date 2026-09-05 to 2026-09-12 and the feature map to v1.68.16; all predate the latest source commit (`bd2c2b701`). Re-run `/audit-blueprints`, `/audit-structures`, `/audit-environments`, `/audit-images` and `/feature-map Community_Mod_Chest`, then `/consolidate-audit Community_Mod_Chest`.
-**Why**: every finding they carry was re-checked by hand and none is open but S-M2, so they over-report; `/audit-structures` also replaces S-M2's out-of-date tag table.
+### Refresh the domain sub-audits and re-stamp the modules  *(DONE 2026-11-14/15)*
+**What**: items, perks, structures and blueprints were fully re-run on 2026-11-15; forage code-quality, environments and images were also re-run fresh on 2026-11-15 (forage CQ 10/10 with one B6/G5 breadcrumb warning; environments 9/9 CT4/CT8 pairs clean with W1/W3 carried; images 256 PNGs, 0 CRITICAL, the four prior sprite warnings confirmed resolved). The module re-audit wave (gear, world, achievements, residents, academy, companions, modwide) re-stamped every module at HEAD, so all 15 are CURRENT across all three dimensions. The feature map (v1.68.16) is the one advisory-only report still worth a `/feature-map Community_Mod_Chest` refresh when convenient.
+**Why**: the staleness board is clean; the next consolidation reads current verdicts rather than a live-confirm workaround.
 **Requires**: none.
-**Complexity**: Medium.
+**Complexity**: Quick (feature-map refresh only).
 
 ---
 
@@ -68,7 +76,7 @@ No CRITICAL, no Design Gap, no red retro. The open items are reliability polish 
 
 ### Keep the four interop partners healthy
 **What**: HerbsAndFungi (hemp, Inn foods, forage), Sirus23 (wool apparel, Inn cheese), AdvancedCopperTools (Inn teas, Armorer course grants five ACT armor recipes), DurosCoinage (Market Stall coins). Each foreign UID is HIDE/STRIP-gated per `Interop_Registry.md` (`Patcher/AcademyCourseService.cs`) and re-arms if the partner installs later.
-**Why**: a partner-mod data rename silently breaks the gated content; the X1 preflight pins (`Preflight-CrossModRefs.Tests.ps1:51-53`) catch structural drift.
+**Why**: a partner-mod data rename silently breaks the gated content; the X1 preflight pins (`Preflight-CrossModRefs.Tests.ps1:51-53`) catch structural drift. The blueprints W9 doctrine warning tracks the same three foreign UIDs in `RequiredCardWarpData`, run-time-safe but still open in the mod's own preflight.
 **Requires**: coordination with each partner mod's release.
 **Complexity**: Medium (only when a partner changes).
 
@@ -88,9 +96,9 @@ No CRITICAL, no Design Gap, no red retro. The open items are reliability polish 
 
 | Item | What | Complexity |
 |------|------|------------|
-| Verify the yellow retro in-game | Guard-combat damage for Thorne/Corrin/Vane (T4.35); results recorded via `/playthrough-test-plan record`. Closing it unblocks the modwide A10 diagnostic demotion | Medium (human) |
-| Wicker Chair | Give the placed chair a Sanctuary passive (Log Bench parity) or drop the no-op "Sit" - a buildable seat that does nothing (home G8) | Quick |
-| S-M2 tag-vocabulary scope line | Next `/audit-structures` pass writes the measured non-vanilla tag counts (2026-10-20: `tag_Structure` 65, `tag_Furniture` 17, `tag_Wood` 2, `tag_x_WaterSource` 2). Documentation only; the tags stay | Quick |
+| Verify the yellow retro in-game | Guard-combat damage for Thorne/Corrin/Vane (T4.35); set `EnableGuardDiagnostics`, relaunch, read the `[GuardCombatDiag]` lines; results recorded via `/playthrough-test-plan record`. Closing it unblocks the modwide A10 diagnostic retirement | Medium (human) |
+| Verify the LostCat dupe-guard fix in-game | `cmc_stray_cat_no_second_stray` (pending): spawn the stray, carry him unfed to another board, return to the Foraging Forest at dusk, expect no second stray. Code-certain and gate-pinned at the source level | Medium (human) |
+| Feature map refresh | `/feature-map Community_Mod_Chest` replaces the advisory v1.68.16 report | Quick |
 
 ---
 
@@ -98,7 +106,7 @@ No CRITICAL, no Design Gap, no red retro. The open items are reliability polish 
 
 > Where CMC should be at v1.70+.
 
-CMC is a stable, mature content-and-simulation anchor for the fleet - in active-workspace maintenance, not feature expansion. Its natural endpoint is a village simulation whose every advertised loop is confirmed in-game, with the one yellow retro closed, the module reliability breadcrumbs added (the Ash silent-loss path first), the built Nexus-fix release shipped (batched with framework 2.29.0), and the stale domain sub-audits refreshed. `CompanionFollowDiagnostics` retired 2026-10-29; the remaining justified diagnostic retirement is `GuardCombatDiagnosticPatch`, once its own retro (`cmc-guard-combat-no-damage`) confirms.
+CMC is a stable, mature content-and-simulation anchor for the fleet - in active-workspace maintenance, not feature expansion. Its natural endpoint is a village simulation whose every advertised loop is confirmed in-game, with the one yellow retro closed, the three shallow 2026-11-15 warnings landed (the Reed Hand Wraps art, the Copper Chest spill flag, the residents em-dash sweep), the A13 signatures-table coverage filled across the mod, the built Nexus-fix release shipped (batched with framework 2.29.0/2.29.1), and the feature map refreshed. `CompanionFollowDiagnostics` retired 2026-10-29; the remaining justified diagnostic retirement is `GuardCombatDiagnosticPatch`, once its own retro (`cmc-guard-combat-no-damage`) confirms.
 
 **Potential major additions** (not yet justified - revisit after the reliability pass and the Nexus-fix release):
 - A declarative `Modifiers.json` / `FlavourMatrix` pass if community suggestions call for food-synergy depth - fits the Inn/cooking theme.
@@ -113,11 +121,11 @@ Anything worth building belongs in a plan under `Documentation/Plans/Community_M
 | Trigger | Action |
 |---------|--------|
 | After any new content | Run `/audit-mod Community_Mod_Chest`, the domain audits it names, then `/consolidate-audit Community_Mod_Chest` |
-| Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, re-run `/diagnose-log` |
+| Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, re-run `/diagnose-log`; re-check the A13 reflected members against the new `.decomp` |
 | After fixing a defect | Run `/critical-analysis Community_Mod_Chest` to verify |
 | Partner-mod release | Re-check the X1 HIDE/STRIP pins in `Preflight-CrossModRefs.Tests.ps1` |
-| A yellow retro confirmed in-game | `/resolve-retro <slug>`, then demote its diagnostic logging |
-| Before a Nexus upload | Confirm the framework-batching constraint (CMC 1.69.26+ needs framework 2.29.0 live) and run `python Development_Tools/Check-KnownReds.py check` |
+| A yellow retro confirmed in-game | `/resolve-retro <slug>`, then retire its diagnostic logging |
+| Before a Nexus upload | Confirm the framework-batching constraint (CMC 1.69.26+ needs framework 2.29.0/2.29.1 live) and run `python Development_Tools/Check-KnownReds.py check` |
 
 ---
 
