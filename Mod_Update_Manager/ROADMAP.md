@@ -1,6 +1,6 @@
 # Roadmap: Mod Update Manager
 Version at time of writing: 2.1.77
-Date: 2026-11-04
+Date: 2026-11-12
 Audit score: 10/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 0 open WARNING) across the module union
 
 ## Current State
@@ -9,7 +9,7 @@ Audit score: 10/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 0 open WARNING) across the 
 
 **Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom card images (UTILITY mod - all card-content sections are N/A by design). Ships 253 EN + 253 CN localization keys (parity clean), consumed at runtime through `MumText` -> `LocalizationManager.GetText` with a per-glyph English fallback, and 15 embedded suite ZIPs.
 
-**Stability**: 10/10. Module-scoped audits (`Modules.json`, 8 modules): the **modwide** and **updates** modules got fresh real runs on 2026-11-03/04 (both SOLID / 10-10), covering every `.cs` file changed since the 2026-10-20 whole-mod audit (`CompatibilityChip.cs`, `GameLoadPatch.cs`, `Plugin.cs`, `SimpleJson.cs`); the other six modules are seeded stubs whose code is unchanged, inheriting the clean whole-mod report. The two historical installer defects (wrong Steam app id A11; Select-All silent downgrade A12) stay fixed and gated. One advisory remains (G2).
+**Stability**: 10/10. Module-scoped audits (`Modules.json`, 8 modules): the **modwide** and **updates** modules got fresh real runs on 2026-11-03/04 (both SOLID / 10-10), covering every `.cs` file changed since the 2026-10-20 whole-mod audit (`CompatibilityChip.cs`, `GameLoadPatch.cs`, `Plugin.cs`, `SimpleJson.cs`); the other six modules are seeded stubs whose code is unchanged, inheriting the clean whole-mod report. No `.cs` has changed since the 2026-11-04 pass - the three commits since (2026-11-06/08/11) touched only CHANGELOG/plan docs and the embedded suite ZIPs - and `module_map.py status` reads CURRENT on every module and dimension. The two historical installer defects (wrong Steam app id A11; Select-All silent downgrade A12) stay fixed and gated. One advisory remains (G2).
 
 **Open work**: None. No open or pending retrospective in `Documentation/Retrospectives/INDEX.md` names this mod, `MUM`, or `crispywhips.mod_update_manager`. ~30 MUM playthrough-tracker rows remain pending (runtime evidence only; no code blocked on them).
 
@@ -30,6 +30,7 @@ Audit score: 10/10 - PASS (0 CRITICAL, 0 DESIGN GAP, 0 open WARNING) across the 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
 | Re-run `EmbeddedZipCurrency.Tests.ps1` (strict) at each release to confirm no suite mod has drifted ahead of its embed | Release hygiene | P1 | Quick |
+| Re-check each `SuiteModRegistry.cs` Category (`Released`/`PreRelease`) against the mod's live Nexus page: the 2026-11-11 suite-release-prep released several previously pre-release heads (Sirus23 1.22.14 among them) but touched no MUM `.cs`, so the README "(Pre-release)" badges may now lag reality | Release hygiene | P1 | Quick |
 | Regenerate `feature-map.md` (stale since v2.1.32 - misses the dependency validator, install-incomplete badge, rate-limit re-check, framework-stale banner, persisted filter, profiles, compat chip) | Regression anchor | P1 | Quick |
 | Keep versions synced across ModInfo/Plugin.cs/README (currently 2.1.77, matched) | Version hygiene | P1 | Quick |
 | Replace the six seeded module stubs (nexus, suite, discovery, installed, diagnostics, ui) with real per-module runs when each next changes, so each module owns its findings | Audit coverage | P2 | Quick each |

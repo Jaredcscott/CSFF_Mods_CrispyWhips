@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.78] - 2026-11-18
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Embeds CSFF Mod Framework 2.29.3, Herbs and Fungi 1.14.21, Advanced Copper Tools 1.18.17, Water Driven Infrastructure 1.13.2, Community Mod Chest 1.70.3, Homestead Perks 1.3.10, Repeat Action 2.2.5, Quick Transfer 1.9.5, Skill Speed Boost 1.11.2, and the pre-release Partner Overhaul 1.1.8, Harsh Wilds 0.11.12, Far Territory 0.1.16, Forest Lore 0.1.10, Utility Belt 0.1.10 and Sirus23 Mod Collection 1.22.15. Eleven of the fifteen are newer than the ones 2.1.77 carried; each mod's own changelog lists what changed.
+
 ## [2.1.77] - 2026-11-11
 
 ### Fixed
