@@ -1,6 +1,6 @@
 # Quick Transfer
 
-**Version:** 1.9.4
+**Version:** 1.9.5
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Language:** English and Chinese (on-screen text)

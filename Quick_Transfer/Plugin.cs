@@ -36,7 +36,7 @@ public class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.quick_transfer";
     public const string PluginName = "Quick_Transfer";
-    public const string PluginVersion = "1.9.4";
+    public const string PluginVersion = "1.9.5";
 
     internal new static ManualLogSource Logger;
     private static Harmony _harmony;
@@ -126,6 +126,18 @@ public class Plugin : BaseUnityPlugin
     private static float _lastRepeatTime = 0f;
     private const float InitialRepeatDelay = 0.4f;
     private const float RepeatInterval = 0.05f;
+
+    // Config persistence. BepInEx's own save-on-set is switched off at the end of Awake and
+    // OnConfigSettingChanged takes over: it writes the file at once for every changed entry, whoever set
+    // it, except while _deferConfigSave is up. Only the two places that set several values in a row raise
+    // it (a held Plus/Minus ramp, which repeats every RepeatInterval, and the preset reset), and each then
+    // writes the file once itself.
+    private static ConfigFile _config;
+    private static bool _deferConfigSave;
+    private static bool _configSavePending;
+    private static bool _configSaveFailedOnce;
+    private static float _configSaveRetryAt = 0f;
+    private const float ConfigSaveRetryDelay = 1.0f;
 
     private void Awake()
     {
@@ -296,6 +308,13 @@ public class Plugin : BaseUnityPlugin
             KeyCode.Backspace,
             "Hold the modifier and press this key to reset Shift/Ctrl/custom transfer amounts to their defaults (5 / 10 / 5). Set to None to disable.");
 
+        // Every Bind above has already written its entry (BepInEx saves inside Bind while save-on-set is
+        // on), so this must stay below the last Bind. From here the handler owns the save: see the
+        // "Config persistence" fields.
+        _config = Config;
+        Config.SaveOnConfigSet = false;
+        Config.SettingChanged += OnConfigSettingChanged;
+
         CurrentTransferAmount = TransferAmount.Value;
 
         TransferAmount.SettingChanged += (sender, args) => {
@@ -317,7 +336,51 @@ public class Plugin : BaseUnityPlugin
 
     private void OnDestroy()
     {
+        // A ramp still held when the game closes has not reached its release frame.
+        if (_configSavePending) SaveConfigNow();
         _harmony?.UnpatchSelf();
+    }
+
+    /// <summary>
+    /// Runs for every changed entry of this plugin's config file, whoever set it: this mod's own hotkeys,
+    /// ConfigurationManager, another plugin. BepInEx raises it from the entry's setter whether or not its
+    /// own save-on-set is on, so with that off this is what keeps a changed setting on disk. It writes at
+    /// once, as BepInEx did, unless the caller raised <see cref="_deferConfigSave"/> and writes afterwards.
+    /// </summary>
+    private static void OnConfigSettingChanged(object sender, SettingChangedEventArgs args)
+    {
+        if (_deferConfigSave)
+        {
+            _configSavePending = true;
+            return;
+        }
+        SaveConfigNow();
+    }
+
+    /// <summary>
+    /// Writes the config file. On failure (a read-only or locked file) the write stays pending, so
+    /// <see cref="Update"/> retries it every <see cref="ConfigSaveRetryDelay"/> seconds and
+    /// <see cref="OnDestroy"/> once more; the values in memory are unaffected. Returns true when written.
+    /// </summary>
+    private static bool SaveConfigNow()
+    {
+        try
+        {
+            if (_config == null) return false;
+            _config.Save();
+            _configSavePending = false;
+            return true;
+        }
+        catch (System.Exception ex)
+        {
+            _configSavePending = true;
+            if (!_configSaveFailedOnce)
+            {
+                _configSaveFailedOnce = true;
+                Logger?.LogWarning($"[QT] Could not write the config file ({ex.GetType().Name}: {ex.Message}); changed settings apply now and will be written when the file can be.");
+            }
+            return false;
+        }
     }
 
     private void Update()
@@ -387,33 +450,45 @@ public class Plugin : BaseUnityPlugin
             {
                 int delta = increaseHeld ? 1 : -1;
 
-                if (altNudge)
+                // A held key lands here every RepeatInterval. The sets below are not written one by one:
+                // the else branch under this block writes the file once, on the frame the ramp ends.
+                _deferConfigSave = true;
+                try
                 {
-                    // Alt + Plus/Minus nudges the Shift preset: the chord that stays Quick Transfer's
-                    // own with Repeat Action installed, since Repeat Action reads bare Shift.
-                    ShiftPresetAmount.Value = Mathf.Clamp(ShiftPresetAmount.Value + delta, 1, 9999);
-                    ShowNotification(AmountText(ShiftPresetAmount.Value) + " " + OverlayText.Get(OverlayText.ComboShiftKey, OverlayText.ComboShiftDefault));
-                }
-                else if (EnableModifierPresets.Value)
-                {
-                    bool ctrl = CtrlHeld();
-                    bool shift = ShiftHeld();
-
-                    if (ctrl && shift)
+                    if (altNudge)
                     {
-                        // Ctrl+Shift is All, Half or All but one by config, never a number the keys
-                        // can nudge - just restate what it will do.
-                        ShowNotification(AmountText(GetEffectiveTransferAmount()) + ActiveComboSuffix());
-                    }
-                    else if (ctrl)
-                    {
-                        CtrlPresetAmount.Value = Mathf.Clamp(CtrlPresetAmount.Value + delta, 1, 9999);
-                        ShowNotification(AmountText(CtrlPresetAmount.Value) + ActiveComboSuffix());
-                    }
-                    else if (shift)
-                    {
+                        // Alt + Plus/Minus nudges the Shift preset: the chord that stays Quick Transfer's
+                        // own with Repeat Action installed, since Repeat Action reads bare Shift.
                         ShiftPresetAmount.Value = Mathf.Clamp(ShiftPresetAmount.Value + delta, 1, 9999);
-                        ShowNotification(AmountText(ShiftPresetAmount.Value) + ActiveComboSuffix());
+                        ShowNotification(AmountText(ShiftPresetAmount.Value) + " " + OverlayText.Get(OverlayText.ComboShiftKey, OverlayText.ComboShiftDefault));
+                    }
+                    else if (EnableModifierPresets.Value)
+                    {
+                        bool ctrl = CtrlHeld();
+                        bool shift = ShiftHeld();
+
+                        if (ctrl && shift)
+                        {
+                            // Ctrl+Shift is All, Half or All but one by config, never a number the keys
+                            // can nudge - just restate what it will do.
+                            ShowNotification(AmountText(GetEffectiveTransferAmount()) + ActiveComboSuffix());
+                        }
+                        else if (ctrl)
+                        {
+                            CtrlPresetAmount.Value = Mathf.Clamp(CtrlPresetAmount.Value + delta, 1, 9999);
+                            ShowNotification(AmountText(CtrlPresetAmount.Value) + ActiveComboSuffix());
+                        }
+                        else if (shift)
+                        {
+                            ShiftPresetAmount.Value = Mathf.Clamp(ShiftPresetAmount.Value + delta, 1, 9999);
+                            ShowNotification(AmountText(ShiftPresetAmount.Value) + ActiveComboSuffix());
+                        }
+                        else
+                        {
+                            CurrentTransferAmount = Mathf.Clamp(CurrentTransferAmount + delta, 1, 9999);
+                            TransferAmount.Value = CurrentTransferAmount;
+                            ShowNotification(AmountText(CurrentTransferAmount));
+                        }
                     }
                     else
                     {
@@ -422,13 +497,17 @@ public class Plugin : BaseUnityPlugin
                         ShowNotification(AmountText(CurrentTransferAmount));
                     }
                 }
-                else
+                finally
                 {
-                    CurrentTransferAmount = Mathf.Clamp(CurrentTransferAmount + delta, 1, 9999);
-                    TransferAmount.Value = CurrentTransferAmount;
-                    ShowNotification(AmountText(CurrentTransferAmount));
+                    _deferConfigSave = false;
                 }
             }
+        }
+        else if (_configSavePending && Time.unscaledTime >= _configSaveRetryAt)
+        {
+            // The ramp is over: the Plus/Minus key or its modifier is up, or Repeat Action took the key.
+            // One write for the whole ramp. A failed write is retried here, not every frame.
+            if (!SaveConfigNow()) _configSaveRetryAt = Time.unscaledTime + ConfigSaveRetryDelay;
         }
 
         // Persistent hint while any transfer-triggering modifier is held
@@ -561,10 +640,20 @@ public class Plugin : BaseUnityPlugin
     {
         // Read the defaults off the entries rather than repeating literals - these can't drift from
         // the Config.Bind calls above.
-        ShiftPresetAmount.Value = (int)ShiftPresetAmount.DefaultValue;
-        CtrlPresetAmount.Value  = (int)CtrlPresetAmount.DefaultValue;
-        TransferAmount.Value    = (int)TransferAmount.DefaultValue;
+        // Three sets, one write: SaveConfigNow below, not one write per entry.
+        _deferConfigSave = true;
+        try
+        {
+            ShiftPresetAmount.Value = (int)ShiftPresetAmount.DefaultValue;
+            CtrlPresetAmount.Value  = (int)CtrlPresetAmount.DefaultValue;
+            TransferAmount.Value    = (int)TransferAmount.DefaultValue;
+        }
+        finally
+        {
+            _deferConfigSave = false;
+        }
         CurrentTransferAmount   = TransferAmount.Value;
+        SaveConfigNow();
 
         ShowNotification(OverlayText.Format(OverlayText.PresetsResetKey, OverlayText.PresetsResetDefault,
             ShiftPresetAmount.Value, CtrlPresetAmount.Value, CurrentTransferAmount));

@@ -371,10 +371,17 @@ namespace Quick_Transfer.Patcher
                     return;
                 }
 
-                var visuals = GetMemberValue(hovered, "CardVisuals");
-                if (visuals == null || (visuals is UnityEngine.Object visualsObj && visualsObj == null))
+                // An unreadable member warns once. A null value does not: the game frees a card's graphic
+                // whenever the card is off screen (see PileVisuals.Collect), so a hovered card that has just
+                // lost its graphic has nothing to click, which is not a rename.
+                if (!Reflect.TryGetMember(hovered, "CardVisuals", out var visuals))
                 {
                     WarnFeatureOnce(Feature, "InGameCardBase.CardVisuals");
+                    return;
+                }
+                if (visuals == null || (visuals is UnityEngine.Object visualsObj && visualsObj == null))
+                {
+                    Logger.LogDebug("[QT] Transfer Hotkey: the hovered card has no graphic on screen");
                     return;
                 }
 
@@ -571,7 +578,7 @@ namespace Quick_Transfer.Patcher
         // send a card to. Called from Plugin.Update on the Undo Key's key-down with a modifier held. One level: the
         // record is cleared by the undo itself, by any new armed modifier+click and by any change of that context
         // (WatchUndoContext), so a second press reads "Nothing to undo". Each item goes through the same coroutine as
-        // a batch (IsValidCandidate's CannotBeTransferred, location, pinned and destroyed-card guards included), with
+        // a batch (IsValidCandidate's CannotBeTransferred, non-Item, pinned and destroyed-card guards included), with
         // no game click of its own (vanillaMoved false) and always widened, so it draws on every slot of that side.
         // It restores counts of an item, not the same physical cards: two cards of one UniqueID can differ in
         // spoilage and durability, and the undo takes whichever of them sits on the other side.
@@ -1121,8 +1128,8 @@ namespace Quick_Transfer.Patcher
 
         // The active card graphics of one slot's own pile, read through DynamicLayoutSlot.CopyCardPile instead of
         // a scene scan. Active only, because FindObjectsOfType returns only active objects and the scan this
-        // replaces therefore saw only the visible card of a pile. Null (never an empty list) when the pile cannot
-        // be read, so the caller falls back to the scene scan; one warning.
+        // replaces therefore saw only the visible card of a pile. Null (never an empty list) when the pile, or
+        // its cards' CardVisuals member, cannot be read, so the caller falls back to the scene scan; one warning.
         static List<object> SlotGraphics(object slot)
         {
             if (slot == null) return null;
@@ -1141,15 +1148,10 @@ namespace Quick_Transfer.Patcher
                 if (pile == null) { WarnFeatureOnce("Fast candidate scan", "DynamicLayoutSlot.CopyCardPile(List)"); return null; }
                 copyCardPileMethod.Invoke(slot, new object[] { pile });
 
-                var graphics = new List<object>(pile.Count);
-                foreach (var card in pile)
-                {
-                    if (card == null || (card is UnityEngine.Object deadCard && deadCard == null)) continue;
-                    var visuals = GetMemberValue(card, "CardVisuals");
-                    if (visuals == null) { WarnFeatureOnce("Fast candidate scan", "InGameCardBase.CardVisuals"); continue; }
-                    if (visuals is Component c && c != null && c.gameObject.activeInHierarchy) graphics.Add(visuals);
-                }
-                return graphics;
+                // A null CardVisuals VALUE is a card whose graphic the game has pooled (every pile card past
+                // index 1): skipped, no warning, the scan stays on. Only an unreadable MEMBER warns, and it
+                // returns null so the caller falls back to the scene scan (PileVisuals.Collect).
+                return PileVisuals.Collect(pile, ReadCardVisuals, IsDeadUnityObject, IsActiveGraphic, WarnCardVisualsUnreadable);
             }
             catch (Exception ex)
             {
@@ -1158,6 +1160,17 @@ namespace Quick_Transfer.Patcher
                 return null;
             }
         }
+
+        // The four callbacks SlotGraphics hands to PileVisuals.Collect. ReadCardVisuals returns
+        // Reflect.TryGetMember's own answer, false only when the member is missing or its read threw, so a
+        // null value (a pooled graphic) is never mistaken for a renamed member.
+        static bool ReadCardVisuals(object card, out object visuals) => Reflect.TryGetMember(card, "CardVisuals", out visuals);
+
+        static bool IsDeadUnityObject(object card) => card is UnityEngine.Object dead && dead == null;
+
+        static bool IsActiveGraphic(object visuals) => visuals is Component c && c != null && c.gameObject.activeInHierarchy;
+
+        static void WarnCardVisualsUnreadable() => WarnFeatureOnce("Fast candidate scan", "InGameCardBase.CardVisuals");
 
         // The clicked slot is always drained first. Only once it holds no candidate, and only when
         // the batch widens (Drain Matching Stacks, a tag filter, or a card that cannot pile), does the scan
@@ -1421,8 +1434,10 @@ namespace Quick_Transfer.Patcher
             if (!ReferenceEquals(cardSlot, sourceSlot) && !(allowSiblingSlots && IsSiblingSlot(cardSlot, sourceSlot))) return false;
             var cardModel = GetMemberValue(card, "CardModel");
             if (cardModel == null) return false;
-            var cardType = GetMemberValue(cardModel, "CardType");
-            if (cardType != null && Convert.ToInt32(cardType) == 8) return false;
+            // Only an Item, by the test that arms the batch: vanilla's click swaps nothing else (IsNonItemCard), so
+            // a liquid or a placed card that carries a Tag Filter tag would be clicked in vain until the batch gave
+            // up with tagged Items still unmoved. This covers the location card the old numeric test (8) named.
+            if (IsNonItemCard(cardModel)) return false;
             if (!Reflect.TryGetMember(cardModel, "CannotBeTransferred", out var cannotTransfer) || !(cannotTransfer is bool ct))
                 WarnFeatureOnce("Transfer guard", "CardData.CannotBeTransferred");
             else if (ct) return false;

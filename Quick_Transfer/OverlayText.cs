@@ -89,6 +89,9 @@ internal static class OverlayText
 
     private static bool _lookupFailedOnce;
 
+    // Keys whose translated template has already been reported as malformed (see Format).
+    private static readonly HashSet<string> _malformedTemplateKeys = new HashSet<string>();
+
     /// <summary>The current-language text for <paramref name="key"/>, or <paramref name="englishDefault"/> when it is not loaded.</summary>
     public static string Get(string key, string englishDefault)
     {
@@ -128,8 +131,12 @@ internal static class OverlayText
         {
             // A translation's placeholders (CSV column, not this file) can drift from the English
             // template's {0}/{1}/... count without any build-time signal - breadcrumb it so a
-            // silently-wrong localized string is diagnosable instead of just "feels off".
-            Plugin.Logger?.LogWarning($"[QT] Localized template for '{key}' has malformed placeholders ({ex.Message}); using the English default.");
+            // silently-wrong localized string is diagnosable instead of just "feels off". Once per key:
+            // Plugin.Update formats the amount line on every frame a modifier is held.
+            if (_malformedTemplateKeys.Add(key ?? string.Empty))
+            {
+                Plugin.Logger?.LogWarning($"[QT] Localized template for '{key}' has malformed placeholders ({ex.Message}); using the English default.");
+            }
             return string.Format(englishDefault, args);
         }
     }

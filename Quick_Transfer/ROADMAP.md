@@ -1,7 +1,7 @@
 # Roadmap: QuickTransfer
 Version at time of writing: 1.9.4
-Date: 2026-11-05
-Audit score: 10/10 (consolidated 2026-11-05)
+Date: 2026-11-15
+Audit score: 10/10 (consolidated 2026-11-15)
 
 ## Current State
 
@@ -9,31 +9,32 @@ Audit score: 10/10 (consolidated 2026-11-05)
 
 **Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom images (C# only - the mod ships no `CardData/` and no `Resource/Picture/`).
 
-**Stability**: 10/10 - 0 CRITICAL, 1 open code-quality warning and 1 minor hardening item, both below the 5-warning deduction floor. W1 (the `CardVisuals`/`SlotGraphics` reflection breadcrumb, the last unbreadcrumbed read on the primary batch path) is **fixed and committed at `b526f04a6`** this cycle. W2 (config-save disk churn during a held +/- ramp) is open. M1 (the `IsValidCandidate` type guard rejects only CT8, not every non-Item type, so a custom-tag Caps-Lock batch can shortfall) is a new minor hardening from the fresh transfer critical-analysis. Neither W2 nor M1 is a current defect; every reflected member resolves on EA 0.69c and the build is clean.
+**Stability**: 10/10 - 0 CRITICAL, 3 open warnings, all below the 5-warning deduction floor. Three items that were open at the 2026-11-13 consolidation are now **closed**: **W2 (config-save disk churn)** shipped at `d943ca046`; **W3 (the `CHANGELOG.md` T2.214 under-claim)** was rewritten at `96bc8a475` (2026-11-14) to state the harness PASS; and **M1 (the `IsValidCandidate` type guard)** was fixed at `96bc8a475` - it now rejects every non-Item via `IsNonItemCard`, with tracker row **T2.2227** filed at `2bd02ac92` (2026-11-15) for the in-game confirmation. Open now, all static or tracker-currency, none a behaviour change: **W1** (`ParentLayoutGroup` is read through the silent `GetMemberValue` helper in `IsSiblingSlot`, `QuickTransferPatch.cs:1508-1509`, so a game-update rename would silently shrink Drain Matching Stacks / Tag Filter / Widen For Non-Piling Cards to the clicked slot with no log), **W2** (`InGameCardBase.Destroyed` is read the same silent way on the public `TryClickMoveOne` API, `QuickTransferPatch.cs:427`), and **W3** (the config-save caveat still has no matching tracker row). Every reflected member resolves on the EA 0.69e decompile (generated 2026-10-24) and the Deep preflight at HEAD is clean (0/0, build 0 err / 0 warn).
 
-**Open work**: No 🔴 Open retrospective names this mod. One 🟡 Pending Verification retro, `wikimod-old-save-load-crash`, names Quick Transfer only as a symptom witness (a player's batch "found nothing" on a board WikiMod's stale `AddSlot` had emptied) - a third-party cause, not a QT defect. Several in-game verification rows remain `pending` in `.claude/playthrough-test-status.json` (e.g. T2.668 locked-clicked-card, T2.1267 hotkey text-box guard, T2.214 split-pile prioritization); these are human-at-a-build checks of already-shipped code, not code work.
+**Open work**: No 🔴 Open retrospective names this mod. One 🟡 Pending Verification retro, `wikimod-old-save-load-crash`, names Quick Transfer only as a symptom witness (a player's batch "found nothing" on a board WikiMod's stale `AddSlot` had emptied) - a third-party cause, not a QT defect. Several in-game verification rows remain `pending` in `.claude/playthrough-test-status.json`: T2.2227 (the new M1 Tag Filter row), T2.668 (locked-clicked-card), T2.1267 (hotkey text-box guard), T2.333 (WDI Workshop scan cost), T2.652 (real-keyboard count-key sharing), and T2.214, which now carries a 2026-11-13 harness PASS and stays open only for clause (d) (a frozen liquid / CT8 sibling guard, AI judge UNSEEN) that no harness step sets up. These are human-at-a-build checks of already-shipped code, not code work. A tracker row is also owed for the W2-config-save fix's in-game bar ("a nudged amount surviving a quit and relaunch").
 
-**Framework compliance**: Soft-dependency on CSFFModFramework (`Plugin.cs:34`, `SoftDependency`), used only for the overlay's localization loader; without the framework the mod still loads and the overlay falls back to built-in English. The mod patches the UI event handlers `CardGraphics.OnPointerClick` (prefix + postfix) and `SoundManager.PerformCardAppearanceSound` (prefix) directly. The Tier-2 services (`ActionRouter`, `SpawnService`, `TickEvents`) are **not applicable** here: they exist to keep mods off game *coroutines* and spawn paths, and this mod patches neither - it intercepts a UI click event and spawns/destroys no cards (it replays the vanilla click). No deprecated patterns present (no `DropCollectionGuardPatch`, no unfiltered hot-path prefix, no `ModLoaderVerison`/`ModEditorVersion`, no manual perk/blueprint injection - there is no content to inject).
+**Framework compliance**: Soft-dependency on CSFFModFramework (`Plugin.cs:34`, `SoftDependency`), used only for the overlay's localization loader; without the framework the mod still loads and the overlay falls back to built-in English. The mod patches the UI event handlers `CardGraphics.OnPointerClick` (prefix + postfix) and `SoundManager.PerformCardAppearanceSound` (prefix) directly. The Tier-2 services (`ActionRouter`, `SpawnService`, `TickEvents`) are **not applicable** here: they exist to keep mods off game *coroutines* and spawn paths, and this mod patches neither - it intercepts a UI click event and spawns/destroys no cards (it replays the vanilla click). No deprecated patterns present (no `DropCollectionGuardPatch`, no unfiltered hot-path prefix, no `ModLoaderVerison`/`ModEditorVersion`, no manual perk/blueprint injection - there is no content to inject). The 36 string-reflection signature sites across `QuickTransferPatch.cs` and `BatchContext.cs` are unguarded by `Framework-ReflectedSignatures.Tests.ps1` but all verified present in EA 0.69e and all but the two W1/W2 sites breadcrumbed once-per-cause; adding their rows to the signatures table is tracked debt, not a defect.
 
 ---
 
 ## Phase 0: Stabilize  *(skipped - audit score 10/10, no open retrospectives)*
 
-Nothing blocks shipping. The open warning and the minor hardening are maintainability/observability/correctness-edge and are sequenced into Phase 1, not stabilization.
+Nothing blocks shipping. The three open warnings are static observability and tracker-currency items; they are sequenced into Phase 1, not stabilization.
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes maintenance. All small; only W2 changes player-visible behaviour (save timing).
+> Table-stakes maintenance. None of these changes code behaviour; W1 and W2 are one-line observability hardening and W3 is a tracker filing plus a doc follow-up.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| W2 - batch the config write: set `Config.SaveOnConfigSet = false` in `Awake`, then `Config.Save()` once on key release, in `ResetPresetsToDefaults`, and in `OnDestroy`; verify settings persist across a game restart | Performance hardening (deliberate - changes *when* settings persist) | P1 | Medium |
-| M1 - align the candidate type guard with the arming gate: replace the `Convert.ToInt32(cardType) == 8` check at `QuickTransferPatch.cs:1424-1425` with `if (IsNonItemCard(cardModel)) return false;`, so a custom-tag Caps-Lock batch no longer wastes clicks on a non-Item card and stops early. Safe for both batch kinds; confirm/refute needs a running build (custom tag + a tagged non-Item in the container), so pair it with the T2.668 in-game pass | Correctness-edge hardening | P1 | Quick |
-| Confirm the live Nexus version against the deployed build and publish 1.9.4 if behind (the reconciliation log shows the last publish checkpoint lagging at 1.8.1/unpublished; `/nexus-publish status` resolves it with no key) | Release hygiene | P1 | Quick |
+| W1 - give the `ParentLayoutGroup` read in `IsSiblingSlot` (`QuickTransferPatch.cs:1508-1509`) a once-per-cause `WarnFeatureOnce`, routing it through `Reflect.TryGetMember` to match its `SlotType`/`CanHostPile`/`CopyCardPile` neighbours, so a game-update rename of a member Drain Matching Stacks / Tag Filter / Widen For Non-Piling Cards all depend on is loud instead of a silent partial degradation | Observability hardening | P1 | Quick |
+| W2 - give the `InGameCardBase.Destroyed` read in `TryClickMoveOne` (`QuickTransferPatch.cs:427`) a once-per-cause breadcrumb, matching the `CannotBeTransferred` read two lines below it, so a rename on the public cross-mod API surfaces instead of silently skipping the destroyed-card guard | Observability hardening | P1 | Quick |
+| W3 - file a `/playthrough-test-plan` row for the W2-config-save fix's in-game bar ("a nudged amount surviving a quit and relaunch"), then the `CHANGELOG.md` caveat can close the way T2.214's did | Verification hygiene | P2 | Quick |
+| Doc follow-up - update the `[Unreleased]` M1 CHANGELOG entry to name the now-filed tracker row T2.2227, in place of "no tracker row covers it" (a now-stale under-claim, below floor) | Docs-honesty | P2 | Quick |
 
-Version strings are synced at 1.9.4 across ModInfo/Plugin.cs/README, Chinese parity is CLEAN (18/18), and BinSync is clean - these foundation items are already satisfied and need only to stay that way. The W1 `CardVisuals` breadcrumb shipped this cycle at `b526f04a6`, so the prior roadmap's commit-W1 item is done and dropped.
+Version strings are synced at 1.9.4 across ModInfo/Plugin.cs/README, Chinese parity is CLEAN (18/18), and BinSync is clean - these foundation items are already satisfied and need only to stay that way. Release hygiene is current too: **1.9.4 is live on Nexus** (nexusModId 25, `Quick-Transfer-EA-0.69e`, changelog posted), published at `476cf2c15` on 2026-11-11. The config-save fix, the T2.214 pooled-pile fix, the M1 Tag Filter fix and the W3 CHANGELOG rewrite are all `[Unreleased]` and will go out with the next version bump or suite repack.
 
 ---
 
@@ -69,13 +70,13 @@ The mod is feature-complete for its scope. Its surface already covers adjustable
 
 | Item | What | Complexity |
 |------|------|------------|
-| (none) | No card art to draw (0 cards; the overlay is text, localized EN/CN). Description accuracy is a feature-honesty PASS - README config keys and defaults match `Plugin.cs`. | - |
+| (none) | No card art to draw (0 cards; the overlay is text, localized EN/CN). Description accuracy is a feature-honesty PASS - README config keys and defaults match `Plugin.cs`. The one doc item (the stale M1 CHANGELOG sentence) is sequenced in Phase 1. | - |
 
 ---
 
 ## Long-term Vision
 
-QuickTransfer is a mature, feature-complete convenience utility, and its natural endpoint is a maintenance posture rather than growth. At its next version the realistic goal is simply "still works, still clean": surviving game updates (refresh `lib/Assembly-CSharp.dll`, re-check the reflected members the warn-once breadcrumbs guard) and framework version bumps, closing out the W2 config-save hardening and the M1 type-guard alignment, and keeping the two cross-mod bridges honest as their partner mods evolve. The biggest justified "addition" is reactive - a third cross-mod bridge if and only if a sibling mod needs one - not speculative new transfer mechanics, which would only bloat an already-broad feature surface.
+QuickTransfer is a mature, feature-complete convenience utility, and its natural endpoint is a maintenance posture rather than growth. At its next version the realistic goal is simply "still works, still clean": surviving game updates (refresh `lib/Assembly-CSharp.dll`, re-check the reflected members the warn-once breadcrumbs guard - and close the two W1/W2 gaps so every one of them is loud), keeping the config-save in-game bar tracked, and keeping the two cross-mod bridges honest as their partner mods evolve. The biggest justified "addition" is reactive - a third cross-mod bridge if and only if a sibling mod needs one - not speculative new transfer mechanics, which would only bloat an already-broad feature surface.
 
 **Potential major additions** (not yet justified - revisit only on a concrete player request):
 - A new cross-mod bridge for a specific sibling mod - fits the established `RepeatActionBridge`/`UtilityBeltLockBridge` pattern, but only when that mod surfaces a real need.
@@ -90,7 +91,7 @@ Any of these worth building belongs in a plan under `Documentation/Plans/QuickTr
 | Trigger | Action |
 |---------|--------|
 | After any code change | Run `/audit-mod QuickTransfer` (module-scoped) and re-consolidate; update this roadmap |
-| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-check the reflected members (`CardVisuals`, `SlotType`, `CannotBeTransferred`, `HoveredCard`, `CardPileCount`, `CopyCardPile`), re-run `/diagnose-log` |
+| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-check the reflected members (`CardVisuals`, `SlotType`, `ParentLayoutGroup`, `CannotBeTransferred`, `Destroyed`, `HoveredCard`, `CardPileCount`, `CopyCardPile`), re-run `/diagnose-log` |
 | After fixing a warning | Re-run the affected module's `/code-quality QuickTransfer` to verify the fix |
 | Before a public release | `/nexus-publish status`, then upload if behind; confirm the deployed DLL matches the committed build |
 

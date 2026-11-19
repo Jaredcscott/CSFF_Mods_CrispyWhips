@@ -7,8 +7,8 @@
     {
       "id": "transfer",
       "name": "Batch Transfer",
-      "summary": "QuickTransferPatch (the click-to-move batch transfer) and BatchContext, the live SwapCard destination state it drives.",
-      "paths": ["Patcher/QuickTransferPatch.cs", "Patcher/BatchContext.cs"]
+      "summary": "QuickTransferPatch (the click-to-move batch transfer) and BatchContext, the live SwapCard destination state it drives, and PileVisuals, the fast candidate scan's per-pile-card decision.",
+      "paths": ["Patcher/QuickTransferPatch.cs", "Patcher/BatchContext.cs", "Patcher/PileVisuals.cs"]
     },
     {
       "id": "containers",
