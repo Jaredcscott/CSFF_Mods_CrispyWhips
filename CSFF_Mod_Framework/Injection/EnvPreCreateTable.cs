@@ -70,12 +70,28 @@ internal sealed class EnvPreCreateTable
     /// file); or the UID names no loaded card.
     /// </summary>
     internal static EnvPreCreateTable Build(IList<string> modNames, IList<string> jsonTexts, Func<string, bool> envExists)
+        => BuildWithTypeCheck(modNames, jsonTexts, envExists, null);
+
+    /// <summary>
+    /// <see cref="Build"/>, plus a refusal of a UID that resolves to something other than an Environment card.
+    /// <paramref name="describeNonEnvironment"/> returns null for an Environment card and a short description of
+    /// what the UID names otherwise ("a card of CardType Item", "an object of type CharacterPerk"); such an entry is left out with one issue
+    /// naming the mod, the file, the entry and the UID (its <see cref="EnvPreCreateIssue.UnresolvedUid"/> stays
+    /// null: the UID did resolve, to the wrong kind of object). The game builds the run-start EnvID from the UID
+    /// string, a constructor with none of the <c>CardTypes.Environment</c> guard its CardData constructor has
+    /// (<c>.decomp/EnvID.cs</c>), so without this an item or liquid UID typed here would add a junk
+    /// <c>EnvironmentsData</c> entry to every save. Null = no type check (what <see cref="Build"/> passes).
+    /// A separate name, not an overload: <c>Development_Tools/Tests/Framework-EnvPreCreate.Tests.ps1</c> finds
+    /// <c>Build</c> by name and an overload would make that lookup ambiguous.
+    /// </summary>
+    internal static EnvPreCreateTable BuildWithTypeCheck(IList<string> modNames, IList<string> jsonTexts,
+        Func<string, bool> envExists, Func<string, string> describeNonEnvironment)
     {
         var table = new EnvPreCreateTable();
         if (modNames == null || jsonTexts == null) return table;
         int n = Math.Min(modNames.Count, jsonTexts.Count);
         for (int i = 0; i < n; i++)
-            table.AddFile(modNames[i] ?? "", jsonTexts[i], envExists);
+            table.AddFile(modNames[i] ?? "", jsonTexts[i], envExists, describeNonEnvironment);
         return table;
     }
 
@@ -99,7 +115,7 @@ internal sealed class EnvPreCreateTable
         return result;
     }
 
-    private void AddFile(string mod, string json, Func<string, bool> envExists)
+    private void AddFile(string mod, string json, Func<string, bool> envExists, Func<string, string> describeNonEnvironment)
     {
         object root;
         try { root = MiniJson.Parse(json ?? ""); }
@@ -133,6 +149,13 @@ internal sealed class EnvPreCreateTable
             if (envExists == null || !envExists(uid))
             {
                 Issue(mod, uid, $"{where} ('{uid}') names no loaded environment card; skipped.");
+                continue;
+            }
+
+            var wrongKind = describeNonEnvironment?.Invoke(uid);
+            if (!string.IsNullOrEmpty(wrongKind))
+            {
+                Issue(mod, null, $"{where} ('{uid}') names {wrongKind}, not an Environment card (CardType 4), so no environment can be pre-created for it; skipped.");
                 continue;
             }
 

@@ -1,7 +1,7 @@
 # Roadmap: CSFF Mod Framework
-Version at time of writing: 2.29.1
-Date: 2026-11-05 (refreshed by `/consolidate-audit`)
-Audit score: 10/10 - PASS (2026-11-05 consolidation: 17 per-module audits all SOLID / 10-10, whole-mod verdict corroborated; 0 CRITICAL, 0 DESIGN GAP; four actionable maintainability WARNINGs - README recap refresh, injection PerkRelocationService breadcrumb, animals reflection-field breadcrumbs, performance partial-patch guard; three D17 silent-catch WARNINGs all adjudicated false positives; four MINOR polish items. All non-blocking)
+Version at time of writing: 2.29.2
+Date: 2026-11-15 (refreshed by `/consolidate-audit`)
+Audit score: 10/10 - PASS (2026-11-15: re-consolidated after the worldmap and animation code-quality module runs (`a64164847` / `73f9d2464`) landed, promoting both from `7adc233c6` seeds to real CURRENT code-quality runs; 17 per-module trios, all SOLID / 10-10; 0 CRITICAL, 0 DESIGN GAP. Every actionable warning and minor the 2026-11-13 pass carried (W1-W4, M1-M5) shipped FIXED or REFUTED on 2026-11-14 (`511cad10e` + `Framework-WarningSweep-2026-11-14.Tests.ps1`) - all closed. The prior 2026-11-15 re-consolidation surfaced seven latent/coverage warnings (W1-W7: portal travel-DA destroy clears, encounters `EncounterGuardPatch` skip, injection `DropInjector` read chain, encounters `CharacterRosterInjector` miss, portal `CurrentTickInfo` miss, portal template overwrites, encounters test-coverage gap). This pass's worldmap code-quality run was clean; animation code-quality surfaced two NEW open warnings - W8 (`GifAnimationService.DurabilityConditionPasses` breadcrumb gap, latent B6/G5) and W9 (`CardMotionLoader` boot-log hygiene). Nine open warnings total, all latent / log-hygiene / coverage with no current EA 0.69e gameplay symptom. Three D17 silent-catch WARNINGs are adjudicated false positives; 0 MINOR open. summary.md is authoritative at 10/10 PASS.)
 
 > **This is the framework, not a content mod.** The content-mod roadmap template (Tier 2 migration,
 > theme expansion, art) mostly does not apply: the framework DEFINES Tier 2, and its own content is a
@@ -10,35 +10,41 @@ Audit score: 10/10 - PASS (2026-11-05 consolidation: 17 per-module audits all SO
 > Oil / Stearin Cake. "Expansion" here means new ENGINE surfaces that downstream mods consume, and
 > "polish" means removing the last dead API and boilerplate. Player-facing content, recipes and balance
 > belong in downstream mods, not here. The round-2 engine MASTER_PLAN drained and was removed 2026-10-12;
-> the only open plan doc is a small Nexus-player-request plan whose one item (hide the Portal Kit
-> blueprint) is already BUILT and awaiting its harness row. The framework is feature-complete. The owner
-> chose 2026-10-12 to keep it at the repo root rather than move it to `Stable/`.
+> the small Nexus-player-request plan drained too (its one item, hide the Portal Kit blueprint, is BUILT
+> and verified - harness T2.2140 PASSED 2026-11-03). An LTS hardening plan now lives at
+> `Documentation/Plans/CSFFModFramework/MASTER_PLAN.md` (created 2026-11-15 by `/generate-ideas
+> CSFFModFramework lts`), holding the open latent/coverage warnings as FIX/GATE rows - no player-facing
+> feature; the earlier "no plan folder on disk" prose is superseded. The framework is feature-complete. The owner chose 2026-10-12 to keep it at the repo
+> root rather than move it to `Stable/`.
 
 ## Current State
 
 **Theme**: The shared engine for Card Survival: Fantasy Forest mods - JSON-driven content loading, WarpData
 resolution, sprite/localization loading, perk/blueprint/improvement/drop injection, declarative WorldMap,
 Portal Hub, the declarative Animal System, encounter guards, GameModifierPackage and flavour-synergy
-injection, a shared GpTag vocabulary (`TagGroups.json`), plus a set of base-game bug fixes and shared
-hosted content. 17 content mods (2,630 UIDs) load through it.
+injection, a shared GpTag vocabulary (`TagGroups.json`), the 2.29.1 API grafts (`Api.NpcDuties`,
+`Api.Npc.RegisterMoveGuard`, `FrameworkEvents.RunStarted`, `Api.Localized`, `EnvPreCreate.json`), the 2.29.2
+`Spawn.AlsoSuppressWhileCardsOnBoard` animal-suppression key, plus a set of base-game bug fixes and shared
+hosted content. 17 content mods (2,635 UIDs) load through it.
 
 **Content** (framework-hosted, not player-expansion): Portal Hub (kit item + placed hub + exit + 2 GIF cards)
-/ 1 perk (Wayfinder) / Metal parts (Metal Sheet, Copper Nails, Tin Solder + 8 blueprints) / Brine cure chain
+/ 1 perk (Wayfinder) / Metal parts (Metal Sheet, Copper Nails, Tin Solder + blueprints) / Brine cure chain
 (Salt-Cured Meat & Fish + brine intermediates + 2 liquids) / Lamp Oil (Stearin Cake + blueprint + liquid) /
-29 custom images / 196 `.cs` source files / 17 audited modules.
+custom images / ~203 `.cs` source files / 17 audited modules.
 
-**Stability**: 10/10 - PASS. Build clean (Release, 0/0), versions synchronized at 2.29.1, localization and
-Chinese parity CLEAN, bin/Release in sync, 0 cross-mod structural refs or tag collisions across the 17
-dependent mods. No advertised dead code. Two silent-miss findings closed and verified in source since 2.28.10:
-the assets module's asymmetric card-image miss (`SpriteResolver.cs`) and the api module's two G5 null-return
-reflection paths (`10a450ce0e`). The portal module re-audit (2026-11-03) confirms two maintainability items
-unchanged (hoist a load-time `GetFields()` out of a loop; delete a dead private method) - see Phase 4. The
-2026-11-05 core re-audit (`dc4e577ed`) surfaced a stale README "Recent releases" recap (features documented
-elsewhere, not dead code) and a cosmetic duplicate XML-doc block in `CardUtil.cs`; the lampoil re-audit
-(`e8c2e236a`/`fb1cbf3b0`) found no drift and cleared the prior STALE mod-report row. Three module
-code-quality runs carry version-drift reflection-field guards that are latent (not live on EA 0.69c):
-injection `PerkRelocationService` (G5), animals `AnimalAssetFactory`/`SpawnRegistrar`/`DutyBuilder` (A2/G5),
-performance `CatchUpTickBatching` (I4) - all in Phase 4.
+**Stability**: 10/10 - PASS. Build clean (Release, 0/0), versions synchronized at 2.29.2 across
+ModInfo.json / Plugin.cs / CHANGELOG.md / README.md, localization and Chinese parity CLEAN (157/157),
+bin/Release in sync, 0 cross-mod structural refs or tag collisions across the dependent mods. No advertised
+dead code and no open item with a current EA 0.69e symptom: the prior cycle's release-hygiene item
+(`AmbienceArrayReuse` inert on 0.69e) and every other actionable W/M (W1-W4, M1-M5) shipped FIXED or REFUTED
+2026-11-14 (`511cad10e`), each with a `Framework-WarningSweep-2026-11-14.Tests.ps1` gate, verified landed in
+the 2026-11-15 module re-audits. Nine latent / log-hygiene / coverage warnings remain, all in Phase 4 below; every one is a
+future-game-rename detectability gap (quiet-AND-unpinned string reflection), a benign boot-log line, or
+test-coverage debt, none affecting EA 0.69e gameplay. W8 (animation `GifAnimationService` breadcrumb gap)
+and W9 (animation `CardMotionLoader` boot-log hygiene) are the two new this pass, from the animation
+code-quality run. Two silent-miss findings stay closed and
+verified in source: the assets module's asymmetric card-image miss (`SpriteResolver.cs`) and the api module's
+two G5 null-return reflection paths (`10a450ce0e`).
 
 **Open work**: 0 red (Open) retrospectives. 2 yellow debts: `wikimod-old-save-load-crash` (2.25.25/26 rescue
 patches not re-verified in-game) and `questinjector-blueprint-reset-risk` / `RETRO_CLOSURE_PLAN_2026-07-23`
@@ -60,13 +66,15 @@ target for every content mod.
 ## Phase 1: Foundation / Close-out
 
 > The framework is feature-complete. "Foundation" here is the release tail and the open verification debts.
+> No release-hygiene item gates the batch any more: the prior cycle's W1 (`AmbienceArrayReuse` boot-Warn +
+> stale README/config claim) was fixed and gated 2026-11-14.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Nexus release batch: framework 2.29.1 is ahead of Nexus 2.26.12; ship with the dependent-mod batch (`/nexus-publish upload --behind`) | Release tail | P1 | Medium |
+| Nexus release batch: framework 2.29.2 is ahead of Nexus 2.26.12; ship with the dependent-mod batch (`/nexus-publish upload --behind`) | Release tail | P1 | Medium |
 | `/package-mod-suite` + Mod_Update_Manager repack per the MUM-last rule | Release tail | P1 | Quick |
 | Verify `wikimod-old-save-load-crash` fix in-game on an old WikiMod save, then `/resolve-retro` | Retro close | P2 | Medium |
-| Refresh the three seed module audits (worldmap, animation, encounters) to real runs when next touched | Tidiness | P3 | Quick |
+| Refresh the two remaining seed module dimensions (worldmap + animation mod-report and critical-analysis) to real runs when next touched; both modules' code-quality dimensions were promoted 2026-11-15 (worldmap clean; animation surfaced W8/W9) | Tidiness | P3 | Quick |
 
 ---
 
@@ -115,19 +123,24 @@ target for every content mod.
 
 ## Phase 4: Polish
 
-> Tooling niceties only - the framework's own content is minimal and already shipped with art.
+> Tooling niceties and latent version-drift / author-time guards only - the framework's own content is
+> minimal and already shipped with art. None is live-breaking on EA 0.69e; every W row is a future-game-
+> rename detectability gap (quiet-AND-unpinned string reflection) or test-coverage debt. Best folded into
+> the next source-touching pass; none warrants its own release.
 
 | Item | What | Complexity |
 |------|------|------------|
-| Refresh README "Recent releases" (core W1) | `README.md:694-696` recap stops at 2.28.9/2.28.8 while 2.29.1 ships; prepend `**2.29.1.**`/`**2.29.0.**` summaries. Doc-honesty - the features themselves are already documented in "What the framework adds"/"Configuration" | Quick |
-| Delete orphaned `CardUtil` XML doc (core M1) | `Util/CardUtil.cs:586-592` carries a duplicate `<summary>` block (pre-2.23.0 `IsImprovementBuilt` residue) above `EnvKeyMatchesUid`; harmless (XML-doc gen off) but misleading - delete it | Quick |
-| `PerkRelocationService` miss breadcrumb (injection W2/G5) | `Loading/PerkRelocationService.cs:28` returns on a null reflected field with no log; add a one-line `Log.Warn` so a future field rename is not silent | Quick |
-| Cache `DropInjector` reflection (injection F1) | `Injection/DropInjector.cs:254,499,501` - route `CardName`/`GetStringMember` reads through `CardUtil.GetCachedField` like the rest of the file (load-time slow-load nit) | Quick |
-| Guard animals reflection-field sets (animals W3/A2/G5) | Mirror `TrapIntegrator.AddStat`'s guarded idiom at the unguarded `?.SetValue` sites in `AnimalAssetFactory`/`SpawnRegistrar`/`DutyBuilder`; latent on a future game-update field rename. Framework-source - batch with the next build/redeploy | Medium |
-| Guard `CatchUpTickBatching` arm (performance W4/I4) | `Patching/Performance/CatchUpTickBatching.cs:229` - gate `ArmForHop` on the ApplyRates patch-install result so a SafePatcher soft-fail can't silently under-decay by K | Quick |
-| Hoist `GetFields()` out of the world loop (M1) | `Portal/PortalService.cs:525` re-enumerates `daType.GetFields(...)` once per registered world inside `foreach (var world in worlds)`; hoist above the loop (the `lkFieldLS`/`dtFieldLS` lookups at :513-518 already are). Load-time, small N - cleanup, not a perf fix | Quick |
-| Delete dead private `FindField` (M2) | `Portal/PortalService.cs:806-814` defines `FindField(Type, string)` but nothing calls it; remove the clutter | Quick |
-| D17 false-positive shapes | Teach the preflight D17 check the caller-logs-the-catch (`Fail`/`Issue` indirection), `cause=` out-param, and finalizer-guard patterns so it stops re-flagging `StatResetsTable.cs`, `WorldMapInjector.cs:2082` and `DragStartCrashGuard.cs:65` | Quick |
+| W1: `PortalService` travel-DA destroy clears (highest blast radius) | `Portal/PortalService.cs:516-518,:560-563` clears `ReceivingCardChanges`/`ProducedCards` on each travel-DA copy under a `!= null` guard; a rename of either `CardAction` field would make every "Travel to X" button also pack up the portal (destroy the hub, hand back a kit). Fail-closed: `Log.Error` naming `CardAction.<member>` + skip the travel DA, like the sibling `DismantleActions` guard. Latent (members present) | Quick |
+| W2: `EncounterGuardPatch` StartEncounter skip | `Patching/EncounterGuardPatch.cs:32-47` is the framework's single `EncounterPopup.StartEncounter` prefix; a rename skips the install on a Debug-only line and silently disables every wildlife encounter guard. Add a `Framework-ReflectedSignatures.Tests.ps1` row for `EncounterPopup.StartEncounter(Encounter, InGameNPC, bool)` and/or raise the two skip lines to Warn | Quick |
+| W3: `DropInjector` read chain | `Injection/DropInjector.cs:143-508` reaches seven game members through `CardUtil.GetCachedField` (silent null on a miss) beside a WarnOnce covering only the drop half; a rename makes every `DropInjections.json` forage/dig rule match nothing, traced only by `0 drop(s) appended`. Add the seven member rows to the signatures test; route the member-missing case through the existing WarnOnce | Quick |
+| W4: `CharacterRosterInjector` roster-append miss | `Injection/CharacterRosterInjector.cs:81,86` appends to `Gamemode.FatesCharacters`/`WaysCharacters` through a silent `FindField`; a rename drops every mod character from the roster with no log. Warn-once + pin the two fields. No live consumer today | Quick |
+| W5: `PortalService` `CurrentTickInfo` miss | `Portal/PortalService.cs:320` raw read; a miss leaves the AddCard `_Tick` silently 0. Warn-once via `RequiredMember`. Low consequence | Quick |
+| W6: `PortalService` template-overwrite lookups | `Portal/PortalService.cs:526-529,:819-828` (`ParentObjectID`, `DaytimeCost`, `UseMiniTicks`) miss quietly; a drift changes nothing unless Pack Up timing is edited. Warn-once only if the template is ever changed. Lowest consequence | Quick |
+| W7: encounters test-coverage gap | `CharacterRosterInjector`, `NPCActionRowOverflowFix`, `NPCButtonTextFit` and `MoveGuardPatch` have no dedicated suite asserting their early-out / exception-isolation paths; `TriggerService`'s day-rollover/outdoor-defer logic also has no gate. A `Framework-WarningSweep` style test over the four files | Medium |
+| W8: `GifAnimationService` condition-read breadcrumb gap (new 2026-11-15) | `Gif/GifAnimationService.cs:211,220,223` - three reads in `DurabilityConditionPasses` (`MaxLiquidCapacity`, `MaxValue`, `Active`) lack the per-cause `WarnOnce` their siblings carry; a rename of `DurabilityStat.MaxValue`/`Active` or `CardData.MaxLiquidCapacity`, or a condition on an unconfigured slot, silently disables that GIF condition set. Add a per-cause warn-once on the `MaxValue <= 0` and non-bool `Active` branches, reusing the `_warned` latch. Latent | Quick |
+| W9: `CardMotionLoader` boot-log hygiene (new 2026-11-15) | `Motion/CardMotionLoader.cs:54` logs `0 moving sprite(s) from 0 file(s)` at Info on every content-free boot; gate on a nonzero count or emit at Debug, matching `GifLoader`. Minor log noise | Quick |
+| Remaining reflected-signature rows (framework-wide B6 debt) | The highest-risk string-reflection sites this cycle are W1-W6 and W8; the residual is table-coverage debt on loud-on-null or inert files. Add a row per highest-risk member when the framework is next touched. Framework-wide ~83 uncovered files / 413 sites (`lts_signals.py`) | Medium |
+| D17 / V6 false-positive shapes | Teach the preflight D17 check the caller-logs-the-catch (`Fail`/`Issue` indirection), `cause=` out-param, and finalizer-guard patterns, and V6 the `yield return <x>.Current` pass-through, so they stop re-flagging `StatResetsTable.cs`, `WorldMapInjector.cs:2082`, `DragStartCrashGuard.cs:65` and `PortalArrivalNextEnvGuard.cs:78` | Quick |
 | Author-time gate-misconfig detection | Fold a `LockConditions`/`GateConditions` mutual-exclusion check into the F21-F27 WorldMap validators | Medium |
 | Foreign-plugin PatchAll isolation seam | Only if a second plugin (beyond WikiMod) exhibits the abort-cascade; general `Api`-level seam | Complex |
 
@@ -139,7 +152,9 @@ target for every content mod.
 > (content, drops, blueprints, perks, WorldMap, animals, encounters, quests, modifiers, flavour) is
 > authorable from JSON with no mod-side C#, and the remaining hand-rolled C# in downstream mods (H&F's
 > biome forage, any quest chains) has migrated onto shared declarative surfaces. The engine grows only
-> when a real consumer needs a surface; it never carries a speculative or dead API.
+> when a real consumer needs a surface; it never carries a speculative or dead API - and a version-targeted
+> optimization like `AmbienceArrayReuse` either self-checks its own applicability or is retired once the
+> game version it targeted passes.
 
 **Potential major additions** (not yet justified - revisit when a consumer appears):
 - `Api.Raid` / `Raids.json` generalization - fits once a second raid rule exists.
@@ -147,9 +162,8 @@ target for every content mod.
 - A general foreign-plugin PatchAll isolation seam - fits once a second plugin shows the abort-cascade.
 
 These live in the framework's archived as-built docs (`Documentation/Design/CSFFModFramework_*_As_Built.md`)
-and the dormant-surface dispositions in `.audit/ideas.md`; none is a `Documentation/Plans/` entry today
-(apart from the built-and-awaiting-verification Portal Kit setting). Never create a stub under
-`Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
+and the dormant-surface dispositions in `.audit/ideas.md`; the open latent/coverage warnings are promoted in the LTS hardening plan at `Documentation/Plans/CSFFModFramework/MASTER_PLAN.md` (created 2026-11-15).
+Never create a stub under `Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
 
 ---
 
@@ -158,7 +172,7 @@ and the dormant-surface dispositions in `.audit/ideas.md`; none is a `Documentat
 | Trigger | Action |
 |---------|--------|
 | After any engine-surface change | Run `/audit-mod CSFFModFramework` and update this roadmap |
-| Game version update | Run `/update-mod-version`, refresh every content mod's `lib/Assembly-CSharp.dll`, re-run `/diagnose-log` |
+| Game version update | Run `/update-mod-version`, refresh every content mod's `lib/Assembly-CSharp.dll`, re-run `/diagnose-log`; re-check version-targeted patches (`AmbienceArrayReuse`) for inertness against the new decompile |
 | After fixing a framework bug | Run `/critical-analysis CSFFModFramework` to verify the fix; add a watched-red gate |
 | Before a release batch | Confirm every dependent mod's build resolves against the framework version Nexus will serve (RefCheck in `nexus_publish.py`) |
 

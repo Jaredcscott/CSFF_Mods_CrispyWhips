@@ -69,6 +69,11 @@ internal static class PerkInjector
             {
                 field = type.GetField("ContainedPerks",
                     System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
+                // Warn once per type (later lookups hit the cache and skip this block). Without it a game
+                // update that renames ContainedPerks takes every perk injection AND removal silently dark:
+                // the only trace would be the Debug "injected 0" tail, indistinguishable from "no mod perks".
+                if (field == null)
+                    Log.Warn($"PerkInjector: {type.Name}.ContainedPerks not found (renamed by a game update?) - mod perks will not be added to or removed from this group");
                 containedPerksFieldCache[type] = field;
             }
             return field;

@@ -58,7 +58,8 @@ internal static class NPCActionRowOverflowFix
             if (!_loggedOnce)
             {
                 _loggedOnce = true;
-                Util.Log.Info($"[NPCActionRowOverflowFix] Before: rectWidth={rowParent.rect.width} "
+                // Debug: the layout numbers the fix was built from, once per process. Not an event a player log needs.
+                Util.Log.Debug($"[NPCActionRowOverflowFix] Before: rectWidth={rowParent.rect.width} "
                     + $"childCount={rowParent.childCount} childControlWidth={layout.childControlWidth} "
                     + $"childForceExpandWidth={layout.childForceExpandWidth} spacing={layout.spacing}");
             }

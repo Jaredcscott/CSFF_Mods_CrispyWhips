@@ -351,6 +351,9 @@ internal static class TameInteractionBuilder
     private static void SetActionSounds(CardAction action)
     {
         _actionSoundsField ??= AccessTools.Field(typeof(CardAction), "ActionSounds");
-        _actionSoundsField?.SetValue(action, Array.Empty<AudioClip>());
+        if (!ReflectedField.Present(_actionSoundsField, "CardAction.ActionSounds",
+                "a generated interaction's sound list is left null instead of empty"))
+            return;
+        _actionSoundsField.SetValue(action, Array.Empty<AudioClip>());
     }
 }

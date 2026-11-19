@@ -527,13 +527,15 @@ internal static class PortalService
         var dayCostFI   = AccessTools.Field(daType, "DaytimeCost");
         var miniTicksFI = daType.GetField("UseMiniTicks",
             BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        // Read once: the same field list is copied onto every world's new action below.
+        var daFields    = daType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 
         foreach (var world in worlds)
         {
             var newDa   = Activator.CreateInstance(daType);
 
             // Shallow-copy from template so enums / bools / audio refs get sensible defaults.
-            foreach (var fi in daType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
+            foreach (var fi in daFields)
                 fi.SetValue(newDa, fi.GetValue(template));
 
             // Fresh ActionName (must not share the template's LocalizedString).
@@ -813,16 +815,6 @@ internal static class PortalService
     }
 
     // ─── Misc helpers ────────────────────────────────────────────────────────
-
-    private static FieldInfo FindField(Type type, string name)
-    {
-        for (var t = type; t != null; t = t.BaseType)
-        {
-            var f = t.GetField(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            if (f != null) return f;
-        }
-        return null;
-    }
 
     private static void SetIntOrFloat(FieldInfo field, object obj, int value)
     {

@@ -51,7 +51,9 @@ internal static class EncounterGuardLoader
     {
         public string Name;
         public readonly List<string> GuardCardUids = new();
-        public readonly HashSet<string> GuardEnvironmentUids = new(StringComparer.Ordinal);
+        // Case-insensitive, like every other UID list a guard carries (GuardCardUids is compared with
+        // OrdinalIgnoreCase below): an environment UID typed in another case used to never match, with no log line.
+        public readonly HashSet<string> GuardEnvironmentUids = new(StringComparer.OrdinalIgnoreCase);
         public readonly HashSet<string> EncounterUids = new(StringComparer.OrdinalIgnoreCase);
         public readonly HashSet<string> AgentUids = new(StringComparer.OrdinalIgnoreCase);
         public float SuppressChance = 100f;

@@ -460,8 +460,6 @@ internal static class DutyBuilder
             return null;
         }
 
-        var action = NewAction<AffectItemsDutyAction>(soName);
-
         _affectTypeField ??= AccessTools.Field(typeof(AffectItemsDutyAction), "AffectType");
         _itemModificationField ??= AccessTools.Field(typeof(AffectItemsDutyAction), "ItemModification");
         _simpleDurationField ??= AccessTools.Field(typeof(AffectItemsDutyAction), "SimpleAffectDuration");
@@ -471,13 +469,6 @@ internal static class DutyBuilder
             return null;
         }
 
-        // AffectTypes is a PRIVATE nested enum; 0 == SimpleCardChange.
-        _affectTypeField.SetValue(action, Enum.ToObject(_affectTypeField.FieldType, 0));
-        _itemModificationField.SetValue(action, new CardStateChange { ModType = CardModifications.Destroy });
-        _simpleDurationField?.SetValue(action, 0);
-
-        var selection = new NPCItemSelectionSettings { ItemPool = pool, DebugItemSelection = false };
-
         _searchPriorityField ??= AccessTools.Field(typeof(NPCItemSelectionSettings), "SearchPriority");
         _ownershipPriorityField ??= AccessTools.Field(typeof(NPCItemSelectionSettings), "OwnershipPriority");
         _dutyPriorityField ??= AccessTools.Field(typeof(NPCItemSelectionSettings), "DutyPriority");
@@ -486,14 +477,43 @@ internal static class DutyBuilder
         _selectionTagsField ??= AccessTools.Field(typeof(NPCItemSelectionSettings), "SelectionTags");
         _invertPreferenceField ??= AccessTools.Field(typeof(NPCItemSelectionSettings), "InvertPreference");
 
+        // The item selection decides WHERE the animal looks and WHOSE items it may take. With one of these
+        // fields gone the write used to no-op in silence and the game's default stood in: a search that
+        // prefers the animal's own inventory over the board (SearchPriority 0), a null tag list, or a feed
+        // duty that cannot see into a trap (Containers null). Refuse the action instead (the same exit as
+        // the two fields above), before it is created.
+        // The & is deliberate: it names every missing field, not only the first.
+        const string selectionConsequence = "an animal's item search cannot be set up, so feed/bait actions are unavailable";
+        if (!(ReflectedField.Present(_searchPriorityField, "NPCItemSelectionSettings.SearchPriority", selectionConsequence)
+            & ReflectedField.Present(_ownershipPriorityField, "NPCItemSelectionSettings.OwnershipPriority", selectionConsequence)
+            & ReflectedField.Present(_dutyPriorityField, "NPCItemSelectionSettings.DutyPriority", selectionConsequence)
+            & ReflectedField.Present(_containersField, "NPCItemSelectionSettings.Containers", selectionConsequence)
+            & ReflectedField.Present(_canUsePlayerHandField, "NPCItemSelectionSettings.CanUsePlayerHand", selectionConsequence)
+            & ReflectedField.Present(_selectionTagsField, "NPCItemSelectionSettings.SelectionTags", selectionConsequence)
+            & ReflectedField.Present(_invertPreferenceField, "NPCItemSelectionSettings.InvertPreference", selectionConsequence)))
+            return null;
+
+        var action = NewAction<AffectItemsDutyAction>(soName);
+
+        // AffectTypes is a PRIVATE nested enum; 0 == SimpleCardChange.
+        _affectTypeField.SetValue(action, Enum.ToObject(_affectTypeField.FieldType, 0));
+        _itemModificationField.SetValue(action, new CardStateChange { ModType = CardModifications.Destroy });
+        // Not fatal: 0 is also what a fresh instance holds (a plain private int), so a miss changes nothing
+        // the animal does. It is still named once, because a rename here means the class moved.
+        if (ReflectedField.Present(_simpleDurationField, "AffectItemsDutyAction.SimpleAffectDuration",
+                "the feed action keeps the game's default duration (0 on a fresh instance)"))
+            _simpleDurationField.SetValue(action, 0);
+
+        var selection = new NPCItemSelectionSettings { ItemPool = pool, DebugItemSelection = false };
+
         // OnlyEnvironment (3): a wild animal eats what is lying in the world, never out of its own
         // inventory — and bait sits in a trap on the board.
-        _searchPriorityField?.SetValue(selection, Enum.ToObject(_searchPriorityField.FieldType, 3));
-        _ownershipPriorityField?.SetValue(selection, Enum.ToObject(_ownershipPriorityField.FieldType, 0)); // IgnoreOwnership
-        _dutyPriorityField?.SetValue(selection, Enum.ToObject(_dutyPriorityField.FieldType, 0));           // IgnoreDuty
-        _canUsePlayerHandField?.SetValue(selection, false);
-        _selectionTagsField?.SetValue(selection, Array.Empty<ItemSelectionTag>());
-        _invertPreferenceField?.SetValue(selection, false);
+        _searchPriorityField.SetValue(selection, Enum.ToObject(_searchPriorityField.FieldType, 3));
+        _ownershipPriorityField.SetValue(selection, Enum.ToObject(_ownershipPriorityField.FieldType, 0)); // IgnoreOwnership
+        _dutyPriorityField.SetValue(selection, Enum.ToObject(_dutyPriorityField.FieldType, 0));           // IgnoreDuty
+        _canUsePlayerHandField.SetValue(selection, false);
+        _selectionTagsField.SetValue(selection, Array.Empty<ItemSelectionTag>());
+        _invertPreferenceField.SetValue(selection, false);
 
         var containers = new LookInContainersSettings(_CanLook: true)
         {
@@ -538,7 +558,7 @@ internal static class DutyBuilder
                 Log.Warn($"Animals: {m.SourceFile}: AffectItems ContainerCard '{cardUid}' not found - omitted from the container list");
         }
         containers.ContainerIsRequired = containerRequired;
-        _containersField?.SetValue(selection, containers);
+        _containersField.SetValue(selection, containers);   // present: checked with the other selection fields above
 
         action.ItemSelection = selection;
         Log.Debug($"Animals: {m.SpeciesId}: AffectItems action '{soName}' — pool {pool.Count} entr(y/ies), "

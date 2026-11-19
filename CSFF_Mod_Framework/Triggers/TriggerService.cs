@@ -29,6 +29,11 @@ internal static class TriggerService
 
     private static readonly Dictionary<(Type, string), MemberInfo> _memberCache = new();
 
+    // (type, member name) pairs GetMemberValue could not resolve, each warned about once per process. Not cleared
+    // by Init: a reload would only repeat the same line.
+    private static readonly HashSet<(Type, string)> _missingMemberWarned = new();
+    private static bool _allCardsShapeWarned;
+
     public static void Init()
     {
         _ready = false;
@@ -265,7 +270,19 @@ internal static class TriggerService
         var gm = _gmInstanceProp.GetValue(null, null);
         if (gm == null) return 0;
 
-        if (GetMemberValue(gm, "AllCards") is not IList allCards) return 0;
+        if (GetMemberValue(gm, "AllCards") is not IList allCards)
+        {
+            // Returning 0 here reads as "none on the board", so the MaxOnBoard test passes and the trigger spawns
+            // without limit. A missing member is already named by GetMemberValue; this covers one that resolved
+            // but no longer reads as a list.
+            if (!_allCardsShapeWarned)
+            {
+                _allCardsShapeWarned = true;
+                Log.Warn("[TriggerService] GameManager.AllCards did not read as a list, so cards on the board cannot be counted "
+                       + "and no trigger's MaxOnBoard limit is being enforced. Logged once.");
+            }
+            return 0;
+        }
 
         int count = 0;
         foreach (var card in allCards)
@@ -301,6 +318,15 @@ internal static class TriggerService
         {
             member = (MemberInfo)t.GetProperty(name, Flags) ?? t.GetField(name, Flags);
             _memberCache[key] = member;
+        }
+        if (member == null)
+        {
+            // Every caller is a step of CountOnBoard, and each of them treats null as "nothing to count". A game
+            // update that renames one of these members would otherwise switch the MaxOnBoard limit off in silence.
+            if (_missingMemberWarned.Add(key))
+                Log.Warn($"[TriggerService] {t.Name}.{name} not found (renamed by a game update?), so cards on the board cannot be counted "
+                       + "and a trigger's MaxOnBoard limit is not being enforced. Logged once per member.");
+            return null;
         }
         if (member is PropertyInfo pi && pi.CanRead) { try { return pi.GetValue(target, null); } catch (Exception ex) { Log.Debug($"[TriggerService] '{name}' property read threw: {Log.ExceptionText(ex)}"); } }
         if (member is FieldInfo   fi)                { try { return fi.GetValue(target);        } catch (Exception ex) { Log.Debug($"[TriggerService] '{name}' field read threw: {Log.ExceptionText(ex)}"); } }

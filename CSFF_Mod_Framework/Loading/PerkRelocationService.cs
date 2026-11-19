@@ -26,7 +26,15 @@ internal static class PerkRelocationService
         if (modUniqueIds.Count == 0) return;
 
         var overrideEnvField = AccessTools.Field(typeof(CharacterPerk), "OverrideEnvironment");
-        if (overrideEnvField == null) return;
+        if (overrideEnvField == null)
+        {
+            // Runs once per load (LoadOrchestrator), so one line per process. Without it a renamed field
+            // takes the whole service dark: a stale OverrideEnvironment drags the run to that board again
+            // and nothing in the log says why.
+            Log.Warn("PerkRelocationService: CharacterPerk.OverrideEnvironment not found (renamed by a game update?) - "
+                   + "no mod perk's OverrideEnvironment was cleared, so a perk carrying a vanilla environment can move the run's starting board.");
+            return;
+        }
 
         int cleared = 0;
         int kept = 0;

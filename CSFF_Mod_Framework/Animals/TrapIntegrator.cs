@@ -460,9 +460,13 @@ internal static class TrapIntegrator
         try
         {
             _overrideMinMaxField ??= AccessTools.Field(typeof(NPCStatInstance), "OverrideMinMaxValue");
+            // False reads as "the author set no override", which skips the caller's too-low-maximum warning.
+            if (!ReflectedField.Present(_overrideMinMaxField, "NPCStatInstance.OverrideMinMaxValue",
+                    "an author's trap-type stat range cannot be read, so a range too low for the catch gate is not warned about"))
+                return false;
             // OptionalValue.Active is protected; the type carries an implicit bool operator that
             // exposes exactly that flag.
-            if (_overrideMinMaxField?.GetValue(instance) is not OptionalRangeValue range || !range) return false;
+            if (_overrideMinMaxField.GetValue(instance) is not OptionalRangeValue range || !range) return false;
             max = range.MaxValue;
             return true;
         }

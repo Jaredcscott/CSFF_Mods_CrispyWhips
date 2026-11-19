@@ -49,7 +49,7 @@ internal static class EnvPreCreateService
         }
         if (names.Count == 0) return;
 
-        var table = EnvPreCreateTable.Build(names, texts, EnvExists);
+        var table = EnvPreCreateTable.BuildWithTypeCheck(names, texts, EnvExists, DescribeNonEnvironment);
 
         int skipped = 0, unresolved = 0;
         var missed = new List<string>();
@@ -146,5 +146,21 @@ internal static class EnvPreCreateService
         return _getEnvSaveData;
     }
 
-    private static bool EnvExists(string uid) => GameRegistry.GetByUid(uid) is CardData;
+    // "Is anything loaded under this UID": a miss is the unresolved-reference case (Warn or Debug by UnresolvedUid).
+    // What the UID names is DescribeNonEnvironment's question, so a hit of the wrong kind gets its own warning
+    // instead of reading as "does not resolve".
+    private static bool EnvExists(string uid) => GameRegistry.GetByUid(uid) != null;
+
+    // Null for an Environment card (CardType 4); otherwise what the UID names. OnRunStart hands the UID to
+    // new EnvID(string), which has none of the CardTypes.Environment guard EnvID(CardData, bool) has
+    // (.decomp/EnvID.cs), so GetEnvSaveData(.., true) would add an EnvironmentsData entry for an item, liquid or
+    // location card and every later save would carry it. Refused at load instead.
+    private static string DescribeNonEnvironment(string uid)
+    {
+        var found = GameRegistry.GetByUid(uid);
+        if (found == null) return null;
+        if (found is CardData card)
+            return card.CardType == CardTypes.Environment ? null : $"a card of CardType {card.CardType}";
+        return $"an object of type {found.GetType().Name}";
+    }
 }

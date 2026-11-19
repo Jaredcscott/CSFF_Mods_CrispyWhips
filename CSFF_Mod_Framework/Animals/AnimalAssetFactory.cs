@@ -95,6 +95,17 @@ internal static class AnimalAssetFactory
 
     private static NPCAgent BuildGeneratedAgent(AnimalManifest m, CardData spiritWorld, DutyBuilder.SpeciesStats stats)
     {
+        // Checked before anything is created. With one of these fields gone, AddShared's writes used to
+        // no-op in silence and the stat kept its own default: AgentExists started at 0, so every generated
+        // agent sat retired for the whole run with nothing in the log. Skipping the stat instead would be
+        // worse (every duty and lifecycle gate keys on stats.Exists and is left off when it is null), so the
+        // species is refused whole.
+        if (!SharedStatFieldsPresent())
+        {
+            Log.Error($"Animals: {m.SourceFile}: species '{m.SpeciesId}' not generated - its agent stats cannot be written on this game build (see the NPCStatInstance line above)");
+            return null;
+        }
+
         var uid = AnimalUid.For(m.SpeciesId, AnimalUid.PartAgent);
         var agent = ScriptableObject.CreateInstance<NPCAgent>();
         agent.name = uid;
@@ -219,21 +230,37 @@ internal static class AnimalAssetFactory
             return null;
         }
 
+        // BuildGeneratedAgent has already refused the species when a field is missing, so this does not fire
+        // from there. It keeps AddShared from ever writing through a null FieldInfo if it gains another caller.
+        if (!SharedStatFieldsPresent()) return null;
+
         var instance = new NPCStatInstance { ModelStat = stat };
 
+        if (startOverride is { } start)
+            _overrideStartField.SetValue(instance, new OptionalFloatValue(true, start));
+        if (minMaxOverride is { } minMax)
+            _overrideMinMaxField.SetValue(instance, new OptionalRangeValue(true, minMax.x, minMax.y));
+        if (rateOverride is { } rate)
+            _overrideRateField.SetValue(instance, new OptionalFloatValue(true, rate));
+
+        instances.Add(instance);
+        return stat;
+    }
+
+    /// <summary>Resolves the three private NPCStatInstance override fields every generated agent's shared stats
+    /// are written through, and says whether all three exist. A missing one is logged once by name
+    /// (<see cref="ReflectedField.Present"/>). The <c>&amp;</c> is deliberate: it names every missing field, not
+    /// only the first.</summary>
+    private static bool SharedStatFieldsPresent()
+    {
         _overrideStartField ??= AccessTools.Field(typeof(NPCStatInstance), "OverrideStartingValue");
         _overrideMinMaxField ??= AccessTools.Field(typeof(NPCStatInstance), "OverrideMinMaxValue");
         _overrideRateField ??= AccessTools.Field(typeof(NPCStatInstance), "OverrideRate");
 
-        if (startOverride is { } start)
-            _overrideStartField?.SetValue(instance, new OptionalFloatValue(true, start));
-        if (minMaxOverride is { } minMax)
-            _overrideMinMaxField?.SetValue(instance, new OptionalRangeValue(true, minMax.x, minMax.y));
-        if (rateOverride is { } rate)
-            _overrideRateField?.SetValue(instance, new OptionalFloatValue(true, rate));
-
-        instances.Add(instance);
-        return stat;
+        const string consequence = "a generated agent's stat start values, ranges and rates cannot be written, so generated species are not built";
+        return ReflectedField.Present(_overrideStartField, "NPCStatInstance.OverrideStartingValue", consequence)
+             & ReflectedField.Present(_overrideMinMaxField, "NPCStatInstance.OverrideMinMaxValue", consequence)
+             & ReflectedField.Present(_overrideRateField, "NPCStatInstance.OverrideRate", consequence);
     }
 
     // ------------------------------------------------------------------ ref path ---

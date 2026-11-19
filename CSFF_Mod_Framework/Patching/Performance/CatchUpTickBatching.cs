@@ -43,6 +43,15 @@ internal static class CatchUpTickBatching
     private static int _batchK;
     private static int _batchMinTicks;
 
+    // True only when Configure installed EVERY hook below and the CatchingUpEnvData field resolved.
+    // ArmForHop compresses LastUpdatedTick (vanilla then runs numChunks ticks instead of the full gap),
+    // and it is the hooks that scale each of those ticks back up by K. Compressing without them is a
+    // silent K-fold under-decay on every capped travel, so ArmForHop refuses to arm while this is false.
+    // Stays false when the cfg disabled batching (Configure returns before patching), which is also
+    // what keeps BatchSizeOverride from compressing a hop with no hooks installed.
+    private static bool _hooksInstalled;
+    private static bool _notInstalledWarned;
+
     internal static bool Armed { get; private set; }
 
     // Diagnostics only (round-2 plan feature 23): the TestHarness sets this by `reflect` to replay the
@@ -145,6 +154,16 @@ internal static class CatchUpTickBatching
         ok &= PatchUpdateTransferEffects(harmony);
         ok &= PatchFadeAndProducedLiquids(harmony);
 
+        // ApplyRates_Prefix holds every chunk at 1 tick when this field is missing (it cannot tell the
+        // armed env from a dormant-card wake), so a miss is the same under-decay as a failed hook.
+        if (_catchingUpEnvDataField == null)
+        {
+            ok = false;
+            Util.Log.Warn("CatchUpTickBatching: GameManager.CatchingUpEnvData not found (renamed by a game update?).");
+        }
+
+        _hooksInstalled = ok;
+
         if (ok)
             Util.Log.Debug($"CatchUpTickBatching: enabled (K={_batchK}, min {_batchMinTicks} ticks to arm).");
         else
@@ -212,6 +231,20 @@ internal static class CatchUpTickBatching
 
         int k = BatchSizeOverride >= 0 ? BatchSizeOverride : _batchK;
         if (k <= 0 || envData == null) return; // 0 = disabled
+
+        // See _hooksInstalled: never compress LastUpdatedTick unless the hooks that scale the work back
+        // up are all in place. Checked before anything below writes to envData.
+        if (!_hooksInstalled)
+        {
+            if (!_notInstalledWarned)
+            {
+                _notInstalledWarned = true;
+                Util.Log.Warn("CatchUpTickBatching: not batching catch-up - the batching hooks are not all installed "
+                              + "(a hook or GameManager.CatchingUpEnvData was missing at startup, or CatchUpBatchTicks=0 with a diagnostic batch-size override). "
+                              + "Catch-up runs exact per-tick, only slower. Logged once.");
+            }
+            return;
+        }
 
         int gap = now - envData.LastUpdatedTick;
         if (gap <= _batchMinTicks) return; // don't bother chunking a trivial replay

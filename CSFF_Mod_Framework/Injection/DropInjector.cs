@@ -251,7 +251,7 @@ internal static class DropInjector
         // CardName.LocalizationKey contains pattern
         if (rule.CardNameKeyContains.Count > 0)
         {
-            var cardNameField = card.GetType().GetField("CardName", BF);
+            var cardNameField = CardUtil.GetCachedField(card.GetType(), "CardName");
             var nameObj = cardNameField?.GetValue(card);
             if (nameObj != null)
             {
@@ -494,12 +494,18 @@ internal static class DropInjector
         return nameObj == null ? null : GetStringMember(nameObj, "DefaultText");
     }
 
+    // (type, member name) -> the field, else the property, that holds the string; null when the type has
+    // neither. Looked up once per pair: this runs for every action of every card a rule matches.
+    private static readonly Dictionary<(Type, string), MemberInfo> _stringMemberCache = new();
+
     private static string GetStringMember(object obj, string memberName)
     {
-        var fi = obj.GetType().GetField(memberName, BF);
-        if (fi != null) return fi.GetValue(obj) as string;
-        var pi = obj.GetType().GetProperty(memberName, BF);
-        return pi?.GetValue(obj) as string;
+        var type = obj.GetType();
+        var key = (type, memberName);
+        if (!_stringMemberCache.TryGetValue(key, out var member))
+            _stringMemberCache[key] = member = (MemberInfo)type.GetField(memberName, BF) ?? type.GetProperty(memberName, BF);
+        if (member is FieldInfo fi) return fi.GetValue(obj) as string;
+        return (member as PropertyInfo)?.GetValue(obj) as string;
     }
 
     // ── JSON parsing ─────────────────────────────────────────────────────────

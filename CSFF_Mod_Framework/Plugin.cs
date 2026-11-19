@@ -6,7 +6,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.29.2";
+    public const string PluginVersion = "2.29.3";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -150,7 +150,8 @@ public class Plugin : BaseUnityPlugin
         Patching.Performance.SlotAssignmentLogSuppress.ApplyPatch(Harmony, Config);
 
         // Performance: reuse a cached float[3] inside AmbienceImageEffect.Update instead of
-        // allocating a fresh array per frame (~1.4 KB/sec of GC churn eliminated).
+        // allocating a fresh array per frame, on a game version that allocates one (EA 0.69c did;
+        // EA 0.69e does not, and there the patch changes nothing: see AmbienceArrayReuse.cs).
         Patching.Performance.AmbienceArrayReuse.ApplyPatch(Harmony, Config);
 
         // Performance: throttle InGameCardBase.LateUpdate for off-screen, non-animating cards.

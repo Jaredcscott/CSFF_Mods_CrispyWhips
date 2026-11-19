@@ -153,25 +153,32 @@ internal static class NPCAgentActivationService
                 return;
             }
 
-            // Survey GameManager for NPC agent collections — output at Debug level so it
-            // only surfaces when VerboseLogging is enabled, not on every run start.
-            Log.Debug("NPCAgentActivation: [DIAGNOSTICS] Surveying GameManager for NPC agent registries...");
-            SurveyNpcFields(gmType, gm);
+            // The surveys below write only Log.Debug lines, which VerboseLogging-off drops. Their WORK is not
+            // free (a reflective walk of every GameManager member, Resources.FindObjectsOfTypeAll over every
+            // InGameNPC) and this handler re-fires on every run start and save reload, so they run only when
+            // someone can read the result. Kept, not removed: they are the troubleshooting aid for the NPC system.
+            if (Log.Verbose)
+            {
+                // Survey GameManager for NPC agent collections.
+                Log.Debug("NPCAgentActivation: [DIAGNOSTICS] Surveying GameManager for NPC agent registries...");
+                SurveyNpcFields(gmType, gm);
 
-            // Also look for an NPCManager or WorldNPCManager component the game
-            // might delegate agent management to.
-            SurveyNpcManagerComponent();
+                // Also look for an NPCManager or WorldNPCManager component the game
+                // might delegate agent management to.
+                SurveyNpcManagerComponent();
 
-            // Check if mod agents appear in any discovered list.
-            CheckModAgentsInNpcLists(gmType, gm);
+                // Check if mod agents appear in any discovered list.
+                CheckModAgentsInNpcLists(gmType, gm);
 
-            // Wild-animal-system bring-up (temporary LogInfo diagnostics — see
-            // Documentation plan "Animal Modification System — Wild Owl"). Confirms
-            // whether a mod NPCAgent becomes a live, ticking InGameNPC and whether its
-            // Interactions -> DroppedEncounter resolves to a mod Encounter. Demote to
-            // Log.Debug once confirmed working end-to-end in-game.
-            SurveyLiveInGameNPCs();
-            SurveyModAgentEncounters();
+                // Wild-animal-system diagnostics. Confirms whether a mod NPCAgent becomes a live,
+                // ticking InGameNPC and whether its Interactions -> DroppedEncounter resolves to a
+                // mod Encounter.
+                SurveyLiveInGameNPCs();
+                SurveyModAgentEncounters();
+            }
+
+            // Not gated: a one-time registration with no survey work behind it (its predicate is one set
+            // lookup per encounter start and logs at Debug only).
             RegisterEncounterFireDiagnostic();
         }
         catch (Exception ex)

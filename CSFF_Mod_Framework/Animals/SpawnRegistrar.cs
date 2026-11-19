@@ -41,13 +41,21 @@ internal static class SpawnRegistrar
     private static readonly FieldInfo _spawnedAgentField =
         AccessTools.Field(typeof(NPCAgentSpawnSettings), "SpawnedAgent");
 
+    // One guard for every use of the field. Without it a rename made GetSpawnedAgent read null for every
+    // entry (so the "already registered" test never matched) and MakeSpawnSettings write nothing: each run
+    // start appended one more entry with no agent in it, and no queued agent ever spawned, in silence.
+    private static bool SpawnedAgentFieldPresent()
+        => ReflectedField.Present(_spawnedAgentField, "NPCAgentSpawnSettings.SpawnedAgent",
+            "spawn registration is unavailable, so no generated or queued mod animal will appear in a run");
+
+    // Both callers run only behind SpawnedAgentFieldPresent (InjectIntoCurrentWorld returns first).
     private static NPCAgent GetSpawnedAgent(NPCAgentSpawnSettings settings)
-        => _spawnedAgentField?.GetValue(settings) as NPCAgent;
+        => _spawnedAgentField.GetValue(settings) as NPCAgent;
 
     private static NPCAgentSpawnSettings MakeSpawnSettings(NPCAgent agent, CardData startingEnv)
     {
         object boxed = new NPCAgentSpawnSettings { StartingEnv = startingEnv };
-        _spawnedAgentField?.SetValue(boxed, agent);
+        _spawnedAgentField.SetValue(boxed, agent);
         return (NPCAgentSpawnSettings)boxed;
     }
 
@@ -59,6 +67,8 @@ internal static class SpawnRegistrar
     public static void ApplyPatch(Harmony harmony)
     {
         if (_patched) return;
+        // No point installing a postfix that could only append agent-less entries.
+        if (!SpawnedAgentFieldPresent()) return;
         try
         {
             var target = AccessTools.Method(typeof(GameManager), "InitializeStatsAndActions");
@@ -86,6 +96,7 @@ internal static class SpawnRegistrar
     private static void InjectIntoCurrentWorld()
     {
         if (_pending.Count == 0) return;
+        if (!SpawnedAgentFieldPresent()) return;
 
         var world = GameManager.CurrentGamemode ? GameManager.CurrentGamemode.World : null;
         if (world == null)
