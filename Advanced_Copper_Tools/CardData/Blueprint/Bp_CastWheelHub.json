@@ -57,9 +57,6 @@
           "RequiredQuantity": 1,
           "DontSpend": true,
           "LiquidBecomesResult": false,
-          "AffectResultDurabilities": {
-            "MaskValue": 448
-          },
           "EffectOnIngredient": {
             "ModType": 2,
             "TransformIntoWarpData": "99c97a08d8af8a5459c1f73b0182c80d",
@@ -120,11 +117,6 @@
       "Quantity": {
         "x": 1,
         "y": 1
-      },
-      "TransferRules": {
-        "TransferFromSpecial2": true,
-        "TransferFromSpecial3": true,
-        "TransferFromSpecial4": true
       },
       "DroppedCardWarpData": "advanced_copper_tools_wheel_hub",
       "DroppedCardWarpType": 3

@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.18.16
+**Version:** 1.18.17
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 
@@ -25,7 +25,7 @@ The mod ships 64 blueprints, 75 items, 16 location and structure cards, 7 charac
 | Tin | Stream Tin panning with the Wearable Metal Pan, the only source of Tin Ore | Tin Ore |
 | Perks | Seven starting-kit perks | Character Perks |
 
-Nearly every finished recipe needs 1 Tin Solder. Tin Ore, the only source of tin, comes from panning river gravel with the Wearable Metal Pan. Sheets, nails, the pan blank and wheel parts do not need solder.
+Nearly every finished recipe needs 1 Tin Solder. Tin Ore, the only source of tin, comes from panning river gravel with the Wearable Metal Pan. Sheets, nails, the pan blank, wheel hub and wheel rim do not need solder.
 
 ---
 
@@ -89,7 +89,7 @@ A portable fireplace that holds cooking like a campfire. It burns longer than on
 
 **Research:** holding a Metal Sheet makes the stove researchable (24 hours). A Stove Top Mold or Stove Top you already hold still loads, and the Stove Top's **Cut Up** button turns it into 2 metal sheets of its own metal.
 
-- Holds 600 weight of cooking, like a vanilla Campfire: one cooking pot or two clay bowls. A clay or copper cauldron does not fit.
+- Holds 600 weight of cooking, like a vanilla Campfire: one cooking pot, two clay bowls, or a Copper Cauldron on its own (it weighs 600, so it fills the stove). A clay cauldron (1200) is too heavy.
 - Holds 144 fuel (wood +42, twigs +7, charcoal +8), the same scale as a vanilla Campfire (96). The fuel stays in the stove when you pick it up.
 - Sanctuary while placed, lit or not: +75 copper, +80 Ghost Bronze, +65 Tin, +75 Tin Bronze, +90 White Bronze.
 - A full lit stove burns about 36 hours in copper or White Bronze, 40 in Ghost Bronze, 29 in Tin and 45 in Tin Bronze.
@@ -199,7 +199,7 @@ With Community Mod Chest installed, the Village Academy's Armorer course hands o
 
 ### Rust and the oil coat (iron gear)
 
-Iron armor (Helmet, Armor, Bracers, Greaves), the Iron Shield and an iron Large Saw rust while you wear them (the saw while you hold it), or carry them in a bag you are wearing, and your Wetness is above 50: their durability slowly falls. An **Oil Coat** on the item stops the rust and wears off instead, only while you are wet. Drag Fat or Oil onto the item to give it a fresh coat (**Grease with Fat** or **Oil**, 15 minutes; it uses up the Fat, or the Oil and gives back its Clay Bowl). A coat never restores durability that rust has already taken. Copper, tin and the bronzes do not rust. The rates are early placeholders and may change.
+Iron armor (Helmet, Armor, Bracers, Greaves), the Iron Shield and an iron Large Saw rust while you wear them (the saw while you hold it), or carry them in a bag you are wearing, and your Wetness is above 50: their durability slowly falls. An **Oil Coat** on the item stops the rust and wears off instead, only while you are wet. Drag Fat or Oil onto the item to give it a fresh coat (**Grease with Fat** or **Oil**, 15 minutes; it uses up the Fat, or the Oil and gives back its Clay Bowl). Liquid oil in a container works too: drag a bowl, pot or other container of liquid oil, such as Lamp Oil, onto the item (**Oil from Container**, 15 minutes; it uses 50 of the liquid and you keep the container). A coat never restores durability that rust has already taken. Copper, tin and the bronzes do not rust. The rates are early placeholders and may change.
 
 - Rust is checked once per action, so a long sleep right after a swim can still charge a little rust.
 - A Partner wearing iron rusts by your Wetness, not theirs.
@@ -232,9 +232,9 @@ A metal upgrade of the vanilla wooden wheelbarrow, built from sub-assemblies and
 | Component | Recipe | Build |
 |-----------|--------|-----:|
 | **Wheelbarrow Bucket** | 8 metal sheets + 1 Tin Solder + hammer (not used up) | 3 h |
-| **Wheelbarrow Handles** | 3 planks + 2 small leather + 2 long sticks + 4 copper nails + sharp knife and hammer (not used up) | 45 min |
+| **Wheelbarrow Handles** | 3 planks + 2 small leather + 2 long sticks + 4 metal nails + sharp knife and hammer (not used up) | 45 min |
 | **Forged Wheel Rim** | 1 heated metal bar + hammer (not used up) | 45 min |
-| **Forged Wheel Hub** | 3 heated copper nuggets + hammer (not used up) | 45 min |
+| **Forged Wheel Hub** | 3 heated metal nuggets + hammer (not used up) | 45 min |
 | **Cast Wheel Hub** | 1 small molten crucible + 2 mud bricks + 2 clay molds | 45 min |
 | **Wheel Assembly** | 1 wheel rim + 1 wheel hub + 1 wood + 1 Tin Solder + hammer (not used up) | 30 min |
 | **Metal Wheelbarrow** | 1 vanilla wooden Wheelbarrow + bucket + handles + wheel assembly + 1 Tin Solder | 2 h |
@@ -254,7 +254,7 @@ A placed tub for cleaning and morale.
 **Recipe** (build 3 hours, research 24 hours): 1 wheelbarrow bucket + 1 Small Copper Stove + 4 planks + 8 mud bricks + 1 large cloth + 4 long sticks + 3 small leather + 1 Tin Solder + hammer (not used up).
 
 - **Empty:** place it anywhere and load fuel before filling. Fill it from a bowl or bucket of water, or straight from the river.
-- **Full (cold):** take a Cold Bath, or add firewood and **Light Fire** to heat the water.
+- **Full (cold):** take a Cold Bath, or add firewood and drag any fire source onto the tub (**Light Fire**) to heat the water.
 - **Warm:** Heat holds up to 96 and drops by 1 every hour. Firewood adds 16, charcoal 8. A **Warm Bath** needs 5% to 50% heat and a **Hot Bath** 50% or more. At 0 Heat the tub turns cold again.
 
 Every bath and the soap wash clean you like vanilla's river and Soap washes:
@@ -279,7 +279,7 @@ A portable light, carried or placed, lit or unlit. Each change between the four 
 
 **Recipe** (build 30 minutes, research 12 hours): 1 metal sheet + 1 Lantern Oilwell + 1 copper wire + 1 parchment + 1 fat (the oiled-parchment shade) + hammer. The lantern takes the sheet's metal and has no glass or stone in it.
 
-- **Fuel:** pour any lamp oil in a clay bowl onto the unlit lantern and you get the bowl back, or drag a Copper Oil Flask onto it. A bowl adds 55.2 fuel, 15% more than the 48 a Ceramic Lamp gets. The flask gives up 48.
+- **Fuel:** pour any lamp oil in a clay bowl onto the unlit lantern and you get the bowl back, or drag a Copper Oil Flask onto it. A bowl adds 55.2 fuel, more than double the 24 a Ceramic Lamp gets. The flask gives up 48.
 - It holds 96 and burns 0.5 every 15 minutes, so a full lantern lasts about 48 hours and two bowls fill it.
 - The Lantern Oilwell lights on its own. It holds 96 and burns 1 every 15 minutes (24 hours full) for a smaller light (+10 Light against the lantern's +20).
 - Light it by dragging a fire source onto it; it needs at least 10% fuel. When the fuel runs out, a lit lantern goes back to unlit where it stands.
@@ -499,7 +499,7 @@ A large open-topped metal bin for mined ore (build 2 hours 30 minutes, research 
 - Because it holds no food, neither vanilla wildlife nor the Harsh Wilds black bear has anything to take from it.
 - A bin that already holds other things keeps them until you take them out.
 
-Not yet tried in a running game.
+Build, placement and the ore-only filter confirmed in a scripted run (tracker T2.92, T2.1386).
 
 ---
 
@@ -623,7 +623,7 @@ For modders. Each hook is scoped to this mod's own cards unless noted.
 1. Install BepInEx if you have not already.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Put this mod's folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.16 loaded.`
+4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.17 loaded.`
 
 ### Configuration
 
@@ -655,7 +655,7 @@ The optional [BepInEx ConfigurationManager](https://github.com/BepInEx/BepInEx.C
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.16 loaded.`
+**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.17 loaded.`
 
 **Pan or kettle won't boil?** It must sit on a lit fire with fuel left, and hold a liquid the game can heat.
 

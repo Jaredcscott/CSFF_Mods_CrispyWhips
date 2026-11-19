@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_brazier_placed",
     "LocalizationKey": "Advanced_Copper_Tools_CopperBrazier_CardHelpSection",
-    "DefaultText": "<b>Usage:</b> Add any lamp oil, then light from any fire source. Burns brighter and longer than a clay brazier. Pack up to carry."
+    "DefaultText": "<b>Usage:</b> Add any lamp oil, then light from any fire source. Pack up to carry."
   },
   "CardType": 2,
   "MapStructureType": 0,

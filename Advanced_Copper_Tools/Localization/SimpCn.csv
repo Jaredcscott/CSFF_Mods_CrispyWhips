@@ -2,13 +2,13 @@
 Advanced_Copper_Tools_Oil_CardDescription,Rendered animal fat collected in a clay bowl. A rich food source that also burns as clean lamp fuel.,从动物脂肪中提炼、收集在陶碗中的油脂。既是富含营养的食物，也可作为清洁的灯油。
 Advanced_Copper_Tools_Oil_CardHelpSection,"<b>Crafted:</b> By rendering 2 animal fat or 2 fatty fish meat in a clay bowl.
 
-<b>Uses:</b> Drink for nutrition (returns empty clay bowl), or pour into a lantern, brazier or oil flask as lamp fuel. Any other lamp oil in a clay bowl works as fuel too. Each bowl is worth 48 fuel (55.2 in a metal lantern): 12 hours in a lit oilwell, 24 in a ceramic lamp, 27.6 in a metal lantern.","<b>制作：</b> 将2块动物脂肪或2块肥鱼肉放入陶碗中熬制。
+<b>Uses:</b> Drink for nutrition (returns empty clay bowl), or pour into a lantern, brazier or oil flask as lamp fuel. Any other lamp oil in a clay bowl works as fuel too. Each bowl is worth 48 fuel (55.2 in a metal lantern): 12 hours in a lit oilwell, 12 in a ceramic lamp, 27.6 in a metal lantern.","<b>制作：</b> 将2块动物脂肪或2块肥鱼肉放入陶碗中熬制。
 
-<b>用途：</b> 饮用补充营养（返回空陶碗），或倒入提灯、火盆或油瓶作为灯油。其他装在陶碗中的灯油同样可作燃料。每碗油价值48点燃料（在金属提灯中为55.2点）：在点燃的提灯油井中可燃烧12小时，在陶灯中可燃烧24小时，在金属提灯中可燃烧27.6小时。"
+<b>用途：</b> 饮用补充营养（返回空陶碗），或倒入提灯、火盆或油瓶作为灯油。其他装在陶碗中的灯油同样可作燃料。每碗油价值48点燃料（在金属提灯中为55.2点）：在点燃的提灯油井中可燃烧12小时，在陶灯中可燃烧12小时，在金属提灯中可燃烧27.6小时。"
 Advanced_Copper_Tools_Oil_Drink_ActionName,Drink,饮用
 Advanced_Copper_Tools_Bp_Oil_CardName,Rendered Oil,熬制油脂
 Advanced_Copper_Tools_Bp_Oil_CardDescription,Render 2 animal fat or fatty fish meat in a clay bowl to produce cooking oil and lamp fuel.,将2块动物脂肪或肥鱼肉放入陶碗熬制，制成烹饪油和灯油。
-Advanced_Copper_Tools_Bp_Oil_UnlockConditionsDesc,Animal Fat Needed,需要动物脂肪
+Advanced_Copper_Tools_Bp_Oil_UnlockConditionsDesc,Animal Fat or Fatty Fish Meat Needed,需要动物脂肪或肥鱼肉
 Advanced_Copper_Tools_GpTag_RenderableFat_TabName,Animal Fat or Fatty Fish Meat,动物脂肪或肥鱼肉
 Advanced_Copper_Tools_MetalLantern_Refuel_ActionName,Refuel with Oil,用油补充燃料
 Advanced_Copper_Tools_MetalLantern_Refuel_ActionDescription,Poured oil into the lantern.,向提灯中倒入油脂。
@@ -34,11 +34,11 @@ Advanced_Copper_Tools_MetalLantern_CardHelpSection,"<b>Usage:</b> Add any lamp o
 Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardDescription,A lit lantern burning oil to illuminate the area. Extinguish before refueling.,一盏正在燃烧油脂以照亮区域的提灯。补充燃料前需先熄灭。
 Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardHelpSection,<b>Usage:</b> Provides light to the surrounding area while lit. Extinguish to refuel.,<b>用途：</b> 点燃时为周围区域提供照明。熄灭后补充燃料。
 Advanced_Copper_Tools_Bucket_CardName,Wheelbarrow Bucket,手推车桶
-Advanced_Copper_Tools_Bucket_CardDescription,A sturdy metal bucket hammered from metal sheets. The main cargo area of a wheelbarrow.,由金属片锤打成的坚固金属桶。手推车的主要货仓部分。
+Advanced_Copper_Tools_Bucket_CardDescription,"A sturdy metal bucket. Can hold water like a cauldron, or be used to build a wheelbarrow or bathtub.",一个坚固的金属桶。可以像坩埚一样装水，也可用于打造手推车或浴缸。
 Advanced_Copper_Tools_Handles_CardName,Wheelbarrow Handles,手推车把手
 Advanced_Copper_Tools_Handles_CardDescription,Two sturdy wooden handles for gripping and lifting a wheelbarrow.,两根用于握持和提起手推车的坚固木把手。
 Advanced_Copper_Tools_WheelAssembly_CardName,Wheel Assembly,车轮总成
-Advanced_Copper_Tools_WheelAssembly_CardDescription,A complete wheel with metal hub attached. Ready to be mounted on a wheelbarrow.,一个安装了金属轮毂的完整车轮。可直接安装到手推车上。
+Advanced_Copper_Tools_WheelAssembly_CardDescription,A complete wheel with metal hub and wooden wheel. Ready to be attached to a wheelbarrow frame.,一个带有金属轮毂和木制车轮的完整车轮。可安装到手推车框架上。
 Advanced_Copper_Tools_Wheelbarrow_CardName,Metal Wheelbarrow,金属手推车
 Advanced_Copper_Tools_Wheelbarrow_CardDescription,"A metal wheelbarrow built on a wooden one. Hauls more than the wooden wheelbarrow and never wears out, but slows you down while you push it.",在木制手推车基础上打造的金属手推车。比木制手推车装得更多且不会磨损，但推着它时会减慢你的速度。
 Advanced_Copper_Tools_Bp_Wheelbarrow_CardName,Metal Wheelbarrow,金属手推车
@@ -46,9 +46,9 @@ Advanced_Copper_Tools_Bp_Wheelbarrow_CardDescription,"Rebuild a wooden wheelbarr
 Advanced_Copper_Tools_Bp_WheelbarrowBucket_CardName,Wheelbarrow Bucket,手推车桶
 Advanced_Copper_Tools_Bp_WheelbarrowBucket_CardDescription,"Combine 8 metal sheets and 1 tin solder into a wheelbarrow bucket. Requires a hammer. Takes copper, tin or bronze sheets, not iron.",将8块金属片和1块焊锡组合成一个手推车桶。需要锤子。只接受铜、锡或青铜片，不接受铁片。
 Advanced_Copper_Tools_Bp_Handles_CardName,Wheelbarrow Handles,手推车把手
-Advanced_Copper_Tools_Bp_Handles_CardDescription,"Craft wheelbarrow handles from 3 planks, 2 small leather, 2 long sticks and 4 copper nails. Requires a knife and a hammer.",用3块木板、2块小皮革、2根长棍和4颗铜钉制作手推车把手。需要小刀和锤子。
+Advanced_Copper_Tools_Bp_Handles_CardDescription,"Craft wheelbarrow handles from 3 planks, 2 small leather, 2 long sticks and 4 metal nails. Requires a knife and a hammer.",用3块木板、2块小皮革、2根长棍和4颗金属钉制作手推车把手。需要小刀和锤子。
 Advanced_Copper_Tools_Bp_WheelHub_CardName,Forged Wheel Hub,锻造轮毂
-Advanced_Copper_Tools_Bp_WheelHub_CardDescription,Hammer 3 copper nuggets into a wheel hub.,将3个铜块锤打成轮毂。
+Advanced_Copper_Tools_Bp_WheelHub_CardDescription,Hammer 3 heated metal nuggets into a wheel hub.,将3个加热的金属块锤打成轮毂。
 Advanced_Copper_Tools_Bp_WheelAssembly_CardName,Wheel Assembly,车轮总成
 Advanced_Copper_Tools_Bp_WheelAssembly_CardDescription,"Join a wheel rim, a wheel hub and 1 wood with 1 tin solder to make a complete wheel assembly. Requires a hammer.",用轮缘、轮毂、1块木材和1块焊锡制成完整的车轮总成。需要锤子。
 Advanced_Copper_Tools_CopperStove_CardName,Small Copper Stove,小型铜炉
@@ -100,14 +100,14 @@ Advanced_Copper_Tools_CopperBathtub_Full_AddKindling_ActionName,Add Kindling,添
 Advanced_Copper_Tools_CopperBathtub_PickUp_ActionName,Pick Up,拾起
 Advanced_Copper_Tools_CopperBathtub_PickUp_ActionDescription,Pick up the bathtub to carry it in your inventory.,拾起浴缸并携带在背包中。
 Advanced_Copper_Tools_WheelRim_CardName,Wheel Rim,轮缘
-Advanced_Copper_Tools_WheelRim_CardDescription,A metal outer ring that provides strength and durability to a wheel. Essential for heavy-duty use.,为车轮提供强度和耐久度的金属外圈。重型使用所必需。
-Advanced_Copper_Tools_WheelRim_CardHelpSection,"<b>Crafted:</b> Hammered from 1 copper bar.
+Advanced_Copper_Tools_WheelRim_CardDescription,A circular metal rim that reinforces the outer edge of a wooden wheel.,一个加固木制车轮外缘的圆形金属轮缘。
+Advanced_Copper_Tools_WheelRim_CardHelpSection,"<b>Crafted:</b> Hammered from 1 heated metal bar.
 
-<b>Uses:</b> Reinforces wooden wheels for durability.","<b>制作：</b> 由1块铜锭锤打而成。
+<b>Uses:</b> Reinforces wooden wheels for durability.","<b>制作：</b> 由1块加热的金属锭锤打而成。
 
 <b>用途：</b> 增强木轮的耐久性。"
 Advanced_Copper_Tools_Bp_WheelRim_CardName,Forged Wheel Rim,锻造轮缘
-Advanced_Copper_Tools_Bp_WheelRim_CardDescription,Hammer a copper bar into a wheel rim.,将一块铜锭锤打成轮缘。
+Advanced_Copper_Tools_Bp_WheelRim_CardDescription,Hammer a heated metal bar into a wheel rim.,将一块加热的金属锭锤打成轮缘。
 Advanced_Copper_Tools_Bp_CastWheelHub_CardName,Cast Wheel Hub,铸造轮毂
 Advanced_Copper_Tools_Bp_CastWheelHub_CardDescription,Cast a wheel hub from a small molten crucible in a mold of 2 mud bricks and 2 clay. The crucible is not used up.,用2块泥砖和2块粘土做模，以小型熔融坩埚浇铸一个轮毂。坩埚不会消耗。
 Advanced_Copper_Tools_Bp_CastWheelHub_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
@@ -155,8 +155,8 @@ Advanced_Copper_Tools_Bp_PanBlank_UnlockConditionsDesc,Copper Sheet Needed,需�
 Advanced_Copper_Tools_Bp_WheelAssembly_UnlockConditionsDesc,Wheel Hub Needed,需要轮毂
 Advanced_Copper_Tools_Bp_Wheelbarrow_UnlockConditionsDesc,Wheelbarrow Bucket Needed,需要手推车桶
 Advanced_Copper_Tools_Bp_WheelbarrowBucket_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
-Advanced_Copper_Tools_Bp_WheelHub_UnlockConditionsDesc,Copper Nugget Needed,需要铜块
-Advanced_Copper_Tools_Bp_WheelRim_UnlockConditionsDesc,Copper Bar Needed,需要铜锭
+Advanced_Copper_Tools_Bp_WheelHub_UnlockConditionsDesc,Metal Nugget Needed,需要金属块
+Advanced_Copper_Tools_Bp_WheelRim_UnlockConditionsDesc,Metal Bar Needed,需要金属锭
 Advanced_Copper_Tools_Bucket_CardHelpSection,"<b>Crafted:</b> Hammered from 8 metal sheets and 1 tin solder with a hammer.
 
 <b>Uses:</b> Component for wheelbarrow or bathtub construction.","<b>制作：</b> 用锤子将8块金属片和1块焊锡锤打而成。
@@ -194,7 +194,7 @@ Advanced_Copper_Tools_CopperBathtub_Progress_CardStatName,Charcoal,木炭
 Advanced_Copper_Tools_CopperBathtub_Special1_CardStatName,Ash Amount,灰烬量
 Advanced_Copper_Tools_CopperBathtub_Warm_Bath_ActionDescription,"Soak in the warm water. Very relaxing, cleansing, and warming.",浸泡在温水中。非常放松、清洁且令人温暖。
 Advanced_Copper_Tools_CopperBathtub_Warm_Bath_ActionName,Warm Bath,温水浴
-Advanced_Copper_Tools_CopperBathtub_Warm_CardHelpSection,<b>Usage:</b> Take a warm bath to reduce dirtiness and improve mood. Add more firewood to keep it warm longer.,<b>用途：</b> 洗温水浴可减少肮脏度并改善心情。添加更多柴火以保温更久。
+Advanced_Copper_Tools_CopperBathtub_Warm_CardHelpSection,"<b>Usage:</b> Place the bathtub, then take a warm bath to reduce dirtiness and improve mood. Add more firewood to keep it warm longer.",<b>用途：</b> 放置浴缸后，洗温水浴可减少肮脏度并改善心情。添加更多柴火以保温更久。
 Advanced_Copper_Tools_CopperBathtub_Warm_FeedFirewood_ActionName,Feed Firewood,添加柴火
 Advanced_Copper_Tools_CopperBathtub_Warm_OnZero_ActionDescription,The bath water has cooled down.,洗澡水已经冷却了。
 Advanced_Copper_Tools_CopperBathtub_Warm_Place_ActionDescription,Place the bathtub in the environment.,将浴缸放置在环境中。
@@ -213,12 +213,12 @@ Advanced_Copper_Tools_CopperStove_PickUp_ActionName,Pick Up,拾起
 Advanced_Copper_Tools_CopperStove_Place_ActionDescription,Place the stove in your environment.,将炉子放置在您的环境中。
 Advanced_Copper_Tools_CopperStove_Place_ActionName,Place,放置
 Advanced_Copper_Tools_CopperStove_Placed_CardHelpSection,"<b>Usage:</b> A placed metal stove functioning as a fireplace that holds 600 weight, like a campfire: one cooking pot or two clay bowls. Gives Sanctuary by metal: +75 copper or Tin Bronze, +80 Ghost Bronze, +65 Tin, +90 White Bronze. Accepts oak wood, twigs, or charcoal as fuel. Pick up to move; the fuel and the metal go with it.",<b>用法：</b>放置的金属炉作为壁炉使用，可容纳600重量（与营火相同）：一口烹饪锅或两个陶碗。按金属提供庇护度：铜或锡青铜+75，幽灵青铜+80，锡+65，白青铜+90。接受橡木、细枝或木炭作为燃料。拾取可搬运，燃料和金属随炉保留。
-Advanced_Copper_Tools_Handles_CardHelpSection,"<b>Crafted:</b> From 3 planks, 2 small leather, 2 long sticks and 4 copper nails with a knife and a hammer.
+Advanced_Copper_Tools_Handles_CardHelpSection,"<b>Crafted:</b> From 3 planks, 2 small leather, 2 long sticks and 4 metal nails with a knife and a hammer.
 
-<b>Uses:</b> Component for wheelbarrow construction.","<b>制作：</b> 使用小刀和锤子，由3块木板、2块小皮革、2根长棍和4颗铜钉制作。
+<b>Uses:</b> Component for wheelbarrow construction.","<b>制作：</b> 使用小刀和锤子，由3块木板、2块小皮革、2根长棍和4颗金属钉制作。
 
 <b>用途：</b> 手推车建造的部件。"
-Advanced_Copper_Tools_Handles_Dismantle_ActionDescription,Take apart the handles to recover the long sticks.,拆解把手以回收长棍。
+Advanced_Copper_Tools_Handles_Dismantle_ActionDescription,"Take apart the handles to recover planks, leather, sticks, and nails.",拆解把手以回收木板、皮革、木棍和钉子。
 Advanced_Copper_Tools_Handles_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_WheelAssembly_CardHelpSection,"<b>Crafted:</b> From a wheel rim, a wheel hub, 1 wood and 1 tin solder with a hammer.
 
@@ -236,9 +236,9 @@ Advanced_Copper_Tools_Wheelbarrow_CardHelpSection,"<b>Crafted:</b> From a wooden
 Advanced_Copper_Tools_Wheelbarrow_Dismantle_ActionDescription,"Take apart the wheelbarrow to recover the bucket, handles, and wheel assembly.",拆解手推车以回收桶、把手和车轮总成。
 Advanced_Copper_Tools_Wheelbarrow_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_WheelHub_CardDescription,A metal center piece that connects the wooden wheel to the axle. Essential for smooth rotation.,将木轮连接到车轴的金属中心件。是顺畅旋转所必需的。
-Advanced_Copper_Tools_WheelHub_CardHelpSection,"<b>Crafted:</b> Hammered from 3 copper nuggets, or cast from a small molten crucible in a mold of 2 mud bricks and 2 clay.
+Advanced_Copper_Tools_WheelHub_CardHelpSection,"<b>Crafted:</b> Hammered from 3 heated metal nuggets, or cast from a small molten crucible in a mold of 2 mud bricks and 2 clay.
 
-<b>Uses:</b> Component for wheel assembly.","<b>制作：</b> 由3个铜块锤打而成，或用2块泥砖和2块粘土做模、以小型熔融坩埚浇铸。
+<b>Uses:</b> Component for wheel assembly.","<b>制作：</b> 由3个加热的金属块锤打而成，或用2块泥砖和2块粘土做模、以小型熔融坩埚浇铸。
 
 <b>用途：</b> 车轮总成的部件。"
 Advanced_Copper_Tools_WheelHub_CardName,Wheel Hub,轮毂
@@ -492,9 +492,9 @@ Advanced_Copper_Tools_CopperOilFlask_CardName,Copper Oil Flask,铜制油瓶
 Advanced_Copper_Tools_CopperOilFlask_CardDescription,"A hammered copper flask for storing lamp oil. Holds 4 bowls of oil (192 fuel), enough to fully refuel a lantern twice. Drag onto a lantern, oilwell or brazier to pour in one bowl's worth: 48 out of the flask, and 48 into an oilwell or brazier or 55.2 into a Metal Lantern.",一个用于储存灯油的锤制铜瓶。可储存4碗油（192点燃料），足以为提灯完全补充两次燃料。拖到提灯、提灯油井或火盆上，可倒入一碗油的量：从油瓶中倒出48点，倒入提灯油井或火盆为48点，倒入金属提灯为55.2点。
 Advanced_Copper_Tools_CopperOilFlask_CardHelpSection,"<b>Fill:</b> Drag any lamp oil served in a clay bowl onto the flask (4 bowls = full). You get the bowl back.
 
-<b>Use:</b> Drag the flask onto a Metal Lantern, Lantern Oilwell or Copper Brazier to pour in one bowl's worth of oil (48 fuel).","<b>注油：</b> 将任意装在陶碗中的灯油拖到油瓶上（4碗 = 满格），陶碗会退还。
+<b>Use:</b> Drag the flask onto an unlit Metal Lantern, Lantern Oilwell or Copper Brazier to pour in one bowl's worth of oil: 48 out of the flask, and 48 into an oilwell or brazier or 55.2 into a Metal Lantern.","<b>注油：</b> 将任意装在陶碗中的灯油拖到油瓶上（4碗 = 满格），陶碗会退还。
 
-<b>使用：</b> 将油瓶拖到金属提灯、提灯油井或铜火盆上，倒入一碗油的量（48点燃料）。"
+<b>使用：</b> 将油瓶拖到未点燃的金属提灯、提灯油井或铜火盆上，倒入一碗油的量：从油瓶中倒出48点，倒入提灯油井或铜火盆为48点，倒入金属提灯为55.2点。"
 Advanced_Copper_Tools_CopperOilFlask_FuelCapacity_CardStatName,Oil,油量
 Advanced_Copper_Tools_CopperOilFlask_FillOil_ActionName,Fill with Oil,注入油脂
 Advanced_Copper_Tools_CopperOilFlask_FillOil_ActionDescription,Poured oil into the flask.,向油瓶中倒入油脂。
@@ -556,7 +556,7 @@ Advanced_Copper_Tools_CopperBrazierKit_Place_ActionName,Place,放置
 Advanced_Copper_Tools_CopperBrazierKit_Place_ActionDescription,Set up the copper brazier in your environment.,在您的环境中安置铜制火盆。
 Advanced_Copper_Tools_CopperBrazier_CardName,Copper Brazier,铜制火盆
 Advanced_Copper_Tools_CopperBrazier_CardDescription,"A placed copper brazier, currently unlit. Fill with oil and light from any fire source to illuminate and warm the area.",一个已放置的铜制火盆，当前未点燃。注入油脂并用任何火源点燃，以照亮并温暖周围区域。
-Advanced_Copper_Tools_CopperBrazier_CardHelpSection,"<b>Usage:</b> Add any lamp oil, then light from any fire source. Burns brighter and longer than a clay brazier. Pack up to carry.",<b>用途：</b> 添加任意灯油，然后用任何火源点燃。比陶制火盆燃烧更明亮、持久。打包可携带。
+Advanced_Copper_Tools_CopperBrazier_CardHelpSection,"<b>Usage:</b> Add any lamp oil, then light from any fire source. Pack up to carry.",<b>用途：</b> 添加任意灯油，然后用任何火源点燃。打包可携带。
 Advanced_Copper_Tools_CopperBrazier_FuelCapacity_CardStatName,Oil,油量
 Advanced_Copper_Tools_CopperBrazier_Refuel_ActionName,Pour in Oil,倒入油脂
 Advanced_Copper_Tools_CopperBrazier_Refuel_ActionDescription,Poured oil into the brazier.,向火盆中倒入油脂。
@@ -1219,6 +1219,8 @@ Advanced_Copper_Tools_CopperHelmet_Grease_ActionName,Grease with Fat,涂抹油�
 Advanced_Copper_Tools_CopperHelmet_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
 Advanced_Copper_Tools_CopperHelmet_Oil_ActionName,Oil,上油
 Advanced_Copper_Tools_CopperHelmet_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_CopperHelmet_OilContainer_ActionName,Oil from Container,从容器取油
+Advanced_Copper_Tools_CopperHelmet_OilContainer_ActionDescription,Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil.,从容器中取油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。会消耗容器里的一些油。
 Advanced_Copper_Tools_CopperBreastplate_AlternateNames[0].Name,Copper Armor,铜制铠甲
 Advanced_Copper_Tools_CopperBreastplate_AlternateNames[0].Description,A sturdy suit of copper armor offering strong torso protection. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,一套坚固的铜制铠甲，提供强力躯干防护。可在熔炉中回收。必须装备在装备槽上才能生效。
 Advanced_Copper_Tools_CopperBreastplate_AlternateNames[1].Name,Ghost Bronze Armor,幽灵青铜铠甲
@@ -1240,6 +1242,8 @@ Advanced_Copper_Tools_CopperBreastplate_Grease_ActionName,Grease with Fat,涂抹
 Advanced_Copper_Tools_CopperBreastplate_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
 Advanced_Copper_Tools_CopperBreastplate_Oil_ActionName,Oil,上油
 Advanced_Copper_Tools_CopperBreastplate_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_CopperBreastplate_OilContainer_ActionName,Oil from Container,从容器取油
+Advanced_Copper_Tools_CopperBreastplate_OilContainer_ActionDescription,Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil.,从容器中取油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。会消耗容器里的一些油。
 Advanced_Copper_Tools_CopperBreastplate_RefitFemale_ActionName,Refit for a woman,改为女款
 Advanced_Copper_Tools_CopperBreastplate_RefitFemale_ActionDescription,Reshape the iron armor to a woman's fit. Takes no time and changes nothing but the fit and the look.,把铁铠甲改成女款。不耗时，只改变款式和外观。
 Advanced_Copper_Tools_CopperBreastplate_RefitMale_ActionName,Refit for a man,改为男款
@@ -1262,6 +1266,8 @@ Advanced_Copper_Tools_CopperGauntlets_Grease_ActionName,Grease with Fat,涂抹�
 Advanced_Copper_Tools_CopperGauntlets_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
 Advanced_Copper_Tools_CopperGauntlets_Oil_ActionName,Oil,上油
 Advanced_Copper_Tools_CopperGauntlets_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_CopperGauntlets_OilContainer_ActionName,Oil from Container,从容器取油
+Advanced_Copper_Tools_CopperGauntlets_OilContainer_ActionDescription,Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil.,从容器中取油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。会消耗容器里的一些油。
 Advanced_Copper_Tools_CopperGloves_AlternateNames[0].Name,Copper Gloves,铜制手套
 Advanced_Copper_Tools_CopperGloves_AlternateNames[0].Description,"Hammered copper plates sewn to leather, protecting the hands like leather gloves do and guarding both arms a little (+2 each). They give no warmth. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",将铜片锤制后缝在皮革上，像皮手套一样保护双手，并略微保护双臂（各+2）。不提供保暖。可在熔炉中回收。必须装备到装备栏才能生效。
 Advanced_Copper_Tools_CopperGloves_AlternateNames[1].Name,Ghost Bronze Gloves,幽灵青铜手套
@@ -1280,6 +1286,8 @@ Advanced_Copper_Tools_CopperGloves_Grease_ActionName,Grease with Fat,涂抹油�
 Advanced_Copper_Tools_CopperGloves_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
 Advanced_Copper_Tools_CopperGloves_Oil_ActionName,Oil,上油
 Advanced_Copper_Tools_CopperGloves_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_CopperGloves_OilContainer_ActionName,Oil from Container,从容器取油
+Advanced_Copper_Tools_CopperGloves_OilContainer_ActionDescription,Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil.,从容器中取油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。会消耗容器里的一些油。
 Advanced_Copper_Tools_CopperGreaves_AlternateNames[0].Name,Copper Greaves,铜制护腿
 Advanced_Copper_Tools_CopperGreaves_AlternateNames[0].Description,Hammered copper greaves protecting both legs. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,锤制铜护腿，保护双腿。可在熔炉中回收。必须装备在装备槽上才能生效。
 Advanced_Copper_Tools_CopperGreaves_AlternateNames[1].Name,Ghost Bronze Greaves,幽灵青铜护胫
@@ -1298,6 +1306,8 @@ Advanced_Copper_Tools_CopperGreaves_Grease_ActionName,Grease with Fat,涂抹油�
 Advanced_Copper_Tools_CopperGreaves_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
 Advanced_Copper_Tools_CopperGreaves_Oil_ActionName,Oil,上油
 Advanced_Copper_Tools_CopperGreaves_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_CopperGreaves_OilContainer_ActionName,Oil from Container,从容器取油
+Advanced_Copper_Tools_CopperGreaves_OilContainer_ActionDescription,Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil.,从容器中取油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。会消耗容器里的一些油。
 Advanced_Copper_Tools_CopperShield_AlternateNames[0].Name,Copper Shield,铜盾
 Advanced_Copper_Tools_CopperShield_AlternateNames[0].Description,"A wooden shield faced with hammered copper sheet. Held in hand like the wooden Shield, it guards the shield arm with 80 armor, 130 against spiritual attacks, and lasts a little longer than the wooden Shield. Can be recycled in a furnace.",一面包覆锤制铜片的木盾。像木盾一样持在手中，为持盾的手臂提供80点护甲，抵挡精神伤时为130点，比木盾稍耐用。可在熔炉中回收。
 Advanced_Copper_Tools_CopperShield_AlternateNames[1].Name,Ghost Bronze Shield,幽灵青铜盾
@@ -1316,6 +1326,8 @@ Advanced_Copper_Tools_CopperShield_Grease_ActionName,Grease with Fat,涂抹油�
 Advanced_Copper_Tools_CopperShield_Grease_ActionDescription,Rub fat into the iron to coat it against rust. Wears off while wet. Does not repair.,将油脂涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
 Advanced_Copper_Tools_CopperShield_Oil_ActionName,Oil,上油
 Advanced_Copper_Tools_CopperShield_Oil_ActionDescription,Rub oil into the iron to coat it against rust. Wears off while wet. Does not repair.,将油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。
+Advanced_Copper_Tools_CopperShield_OilContainer_ActionName,Oil from Container,从容器取油
+Advanced_Copper_Tools_CopperShield_OilContainer_ActionDescription,Rub oil from the container into the iron to coat it against rust. Wears off while wet. Does not repair. Uses some of the container's oil.,从容器中取油涂在铁器上，形成防锈保护层。受潮时会逐渐消耗。不会修复耐久度。会消耗容器里的一些油。
 Advanced_Copper_Tools_RetiredHelmet_Reforge_ActionName,Reforge as Metal Helmet,重铸为金属头盔
 Advanced_Copper_Tools_RetiredHelmet_Reforge_ActionDescription,"Turn this old helmet into a Metal Helmet of the same metal, the one helmet card every metal now uses. It keeps its wear and its warmth.",把这顶旧头盔变成同种金属的金属头盔，现在所有金属都用这一张头盔卡。它的磨损和温度保持不变。
 Advanced_Copper_Tools_RetiredHelmet_OnFull_ActionName,Becomes a Metal Helmet,变为金属头盔

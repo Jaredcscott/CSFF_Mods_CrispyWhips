@@ -96,7 +96,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_oil_flask",
     "LocalizationKey": "Advanced_Copper_Tools_CopperOilFlask_CardHelpSection",
-    "DefaultText": "<b>Fill:</b> Drag any lamp oil served in a clay bowl onto the flask (4 bowls = full). You get the bowl back.\n\n<b>Use:</b> Drag the flask onto a Metal Lantern to pour in one full charge of oil."
+    "DefaultText": "<b>Fill:</b> Drag any lamp oil served in a clay bowl onto the flask (4 bowls = full). You get the bowl back.\n\n<b>Use:</b> Drag the flask onto an unlit Metal Lantern, Lantern Oilwell or Copper Brazier to pour in one bowl's worth of oil: 48 out of the flask, and 48 into an oilwell or brazier or 55.2 into a Metal Lantern."
   },
   "CardImage": {
     "m_FileID": 0,

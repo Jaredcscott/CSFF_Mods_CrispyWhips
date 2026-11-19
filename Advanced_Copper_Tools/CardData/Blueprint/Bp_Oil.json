@@ -14,7 +14,7 @@
     "UnlockConditionsDesc": {
         "ParentObjectID": "advanced_copper_tools_bp_oil",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_Oil_UnlockConditionsDesc",
-        "DefaultText": "Animal Fat Needed"
+        "DefaultText": "Animal Fat or Fatty Fish Meat Needed"
     },
     "BuildingStatConditions": [],
     "StartUnlocked": false,
@@ -40,6 +40,29 @@
                 }
             },
             "CardWarpData": "0eb3634f696991b4d97b91626270e035",
+            "CardWarpType": 3
+        },
+        {
+            "ObjectiveName": "HasFat",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "3103c059d34608a4bb95c426d9ac77e0",
             "CardWarpType": 3
         }
     ],

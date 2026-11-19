@@ -56,7 +56,7 @@ A portable fireplace that holds cooking like a campfire. Burns longer than a cam
 1. Place the stove anywhere (outdoors or in a sheltered location).
 2. Add firewood, twigs, or charcoal as fuel. Fuel capacity: 144 units (wood +42, charcoal +8, twigs +7).
 3. Drag a fire source (tinder, torch, another fire) onto the stove to light it.
-4. Place food items or liquid containers on it. It holds 600 weight, the same as a Campfire: one cooking pot or two clay bowls. A clay or copper cauldron is too heavy for it.
+4. Place food items or liquid containers on it. It holds 600 weight, the same as a Campfire: one cooking pot, two clay bowls, or a Copper Cauldron on its own (it weighs 600, so it fills the stove). A clay cauldron (1200) is too heavy for it.
 5. The stove generates charcoal and ash during burning. Collect them for other uses.
 
 **Around the fire:** a lit stove works like a campfire for you: it dries you out, keeps bugs away and lights the camp. Use **Warm Up** or **Wait by Fire** on it to warm yourself. Like any open fire it also makes you easier to spot, so hunters may want it out.
@@ -130,7 +130,7 @@ A Large Saw built from Iron Sheets and Iron Nails is a Large Iron Saw; there is 
 
 ## Metal Armor
 
-Six armor recipes in **Tailoring → Equipment**: **Metal Helmet**, **Metal Armor**, **Metal Bracers**, **Metal Gloves**, **Metal Greaves** and **Metal Shield**. They unlock once you hold any Metal Sheet. Build one from sheets of a single metal and it comes out in that metal, with that metal's name, picture, protection, weight and extras: copper, tin, ghost bronze, tin bronze, white bronze or iron. Alloy sheets come from the **Bronze Sheet** blueprint (hammer a heated bar of that metal).
+Six armor recipes in **Tailoring → Equipment**: **Metal Helmet**, **Metal Armor**, **Metal Bracers**, **Metal Gloves**, **Metal Greaves** and **Metal Shield**. They unlock once you hold any Metal Sheet. Build one from sheets of a single metal and it comes out in that metal, with that metal's name, picture, protection, weight and extras: copper, tin, ghost bronze, tin bronze, white bronze or iron. Alloy sheets come from the same **Metal Sheet** blueprint (hammer a heated bar of that metal).
 
 | Piece | Protects (copper) | Requirements |
 |-------|----------|--------------|
@@ -153,7 +153,7 @@ The hammer is used as a tool and is not consumed, and no piece needs Tin Solder.
 
 **Which one?** Ghost Bronze is for a frightened survivor: each piece makes Fear fall faster, and against a purely spiritual attack it blocks more than iron. No vanilla animal strikes that way (wolves, bears and boars bite and bash; foxes, badgers and beavers bite and claw), so in a wildlife fight it is plain bronze armor. White Bronze is the best armor short of iron and steadies your nerve. Tin is the step up when you have tin but no crucible. Tin Bronze sits between copper and White Bronze. Every piece lasts as long as vanilla leather armor and wears the same way: a hit costs 250 for every 15 minutes of the action the fight broke into, so a piece takes about 185 hits from fights that break into a quarter-hour action and fewer from fights that break into longer ones.
 
-Iron Armor comes out cut for a man; **Refit for a woman** and **Refit for a man** switch the cut for free.
+Iron Armor comes out cut for a man; **Refit for a woman** and **Refit for a man** switch the cut for free. Iron pieces and the Iron Shield take an Oil Coat against rust from Fat, a bowl of Oil, or liquid oil in a container (**Grease with Fat**, **Oil**, **Oil from Container**; each shows only on an iron piece).
 
 **Armor from before 1.18.13.** Each metal used to have its own card and recipe. A piece you already have becomes the new card of the same metal by itself within a quarter of an hour of game time, keeps its wear, and stays on you if you were wearing it (its **Reforge** button does it at once). An old iron piece loses its Oil Coat in the change, so oil it again. A recipe you had learned for any metal counts for the new recipe.
 
@@ -212,7 +212,7 @@ A 3-state relaxation and cleansing structure.
 
 **Full (Cold)**
 - Take a **cold bath**: cleans one step below the river (Filth -400), clears rashes and wolfsbane, a little morale (3 to 5). You come out wet.
-- To heat: Add fuel, then drag a fire source (tinder/torch) to light the stove.
+- To heat: Add fuel, then drag any fire source (lit tinder, a torch or another fire source) onto the tub to light the stove underneath.
 
 **Full (Warm)** (Heat stat: 0–96, drains ~−0.25/daytime point ≈ 1 in-game day of warmth)
 - Take a **warm bath**: cleans as well as the river (Filth -500) and clears rashes and wolfsbane, with a small morale boost (8 to 12, less on repeats), spiritual benefit and body warmth. Keep the heat above half for a **hot bath**: the same wash and morale plus less Stress. You come out wet.

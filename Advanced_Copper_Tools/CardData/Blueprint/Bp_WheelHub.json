@@ -8,13 +8,13 @@
     "CardDescription": {
         "ParentObjectID": "advanced_copper_tools_bp_wheel_hub",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_WheelHub_CardDescription",
-        "DefaultText": "Hammer 3 copper nuggets into a wheel hub."
+        "DefaultText": "Hammer 3 heated metal nuggets into a wheel hub."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
         "ParentObjectID": "advanced_copper_tools_bp_wheel_hub",
         "LocalizationKey": "Advanced_Copper_Tools_Bp_WheelHub_UnlockConditionsDesc",
-        "DefaultText": "Copper Nugget Needed"
+        "DefaultText": "Metal Nugget Needed"
     },
     "BuildingStatConditions": [],
     "StartUnlocked": false,
@@ -57,7 +57,7 @@
                     "RequiredQuantity": 3,
                     "DontSpend": false,
                     "Fuel": {
-                        "Active": false,
+                        "Active": true,
                         "FloatValue": 150.0,
                         "MaxValue": 300.0
                     },

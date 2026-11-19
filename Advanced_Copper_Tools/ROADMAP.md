@@ -1,7 +1,7 @@
 # Roadmap: Advanced Copper Tools
-Version at time of writing: 1.18.15
-Date: 2026-11-07
-Audit score: 9/10 - PASS (0 CRITICAL, 0 Design Gap, 5 open low-severity WARNINGs, 2 MINOR, 2 owner-judgement notes; consolidated 2026-11-07)
+Version at time of writing: 1.18.16
+Date: 2026-11-15
+Audit score: 8/10 - PASS (0 CRITICAL, 0 Design Gap; several open low/cosmetic/unconfirmed warnings; consolidated 2026-11-15 re-run at HEAD 30c2af3da)
 
 ## Current State
 
@@ -9,54 +9,60 @@ Audit score: 9/10 - PASS (0 CRITICAL, 0 Design Gap, 5 open low-severity WARNINGs
 
 **Content**: 75 item cards / 64 blueprints / 16 structures / 7 perks / 139 custom images
 
-**Stability**: Release-functional. Build is 0 errors / 0 warnings; EN/CN localization parity 1202/1202; bin/Release in sync; 0 cross-mod collisions (17 mods / 2630 UIDs indexed); Code Quality 10/10 across all nine module scopes. The 2026-11-03..07 module runs re-ran armor to SOLID (its prior doc warning dropped), closed the whole bathing chain (BATH-01 was CRITICAL - carried tub Water-Level defaulting to 0; BATH-02/03/04 fixed and re-verified), and landed three modwide doc fixes plus the tools-module Alder saw bonus and iron Large Saw oil-from-container parity. Seven low-severity items remain open (see Phase 0), none blocking.
+**Stability**: Release-functional and released at 1.18.16 (suite release prep `476cf2c15`, 2026-11-11). The 2026-11-12 warning sweep, the 2026-11-13 full module re-audit and the 2026-11-14 fix (`27ffa484e`) closed the first open set (W1-W6, M1, O1, O2) and the three latent/polish items (W-LTS, W-DOC, M-bath), each re-verified by the 2026-11-15 module re-runs. The 2026-11-15 whole-mod category re-runs (items/blueprints/structures/images/perks) then surfaced several new low-severity warnings that the earlier same-day consolidation had not incorporated: blueprints and images clean; items 0 CRITICAL / 5 WARNING / 7 INFO; perks 2 WARNING (starting weight) + cosmetic minors; structures 2 WARNING (one unconfirmed). None is CRITICAL or a Design Gap, so the mod stays release-functional; the consolidated score is 8/10. The latest preflight (`.audit/preflight.json`, 2026-11-15 -Deep): 0 CRITICAL / 1 WARNING (J27 ToolBelt, by design), build 0 errors / 0 warnings, EN/CN parity 1214/1214, bin/Release in sync, 0 cross-mod collisions (17 mods / 2630 UIDs indexed), Code Quality 10/10 across all nine module scopes. All nine module reports are CURRENT (`module_map status`, 2026-11-15).
 
-**Open work**: Five open low-severity warnings - two doc-honesty (README cauldron contradiction, Oil Flask help under-statement), three minor behaviour (placed bathtub lights only with Tinder/Torch not any fire source; Melt Fat heat gate written 0.5 instead of 50.0 on a percent scale; Wheel Rim silently requires hot metal) - plus two minors (a stale "all three tiers" code comment, and README line 143 pre-stamping "1.18.16" while the three version strings are synced at 1.18.15 with the work in CHANGELOG `[Unreleased]`) and two owner-judgement design notes (the Ghost Bronze spiritual ward now honestly discloses it does nothing vs wildlife - keep or re-scope it; whether oil-rendering should unlock on fish as well as animal fat). No open or pending retrospective names this mod's own code (the ACT-tagged retros are all Graduated/Archived).
+**Open work**: Low-severity only, none blocking. Two perk starting-weight warnings (Perk_BathtubKit, Perk_BuildingMaterials, static estimates near/over the ~4000 Encumbrance cap, unconfirmed in-game); an unconfirmed bathtub Pick-Up liquid/stat desync (needs a harness probe); a bathtub refill-from-container UX asymmetry (D1, workaround exists); and tag-consistency cleanups (ToolBelt no CardTags, TinOre tag/threshold, three teas tag_Plateable, tap-spigots no CardTags), several of which may be by-design. Two cosmetic minors (StickLong SD4=0 wood name, two perks missing an unused EquippedCards key). No open or pending retrospective names this mod's own code (the ACT-tagged retros are all Graduated/Archived).
 
-**Framework compliance**: Tier 2. Patchers registered via `RegisterPatches`/`TryApply`; uses `ActionRouter` (AfterWrapped handlers), `TickEvents`, `SpawnService` and the `ContentModPlugin` base, plus the compile-time `ArmorWardPatch`. The armor-repair subscription was migrated off reflected `GameManager.OnGMInitialized` onto the framework's `FrameworkEvents.RunStarted` (gate `Framework-Events.Tests.ps1`), and `OnModDestroy` unsubscribes it before teardown. No deprecated patterns (`DropCollectionGuardPatch` absent; no unfiltered hot-path prefixes; no `ModLoaderVerison`/`ModEditorVersion` in ModInfo). Since `ArmorWardPatch` (2026-10-22) ACT's DLL carries typed game references, so its `lib/Assembly-CSharp.dll` must be refreshed on every game update alongside the framework. The liquid-oil refuel CIs and the shared Metal Sheet/Nail/Solder require framework **2.29.0** (`GpTag_FW_Oil`); if Nexus still serves an older framework, ACT must ship batched with framework 2.29.0.
+**Framework compliance**: Tier 2. Patchers registered via `RegisterPatches`/`TryApply`; uses `ActionRouter` (AfterWrapped handlers), `TickEvents`, `SpawnService` and the `ContentModPlugin` base, plus the compile-time `ArmorWardPatch`. The armor-repair subscription was migrated off reflected `GameManager.OnGMInitialized` onto the framework's `FrameworkEvents.RunStarted` (gate `Framework-Events.Tests.ps1`), and `OnModDestroy` unsubscribes it before teardown. No deprecated patterns (`DropCollectionGuardPatch` absent; no unfiltered hot-path prefixes; no `ModLoaderVerison`/`ModEditorVersion` in ModInfo). Since `ArmorWardPatch` (2026-10-22) ACT's DLL carries typed game references, so its `lib/Assembly-CSharp.dll` must be refreshed on every game update alongside the framework. The liquid-oil refuel CIs and the shared Metal Sheet/Nail/Solder require framework **2.29.1** (ModInfo Description floor); if Nexus still serves an older framework, ACT must ship batched with the framework. The former W-LTS reflection-drift gap is resolved in code: every reflective read in `GameLoadPatch.cs`/`PartnerBlueprintGatePatch.cs` now has a loud or recoverable miss path; an optional fuller hardening is to pin those sites in `Framework-ReflectedSignatures.Tests.ps1` as well (LTS plan GF1).
 
 ---
 
-## Phase 0: Close the open warnings  *(low-severity, non-blocking)*
+## Phase 0: Residual polish  *(low-severity, non-blocking)*
 
-> None breaks play; all are doc-honesty, two minor unit/gate errors, one silent-gate UX gap, one stale comment, one version pre-stamp. Clear them opportunistically or in the next edit pass. They stay in the audit trail (`.audit/summary.md` W1-W5, M1-M2) and here - `/audit-to-plan`'s gate is CRITICAL / Design Gap / Near-Term idea only, and ACT has no `Documentation/Plans/` folder (drained and archived through 2026-10-17; see the Reconciliation Log).
+> The 2026-11-12 sweep, the 2026-11-13 module re-runs and the 2026-11-14 fix (`27ffa484e`) closed W1-W6, M1, O1, O2 and the three latent/polish items W-LTS, W-DOC, M-bath (full detail in `.audit/summary.md`'s Resolution log). The 2026-11-15 category re-runs added the low-severity warnings below. None blocks play. The two perk-weight and the bathtub Pick-Up items need an in-game check before a fix is justified; the tag items need a one-line author decision (some may be by-design). `/audit-to-plan`'s gate is CRITICAL / Design Gap / Near-Term idea only, so these live in the audit trail (`.audit/summary.md`) and here.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| W2: Melt Fat heat gate `WearableMetalPan.json:543` `RequiredFuelPercent.FloatValue` 0.5 -> 50.0 (percent scale; fires at ~0.5% not the documented half-hot) | Behaviour (minor, permissive) | P2 | Quick |
-| W1: Placed Full bathtub `CopperBathtub_Full_Placed.json` "Light Fire" accepts only hardcoded Tinder/Torch; add a third CI on `tag_FireSource` (excluding those two UIDs, `GivenCardChanges.ModType 0`) so any lit fire source works, mirroring the carried tub and the Copper Stove | Behaviour (silent UX gap) | P2 | Quick |
-| W3: `Bp_WheelRim.json` Fuel block `Active:true` [150,300] silently requires hot copper with no feedback or description; owner call - flip to `Active:false` (match framework `Bp_CopperNails`, and apply to `Bp_WheelHub` for consistency) OR keep the gate and add a `DurabilityFeedback` + description/CSV cue | Behaviour / owner design | P2 | Quick |
-| W4: README contradicts itself on whether the copper cauldron fits the placed small copper stove (line 92 vs line 422; the `InventoryFilter` accepts it) | Doc-honesty | P2 | Quick |
-| W5: Oil Flask `CardHelpSection` (`CopperOilFlask.json:99`) names only the Metal Lantern; add the Oilwell and Brazier and the per-drag amount (+ matching SimpEn/SimpCn rows). The card's `CardDescription` is already correct | Doc-only | P3 | Quick |
-| M1: Stale code comment `GameLoadPatch.cs:118` ("all three tiers" - now six metal tiers) | Maintainability | P3 | Quick |
-| M2: At the next release, bump ModInfo / Plugin.cs / README header 1.18.15 -> 1.18.16 together (the `[Unreleased]` Alder/saw-oil/RunStarted work is already pre-stamped "1.18.16" at README:143) | Version hygiene | P3 | Quick |
+| I-W1 / I-W2: Perk_BathtubKit (22 entries) and Perk_BuildingMaterials (51 entries) grant piles of raw items near/over the ~4000 Encumbrance cap. Confirm in-game whether character creation reads "Too encumbered to move"; if so, move the grant to a deferred-spawn kit card (CMC `HomesteadKitPatch` pattern). Static estimate, unconfirmed; perks shipped since 1.18.4 | Perk weight (unconfirmed) | P2 | Medium |
+| I-W7: Copper Bathtub Full/Warm "Pick Up" may desync native liquid from the SD2 Water Level stat (no liquid-transfer flag on the Transform). Unconfirmed; needs an in-game probe (fill partway, Pick Up, Place, read Water Level vs real liquid) before any fix | Data (unconfirmed) | P3 | Quick to confirm |
+| I-W3 / I-W4 / I-W5 / I-W6: tag-consistency cleanups (ToolBelt no CardTags; TinOre `tag_SmeltsAt1100` vs 900C gate; three teas no `tag_Plateable`; tap spigots no CardTags). A `/repair-items` + `/repair-structures` pass once intent is confirmed per card (teas-not-plated and tin-melts-low may be by-design) | Tag consistency | P3 | Quick |
+| D1: the filled bathtub (`CopperBathtub_Full_Placed.json`, `CopperBathtub_Warm_Placed.json`) offers no "Refill from container", only "Refill from River", while `Empty_Placed` offers both. Owner call whether to add a "Refill with Water" CI. Workaround exists | Design/UX (non-blocking) | P3 | Quick |
+| M1: StickLong entries in the two kit perks spawn at SD4=0 (generic "Long Stick" name; not blueprint-gated). M2: Perk_Wheelbarrow / Perk_TeaBlendingStation missing an unused EquippedCards key | Cosmetic | P4 | Quick |
 
-**Owner-judgement notes** (not fixes - no action unless the owner decides):
-- O1: The Ghost Bronze spiritual ward does nothing vs vanilla wildlife (no vanilla animal deals `DMG_Spiritual`). This is now DISCLOSED honestly in README:186, so the ward is no longer a feature-honesty concern - its Fear relief is the real differentiator. Keep, re-scope, or add a spiritual-damage threat that makes it matter? Owner call.
-- O2: `Bp_Oil` unlock gates on animal fat only, while the recipe accepts fatty fish meat; a fishing-only playstyle can't research oil rendering. Add the fatty-fish-meat GUID / `GpTag_ACT_RenderableFat` to `Bp_Oil` `CardsOnBoard` if fish-only unlock is wanted.
+**Closed since the last roadmap (commit `27ffa484e`, 2026-11-14; re-verified 2026-11-15):**
+- W-LTS (A13): the two silent reflection reads in `GameLoadPatch.cs` now warn once each through `Reflect.TryGetMember`. Modwide critical-analysis `8617df5ed` reports 0 WARNING.
+- W-DOC: `Bp_WheelHub.json` / `Bp_WheelRim.json` `UnlockConditionsDesc` now read "Metal Nugget/Bar Needed" (the research gate is metal-agnostic). Re-verified by the 2026-11-15 hauling re-run.
+- M-bath: the carried Warm tub help now reads "Place the bathtub, then take a warm bath...". Re-verified by the 2026-11-15 bathing critical-analysis.
+
+**Owner-judgement notes (no open code):**
+- O1 (Ghost Bronze ward does nothing vs vanilla wildlife): CLOSED by owner 2026-11-12 (tile 4, "Keep as is"). The ward is wired and becomes live content automatically if a `DMG_Spiritual`-only threat is ever added.
+- O2 (oil rendering unlocked on animal fat only): BUILT 2026-11-13 - `Bp_Oil` now unlocks on fatty fish meat too (gate `AdvancedCopperTools-OilUnlock.Tests.ps1` 5/5).
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes health. All currently satisfied; listed as the standing maintenance baseline.
+> Table-stakes health. All currently satisfied; listed as the standing maintenance baseline. Hardening work lives in the LTS plan `Documentation/Plans/AdvancedCopperTools/MASTER_PLAN.md` (GF1, IV1, IV2).
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Keep ModInfo / Plugin.cs / README versions in lockstep | Version hygiene | P1 | Quick (done - all 1.18.15; bump to 1.18.16 together at next release) |
-| Keep EN/CN CSV parity on every text change | Localization | P1 | Quick (done - 1202/1202) |
+| Keep ModInfo / Plugin.cs / README versions in lockstep | Version hygiene | P1 | Quick (done - all 1.18.16) |
+| Keep EN/CN CSV parity on every text change | Localization | P1 | Quick (done - 1214/1214) |
 | Keep docs honest in the same commit as any behavior change (both directions - over- and under-claim) | Docs-honesty | P1 | Quick |
 | Keep ACT `lib/Assembly-CSharp.dll` on the game-update refresh list (typed refs exist via ArmorWardPatch) | Framework compliance | P1 | Quick |
-| Keep ACT's minimum framework in step with the Nexus-served version, or batch the framework upload (2.29.0 floor) | Framework compliance | P1 | Quick |
+| Keep ACT's minimum framework in step with the Nexus-served version, or batch the framework upload (2.29.1 floor) | Framework compliance | P1 | Quick |
 | Keep each melt/dismantle metal drop carrying `TransferRules.Special4` so the card's metal is inherited | Data correctness | P1 | Quick (done) |
+| LTS GF1: pin ACT's string-reflection sites in `Framework-ReflectedSignatures.Tests.ps1` (needs a shared framework-test change). Every site is already loud at runtime since W-LTS; this adds the gate as a second line | Framework compliance | P2 | Quick (test-only, blocked on shared test) |
+| LTS IV1 / IV2: record a `Scan-PluginDrift` run against ACT on the current game; enumerate ACT metal-type drops outside `SmeltingRecipes.json` and confirm each sets SD4 | Framework compliance / data | P2 | Quick (measurement) |
 
 ---
 
 ## Phase 2: Core Expansion
 
 > No new core content is scheduled. Every forward idea that was ever on the backlog is now a ruled-out
-> "Considered, not selected" row (see `.audit/ideas.md` and the As_Built Considered tables). The mod is
-> feature-complete for its current scope; do not re-propose a Considered row:
+> "Considered, not selected" row (see `.audit/ideas.md`, the LTS plan's Considered table C1-C8, and the
+> As_Built Considered tables). The mod is feature-complete for its current scope; do not re-propose a
+> Considered row:
 >
 > - Copper Ore Crusher - vanilla already crushes ore; owner chose a WDI stamp mill (2026-10-01).
 > - Metal Alloying step - vanilla ships the bronze alloy crucible blueprints.
@@ -72,7 +78,7 @@ Audit score: 9/10 - PASS (0 CRITICAL, 0 Design Gap, 5 open low-severity WARNINGs
 
 | Integration | State | Coordination |
 |-------------|-------|--------------|
-| CSFFModFramework 2.29.0+ | Metal Sheet/Nail/Tin Solder + base blueprints ship in the framework under shared UIDs since ACT 1.18.0; liquid-oil refuel CIs need `GpTag_FW_Oil` (2.29.0) | Keep ACT's minimum framework in step with the Nexus-served version before upload |
+| CSFFModFramework 2.29.1+ | Metal Sheet/Nail/Tin Solder + base blueprints ship in the framework under shared UIDs since ACT 1.18.0; liquid-oil refuel CIs need `GpTag_FW_Oil` | Keep ACT's minimum framework in step with the Nexus-served version before upload |
 | WaterDrivenInfrastructure | Tin Solder <-> Alloy Solder, Copper Nail <-> Rivets, Sheet <-> Cast Sheet; WDI Blast melts ACT metal; a lit Copper Brazier counts as winter heat for WDI stations; a running outlet fills an empty placed Copper Bathtub; WDI owns the ore stamp mill | Bidirectional - watch for UID drift |
 | Community Mod Chest | Copper Chest stands in for the Market Stall kit's Storage Chest; the Village Academy Armorer course hands over ACT's five armor recipes early | CMC consumes ACT content (soft dep) |
 | HerbsAndFungi | H&F herbs -> Tea Station teas; Copper Cauldron counts as an H&F brewing station; H&F oils and hemp seed oil burn directly in ACT's lamps; a Bath Soak bundle runs "Soak in the Tub" | Soft dep (recipes HIDE without H&F) |
@@ -83,13 +89,14 @@ Audit score: 9/10 - PASS (0 CRITICAL, 0 Design Gap, 5 open low-severity WARNINGs
 
 ## Phase 4: Polish
 
-> No open art gaps. 139 custom PNGs; items/structures resolve to mod art or genuine vanilla sprites.
-> Doc polish is covered by Phase 0 (W4/W5). Standing polish triggers:
+> No open art gaps. 139 custom PNGs; items/structures resolve to mod art or genuine vanilla sprites
+> (the one vanilla-sprite item, StoveTopMold -> `CastingMold`, is confirmed real). Standing polish triggers:
 
 | Item | What | Complexity |
 |------|------|------------|
 | Re-review any regenerated card art | If art is re-keyed/re-encoded, its sha1 changes and the review gallery reads it as changed | Quick |
 | Description pass on any behavior change | Keep ModInfo Description / README / CHANGELOG / PLAYER_GUIDE honest in the same commit (both directions) | Quick |
+| Cosmetic tag/stat fixes (M1 StickLong wood name, I-W3/I-W6 missing CardTags) | Fold into the next content/repair pass | Quick |
 
 ---
 
@@ -99,17 +106,19 @@ Advanced Copper Tools has reached its intended scope: a complete copper-through-
 economy (parts, tools, armor in six metals, heat/light/cooking/storage stations, and a tea line) that
 dovetails with the framework's shared parts and with WDI, CMC, H&F and Sirus23. At the next major
 version the mod's role is stewardship, not growth - keep it building green against each new EA release,
-hold localization parity, keep the docs honest, and absorb partner-mod UID changes. A larger content
-addition would need a new design justification that does not duplicate vanilla or a partner mod; none
-currently qualifies. The one standing design question is the Ghost Bronze spiritual ward (O1): its
-combat value is dead against vanilla wildlife, so its future is either a Fear-niche re-sell or a new
-spiritual-damage threat that makes it live.
+hold localization parity, keep the docs honest, keep every reflection site loud at runtime (and
+optionally pinned in the signatures gate), and absorb partner-mod UID changes. The 2026-11-15 category
+re-runs show the remaining debt is tag hygiene and two unconfirmed weight/liquid questions, not missing
+features. A larger content addition would need a new design justification that does not duplicate vanilla
+or a partner mod; none currently qualifies. The one standing design question is the Ghost Bronze
+spiritual ward (O1, owner-kept "as is"): its combat value is dead against vanilla wildlife, so its future
+is either the Fear-niche re-sell it already leans on or a new spiritual-damage threat that makes it live.
 
 **Potential major additions** (not yet justified - revisit only if the metal economy's scope changes):
 - None open. Every prior candidate is a Considered-and-ruled-out row with its reason on disk.
 
-Anything that later clears that bar belongs in a new `Documentation/Plans/AdvancedCopperTools/` plan (or
-its Considered table, with the reason); never a stub under `Documentation/Ideas/`, which keeps no backlog.
+Anything that later clears that bar belongs in a new plan under `Documentation/Plans/AdvancedCopperTools/`
+(or its Considered table, with the reason); never a stub under `Documentation/Ideas/`, which keeps no backlog.
 
 ---
 

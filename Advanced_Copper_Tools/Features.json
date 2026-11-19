@@ -286,8 +286,8 @@
     {
       "name": "Ore Bin",
       "status": "Implemented",
-      "confidence": "LOW",
-      "evidence": "brand new in 1.16.0 (2026-08-16); playtest T2.92 unverified. Structural inspection confirms weight-based inventory is correctly non-zero",
+      "confidence": "VERIFIED",
+      "evidence": "brand new in 1.16.0 (2026-08-16). T2.92 (build/place/store/save-reload) PASS r41 2026-09-25 (stored 20 Metal Nuggets then Greenstone after the 1.18.1 filter change; both confirmed non-zero capacity surviving a save/reload). T2.1386 (the ore-only filter added 1.18.1: accepts Greenstone/bog iron/Tin Ore/Flint, refuses nugget/meat/Stone/Salt, EN+CN help text) PASS auto-2026-11-13, confirmedOn 2026-11-13.",
       "cards": [
         "advanced_copper_tools_ore_chest",
         "advanced_copper_tools_ore_chest_placed",
@@ -367,8 +367,8 @@
     {
       "name": "Cautery Iron",
       "status": "Implemented",
-      "confidence": "LOW",
-      "evidence": "new in 1.18.0 (2026-10-02, plan E2): cold act_cautery_iron with a Heat in Fire CI on tag_Fire / tag_FireSource (WorksBothWays) transforming into act_cautery_iron_hot, whose Fuel (Heat, 4, -1 a tick) running out returns the cold iron; the hot iron carries five Cauterize CIs (WorksInverted, the wound is the given card, by GUID: the two arm and two leg lacerations and the minor laceration, W0-11) that transform each wound into its Stitched twin in GivenCardChanges, produce W_FireBurn as vanilla's fire events do, add 60 to the new ACT effect stat act_stat_cautery_burn (statuses raise Pain by a global +15 / +30, never a base write) and 30 Stress; blueprint 1 vanilla MetalBarFinished gated to Metal Type 100 and 1 long stick. Gated by StatBase-NoVanillaSource, DurabilityStat-FieldNames, Csproj-ContentIncludes and the card-art gates; the harness scenario and tracker row are written and not yet run in a game (whether ProducedCards from a CardOnCardAction CI lands the burn is the scenario's first read).",
+      "confidence": "VERIFIED",
+      "evidence": "new in 1.18.0 (2026-10-02, plan E2): cold act_cautery_iron with a Heat in Fire CI on tag_Fire / tag_FireSource (WorksBothWays) transforming into act_cautery_iron_hot, whose Fuel (Heat, 4, -1 a tick) running out returns the cold iron; the hot iron carries five Cauterize CIs (WorksInverted, the wound is the given card, by GUID: the two arm and two leg lacerations and the minor laceration, W0-11) that transform each wound into its Stitched twin in GivenCardChanges, produce W_FireBurn as vanilla's fire events do, add 60 to the new ACT effect stat act_stat_cautery_burn (statuses raise Pain by a global +15 / +30, never a base write) and 30 Stress; blueprint 1 vanilla MetalBarFinished gated to Metal Type 100 and 1 long stick. Gated by StatBase-NoVanillaSource, DurabilityStat-FieldNames, Csproj-ContentIncludes and the card-art gates. | r-sweep-2026-10-18 PASS (harness; tracker row act_1_18_0_cautery_iron_closes_a_cut_at_a_burns_cost, confirmed 2026-10-18).",
       "cards": [
         "act_cautery_iron",
         "act_cautery_iron_hot",
@@ -379,8 +379,8 @@
     {
       "name": "Copper Spigot",
       "status": "Implemented",
-      "confidence": "LOW",
-      "evidence": "new in 1.18.0 (2026-10-02, plan E1, transform route chosen by W0-10): act_copper_spigot (1 Metal Sheet + 1 Tin Solder, Metal Tools tab) carries two WorksInverted Fit Spigot CIs, one per vanilla tap GUID, whose GivenCardChanges transform the tap into act_sap_tap_spigot or act_resin_tap_spigot (copies of the vanilla taps: one inventory slot, the tag_WaterContainer filter, both cooking recipes, the Refresh CI on tag_Cutter, Special3 draining at -0.3333 a point against -1), carrying TransferInventory and TransferSpecial3, and whose ReceivingCardChanges destroys the spigot; each copy has a Remove Spigot DA that transforms back to the vanilla tap with the same flags and produces the spigot. Gated by DurabilityStat-FieldNames, Blueprint-TabGroupNames, CardData-Integrity and the card-art gates; the harness scenario and tracker row are written and not yet run in a game (whether the real tap's bowl and sap survive the transform is the scenario's first read; if not, the plan builds the remote RemotePassiveEffects branch).",
+      "confidence": "VERIFIED",
+      "evidence": "new in 1.18.0 (2026-10-02, plan E1, transform route chosen by W0-10): act_copper_spigot (1 Metal Sheet + 1 Tin Solder, Metal Tools tab) carries two WorksInverted Fit Spigot CIs, one per vanilla tap GUID, whose GivenCardChanges transform the tap into act_sap_tap_spigot or act_resin_tap_spigot (copies of the vanilla taps: one inventory slot, the tag_WaterContainer filter, both cooking recipes, the Refresh CI on tag_Cutter, Special3 draining at -0.3333 a point against -1), carrying TransferInventory and TransferSpecial3, and whose ReceivingCardChanges destroys the spigot; each copy has a Remove Spigot DA that transforms back to the vanilla tap with the same flags and produces the spigot. Gated by DurabilityStat-FieldNames, Blueprint-TabGroupNames, CardData-Integrity and the card-art gates. | auto-2026-10-11 PASS (harness, recorded 2026-10-12; tracker row act_1_18_0_spigoted_tap_runs_three_days): the real tap's bowl and sap ride along and Special3 carries over through the fit and the removal.",
       "cards": [
         "act_copper_spigot",
         "act_bp_copper_spigot",
@@ -391,8 +391,8 @@
     {
       "name": "Grappling Hook",
       "status": "Implemented",
-      "confidence": "LOW",
-      "evidence": "new in 1.18.0 (2026-10-02, plan E3, carried branch chosen by W0-12): act_grappling_hook (CT0, no durability) carries one PassiveEffects entry with no OnlyWhenEquipped, OnlyWhenInHand or PlayerUsesCard condition raising ClimbingAid (33f8297bdbbdf7a47b9944f633fdcad8, range 0-288) by ValueModifier 72; act_bp_grappling_hook takes 3 MetalNugget at Special4 100 and 1 Rope with a hammering tool not spent, on the Tailoring > Equipment tab (moved there from Metal Tools in 1.18.15). No climb card is edited. Gated by CardData-Integrity, Blueprint-TabGroupNames and the card-art gates; the harness scenario and tracker row are written and not yet run in a game.",
+      "confidence": "VERIFIED",
+      "evidence": "new in 1.18.0 (2026-10-02, plan E3, carried branch chosen by W0-12): act_grappling_hook (CT0, no durability) carries one PassiveEffects entry with no OnlyWhenEquipped, OnlyWhenInHand or PlayerUsesCard condition raising ClimbingAid (33f8297bdbbdf7a47b9944f633fdcad8, range 0-288) by ValueModifier 72; act_bp_grappling_hook takes 3 MetalNugget at Special4 100 and 1 Rope with a hammering tool not spent, on the Tailoring > Equipment tab (moved there from Metal Tools in 1.18.15). No climb card is edited. Gated by CardData-Integrity, Blueprint-TabGroupNames and the card-art gates. | auto-2026-10-11 PASS (harness, recorded 2026-10-12; tracker row act_1_18_0_grappling_hook_aids_every_climb): Climbing Aid reads 0, then +72 while the hook is carried, and 0 again once removed; the fall-rate comparison is by design not discriminated at this sample size.",
       "cards": [
         "act_grappling_hook",
         "act_bp_grappling_hook"
@@ -401,11 +401,21 @@
     {
       "name": "Copper Shears (with Sirus23)",
       "status": "Implemented",
-      "confidence": "LOW",
-      "evidence": "new in 1.18.0 (2026-10-02, plan F3, postfix branch chosen by W0-15): act_copper_shears (CT0) carries tag_Shears spelled as Sirus23_Mod_Collection/CardData/Item/Shears.json spells it, beside tag_Tool, tag_Metal and tag_SmeltsAt1100, with UsageDurability 30 and an OnZero destroy (Sirus's own shears have no OnZero, and the Shear CI checks no given-card durability, so without it the copper pair would never wear out); act_bp_copper_shears takes 1 Metal Sheet at Special4 0-100 and 1 Copper Nail with a hammering tool not spent, on the Metal Tools tab. Patcher/PartnerBlueprintGatePatch.cs (named CopperShearsGatePatch until the Fleet plan feature 6 table) postfixes GameManager.InitializeStatsAndActions and, when sh_shears does not resolve, sets the blueprint's BlueprintModelStates entry to Hidden and its UnlockableCards entry Disabled unless already Available; every null exit has a per-cause warn-once. Gated by ACT-CrossModTags (watched red on the real tree with Sirus23 left out), CardData-Integrity, Blueprint-TabGroupNames, DurabilityStat-FieldNames and the card-art gates; the harness scenario and tracker row are written and not yet run in a game.",
+      "confidence": "VERIFIED",
+      "evidence": "new in 1.18.0 (2026-10-02, plan F3, postfix branch chosen by W0-15): act_copper_shears (CT0) carries tag_Shears spelled as Sirus23_Mod_Collection/CardData/Item/Shears.json spells it, beside tag_Tool, tag_Metal and tag_SmeltsAt1100, with UsageDurability 30 and an OnZero destroy (Sirus's own shears have no OnZero, and the Shear CI checks no given-card durability, so without it the copper pair would never wear out); act_bp_copper_shears takes 1 Metal Sheet at Special4 0-100 and 1 Copper Nail with a hammering tool not spent, on the Metal Tools tab. Patcher/PartnerBlueprintGatePatch.cs (named CopperShearsGatePatch until the Fleet plan feature 6 table) postfixes GameManager.InitializeStatsAndActions and, when sh_shears does not resolve, sets the blueprint's BlueprintModelStates entry to Hidden and its UnlockableCards entry Disabled unless already Available; every null exit has a per-cause warn-once. Gated by ACT-CrossModTags (watched red on the real tree with Sirus23 left out), CardData-Integrity, Blueprint-TabGroupNames, DurabilityStat-FieldNames and the card-art gates. | csff-batch-2026-10-13 PASS (harness, recorded 2026-10-14; tracker row act_1_18_0_copper_shears_with_and_without_sirus23): with Sirus23 loaded the blueprint reads Locked (not Hidden) and Shear costs exactly 1 Usage; the without-Sirus23 half is the same row's Part 2.",
       "cards": [
         "act_copper_shears",
         "act_bp_copper_shears"
+      ]
+    },
+    {
+      "name": "Copper Sap Bucket",
+      "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "new in 1.18.2 (2026-10-12): act_copper_sap_bucket (2 metal sheets + 1 tin solder, hammer not spent; Construction > Metal Tools) placed in a vanilla Sap Tap holds 900 ml of sap, the whole three-day flow of a tap with a Copper Spigot; placed in a Resin Tap (Spigot) it gathers a resin lump (SpecialDurability1, max 4) every 18 hours, and Scrape Out Resin (RequiredSpecial1Percent 0.2, HideActionIfNotMet) drops one lump at a time. Modwide audit 2026-11-13 found this feature had no Features.json row at all though ModInfo.json's Description, CHANGELOG.md [1.18.2] and the playthrough tracker all carry it; added here. | auto-2026-10-19 PASS (harness, recorded 2026-10-19; tracker row act_1_18_2_copper_sap_bucket_person): every resin and Scrape Out check passed once the scenario tracked the hammer's own transform into the 50-quality iron hammer.",
+      "cards": [
+        "act_copper_sap_bucket",
+        "act_bp_copper_sap_bucket"
       ]
     }
   ]

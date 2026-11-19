@@ -115,7 +115,7 @@ namespace Advanced_Copper_Tools.Patcher
                 allData, MetalSheetUid, RetiredIronSheetUid, IronSheetBlueprintUids, "ACT Metal Sheet (iron recipes) / retired Iron Sheet");
         }
 
-        // Every ACT armor item, all three tiers. The save/reload + encounter repair below is not
+        // Every ACT armor item, every metal and the shields. The save/reload + encounter repair below is not
         // copper-specific: any modded armor drops out of GameManager.ArmorCards the same way, so
         // Bronze and Iron (added after the original copper-only net) are covered too (audit 2026-09-01).
         private static readonly string[] ArmorUids = {
@@ -463,7 +463,17 @@ namespace Advanced_Copper_Tools.Patcher
 
             foreach (var slotObject in slots)
             {
-                var assignedCard = Reflect.GetMember(slotObject, "AssignedCard");
+                // A null slot and an empty slot (AssignedCard null) are routine. A slot with no readable
+                // AssignedCard MEMBER is a rename: this is the only path that finds EQUIPPED armor (the
+                // board scan sees board armor only), so without this line every worn piece would be
+                // skipped with nothing in the log. TryGetMember is false for the missing member only.
+                if (slotObject == null) continue;
+                if (!Reflect.TryGetMember(slotObject, "AssignedCard", out var assignedCard))
+                {
+                    WarnArmorRepairOnce("AssignedCard-missing",
+                        "FindEquippedArmorCards: equipment slot has no readable AssignedCard member (reflection miss) - equipped armor cannot be identified, equipped-armor repair disabled. Possible member rename after a game update.");
+                    continue;
+                }
                 var uid = GetCardUid(assignedCard);
                 if (!ArmorUidSet.Contains(uid)) continue;
                 equippedCards.Add(assignedCard);
@@ -479,8 +489,16 @@ namespace Advanced_Copper_Tools.Patcher
             // and the like) at runtime with no UniqueID, and that card is not armor. Only a model type
             // with no UniqueID MEMBER is reported: that is a rename, and it would make every armor card
             // silently miss ArmorUidSet. (Until 1.18.10 any null value logged this as an Error: a save
-            // with a hare on the board did so on every load.)
-            var model = Reflect.GetMember(cardObject, "CardModel");
+            // with a hare on the board did so on every load.) The same goes one step up: a card with no
+            // readable CardModel MEMBER is a rename, and TryGetMember is false for that case only, so a
+            // null model VALUE stays quiet.
+            if (cardObject == null) return null;
+            if (!Reflect.TryGetMember(cardObject, "CardModel", out var model))
+            {
+                WarnArmorRepairOnce("CardModel-missing",
+                    "GetCardUid: card has no readable CardModel member (reflection miss) - armor cards cannot be identified, repair disabled. Possible member rename after a game update.");
+                return null;
+            }
             if (model == null) return null;
             var uid = Reflect.GetMember(model, "UniqueID") as string;
             if (uid == null && !HasUniqueIdMember(model.GetType()))

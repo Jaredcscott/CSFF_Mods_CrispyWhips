@@ -474,6 +474,76 @@
         "TransferSpecial1": true,
         "TransferSpecial2": true
       }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_bathtub_full_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_Light_ActionName",
+        "DefaultText": "Light Fire"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_bathtub_full_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_Light_ActionDescription",
+        "DefaultText": "Light the firewood to heat the bath water."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [],
+        "TriggerCardsWarpType": 3,
+        "TriggerTagsWarpData": [
+          "tag_Fire",
+          "tag_FireSource"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "NOTCompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "f924def05400db54b9a99935631a632f",
+          "9711230a851db104eab1438342b8f88a"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "WorksInverted": false,
+      "WorksBothWays": true,
+      "RequiredReceivingDurabilities": {
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.05,
+          "MaxValue": 1.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "advanced_copper_tools_copper_bathtub_full_placed",
+          "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_Light_FailMessage",
+          "DefaultText": "Need firewood to light."
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 0
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_warm_placed",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true
+      }
     }
   ],
   "DismantleActions": [
