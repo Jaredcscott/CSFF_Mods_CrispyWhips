@@ -78,8 +78,8 @@
       "name": "Mod-wide",
       "modWide": true,
       "summary": "Plugin entry, the Agent_Partner stat registrations shared by the talk modules, the reflection helper, project files, player docs and art tooling state.",
-      "paths": ["Plugin.cs", "GlobalUsing.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "PLAYER_GUIDE.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore",
-                "Features.json", "Modules.json", "GameSourceModify/Agent_Partner.json", "Patcher/ReflectionHelper.cs", ".art/RUN_LOG.md", ".art/review/**"]
+      "paths": ["Plugin.cs", "GlobalUsing.cs", "ModInfo.json", "*.csproj", "README.md", "CHANGELOG.md", "LICENSE", "ASSET_CREDITS.md",
+                "Modules.json", "GameSourceModify/Agent_Partner.json", "Patcher/ReflectionHelper.cs", ".art/RUN_LOG.md", ".art/review/**"]
     }
   ]
 }

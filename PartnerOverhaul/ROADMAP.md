@@ -1,85 +1,98 @@
 # Roadmap: Partner Overhaul
-Version at time of writing: 1.1.5
-Date: 2026-10-20
-Audit score: 10/10 (PASS, 0 CRITICAL; the one preflight CRITICAL is the exempt NO-CN localization case)
+Version at time of writing: 1.1.7
+Date: 2026-11-15
+Audit score: 10/10 - PASS (0 open findings at any severity)
 
 ## Current State
 
-**Theme**: Repairs a batch of base-game Partner-companion bugs and gives the Partner a spoken "Talk with" conversation surface; its only shipped content is the opt-in Ember Pot. A Harmony-fix mod for players who use companions.
+**Theme**: A Harmony-fix mod for the base game's Partner companions (eating, cleaning, watering, fire-keeping, duty marks, display) that also gives the Partner a voice: an opt-in spoken "Talk with" conversation system (openers by mood/personality, world topics, memories, player-state remarks, bond milestones, first-visit remarks). For players who keep a Partner and want it to behave sensibly and feel alive.
 
-**Content**: 2 items (Ember Pot, Ember Pot Lit) / 1 blueprint (Bp_EmberPot) / 0 structures / 0 perks / 2 custom images. 22 C# patch classes under `Patcher/` (19 `ApplyPatch` calls plus the Ember Pot content).
+**Content**: 2 items / 1 blueprint / 0 structures / 0 perks / 2 custom images (the opt-in Ember Pot and its lit form). Everything else is behaviour patches plus ~34 NPCStat marker files and ~60 DialogLine ScriptableObjects for the conversation system, and 7 `GameSourceModify` files (Agent_Partner registration + 6 per-NPC voice-stat files).
 
-**Stability**: 10/10 - released (1.1.5), 0 CRITICAL, 1 warning (W1 exempt NO-CN localization; W3 docs under-claim resolved 2026-10-20 in `ee0e34a9e`), 1 minor (V4 DialogLine scans). 38 PartnerOverhaul rows sit in `confirmedItems`, 23 recorded 2026-10-18 to 2026-10-20.
+**Stability**: 10/10 - PASS. 0 open CRITICAL, 0 design gaps, 0 open warnings, 0 open minor items. The three findings the prior roadmap tracked are all CLOSED and committed 2026-11-14, and confirmed by the 2026-11-15 module re-runs: W3 (ModInfo Description now names the Expedition Stories opt-in, `372b51462`), V4 (the talk and topics patches walk DialogLine once per run boot, `43a5a71cd`), M2 (Modules.json dropped five phantom modwide globs, `351fdb8de`). All 12 modules read CURRENT; every real module is SOLID.
 
-**Open work**: No open retrospectives (no row in `Documentation/Retrospectives/INDEX.md` names PartnerOverhaul, PO or `crispywhips.partner_overhaul`). No open plan: both feature plans are built and archived (`Documentation/Design/PartnerOverhaul_As_Built.md`, `Documentation/Design/PartnerOverhaul_Balance_And_Conversations_As_Built.md`). What remains is verification of the six pending rows and the 1.1.6 release.
+**Open work**: No open retrospective names PartnerOverhaul, "PO" or `crispywhips.partner_overhaul`. Both feature plans are built and archived as `Documentation/Design/PartnerOverhaul_As_Built.md` and `Documentation/Design/PartnerOverhaul_Balance_And_Conversations_As_Built.md`; there is no `Documentation/Plans/PartnerOverhaul/` backlog. What remains is one release action (a Nexus re-upload carrying both the ASSET_CREDITS fix and the new `SimpCn.csv`), two person-gated runtime rows (T2.507, T2.1378), and optional polish.
 
-**Framework compliance**: Harmony/reflection only - no framework Tier 2 service calls (`ActionRouter`/`SpawnService`/`TickEvents`/`ContentModPlugin`) and no `CardUtil.`/`Api.` references anywhere in `Patcher/*.cs`. This is correct for the mod's needs (the fixes patch vanilla directly) and means the framework-version-floor hazard does not apply. Reflection is fully guarded (null-checked, cached behind a `_reflectionResolved` latch, warn-and-return on a miss). CSFFModFramework is a soft dependency that loads only the Talk conversation and sets load order.
+**Framework compliance**: Soft-dependency on CSFFModFramework (present, correct `[BepInDependency(... SoftDependency)]`). This is a behaviour-patch mod, so the Tier 2 content-injection services (ActionRouter / SpawnService / TickEvents / ContentModPlugin) are largely N/A - a grep of `Patcher/*.cs` finds zero hits, and the mod patches vanilla duty/dialog/stat paths directly via Harmony and reflection, all guarded (warn-once breadcrumbs, per-run latches, in-place transpiler mutation). No deprecated patterns (no `DropCollectionGuardPatch`, no `ModLoaderVerison`/`ModEditorVersion`, no unfiltered hot-path prefix). The only framework-backed content, the Ember Pot, loads declaratively; its C# only strips warmth / hides the blueprint when the option is off.
 
 ---
 
-## Phase 0: Stabilize
+## Phase 0: Stabilize  *(audit score is 10/10, no open findings and no open retrospectives - clear)*
 
-> Skipped - audit score is 10/10 and there are no open retrospectives. Nothing breaks a loop, corrupts vanilla data, or crashes.
+> No code, data or docs defect is open. The three prior-round items (W3 Description, V4 DialogLine scan, M2 Modules.json globs) all closed and committed 2026-11-14. The one remaining item is a release action, not a fix.
+
+| Item | Type | Priority | Complexity |
+|------|------|----------|------------|
+| Re-upload to Nexus so the live v1.1.7 package carries the corrected `ASSET_CREDITS.md` (fixed in repo at `2e49f980a`; the live package, uploaded 2026-10-30, still has the old "ships no card art" line) **and** the new `SimpCn.csv` (shipped `609a48e32`, not in the live package). | Release action | P0 | Quick |
 
 ---
 
 ## Phase 1: Foundation
 
-> The remaining table-stakes work before the next release.
+> Table-stakes housekeeping. All satisfied as of this writing.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Release the `[Unreleased]` stream-drinking fix and the W3 docs reword (done 2026-10-20, `ee0e34a9e`) as 1.1.6 (1.1.5 is released); bump ModInfo/Plugin.cs/README together via `Update-ModVersion.ps1` | Version + release | P1 | Quick |
-| SimpCn.csv first Chinese pass (218 keys) - deferred; after the first pass the parity gate becomes blocking, so EN+CN rows must move in the same commit thereafter | Localization | P2 | Medium |
+| Version sync across ModInfo.json / Plugin.cs / README.md | Version hygiene | P1 | DONE (all read 1.1.7) |
+| `Localization/SimpCn.csv` first Chinese pass (218 keys; W1) | Localization | P1 | DONE 2026-11-13 (`609a48e32`, owner decision 2026-11-12; parity CLEAN 218/218; not yet read in a running game or by a Chinese speaker) |
+
+The first `SimpCn.csv` has landed, so the parity gate now binds this mod: every later EN row must ship its CN row in the same commit. Gate: `Development_Tools/Tests/PartnerOverhaul-ChineseLocalization.Tests.ps1` (parity plus placeholders, which the parity script does not read). One remaining follow-up: add PartnerOverhaul to `$script:LocParityFleetMods` in `Check-LocalizationParity.ps1` so a no-arg fleet parity run covers it too (today only the PO-specific gate does). The `Config.Bind` setting names/descriptions (14) and the no-framework "Looks at ease." Comfort label remain English by design - the framework loads the CSV and those strings are not CSV-backed.
 
 ---
 
 ## Phase 2: Core Expansion
 
-> This is a bug-fix mod with almost no shipped CardData, so the content surface is intentionally small. Only grounded extensions are listed; none is currently justified as new feature work.
+> The mod's two feature plans are built and archived; new content is not currently justified beyond small, grounded extensions. The conversation system is the mod's growth surface.
 
-### Ember Pot warmth tuning (owner call, not new content)
-**What**: Resolve the open T2.526 question - keep the Ember Pot at +8 perceived temperature or raise it to >=9.5 (band rounding makes +8 add about 5 h on a -10 night; >=9.5 is effectively a Campfire's warmth). Field: `CardData/Item/EmberPotLit.json` `PassiveEffects[0].StatModifiers[0].ValueModifier`.
-**Why**: The only shipped content item; its strength is the one open design question. The README already frames the pot as slowing the cold rather than replacing a fire, so +8 is defensible as-is.
-**Requires**: Owner decision (recorded in T2.526's row note, 2026-10-20).
-**Complexity**: Quick (one field) - but gated on the owner, not scheduled.
+### More soft "Talk about..." topic hooks for other installed mods' landmarks
+**What**: extend the existing optional-topic pattern (CMC Village/Inn, WDI mills - both confirmed in-game, T2.513/T2.523) with topics for other mods' signature landmarks, each gated on a `RequiredCardsOnBoard`/`RequiredEnvironment` check so it is silently absent without that mod.
+**Why**: the Talk-with system is where the mod's recent value is; each hook is cheap and adds flavour only when the paired mod is present, with no hard dependency.
+**Requires**: none (but see the shared DialogLine index in Phase 4 - it would keep the boot-scan count flat as topics are added).
+**Complexity**: Quick per topic (one DialogLine + one gated route + one EN/CN localization row pair).
+
+### Close the last two runtime-verification rows
+**What**: close the 2 remaining pending tracker rows - T2.507 (the "Talk with" answer appears in the Partner's Talk menu, the without-framework leg) and T2.1378 (the sound/dialog person-scope half split from T2.104) - via the playthrough tracker. 43 of the mod's 45 rows are already in `confirmedItems`; these two are the person/precondition-gated remainder.
+**Why**: T2.507 is the entry point to the mod's headline conversation feature; closing it confirms the system is reachable in a running game, not just in data.
+**Requires**: `/playthrough-test-plan record` on a human-run build.
+**Complexity**: Medium (human verification, not code).
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> Already-wired soft integrations; extend only opportunistically.
+> Cross-mod hooks; all current ones are soft and optional.
 
-### More soft "Talk about..." topic hooks
-**What**: The Talk-with surface already gates optional topics on CMC (Village/Inn: `cmcEnvVillage`, `cmcInnInterior`) and WDI (mills: `water_sawmill_grinding_mill_placed`, `water_sawmill_placed`) landmarks via `RequiredCardsOnBoard`. More soft topic hooks for other installed mods' landmarks could be added the same way - absent without the mod, no hard dependency.
-**Why**: Deepens the conversation surface (the bulk of the mod's value) without adding dependencies.
-**Requires**: Coordination with the target mod's landmark UIDs; the soft-gate pattern already proven in `PartnerCmcTopicPatch` / WDI topics.
-**Complexity**: Medium (per integrated mod).
+### Deeper soft integrations with CMC / WDI
+**What**: the Talk-with system already references CMC's Village/Inn and WDI's mills. Natural next steps are memory/first-visit hooks for other mods' distinctive locations, following the same absent-without-the-mod pattern.
+**Why**: emergent flavour that rewards running the mods together, at no cost to players who do not.
+**Requires**: coordination only where a landmark's UID is referenced; no version lockstep (soft gates).
+**Complexity**: Medium.
 
 ---
 
 ## Phase 4: Polish
 
-> Art and code polish; all optional.
+> Code and text refinements; the mod's art is already complete.
 
 | Item | What | Complexity |
 |------|------|------------|
-| Shared single-pass DialogLine index (V4) | Several patch classes each run their own `FindObjectsOfTypeAll<DialogLine>` scan at boot (`PartnerTalkAnswerPatch.cs:116,179`, `PartnerCmcTopicPatch.cs:111,162`, `PartnerExpeditionStoryPatch.cs:178`, `PartnerExpressVoicePatch.cs:204`). Bounded one-time startup cost, no correctness effect; build one shared index (populated once per boot, cleared at run boot) if more topic subsystems land | Medium |
-| Ember Pot art review | The 2 shipped PNGs (EmberPot, EmberPotLit) are the mod's only custom art; run them through `/review-art` if not already in a verdict pass | Quick |
+| Shared single-pass DialogLine index (beyond V4) | V4 (closed 2026-11-14) reduced the talk and topics patches to one `DialogLine` walk per boot each, but `PartnerExpeditionStoryPatch` and `PartnerExpressVoicePatch` still walk once each, outside V4's scope. Replace every walk with one boot-populated `Dictionary<string,DialogLine>` cleared at run boot (or resolve lines via the framework's cached `AllScriptableObjectDict` by type). Bounded one-time cost today, no gameplay effect; worth doing if more dialog subsystems land. | Medium |
+| Docs-honesty propagation check | A small check that lists README "not yet confirmed"/"has not yet been seen" caveats whose named `po_` tracker row is now in `confirmedItems`, and symmetrically flags a critical-analysis asserting "none confirmed" against a per-row-id read. Makes a W2-class under-claim catchable instead of needing a manual both-directions re-read each consolidation. | Medium |
+| Description-vs-wired-opt-in check (W3 direction) | A check that every `ConfigEntry` in an opt-in config section with a wired `ApplyPatch` has a matching clause in the `ModInfo.json` Description and README opt-in list. Would have caught the Expedition Stories omission (W3, fixed 2026-11-14) and guards future opt-ins. | Medium |
 
 ---
 
 ## Long-term Vision
 
-> Where this mod should be at v1.2.0.
+> Where this mod should be at v1.2.
 
-Partner Overhaul's natural endpoint is a complete, verified set of base-game Partner fixes plus a conversation system that makes a companion feel present without adding dependencies or large content. It is already close: the fixes are shipped and mostly harness-confirmed, and the Talk-with surface works. The remaining arc is finishing in-game verification of the pending conversation rows (T2.507, T2.513, T2.517, T2.519, T2.523), a first Chinese pass so non-English players get the conversation too, and keeping the soft topic hooks growing as the fleet's other mods add landmarks. No large content addition is justified at current scope; the mod's value is reliability and voice, not new cards.
+Partner Overhaul's natural endpoint is a fully human-verified bug-fix layer plus a mature, localized conversation companion. With the first Chinese localization pass now shipped (`609a48e32`), the 218-key conversation system - the bulk of the mod's value - reaches Chinese players; the remaining open step toward that endpoint is closing the last two runtime-verification rows so the headline conversation entry point (T2.507) is confirmed in a running game, not just in data. Beyond that, the conversation surface grows topic-by-topic as other mods add landmarks, with no change to the fix layer.
 
-**Potential major additions** (not yet justified - revisit after the pending rows close):
-- A second fuel tier or brighter Ember Pot variant - only after the owner settles the T2.526 +8-vs-9.5 warmth call; otherwise it duplicates an undecided item.
-- Soft topic hooks for more fleet mods' landmarks (ACT, HarshWilds, FarTerritory) - fits the proven CMC/WDI soft-gate pattern, absent without the mod.
+**Potential major additions** (not yet justified - revisit after Phase 2):
+- A broader topic framework that lets other mods register their own "Talk about..." topics declaratively - fits the mod's theme if several mods want to hook the conversation system, but over-engineered for the current two integrations.
+- A second warmth tier above the Ember Pot - explicitly declined by the owner (2026-10-20, T2.526): the pot is meant to slow cooling, not replace a fire, so a stronger variant is out of scope for now.
 
-Any of these worth building belongs in a plan under `Documentation/Plans/PartnerOverhaul/` (or its Considered table, with the reason, if not); never a stub under `Documentation/Ideas/`, which keeps no backlog since 2026-10-01.
+Any of these worth building belongs in a plan under `Documentation/Plans/PartnerOverhaul/` (or its Considered table, with the reason, if not); never a stub under `Documentation/Ideas/`.
 
 ---
 
@@ -88,10 +101,11 @@ Any of these worth building belongs in a plan under `Documentation/Plans/Partner
 | Trigger | Action |
 |---------|--------|
 | After any new content phase | Run `/audit-mod PartnerOverhaul` and update this roadmap |
-| Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, re-run `/diagnose-log` |
-| After fixing an issue | Run `/critical-analysis PartnerOverhaul` to verify the fix |
-| When pending conversation rows close | Re-read `.claude/playthrough-test-status.json` and reword any now-stale README caveats (W3 recurs each time a row flips) |
-| Before 1.1.6 release | Run `/export-to-repo PartnerOverhaul` and `/nexus-publish upload PartnerOverhaul` |
+| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
+| After fixing a critical issue | Run `/critical-analysis PartnerOverhaul` to verify the fix |
+| After Phase 2 complete | Run `/export-to-repo PartnerOverhaul` and bump minor version |
+| Before the next Nexus upload | Confirm `ASSET_CREDITS.md` ships corrected (fixed `2e49f980a`) and `SimpCn.csv` is in the package |
+| Any later `SimpEn.csv` edit | Ship the matching `SimpCn.csv` row in the same commit (parity now binds the mod) |
 
 ---
 
@@ -100,11 +114,13 @@ Any of these worth building belongs in a plan under `Documentation/Plans/Partner
 ```
 /audit-mod PartnerOverhaul         - full health check, updates .audit/
 /critical-analysis PartnerOverhaul - adversarial review
+/repair-items PartnerOverhaul      - auto-fix item JSON issues
+/repair-blueprints PartnerOverhaul - auto-fix blueprint JSON issues
 /build-mod PartnerOverhaul         - build Release DLL
 /deploy-mods PartnerOverhaul       - build + deploy to game
 /update-mod-version PartnerOverhaul <ver> - bump version in all 3 files
 /export-to-repo PartnerOverhaul    - push to public repo
-/nexus-publish upload PartnerOverhaul - publish the release zip to Nexus
+/nexus-publish upload PartnerOverhaul - upload release + changelog to Nexus
 ```
 
 ---

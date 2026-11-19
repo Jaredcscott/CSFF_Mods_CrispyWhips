@@ -1,0 +1,218 @@
+PartnerOverhaul_Talk_Answer,Talk with your partner,与同伴交谈
+PartnerOverhaul_Talk_Answer_Named,Talk with {0},与{0}交谈
+PartnerOverhaul_Talk_Start_Line,"It's good to just sit for a moment. Out here the days run together, and talking helps me keep track of them.",能这样坐一会儿真好。在这荒野里，日子一天连着一天分不清，说说话能帮我把它们记住。
+PartnerOverhaul_Talk_Start_Answer_Day,How has your day been?,你今天过得怎么样？
+PartnerOverhaul_Talk_Day_Line,"Much like most days. A little work, a lot of listening to the forest. There's always something moving out there, even when it seems quiet. It's better with someone to tell it to.",和平常差不多。干一点活，大半时间都在听森林的动静。就算看起来很安静，外面也总有什么在走动。有个人可以说说这些，感觉好多了。
+PartnerOverhaul_Talk_Answer_StepBack,Step back,退后
+PartnerOverhaul_Comfort_AtEase,Looks at ease.,看上去很自在。
+PartnerOverhaul_Talk_Answer_HoldingUp,How are you holding up?,你还撑得住吗？
+PartnerOverhaul_Talk_Mood_Cold_Line,"I'm cold, honestly. The chill has got into me. A fire, or something warm to wear, would help more than talk.",说实话，我很冷。寒气都钻进身体里了。比起聊天，一堆火或者一件保暖的衣服更管用。
+PartnerOverhaul_Talk_Mood_Hungry_Line,"I'm hungry. It's hard to think about much else until I've eaten something.",我饿了。不吃点东西，别的什么都很难去想。
+PartnerOverhaul_Talk_Mood_Tired_Line,"I'm worn out. I haven't had enough rest, and it's catching up with me.",我累坏了。一直没休息够，现在全找上来了。
+PartnerOverhaul_Talk_Mood_Stressed_Line,"I'm wound tight. Everything feels like it's pressing in. Just having you here to talk to takes the edge off.",我绷得很紧。好像什么都在往我身上压。有你在这儿陪我说说话，就能松快一些。
+PartnerOverhaul_Talk_Mood_Neglected_Line,"I've missed you. It's been a while since we really spent time together, and it shows.",我想你了。我们已经好一阵子没有好好待在一起了，这一点看得出来。
+PartnerOverhaul_Talk_Mood_Unhappy_Line,"I'm low, if I'm honest. It's been a heavy stretch. Thank you for asking.",说实话，我心情很低落。这段日子很沉重。谢谢你问我。
+PartnerOverhaul_Talk_Mood_Happy_Line,"I'm good. Better than good, really. It feels like things are going our way.",我很好。其实比很好还要好。感觉一切都在顺着我们的心意走。
+PartnerOverhaul_Talk_Mood_Plain_Line,"I'm doing fine, thanks. Nothing pressing. It's good to just sit for a moment and talk.",我挺好的，谢谢。没什么要紧事。能坐下来聊一会儿就很好。
+PartnerOverhaul_Talk_Moods_Line,"(Router: never shown. Holds the mood weights the Talk answer copies.)",（路由行：不会显示。保存“交谈”选项所复制的心情权重。）
+PartnerOverhaul_Talk_Start_Answer_Topics,Talk about...,聊聊……
+PartnerOverhaul_Talk_Topics_Line,We could talk about what's around us. What would you like to hear about?,我们可以聊聊身边的事。你想听我说些什么？
+PartnerOverhaul_Talk_Topic_Answer_More,Talk about something else,聊点别的
+PartnerOverhaul_Talk_Topic_Spring_Answer,The spring,春季
+PartnerOverhaul_Talk_Topic_Spring_Line,"The thaw always smells like something starting over. The ground is soft again, and everything wants to grow at once.",融雪的时候，空气里总有一股万物重新开始的味道。土地又变软了，什么都想一下子长出来。
+PartnerOverhaul_Talk_Topic_Summer_Answer,The summer,夏季
+PartnerOverhaul_Talk_Topic_Summer_Line,"Long days, and the light hangs around late. It's good work weather, though I wouldn't say no to some shade.",白天很长，天黑得也晚。是干活的好天气，不过要是有片树荫，我可不会拒绝。
+PartnerOverhaul_Talk_Topic_Autumn_Answer,The autumn,秋季
+PartnerOverhaul_Talk_Topic_Autumn_Line,"Everything is turning, and the air has a sharp edge to it. It feels like the forest is counting up what it kept.",万物都在变色，空气里带着一丝凛冽。感觉森林正在清点它留下的东西。
+PartnerOverhaul_Talk_Topic_Winter_Answer,The winter,冬季
+PartnerOverhaul_Talk_Topic_Winter_Line,"The cold makes everything quiet. I don't mind it, as long as there's a fire and someone to share it with.",寒冷让一切都安静下来。我倒不介意，只要有一堆火，还有个人一起烤火就好。
+PartnerOverhaul_Talk_Topic_Morning_Answer,The morning,清晨
+PartnerOverhaul_Talk_Topic_Morning_Line,"Mornings are my favorite. Everything is still damp and untouched, and the whole day is ahead of us.",我最喜欢清晨。一切都还湿漉漉的，没被人碰过，一整天都在前面等着我们。
+PartnerOverhaul_Talk_Topic_Night_Answer,The night,夜晚
+PartnerOverhaul_Talk_Topic_Night_Line,"Nights out here are enormous. It's easier to talk in the dark, somehow. Things feel less urgent.",这里的夜晚大得无边。不知怎么的，在黑暗里说话更容易些。事情也显得没那么急了。
+PartnerOverhaul_Talk_Topic_Home_Answer,This home,这个家
+PartnerOverhaul_Talk_Topic_Home_Line,"It's strange how a few walls change everything. This feels like somewhere we belong, not somewhere we're passing through.",说来奇怪，几面墙就能让一切都不一样。这里像是我们的归宿，而不是路过的地方。
+PartnerOverhaul_Talk_Topic_Garden_Answer,The garden,菜园
+PartnerOverhaul_Talk_Topic_Garden_Line,I like checking on the garden. Watching something we planted push up through the soil feels like a promise kept.,我喜欢去菜园里看看。看着我们种下的东西破土而出，就像一个许下的诺言兑现了。
+PartnerOverhaul_Talk_Topic_Hearth_Answer,The hearth,火炉
+PartnerOverhaul_Talk_Topic_Hearth_Line,"There's nothing like a fire burning in the hearth. The warmth gets into your bones, and the whole place feels alive.",什么都比不上火炉里烧着的火。暖意一直渗进骨头里，整个屋子都有了生气。
+PartnerOverhaul_Talk_Topic_Snow_Answer,The snow,雪
+PartnerOverhaul_Talk_Topic_Snow_Line,"Look at it come down. Everything goes soft and hushed, and for a moment the whole forest looks new.",你看这雪下的。一切都变得柔软又安静，有那么一会儿，整片森林都像是新的。
+PartnerOverhaul_Talk_Voice_Cold_Reserved_Line,"Cold. A fire would help. Not much else to say about it.",冷。有堆火就好了。别的没什么可说的。
+PartnerOverhaul_Talk_Voice_Cold_Anxious_Line,"I'm so cold, and I keep thinking it will only get worse out here. Could we sort out a fire? Please?",我好冷，而且总觉得在这外面只会越来越糟。我们能想办法生堆火吗？好不好？
+PartnerOverhaul_Talk_Voice_Cold_Warm_Line,"I'm a bit cold, but I'm glad you asked. Having you near helps. A fire would be lovely though.",我有点冷，不过很高兴你问我。有你在身边就好多了。当然，要是有堆火就更好了。
+PartnerOverhaul_Talk_Voice_Cold_Assertive_Line,"I'm cold. Get a fire going or find me something warm to wear, and then we can talk properly.",我冷。把火生起来，或者给我找件保暖的衣服，然后我们再好好聊。
+PartnerOverhaul_Talk_Voice_Hungry_Reserved_Line,"Hungry. I'd like to eat something. That's all.",饿了。想吃点东西。就这样。
+PartnerOverhaul_Talk_Voice_Hungry_Anxious_Line,"I'm hungry, and I can't stop wondering how long the food will last. Could we eat something soon?",我饿了，而且总忍不住去想食物还能撑多久。我们能快点吃些东西吗？
+PartnerOverhaul_Talk_Voice_Hungry_Warm_Line,"I'm hungry, but it's nice to be asked. Let's find something to share and eat together.",我饿了，不过有人问一声真好。我们找点东西分着吃，一起吃吧。
+PartnerOverhaul_Talk_Voice_Hungry_Assertive_Line,"I'm hungry. Let's eat first. I'll think better with something in me.",我饿了。先吃饭吧。肚子里有东西，我脑子才转得动。
+PartnerOverhaul_Talk_Voice_Tired_Reserved_Line,"Tired. I haven't rested enough. I'll manage.",累了。没休息够。我撑得住。
+PartnerOverhaul_Talk_Voice_Tired_Anxious_Line,"I'm so tired, and when I'm tired everything starts to feel like too much. I need to rest, I think.",我好累，一累起来，什么事都让我觉得受不了。我想我得休息一下。
+PartnerOverhaul_Talk_Voice_Tired_Warm_Line,"I'm worn out, but sitting here with you is a good way to end the day. A proper rest would be wonderful too.",我累坏了，不过和你坐在这儿，是结束这一天的好办法。要是能好好休息一下，那也再好不过。
+PartnerOverhaul_Talk_Voice_Tired_Assertive_Line,"I'm worn out. I need rest, so let's make that happen soon.",我累坏了。我需要休息，我们尽快安排吧。
+PartnerOverhaul_Talk_Voice_Stressed_Reserved_Line,"Stressed. It's a lot right now. I'd rather not go into it, but your company helps.",压力很大。眼下事情太多。我不想细说，不过有你陪着会好些。
+PartnerOverhaul_Talk_Voice_Stressed_Anxious_Line,"Everything is pressing in and I can't switch my head off. I'm sorry. Talking to you helps a little.",什么都在往我身上压，脑子怎么也停不下来。对不起。跟你说说话能好一点。
+PartnerOverhaul_Talk_Voice_Stressed_Warm_Line,"I'm stretched thin, truly. But you being here makes it easier to carry. Thank you for sitting with me.",说真的，我快撑不住了。可有你在，这担子就轻了一些。谢谢你陪我坐着。
+PartnerOverhaul_Talk_Voice_Stressed_Assertive_Line,"I'm wound tight and I won't pretend otherwise. Something has to change, and I'd like to work out what with you.",我绷得很紧，这一点我不想装。有些事必须改变，我想和你一起弄清楚该改什么。
+PartnerOverhaul_Talk_Voice_Neglected_Reserved_Line,"It has been a while. I noticed. I'm glad you're here now.",有一阵子了。我注意到了。很高兴你现在在这儿。
+PartnerOverhaul_Talk_Voice_Neglected_Anxious_Line,"I've been wondering whether you've forgotten about me. It's been so long. Are we all right?",我一直在想，你是不是把我忘了。都这么久了。我们之间还好吗？
+PartnerOverhaul_Talk_Voice_Neglected_Warm_Line,"I've missed you. It's good to have you here again. Let's not leave it so long next time.",我想你了。你又回到我身边，真好。下次别再隔这么久了。
+PartnerOverhaul_Talk_Voice_Neglected_Assertive_Line,"It's been too long since we spent time together. I want that to change. Stay a while.",我们太久没有好好待在一起了。我希望这能改一改。多留一会儿吧。
+PartnerOverhaul_Talk_Voice_Unhappy_Reserved_Line,"Low. It's been a heavy stretch. Thank you for asking.",低落。这段日子很沉重。谢谢你问我。
+PartnerOverhaul_Talk_Voice_Unhappy_Anxious_Line,"I'm not doing well. It feels like nothing will get better, and I don't know how to make it stop.",我状态不好。感觉什么都不会好起来，我也不知道怎么才能让这一切停下。
+PartnerOverhaul_Talk_Voice_Unhappy_Warm_Line,"I'm low, if I'm honest. It's been heavy. Thank you for asking. It means a great deal to me.",说实话，我心情很低落。日子很沉重。谢谢你问我。这对我来说很重要。
+PartnerOverhaul_Talk_Voice_Unhappy_Assertive_Line,"I'm low, and I'd rather say so than hide it. It's been a heavy stretch and I want it to lift.",我心情很低落，与其藏着，不如直说。这段日子很沉重，我希望它能过去。
+PartnerOverhaul_Talk_Voice_Happy_Reserved_Line,"I'm well. Better than usual. Quietly pleased, you could say.",我很好。比平时好。可以说是暗自高兴吧。
+PartnerOverhaul_Talk_Voice_Happy_Anxious_Line,"I'm happy, actually. I keep waiting for something to go wrong, but for now it feels lovely.",其实我挺开心的。我总在等着什么事出岔子，不过眼下感觉真好。
+PartnerOverhaul_Talk_Voice_Happy_Warm_Line,"I'm happy, truly. Days like this, with you, are the ones I'll remember.",我是真的很开心。像这样和你在一起的日子，我会一直记着。
+PartnerOverhaul_Talk_Voice_Happy_Assertive_Line,"I'm in good spirits. Things are going our way, and I intend to keep it so.",我精神很好。事情正顺着我们的心意走，我打算让它一直这样下去。
+PartnerOverhaul_Talk_Voice_Plain_Reserved_Line,"Fine. Nothing pressing. It's nice to sit.",还好。没什么要紧事。坐一坐挺好。
+PartnerOverhaul_Talk_Voice_Plain_Anxious_Line,"I'm fine, I think. Nothing wrong that I know of. Is something wrong with you, though?",我想我没事。至少我没觉得哪里不对。倒是你，是不是有什么事？
+PartnerOverhaul_Talk_Voice_Plain_Warm_Line,"I'm doing well, thank you for asking. It's good to sit here with you for a while.",我挺好的，谢谢你问我。能和你在这儿坐一会儿，真好。
+PartnerOverhaul_Talk_Voice_Plain_Assertive_Line,"I'm fine. Nothing pressing. Ask me whatever you like.",我很好。没什么要紧事。想问什么尽管问。
+PartnerOverhaul_Duty_StartTalk_Name,Make Small Talk,闲聊
+PartnerOverhaul_Duty_StartTalk_Summary,Wants to talk with you.,想和你说说话。
+PartnerOverhaul_Talk_Memory_Fight_Line,"You held your ground back there. My hands are still shaking a little, but we're both still standing.",刚才你一步都没退。我的手到现在还有点抖，不过我们俩都还好好站着。
+PartnerOverhaul_Talk_Memory_Fight_Answer,That fight earlier,早些时候的那场战斗
+PartnerOverhaul_Talk_Memory_Escape_Line,That was too close. I'm glad we ran when we did. There's no shame in getting home in one piece.,刚才真是太险了。幸好我们跑得及时。能平平安安回到家，没什么好丢人的。
+PartnerOverhaul_Talk_Memory_Escape_Answer,Getting away earlier,早些时候的脱险
+PartnerOverhaul_Talk_Memory_Build_Line,Look at what we put up today. Every time I walk past it I think: we made that.,看看我们今天盖起来的东西。每次从它旁边走过，我都会想：这是我们亲手造的。
+PartnerOverhaul_Talk_Memory_Build_Answer,What we built today,我们今天造的东西
+PartnerOverhaul_Talk_Memory_Catch_Line,First fish of the day! I could almost smell supper the moment it came out of the water.,今天的第一条鱼！它一出水，我就好像已经闻到晚饭的香味了。
+PartnerOverhaul_Talk_Memory_Catch_Answer,Today's catch,今天钓的鱼
+PartnerOverhaul_Talk_Milestone_Trust_Line,"I used to watch your hands whenever you came near. I don't anymore. I trust you, and I could not tell you the day that changed.",以前你一走近，我就会盯着你的手。现在不会了。我信任你，可要问是从哪一天变的，我也说不上来。
+PartnerOverhaul_Talk_Milestone_Affection_Line,"I caught myself smiling at nothing today, and then I knew it was not nothing. It was you being here.",今天我发现自己在无缘无故地笑，后来才明白那并不是无缘无故。是因为有你在这儿。
+PartnerOverhaul_Talk_Milestone_Day100_Line,A hundred days. I stopped counting them as days a while ago. They are just ours now.,一百天了。我早就不把它们当成一天一天来数了。现在，它们就是属于我们的日子。
+PartnerOverhaul_Talk_Milestone_Day30_Line,"A month since I came to you. I did not think I would still be here, and I am glad that I am.",我来到你身边已经一个月了。我原以为自己不会留到现在，可我很高兴我还在。
+PartnerOverhaul_Talk_Milestone_Day7_Line,It has been a week already. The first days felt long. This one went by before I noticed.,已经一个星期了。头几天过得很慢。今天却不知不觉就过去了。
+PartnerOverhaul_Talk_Player_Pain_Line,"You're limping and trying not to show it. Sit down a while. Whatever needs doing can wait until you've caught your breath.",你走路一瘸一拐的，还不想让人看出来。坐下歇一会儿吧。不管有什么事要做，都可以等你缓过这口气再说。
+PartnerOverhaul_Talk_Player_Blood_Line,"You're bleeding, and you keep working as if it were nothing. Please see to it before it gets worse.",你在流血，却还像没事一样接着干活。求你先处理一下，别等它变得更糟。
+PartnerOverhaul_Talk_Player_Sepsis_Line,"You look gray and feverish, and that sickness has gone deep. Please don't push yourself any harder than you have to.",你脸色发灰，还发着烧，这病已经很深了。求你别再硬撑，能少做一点就少做一点。
+PartnerOverhaul_Talk_Player_Hungry_Line,"You've gone too long without eating. I can hear your stomach from here. Eat something before you do anything else.",你太久没吃东西了。我在这儿都能听见你肚子在叫。先吃点东西，再去做别的。
+PartnerOverhaul_Talk_Player_Cold_Line,"You're shivering, and your lips have gone pale. Get close to a fire before the cold settles in.",你在发抖，嘴唇都发白了。趁寒气还没侵入身体，快到火边去。
+PartnerOverhaul_Talk_Topic_Rain_Answer,The rain,雨
+PartnerOverhaul_Talk_Topic_Rain_Line,"Listen to that. Rain on the roof, on the leaves, on everything, steady and soft. It makes even this place feel kept.",你听。雨落在屋顶上，落在树叶上，落在一切东西上，又稳又轻。就连这个地方，也显得有人照料了。
+PartnerOverhaul_Talk_Topic_Storm_Answer,The storm,暴风雨
+PartnerOverhaul_Talk_Topic_Storm_Line,"That sky looks furious. Rain like this, I would rather we stayed close, kept the fire in and waited for it to wear itself out.",这天看起来怒气冲冲的。这样的雨，我宁愿我们待在一起，守着火别让它灭，等它自己闹够了再说。
+PartnerOverhaul_Talk_Topic_Village_Answer,The village,村庄
+PartnerOverhaul_Talk_Topic_Village_Line,"The village is quieter than I expected from out here. A little smoke from the chimneys, someone's washing on a line. It makes this place feel less alone.",从这儿看过去，村庄比我想的要安静。烟囱里飘着几缕炊烟，谁家的衣服晾在绳子上。有了它，这地方也不那么孤单了。
+PartnerOverhaul_Talk_Topic_Inn_Answer,The Inn,旅店
+PartnerOverhaul_Talk_Topic_Inn_Line,"Busy at the Inn tonight. You can hear it through the walls, cups and laughter and somebody's old song. I had forgotten how good it is to hear people.",今晚旅店里真热闹。隔着墙都听得见，碰杯声、笑声，还有不知是谁在唱一首老歌。我都忘了，能听见人声是多么好的事。
+PartnerOverhaul_Talk_Report_Forage_Mushrooms_Line,"Found mushrooms past the stream, a good clump tucked under a fallen log. I kept to the ones I know, but give them a look before they reach the pot.",我在小溪那头找到了蘑菇，好大一丛，藏在一根倒下的原木底下。我只采了认识的那几种，不过下锅之前你还是看一眼吧。
+PartnerOverhaul_Talk_Report_Forage_Berries_Line,The berry bushes were heavy this time. I ate a few on the walk back and kept the best of them for you.,这回浆果丛结得满满的。回来的路上我吃了几颗，最好的都给你留着。
+PartnerOverhaul_Talk_Report_Forage_Nuts_Line,The ground under the big trees was littered with acorns and cones. I filled what I could carry before the squirrels noticed.,大树底下落满了橡子和松果。趁松鼠还没发现，我把能带的都装满了。
+PartnerOverhaul_Talk_Report_Forage_Herbs_Line,"Most of the walk went on picking leaves and roots along the path. Some I knew by sight, some I only hoped about.",这一路大半时间都在沿着小路采叶子和根茎。有些我一眼就认得，有些只能盼着没采错。
+PartnerOverhaul_Talk_Report_Forage_Plain_Line,Good to be back. The woods out there get a little more familiar each time I go.,回来真好。那边的林子，我每去一次就更熟悉一点。
+PartnerOverhaul_Talk_Report_Forage_Line,"(Router: never shown. Holds the expedition follow-up weights the report's Continue answer copies.)",（路由行：不会显示。保存任务报告的“继续”选项所复制的后续台词权重。）
+PartnerOverhaul_Talk_Report_Hunt_Large_Line,"It was a big one. I would rather not say how long the trail ran before I caught up with it, only that it was worth the walk.",是个大家伙。我追上它之前到底跟了多远，就不提了，只能说这一趟走得值。
+PartnerOverhaul_Talk_Report_Hunt_Game_Line,Brought something back for the pot. The trail went cold twice before it ended.,带了点能下锅的东西回来。追到最后之前，踪迹断了两回。
+PartnerOverhaul_Talk_Report_Hunt_Plain_Line,"I followed the trail as far as it went. The woods keep their secrets, but I am learning where to look.",我顺着踪迹一直追到了尽头。林子总是守着自己的秘密，不过我正慢慢学会该往哪儿看。
+PartnerOverhaul_Talk_Report_Hunt_Line,"(Router: never shown. Holds the expedition follow-up weights the report's Continue answer copies.)",（路由行：不会显示。保存任务报告的“继续”选项所复制的后续台词权重。）
+PartnerOverhaul_Talk_Report_Fish_Catch_Line,"The fish were biting by the shallows, and I stayed until the light changed. There should be a good meal in it.",浅水那边鱼咬钩咬得勤，我一直待到天色变了才走。应该够吃一顿好的。
+PartnerOverhaul_Talk_Report_Fish_Plain_Line,"I sat by the water most of the time, watching the line. There is nothing wrong with a quiet afternoon.",我大半时间都坐在水边，盯着鱼线。安安静静过一个下午，也没什么不好。
+PartnerOverhaul_Talk_Report_Fish_Line,"(Router: never shown. Holds the expedition follow-up weights the report's Continue answer copies.)",（路由行：不会显示。保存任务报告的“继续”选项所复制的后续台词权重。）
+PartnerOverhaul_Talk_Report_Answer_Thanks,Thanks for telling me,谢谢你告诉我
+PartnerOverhaul_Talk_Gift_Line,"I went out walking while you were busy and found these in the open ground. They made me think of you. Here, take them.",你忙的时候我出去走了走，在空地上发现了这些。它们让我想起了你。来，拿着吧。
+PartnerOverhaul_Talk_Gift_Answer_Thanks,Thank you,谢谢你
+PartnerOverhaul_Talk_Topic_GrindingMill_Answer,The grinding mill,磨坊
+PartnerOverhaul_Talk_Topic_WaterMill_Answer,The water mill,水力锯木厂
+PartnerOverhaul_Talk_Topic_Mill_Line,"Listen to that wheel, slow and steady, the water doing the work for us. It is a sound that says someone planned ahead.",你听那水车，不紧不慢，稳稳当当，水在替我们干活。这声音像是在说，有人早就做好了打算。
+PartnerOverhaul_Talk_FirstVisit_Lake_Line,"I had never seen the lake before we came out here together. All that still water, with the sky lying flat on it.",在我们一起来这儿之前，我从没见过这片湖。那么一大片平静的水，天空就平平地躺在上面。
+PartnerOverhaul_Talk_FirstVisit_Wetlands_Line,"That mossy, sodden part of the woods was new to me. I don't think my feet will ever be dry again.",林子里那片长满青苔、湿漉漉的地方，我还是头一回去。我看我的脚是再也干不了了。
+PartnerOverhaul_Talk_FirstVisit_River_Line,My first time by the river with you. I could listen to that water all day.,这是我第一次和你一起来到河边。那水声，我能听上一整天。
+PartnerOverhaul_Talk_FirstVisit_Pine_Line,My first walk among the pines. Everything there smells of resin and needles.,这是我第一次走进松林。那里的一切都带着松脂和松针的气味。
+PartnerOverhaul_Talk_FirstVisit_Oak_Line,"My first walk under the big oaks. They make the whole forest feel older, somehow.",这是我第一次走在那些大橡树底下。不知怎么的，它们让整片森林都显得更古老了。
+PartnerOverhaul_EmberPot_CardName,Ember Pot,火炭罐
+PartnerOverhaul_EmberPot_CardDescription,"A lidded clay pot on a rope loop, cold and empty. Drag it onto a burning fire to scoop in embers (the fire loses fuel), then give it to your Partner to carry.",一只系着绳圈、带盖的陶罐，冰冷而空着。把它拖到燃烧的火堆上舀入火炭（火堆会损失燃料），然后交给你的同伴携带。
+PartnerOverhaul_EmberPot_Fill_ActionName,Fill with Embers,装入火炭
+PartnerOverhaul_EmberPot_Fill_ActionDescription,Scooped glowing embers from the fire into the pot and set the lid on. The fire burns lower for it.,从火堆里舀出发红的火炭装进罐中，盖上了盖子。火堆因此烧得弱了一些。
+PartnerOverhaul_EmberPotLit_CardName,Ember Pot (Smouldering),火炭罐（闷燃中）
+PartnerOverhaul_EmberPotLit_CardDescription,"A clay pot of smouldering embers on a rope loop, worn at the belt. Whoever wears it feels a little warmer, less than beside a fire. Put it in your Partner's inventory and it wears it by itself. The embers burn down in about six hours; add Charcoal to keep them going.",一只系着绳圈的陶罐，里面装着闷燃的火炭，挂在腰间。佩戴的人会觉得暖和一点，但比不上待在火堆旁。把它放进同伴的物品栏，同伴会自行佩戴。火炭大约六小时后燃尽；添加木炭可以让它继续燃烧。
+PartnerOverhaul_EmberPotLit_FuelCapacity_CardStatName,Embers,火炭
+PartnerOverhaul_EmberPotLit_EmbersOut_ActionName,Embers Die,火炭熄灭
+PartnerOverhaul_EmberPotLit_EmbersOut_ActionDescription,The embers have burned down to grey ash and the pot has gone cold.,火炭已经烧成了灰白的灰烬，罐子也凉了。
+PartnerOverhaul_EmberPotLit_AddCharcoal_ActionName,Add Charcoal,添加木炭
+PartnerOverhaul_EmberPotLit_AddCharcoal_ActionDescription,Tucked a lump of charcoal into the embers. It will keep them going about four hours longer.,往火炭里塞了一块木炭。这能让它们再多烧大约四个小时。
+PartnerOverhaul_EmberPotLit_Smother_ActionName,Smother,闷熄
+PartnerOverhaul_EmberPotLit_Smother_ActionDescription,Pressed the lid down until the embers went out. They are lost.,把盖子压紧，直到火炭熄灭。火炭就这样没了。
+PartnerOverhaul_Bp_EmberPot_CardName,Ember Pot,火炭罐
+PartnerOverhaul_Bp_EmberPot_CardDescription,"Tie a rope loop round a clay bowl and cap it, so a Partner can carry a few embers on a cold night.",在陶碗上系一个绳圈并加上盖子，这样同伴就能在寒冷的夜里随身带上几块火炭。
+PartnerOverhaul_Bp_EmberPot_UnlockConditionsDesc,Clay Bowl Needed,需要陶碗
+PartnerOverhaul_PartnerExpress_NeedFood_Stressed_Neutral_Line,"Everything is going wrong, and on top of it I'm starving. I need to eat.",什么都不顺，偏偏我还饿得要命。我得吃东西。
+PartnerOverhaul_PartnerExpress_NeedFood_Stressed_Reserved_Line,"I'm worn thin. And hungry. I need food.",我快撑不住了。还很饿。我需要食物。
+PartnerOverhaul_PartnerExpress_NeedFood_Stressed_Anxious_Line,"I can't think straight. I'm hungry and scared, and I don't know what we'll eat tomorrow.",我脑子里一团乱。我又饿又怕，也不知道我们明天吃什么。
+PartnerOverhaul_PartnerExpress_NeedFood_Stressed_Warm_Line,"It's been a hard few days. A meal together would help more than you know.",这几天很难熬。能一起吃顿饭，对我的帮助比你想的要大。
+PartnerOverhaul_PartnerExpress_NeedFood_Stressed_Assertive_Line,"I'm hungry and I'm at the end of my rope. Find us something to eat.",我饿了，而且已经到极限了。给我们找点吃的来。
+PartnerOverhaul_PartnerExpress_NeedFood_Plain_Neutral_Line,"I need to eat something. Is there any food we can spare?",我得吃点东西。我们还有多余的食物吗？
+PartnerOverhaul_PartnerExpress_NeedFood_Plain_Reserved_Line,"Food. I need some. Soon.",食物。我需要一些。要快。
+PartnerOverhaul_PartnerExpress_NeedFood_Plain_Anxious_Line,"I'm so hungry it's making me shaky. Is there enough food? Please tell me there's enough.",我饿得人都在发抖。食物够吗？求你告诉我够吃。
+PartnerOverhaul_PartnerExpress_NeedFood_Plain_Warm_Line,"My stomach has been complaining all afternoon. Could we sit down and eat something together?",我的肚子抱怨了一下午。我们能坐下来一起吃点东西吗？
+PartnerOverhaul_PartnerExpress_NeedFood_Plain_Assertive_Line,"I need food, now. I can't keep working on an empty stomach.",我需要食物，现在就要。我没法空着肚子继续干活。
+PartnerOverhaul_PartnerExpress_Router_NeedFood_Line,"(Router: never shown. Holds the follow-up weights the vanilla Express Continue answer copies.)",（路由行：不会显示。保存原版表达对话的“继续”选项所复制的后续台词权重。）
+PartnerOverhaul_PartnerExpress_NeedWarmth_Stressed_Neutral_Line,"I'm cold, I'm tired of being cold, and I'm tired of all of it. Please, some warmth.",我冷，我受够了挨冻，也受够了这一切。求你了，让我暖和一点。
+PartnerOverhaul_PartnerExpress_NeedWarmth_Stressed_Reserved_Line,"My teeth won't stop chattering. I need warmth. Please.",我的牙一直在打颤。我需要取暖。拜托了。
+PartnerOverhaul_PartnerExpress_NeedWarmth_Stressed_Anxious_Line,"I'm so cold, and everything feels like it's falling apart. Please, help me get warm.",我好冷，感觉一切都要散架了。求你，帮我暖和起来。
+PartnerOverhaul_PartnerExpress_NeedWarmth_Stressed_Warm_Line,"It's been a rough stretch. If we could just sit by a fire, I think I'd feel like myself again.",这阵子过得很不容易。要是我们能在火堆旁坐一坐，我想我就能缓过来了。
+PartnerOverhaul_PartnerExpress_NeedWarmth_Stressed_Assertive_Line,"I've had enough of this cold. Get a fire going. I mean it.",这冷我受够了。把火生起来。我是认真的。
+PartnerOverhaul_PartnerExpress_NeedWarmth_Plain_Neutral_Line,"I'm freezing. I need to get warm.",我快冻僵了。我得暖和起来。
+PartnerOverhaul_PartnerExpress_NeedWarmth_Plain_Reserved_Line,"Cold. Too cold. I need a fire.",冷。太冷了。我需要一堆火。
+PartnerOverhaul_PartnerExpress_NeedWarmth_Plain_Anxious_Line,"I can't stop shivering. What if it gets colder tonight? I need to get warm.",我抖个不停。要是今晚更冷怎么办？我得暖和起来。
+PartnerOverhaul_PartnerExpress_NeedWarmth_Plain_Warm_Line,"My hands are like ice. Could we sit close to a fire for a while, together?",我的手像冰一样。我们能一起在火堆旁坐一会儿吗？
+PartnerOverhaul_PartnerExpress_NeedWarmth_Plain_Assertive_Line,"I'm frozen through. We need a fire, and we need it now.",我冻透了。我们需要一堆火，而且现在就要。
+PartnerOverhaul_PartnerExpress_Router_NeedWarmth_Line,"(Router: never shown. Holds the follow-up weights the vanilla Express Continue answer copies.)",（路由行：不会显示。保存原版表达对话的“继续”选项所复制的后续台词权重。）
+PartnerOverhaul_PartnerExpress_NeedAttention_Stressed_Neutral_Line,"Everything has been so heavy, and I feel alone with it. Can we spend some time together?",这一切都太沉重了，我觉得只有我一个人在扛。我们能一起待一会儿吗？
+PartnerOverhaul_PartnerExpress_NeedAttention_Stressed_Reserved_Line,"It's a lot right now. I'd rather not carry it alone.",眼下事情太多。我不想一个人扛着。
+PartnerOverhaul_PartnerExpress_NeedAttention_Stressed_Anxious_Line,"I feel like I'm coming apart and you don't even see it. Please, just stay with me a while.",我觉得自己快要垮了，而你根本没看见。求你，就陪我待一会儿。
+PartnerOverhaul_PartnerExpress_NeedAttention_Stressed_Warm_Line,"It's been hard lately. Having you near makes it easier. Stay a little?",最近很难熬。有你在身边会好过一些。多留一会儿，好吗？
+PartnerOverhaul_PartnerExpress_NeedAttention_Stressed_Assertive_Line,"I'm under a lot of strain and you keep walking past me. I need your attention.",我压力很大，你却总是从我身边走过去。我需要你的关注。
+PartnerOverhaul_PartnerExpress_NeedAttention_Plain_Neutral_Line,"We haven't really talked in a while. I'd like some of your time.",我们有一阵子没好好说过话了。我想占用你一点时间。
+PartnerOverhaul_PartnerExpress_NeedAttention_Plain_Reserved_Line,"You've been busy. I noticed. A little time, maybe.",你一直很忙。我注意到了。也许，给我一点时间。
+PartnerOverhaul_PartnerExpress_NeedAttention_Plain_Anxious_Line,"Have I done something wrong? You've barely spoken to me. I just want a moment with you.",我是不是做错了什么？你几乎没跟我说过话。我只想和你待一会儿。
+PartnerOverhaul_PartnerExpress_NeedAttention_Plain_Warm_Line,"I miss you, even when you're right here. Spend a little time with me?",就算你就在眼前，我也会想你。陪我待一会儿，好吗？
+PartnerOverhaul_PartnerExpress_NeedAttention_Plain_Assertive_Line,"I need you to stop for a moment and actually be with me.",我需要你停下来一会儿，真正地陪陪我。
+PartnerOverhaul_PartnerExpress_Router_NeedAttention_Line,"(Router: never shown. Holds the follow-up weights the vanilla Express Continue answer copies.)",（路由行：不会显示。保存原版表达对话的“继续”选项所复制的后续台词权重。）
+PartnerOverhaul_PartnerExpress_NeedTrust_Stressed_Neutral_Line,"With everything this hard, I need to know you're on my side.",日子这么难，我需要知道你是站在我这边的。
+PartnerOverhaul_PartnerExpress_NeedTrust_Stressed_Reserved_Line,"Things are bad. I need to know you're with me.",情况很糟。我需要知道你和我在一起。
+PartnerOverhaul_PartnerExpress_NeedTrust_Stressed_Anxious_Line,"I'm frightened, and I don't know if I can lean on you. Can I?",我很害怕，也不知道能不能依靠你。我能吗？
+PartnerOverhaul_PartnerExpress_NeedTrust_Stressed_Warm_Line,"These are hard days. I'd feel steadier knowing we're in this together.",这些日子很难。要是知道我们是一起面对的，我心里会踏实些。
+PartnerOverhaul_PartnerExpress_NeedTrust_Stressed_Assertive_Line,"I'm stretched thin. I need proof you have my back, not promises.",我快撑不住了。我要的是你会支持我的证明，而不是承诺。
+PartnerOverhaul_PartnerExpress_NeedTrust_Plain_Neutral_Line,"I need to know I can count on you.",我需要知道我可以指望你。
+PartnerOverhaul_PartnerExpress_NeedTrust_Plain_Reserved_Line,"I'm not sure where we stand. I'd like to be.",我不确定我们之间算什么。我想弄清楚。
+PartnerOverhaul_PartnerExpress_NeedTrust_Plain_Anxious_Line,"Sometimes I wonder if you'd leave me behind. Tell me I'm wrong.",有时候我会想，你会不会丢下我。告诉我是我想错了。
+PartnerOverhaul_PartnerExpress_NeedTrust_Plain_Warm_Line,"I want to trust you completely. Help me get there?",我想完完全全地信任你。帮我做到这一点，好吗？
+PartnerOverhaul_PartnerExpress_NeedTrust_Plain_Assertive_Line,"Be straight with me. Can I rely on you or not?",跟我说实话。我到底能不能依靠你？
+PartnerOverhaul_PartnerExpress_Router_NeedTrust_Line,"(Router: never shown. Holds the follow-up weights the vanilla Express Continue answer copies.)",（路由行：不会显示。保存原版表达对话的“继续”选项所复制的后续台词权重。）
+PartnerOverhaul_PartnerExpress_Affection_Happy_Neutral_Line,"Today feels good, and you're a big part of why.",今天感觉很好，这很大一部分是因为你。
+PartnerOverhaul_PartnerExpress_Affection_Happy_Reserved_Line,"Good day. Better with you.",好日子。有你更好。
+PartnerOverhaul_PartnerExpress_Affection_Happy_Anxious_Line,"I'm happy, and it scares me a little how much of that is you.",我很开心，可这份开心有多少是因为你，想想我都有点害怕。
+PartnerOverhaul_PartnerExpress_Affection_Happy_Warm_Line,"I feel so light today. Thank you for being here with me.",我今天觉得好轻松。谢谢你在这儿陪着我。
+PartnerOverhaul_PartnerExpress_Affection_Happy_Assertive_Line,"I'm in a fine mood, and I want you to know it's because of you.",我心情很好，我想让你知道，这是因为你。
+PartnerOverhaul_PartnerExpress_Affection_Plain_Neutral_Line,"I'm glad it's you I'm out here with.",我很高兴，在这里陪着我的人是你。
+PartnerOverhaul_PartnerExpress_Affection_Plain_Reserved_Line,"I like having you around. That's all.",我喜欢有你在身边。就这样。
+PartnerOverhaul_PartnerExpress_Affection_Plain_Anxious_Line,"I worry I don't say it enough. I care about you, a lot.",我担心自己说得不够多。我在乎你，非常在乎。
+PartnerOverhaul_PartnerExpress_Affection_Plain_Warm_Line,"Come here. I just wanted to tell you how much you mean to me.",过来。我只是想告诉你，你对我有多重要。
+PartnerOverhaul_PartnerExpress_Affection_Plain_Assertive_Line,"I'll say it plainly: I care about you, and I'm not going anywhere.",我就直说了：我在乎你，而且我哪儿也不去。
+PartnerOverhaul_PartnerExpress_Router_Affection_Line,"(Router: never shown. Holds the follow-up weights the vanilla Express Continue answer copies.)",（路由行：不会显示。保存原版表达对话的“继续”选项所复制的后续台词权重。）
+PartnerOverhaul_PartnerExpress_Attraction_Happy_Neutral_Line,"I'm in such a good mood, and you look wonderful today.",我心情特别好，而且你今天看起来真好看。
+PartnerOverhaul_PartnerExpress_Attraction_Happy_Reserved_Line,"Feeling good. You look good. Both true.",心情不错。你很好看。两样都是真的。
+PartnerOverhaul_PartnerExpress_Attraction_Happy_Anxious_Line,"I'm so happy today I can hardly stand still near you. Is that silly?",我今天太开心了，在你身边简直站不住。这是不是很傻？
+PartnerOverhaul_PartnerExpress_Attraction_Happy_Warm_Line,"Everything feels bright today, and you most of all.",今天一切都显得明亮，而最明亮的就是你。
+PartnerOverhaul_PartnerExpress_Attraction_Happy_Assertive_Line,"Good day, good company, and you look fine. I'm not hiding it.",日子好，陪着的人也好，而且你很好看。我不打算藏着。
+PartnerOverhaul_PartnerExpress_Attraction_Plain_Neutral_Line,"I keep catching myself looking at you.",我总是发现自己在看你。
+PartnerOverhaul_PartnerExpress_Attraction_Plain_Reserved_Line,"You look good today. I noticed.",你今天很好看。我注意到了。
+PartnerOverhaul_PartnerExpress_Attraction_Plain_Anxious_Line,"Is it strange that you still make my heart jump? I hope that's all right.",你到现在还会让我心跳加快，这奇怪吗？希望你不介意。
+PartnerOverhaul_PartnerExpress_Attraction_Plain_Warm_Line,"Have I told you lately how lovely you look in this light?",我最近有没有告诉过你，你在这光线下有多好看？
+PartnerOverhaul_PartnerExpress_Attraction_Plain_Assertive_Line,"I like what I see. Thought you should know.",我喜欢我眼前看到的。觉得该让你知道。
+PartnerOverhaul_PartnerExpress_Router_Attraction_Line,"(Router: never shown. Holds the follow-up weights the vanilla Express Continue answer copies.)",（路由行：不会显示。保存原版表达对话的“继续”选项所复制的后续台词权重。）
+PartnerOverhaul_PartnerExpress_Gratitude_Happy_Neutral_Line,"I'm in good spirits, and I owe a lot of that to you. Thank you.",我精神很好，这多半要归功于你。谢谢你。
+PartnerOverhaul_PartnerExpress_Gratitude_Happy_Reserved_Line,"Good day. Thanks to you.",好日子。多亏了你。
+PartnerOverhaul_PartnerExpress_Gratitude_Happy_Anxious_Line,"Things are good right now, and I'm so grateful. Thank you for making it so.",现在一切都很好，我真的很感激。谢谢你让这一切成真。
+PartnerOverhaul_PartnerExpress_Gratitude_Happy_Warm_Line,"I'm so happy today. Thank you for all the little things you do.",我今天好开心。谢谢你做的每一件小事。
+PartnerOverhaul_PartnerExpress_Gratitude_Happy_Assertive_Line,"Life is good right now, and you made that happen. Thank you.",现在的日子很好，这是你带来的。谢谢你。
+PartnerOverhaul_PartnerExpress_Gratitude_Plain_Neutral_Line,"Thank you for everything you do for us.",谢谢你为我们做的一切。
+PartnerOverhaul_PartnerExpress_Gratitude_Plain_Reserved_Line,"Thanks. For all of it.",谢谢。为这一切。
+PartnerOverhaul_PartnerExpress_Gratitude_Plain_Anxious_Line,"I don't know what I'd do without you. Thank you, truly.",没有你，我真不知道该怎么办。谢谢你，真心的。
+PartnerOverhaul_PartnerExpress_Gratitude_Plain_Warm_Line,"I don't say it enough: thank you. You take such good care of me.",这话我说得不够多：谢谢你。你把我照顾得这么好。
+PartnerOverhaul_PartnerExpress_Gratitude_Plain_Assertive_Line,"You've done right by me, and I won't forget it. Thank you.",你待我不薄，我不会忘记。谢谢你。
+PartnerOverhaul_PartnerExpress_Router_Gratitude_Line,"(Router: never shown. Holds the follow-up weights the vanilla Express Continue answer copies.)",（路由行：不会显示。保存原版表达对话的“继续”选项所复制的后续台词权重。）
+PartnerOverhaul_Express_Answer_Continue,Continue,继续

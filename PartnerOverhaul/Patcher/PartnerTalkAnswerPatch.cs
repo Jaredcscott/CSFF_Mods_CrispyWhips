@@ -49,6 +49,8 @@ namespace PartnerOverhaul.Patcher
 
         // PO_PartnerTalk lookup: scanned at most once per run boot (reset in the boot postfix);
         // Talk can open many times a run and the scene, framework-created at menu, does not move.
+        // The mood router is captured by the boot postfix's own DialogLine pass; FindMoodRouter scans
+        // only when that pass did not see it.
         private static DialogScene _talkScene;
         private static bool _talkSceneScanned;
         private static DialogLine _moodRouter;
@@ -112,14 +114,23 @@ namespace PartnerOverhaul.Patcher
                 _moodRouter = null;
                 _moodRouterScanned = false;
 
-                int hubs = 0;
+                // One DialogLine enumeration per run boot (audit V4): the pass that finds the hub also
+                // captures the mood router EnsureAnswer needs, so FindMoodRouter answers from it without
+                // a second scan. A router not loaded yet is left to FindMoodRouter's own scan, as before.
+                var hubLines = new List<DialogLine>();
                 foreach (var line in Resources.FindObjectsOfTypeAll<DialogLine>())
                 {
-                    if (line == null || line.name != HubLineName) continue;
-                    hubs++;
-                    EnsureAnswer(line);
+                    if (line == null) continue;
+                    string lineName = line.name;
+                    if (lineName == HubLineName) hubLines.Add(line);
+                    else if (!_moodRouterScanned && lineName == MoodRouterName)
+                    {
+                        _moodRouter = line; // the first match, as FindMoodRouter's own scan takes
+                        _moodRouterScanned = true;
+                    }
                 }
-                if (hubs == 0)
+                foreach (var hub in hubLines) EnsureAnswer(hub);
+                if (hubLines.Count == 0)
                     DebugOnce("hub-not-loaded-at-boot", $"DialogLine '{HubLineName}' not loaded at run boot; the answer is added when the Talk menu opens");
             }
             catch (Exception ex)

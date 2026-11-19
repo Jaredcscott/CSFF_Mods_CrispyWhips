@@ -108,11 +108,19 @@ namespace PartnerOverhaul.Patcher
             try
             {
                 FoundLines.Clear();
+                // One DialogLine enumeration per run boot (audit V4): the pass that finds the topic list
+                // also records every line a topic leads to, so FindLine answers from FoundLines without a
+                // scan of its own. A line not loaded yet stays out, and FindLine still rescans for it.
+                var hubs = new List<DialogLine>();
                 foreach (var line in Resources.FindObjectsOfTypeAll<DialogLine>())
                 {
-                    if (line == null || line.name != TopicsLineName) continue;
-                    Ensure(line);
+                    if (line == null) continue;
+                    string lineName = line.name;
+                    if (lineName == TopicsLineName) hubs.Add(line);
+                    else if (TopicLineNames.Contains(lineName) && !FoundLines.ContainsKey(lineName))
+                        FoundLines[lineName] = line; // the first match, as FindLine's own scan takes
                 }
+                foreach (var hub in hubs) Ensure(hub);
             }
             catch (Exception ex)
             {
@@ -153,7 +161,9 @@ namespace PartnerOverhaul.Patcher
         }
 
         // Found lines only, reset at run boot: a miss still rescans, so a line that loads late is still found.
+        // The boot postfix's own DialogLine pass fills it with the lines named in TopicLineNames.
         private static readonly Dictionary<string, DialogLine> FoundLines = new Dictionary<string, DialogLine>();
+        private static readonly HashSet<string> TopicLineNames = new HashSet<string>(Topics.Select(t => t.LineName));
 
         private static DialogLine FindLine(string name)
         {
