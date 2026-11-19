@@ -1,7 +1,7 @@
 # Roadmap: Herbs and Fungi
-Version at time of writing: 1.14.19
-Date: 2026-11-13
-Audit score: 9/10 - PASS (0 CRITICAL, 0 design gaps, 3 open cosmetic/text/authoring warnings)
+Version at time of writing: 1.14.20
+Date: 2026-11-15
+Audit score: 8/10 - PASS (0 CRITICAL, 0 design gaps, 0 broken loops; 2 dead-weight-recipe notes, 5 art/authoring/tooling/structures/icon warnings)
 
 ## Current State
 
@@ -9,37 +9,44 @@ Audit score: 9/10 - PASS (0 CRITICAL, 0 design gaps, 3 open cosmetic/text/author
 
 **Content**: 237 items / 133 blueprints / 80 structures / 50 liquids / 16 perks / 238 custom images / 11 GameStats / 16 flavour spices / 2 encounter guards. Organised into 15 content modules (forage, fungi, herbs, garden, cultivation, hemp, peanut, oilpress, pickling, kitchen, breads, drinks, medicine, storage, modwide).
 
-**Stability**: 9/10 PASS. 0 CRITICAL, 0 design gaps, 0 broken gameplay loops. 3 open warnings - all cosmetic / text / authoring, none blocking: W7 Wax Leather Dressing borrows an unrelated salve's art (oilpress); W8 ForagerSeasoning's AddedFlavours is three duplicate Subtle entries (kitchen, harmless in practice); W9 PLAYER_GUIDE overstates the Old Grove truffle forage chance 2x (fungi, doc-only). The whole prior warning cluster (W1-W6) closed in mission `csff-warnings-to-green-2026-11-12`.
+**Stability**: 8/10 PASS. 0 CRITICAL, 0 design gaps, 0 broken gameplay loops. The month-long unbuildable-broths bug is fixed in 1.14.20 (`87a6e84ff`): the four mushroom broths now take an obtainable hot `LQ_Water` bowl (Fuel 100-200), gate-pinned by `Blueprint-RequiredLiquidObtainable.Tests.ps1`. The 2026-11-14 tea-text and doc fixes (`d34ac3c37`) shipped and are confirmed closed by the 2026-11-15 drinks and modwide critical-analysis re-runs: M3a/M3b (Lion's Mane and Ginseng tea text now says what the Drink action does) and W9 (PLAYER_GUIDE truffle chance matches the data) are RESOLVED, as are the art-hygiene items N2/N4. Open items are two soft content-quality design notes - DN1 (Stimulant Tea is strictly dominated by Ginseng Tea) and DN2 (Sleep Tea delivers no sleep effect) - and four warnings: W7 Wax Leather Dressing borrows an unrelated salve's art (oilpress), W8 ForagerSeasoning's AddedFlavours is three duplicate Subtle entries (kitchen, harmless), A13 `GameLoadPatch.cs` reflection sites not guarded by a signature gate (modwide, defense-in-depth), W10 the 16 pickle vats declare a liquid capacity with no `SpillsInventoryOnDestroy` (pickling, likely inert, surfaced by the 2026-11-15 structures re-run), and W11 two truffle cards point a stat icon at the unresolved sprite `Fuel` (images, inert stat-bar fallback, surfaced by the 2026-11-15 images re-run). None blocks a loop. The 2026-11-15 images and perks re-runs came back near-clean (0 missing card art; 16/16 perks OK, W5/T4.41 confirmed closed, one cosmetic WarpData-pair note PF2), and a new LTS hardening plan now schedules the stability backlog (see Open work).
 
-**Open work**: none. `Documentation/Retrospectives/INDEX.md` has one entry naming this mod - `sealablegates-portal-hardening-2026-07-02`, status Graduated (closed). No open or pending-verification retro.
+**Open work**: none in the retrospective ledger. `Documentation/Retrospectives/INDEX.md` has one entry naming this mod - `sealablegates-portal-hardening-2026-07-02`, status Graduated (closed). No open or pending-verification retro. A new LTS hardening plan, `Documentation/Plans/HerbsAndFungi/MASTER_PLAN.md` (created 2026-11-15, `3db1757e0`, `/generate-ideas lts`), schedules stability-only work (rows 1.1/2.1/2.2/3.1/3.2/3.3/4.1); it proposes no new content and parks the open feature/balance findings (DN1/DN2/W7/W8, the hemp-smoke and cognition-tea subsystems) in its Considered table (C1-C8), where they remain open findings for a future feature pass.
 
-**Framework compliance**: Tier 2, current. Uses `ActionRouter` (PickleVatRoutePatch handlers), `SpawnService`, `TickEvents`, `ContentModPlugin` (`OnModAwake`/`RegisterPatches`), and declarative `EncounterGuards/*.json` (DeathCapWard). No deprecated patterns: no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`, no manual perk/blueprint injection (all declarative). Every reflection path guards its nulls and warns once per cause (code quality 10/10). Versions synced 1.14.19 across ModInfo.json / Plugin.cs / README.md; build 0/0; SimpCn.csv present, Chinese parity clean (3161/3161).
+**Framework compliance**: Tier 2, current. Uses `ActionRouter` (PickleVatRoutePatch handlers), `SpawnService`, `TickEvents`, `ContentModPlugin` (`OnModAwake`/`RegisterPatches`), and declarative `EncounterGuards/*.json` (DeathCapWard). No deprecated patterns: no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`, no manual perk/blueprint injection (all declarative). Every reflection path guards its nulls and warns once per cause (code quality holds); the one code finding (A13) is a defense-in-depth signature-gate gap, not a live defect. Versions synced 1.14.20 across ModInfo.json / Plugin.cs / README.md; build 0/0; SimpCn.csv present, Chinese parity clean (3161/3161).
 
 ---
 
-## Phase 0: Stabilize  *(skipped - audit score 9/10 >= 8 and no open retrospectives)*
+## Phase 0: Stabilize  *(skipped - audit score 8/10 >= 8 and no open retrospectives)*
 
-No CRITICAL issues, no design gaps, no open retrospectives, no broken loops. Nothing to stabilize before new content. The three open warnings are polish-tier (Phase 4).
+No CRITICAL issues, no design gaps, no open retrospectives, no broken loops. The month-long unbuildable-broths design gap already shipped FIXED in 1.14.20, and the prior pass's tea-text over-claims shipped FIXED on 2026-11-14. Nothing to stabilize before new content. The open tea, art, authoring, tooling and structures items are foundation/depth/polish-tier (Phases 1, 2 and 4).
 
 ---
 
 ## Phase 1: Foundation
 
-> All table-stakes items are already satisfied. This phase is maintenance, not open work.
+> All table-stakes items are already satisfied. This phase is maintenance plus one new defense-in-depth gate.
 
 | Item | Type | Status | Complexity |
 |------|------|--------|------------|
-| Versions synced across ModInfo/Plugin.cs/README | Version hygiene | DONE (1.14.19) | - |
+| Versions synced across ModInfo/Plugin.cs/README | Version hygiene | DONE (1.14.20) | - |
 | Framework Tier 2 adoption (ActionRouter/SpawnService/TickEvents/EncounterGuards) | Framework | DONE | - |
 | Chinese localization (SimpCn.csv, parity 3161/3161) | Localization | DONE | - |
-| bin/Release in sync (BinSync 0 missing/0 stale/0 orphaned) | Build hygiene | DONE | - |
-| Re-run `Perk-StartingItemStats.Tests.ps1` in a Pester-5 session | Gate hygiene (N4) | Open | Quick |
+| bin/Release in sync (BinSync 0 missing/0 stale/0 orphaned; structures 80/80 byte-identical) | Build hygiene | DONE | - |
+| Perk gates green (29/0 at HEAD: starting-item stats, UID alias, name collision, trigger-window clamp) | Gate hygiene | DONE | - |
+| A13 - add `GameLoadPatch.cs`'s ~24 reflection member names to `Framework-ReflectedSignatures.Tests.ps1` (and the five sibling reflect-guard files in one pass; now scheduled as MASTER_PLAN row 1.1, 40 sites) | Gate hygiene (defense-in-depth) | Open (scheduled, MASTER_PLAN 1.1) | Quick |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> The mod is content-complete for its stated scope (its remediation plan drained to an As-Built doc, 0 open). These are the natural depth options if the owner wants to grow it, not scheduled work.
+> The mod is content-complete for its stated scope (its remediation plan drained to an As-Built doc, 0 open; a new LTS hardening plan at `Documentation/Plans/HerbsAndFungi/MASTER_PLAN.md` schedules stability-only work and parks these feature options in its Considered table C1-C8). These are the natural depth options if the owner wants to grow it, not scheduled content work.
+
+### Medicinal / stimulant / sleep tea effects pass (DN1/DN2)
+**What**: the tea TEXT is now honest (the M3a/M3b over-claims were trimmed 2026-11-14), but two teas remain dead weight: Stimulant Tea is strictly dominated by Ginseng Tea (same ingredient, no research, a superset payoff) and Sleep Tea delivers no sleep effect. Back them with one small subsystem: a distinct stimulant payoff for Stimulant Tea (a `Focus`/`Energy` modifier or a short caffeine-style effect stat) so it is not a pure downgrade of Ginseng Tea, and a real `Wakefulness`/`SleepClock` aid for Sleep Tea so it earns its name. The same effect stat would also let Lion's Mane and Ginseng tea deliver a felt cognition/energy benefit if the owner wants the medicinal teas to do more than their now-honest text. The alternative is to retire the two dead-weight recipes and record them in a Considered table.
+**Why**: two teas are strictly dead weight; a felt effect makes the set deliver what its name implies, and retires the dominated recipe.
+**Requires**: none (new effect stat + StatModifications).
+**Complexity**: Medium
 
 ### CMC-injected H&F forage biome review
 **What**: Community Mod Chest injects H&F's own forage cards into every outside-village node it owns (24 entries in the Foraging Forest alone). Review the injected entries for off-biome or redundant placements with the same biome-fit lens the CMC outside-village survey used.
@@ -87,17 +94,19 @@ No CRITICAL issues, no design gaps, no open retrospectives, no broken loops. Not
 
 ## Phase 4: Polish
 
-> Art, authoring and text that make the mod feel finished. These are the three open warnings plus the carried minors.
+> Art, authoring and text that make the mod feel finished. These are the open warnings plus the carried minors (the M3a/M3b/W9/N2/N4 items shipped FIXED 2026-11-14).
 
 | Item | What | Complexity |
 |------|------|------------|
-| W9 - PLAYER_GUIDE truffle number | `PLAYER_GUIDE.md:58` says Old Grove finds a truffle "6%"; data row is `Chance: 3.0` (3%). Change the doc, or raise the data row if 6% was intended | Quick |
 | W8 - ForagerSeasoning flavour blend | `Spice_ForagerSeasoning.json` repeats one flavour pair 3x at `Subtle`; collapse to 2 entries at the intended intensity, or confirm the diluted blend is deliberate and drop the duplicates | Quick |
+| W10 - pickle-vat liquid capacity | 16 vats carry `MaxLiquidCapacity: 500` with locked liquid transfer and no `SpillsInventoryOnDestroy`. Settle once: confirm a vat never holds a liquid and set the capacity to 0 (vestigial), else add `SpillsInventoryOnDestroy: true` to all 16. Likely inert, pure data (scheduled MASTER_PLAN row 3.1) | Quick |
+| W11 - truffle `Fuel` stat icons | `CutDriedTruffle.json` and `FatCoatedDriedTruffleSlices.json` set `OverrideIconWarpData: "Fuel"` on their SpecialDurability4 "Fat" stat; `Fuel` is not a real sprite (closest `Fuel_Old`). Inert stat-bar fallback (not card art, not a blank card). Point both at `Fuel_Old` or a "Fat"-appropriate sprite | Quick |
+| PF2 - perk WarpData-pair consistency | 14 of 16 perks omit the unused side's empty-but-typed `EquippedCardsWarpData`/`EquippedCardsWarpType` pair that DryingKit/HerbalistHeadstart carry. Cosmetic; add the empty-but-typed pair to the 14 files so a later one-sided addition cannot silent-skip | Quick |
 | W7 - Wax Leather Dressing art | `WaxLeatherDressing.json` draws `HF_HerbalSalve` (green medicinal-salve art). Generate a dedicated pale-wax icon via `/create-image`, or record the reuse as intentional in the `.art` sidecar | Medium (owner-gated, needs credits) |
 | R3 - Drying Tray help text | After W1 narrowed the filter, confirm it still accepts the three vanilla herbs the help names (frostleaf, cut fireroot, appleweed) via the asset-file read or in-game, or trim the help | Medium |
 | N6 - staged-stew mix art | Mushroom and Leek Mix / Carrot and Ginger Mix borrow Leek/Carrot pictures by design; ship distinct sprites to finish the stew feature visually | Medium |
 | R4 - new art review | Route `HF_ForagersNotebook.png` (W6 fix) and any new Wax Leather icon through `/review-art` and an in-game look | Quick |
-| N2 / N4 - housekeeping | Prune the stale `HF_LQ_PickleBrine.png` `approved` row from `.art/review/verdicts.json`; delete 3 orphaned `.art` records; review the two regenerated PNGs | Quick |
+| N7 - housekeeping | Refresh the stale `ASSET_CREDITS.md` note on the next `.art` cleanup (the stale art-review row N2 and the orphaned `.art` records N4 were cleaned up 2026-11-14) | Quick |
 
 ---
 
@@ -105,9 +114,10 @@ No CRITICAL issues, no design gaps, no open retrospectives, no broken loops. Not
 
 > Where this mod should be at v1.15.0 / v2.0.
 
-Herbs and Fungi is already the fleet's gold-standard DATA mod and is content-complete for its stated scope: a self-contained forage-grow-process-medicine loop that never touches the map. Its natural endpoint is "finished and maintained": every card has its own art, every player-facing number is tuned (not placeholder), and every cross-mod producer/consumer link (ACT oils, Sirus23 remedies, CMC Academy, the Partner diet) is confirmed in a running game. The one addition that becomes natural at a larger scale, and is not justified by today's scope, is the hemp-burning smoke subsystem - it would turn recreational hemp from a flavour item into a small managed-hazard mechanic with an outdoor stealth payoff.
+Herbs and Fungi is already the fleet's gold-standard DATA mod and is content-complete for its stated scope: a self-contained forage-grow-process-medicine loop that never touches the map. Its natural endpoint is "finished and maintained": every card has its own art, every player-facing number is tuned (not placeholder), every "medicinal" drink delivers a felt effect that matches its text, and every cross-mod producer/consumer link (ACT oils, Sirus23 remedies, CMC Academy, the Partner diet) is confirmed in a running game. The one addition that becomes natural at a larger scale, and is not justified by today's scope, is the hemp-burning smoke subsystem - it would turn recreational hemp from a flavour item into a small managed-hazard mechanic with an outdoor stealth payoff.
 
 **Potential major additions** (not yet justified - revisit after Phase 2):
+- A medicinal-effect subsystem for the teas (cognition/energy/sleep effect stats) - turns the two dead-weight teas into a real felt benefit and retires the dominated recipe.
 - Hemp-burning smoke-and-stealth subsystem - deepens the recreational-hemp theme the mod only gestures at, using the framework's board-scoped effect-stat and encounter-guard patterns.
 - A tuning pass on all placeholder forage/yield numbers (the mod's own text marks many as untuned) - turns W9-class doc/data drift into a single sourced table.
 
@@ -121,7 +131,7 @@ Any of these worth building belongs in the mod's plan under `Documentation/Plans
 |---------|--------|
 | After any new content phase | Run `/audit-mod HerbsAndFungi` (or the per-module runs) and update this roadmap |
 | Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
-| After fixing a warning | Re-run the watched gate (`HerbsAndFungi-WarningSweep-2026-11.Tests.ps1`) and `/consolidate-audit HerbsAndFungi` |
+| After fixing a warning | Re-run the watched gate (`HerbsAndFungi-WarningSweep-2026-11-14.Tests.ps1`) and `/consolidate-audit HerbsAndFungi` |
 | Before a Nexus release | `/export-to-repo HerbsAndFungi`, then `Development_Tools/Check-KnownReds.py check` for the pushed commit |
 
 ---

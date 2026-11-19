@@ -8,14 +8,14 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_ginseng_tea",
         "LocalizationKey": "herbsfungiginsengtea_CardDescription",
-        "DefaultText": "A revitalizing herbal tea brewed from ground ginseng root. Reduces fatigue and boosts mental clarity."
+        "DefaultText": "A revitalizing herbal tea brewed from ground ginseng root. Eases stress and strengthens your immune system for a while."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_ginseng_tea",
         "LocalizationKey": "herbsfungiginsengtea_CardHelpSection",
-        "DefaultText": "<b>Preparation:</b> Mix ground ginseng with hot water in a bowl.\n\n<b>Benefits:</b> Reduces fatigue, improves focus, boosts immunity."
+        "DefaultText": "<b>Preparation:</b> Mix ground ginseng with hot water in a bowl.\n\n<b>Benefits:</b> Stress relief, immune support, lifts wellbeing."
     },
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
     "CardImageWarpData": "HF_LQ_GinsengTea",

@@ -3343,26 +3343,6 @@
         }
       ]
     },
-    "Picture/HF_LQ_PickleBrine.png": {
-      "status": "approved",
-      "notes": "",
-      "sha1": "d040875ebf0c7044fdb0b28e7d65021ea64882c2",
-      "at": "2026-10-21T18:22:03+00:00",
-      "history": [
-        {
-          "status": "approved",
-          "notes": "",
-          "sha1": "f395ead67fd1eb4d544135155aa9a84782ad07a9",
-          "at": "2026-10-12T08:52:07+00:00"
-        },
-        {
-          "status": "approved",
-          "notes": "",
-          "sha1": "f395ead67fd1eb4d544135155aa9a84782ad07a9",
-          "at": "2026-10-12T17:24:46+00:00"
-        }
-      ]
-    },
     "Picture/HF_LQ_ReishiTea.png": {
       "status": "approved",
       "notes": "",

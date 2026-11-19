@@ -5,6 +5,15 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [1.14.21] - 2026-11-18
+
+### Fixed
+
+- **Lion's Mane Tea and Ginseng Tea say what they do.** Their cards promised better focus, mental clarity and less fatigue, and neither tea changes any of those. Lion's Mane Tea now reads: strengthens your immune system for a while and lifts your wellbeing. Ginseng Tea now reads: eases stress and strengthens your immune system for a while. Text only; both teas do exactly what they did.
+- Technical: `CardDescription` and `CardHelpSection` of `GinsengTea.json` and `LionsManeTea.json`, their rows in `Localization/SimpEn.csv` and `Localization/SimpCn.csv` (the three rewritten Chinese cells are agent-written, not reviewed by a native speaker), and the tea rows of `PLAYER_GUIDE.md`. The Drink actions change Thirst, Satiation, Wellbeing and the Herbal Tonic effect stat (Ginseng Tea also lowers Stress); no stat was touched. `VigorElixir.json` carried a copy of the old Ginseng Tea help as its fallback text and now carries its own CSV text; players already saw the right one. Gate: `Development_Tools/Tests/HerbsAndFungi-WarningSweep-2026-11-14.Tests.ps1` (a card whose description or help promises focus or energy must change a stat of that kind). Audit findings M3a and M3b.
+- **The player guide gives the real chance of a Truffle at the Old Grove.** It said foraging there finds one 6% of the time. The chance has been 3% since 1.14.9 halved every forage find; the guide kept the old number. The game is unchanged.
+- Technical: `PLAYER_GUIDE.md` against the `GroveOak_OldGrove` Forage rule in `DropInjections.json` (`Chance` 3.0). Same gate. Audit finding W9.
+
 ## [1.14.20] - 2026-11-14
 
 ### Fixed

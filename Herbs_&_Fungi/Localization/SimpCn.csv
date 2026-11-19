@@ -325,19 +325,19 @@ herbsfungireishiground_MixTea,Mix into Hot Water,混入热水
 herbsfungireishiground_MixTea_Desc,Mix reishi powder into hot water to create therapeutic medicinal tea.,将灵芝粉混入热水中制作治疗性药茶。
 herbsfungireishiground_MixTea_FailMessage,Not hot enough.,水温不够热。
 herbsfungiginsengtea_CardName,Ginseng Tea,人参茶
-herbsfungiginsengtea_CardDescription,A revitalizing herbal tea brewed from ground ginseng root. Reduces fatigue and boosts mental clarity.,由人参根粉泡制的提神草药茶。减少疲劳并增强思维清晰度。
+herbsfungiginsengtea_CardDescription,A revitalizing herbal tea brewed from ground ginseng root. Eases stress and strengthens your immune system for a while.,由人参根粉泡制的提神草药茶。缓解压力，并在一段时间内增强你的免疫系统。
 herbsfungiginsengtea_CardHelpSection,"<b>Preparation:</b> Mix ground ginseng with hot water in a bowl.
 
-<b>Benefits:</b> Reduces fatigue, improves focus, boosts immunity.","<b>制作：</b>在碗中将人参粉与热水混合。
+<b>Benefits:</b> Stress relief, immune support, lifts wellbeing.","<b>制作：</b>在碗中将人参粉与热水混合。
 
-<b>功效：</b>缓解疲劳，提升专注力，增强免疫力。"
+<b>功效：</b>缓解压力，增强免疫力，提升幸福度。"
 herbsfungiginsengtea_SpoilageTime_CardStatName,Bacteria,细菌
 herbsfungiginsengtea_SpoilageTime_OnFull_ActionDescription,Ginseng Tea Spoiled!,人参茶变质了！
 herbsfungiginsengtea_FuelCapacity_CardStatName,Liquid Temperature,液体温度
 herbsfungiginsengtea_SpecialDurability2_CardStatName,Quality,质量
 herbsfungiginsengtea_DismantleActions_Drink_ActionName,Drink,喝
 herbsfungilionsmanetea_CardName,Lion's Mane Tea,狮鬃菇茶
-herbsfungilionsmanetea_CardDescription,A medicinal tea brewed from ground lion's mane mushroom. Known for boosting cognitive function and immune health.,由狮鬃菇粉泡制的药茶。以增强认知功能和免疫健康而闻名。
+herbsfungilionsmanetea_CardDescription,A medicinal tea brewed from ground lion's mane mushroom. Strengthens your immune system for a while and lifts your wellbeing.,由狮鬃菇粉泡制的药茶。在一段时间内增强你的免疫系统，并提升幸福度。
 herbsfungilionsmanetea_CardHelpSection,<b>Preparation:</b> Mix ground lion's mane with hot water in a bowl.,<b>准备:</b> 将磨碎的狮鬃菇与热水混合于碗中。
 herbsfungilionsmanetea_SpoilageTime_CardStatName,Bacteria,细菌
 herbsfungilionsmanetea_SpoilageTime_OnFull_ActionDescription,Lion's Mane Tea Spoiled!,狮鬃菇茶变质了！

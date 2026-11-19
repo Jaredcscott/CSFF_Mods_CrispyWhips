@@ -118,11 +118,11 @@
       "id": "modwide",
       "name": "Mod-wide",
       "modWide": true,
-      "summary": "Plugin entry, the shared loader (GameLoadPatch), the sixteen character perks (each grants kits from several subsystems), project files, player docs, card motion, art tooling state, and three orphaned art records whose cards (forest trails, wild bees nest) no longer exist.",
+      "summary": "Plugin entry, the shared loader (GameLoadPatch), the sixteen character perks (each grants kits from several subsystems), project files, player docs, card motion, art tooling state, and three retired art records (.art/retired/) whose cards (forest trails, wild bees nest) were removed in 1.14.9.",
       "paths": ["Plugin.cs", "GlobalUsing.cs", "Properties/**", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "PLAYER_GUIDE.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore",
                 "Features.json", "Modules.json", "Patcher/GameLoadPatch.cs", "CharacterPerk/**", "CardData/Motion/**",
                 ".art/compositions.json", ".art/bowl_items.json", ".art/liquid_bowls.json", ".art/RUN_LOG.md", ".art/reference-uploads.json", ".art/review/**",
-                ".art/HF_ClearedForestTrail.json", ".art/HF_OvergrownForestTrail.json", ".art/WildBeesNest.json"]
+                ".art/retired/**"]
     }
   ]
 }

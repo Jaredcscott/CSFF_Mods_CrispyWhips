@@ -8,14 +8,14 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_lions_mane_tea",
         "LocalizationKey": "herbsfungilionsmanetea_CardDescription",
-        "DefaultText": "A medicinal tea brewed from ground lion's mane mushroom. Known for boosting cognitive function and immune health."
+        "DefaultText": "A medicinal tea brewed from ground lion's mane mushroom. Strengthens your immune system for a while and lifts your wellbeing."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_lions_mane_tea",
         "LocalizationKey": "herbsfungilionsmanetea_CardHelpSection",
-        "DefaultText": "<b>Preparation:</b> Mix ground lion's mane with hot water in a bowl.\n\n<b>Benefits:</b> Boosts focus, immune support, cognitive enhancement."
+        "DefaultText": "<b>Preparation:</b> Mix ground lion's mane with hot water in a bowl."
     },
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
     "CardImageWarpData": "HF_LQ_LionsManeTea",

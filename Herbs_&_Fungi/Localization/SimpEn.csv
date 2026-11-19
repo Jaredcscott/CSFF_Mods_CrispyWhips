@@ -317,17 +317,17 @@ herbsfungireishiground_MixTea,Mix into Hot Water
 herbsfungireishiground_MixTea_Desc,Mix reishi powder into hot water to create therapeutic medicinal tea.
 herbsfungireishiground_MixTea_FailMessage,Not hot enough.
 herbsfungiginsengtea_CardName,Ginseng Tea
-herbsfungiginsengtea_CardDescription,A revitalizing herbal tea brewed from ground ginseng root. Reduces fatigue and boosts mental clarity.
+herbsfungiginsengtea_CardDescription,A revitalizing herbal tea brewed from ground ginseng root. Eases stress and strengthens your immune system for a while.
 herbsfungiginsengtea_CardHelpSection,"<b>Preparation:</b> Mix ground ginseng with hot water in a bowl.
 
-<b>Benefits:</b> Reduces fatigue, improves focus, boosts immunity."
+<b>Benefits:</b> Stress relief, immune support, lifts wellbeing."
 herbsfungiginsengtea_SpoilageTime_CardStatName,Bacteria
 herbsfungiginsengtea_SpoilageTime_OnFull_ActionDescription,Ginseng Tea Spoiled!
 herbsfungiginsengtea_FuelCapacity_CardStatName,Liquid Temperature
 herbsfungiginsengtea_SpecialDurability2_CardStatName,Quality
 herbsfungiginsengtea_DismantleActions_Drink_ActionName,Drink
 herbsfungilionsmanetea_CardName,Lion's Mane Tea
-herbsfungilionsmanetea_CardDescription,A medicinal tea brewed from ground lion's mane mushroom. Known for boosting cognitive function and immune health.
+herbsfungilionsmanetea_CardDescription,A medicinal tea brewed from ground lion's mane mushroom. Strengthens your immune system for a while and lifts your wellbeing.
 herbsfungilionsmanetea_CardHelpSection,<b>Preparation:</b> Mix ground lion's mane with hot water in a bowl.
 herbsfungilionsmanetea_SpoilageTime_CardStatName,Bacteria
 herbsfungilionsmanetea_SpoilageTime_OnFull_ActionDescription,Lion's Mane Tea Spoiled!

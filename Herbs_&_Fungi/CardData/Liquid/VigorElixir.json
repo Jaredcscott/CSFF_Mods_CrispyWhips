@@ -15,7 +15,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_vigor_elixir",
         "LocalizationKey": "herbsfungivigorelixir_CardHelpSection",
-        "DefaultText": "<b>Preparation:</b> Mix ground ginseng with hot water in a bowl.\n\n<b>Benefits:</b> Reduces fatigue, improves focus, boosts immunity."
+        "DefaultText": "<b>Preparation:</b> At a medicine station (Clay Cauldron or Copper Cauldron), stir ground ginseng into a pot of Reishi Tea.\n\n<b>Benefits:</b> A strong dose of Herbal Tonic (72 of 96), well above any tea, plus the usual refreshment."
     },
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
     "CardImageWarpData": "HF_LQ_VigorElixir",

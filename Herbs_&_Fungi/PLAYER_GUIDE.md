@@ -44,7 +44,7 @@ All foraged mushrooms are found in forests. Most spawn on the surface; Truffles 
 These are primarily used for grinding and brewing rather than eating directly.
 
 **Lion's Mane**
-- Chew raw for a mild boost, or dry → grind → brew into **Lion's Mane Tea** for a cognitive boost.
+- Chew raw for a mild boost, or dry → grind → brew into **Lion's Mane Tea** for Herbal Tonic and a lift to wellbeing.
 - Found in forests; relatively uncommon.
 
 **Reishi**
@@ -55,7 +55,7 @@ These are primarily used for grinding and brewing rather than eating directly.
 
 The rarest and most valuable mushroom.
 
-- Found underground: at a vanilla **oak or alder** location (oak and alder groves, thickets and clearings) use the location's **Dig for Truffles** action. Digging up mud at a river can also turn one up, rarely, from spring to autumn. Foraging at the vanilla **Old Grove** finds one 6% of the time from spring to autumn, a placeholder chance.
+- Found underground: at a vanilla **oak or alder** location (oak and alder groves, thickets and clearings) use the location's **Dig for Truffles** action. Digging up mud at a river can also turn one up, rarely, from spring to autumn. Foraging at the vanilla **Old Grove** finds one 3% of the time from spring to autumn, a placeholder chance.
 - Spoils in 1 day (fastest of any mushroom) — dry immediately or use right away.
 - Eat raw for a huge hunger boost, or dry → slice → cook with fat (see Truffle Cooking below).
 - Press in the Oil Press to produce **Truffle Oil** — a luxury cooking ingredient.
@@ -365,10 +365,10 @@ Brew ground medicinal powder in hot water.
 | Tea | Ingredient | Effect |
 |-----|-----------|--------|
 | **Yarrow Tea** | Ground Yarrow + hot water | Wound healing, antiseptic, bleeds reduction |
-| **Ginseng Tea** | Ground Ginseng + hot water | Energy, mental clarity, fatigue reduction |
+| **Ginseng Tea** | Ground Ginseng + hot water | Quenches thirst, lowers stress, gives Herbal Tonic and lifts wellbeing |
 | **Reishi Tea** | Ground Reishi + hot water | Immune support, stress relief |
 | **Vigor Elixir** | Reishi Tea in a Clay or Copper Cauldron + Ground Ginseng (drag the powder onto the tea) | Strong Herbal Tonic dose (placeholder 72 of 96), long immune boost. Its picture is the clay bowl in its own colour |
-| **Lion's Mane Tea** | Ground Lion's Mane + hot water | Cognitive boost |
+| **Lion's Mane Tea** | Ground Lion's Mane + hot water | Quenches thirst, gives Herbal Tonic and lifts wellbeing |
 | **Sleep Tea** | (combined herbs) | Lowers stress and fills you a little |
 | **Stimulant Tea** | (combined herbs) | Lowers stress a little |
 | **Anti-Nausea Tea** | (combined herbs) | Settles stomach |
