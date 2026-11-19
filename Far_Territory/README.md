@@ -199,9 +199,10 @@ Net and funnel-trap fishing were confirmed in a scripted run in the game on 2026
 
 - **Coconut Palm** (Landfall Strand, Coral Inlet, Boulder Shore, Gull Stack, two on Palm Fringe): holds up to 4 coconuts and grows one back every 7.5 days.
 - **Climb the Palm** (half an hour, needs a ripe coconut, daylight and Stamina 11) twists one loose. It follows the climb rules above, and a fall loses the nut.
-- **Fell the Palm** (any axe, half an hour) gives 2 to 4 Green Coconuts and 6 to 10 Palm Fronds. A shoot rises from the stump after 10 days as a **Young Palm**, which grows into a palm in 30 more. A Young Palm can be cut with any blade for 2 to 3 Palm Fronds.
-- **Green Coconut** (spoils in 20 days): drag a knife or axe onto it to **Husk the Coconut** (15 minutes) for a Husked Coconut and 2 Fibers.
-- **Husked Coconut**: drag a hammer, hard hammering stone or axe onto it to **Crack Open** (15 minutes) for 1 Coconut Water (Thirst +90), 2 Coconut Meat (Satiation +28) and a **Coconut Shell Bowl**.
+- **Fell the Palm** (any axe, half an hour, needs Light 10 and Stamina 11) gives 2 to 4 Green Coconuts and 6 to 10 Palm Fronds. A shoot rises from the stump after 10 days as a **Young Palm**, which grows into a palm in 30 more. **Cut the Young Palm** (any blade, needs Light 10 and Stamina 11) gives 2 to 3 Palm Fronds.
+- **Green Coconut** (spoils in 20 days): drag a knife or axe onto it to **Husk the Coconut** (15 minutes, needs Light 10 and Stamina 11) for a Husked Coconut and 2 Fibers.
+- **Husked Coconut**: drag a hammer, hard hammering stone or axe onto it to **Crack Open** (15 minutes, needs Light 10 and Stamina 11) for 1 Coconut Water (Thirst +90), 2 Coconut Meat (Satiation +28) and a **Coconut Shell Bowl**.
+- Light 10 is the base game's own bar for work done by hand, such as gutting a fish or cracking a geode, and the game says it is too dark when it is not met. Every open-air place in Far Territory gives that much even at night, so felling, cutting, husking and cracking work outside at any hour. Inside a cave they need daylight or a light, and in the dark caves a light. Gutting a fish, butchering a carcass and felling a Sago Palm in this mod follow the same rule.
 - **Coconut Shell Bowl**: a small water container. Like a clay bowl, what it holds slowly dries off; it does not catch rain (the base game's Rain Catcher does that).
 - **Palm Frond**: weak fuel, and fuel is its only use. Confirmed in a scripted run in the game on 2026-10-19, judged from its screenshots: a Palm Frond dropped into a lit campfire burns as fuel.
 

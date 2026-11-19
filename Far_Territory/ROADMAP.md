@@ -1,34 +1,38 @@
 # Roadmap: Far Territory
-Version at time of writing: 0.1.15
-Date: 2026-11-14
-Audit score: 9/10 - SHIPS WITH CAVEATS (0 CRITICAL, 0 design gaps, 1 open WARNING [M3], 2 MINOR. See `.audit/summary.md`)
+Version at time of writing: 0.1.16
+Date: 2026-11-15
+Audit score: 9/10 - SHIPS WITH CAVEATS (0 CRITICAL, 0 design gaps, 3 open WARNING [M3 grassland Meadowgrass dup; BP1/BP2 cosmetic Cinchona Decoction blueprint nits], 0 open MINOR. See `.audit/summary.md`)
 
 ## Current State
 
 **Theme**: Lands beyond the forest, reached by ordinary travel - a tropical island (a tribute to Card Survival: Tropical Island, now drawing CSTI's own art), plus a mainland grassland, snowy mountains and cold fjords. Fishing, foraging, climbing, butchery, sea dangers and a castaway start, for a mid-to-late survival loop.
 
-**Content**: 99 items / 5 blueprints / 167 location + 50 environment cards / 1 perk (Island Start) / 9 animals / 9 GIF cards / 184 custom images.
+**Content**: 99 items / 5 blueprints / 167 location + 50 environment cards / 2 liquids / 1 perk (Island Start) / 9 animals / 9 GIF cards / 184 custom images.
 
-**Stability**: 9/10 - SHIPS WITH CAVEATS. 0 CRITICAL, 0 design gaps, **1 open WARNING (M3)**. The 2026-11-14 grassland critical-analysis re-stamp (`74ef899fd`, SHIPS WITH CAVEATS) re-opened M3: Wildrye Plain's `DefaultEnvCardDrops` lists the vanilla Meadowgrass Patch twice, but that card is `UniqueOnBoard: true`, so the board holds one; README `:340` ("Two Meadowgrass Patches") is a verified false claim and the second entry is dead data. Low impact (one extra grass clump), awaiting an owner design call (one patch vs two distinct forageables). A MINOR doc-drift (As-Built `:382` fjord musk-ox still "15%" vs shipped 6%) and the accepted cosmetic N1 (cave ambient-sound falloff) are also open. Everything else is resolved and verified: W1 (framework floor) + W2 (dead-code modder docs) shipped 0.1.15; W3 (night Forage) fixed 2026-11-12 (`2e9b8a9c3`); the Harsh Wilds carcass drop-chance *player-facing* README docs fixed in `68cfe1093`; the cosmetic unused-`Harmony` parameter dropped 2026-11-12. The 2026-11-04 garden/cave CRITICALs remain refuted false positives, gated by FT-B1b / FT-B13.
+**Stability**: 9/10 - SHIPS WITH CAVEATS. 0 CRITICAL, 0 design gaps, **3 open WARNING (M3 + the two cosmetic Cinchona blueprint nits BP1/BP2)**, 0 open MINOR. The v0.1.16 cut (`d947c1218`) closed the Cinchona Decoction unbuildable-recipe bug (`87a6e84ff`): the brew now takes plain `LQ_Water` with a Fuel range heated on a Campfire, not the unreachable `OLD_LQ_StewWater` no vessel can hold (re-verified clean by the medplants/modwide/palms module re-audits and the fresh blueprints re-run `64619cd05`). The mechanical open warning is **M3** (grassland, `74ef899fd`) - Wildrye Plain's `DefaultEnvCardDrops` lists the vanilla Meadowgrass Patch twice, but that card is `UniqueOnBoard: true`, so the board holds one; README `:340` ("Two Meadowgrass Patches") is a verified false claim and the second entry is dead data. **BP1/BP2** are two cosmetic blueprint-completeness nits on `Bp_FT_CinchonaDecoction` from the 2026-11-15 blueprints full re-run (`64619cd05`): no `WhenCreatedSoundsWarpData` creation sound (BP1) and no empty `BuildingStatConditions` field (BP2), unlike the four sibling blueprints; neither affects gameplay (the recipe is buildable), and both are small author content fixes, not applied this .audit-only pass. The three items carried into 2026-11-14 are now closed: **W4** (palms Light>=10 + Stamina>=11 gate on Husk/Crack/Fell/Cut) - the gate is vanilla's own (310 of 988 CT0 in-hand CardInteractions carry the same Light `[10,100]` entry; every open-air place adds passive Light +10 that meets it at night), it is now documented on each action in README `:202-204` + a rule line, and the palms module re-run 2026-11-15 (`28a745f1c`) is SOLID, gate `FarTerritory-PalmHandworkGates.Tests.ps1` 12/12; **M3-doc** (As-Built `:382` fjord musk-ox "15%" vs shipped 6%) - fixed 2026-11-14 (`c78e39415`); **N1** (cave ambient-sound falloff) - refuted 2026-11-14 (every framework-built FT animal has an empty `AmbientSounds` list, nothing to fall off). Everything else is resolved and verified: W1 (framework floor) + W2 (dead-code modder docs) shipped 0.1.15; W3 (night Forage) fixed 2026-11-12 (`2e9b8a9c3`); the Harsh Wilds carcass drop-chance *player-facing* README docs fixed in `68cfe1093`; the cosmetic unused-`Harmony` parameter dropped 2026-11-12. The 2026-11-04 garden/cave CRITICALs remain refuted false positives, gated by FT-B1b / FT-B13.
 
-**Open work**: No open or pending retrospective names Far Territory, `crispywhips.far_territory` or FT. One open WARNING (M3) + one MINOR doc fix (As-Built `:382`), both filed in `.audit/summary.md` and recorded, not fixed, this consolidation pass (the run edited nothing under `FarTerritory/` outside `.audit/`+`ROADMAP.md`; M3 needs an owner decision). No plan file is open (`Documentation/Plans/FarTerritory/` does not exist); the CSTI art adoption plan built in v0.1.13 and the balance/niche plans closed into `Documentation/Design/FarTerritory_As_Built.md` sections 23/24.
+**Open work**: No open or pending retrospective names Far Territory, `crispywhips.far_territory` or FT. Three open WARNINGs (M3 + BP1/BP2), filed in `.audit/summary.md` and recorded, not fixed, this consolidation pass (the run edited nothing under `FarTerritory/` outside `.audit/`+`ROADMAP.md`; M3 needs an owner decision, BP1/BP2 are small author content fixes). The W4 palm/coconut gate, the M3-doc As-Built drift and the N1 cave-ambient cosmetic that were open on 2026-11-14 are all closed (documented / fixed / refuted; see Phase 0). No plan file is open (`Documentation/Plans/FarTerritory/` does not exist); the CSTI art adoption plan built in v0.1.13 and the balance/niche plans closed into `Documentation/Design/FarTerritory_As_Built.md` sections 23/24.
 
-**Framework compliance**: Tier 2. C# is **three** small classes (`Patcher/ClimateService.cs`, `Patcher/LandmarkSeed.cs`, `Patcher/OwlIslandGuard.cs`) plus `Plugin`, using `ContentModPlugin`, `SpawnService`, `TickEvents` and the framework's `Api.Npc.RegisterMoveGuard` registry; FT patches Harmony nowhere directly (the one `MoveNPC` prefix lives in the framework's `Patching/MoveGuardPatch.cs`). Board pre-create is the declarative `EnvPreCreate.json`, read by the framework's `EnvPreCreateService` (replaced the deleted `Patcher/EnvSaveDataPreCreate.cs`, `8e4d185cd`). **Framework floor is 2.29.1** (in `ModInfo.json`, `README.md` 5/434/458) - the release that first publishes `EnvPreCreate.json` support (tagged 2026-11-08) and `Api.Npc.RegisterMoveGuard`; the framework is on Nexus as 2.29.2, uploaded before FT 0.1.15, so players are covered. No deprecated patterns (no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no manual perk/blueprint injection, no `ModLoaderVerison`).
+**Framework compliance**: Tier 2. C# is **three** small classes (`Patcher/ClimateService.cs`, `Patcher/LandmarkSeed.cs`, `Patcher/OwlIslandGuard.cs`) plus `Plugin`, using `ContentModPlugin`, `SpawnService`, `TickEvents` and the framework's `Api.Npc.RegisterMoveGuard` registry; FT patches Harmony nowhere directly (the one `MoveNPC` prefix lives in the framework's `Patching/MoveGuardPatch.cs`). Board pre-create is the declarative `EnvPreCreate.json`, read by the framework's `EnvPreCreateService` (replaced the deleted `Patcher/EnvSaveDataPreCreate.cs`, `8e4d185cd`). **Framework floor is 2.29.1** (in `ModInfo.json`, `README.md`) - the release that first publishes `EnvPreCreate.json` support (tagged 2026-11-08) and `Api.Npc.RegisterMoveGuard`; the framework is on Nexus as 2.29.2, uploaded before FT 0.1.15, so players are covered. The 0.1.16 Cinchona fix is pure JSON/CSV and added no new framework API use. No deprecated patterns (no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no manual perk/blueprint injection, no `ModLoaderVerison`).
 
 ---
 
 ## Phase 0: Stabilize
 
-> One open warning (M3) awaiting an owner design call, plus one quick doc fix. Nothing is a crash/corruption blocker; the resolved rows are held as the record.
+> Three open warnings: M3 (owner design call) and the two cosmetic Cinchona blueprint-completeness nits BP1/BP2 (a small author content pass). Nothing is a crash/corruption blocker; the one shipped-but-unbuildable recipe (Cinchona) is fixed in 0.1.16 and re-confirmed buildable by the 2026-11-15 blueprints re-run, and the W4 / M3-doc / N1 items open on 2026-11-14 are now closed. The resolved rows are held as the record.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
 | **M3 (OPEN): "Two Meadowgrass Patches" is one** - `FT_WildryePlain.json` lists the `UniqueOnBoard` Meadowgrass Patch twice (one spawns); README `:340` overstates. **Owner design call:** (a) remove the duplicate entry + README `:340` -> "A Meadowgrass Patch"; or (b) swap the duplicate for a *different* non-unique forageable to actually give two clumps. When fixed, re-run the grassland mod-report dimension (its "intentional" line is stale). Both files under `FarTerritory/`, not touched this .audit-only pass. | Mechanic vs docs | P0 (design decision) | Quick |
-| **M3-doc (OPEN): As-Built `:382` fjord musk-ox** still reads "15%" where shipped `Chance` is 6% (FT-B2 tune). Section 15 + README already correct. Fix: `:382` "15%" -> "6%" + FT-B2 pointer. Claude-facing doc, filed not fixed this pass. | Docs honesty | P1 | Quick |
+| **BP1/BP2 (OPEN): Cinchona Decoction blueprint-completeness nits** - `Bp_FT_CinchonaDecoction.json` has no `WhenCreatedSoundsWarpData`/`WarpType` creation sound (BP1, add `["Flowing1"]` + WarpType 3) and no empty `BuildingStatConditions` field (BP2, add `[]`), unlike its four sibling blueprints. Cosmetic/completeness only; the recipe is buildable. Surfaced by the 2026-11-15 blueprints re-run (`64619cd05`); small author content pass, not promoted to a plan (Warnings are polish), not applied this .audit-only pass. | Cosmetic (blueprint) | P2 (polish) | Quick |
+| ~~W4: undocumented night/dark-cave coconut gate~~ **RESOLVED 2026-11-14** (`c78e39415`) - the Light>=10 + Stamina>=11 gate on Husk/Crack/Fell/Cut is vanilla's own (310 of 988 CT0 in-hand CIs carry it; open-air passive Light +10 meets it at night) and is now documented on each action in README `:202-204` + a rule line; palms module re-run SOLID 2026-11-15 (`28a745f1c`), gate `FarTerritory-PalmHandworkGates.Tests.ps1` 12/12. The recommended Light-entry removal was NOT made (it would make these four unlike vanilla handwork). Palms local id M3/M4. | Mechanic vs docs | done | - |
+| ~~M3-doc: As-Built `:382` fjord musk-ox "15%"~~ **RESOLVED 2026-11-14** (`c78e39415`) - `:382` now reads "(6%, ... tuned down from 15% in FT-B2, section at line 767)", matching shipped `Chance: 6.0`. Claude-facing doc. | Docs honesty | done | - |
+| ~~N1: cave ambient-sound-falloff cosmetic~~ **REFUTED 2026-11-14** (`c78e39415`) - every framework-built FT animal has an empty `AmbientSounds` list (`AnimalAssetFactory.cs:149`), so the Macaque/Monitor/Bat have no ambient sound to fall off in a cave. No change to the mod. | Cosmetic | done | - |
+| ~~Cinchona Decoction unbuildable recipe~~ **RESOLVED v0.1.16** (`87a6e84ff`) - now requires plain `LQ_Water` + Fuel range (campfire-heatable), not the unreachable `OLD_LQ_StewWater`; gate `Blueprint-RequiredLiquidObtainable.Tests.ps1`; re-verified by medplants/modwide/palms | Mechanic (unbuildable) | done | - |
 | ~~W1 (framework requirement)~~ **RESOLVED 0.1.15** - floor raised 2.28.3 -> 2.29.1; the two needed APIs shipped in framework 2.29.1 (Nexus 2.29.2, uploaded before FT 0.1.15) | Feature honesty / release | done | - |
 | ~~W2 (dead-code modder docs)~~ **RESOLVED 0.1.15** - README "For modders" reworded to three real classes, no Harmony patch, owl guard via `Api.Npc.RegisterMoveGuard`, `EnvPreCreate.json` line added | Docs honesty | done | - |
 | ~~W3 (outdoor Forage offered at night)~~ **RESOLVED 2026-11-12** (`2e9b8a9c3`) - Forage `TriggerRange.x` 10 -> 15 on the outdoor-with-passive-Light+10 subset + 4 node actions; dark caves (no passive) left at 10; gate `FarTerritory-OutdoorForageNeedsDaylight.Tests.ps1` 15/15 | Mechanic vs docs | done | - |
-| ~~Harsh Wilds carcass drop-chance *player-facing* README mismatch~~ **RESOLVED** (`68cfe1093`) - README 347/402 and As-Built section 15 aligned to the tuned data (wisent 4%, musk ox 6%). As-Built section 14 missed = M3-doc above | Docs honesty | done (section 14 open) | - |
+| ~~Harsh Wilds carcass drop-chance *player-facing* README mismatch~~ **RESOLVED** (`68cfe1093`) - README 347/402 and As-Built section 15 aligned to the tuned data (wisent 4%, musk ox 6%). As-Built section 14 (the M3-doc miss) fixed 2026-11-14 (`c78e39415`) | Docs honesty | done | - |
 | ~~Unused `Harmony` parameter on `OwlIslandGuard.Initialize`~~ **RESOLVED 2026-11-12** - method group wiring in `Plugin.cs`; modwide/code-quality 10/10 | Cosmetic | done | - |
 
 ---
@@ -39,11 +43,12 @@ Audit score: 9/10 - SHIPS WITH CAVEATS (0 CRITICAL, 0 design gaps, 1 open WARNIN
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Versions in sync across ModInfo / Plugin.cs / README (all 0.1.15) | Version hygiene | - | met |
+| Versions in sync across ModInfo / Plugin.cs / README (all 0.1.16) | Version hygiene | - | met |
 | Chinese localization parity (SimpCn CLEAN, 1958/1958, 0 missing/extra/no-CJK/stale) | Localization | - | met |
 | Framework Tier 2 (ContentModPlugin / SpawnService / TickEvents / Api.Npc) on a released framework floor (2.29.1) | Framework | - | met |
 | bin/Release in sync with source (BinSync 0/0/0) | Build hygiene | - | met |
 | Garden-crop and cave mechanics pinned by FT-B1b / FT-B13 gates | Regression guard | - | met |
+| Cinchona recipe input reachability pinned by `Blueprint-RequiredLiquidObtainable.Tests.ps1` | Regression guard | - | met (new 0.1.16) |
 
 ---
 
@@ -89,10 +94,11 @@ Audit score: 9/10 - SHIPS WITH CAVEATS (0 CRITICAL, 0 design gaps, 1 open WARNIN
 
 | Item | What | Complexity |
 |------|------|------------|
+| W4-sweep (W4 itself done) | W4's palm/coconut Light gate is now documented (README `:202-204` + rule line, 2026-11-14) and the gate is vanilla's own. Remaining optional follow-up: sweep medplants/foodplants/fishing in-hand processing CIs for the same copy-pasted Light entry and reconcile each against its own README line (palms CA out-of-module note) | Quick |
 | Cave/shore forage tuning | README: "Every cave's forage is a first draft" - a balance pass once play data exists; pin any tuned number in the FT-B* gates | Medium |
 | Cooked-food / fishing number tuning | README calls these "first guesses" - rebalance against real runs | Medium |
-| Close the person-only tracker rows | Net/funnel-trap feel (T2.1393), the owl through a real night (T2.1524 human half), Sour Crater injected return travel (island CA), existing-save animals/path cards | Quick per row (needs a human at a running build) |
-| N1 cosmetic (caves) | ambient-sound-falloff quirk for NPCAgents inside caves - accepted, "not worth a build"; fold into the next cave-ambient touch | Quick |
+| Close the person-only tracker rows | Net/funnel-trap feel (T2.1393), the owl through a real night (T2.1524 human half), existing-save animals/path cards | Quick per row (needs a human at a running build) |
+| ~~N1 cosmetic (caves)~~ | REFUTED 2026-11-14: every framework-built FT animal has an empty `AmbientSounds` list, so there is no ambient sound to fall off in a cave. No work remains | done |
 
 ---
 
@@ -100,7 +106,7 @@ Audit score: 9/10 - SHIPS WITH CAVEATS (0 CRITICAL, 0 design gaps, 1 open WARNIN
 
 > Where Far Territory should be at v1.0.
 
-A complete, CSTI-faithful island tribute with its own art (shipped), sitting beside a fleshed-out mainland (grassland, mountains, fjords), where every advertised loop - fishing, foraging, climbing, butchery, cooking, the castaway start and the crossovers - is live-verified and tuned against real play, shipping cleanly on a released framework floor (met at 2.29.1). With the art plan done and every crash/corruption-class warning closed, the remaining open work is M3 (an owner design call on grassland forageable count), tuning passes and closing the person-only tracker rows, not new systems.
+A complete, CSTI-faithful island tribute with its own art (shipped), sitting beside a fleshed-out mainland (grassland, mountains, fjords), where every advertised loop - fishing, foraging, climbing, butchery, cooking, the castaway start and the crossovers - is live-verified and tuned against real play, shipping cleanly on a released framework floor (met at 2.29.1). With the art plan done, the Cinchona recipe now buildable, and every crash/corruption-class warning closed (plus the W4 coconut-gate documentation, the As-Built fjord doc drift and the N1 cave cosmetic all closed 2026-11-14/15), the remaining open work is M3 (an owner design call on the grassland forageable count), tuning passes and closing the person-only tracker rows, not new systems.
 
 **Potential major additions** (not yet justified - revisit after a tuning pass):
 - Coconut Milk liquid feeding a richer stew variant - README notes its absence; only worth it if it earns its weight in the food chain.
@@ -119,7 +125,7 @@ Any of these worth building belongs in a plan under `Documentation/Plans/FarTerr
 | Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
 | After fixing a finding | Run `/critical-analysis FarTerritory` to verify the fix |
 | After a content phase complete | Run `/export-to-repo FarTerritory` / `/nexus-publish` and bump the version |
-| Stale top-level trio / per-category reports | `/critical-analysis FarTerritory` + `/audit-mod FarTerritory` to re-seat the 2026-10-20/21 reports (they describe a C# surface, a framework requirement and numbers the refactors + release-prep + balance passes changed; the module wave already supersedes them) |
+| Stale top-level trio / per-category reports | `/critical-analysis FarTerritory` + `/audit-mod FarTerritory` to re-seat the 2026-10-20/21 reports (they describe a C# surface, a framework requirement, the pre-fix decoction recipe and numbers the refactors + release-prep + balance passes changed; the module wave already supersedes them) |
 
 ---
 

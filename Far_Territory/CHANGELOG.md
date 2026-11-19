@@ -13,6 +13,11 @@
 - **The Harsh Wilds carcass odds in the read-me now match the game.** It said the grassland and fjord searches turn up a Wisent Carcass about 2 times in 100 and a Musk Ox Carcass about 3 in 100; the real odds are twice that (about 4 in 100 and 6 in 100). The searches always paid out at the higher rate; only the read-me was behind. No change to the game itself.
 - Technical: `DropInjections.json` injects `hw_wisent_carcass` at Chance 4.0 and `hw_muskox_carcass` at 6.0 (Winter) on `ftLocWildryePlain` and `ftLocFjordHead`; `Chance` is a plain 0-100 percent (`CSFFModFramework/Injection/DropInjector.cs`). README lines 347 and 402 and the As-Built section 15 prose were stale from before the FT-B2 tuning (wisent 12 -> 4, musk ox 12 -> 6, recorded at As-Built line 767). Docs-only. Surfaced by the fjords/grassland module audit re-run (2026-11-13).
 
+### Changed
+
+- **The read-me now says what felling a palm, cutting a young palm, husking a coconut and cracking one need.** All four have always needed Light 10 and Stamina 11, and the read-me said so only for climbing. Light 10 is the base game's own bar for handwork such as gutting a fish: every open-air place here gives that much even at night, so they work outside at any hour, and inside a cave they need daylight or a light. No change to the game itself.
+- Technical: `Far_Territory_Palm_CI_Fell`, `Far_Territory_PalmYoung_CI_Cut`, `Far_Territory_CoconutGreen_CI_Husk` and `Far_Territory_Coconut_CI_Crack` require Light `[10,100]` and Stamina `[11,10000]` with `NotifyWhenNotMet`. The Light entry is the one vanilla carries on Geode Crack, fish Gut and carcass Butcher, and every open-air place card adds a passive Light +10 that meets it at night. Audit W4 read the gate as unlike vanilla and asked for it to go; it is vanilla's own and is unchanged. README lines only. Gate: `Development_Tools/Tests/FarTerritory-PalmHandworkGates.Tests.ps1` holds each README line to the numbers on its card.
+
 ## [0.1.15] - 2026-11-11
 
 ### Fixed
