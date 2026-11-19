@@ -66,7 +66,7 @@ Once your Mill Race is routed, build the power source.
 The Mill Race Outlet taps your Mill Race to provide unlimited unclean water at any outdoor location — no more hauling water from the river.
 
 **Blueprint:** Advanced Tools tab → Mill Race Outlet (unlock 32 ticks)
-**Requires:** 1 Mill Race + 4 Planks + 4 Metal Nails (dismantling the kit returns all of it, the nails as copper Metal Nails)
+**Requires:** 1 Mill Race + 4 Planks + 4 Metal Nails (dismantling the kit returns the Mill Race, half of the planks and all 4 nails; the nails come back as copper Metal Nails, whatever metal the ones you used were)
 
 **How to use:**
 1. Build one Mill Race and connect it to your water source.

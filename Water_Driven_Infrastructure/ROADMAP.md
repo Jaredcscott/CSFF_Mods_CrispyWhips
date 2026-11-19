@@ -1,7 +1,7 @@
 # Roadmap: Water Driven Infrastructure
 Version at time of writing: 1.13.1
-Date: 2026-11-07
-Audit score: 7/10 (FAIL - 1 CRITICAL: a framework-version floor, release-blocked, NOT a code defect. 3 open WARNING, 4 MINOR. Reverts to 8/10 PASS the moment the framework dependency is published - see Phase 0.)
+Date: 2026-11-15
+Audit score: 8/10 (PASS - 0 CRITICAL. The 2026-11-14 gap-fill closed the last content/code warnings (W-F2, W-F3 fixed; W-S1, M3 refuted; M1, M2, M6 closed); the 2026-11-15 re-audit surfaced four low-severity findings - MW1 stale Features.json confidence, MW2 README code-map omission, MW3 two untracked behaviours, MW4 log-consistency. All open items are docs / tracker / consistency / feedback / evidence-currency; none is a bug or a broken loop.)
 
 ## Current State
 
@@ -9,25 +9,27 @@ Audit score: 7/10 (FAIL - 1 CRITICAL: a framework-version floor, release-blocked
 
 **Content**: 31 items (26 live + 5 retired-for-save-compat) / 35 blueprints (29 live + 6 retired) / 21 structures / 4 Mill Race improvements (CT10) / 7 perks / 39 custom images / 7 GIF animations. 12 NPCDuty files power Partner station work.
 
-**Stability**: 7/10 - one RELEASE-BLOCKING item that is not a code defect, plus minor polish debt. Build clean (0 errors / 0 warnings), versions synced at 1.13.1, localization + Chinese parity CLEAN, acquisition loops complete (0 unreachable / 0 dead-end), 0 cross-mod collisions. Since the 1.12.18 consolidation WDI moved to 1.13.1 with several fleet-APE refactors (`MillDutyPatch` onto `Api.NpcDuties`, 5 `OnGMInitialized` sites onto `FrameworkEvents.RunStarted`, metal-slot ingredients onto the framework's shared tag groups) and closed four findings (old M1 Sluice All DefaultText drift `53969cb30`, Fishpond-frozen ice-fishing timing text `fe73ef2e6`, Stamp Mill over-claim `6f832c4dd`, nine-kit Metal Nail refund `f35f3e168`). The one new CRITICAL (C1, Phase 0) is that those refactors bind framework members no Nexus-published framework ships yet. Three low-severity items remain open (Phase 2 / Phase 4): a dead Fishpond-kit hint action, a no-current-effect metal-type inconsistency, and the Fish Funnel's placeholder art. None is a broken loop.
+**Stability**: 8/10 - PASS, live on Nexus, no broken loops. Build clean (0 errors / 0 warnings), versions synced at 1.13.1, localization + Chinese parity CLEAN (670/670), acquisition loops complete (0 unreachable / 0 dead-end), 0 cross-mod collisions, all 11 module reports CURRENT at HEAD `e95360f1a`. The prior release blocker (C1) is resolved (framework 2.29.2 on Nexus 2026-11-11, WDI 1.13.1 shipped 34 seconds later; `nexus_publish.py framework_refusals` passes). The 2026-11-14 gap-fill (`e4ce848cd`, gate `WDI-GapFill-2026-11-14.Tests.ps1`, 12/0) closed six findings and refuted two: **W-F2** (breeding-floor write now checks its bool and warns once per stat) and **W-F3** (both pond poll callbacks early-out at the menu) FIXED; **M1** (GetCardCharges log-hygiene) and **M2** (inner-exception messages) FIXED; **W-S1** (the Expanded Sawmill is weight-bounded, not slot-bounded - T2.175) and **M3** (the forge Plank `Special4` is an intentional oak wood ID) REFUTED; **M6** (empty `InventorySlots` by design) CLOSED. The 2026-11-15 fishery/modwide re-audit re-confirmed those closures and surfaced the current open set: **MW1** (Features.json confidence stale against the tracker across 10+ of 19 groups - under-claiming), **MW2** (README Code map omits the live `PlaceBlockedHintPatch`), **MW3** (two shipped `[Unreleased]` behaviours - the greyed-Place hint and the Reed/Cattail Bed sway - have no tracker row), **MW4** (two bare `ex.Message` LogDebug sites in `GameLoadPatch.cs` the M2 pass did not reach), plus the carried **W-S2** (Expand button refused with no in-game feedback) and **W-F1** (T2.198 harness evidence predates the sprite rename, re-run owed).
 
 **Refuted this cycle** (verified by reading code, not inherited):
-- fishery/critical-analysis (`cb09e2c4f`, 2026-11-07) flags "Fishpond Kit Place is not gated to water - a fully-working fishpond can be placed anywhere." **False positive, and the SECOND occurrence of this exact claim** (first refuted 2026-11-04). Placement IS enforced in C#: the kit UID `water_sawmill_fishpond_kit` is in `WdiStationBuildSourceIds` (`MillRaceNetwork.cs:83`); its Place action's `DefaultText` is "Place", which `IsPlaceAction` matches (`:1053`); `ShouldBlockAction:302` routes `IsStationBuildSource && IsPlaceAction` through `GetStationWaterAccessResult`, cancelling an off-water placement. The CA read JSON (`RequiredTagsOnBoard:[]`) + `.decomp/DismantleActionButton.cs` only - the `bash-zero-match-not-absence` trap (the gate is a C# ActionRouter Cancel, not a JSON tag). What is real is W1: the Place button stays visibly clickable off-water and the C# cancel fires with no popup - a feedback defect, owner-benched. No action against placement.
-- The retired `(old)` fasteners' "automatic self-reforge within a quarter of an hour" claim (prior cycle's W2) - still a false positive: each card's `Progress.OnFull` is a ModType-2 transform into the framework-shared card (T2.646 PASS). The advertised save migration is real.
+- **W-S1** (Expanded Sawmill "12 slots vs 10-log text") - the card is weight-bounded, so its 12 `InventorySlots` placeholders are not a capacity; it takes 10 Tree Logs as its text says and cannot take 12. The proposed 10-slot fix would itself have failed the gate it named (30200 > 30000). Pinned by `WDI-GapFill-2026-11-14.Tests.ps1` check (s1).
+- **M3** (forge Plank `Special4` "residue") - a Plank's SD4 is the wood ID; `Special4: 3`/`Special4Value: 1.0` hands back oak, not wood ID 0 (deleting it would break the drop). Pinned by check (m3).
+- "Fishpond Kit Place is not gated to water" - **false positive, 3rd occurrence** (refuted 2026-11-04, 2026-11-07, 2026-11-12). Placement IS enforced in C# via `MillRaceNetwork`; the Place blocked reason now surfaces through `PlaceBlockedHintPatch` (W1).
+- The retired `(old)` fasteners' "automatic self-reforge within a quarter of an hour" claim - still real, not a broken promise (each card's `Progress.OnFull` is a ModType-2 transform; T2.646 PASS).
 
-**Open work**: None in the retrospectives - all 4 WDI-tagged retros are Graduated/archived. WDI has no plan folder; the open items are tracked in `.audit/summary.md` (C1, W1-W3). `/audit-to-plan` manages `Documentation/Plans/WaterDrivenInfrastructure/MASTER_PLAN.md`.
+**Open work**: None in the retrospectives - all WDI-tagged retros are Graduated/archived. WDI has a plan file: `Documentation/Plans/WaterDrivenInfrastructure/MASTER_PLAN.md` (its `## Audit remediation` section, managed by `/audit-to-plan`); AF1 (framework floor) and AN1 (Fish Funnel art) are both resolved/built. The open items are docs/tracker/consistency/feedback, tracked in `.audit/summary.md` (MW1, MW2, MW3, MW4, W-S2, W-F1).
 
-**Framework compliance**: Tier 2, fully adopted (modwide / parts / forge code-quality 10/10). `ActionRouter` interception (no coroutine patches), `SpawnService`, `TickEvents`; cached reflection, per-cause `WarnOnce` latches, all-matches fixup loops, idempotent registration, `OnDestroy` unpatch. No direct `ActionRoutine` patches, no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`. 1.13.1 now consumes `Api.NpcDuties` + `FrameworkEvents.RunStarted` + the shared `GpTag_FW_*` metal tag groups - which is exactly why the release floor (C1) exists: those members are not in any Nexus-published framework.
+**Framework compliance**: Tier 2, fully adopted (modwide / parts / forge / duties / waterpower / fishery code-quality 10/10). `ActionRouter` interception (no coroutine patches), `SpawnService`, `TickEvents`; cached reflection, per-cause `WarnOnce`/`ReflectionMiss` latches, all-matches fixup loops, idempotent registration, `OnDestroy` unpatch. No direct `ActionRoutine` patches, no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`. 1.13.1 consumes `Api.NpcDuties` + `FrameworkEvents.RunStarted` + the shared `GpTag_FW_*` metal tag groups, and the framework release carrying them is published (floor honestly declared at 2.29.1). W3 (A13) is RESOLVED in-mod: `Patcher/ReflectionMiss.cs` makes every by-name game/framework lookup fail loud. The one remaining latent-hardening gap is CI table coverage: WDI's reflection sites are still not rows in `Framework-ReflectedSignatures.Tests.ps1`, so a future game-data rename drifts with no CI signal (caught at runtime by the loud miss, not by a gate).
 
 ---
 
-## Phase 0: Stabilize
+## Phase 0: Stabilize  *(clear - audit score 8/10, no open retrospectives)*
 
-> One release-blocking item. It is a publish-ordering constraint, not a code bug - WDI's source is correct and builds clean.
+> Nothing blocking. The prior release blocker is resolved.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **C1 - framework-version floor.** WDI 1.13.1 compile-time-binds `Api.NpcDuties` (`MillDutyPatch.cs:803`) and `FrameworkEvents.RunStarted` (`BaseTemperatureHeal.cs:38-39`), framework members absent from every Nexus-published framework (Nexus serves 2.29.0; `Api.NpcDuties` is in the framework CHANGELOG's `[Unreleased]` section). Publishing WDI 1.13.1 now throws `MissingMethodException`, swallowed into one log line, silently dropping all 12 Partner duties. **Fix = publish ordering, no WDI code change:** hold WDI 1.13.1 unreleased until a numbered framework release containing both members is cut and published, then ship WDI in that same Nexus batch and correct the three stale framework-version strings (CHANGELOG says "2.29.1 or later" - 2.29.1 lacks `Api.NpcDuties`; ModInfo/README say "2.29.0 or later") to the real release number. The `nexus_publish.py` `framework_refusals` gate enforces this - do not override it. | Release blocker (external dep) | P0 | Quick (hold + doc edit; gated on the framework release) |
+| **C1 - framework-version floor.** RESOLVED by publication: framework 2.29.1 (2026-11-08) added `Api.NpcDuties` (`MillDutyPatch.cs`) and `FrameworkEvents.RunStarted` (`BaseTemperatureHeal.cs`); Nexus serves framework 2.29.2 (2026-11-11), WDI 1.13.1 published immediately after, both changelogs posted. WDI declares its floor as "2.29.1 or later" across ModInfo/README/CHANGELOG. No action. | Release blocker (external dep) | done | - |
 
 ---
 
@@ -39,44 +41,49 @@ Audit score: 7/10 (FAIL - 1 CRITICAL: a framework-version floor, release-blocked
 |------|------|----------|------------|
 | Versions synced across ModInfo/Plugin.cs/README (1.13.1) | Version hygiene | done | Quick |
 | ActionRouter / SpawnService / TickEvents / Api.NpcDuties / FrameworkEvents in use | Framework Tier 2 | done | - |
-| SimpCn.csv present, Chinese parity CLEAN | Localization | done | Quick |
+| SimpCn.csv present, Chinese parity CLEAN (670/670) | Localization | done | Quick |
 | `bin/Release` in sync (module re-audits: BinSync empty, build succeeded) | Build hygiene | done | - |
-| The mod-level `mod-report.md` / `critical-analysis.md` / `code-quality.md` (2026-10-20, v1.12.12) are superseded by the current per-module reports; several module mod-reports are themselves STALE only against this cycle's honesty/refactor commits (reconciled in `.audit/summary.md`). Re-run a mod-level or module pass only if a non-consolidation consumer needs it | Audit hygiene | P2 (advisory) | Quick |
+| **Reflection-signature CI coverage (optional).** W3's `ReflectionMiss` already makes every in-mod by-name lookup fail loud (A13 RESOLVED). The remaining optional hardening is adding WDI's reflection sites to `Development_Tools/Tests/Framework-ReflectedSignatures.Tests.ps1` so a future game-data rename is caught by CI before a player hits it. No current bug. | Latent-drift hardening | P3 | Medium |
+| The mod-level `mod-report.md` / `critical-analysis.md` / `code-quality.md` (2026-10-20, v1.12.12) are superseded by the current per-module reports (all CURRENT). Re-run a mod-level pass only if a non-consolidation consumer needs it. | Audit hygiene | P3 (advisory) | Quick |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> No net-new feature gap. The near-term work is two small fixes surfaced by the module re-audit, plus one owner-benched feature. (Fix detail and file paths live in `.audit/summary.md` W1-W2.)
+> No net-new feature gap. The near-term work is docs/tracker/consistency surfaced by the 2026-11-15 module re-audit, plus one owner-benched feature. (Fix detail and file paths live in `.audit/summary.md` MW1/MW2/MW3/MW4/W-S2/W-F1.)
 
-### Open fixes (W1-W2)
+### Open items (MW1, MW2, MW3, MW4, W-S2, W-F1)
 **What**:
-- **W1**: Fishpond Kit's "Requires Water" hint (DismantleActions index 0) never renders (`ModType:0`, no `AlwaysShow`, so `WillHaveAnEffect()` is false), and "Place"'s `AlternateActionIfConditionsNotMet` points at an `AlternateDismantleActions[0]` the card never declares. Away from water the C# gate silently cancels Place with no popup, so the intended explanation never shows. Placement itself IS gated (verified this cycle) - a feedback / dead-content defect, owner-benched as polish. Fix: delete the dead "Requires Water" action and the inert alternate pointer (the kit `CardDescription` already states the requirement), or add `"AlwaysShow":true` to the hint. `CardData/Item/Fishpond_Kit.json` only.
-- **W2**: `WaterDrivenSawmill_CastMetalSheet.json` activates `SpecialDurability4:100` (Copper) but neither its `Progress.OnFull` nor its Reforge `DismantleActions[0]` sets `TransferSpecial4`, so the result takes the shared card's default Metal Type rather than the declared 100. No in-game defect today (the default is already 100), but a landmine if that default changes or the card is cloned. Fix: add `"TransferSpecial4": true` to both `ReceivingCardChanges` blocks, matching `CastIronSheet`/`IronRivet`.
-**Why**: W1 removes dead content and restores off-water feedback; W2 closes a metal-type consistency landmine. Both are `/edit-item` one-liners.
+- **MW1** (top priority, feature-honesty / under-claiming): `Features.json`'s confidence/evidence annotations are stale against the live playthrough tracker across 10+ of its 19 groups (Mill Race Outlet, Reed/Cattail Beds, Water Basin, Bronze Gear, and the Forge/Workshop/Sawmill balance-pass rows all name tracker rows as PENDING/"never observed" that `confirmedItems` shows already PASS). Re-derive each group's confidence from its now-confirmed rows, as the Stamp Mill and Partner Duty rows were corrected on 2026-11-13 (`c1db2dbc7`). Re-check T2.606 (the without-ACT workshop half, no `confirmedOn`) on its own first.
+- **MW3** (tracker coverage): file two `/playthrough-test-plan` rows for the two shipped `[Unreleased]` behaviours that have none - the greyed Place button + "Must be Outdoors" tooltip (`PlaceBlockedHintPatch`), and the Reed/Cattail Bed sway (`CardData/Motion/CardMotion.json`).
+- **MW2** (docs): add a `PlaceBlockedHintPatch` row to the README "For modders" Code map table (one row; the patch is registered `Plugin.cs:44` and player-facing, but absent from the table where every other patch class has a row).
+- **MW4** (code consistency, optional): rewrite the two bare `{ex.Message}` LogDebug breadcrumbs in `GameLoadPatch.cs:971,513` to `{ex.InnerException?.Message ?? ex.Message}` for uniformity with the M2 pass. NOT a silent-failure (neither wraps a reflection `Invoke`); both already emit a line.
+- **W-S2** (feedback nit, optional): the Expand button renders unconditionally and is Cancel-handled by `ActionRouter`'s `ExpandGate` with only a `LogDebug` breadcrumb, so a click without 6 Planks + 4 Iron Nails does nothing with no in-game explanation. Extend W1's `ActionBlockedMessage` hint to the Expand gate, or accept the house-style (same pattern as `WorkshopCraftGate`/`PondRodSpearGate`/`MillRaceGate`).
+- **W-F1** (evidence currency): re-run `T2.198_wdi_fish_funnel_build_and_place.json` and record the result - its last PASS (2026-10-09) predates the 2026-11-13 sprite rename; the identical image-name assertion already PASSed same-day under T2.1384, so this only formalizes the T2.198 row (not a live defect).
+**Why**: MW1 is a feature-honesty gap a reader of `Features.json` would be misled by; MW3 closes the tracker's verification path for two shipped behaviours; the rest are docs, a consistency nit, a feedback hint, and a stale-evidence re-run. None is a broken loop.
 **Requires**: none.
-**Complexity**: Quick each.
+**Complexity**: Quick each (MW1 is the largest - a confidence re-derivation across 10+ groups, but each row is a mechanical PENDING-to-PASS replacement from the tracker).
 
 ### Cold-Water Cache (benched, owner decision pending)
 **What**: A spoilage-halving (x0.5) river cache kept strictly weaker than vanilla's Ice Pit, with a flood-loss tick and a "Pull Up Cache" DA. UIDs `wdi_bp_coldwater_cache` / `wdi_coldwater_cache_placed`.
 **Why**: Completes the "river gives you cold storage" fantasy for players without an Ice Pit.
-**Requires**: Owner decision - benched 2026-10-09 ("bnch for later in ideas"), NOT ruled out. Full as-built text + restore point at git `fb10224c1`; design record Feature 13 in `Documentation/Design/WaterDrivenInfrastructure_Round2_As_Built.md`. Re-plan into a MASTER_PLAN when taken.
+**Requires**: Owner decision - benched 2026-10-09 ("bnch for later in ideas"), NOT ruled out. Full as-built text + restore point at git `fb10224c1`; design record Feature 13 in `Documentation/Design/WaterDrivenInfrastructure_Round2_As_Built.md`. Re-plan into the MASTER_PLAN when taken; currently a Considered row there.
 **Complexity**: Medium (code existed in 1.12.0; mostly a restore + balance pass).
 
 ---
 
 ## Phase 3: Integration & Depth
 
-### CSFFModFramework (required soft-dep) - release-coupled, not a feature
-**What**: WDI 1.13.1 consumes `Api.NpcDuties`, `FrameworkEvents.RunStarted` and the shared `GpTag_FW_*` metal tag groups. This is a release-ordering coupling (Phase 0 / C1), not new content.
+### CSFFModFramework (required soft-dep) - release-coupled, satisfied
+**What**: WDI 1.13.1 consumes `Api.NpcDuties`, `FrameworkEvents.RunStarted` and the shared `GpTag_FW_*` metal tag groups.
 **Why**: Moves WDI's duty/event/fastener wiring onto the framework's maintained surface.
-**Requires**: The framework release containing those members must ship before or with WDI 1.13.1.
-**Complexity**: - (coordination, Phase 0).
+**Requires**: Nothing further - the framework release carrying those members (2.29.1+, Nexus 2.29.2) is published and WDI 1.13.1 shipped against it.
+**Complexity**: - (done).
 
 ### AdvancedCopperTools (optional) - already wired
 **What**: Bronze gears are tabbed at runtime by `BronzeGearTabPatch` only when ACT is installed; shared Metal Nail / Tin Solder / Metal Sheet are framework-hosted; ACT is declared optional (no hard dependency, G7 clean).
 **Why**: Lets WDI's forge/workshop recipes use the shared fastener economy without forcing ACT.
-**Requires**: Nothing - shipped. One open runtime verification (not a code gap): confirm `BronzeGearTabPatch` shows the two Bronze Gear blueprints under Metal Crafts only with ACT installed (parts/critical-analysis INFERRED until a harness run).
+**Requires**: Nothing - shipped. One open runtime verification (not a code gap): confirm `BronzeGearTabPatch` shows the two Bronze Gear blueprints under Metal Crafts only with ACT installed (parts/critical-analysis INFERRED until a harness run; T2.606 without-ACT half owes a `confirmedOn` per MW1).
 **Complexity**: Quick (a tracker row, not code).
 
 ### Water-source interop tag - already wired
@@ -89,15 +96,15 @@ Audit score: 7/10 (FAIL - 1 CRITICAL: a framework-version floor, release-blocked
 
 ## Phase 4: Polish
 
-> Art and text are at shipping quality (39 custom images, 7 GIFs). Remaining items are minor. (Old M1, the Sluice All DefaultText drift, was CLOSED by `53969cb30` and is gone from this list.)
+> Art and text are at shipping quality (39 custom images, 7 GIFs). Remaining items are minor.
 
 | Item | What | Complexity |
 |------|------|------------|
-| W3 - dedicated Fish Funnel art | The funnel borrows `FishpondKit` (kit/blueprint) and `MillRace` (placed) sprites; README discloses both. Generate a woven-timber wing-wall image via `/create-image` and repoint the three `CardImageWarpData` fields (owner art review required). (`.audit/images-report.md` is stale, 2026-05-20 - do not trust it for this card.) | Quick-Medium |
-| M1 - reflection-catch logging nit | ~32 catches in `ActionInterceptPatch.cs` log `ex.Message` only. Every catch still emits a line; adjudicated left-as-is 2026-11-04 (deliberate terse breadcrumbs on a byte-stable file). Re-open only if one is shown to hide a needed `Invoke` cause. | Quick |
-| M2 - loaded soil destroyed on Pack Up | All 15 placed stations carry `SpillsInventoryOnDestroy:false`; inputs are cheap/renewable and the loop empties the station first. Documented mod-wide convention; flip to `true` only as a deliberate choice. | Quick (if taken) |
-| M3 - retire 6 vestigial `parts` blueprints | `Bp_AlloySolder`, `Bp_CastIronSheet`, `Bp_CastMetalSheet`, `Bp_CopperRivet`, `Bp_IronRivet`, `Bp_IronRivetsFromSheet` are inert save-compat fallbacks (never researchable). `/remove-blueprint` once no shipped save can hold a researched copy. | Quick |
-| M4 - 5 empty-`InventorySlots` structure cards | Intentional for non-storage landscape/state-variant cards; no action unless a storage role is added. | - |
+| AN1 - dedicated Fish Funnel art | **BUILT 2026-11-13** (candidates). `FishFunnelKit.png` (kit box) on the kit + blueprint and `FishFunnel.png` (woven wing-wall) on the placed card replace the borrowed `FishpondKit`/`MillRace` sprites; three `CardImageWarpData` repointed; README no longer says borrowed; T2.1384 PASS. Remaining: the owner's `/review-art` gallery look and a person seeing both in a running game. | done (pending art review) |
+| MW2 - README code-map row | Add a `PlaceBlockedHintPatch` row to the README "For modders" Code map table; it is the one registered patch class with no row. Docs only. | Quick |
+| MW4 - log-consistency nit | Rewrite `GameLoadPatch.cs:971,513` from bare `{ex.Message}` to `{ex.InnerException?.Message ?? ex.Message}` for uniformity with the M2 pass. Not a silent-failure; both already log. | Quick |
+| M4 - waterpower outlet-kit nail type | The Mill Race Outlet Kit's Dismantle returns ACT Copper Nails x4 though the build slot accepts any `GpTag_FW_MetalNail`. Accepted by design (generic wording covers it); optional: point the drop at a generic nail. | Quick |
+| M5 - retire 6 vestigial `parts` blueprints | `Bp_AlloySolder`, `Bp_CastIronSheet`, `Bp_CastMetalSheet`, `Bp_CopperRivet`, `Bp_IronRivet`, `Bp_IronRivetsFromSheet` are inert save-compat fallbacks (never researchable). `/remove-blueprint` once no shipped save can hold a researched copy. | Quick |
 
 ---
 
@@ -105,7 +112,7 @@ Audit score: 7/10 (FAIL - 1 CRITICAL: a framework-version floor, release-blocked
 
 > Where WDI should be at v1.14+.
 
-WDI is at its natural feature-complete endpoint for a water-industry mod: the full chain from wheel -> power -> every station -> river-fed base infrastructure (drinking, irrigation, retting, reed beds, winter cistern) ships and is in-game confirmed. The mod's role is the definitive "harness the river" overhaul, and the biggest justified remaining move is breadth (the benched Cold-Water Cache) rather than a new subsystem. A new mechanical pillar (e.g. water-powered milling of a new material class, or a tidal/seasonal flow mechanic) is not yet justified by scope; revisit only if vanilla adds a material or seasonal water system to anchor it. The nearest-term work is not new content at all - it is coordinating the framework release (C1) so the 1.13.1 refactors can ship, then the two small fixes and the Fish Funnel art so the public-facing mod matches its shipped state.
+WDI is at its natural feature-complete endpoint for a water-industry mod: the full chain from wheel -> power -> every station -> river-fed base infrastructure (drinking, irrigation, retting, reed beds, winter cistern) ships, is live on Nexus, and is in-game confirmed. The mod's role is the definitive "harness the river" overhaul, and the biggest justified remaining move is breadth (the benched Cold-Water Cache) rather than a new subsystem. A new mechanical pillar (e.g. water-powered milling of a new material class, or a tidal/seasonal flow mechanic) is not yet justified by scope; revisit only if vanilla adds a material or seasonal water system to anchor it. The nearest-term work is the handful of docs/tracker/consistency items above plus the Fish Funnel art review, so the public-facing mod fully matches its shipped state.
 
 **Potential major additions** (not yet justified - revisit after the owner decides on the Cache):
 - Cold-Water Cache restore - benched, fits the river-preservation theme; the clearest next step.
@@ -122,7 +129,7 @@ Any of these worth building belongs in a plan under `Documentation/Plans/WaterDr
 | After any new content phase | Run `/audit-mod WaterDrivenInfrastructure` and update this roadmap |
 | Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp.dll`, re-run `/diagnose-log` |
 | After fixing a critical issue | Run `/critical-analysis WaterDrivenInfrastructure` to verify the fix |
-| Before a release | Run `/nexus-publish status` to read the live-vs-local version delta AND confirm the framework dependency is published (C1), then `/export-to-repo WaterDrivenInfrastructure` and `/nexus-publish upload` |
+| Before a release | Run `/nexus-publish status` to read the live-vs-local version delta AND confirm the framework dependency is published, then `/export-to-repo WaterDrivenInfrastructure` and `/nexus-publish upload` |
 
 ---
 

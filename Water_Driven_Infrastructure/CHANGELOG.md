@@ -2,6 +2,33 @@
 
 All notable changes to this mod are documented here.
 
+## [1.13.2] - 2026-11-18
+
+### Added
+
+- **A kit's Place button now says why it will not go down.** Away from water, Place on a station kit, the Fishpond Kit or the Mill Race Outlet Kit did nothing and said nothing. The button is now greyed out, and its tooltip gives the reason: no water at this location, a Mill Race that reaches it with no outlet flowing there, or, for the outlet kit, no Mill Race reaching it at all. English and Chinese. Checked against the game's code; not yet seen in a running game.
+- Technical: new `Patcher/PlaceBlockedHintPatch.cs`, a postfix on `CardAction.CollectActionModifiers` that writes the reason to the action's `ActionBlockedMessage`, the game's own route for a refused action (`DismantleActionButton.Setup` reads it through `GameManager.CheckActionBlockers`). `MillRaceNetwork.GetPlaceBlockedReason` asks the same `GetGateResult` the "MillRaceGate" cancel handler asks, so the tooltip and the refusal cannot disagree; the refusal itself is unchanged. Three new rows in `SimpEn.csv` and `SimpCn.csv` (`Water_Sawmill_PlaceBlocked_NoWater`, `Water_Sawmill_PlaceBlocked_NoOutlet`, `Water_Sawmill_PlaceBlocked_OutletNoMillRace`), read through the framework's `Api.Localized.Text`. Gate: the texts check in `Development_Tools/Tests/WDI-WarningSweep-2026-11.Tests.ps1`, which holds the code and both CSVs to one wording. Audit W1.
+- **A game update that renames something this mod reads now leaves a line in the log.** Until now the feature that read it simply went quiet. The log names what went missing and what stops working, once per session.
+- Technical: new `Patcher/ReflectionMiss.cs`, one warn-once helper keyed per type and member. The by-name lookups in `GameLoadPatch.cs`, `ActionInterceptPatch.cs`, `FishpondPopulationPatch.cs`, `MillDutyPatch.cs`, `MillRaceNetwork.cs`, `MillRaceMapEdgeProvider.cs` and `BronzeGearTabPatch.cs` that carried a null forward in silence now go through it; lookups that already logged keep their own warning. Nothing changes while the game's names stay as they are. Gate: check (e) in `WDI-WarningSweep-2026-11.Tests.ps1`, a source-shape check (it reads `Patcher/*.cs` as text and runs nothing). Audit W3.
+
+### Fixed
+
+- **The Fishpond Kit no longer carries a "Requires Water" action that never showed.** It had no effect of its own, so the game hid it everywhere. The reason now comes from the Place button (above).
+- **The Mill Race Outlet Kit's "Must be Outdoors" notice now shows indoors.** It was hidden for the same reason. Not yet seen in a running game.
+- Technical: `Fishpond_Kit.json` loses the dead first `DismantleActions` entry and the `AlternateActionIfConditionsNotMet` pointer on Place (the card declares no `AlternateDismantleActions`), and its two rows leave `SimpEn.csv` and `SimpCn.csv`. `MillRaceOutlet_Kit.json` gets `AlwaysShow` on the notice and loses the same pointer. Gate: check (a) in `WDI-WarningSweep-2026-11.Tests.ps1` (no WDI card ships a DismantleAction that can never render, or a pointer into an alternate list it does not declare), watched red on the tree at `137572149`. Audit W1.
+- **Reed Beds and Cattail Beds sway**, as the plants of the other mods do. Not yet seen in a running game.
+- Technical: `CardData/Motion/CardMotion.json` registers `WDI_ReedBed` and `WDI_CattailBed` as `plant` with the framework's card motion layer; the fishponds are left still on purpose. Gate: check (c) in `WDI-WarningSweep-2026-11.Tests.ps1`. Audit W4.
+- **The Sawmill's help says Pack Up returns the plain kit**, not "the plain frame", on the Sawmill and the Expanded Sawmill, in English and Chinese.
+- Technical: `WaterDrivenSawmill_Placed.json`, `WaterDrivenSawmill_Placed_Expanded.json` and both CSV rows (`Water_Sawmill_Placed_CardHelpSection`, `Water_Sawmill_PlacedExpanded_CardHelpSection`). Gate: check (d) in `WDI-WarningSweep-2026-11.Tests.ps1`. Audit W5.
+- **The guides say what a broken-down kit gives back.** A kit returns its nails as copper Metal Nails, whatever metal the nails you built it with were (README), and the Mill Race Outlet Kit returns the Mill Race, half of its planks and all 4 nails, not "all of it" (PLAYER_GUIDE). Text only; no card changed. Audit W6, accepted by design: no kit's text names a metal or promises the same nails back.
+- **A fishpond's breeding rule can no longer fail without a word.** A species with fewer than 2 fish does not breed. If a game update ever stops the mod from holding that, the log now says so once; before, the pond would have started breeding by itself with nothing written. The pond's upkeep also stops at the main menu, where there is no pond to keep. No change in play. Checked against the game's code; not yet seen in a running game.
+- Technical: `Patcher/FishpondPopulationPatch.cs`: `GateBreedingGrowth` checks the bool `CardUtil.SetDurability` returns and warns once per stat per session when the floor write is refused; `RefreshPondCache` and `CheckCachedPonds` leave while `CardUtil.GetGameManagerInstance()` is null (no run loaded), and the pond cache is emptied first. `Patcher/ActionInterceptPatch.cs`: `GetCardCharges` no longer warns "(reflection miss)" for a charges member the game does not declare (one Debug line per card type instead), and the 33 catches that logged a bare `ex.Message` log the inner exception's message when there is one. Gate: `Development_Tools/Tests/WDI-GapFill-2026-11-14.Tests.ps1`, watched red on an export of the two files at `c78e39415`. Audit W-F2, W-F3, M1, M2.
+
+### Changed
+
+- **The Fish Funnel has pictures of its own.** Its blueprint and kit showed the Fishing Pond Kit box, and the placed funnel showed the Mill Race. The kit is now its own box and the placed funnel a woven wing-wall.
+- Technical: new `Resource/Picture/FishFunnelKit.png` and `FishFunnel.png`; `CardImageWarpData` on `FishFunnel_Kit.json`, `Bp_FishFunnel.json` and `FishFunnel_Placed.json` (audit minor M4, plan AN1).
+
 ## [1.13.1] - 2026-11-11
 
 ### Changed

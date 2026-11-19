@@ -1,0 +1,45 @@
+{
+  "target": "FishFunnel.png",
+  "sourceCard": "CardData/Location/FishFunnel_Placed.json",
+  "subject": "two low woven wattle fence panels, each about four times as long as tall, set in a V narrowing to the right with a one-stake gap; sharpened stake ends below the weave; no water",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "MillRace (finish sibling) DwEVLDzgaYesVywfvcBI",
+      "vanilla Fences (material) d9PHyVwuiKZvL7xYcR9W"
+    ]
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is a sibling card from the same set, a timber structure drawn as a single object on white: match its weathered grey-brown timber colour, its ink linework, its plain shading and the way the whole structure stands alone on white; do not copy its trestle shape.\nReference image 2 is a material reference only: a wattle fence, thin withies woven horizontally between upright wooden stakes. The new object is built this way; do not copy its forest scene.\nDraw: a Fish Funnel, a fish-steering wing-wall. Two low woven wattle fence panels, each about four times as long as it is tall, standing upright and set in a V shape seen from a raised three-quarter angle: wide apart at the left, narrowing toward the right, with a gap about one stake wide left open at the narrow end. Each panel is thin withies woven horizontally between seven upright wooden stakes; the sharpened lower ends of the stakes show below the weave. Weathered grey-brown wood, no bark. No water is drawn.\nStyle: plain hand-drawn game item art: flat colour fills in three or four tonal steps, a thin continuous dark brown-black ink outline, muted natural colours, no glossy highlights. Single object only, in the lower two-thirds of the frame, comfortably inset from every edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no text, no watermark, no signature, no border, no frame.\nAvoid: water, a river, fish, a basket trap, a net, a gate, a tall fence, a closed pen, a trestle, a wooden channel, trees, grass, ground, photo, photorealistic, 3D render, cartoon, comic book, glossy highlights, multiple objects, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery, drop shadow, text, watermark, signature, logo, border, frame, footprints, tracks.",
+  "historyId": "8mw1YZpaprnHtN6sfaXa",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794587988553_9d24414c_1794587988670_654d3138.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794587988553_9d24414c_1794587988670_654d3138.png",
+      "verdict": "one sample (owner rule 2026-10-11); checked against its subject phrase by phrase and applied as a new picture; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "keyed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "599bfc02b365552757a7c10b78f5024b596d40852c6c94ab4f63a3b64e2380a2"
+  },
+  "generated": "2026-11-13",
+  "cards": [
+    "CardData/Location/FishFunnel_Placed.json"
+  ],
+  "replaces": {
+    "stand_in": "MillRace",
+    "reason": "WaterDrivenInfrastructure .audit/summary.md M4, plan AN1: borrowed art"
+  }
+}

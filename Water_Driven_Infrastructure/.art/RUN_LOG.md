@@ -17,3 +17,5 @@
 | 2026-10-15T23:20:24 | FullingMillFullyBuilt | nano-banana-2 | 1K | 20 | McUBh6bghi97dMbZSQwK | OK |
 | 2026-10-15T23:20:24 | FullingMillKit | nano-banana-2 | 1K | 20 | iUFyL534i2yPxPcFM0b5 | OK |
 | 2026-10-21 | FullingMillKit (owner gallery rework: boxed kit matching the other WDI kits; StampMillKit subject, FullingMillFullyBuilt prop) | nano-banana-2 image2image | 1K | 20 | bwhY69iQwSOAkL1jLrEz | OK |
+| 2026-11-13 | FishFunnelKit (stand-in replacement, was FishpondKit; refs: SawmillKit (subject), vanilla Fences (material)) | nano-banana-2 image2image | 1K | 20 | M4eq7PxY08sHCTVrcODn | OK |
+| 2026-11-13 | FishFunnel (stand-in replacement, was MillRace; refs: MillRace (finish sibling), vanilla Fences (material)) | nano-banana-2 image2image | 1K | 20 | 8mw1YZpaprnHtN6sfaXa | OK |

@@ -1,0 +1,46 @@
+{
+  "target": "FishFunnelKit.png",
+  "sourceCard": "CardData/Item/FishFunnel_Kit.json",
+  "subject": "the set's kit box (same box as SawmillKit) with a woven V-shaped fish fence in a river on the front and the title FISH FUNNEL KIT",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false,
+    "visualReferences": [
+      "SawmillKit (subject) RFy9GbzWnLWnM4YjMURy",
+      "vanilla Fences (material) d9PHyVwuiKZvL7xYcR9W"
+    ]
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a kit box from a set of building kits: draw this same kind of upright printed box, with the same proportions, the same three-quarter viewing angle, the same moss-green box colour, the same painted-picture-on-the-front layout and the same pale block lettering, changed only as follows. The painted picture on the front of the box shows a low V-shaped fence of woven withies and upright wooden stakes standing in a shallow forest river, narrowing downstream, with three small fish swimming toward its narrow end. The title on the front of the box reads exactly: FISH FUNNEL KIT. The lettering running down the side panel reads exactly: FISH FUNNEL KIT.\nReference image 2 is a material reference only: the woven fence in the box picture is made like this wattle fence, thin withies woven between upright stakes; do not copy its forest scene.\nStyle: the same hand-painted look as reference image 1. Single object only, comfortably inset from every edge, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery outside the box, no watermark, no signature, no border, no frame.\nAvoid: a sawmill, a water wheel, a building, a waterfall, the words SAWMILL or WATER-POWERED, misspelled lettering, extra lettering, a second box, an open box, loose planks beside the box, photo, photorealistic, 3D render, glossy highlights, cropped, blurry, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, watermark, signature, logo, border, frame, footprints, tracks.",
+  "historyId": "M4eq7PxY08sHCTVrcODn",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794587986094_d46283e8_1794587986364_e3c73a1a.png",
+  "credits": 20,
+  "candidates": [
+    {
+      "n": 1,
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/image_1794587986094_d46283e8_1794587986364_e3c73a1a.png",
+      "verdict": "one sample (owner rule 2026-10-11); checked against its subject phrase by phrase and applied as a new picture; awaiting the owner's /review-art look"
+    }
+  ],
+  "finish": "keyed",
+  "processed": {
+    "tool": "Development_Tools/CardArt/process_card_art.py",
+    "size": [
+      512,
+      768
+    ],
+    "sha256": "94e534b7812e9505b166514ca350c9411086fcc620aed0ba408e7b371e476d73"
+  },
+  "generated": "2026-11-13",
+  "cards": [
+    "CardData/Item/FishFunnel_Kit.json",
+    "CardData/Blueprint/Bp_FishFunnel.json"
+  ],
+  "replaces": {
+    "stand_in": "FishpondKit",
+    "reason": "WaterDrivenInfrastructure .audit/summary.md M4, plan AN1: borrowed art"
+  }
+}

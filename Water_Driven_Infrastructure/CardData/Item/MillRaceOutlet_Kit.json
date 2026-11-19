@@ -72,6 +72,7 @@
         }
       ],
       "HideIfConditionsNotMet": true,
+      "AlwaysShow": true,
       "ReceivingCardChanges": {
         "ModType": 0
       }
@@ -109,7 +110,6 @@
         }
       ],
       "HideIfConditionsNotMet": false,
-      "AlternateActionIfConditionsNotMet": {"Active": true, "IntValue": 0},
       "ReceivingCardChanges": {
         "ModType": 2,
         "TransformInto": {"m_FileID": 0, "m_PathID": 0},

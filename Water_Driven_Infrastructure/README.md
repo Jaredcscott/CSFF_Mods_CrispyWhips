@@ -1,6 +1,6 @@
 # Water Driven Infrastructure
 
-**Version:** 1.13.1
+**Version:** 1.13.2
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** CSFFModFramework 2.29.1 or later. Advanced Copper Tools is optional and adds extras, but nothing needs it.
@@ -71,6 +71,7 @@ Finishing a Mill Race also connects the location at its far end, even one you ha
 - **Rain Cistern feed:** a Rain Cistern at the same location fills with River Water at 10 every 15 minutes, about 22 days from empty, so water banked in summer and autumn lasts into winter. Each outlet adds its own flow.
 - A cistern already holding rainwater or any other liquid is left alone until drawn empty. A frozen outlet feeds nothing until the thaw.
 - **Chip Ice** (30 minutes) on a frozen outlet gives an Ice Block, to store in an Ice Pit or melt for water.
+- **Where a kit will not go:** every station kit, the Fishpond Kit and the outlet kit check for water when you press Place. Where the build is refused, the Place button is greyed out and its tooltip says what is missing: no water at this location, a Mill Race that reaches it with no outlet flowing there, or, for the outlet kit, no Mill Race reaching it at all. Indoors the outlet kit shows a "Must be Outdoors" notice.
 
 ---
 
@@ -354,7 +355,7 @@ Advanced machines need copper gears, a copper saw blade and iron parts. Cast the
 - **Copper gears and the saw blade** smelt back into copper nuggets at the quality of the crucible they were cast from, in a furnace or the WDI Forge at 1,100 or more. A piled stack of bronze gears can be spread out to pick one metal type.
 - **Iron parts** smelt in the WDI Forge or Workshop at 1,100 or more, not in a vanilla furnace. Parts made before 1.12.3 have no recorded quality and melt at 0.
 
-**\* Fasteners and sheets.** Every nail slot takes the framework's Metal Nail of any metal, and every solder slot takes its Tin Solder. Nails come from the framework's nail blueprints or the Workshop. Tin Solder comes from Forge Tin Solder: one tin nugget makes 2.
+**\* Fasteners and sheets.** Every nail slot takes the framework's Metal Nail of any metal, and every solder slot takes its Tin Solder. Nails come from the framework's nail blueprints or the Workshop. Tin Solder comes from Forge Tin Solder: one tin nugget makes 2. A kit you break down gives its nails back as copper Metal Nails, whatever metal the nails you built it with were.
 
 Sheet slots read the sheet's metal: the Stamp Mill takes Iron Sheets and the Water Basin any sheet but iron. Iron Sheets come from the framework's Iron Sheet blueprint (6 iron nuggets) or the Workshop's Hammer Iron Sheet.
 
@@ -423,7 +424,7 @@ A Partner works only the stations you mark. The Grinding Mill, Ore Sluice, Stamp
 2. Install CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. (Optional) Install Advanced Copper Tools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game and look for `WaterDrivenInfrastructure v1.13.1 loaded.` in `BepInEx/LogOutput.log`.
+5. Launch the game and look for `WaterDrivenInfrastructure v1.13.2 loaded.` in `BepInEx/LogOutput.log`.
 
 ---
 
@@ -451,18 +452,20 @@ Most features were checked by scripted tests in a running game. Confirmed in scr
 Every card picture and animation, the 1.12.6 Sawmill, Grinding Mill, Forge, Workshop, Ore Sluice and Water Basin animations included, has passed the owner's art review. Still open:
 
 - The animated Water Wheel (also on the Overshot Wheel): seen changing frames in a scripted run, not yet watched turning in a game by a person.
-- The Fish Funnel has no picture of its own yet: its blueprint and kit borrow the Fishpond Kit picture, whose box reads "Fishing Pond Kit", and the placed funnel borrows the Mill Race picture. Not yet judged by a person.
+- The Fish Funnel has pictures of its own (a kit box and the woven wing-wall): newly drawn, not yet seen in a game by a person.
 - Part of the 1.12.10 balance pass (the slower pond, the Partner duty limit, Winter Station Lock on by default): its scripted checks in a running game are being repeated. Once-a-day feeding and the empty drained pond passed theirs again on 2026-11-11.
+- The greyed Place button and its reason on a kit away from water, and the outlet kit's "Must be Outdoors" notice (both new since 1.13.1): checked against the game's code, not yet seen in a running game.
 
 ---
 
 ## Troubleshooting
 
-- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.13.1 loaded.`
+- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.13.2 loaded.`
 - **Forge won't smelt?** It must reach 1,100. Feed it charcoal and Blast first.
 - **Outlet not producing water?** It must be outdoors with a Mill Race built first. In winter it freezes: wait for spring, or keep a heat source there. Stations keep working, but a Rain Cistern stays unfed.
 - **Rain Cistern not filling?** It must stand at the same location as a running outlet and be empty or hold River Water.
 - **Hammer All does nothing?** Load tool blanks or copper pieces into the Workshop first. The game never shows Metal Quality as a number, but the boost is real. It also raises the visible Quality of a copper nugget, and of other items once they have taken a Strike.
+- **A kit's Place button is greyed out?** Hover it: the tooltip says what the location lacks. A station or pond needs a river or lake, or a Mill Race Outlet flowing at a location a Mill Race reaches. The outlet kit needs a Mill Race reaching the location, and the outdoors.
 - **Sawmill Cut missing?** The sawmill must be placed, not held as a kit. Drag a log onto it.
 - **Saw All does nothing?** Put Tree Logs into the sawmill's inventory first. Dragging a log onto the sawmill runs Cut instead.
 

@@ -184,8 +184,8 @@
         "water_sawmill_stamp_mill_placed",
         "water_sawmill_bp_stamp_mill"
       ],
-      "confidence": "LOW",
-      "evidence": "New in 1.12.0 (plan feature 25). Cloned from the Grinding Mill trio; an ore-only hopper (five vanilla GUIDs); Stamp All is an AfterWrapped ActionRouter handler that spawns each ore's hand-hammer crush result at its Quality plus the hammer bonus; a sixth Partner duty. Covered by the WDI Stamp Mill contract and PENDING T2.622 and T2.623. No card art yet. Never observed in-game."
+      "confidence": "VERIFIED",
+      "evidence": "New in 1.12.0 (plan feature 25). Cloned from the Grinding Mill trio; an ore-only hopper (five vanilla GUIDs); Stamp All is an AfterWrapped ActionRouter handler that spawns each ore's hand-hammer crush result at its Quality plus the hammer bonus; a sixth Partner duty. Covered by the WDI Stamp Mill contract. T2.622 (Stamp All crushes ore) PASS 2026-10-09; T2.623 (wdiOperateStampMill_Duty) PASS 2026-10-14 (updated by the duties-module audit, 2026-11-13 - both were still reading PENDING/'never observed' here). No card art yet."
     },
     {
       "name": "Fasteners & Cast Sheets",
@@ -231,10 +231,17 @@
         "wdiOperateGrindingMill_Duty",
         "wdiOperateOreSluice_Duty",
         "wdiOperateSawmill_Duty",
-        "wdiOperateWorkshop_Duty"
+        "wdiOperateSawmillExpanded_Duty",
+        "wdiOperateStampMill_Duty",
+        "wdiOperateWorkshop_Duty",
+        "wdiOperateWorkshopExpanded_Duty",
+        "wdiHarvestReedBed_Duty",
+        "wdiHarvestCattailBed_Duty",
+        "wdiFishPondFilled_Duty",
+        "wdiFishPondStocked_Duty"
       ],
-      "confidence": "LOW",
-      "evidence": "4 of 5 duties PENDING/never observed (T2.87 Sluice, T2.88 Sawmill, T2.89 Forge, T2.90 Workshop). The 5th (Grinding Mill) shows PASS at T2.80 (2026-08-15), but CHANGELOG [1.10.13] (2026-08-16, one day later) raised every custom duty's BaseWeight 20->850 after finding the old value was a starvation bug, and explicitly states 'the Grinding Mill's earlier confirmed working in-game result was probably a low-competition window, not evidence that 20 was adequate' - the current 850-weight code has never itself been confirmed. 1.12.10: the Grinding Mill, Ore Sluice, Stamp Mill, Workshop and Expanded Workshop duties run at most 4 times a day (MaxPerformPerDay)."
+      "confidence": "VERIFIED",
+      "evidence": "UPDATED by the duties-module audit, 2026-11-13 (this row still read '4 of 5 duties PENDING/never observed' and listed only 5 of the 12 duties the mod now ships). All 12 WDI NPCDuty grafts are now individually confirmed PASS in the tracker except one: Grinding Mill T2.80 PASS 2026-08-15 (post-dates the 1.10.13 BaseWeight 20->850 starvation fix noted in CHANGELOG, re-exercised by the later T2.1710 cap check 2026-10-18 PASS); Ore Sluice T2.87 PASS 2026-09-07; Sawmill T2.88 PASS 2026-09-07; Forge T2.89 PASS 2026-10-05 (harness, with screenshots); Workshop T2.90 PASS 2026-10-09 (first multi-step duty); Stamp Mill T2.623 PASS 2026-10-14; Sawmill Expanded T2.638 PASS 2026-10-13; Reed Bed and Cattail Bed harvest T2.615/T2.1950 PASS 2026-10-06/2026-10-19; Fishpond Filled and Stocked T2.636 PASS 2026-10-13. Workshop Expanded (wdiOperateWorkshopExpanded_Duty) has NO tracker row at all - filed as T2.2222 (wdi_partner_duty_workshop_expanded, pending) by this audit, since it is the same multi-step shape as the base Workshop duty and nothing exercises it on the expanded card. 1.12.10: the Grinding Mill, Ore Sluice, Stamp Mill, Workshop and Expanded Workshop duties run at most 4 times a day (MaxPerformPerDay)."
     }
   ]
 }

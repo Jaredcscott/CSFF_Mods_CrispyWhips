@@ -131,14 +131,15 @@ namespace WaterDrivenInfrastructure.Patcher
             var result = new List<MillRaceMapEdge>();
             try
             {
+                const string consequence = "locations other mods add to the world map are not joined to the mill race water network";
                 var worldMapType = AppDomain.CurrentDomain.GetAssemblies()
                     .Select(assembly => assembly.GetType("CSFFModFramework.Api.WorldMap", throwOnError: false))
                     .FirstOrDefault(type => type != null);
+                ReflectionMiss.Require(worldMapType, "CSFFModFramework.Api", "WorldMap", consequence);
                 if (worldMapType == null)
                     return result;
 
-                var getJson = worldMapType.GetMethod("GetInjectedEdgesJson",
-                    BindingFlags.Public | BindingFlags.Static);
+                var getJson = ReflectionMiss.Method(worldMapType, "GetInjectedEdgesJson", BindingFlags.Public | BindingFlags.Static, consequence);
                 if (getJson == null)
                     return result;
 
@@ -252,14 +253,17 @@ namespace WaterDrivenInfrastructure.Patcher
             mapFile = null;
             try
             {
+                const string consequence = "the mill race map is parsed from WDI's own file instead of the framework's cache (slower load, same result)";
                 var registryType = AppDomain.CurrentDomain.GetAssemblies()
                     .Select(assembly => assembly.GetType("CSFFModFramework.Api.MapCacheRegistry", throwOnError: false))
                     .FirstOrDefault(type => type != null);
+                ReflectionMiss.Require(registryType, "CSFFModFramework.Api", "MapCacheRegistry", consequence);
                 if (registryType == null)
                     return false;
 
                 var tryGet = registryType.GetMethods(BindingFlags.Public | BindingFlags.Static)
                     .FirstOrDefault(method => method.Name == "TryGet" && method.GetParameters().Length == 3);
+                ReflectionMiss.Require(tryGet, registryType, "TryGet", consequence);
                 if (tryGet == null)
                     return false;
 
@@ -284,7 +288,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 return null;
 
             var cacheType = cacheInfo.GetType();
-            var tryGetArray = cacheType.GetMethod("TryGetArray", BindingFlags.Public | BindingFlags.Instance);
+            var tryGetArray = ReflectionMiss.Method(cacheType, "TryGetArray", BindingFlags.Public | BindingFlags.Instance, "the mill race map is parsed from WDI's own file instead of the framework's cache (slower load, same result)");
             if (tryGetArray == null)
                 return null;
 
@@ -326,12 +330,15 @@ namespace WaterDrivenInfrastructure.Patcher
 
         private static string GetCacheString(object cacheInfo, string key)
         {
+            // The property is tried first and GetString(key, fallback) second; only a cache with neither is a miss.
             var prop = cacheInfo.GetType().GetProperty(key, BindingFlags.Public | BindingFlags.Instance);
             var propValue = prop?.GetValue(cacheInfo, null) as string;
             if (!string.IsNullOrEmpty(propValue))
                 return propValue;
 
             var getString = cacheInfo.GetType().GetMethod("GetString", BindingFlags.Public | BindingFlags.Instance);
+            if (prop == null && getString == null)
+                ReflectionMiss.Warn(cacheInfo.GetType(), key + " / GetString", "the mill race map cache's version stamp cannot be read (the edges themselves still load)");
             return getString?.Invoke(cacheInfo, new object[] { key, null }) as string;
         }
 

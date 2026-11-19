@@ -265,6 +265,66 @@ namespace WaterDrivenInfrastructure.Patcher
             return true;
         }
 
+        // ── Why a Place is refused, told to the player (audit W1, 2026-11-12) ──────────────────────────
+        // The gate above cancels an off-water Place with a Debug line only, so a kit's Place button did
+        // nothing and said nothing. PlaceBlockedHintPatch asks this for the SAME card and action name the
+        // gate reads, and puts the answer on the action as the game's own blocked message: the button is
+        // greyed out and its tooltip carries the reason. One predicate (GetGateResult) decides both, so
+        // the tooltip and the cancel cannot disagree. Null means "the gate would allow it" or "not a
+        // Place on a WDI build source"; that second exit is two set lookups, taken for every other card
+        // in the game.
+        internal const string PlaceBlockedNoWaterKey = "Water_Sawmill_PlaceBlocked_NoWater";
+        internal const string PlaceBlockedNoWaterText = "Needs water. Place it at a river or lake, or at a location with a connected Mill Race Outlet.";
+        internal const string PlaceBlockedNoOutletKey = "Water_Sawmill_PlaceBlocked_NoOutlet";
+        internal const string PlaceBlockedNoOutletText = "A Mill Race reaches this location, but no Mill Race Outlet is flowing here. Place one here, or warm a frozen one with a fire.";
+        internal const string PlaceBlockedOutletNoMillRaceKey = "Water_Sawmill_PlaceBlocked_OutletNoMillRace";
+        internal const string PlaceBlockedOutletNoMillRaceText = "No water reaches this location. Build Mill Races from a river or lake to here first.";
+
+        private static int _placeReasonFrame = -1;
+        private static string _placeReasonCardId;
+        private static string _placeReasonText;
+
+        /// <summary>True for a card whose Place the gate water-checks: a station or outlet kit, or its blueprint.</summary>
+        public static bool IsPlaceBuildSource(string cardId)
+        {
+            return IsOutletBuildSource(cardId) || IsStationBuildSource(cardId);
+        }
+
+        public static string GetPlaceBlockedReason(string cardId, string actionName)
+        {
+            if (string.IsNullOrEmpty(cardId) || string.IsNullOrEmpty(actionName))
+                return null;
+            bool outlet = IsOutletBuildSource(cardId);
+            if (!outlet && !IsStationBuildSource(cardId))
+                return null;
+            if (!IsPlaceAction(actionName))
+                return null;
+
+            // One inspection window sets its buttons up in one frame, and a stack sets up one per card:
+            // the AllCards scans behind the gate run once per frame and card id, not once per button.
+            int frame = UnityEngine.Time.frameCount;
+            if (frame == _placeReasonFrame && string.Equals(cardId, _placeReasonCardId, StringComparison.Ordinal))
+                return _placeReasonText;
+
+            var result = GetGateResult(cardId, actionName, null, out _);
+            string text = PlaceBlockedText(outlet, result);
+            _placeReasonFrame = frame;
+            _placeReasonCardId = cardId;
+            _placeReasonText = text;
+            return text;
+        }
+
+        private static string PlaceBlockedText(bool outlet, MillRaceGateResult result)
+        {
+            if (result == MillRaceGateResult.Allowed)
+                return null;
+            if (outlet)
+                return CSFFModFramework.Api.Localized.Text(PlaceBlockedOutletNoMillRaceKey, PlaceBlockedOutletNoMillRaceText);
+            if (result == MillRaceGateResult.MissingOutlet)
+                return CSFFModFramework.Api.Localized.Text(PlaceBlockedNoOutletKey, PlaceBlockedNoOutletText);
+            return CSFFModFramework.Api.Localized.Text(PlaceBlockedNoWaterKey, PlaceBlockedNoWaterText);
+        }
+
         private static MillRaceGateResult GetGateResult(string cardId, string actionName, object cardInstance, out string locationUid)
         {
             locationUid = null;
@@ -667,7 +727,9 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             var value = entry.Value;
             var dictionaryKey = GetMemberValue(value, "DictionaryKey") as string;
-            var environmentId = LoadSavedUniqueId(GetMemberValue(value, "EnvironmentID") as string);
+            // EnvironmentSaveDataByReference has no EnvironmentID on EA 0.69e (.decomp); the probe is kept
+            // for a build that has one, and DictionaryKey and the dictionary's own key carry the lookup.
+            var environmentId = LoadSavedUniqueId(GetOptionalMemberValue(value, "EnvironmentID") as string);
             var entryKey = entry.Key as string;
 
             return LocationUidForSavedEnvironmentKey(dictionaryKey)
@@ -791,7 +853,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     continue;
                 if (GetBoolMember(card, "BlueprintComplete"))
                     return;
-                var method = card.GetType().GetMethod("CompleteImprovement", Flags);
+                var method = ReflectionMiss.Method(card.GetType(), "CompleteImprovement", Flags, "the far end of a finished Mill Race hop stays under construction on the board");
                 method?.Invoke(card, null);
                 return;
             }
@@ -967,7 +1029,17 @@ namespace WaterDrivenInfrastructure.Patcher
         // ActionInterceptPatch uses for the same reads. A miss is cached too (null MemberInfo).
         private static readonly Dictionary<(Type, string), MemberInfo> _memberLookups = new Dictionary<(Type, string), MemberInfo>();
 
-        private static object GetMemberValue(object instance, string memberName)
+        // A member that is absent BY DESIGN on the current game (a probe kept for an older save or game
+        // version): read through here and never reported.
+        private static object GetOptionalMemberValue(object instance, string memberName)
+        {
+            return GetMemberValue(instance, memberName, optional: true);
+        }
+
+        // A missing member is a rename: ReflectionMiss reports type.member once (at the first lookup; the
+        // null is cached like a hit, so the per-card AllCards scans never look it up or report it again),
+        // and the caller sees null, which is also what a member that exists and holds null gives.
+        private static object GetMemberValue(object instance, string memberName, bool optional = false)
         {
             if (instance == null || string.IsNullOrEmpty(memberName))
                 return null;
@@ -978,6 +1050,8 @@ namespace WaterDrivenInfrastructure.Patcher
                 member = (MemberInfo)type.GetField(memberName, Flags) ?? type.GetProperty(memberName, Flags);
                 _memberLookups[key] = member;
             }
+            if (member == null && !optional)
+                ReflectionMiss.Warn(type, memberName, "the mill race water network reads it, so water access, outlets or heat sources may be judged wrongly");
             if (member is FieldInfo field)
                 return field.GetValue(instance);
             if (member is PropertyInfo property && property.CanRead)
@@ -999,7 +1073,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 return id;
             try
             {
-                var method = typeof(UniqueIDScriptable).GetMethod("LoadID", BindingFlags.Public | BindingFlags.Static);
+                var method = ReflectionMiss.Method(typeof(UniqueIDScriptable), "LoadID", BindingFlags.Public | BindingFlags.Static, "a saved environment key that carries a name suffix may not match its location, so a built Mill Race there may read as not built");
                 return method?.Invoke(null, new object[] { id }) as string ?? id;
             }
             catch (Exception ex)

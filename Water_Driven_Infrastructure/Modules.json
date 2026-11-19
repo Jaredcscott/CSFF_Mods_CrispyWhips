@@ -8,9 +8,9 @@
     {
       "id": "waterpower",
       "name": "Water Power and Mill Race",
-      "summary": "Water Wheel, Overshot Wheel, Water Mill, Mill Race and its four sawmill env improvements, Mill Race Outlet (placed, closed, frozen), Water Basin, the Millwright and Outlet perks, the mill-race network and map-edge provider, and the ACT bathtub plumbing patch.",
+      "summary": "Water Wheel, Overshot Wheel, Water Mill, Mill Race and its four sawmill env improvements, Mill Race Outlet (placed, closed, frozen), Water Basin, the Millwright and Outlet perks, the mill-race network and map-edge provider, the off-water Place hint (PlaceBlockedHintPatch), and the ACT bathtub plumbing patch.",
       "paths": ["CardData/**/*WaterWheel*", "CardData/**/*OvershotWheel*", "CardData/**/*WaterMill*", "CardData/**/*MillRace*", "CardData/**/*WaterBasin*", "Resource/GIF/Water*",
-                "Data/**", "CharacterPerk/Perk_Millwright.json", "CharacterPerk/Perk_OutletStart.json", "Patcher/MillRaceNetwork.cs", "Patcher/MillRaceMapEdgeProvider.cs", "Patcher/BathtubPlumbingPatch.cs", ".art/OvershotWheel.json", ".art/WaterBasin_gif.json", ".art/WaterWheel_gif.json"]
+                "Data/**", "CharacterPerk/Perk_Millwright.json", "CharacterPerk/Perk_OutletStart.json", "Patcher/MillRaceNetwork.cs", "Patcher/MillRaceMapEdgeProvider.cs", "Patcher/PlaceBlockedHintPatch.cs", "Patcher/BathtubPlumbingPatch.cs", ".art/OvershotWheel.json", ".art/WaterBasin_gif.json", ".art/WaterWheel_gif.json"]
     },
     {
       "id": "sawmill",
@@ -71,9 +71,9 @@
       "id": "modwide",
       "name": "Mod-wide",
       "modWide": true,
-      "summary": "Plugin entry, the shared loader (GameLoadPatch) and the station action interceptor (ActionInterceptPatch, every station's DismantleActions), MiniJson, the batch action tag, project files, player docs, card motion, and art tooling state.",
+      "summary": "Plugin entry, the shared loader (GameLoadPatch) and the station action interceptor (ActionInterceptPatch, every station's DismantleActions), MiniJson, the reflection-miss reporter (ReflectionMiss), the batch action tag, project files, player docs, card motion, and art tooling state.",
       "paths": ["Plugin.cs", "GlobalUsing.cs", "ModInfo.json", "*.csproj", "*.sln", "README.md", "CHANGELOG.md", "PLAYER_GUIDE.md", "CLAUDE.md", "LICENSE", "ASSET_CREDITS.md", ".gitignore",
-                "Features.json", "Modules.json", "Patcher/GameLoadPatch.cs", "Patcher/ActionInterceptPatch.cs", "Util/**", "ScriptableObject/ActionTag/**", "CardData/Motion/**",
+                "Features.json", "Modules.json", "Patcher/GameLoadPatch.cs", "Patcher/ActionInterceptPatch.cs", "Patcher/ReflectionMiss.cs", "Util/**", "ScriptableObject/ActionTag/**", "CardData/Motion/**",
                 ".art/RUN_LOG.md", ".art/reference-uploads.json", ".art/review/**"]
     }
   ]

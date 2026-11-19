@@ -68,8 +68,14 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             _pondCache.Clear();
 
+            // No run is loaded (main menu, between runs). The framework's ticks keep firing there, so leave
+            // before the scene scan (CSFFModFramework/CLAUDE.md, "Process-lifetime ticks vs per-run state").
+            // The cache was emptied above, so no pond of the last run is kept. A null here is the normal
+            // answer at the menu, not a reflection miss, so nothing is logged.
+            if (CardUtil.GetGameManagerInstance() == null) return;
+
             if (_cardBaseType == null)
-                _cardBaseType = AccessTools.TypeByName("InGameCardBase");
+                _cardBaseType = ReflectionMiss.GameType(AccessTools.TypeByName("InGameCardBase"), "InGameCardBase", "no fishpond is found, so ponds neither turn Stocked nor hold their breeding rule");
             if (_cardBaseType == null) return;
 
             var cards = UnityEngine.Object.FindObjectsOfType(_cardBaseType);
@@ -88,6 +94,9 @@ namespace WaterDrivenInfrastructure.Patcher
         // Per-2s tick — iterates only cached ponds, evicts destroyed entries.
         private static void CheckCachedPonds()
         {
+            // No run is loaded: act on nothing (same rule as RefreshPondCache, which empties the cache).
+            if (CardUtil.GetGameManagerInstance() == null) return;
+
             for (int i = _pondCache.Count - 1; i >= 0; i--)
             {
                 var card = _pondCache[i];
@@ -149,8 +158,17 @@ namespace WaterDrivenInfrastructure.Patcher
             if (float.IsNaN(cur) || cur >= 2f) return;          // ≥ 2 → breeding allowed
             float floored = (float)Math.Floor(cur);
             if (Math.Abs(cur - floored) < 0.00001f) return;     // already an integer, nothing to do
-            CardUtil.SetDurability(card, statName, floored);
+            if (CardUtil.SetDurability(card, statName, floored)) return;
+
+            // The write was refused. The stat was readable a moment ago (a NaN read returns above), so this
+            // is a write path the game changed, and CardUtil says nothing about it above Debug level.
+            // Without the floor the fraction keeps growing and the species crosses the breeding gate by
+            // itself, so say so once per stat (this runs every 2 seconds for every cached pond).
+            if (!_floorWriteWarned.Add(statName)) return;
+            Logger?.LogWarning($"[FishpondPop] could not write the breeding floor to {statName} (CardUtil.SetDurability returned false): a fishpond species below 2 fish keeps its fractional growth and can start breeding by itself [logged once per stat per session]");
         }
+
+        private static readonly HashSet<string> _floorWriteWarned = new HashSet<string>(StringComparer.Ordinal);
 
         // ── transform ─────────────────────────────────────────────────────────────────
 
@@ -193,7 +211,7 @@ namespace WaterDrivenInfrastructure.Patcher
 
             try
             {
-                var cmProp = cardType.GetProperty("CardModel", Flags);
+                var cmProp = ReflectionMiss.Property(cardType, "CardModel", Flags, "no fishpond is found, so ponds neither turn Stocked nor hold their breeding rule");
                 _cardModelCache[cardType] = cmProp; // cache even if null
 
                 // Resolve the UniqueID field from the first card model we encounter
@@ -201,7 +219,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 {
                     var model = cmProp.GetValue(card);
                     if (model != null)
-                        _uidField = model.GetType().GetField("UniqueID", Flags);
+                        _uidField = ReflectionMiss.Field(model.GetType(), "UniqueID", Flags, "a card model that is not a UniqueIDScriptable cannot be identified by the fishpond scan");
                 }
             }
             catch (Exception ex)

@@ -22,7 +22,7 @@ Water_Sawmill_Placed_CardHelpSection,"<b>Placement:</b> Build it at a river or l
 
 <b>Overshot Wheel:</b> Drag an Overshot Wheel onto the sawmill to fit it (30 minutes): Saw All then takes 1.5 hours instead of 3. Pack Up (Overshot) packs the sawmill and gives the wheel back.
 
-<b>Expand:</b> Press Expand (30 minutes) to rebuild the sawmill larger in place: its capacity grows from 20000 to 30000 weight, room for 10 logs instead of 6. Everything inside it and any fitted Overshot Wheel are kept. It costs 6 Planks and 4 Iron Nails (Metal Nails of Metal Type 200), taken from your inventory or from cards lying at this location, never from the sawmill's own slots; Expand does nothing until you hold them. Pack Up returns the plain frame, so the expansion is paid for again.","<b>放置：</b> 可在河边、湖边或任何有已连通引水渠出口供水的户外地点建造，其他地方无法建造。
+<b>Expand:</b> Press Expand (30 minutes) to rebuild the sawmill larger in place: its capacity grows from 20000 to 30000 weight, room for 10 logs instead of 6. Everything inside it and any fitted Overshot Wheel are kept. It costs 6 Planks and 4 Iron Nails (Metal Nails of Metal Type 200), taken from your inventory or from cards lying at this location, never from the sawmill's own slots; Expand does nothing until you hold them. Pack Up returns the plain kit, so the expansion is paid for again.","<b>放置：</b> 可在河边、湖边或任何有已连通引水渠出口供水的户外地点建造，其他地方无法建造。
 
 <b>操作：</b> 将原木拖到锯木厂上进行切割（1.5小时），锯成木板和木屑。
 
@@ -32,7 +32,7 @@ Water_Sawmill_Placed_CardHelpSection,"<b>Placement:</b> Build it at a river or l
 
 <b>上射式水车：</b>将上射式水车拖到锯木厂上安装（30分钟）：之后全部锯切由3小时缩短为1.5小时。“收起（上射式水车）”会收起锯木厂并退还水车。
 
-<b>扩建：</b>按下扩建（30分钟），可在原地扩建锯木厂，载重由20000增至30000（可放10根原木而不是6根），里面的物品和已安装的上射式水车都会保留。需要6块木板和4枚铁钉（金属类型200的金属钉），取自你的背包或本地点地面上的卡牌，不会取用锯木厂自身格子里的物品；材料不足时扩建没有任何效果。收起只会得到原来的框架，因此需要重新扩建。"
+<b>扩建：</b>按下扩建（30分钟），可在原地扩建锯木厂，载重由20000增至30000（可放10根原木而不是6根），里面的物品和已安装的上射式水车都会保留。需要6块木板和4枚铁钉（金属类型200的金属钉），取自你的背包或本地点地面上的卡牌，不会取用锯木厂自身格子里的物品；材料不足时扩建没有任何效果。收起只会得到原来的套件，因此需要重新扩建。"
 Water_Sawmill_Placed_PickUp_ActionName,Pack Up,收起
 Water_Sawmill_Placed_PickUp_ActionDescription,Pack up the sawmill back into a transportable kit.,将锯木厂收回为可携带套件。
 Water_Sawmill_Placed_Cut_ActionName,Cut,切割
@@ -299,8 +299,9 @@ Water_Sawmill_IronWrench_CardHelpSection,<b>Purpose:</b> Forged workshop tool us
 Water_Sawmill_Bp_IronWrench_CardName,Forge Iron Wrench,锻造铁扳手
 Water_Sawmill_Bp_IronWrench_CardDescription,Forge one heavy iron wrench from a wrought iron bar.,用一根熟铁条锻造一把沉重的铁扳手。
 Water_Sawmill_Bp_IronWrench_UnlockConditionsDesc,Wrought Iron Bar Needed,需要熟铁条
-Water_Sawmill_FishpondKit_RequiresWater_ActionName,Requires Water,需在水边
-Water_Sawmill_FishpondKit_RequiresWater_ActionDescription,This kit must be placed at a river or lake. Travel to a water environment to build it.,此套件必须在河流或湖泊旁放置，前往有水的环境才能建造。
+Water_Sawmill_PlaceBlocked_NoWater,"Needs water. Place it at a river or lake, or at a location with a connected Mill Race Outlet.",需要水源：请放在河边或湖边，或有已连通引水渠出口的地点。
+Water_Sawmill_PlaceBlocked_NoOutlet,"A Mill Race reaches this location, but no Mill Race Outlet is flowing here. Place one here, or warm a frozen one with a fire.",引水渠已通到此地，但这里没有正在出水的引水渠出口。请在此放置一个，或用火给结冰的出口解冻。
+Water_Sawmill_PlaceBlocked_OutletNoMillRace,No water reaches this location. Build Mill Races from a river or lake to here first.,没有水能流到此地。请先从河流或湖泊修建引水渠通到这里。
 Water_Sawmill_FishpondFilled_CardHelpSection,"<b>Populations:</b> Pike, perch, and minnow each grow at the same slow rate (about 3.5 days per fish per species).
 
 <b>Trout / Char / Sturgeon / Eel:</b> Each tracked separately (cap 10 each). They do not breed.
@@ -875,7 +876,7 @@ Water_Sawmill_FishpondStocked_Duty_DutyName,Fish the Fishpond,在鱼塘钓鱼
 
 Water_Sawmill_PlacedExpanded_CardName,Expanded Water-Driven Sawmill,扩建水力锯木厂
 Water_Sawmill_PlacedExpanded_CardDescription,"A water-powered sawmill rebuilt larger in place: it holds 30000 weight instead of 20000, room for ten logs instead of six.",在原地扩建的水力锯木厂：载重由20000增至30000，可容纳十根原木而不是六根。
-Water_Sawmill_PlacedExpanded_CardHelpSection,"<b>Expanded:</b> This sawmill was rebuilt larger in place and holds 30000 weight instead of 20000, room for 10 logs instead of 6. It works exactly like the standard sawmill. Pack Up returns the plain frame, so a rebuilt sawmill must be expanded again.
+Water_Sawmill_PlacedExpanded_CardHelpSection,"<b>Expanded:</b> This sawmill was rebuilt larger in place and holds 30000 weight instead of 20000, room for 10 logs instead of 6. It works exactly like the standard sawmill. Pack Up returns the plain kit, so a rebuilt sawmill must be expanded again.
 
 <b>Placement:</b> Build it at a river or lake, or at any outdoor location watered by a connected Mill Race Outlet. Anywhere else the build is refused.
 
@@ -885,7 +886,7 @@ Water_Sawmill_PlacedExpanded_CardHelpSection,"<b>Expanded:</b> This sawmill was 
 
 <b>Saw Blade:</b> Every log sawn, by Cut or Saw All, adds 1 Blade Wear. At 60 the sawmill stops cutting until you drag a Copper Saw Blade onto it (Replace Saw Blade, 30 minutes), which uses the blade up. Saw All saws only as many logs as the blade has left. Packing the sawmill up keeps its wear.
 
-<b>Overshot Wheel:</b> Drag an Overshot Wheel onto the sawmill to fit it (30 minutes): Saw All then takes 1.5 hours instead of 3. Pack Up (Overshot) packs the sawmill and gives the wheel back.","<b>已扩建：</b>这座锯木厂已在原地扩建，载重由20000增至30000，可放10根原木而不是6根，用法与普通锯木厂完全相同。收起只会得到原来的框架，重建后需要重新扩建。
+<b>Overshot Wheel:</b> Drag an Overshot Wheel onto the sawmill to fit it (30 minutes): Saw All then takes 1.5 hours instead of 3. Pack Up (Overshot) packs the sawmill and gives the wheel back.","<b>已扩建：</b>这座锯木厂已在原地扩建，载重由20000增至30000，可放10根原木而不是6根，用法与普通锯木厂完全相同。收起只会得到原来的套件，重建后需要重新扩建。
 
 <b>放置：</b> 可在河边、湖边或任何有已连通引水渠出口供水的户外地点建造，其他地方无法建造。
 

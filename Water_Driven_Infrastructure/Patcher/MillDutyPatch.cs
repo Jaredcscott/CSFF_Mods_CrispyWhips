@@ -138,8 +138,8 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             try
             {
-                var gameLoadType = AccessTools.TypeByName("GameLoad");
-                var loadMainGameDataMethod = AccessTools.Method(gameLoadType, "LoadMainGameData");
+                var gameLoadType = ReflectionMiss.GameType(AccessTools.TypeByName("GameLoad"), "GameLoad", "no Partner station duty is attached");
+                var loadMainGameDataMethod = ReflectionMiss.Require(AccessTools.Method(gameLoadType, "LoadMainGameData"), gameLoadType, "LoadMainGameData", "no Partner station duty is attached");
                 var postfixMethod = AccessTools.Method(typeof(MillDutyPatch), nameof(LoadMainGameData_Postfix));
                 var postfix = new HarmonyMethod(postfixMethod)
                 {
@@ -213,7 +213,11 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (list == null)
                 {
                     list = Activator.CreateInstance(field.FieldType) as System.Collections.IList;
-                    if (list == null) return;
+                    if (list == null)
+                    {
+                        WarnFrogPoolOnce($"GameStatsToNPCStats.StatsStillAffectedByNPCS could not be instantiated as a list ({field.FieldType}, game update?): a Partner's Catch Frog will not spend the shared frog pool.");
+                        return;
+                    }
                     field.SetValue(__instance, list);
                 }
                 foreach (var statUid in StatsPartnerActionsStillChange)
@@ -253,25 +257,48 @@ namespace WaterDrivenInfrastructure.Patcher
             }
         }
 
+        // ── reflection misses (audit W3) ────────────────────────────────────────
+        // Reflect.SetMember answers false, and Reflect.GetMember null, for a member it cannot find. Every call
+        // here whose answer nobody checks goes through these, so the miss is named once by ReflectionMiss.
+        private static bool SetOrWarn(object instance, string name, object value, string consequence)
+        {
+            if (Reflect.SetMember(instance, name, value)) return true;
+            if (instance != null) ReflectionMiss.Warn(instance.GetType(), name, consequence);
+            return false;
+        }
+
+        private static object GetOrWarn(object instance, string name, string consequence)
+        {
+            if (instance == null) return null;
+            if (Reflect.TryGetMember(instance, name, out var value)) return value;
+            ReflectionMiss.Warn(instance.GetType(), name, consequence);
+            return null;
+        }
+
+        private static Type FindDutyType(string typeName)
+        {
+            return ReflectionMiss.GameType(CardUtil.FindGameType(typeName), typeName, "no Partner station duty is attached");
+        }
+
         private static bool ResolveTypes()
         {
             if (_npcDutyActionType != null) return true;
 
-            _uidType = CardUtil.FindGameType("UniqueIDScriptable");
-            _npcDutyActionType = CardUtil.FindGameType("NPCDutyAction");
-            _moveDutyActionType = CardUtil.FindGameType("MoveDutyAction");
-            _affectItemsDutyActionType = CardUtil.FindGameType("AffectItemsDutyAction");
-            _npcItemSelectionSettingsType = CardUtil.FindGameType("NPCItemSelectionSettings");
-            _npcCardActionSelectionSettingsType = CardUtil.FindGameType("NPCCardActionSelectionSettings");
-            _npcDutyRefType = CardUtil.FindGameType("NPCDutyRef");
-            _npcDutyWeightsType = CardUtil.FindGameType("NPCDutyWeights");
-            _cardOrTagRefWithDurabilitiesType = CardUtil.FindGameType("CardOrTagRefWithDurabilities");
-            _cardOrTagQuantityType = CardUtil.FindGameType("CardOrTagQuantity");
-            _generalConditionType = CardUtil.FindGameType("GeneralCondition");
-            _cardDataType = CardUtil.FindGameType("CardData");
-            _cardTagType = CardUtil.FindGameType("CardTag");
-            _npcStatInstantModifierType = CardUtil.FindGameType("NPCStatInstantModifier");
-            _actionTagType = CardUtil.FindGameType("ActionTag");
+            _uidType = FindDutyType("UniqueIDScriptable");
+            _npcDutyActionType = FindDutyType("NPCDutyAction");
+            _moveDutyActionType = FindDutyType("MoveDutyAction");
+            _affectItemsDutyActionType = FindDutyType("AffectItemsDutyAction");
+            _npcItemSelectionSettingsType = FindDutyType("NPCItemSelectionSettings");
+            _npcCardActionSelectionSettingsType = FindDutyType("NPCCardActionSelectionSettings");
+            _npcDutyRefType = FindDutyType("NPCDutyRef");
+            _npcDutyWeightsType = FindDutyType("NPCDutyWeights");
+            _cardOrTagRefWithDurabilitiesType = FindDutyType("CardOrTagRefWithDurabilities");
+            _cardOrTagQuantityType = FindDutyType("CardOrTagQuantity");
+            _generalConditionType = FindDutyType("GeneralCondition");
+            _cardDataType = FindDutyType("CardData");
+            _cardTagType = FindDutyType("CardTag");
+            _npcStatInstantModifierType = FindDutyType("NPCStatInstantModifier");
+            _actionTagType = FindDutyType("ActionTag");
 
             if (_uidType == null || _npcDutyActionType == null || _moveDutyActionType == null
                 || _affectItemsDutyActionType == null || _npcItemSelectionSettingsType == null
@@ -581,8 +608,14 @@ namespace WaterDrivenInfrastructure.Patcher
             if (_dutyCardsField == null) { GateWarnOnce("GameManager.DutyCards", "GameManager.DutyCards not found (game update?): the empty-station gate is open."); return true; }
             var dict = _dutyCardsField.GetValue(gm) as System.Collections.IDictionary;
             if (dict == null) { GateWarnOnce("DutyCards-null", "GameManager.DutyCards is not a dictionary: the empty-station gate is open."); return true; }
-            // A missing key reads null through IDictionary: no station is marked, so the duty could press nothing.
-            if (!(dict[duty] is System.Collections.IList marked)) return false;
+            // A missing key means no station is marked with this duty, so its button could press nothing (fail CLOSED, the point of the gate).
+            if (!dict.Contains(duty)) return false;
+            // A present key whose value is not a list is a DutyCards value-type change (game update): fail OPEN per this method's header, never strand a working duty.
+            if (!(dict[duty] is System.Collections.IList marked))
+            {
+                GateWarnOnce("DutyCards-value-type", "GameManager.DutyCards value is not a list (game update?): the empty-station gate is open for this duty.");
+                return true;
+            }
             foreach (var card in marked)
             {
                 if (card == null || (card is UnityEngine.Object uo && uo == null)) continue;
@@ -605,7 +638,7 @@ namespace WaterDrivenInfrastructure.Patcher
             // _xxxGrafted latches mean GraftOneDuty never re-runs to repair it. Matches the
             // framework's own Animals/DutyBuilder.cs.
             move.hideFlags = HideFlags.DontUnloadUnusedAsset;
-            Reflect.SetMember(move, "RequiredForSelectingDuty", false);
+            SetOrWarn(move, "RequiredForSelectingDuty", false, "the Partner may fail to walk to a WDI station");
             NpcDuties.SetEnumField(move, "MovementType", "Pathfind");
             // Neither the mill nor the sluice has a dedicated CardTag (CardTagsWarpData is just
             // tag_Wood/tag_Stone/tag_Bag, confirmed by grep) — target the CardData directly via
@@ -615,16 +648,16 @@ namespace WaterDrivenInfrastructure.Patcher
             NpcDuties.SetEnumField(move, "MoveDestination", "MoveToItem");
 
             var target = Activator.CreateInstance(_cardOrTagRefWithDurabilitiesType);
-            Reflect.SetMember(target, "Target", targetCard);
+            SetOrWarn(target, "Target", targetCard, "a Partner station duty step may never find or work its station");
             var items = Array.CreateInstance(_cardOrTagRefWithDurabilitiesType, 1);
             items.SetValue(target, 0);
-            Reflect.SetMember(move, "MoveToItems", items);
+            SetOrWarn(move, "MoveToItems", items, "the Partner may fail to walk to a WDI station");
 
             // Null-array hygiene on unused targeting fields — the engine iterates these
             // without null guards on some paths (mirrors AshPartnerDutyPatch.NewMoveAction).
-            Reflect.SetMember(move, "MoveToEnvironments", Array.CreateInstance(_cardDataType, 0));
-            Reflect.SetMember(move, "MoveToTags", Array.CreateInstance(_cardTagType, 0));
-            Reflect.SetMember(move, "MoveCosts", Array.CreateInstance(_npcStatInstantModifierType, 0));
+            SetOrWarn(move, "MoveToEnvironments", Array.CreateInstance(_cardDataType, 0), "the Partner may fail to walk to a WDI station");
+            SetOrWarn(move, "MoveToTags", Array.CreateInstance(_cardTagType, 0), "the Partner may fail to walk to a WDI station");
+            SetOrWarn(move, "MoveCosts", Array.CreateInstance(_npcStatInstantModifierType, 0), "the Partner may fail to walk to a WDI station");
             NpcDuties.SetEnumField(move, "CostRequirements", "IgnoreCost");
 
             return move;
@@ -642,14 +675,15 @@ namespace WaterDrivenInfrastructure.Patcher
             var affect = ScriptableObject.CreateInstance(_affectItemsDutyActionType);
             affect.name = affectName;
             affect.hideFlags = HideFlags.DontUnloadUnusedAsset; // see BuildMoveAction
-            Reflect.SetMember(affect, "RequiredForSelectingDuty", false);
+            // Written out, not through SetOrWarn: the empty-station gate contract in WaterDrivenInfrastructure.Tests.ps1 reads this call.
+            if (!Reflect.SetMember(affect, "RequiredForSelectingDuty", false)) ReflectionMiss.Warn(affect.GetType(), "RequiredForSelectingDuty", "a Partner station duty step may never find or work its station");
 
             var itemSelection = Activator.CreateInstance(_npcItemSelectionSettingsType);
             var target = Activator.CreateInstance(_cardOrTagRefWithDurabilitiesType);
-            Reflect.SetMember(target, "Target", targetCard);
+            SetOrWarn(target, "Target", targetCard, "a Partner station duty step may never find or work its station");
             var quantity = Activator.CreateInstance(_cardOrTagQuantityType);
-            Reflect.SetMember(quantity, "Target", target);
-            Reflect.SetMember(quantity, "Quantity", Vector2.one);
+            SetOrWarn(quantity, "Target", target, "a Partner station duty step may never find or work its station");
+            SetOrWarn(quantity, "Quantity", Vector2.one, "a Partner station duty step may never find or work its station");
 
             var poolType = typeof(System.Collections.Generic.List<>).MakeGenericType(_cardOrTagQuantityType);
             var pool = (System.Collections.IList)Activator.CreateInstance(poolType);
@@ -679,7 +713,7 @@ namespace WaterDrivenInfrastructure.Patcher
 
             var actionToPerform = Activator.CreateInstance(_npcCardActionSelectionSettingsType);
             NpcDuties.SetEnumField(actionToPerform, "ActionType", cardOnCard ? "CardOnCardAction" : "DismantleAction");
-            Reflect.SetMember(actionToPerform, "ActionTagFilter", Array.CreateInstance(_actionTagType, 0));
+            SetOrWarn(actionToPerform, "ActionTagFilter", Array.CreateInstance(_actionTagType, 0), "a Partner station duty step may never find or work its station");
 
             if (cardOnCard)
             {
@@ -743,13 +777,13 @@ namespace WaterDrivenInfrastructure.Patcher
 
         private static bool AttachDutyRefToAgent(object agent, object duty)
         {
-            var existing = Reflect.GetMember(agent, "AgentDuties") as Array;
+            var existing = GetOrWarn(agent, "AgentDuties", "the Partner's existing duties cannot be read, so a WDI duty is not merged onto them") as Array;
             if (existing != null)
             {
                 foreach (var entry in existing)
                 {
                     if (entry == null) continue;
-                    if (ReferenceEquals(Reflect.GetMember(entry, "TargetDuty"), duty))
+                    if (ReferenceEquals(GetOrWarn(entry, "TargetDuty", "an already attached WDI duty cannot be recognised, so it may be attached twice"), duty))
                         return true; // idempotent — already attached from a prior LoadMainGameData pass
                 }
             }
@@ -781,8 +815,8 @@ namespace WaterDrivenInfrastructure.Patcher
                 return false;
             }
             NpcDuties.SetEnumField(dutyRef, "ActivatingMode", "ActivateAutomatically");
-            Reflect.SetMember(dutyRef, "StartActive", true);
-            Reflect.SetMember(dutyRef, "ActivatingConditions", NpcDuties.EmptyCondition());
+            SetOrWarn(dutyRef, "StartActive", true, "a Partner station duty may attach inactive or ungated");
+            SetOrWarn(dutyRef, "ActivatingConditions", NpcDuties.EmptyCondition(), "a Partner station duty may attach inactive or ungated");
             if (!Reflect.SetMember(dutyRef, "PreferenceWeights", weights))
             {
                 // footgun #1: PreferenceWeights lives on NPCDutyRef, not NPCDuty. If this write
@@ -797,7 +831,7 @@ namespace WaterDrivenInfrastructure.Patcher
             if (existing != null) Array.Copy(existing, merged, oldLen);
             merged.SetValue(dutyRef, oldLen);
 
-            return Reflect.SetMember(agent, "AgentDuties", merged);
+            return SetOrWarn(agent, "AgentDuties", merged, "a WDI station duty is built but never reaches the Partner");
         }
 
         // EmptyCondition and SetEnumField moved onto Api.NpcDuties (Fleet APE Port row 2, Prompt 44):

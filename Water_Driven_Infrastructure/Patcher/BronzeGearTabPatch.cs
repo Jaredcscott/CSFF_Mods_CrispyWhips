@@ -105,8 +105,12 @@ namespace WaterDrivenInfrastructure.Patcher
 
                 int added = 0;
                 foreach (var tab in tabs)
+                {
+                    // Collections.Append answers false for a missing member and for a card already present alike.
+                    if (ReflectionMiss.FieldOrProperty(tab.GetType(), "IncludedCards", Flags, "the bronze gear blueprints cannot be added to the Metal Crafts tab") == null) continue;
                     foreach (var card in cards)
                         if (Collections.Append(tab, "IncludedCards", card)) added++;
+                }
 
                 if (added > 0)
                     Logger?.LogInfo($"[WDI] Bronze gear blueprints tabbed under Metal Crafts ({added} append(s) across {tabs.Count} tab object(s)); Advanced Copper Tools is loaded.");
@@ -160,6 +164,8 @@ namespace WaterDrivenInfrastructure.Patcher
             var field = type.GetField(name, Flags);
             if (field != null) return field.GetValue(owner);
             var prop = type.GetProperty(name, Flags);
+            if (prop == null)
+                ReflectionMiss.Warn(type, name, "the Metal Crafts journal tab cannot be found, so the bronze gear blueprints are not tabbed");
             return prop?.GetValue(owner, null);
         }
 

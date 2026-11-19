@@ -17,8 +17,8 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             try
             {
-                var gameLoadType = AccessTools.TypeByName("GameLoad");
-                var loadMainGameDataMethod = AccessTools.Method(gameLoadType, "LoadMainGameData");
+                var gameLoadType = ReflectionMiss.GameType(AccessTools.TypeByName("GameLoad"), "GameLoad", "WDI's load-time setup (kiln recipes, mill race improvements, smelting tags) never runs");
+                var loadMainGameDataMethod = ReflectionMiss.Require(AccessTools.Method(gameLoadType, "LoadMainGameData"), gameLoadType, "LoadMainGameData", "WDI's load-time setup (kiln recipes, mill race improvements, smelting tags) never runs");
                 var postfixMethod = AccessTools.Method(typeof(GameLoadPatch), nameof(LoadMainGameData_Postfix));
                 var postfix = new HarmonyMethod(postfixMethod)
                 {
@@ -170,7 +170,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     return;
                 }
 
-                var forgeRecipesField = forgeCard.GetType().GetField("CookingRecipes", InstanceFlags);
+                var forgeRecipesField = ReflectionMiss.Field(forgeCard.GetType(), "CookingRecipes", InstanceFlags, $"the Kiln recipes are not copied into {targetForgeUid}");
                 if (forgeRecipesField == null) return;
 
                 var forgeRecipes = forgeRecipesField.GetValue(forgeCard) as Array;
@@ -295,6 +295,9 @@ namespace WaterDrivenInfrastructure.Patcher
             if (property != null && property.CanRead)
                 return property.GetValue(instance, null);
 
+            // Neither a field nor a property of that name: a rename, not "this card has none".
+            if (property == null)
+                ReflectionMiss.Warn(type, memberName, "the load-time setup that reads it is skipped for this card");
             return null;
         }
 
@@ -318,6 +321,9 @@ namespace WaterDrivenInfrastructure.Patcher
                 return true;
             }
 
+            // A member of that name with another type is not a rename and stays silent.
+            if (field == null && property == null)
+                ReflectionMiss.Warn(type, memberName, "the ready popups of the water-driven stations are not silenced");
             return false;
         }
 
@@ -341,6 +347,10 @@ namespace WaterDrivenInfrastructure.Patcher
                 return true;
             }
 
+            // A member of that name with another type (CookingRecipe.Notification is an enum) is not a
+            // rename and stays silent.
+            if (field == null && property == null)
+                ReflectionMiss.Warn(type, memberName, "the ready popups of the water-driven stations are not silenced");
             return false;
         }
 
@@ -378,17 +388,17 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (greenstonePowder == null || metalNugget == null || slag == null)
                 { logger?.LogError("[GreenstoneSmelt] Required card(s) not found (powder, Metal Nugget or Greenstone Slag)"); return; }
 
-                var recipesField = stationCard.GetType().GetField("CookingRecipes", InstanceFlags);
+                var recipesField = ReflectionMiss.Field(stationCard.GetType(), "CookingRecipes", InstanceFlags, $"Smelt Greenstone is not repaired on {stationUid}");
                 var recipes = recipesField?.GetValue(stationCard) as Array;
                 if (recipes == null || recipes.Length == 0) return;
 
                 var recipeType = recipes.GetType().GetElementType();
                 if (recipeType == null) return;
 
-                var ccField = recipeType.GetField("CompatibleCards", InstanceFlags);
-                var ctField = recipeType.GetField("CompatibleTags", InstanceFlags);
-                var dropsField = recipeType.GetField("Drops", InstanceFlags);
-                var ingredientChangesField = recipeType.GetField("IngredientChanges", InstanceFlags);
+                var ccField = ReflectionMiss.Field(recipeType, "CompatibleCards", InstanceFlags, "Smelt Greenstone is not repaired");
+                var ctField = ReflectionMiss.Field(recipeType, "CompatibleTags", InstanceFlags, "the Smelt Greenstone repair cannot tell a Kiln clay recipe from its own and may rewrite one");
+                var dropsField = ReflectionMiss.Field(recipeType, "Drops", InstanceFlags, "Smelt Greenstone drops no slag");
+                var ingredientChangesField = ReflectionMiss.Field(recipeType, "IngredientChanges", InstanceFlags, "Smelt Greenstone may leave the powder unchanged");
                 if (ccField == null) { logger?.LogError("[GreenstoneSmelt] CompatibleCards field not found"); return; }
 
                 for (int i = 0; i < recipes.Length; i++)
@@ -443,7 +453,7 @@ namespace WaterDrivenInfrastructure.Patcher
                         }
                         else WarnGreenstoneOnce("transform-field", "[GreenstoneSmelt] CardStateChange.TransformInto not found; Smelt Greenstone may leave the powder unchanged");
                     }
-                    else WarnGreenstoneOnce("ingredient-changes-field", "[GreenstoneSmelt] CookingRecipe.IngredientChanges field not found; Smelt Greenstone may leave the powder unchanged");
+                    // A missing IngredientChanges field was reported by ReflectionMiss at the lookup above.
 
                     // Fix DroppedCard references in Drops (also unresolved by WarpResolver)
                     if (dropsField != null)
@@ -468,7 +478,7 @@ namespace WaterDrivenInfrastructure.Patcher
                         }
                         else WarnGreenstoneOnce("no-drops", $"[GreenstoneSmelt] {stationUid} recipe[{i}] has no Drops; Smelt Greenstone drops no slag");
                     }
-                    else WarnGreenstoneOnce("drops-field", "[GreenstoneSmelt] CookingRecipe.Drops field not found; Smelt Greenstone drop not set");
+                    // A missing Drops field was reported by ReflectionMiss at the lookup above.
 
                     if (recipeType.IsValueType) recipes.SetValue(recipe, i);
                     logger?.LogDebug($"[GreenstoneSmelt] Fixed Smelt Greenstone recipe[{i}] on {stationUid}");
@@ -505,9 +515,9 @@ namespace WaterDrivenInfrastructure.Patcher
             if (cardDataType == null)
             { logger?.LogError("[MillRaceInject] CardData type not found"); return; }
 
-            var cardTypeField        = cardDataType.GetField("CardType",               InstanceFlags);
-            var envImprovementsField = cardDataType.GetField("EnvironmentImprovements", InstanceFlags);
-            var oppositeRoadField    = cardDataType.GetField("OppositeRoad",            InstanceFlags);
+            var cardTypeField        = ReflectionMiss.Field(cardDataType, "CardType",               InstanceFlags, "the Mill Race improvements are not injected, so no station can be watered away from a river");
+            var envImprovementsField = ReflectionMiss.Field(cardDataType, "EnvironmentImprovements", InstanceFlags, "the Mill Race improvements are not injected, so no station can be watered away from a river");
+            var oppositeRoadField    = ReflectionMiss.Field(cardDataType, "OppositeRoad",            InstanceFlags, "a Mill Race clone keeps its template's opposite road, so a hop may not link back");
             if (cardTypeField == null || envImprovementsField == null)
             {
                 logger?.LogError("[MillRaceInject] Required CardData fields missing");
@@ -516,7 +526,7 @@ namespace WaterDrivenInfrastructure.Patcher
 
             var cardSlotType      = envImprovementsField.FieldType.IsArray
                 ? envImprovementsField.FieldType.GetElementType() : null;
-            var cardSlotCardField = cardSlotType?.GetField("Card", InstanceFlags);
+            var cardSlotCardField = ReflectionMiss.Field(cardSlotType, "Card", InstanceFlags, "the Mill Race improvements are not injected, so no station can be watered away from a river");
             if (cardSlotType == null || cardSlotCardField == null)
             {
                 logger?.LogError("[MillRaceInject] Setup failed (EnvironmentImprovements slot type missing)");
@@ -927,18 +937,22 @@ namespace WaterDrivenInfrastructure.Patcher
             try
             {
                 // CT0 items only — locations/liquids/blueprints never belong in the mill.
+                // Every UniqueIDScriptable in AllData passes through here, and only a CardData has a CardType:
+                // its absence on any other type is the normal negative, on a CardData it is a rename.
                 var ctField = cardData.GetType().GetField("CardType", InstanceFlags);
+                if (ctField == null && cardData is CardData)
+                    ReflectionMiss.Warn(cardData.GetType(), "CardType", "no vanilla grindable is added to the Grinding Mill's inventory filter");
                 if (ctField == null || Convert.ToInt32(ctField.GetValue(cardData)) != 0) return false;
 
-                var ciField = cardData.GetType().GetField("CardInteractions", InstanceFlags);
+                var ciField = ReflectionMiss.Field(cardData.GetType(), "CardInteractions", InstanceFlags, "no vanilla grindable is added to the Grinding Mill's inventory filter");
                 var interactions = ciField?.GetValue(cardData) as IList;
                 if (interactions == null) return false;
 
                 foreach (var ci in interactions)
                 {
                     if (ci == null) continue;
-                    var compat = ci.GetType().GetField("CompatibleCards", InstanceFlags)?.GetValue(ci);
-                    var tags = compat?.GetType().GetField("TriggerTags", InstanceFlags)?.GetValue(compat) as IList;
+                    var compat = ReflectionMiss.Field(ci.GetType(), "CompatibleCards", InstanceFlags, "no vanilla grindable is added to the Grinding Mill's inventory filter")?.GetValue(ci);
+                    var tags = ReflectionMiss.Field(compat?.GetType(), "TriggerTags", InstanceFlags, "no vanilla grindable is added to the Grinding Mill's inventory filter")?.GetValue(compat) as IList;
                     if (tags == null) continue;
                     // The trigger tag is shared by every hammer job, so the action must also be a milling one
                     // (ActionInterceptPatch.MillActionNames): a cast's "Break" is not a grindable.
@@ -1058,7 +1072,7 @@ namespace WaterDrivenInfrastructure.Patcher
         // consider PEs with no metal-type gate (the general tag every metal type shares).
         static object FindContainerTagSO(object cardObj, bool requireIronGate, ManualLogSource logger, string logPrefix)
         {
-            var passiveEffectsField = cardObj.GetType().GetField("PassiveEffects", InstanceFlags);
+            var passiveEffectsField = ReflectionMiss.Field(cardObj.GetType(), "PassiveEffects", InstanceFlags, "the vanilla smelting container tag cannot be found, so iron never heats or smelts in the Water-Driven Forge and Workshop");
             var passiveEffects = passiveEffectsField?.GetValue(cardObj) as Array;
             if (passiveEffects == null || passiveEffects.Length == 0)
             {
@@ -1067,7 +1081,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
 
             var peType = passiveEffects.GetType().GetElementType();
-            var conditionsField = peType?.GetField("Conditions", InstanceFlags);
+            var conditionsField = ReflectionMiss.Field(peType, "Conditions", InstanceFlags, "the vanilla smelting container tag cannot be found, so iron never heats or smelts in the Water-Driven Forge and Workshop");
             if (conditionsField == null) return null;
 
             for (int i = 0; i < passiveEffects.Length; i++)
@@ -1080,12 +1094,12 @@ namespace WaterDrivenInfrastructure.Patcher
 
                 if (IsIronGatedCondition(condType, conditions) != requireIronGate) continue;
 
-                var reqNotField = condType.GetField("RequiredNOTContainerTags", InstanceFlags);
+                var reqNotField = ReflectionMiss.Field(condType, "RequiredNOTContainerTags", InstanceFlags, "the vanilla smelting container tag may not be found, so iron may never heat or smelt in the Water-Driven Forge and Workshop");
                 var notTags = reqNotField?.GetValue(conditions) as Array;
                 if (notTags != null && notTags.Length > 0 && notTags.GetValue(0) != null)
                     return notTags.GetValue(0);
 
-                var reqField = condType.GetField("RequiredContainerTags", InstanceFlags);
+                var reqField = ReflectionMiss.Field(condType, "RequiredContainerTags", InstanceFlags, "the vanilla smelting container tag may not be found, so iron may never heat or smelt in the Water-Driven Forge and Workshop");
                 var tags = reqField?.GetValue(conditions) as Array;
                 if (tags != null && tags.Length > 0 && tags.GetValue(0) != null)
                     return tags.GetValue(0);
@@ -1100,16 +1114,17 @@ namespace WaterDrivenInfrastructure.Patcher
         // (PE3/PE4, general tag_SmeltingContainer) — this is how FindContainerTagSO tells them apart.
         static bool IsIronGatedCondition(Type condType, object conditions)
         {
-            var rrdrField = condType.GetField("ReceivingRequiredDurabilityRanges", InstanceFlags);
+            const string consequence = "an iron-gated passive effect cannot be told from an ungated one, so the wrong smelting container tag may be injected into the Water-Driven Forge and Workshop";
+            var rrdrField = ReflectionMiss.Field(condType, "ReceivingRequiredDurabilityRanges", InstanceFlags, consequence);
             var rrdr = rrdrField?.GetValue(conditions);
             if (rrdr == null) return false;
 
-            var s4Field = rrdr.GetType().GetField("Special4Range", InstanceFlags);
+            var s4Field = ReflectionMiss.Field(rrdr.GetType(), "Special4Range", InstanceFlags, consequence);
             var s4 = s4Field?.GetValue(rrdr);
             if (s4 == null) return false;
 
-            var xField = s4.GetType().GetField("x", InstanceFlags);
-            var yField = s4.GetType().GetField("y", InstanceFlags);
+            var xField = ReflectionMiss.Field(s4.GetType(), "x", InstanceFlags, consequence);
+            var yField = ReflectionMiss.Field(s4.GetType(), "y", InstanceFlags, consequence);
             if (xField == null || yField == null) return false;
 
             float x = Convert.ToSingle(xField.GetValue(s4));

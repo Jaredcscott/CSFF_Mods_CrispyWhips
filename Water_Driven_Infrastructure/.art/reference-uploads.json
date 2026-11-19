@@ -1,4 +1,11 @@
 {
+  "4cfbf146b09303e9b595e29dc409758093a006ba3d32e5d929ee1157396238e2": {
+    "id": "DwEVLDzgaYesVywfvcBI",
+    "label": "MillRace (finish sibling)",
+    "source": "WaterDrivenInfrastructure/Resource/Picture/MillRace.png",
+    "uploaded": "2026-11-13",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/MillRace_1794587765436_b8443f75.png"
+  },
   "5f90d9e93b612a9be903ba4d32de5debafa7e54b862b683080c3def80b2d3b09": {
     "id": "i1NQwgONAJvIZfqGi1RF",
     "label": "SmallCopperGear (subject)",
@@ -13,12 +20,26 @@
     "uploaded": "2026-10-10",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/LargeCopperGear_1791639272717_5f8527f4.png"
   },
+  "70236087e29d3ba9dc849e79a6ecd0d84107dda3d832b0e634274f5f84e5975e": {
+    "id": "RFy9GbzWnLWnM4YjMURy",
+    "label": "SawmillKit (subject)",
+    "source": "WaterDrivenInfrastructure/Resource/Picture/SawmillKit.png",
+    "uploaded": "2026-11-13",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/SawmillKit_1794587766804_83c98e3e.png"
+  },
   "7b144a8ef4b2f322b491b0ba18701d73f11f1f60266ac32feb32b7d988c8de5f": {
     "id": "BsQ5YT9tH76Qj92SnUSR",
     "label": "MillRace (prop)",
     "source": "WaterDrivenInfrastructure/Resource/Picture/MillRace.png",
     "uploaded": "2026-10-12",
     "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/MillRace_1791798407963_9e007693.png"
+  },
+  "8d0d1288dcecea6b4f99b72c64b279198bacc893399b38c4c159540cecc73da7": {
+    "id": "d9PHyVwuiKZvL7xYcR9W",
+    "label": "vanilla Fences (material)",
+    "source": "C:/Users/jared/AppData/Local/Temp/claude/f2b7a0222956a6c4/9840d0fa-632f-4162-b5b8-a975cc9f9ecb/scratchpad/art/vanilla/Fences.png",
+    "uploaded": "2026-11-13",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-11/create-image/XbhdRvvhTk0K7JCPQP3H/Fences_1794587765006_c29cf16a.png"
   },
   "92867ad6915c4709762722c6f32c678316ead2776d1731d31bc2a81e7b072e12": {
     "id": "SWYD19vOJvM9lUx3v4t0",

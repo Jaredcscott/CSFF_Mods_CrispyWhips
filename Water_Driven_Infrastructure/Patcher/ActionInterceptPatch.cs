@@ -222,9 +222,9 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             try
             {
-                var cardType = AccessTools.TypeByName("InGameCardBase");
+                var cardType = ReflectionMiss.GameType(AccessTools.TypeByName("InGameCardBase"), "InGameCardBase", "the Workshop's storage routing patch is not applied");
 
-                var selectedContainedBlueprint = AccessTools.Method(cardType, "GetSelectedContainedBlueprint");
+                var selectedContainedBlueprint = ReflectionMiss.Require(AccessTools.Method(cardType, "GetSelectedContainedBlueprint"), cardType, "GetSelectedContainedBlueprint", "the Workshop's storage routing patch is not applied");
                 if (selectedContainedBlueprint != null)
                 {
                     harmony.Patch(selectedContainedBlueprint,
@@ -707,7 +707,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     }
                 }
             }
-            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] IsWorkshopPrimaryStorageContext: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] IsWorkshopPrimaryStorageContext: {ex.InnerException?.Message ?? ex.Message}"); }
 
             if (!_everMatchedWorkshopStorageContext && !_workshopStorageContextWarningLogged &&
                 ++_workshopStorageContextCallCount >= WorkshopStorageContextWarningThreshold)
@@ -1215,7 +1215,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     go?.SetActive(active);
                 }
             }
-            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] TrySetActive: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] TrySetActive: {ex.InnerException?.Message ?? ex.Message}"); }
         }
 
         private static string ResolveGrindResult(object card) => ResolveGrindInteraction(card, out _, out _);
@@ -1347,7 +1347,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.Log(LogLevel.Debug, $"[ActionIntercept] ResolveGrindResult error: {ex.Message}");
+                Logger?.Log(LogLevel.Debug, $"[ActionIntercept] ResolveGrindResult error: {ex.InnerException?.Message ?? ex.Message}");
             }
             return null;
         }
@@ -1379,7 +1379,7 @@ namespace WaterDrivenInfrastructure.Patcher
             var key = (type, name);
             if (!_fieldLookups.TryGetValue(key, out var field))
             {
-                field = type.GetField(name, Flags);
+                field = type.GetField(name, Flags); // reflection-caller-reports: ReadField warns once on a miss; ReadOptionalField and GetCardCharges are the documented silent probes for a member absent by design
                 _fieldLookups[key] = field;
             }
             return field;
@@ -1446,7 +1446,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 // Hot path — feeds ResolveGrindResult (per Grind All item) and the hammer
                 // metal-quality-tool gate (per hammer swing). Breadcrumb so a CardModel
                 // reflection break doesn't silently degrade those into no-ops.
-                Logger?.Log(LogLevel.Debug, $"[ActionIntercept] GetCardData({card?.GetType().Name}) failed: {ex.Message}");
+                Logger?.Log(LogLevel.Debug, $"[ActionIntercept] GetCardData({card?.GetType().Name}) failed: {ex.InnerException?.Message ?? ex.Message}");
                 return null;
             }
         }
@@ -1549,7 +1549,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[ActionIntercept] StartDelayedFishInitialization: {ex.Message}");
+                Logger?.LogError($"[ActionIntercept] StartDelayedFishInitialization: {ex.InnerException?.Message ?? ex.Message}");
             }
 
             ApplyFishCaughtStats(preIds, FishCaughtQuality, includeZeroQualityExisting: true);
@@ -1593,7 +1593,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (card is UnityEngine.Object uo) result.Add(uo.GetInstanceID());
                 }
             }
-            catch (Exception ex) { Logger?.LogWarning($"[ActionIntercept] SnapshotFishCardIds: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogWarning($"[ActionIntercept] SnapshotFishCardIds: {ex.InnerException?.Message ?? ex.Message}"); }
             return result;
         }
 
@@ -1615,7 +1615,7 @@ namespace WaterDrivenInfrastructure.Patcher
                         updated++;
                 }
             }
-            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyFishCaughtStats: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyFishCaughtStats: {ex.InnerException?.Message ?? ex.Message}"); }
             return updated;
         }
 
@@ -1692,7 +1692,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (card is UnityEngine.Object uo) result.Add(uo.GetInstanceID());
                 }
             }
-            catch (Exception ex) { Logger?.LogWarning($"[ActionIntercept] SnapshotCardIdsByUniqueId: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogWarning($"[ActionIntercept] SnapshotCardIdsByUniqueId: {ex.InnerException?.Message ?? ex.Message}"); }
             return result;
         }
 
@@ -1709,7 +1709,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[ActionIntercept] StartDelayedLumpInitialization: {ex.Message}");
+                Logger?.LogError($"[ActionIntercept] StartDelayedLumpInitialization: {ex.InnerException?.Message ?? ex.Message}");
             }
             ApplyLumpSpawnStats(preIds);
         }
@@ -1751,7 +1751,7 @@ namespace WaterDrivenInfrastructure.Patcher
                         updated++;
                 }
             }
-            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyLumpSpawnStats: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyLumpSpawnStats: {ex.InnerException?.Message ?? ex.Message}"); }
             return updated;
         }
 
@@ -1788,7 +1788,7 @@ namespace WaterDrivenInfrastructure.Patcher
             var type = gm.GetType();
             if (!_gmListMembers.TryGetValue((type, name), out var member))
             {
-                member = (MemberInfo)type.GetField(name, Flags) ?? type.GetProperty(name, Flags);
+                member = (MemberInfo)type.GetField(name, Flags) ?? type.GetProperty(name, Flags); // reflection-caller-reports: both callers WarnOnce "GameManager.<list>" on a null answer
                 _gmListMembers[(type, name)] = member;
             }
             if (member is FieldInfo f) return f.GetValue(gm) as IList;
@@ -1822,7 +1822,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     }
                 }
             }
-            catch (Exception ex) { Logger?.LogWarning($"[ActionIntercept] FindLatestKnownCardByUniqueId: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogWarning($"[ActionIntercept] FindLatestKnownCardByUniqueId: {ex.InnerException?.Message ?? ex.Message}"); }
             return null;
         }
 
@@ -1853,7 +1853,7 @@ namespace WaterDrivenInfrastructure.Patcher
 
             UnityEngine.Object[] sceneCards = null;
             try { sceneCards = UnityEngine.Object.FindObjectsOfType(_cardBaseType); }
-            catch (Exception ex) { Logger?.LogWarning($"[ActionIntercept] EnumerateKnownCards scene fallback: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogWarning($"[ActionIntercept] EnumerateKnownCards scene fallback: {ex.InnerException?.Message ?? ex.Message}"); }
             if (sceneCards == null) yield break;
 
             foreach (var card in sceneCards)
@@ -1883,7 +1883,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogWarning($"[ActionIntercept] EnumerateGameManagerAllCards: {ex.Message}");
+                Logger?.LogWarning($"[ActionIntercept] EnumerateGameManagerAllCards: {ex.InnerException?.Message ?? ex.Message}");
             }
 
             if (cards == null) yield break;
@@ -1958,7 +1958,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[ActionIntercept] GetSelfSmeltCopperItemIds: {ex.Message}");
+                Logger?.LogError($"[ActionIntercept] GetSelfSmeltCopperItemIds: {ex.InnerException?.Message ?? ex.Message}");
             }
 
             Logger?.LogDebug($"[ActionIntercept] Discovered {set.Count} self-smelt-to-copper-nugget item(s) among {cardDataSeen} CardData in AllData: {string.Join(", ", set)}");
@@ -1972,18 +1972,21 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             try
             {
-                var gameLoadType = AccessTools.TypeByName("GameLoad");
+                const string consequence = "the copper self-smelt quality floor is off";
+                var gameLoadType = ReflectionMiss.GameType(AccessTools.TypeByName("GameLoad"), "GameLoad", consequence);
                 if (gameLoadType == null) return null;
-                var gameLoad = gameLoadType.GetField("Instance", BindingFlags.Public | BindingFlags.Static)?.GetValue(null)
+                var gameLoad = ReflectionMiss.Field(gameLoadType, "Instance", BindingFlags.Public | BindingFlags.Static, "GameLoad is found by a scene search instead")?.GetValue(null)
                     ?? UnityEngine.Object.FindObjectOfType(gameLoadType);
                 if (gameLoad == null) return null;
-                var dataBase = AccessTools.Field(gameLoadType, "DataBase")?.GetValue(gameLoad);
+                // Each member name is written ONCE here, in its lookup: the copper self-smelt contract in
+                // WaterDrivenInfrastructure.Tests.ps1 plants a renamed lookup and must then find the name gone.
+                var dataBase = ReflectionMiss.RequireNamed(AccessTools.Field(gameLoadType, "DataBase"), "GameLoad.DataBase", consequence)?.GetValue(gameLoad);
                 if (dataBase == null) return null;
-                return AccessTools.Field(dataBase.GetType(), "AllData")?.GetValue(dataBase) as IEnumerable;
+                return ReflectionMiss.RequireNamed(AccessTools.Field(dataBase.GetType(), "AllData"), "GameDataBase.AllData", consequence)?.GetValue(dataBase) as IEnumerable;
             }
             catch (Exception ex)
             {
-                WarnOnce("SelfSmelt-AllData-threw", $"reading GameLoad.DataBase.AllData threw: {ex.Message}");
+                WarnOnce("SelfSmelt-AllData-threw", $"reading GameLoad.DataBase.AllData threw: {ex.InnerException?.Message ?? ex.Message}");
                 return null;
             }
         }
@@ -2023,7 +2026,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogDebug($"[ActionIntercept] ProducesCopperNuggetOnFull: {ex.Message}");
+                Logger?.LogDebug($"[ActionIntercept] ProducesCopperNuggetOnFull: {ex.InnerException?.Message ?? ex.Message}");
             }
             return false;
         }
@@ -2041,7 +2044,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[ActionIntercept] StartDelayedCopperSelfSmeltQualityRetry: {ex.Message}");
+                Logger?.LogError($"[ActionIntercept] StartDelayedCopperSelfSmeltQualityRetry: {ex.InnerException?.Message ?? ex.Message}");
             }
             ApplyCopperSelfSmeltQuality(preIds, sourceQualityPct);
         }
@@ -2068,7 +2071,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (ApplyBlastNuggetQuality(card, sourceQualityPct)) updated++;
                 }
             }
-            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyCopperSelfSmeltQuality: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyCopperSelfSmeltQuality: {ex.InnerException?.Message ?? ex.Message}"); }
 
             if (updated > 0)
                 Logger?.LogDebug($"[ActionIntercept] CopperSelfSmelt: quality={sourceQualityPct:P0} (the melted item's own) on {updated} copper nugget(s)");
@@ -2390,7 +2393,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[ActionIntercept] HammerAll: completion failed: {ex.Message}");
+                Logger?.LogError($"[ActionIntercept] HammerAll: completion failed: {ex.InnerException?.Message ?? ex.Message}");
             }
         }
 
@@ -2481,7 +2484,7 @@ namespace WaterDrivenInfrastructure.Patcher
 
                 CardUtil.SetDurability(card, "SpecialDurability1", cur + 1f);
             }
-            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] IncrementAccumulatingStrikeCount: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] IncrementAccumulatingStrikeCount: {ex.InnerException?.Message ?? ex.Message}"); }
         }
 
         private static bool IsMetalQualityTool(object card)
@@ -2512,7 +2515,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 var active = ReadField(def, "Active");
                 return active is bool b && b;
             }
-            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] IsDurabilityDefinitionActive({statName}): {ex.Message}"); return false; }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] IsDurabilityDefinitionActive({statName}): {ex.InnerException?.Message ?? ex.Message}"); return false; }
         }
 
         private static bool DurabilityStatNameContains(object cardData, string statName, string text)
@@ -2525,7 +2528,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 return !string.IsNullOrEmpty(defaultText)
                     && defaultText.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0;
             }
-            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] DurabilityStatNameContains({statName}): {ex.Message}"); return false; }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] DurabilityStatNameContains({statName}): {ex.InnerException?.Message ?? ex.Message}"); return false; }
         }
 
         private struct HammerHitInfo
@@ -2648,7 +2651,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.Log(LogLevel.Debug, $"[ActionIntercept] GetHammerHitInfo error: {ex.Message}");
+                Logger?.Log(LogLevel.Debug, $"[ActionIntercept] GetHammerHitInfo error: {ex.InnerException?.Message ?? ex.Message}");
             }
             return info;
         }
@@ -2677,7 +2680,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 var value = optional ? ReadOptionalField(obj, fieldName) : ReadField(obj, fieldName);
                 return value is bool b && b;
             }
-            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] GetBoolField({fieldName}): {ex.Message}"); return false; }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] GetBoolField({fieldName}): {ex.InnerException?.Message ?? ex.Message}"); return false; }
         }
 
         private static string GetUniqueIdFromObject(object value)
@@ -2688,7 +2691,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (value is UniqueIDScriptable uid) return uid.UniqueID;
                 return ReadField(value, "UniqueID") as string;
             }
-            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] GetUniqueIdFromObject: {ex.Message}"); return null; }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] GetUniqueIdFromObject: {ex.InnerException?.Message ?? ex.Message}"); return null; }
         }
 
         private static bool SetMinimumDurabilityStatValue(object card, string statName, float minimumValue)
@@ -3176,7 +3179,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     return;
                 }
             }
-            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] StartDelayedNuggetInitialization: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] StartDelayedNuggetInitialization: {ex.InnerException?.Message ?? ex.Message}"); }
             ApplyNuggetSpawnStats(preIds, nuggetTypes);
         }
 
@@ -3210,7 +3213,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (latest != null && ApplyNuggetStatsToCard(latest, nuggetTypes[0])) updated++;
                 }
             }
-            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyNuggetSpawnStats: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyNuggetSpawnStats: {ex.InnerException?.Message ?? ex.Message}"); }
             return updated;
         }
 
@@ -3226,7 +3229,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 Logger?.LogDebug($"[ActionIntercept] NuggetInit: type={nuggetType} quality={NuggetSluiceQuality}");
                 return changed;
             }
-            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyNuggetStatsToCard: {ex.Message}"); return false; }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyNuggetStatsToCard: {ex.InnerException?.Message ?? ex.Message}"); return false; }
         }
 
         // ——— Blast copper nugget stat init (quality carried from the smelted items) ———
@@ -3247,7 +3250,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     return;
                 }
             }
-            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] StartDelayedBlastNuggetInitialization: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] StartDelayedBlastNuggetInitialization: {ex.InnerException?.Message ?? ex.Message}"); }
             ApplyBlastNuggetSpawnStats(preIds, count, qualityPct);
         }
 
@@ -3277,7 +3280,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (ApplyBlastNuggetQuality(card, qualityPct)) updated++;
                 }
             }
-            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyBlastNuggetSpawnStats: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyBlastNuggetSpawnStats: {ex.InnerException?.Message ?? ex.Message}"); }
             return updated;
         }
 
@@ -3326,7 +3329,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[ActionIntercept] Transform failed: {ex.Message}");
+                Logger?.LogError($"[ActionIntercept] Transform failed: {ex.InnerException?.Message ?? ex.Message}");
                 return false;
             }
         }
@@ -3452,19 +3455,23 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (!_dragReflected)
                 {
                     _dragReflected = true;
-                    _gmTypeForDrag = CardUtil.FindGameType("GameManager");
+                    _gmTypeForDrag = ReflectionMiss.GameType(CardUtil.FindGameType("GameManager"), "GameManager", "a dragged card is not released when a WDI handler takes over its action");
                     if (_gmTypeForDrag != null)
                     {
+                        // A probe over candidate names from several game versions. On EA 0.69e none of them is
+                        // an INSTANCE member (GameManager.DraggedCard is a static property, .decomp), so this
+                        // resolves nothing and ClearDragState is a no-op; the Debug line below says so. Left
+                        // unreported: a warning here would fire for every player on the current game.
                         foreach (var n in _dragCandidateProps)
                         {
-                            var p = _gmTypeForDrag.GetProperty(n, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                            var p = _gmTypeForDrag.GetProperty(n, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic); // reflection-optional: one of several candidate names from older game versions, see the comment above the loop
                             if (p != null && p.CanWrite) { _dragStateProp = p; break; }
                         }
                         if (_dragStateProp == null)
                         {
                             foreach (var n in _dragCandidateFields)
                             {
-                                var f = _gmTypeForDrag.GetField(n, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                                var f = _gmTypeForDrag.GetField(n, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic); // reflection-optional: one of several candidate names from older game versions, see the comment above the loop
                                 if (f != null) { _dragStateField = f; break; }
                             }
                         }
@@ -3478,7 +3485,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 _dragStateProp?.SetValue(gm, null);
                 _dragStateField?.SetValue(gm, null);
             }
-            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ClearDragState failed: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ClearDragState failed: {ex.InnerException?.Message ?? ex.Message}"); }
         }
 
         private static WorkshopCraftKind GetWorkshopCraftKind(object action)
@@ -3743,8 +3750,8 @@ namespace WaterDrivenInfrastructure.Patcher
                     _graphicsManagerType = AccessTools.TypeByName("GraphicsManager");
                     if (_graphicsManagerType != null)
                     {
-                        _graphicsInstanceProp = _graphicsManagerType.GetProperty("Instance",
-                            BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy);
+                        _graphicsInstanceProp = ReflectionMiss.Property(_graphicsManagerType, "Instance",
+                            BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy, "GraphicsManager is found by a scene search instead");
                         // Native GetField, not AccessTools.Field: a miss is reported once below, not on every click.
                         _currentInspectionPopupField = _graphicsManagerType.GetField("CurrentInspectionPopup", Flags);
                     }
@@ -3796,14 +3803,16 @@ namespace WaterDrivenInfrastructure.Patcher
                 var cardType = card.GetType();
                 if (!_chargesMembers.TryGetValue(cardType, out var member))
                 {
-                    var prop = cardType.GetProperty("CurrentCharges", Flags)
-                            ?? cardType.GetProperty("Charges", Flags);
+                    var prop = cardType.GetProperty("CurrentCharges", Flags) // reflection-optional: a charges member the current game does not declare, see the comment at the non-throwing exit below
+                            ?? cardType.GetProperty("Charges", Flags); // reflection-optional: a charges member the current game does not declare, see the comment at the non-throwing exit below
                     if (prop != null && prop.CanRead)
                         member = prop;
                     else
                         member = LookupField(cardType, "CurrentCharges")
                               ?? LookupField(cardType, "currentCharges");
                     _chargesMembers[cardType] = member;
+                    if (member == null)
+                        Logger?.LogDebug($"[ActionIntercept] GetCardCharges: {cardType.Name} declares no charges member, so a direct card counts as one roll");
                 }
 
                 if (member is PropertyInfo chargesProp)
@@ -3811,18 +3820,19 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (member is FieldInfo chargesField)
                     return Convert.ToInt32(chargesField.GetValue(card));
 
-                // Non-throwing exit: neither probe found a member, so the count silently defaults
-                // to 1 (EA 0.68b declares none of CurrentCharges/Charges/currentCharges on
-                // InGameCardBase; only the legacy direct-card Sluice path ever gets here).
-                WarnOnce("InGameCardBase.CurrentCharges",
-                    $"{cardType.Name} has no CurrentCharges/Charges member (reflection miss): a direct-card Sluice All batch counts one roll per pile");
+                // Non-throwing exit: neither probe found a member, so the count is 1. This is not a
+                // reflection miss and is not reported as one: the game declares none of CurrentCharges/
+                // Charges/currentCharges on InGameCardBase (EA 0.68b onward, .decomp/InGameCardBase.cs),
+                // and only the legacy direct-card Sluice path ever gets here. A warning would fire for a
+                // rename that never happened, which is why the drag-state probe in ClearDragState stays
+                // silent too. The Debug line above records the answer once per card type (audit M1).
             }
             catch (Exception ex)
             {
                 // Hot path (Sluice per-item quantity resolution) — defaulting to 1 on a
                 // swallowed reflection failure silently understates output count. Breadcrumb
                 // so a field/property rename shows up as a log line, not a quiet wrong count.
-                Logger?.Log(LogLevel.Debug, $"[ActionIntercept] GetCardCharges({card?.GetType().Name}) failed: {ex.Message}");
+                Logger?.Log(LogLevel.Debug, $"[ActionIntercept] GetCardCharges({card?.GetType().Name}) failed: {ex.InnerException?.Message ?? ex.Message}");
             }
             return 1;
         }
