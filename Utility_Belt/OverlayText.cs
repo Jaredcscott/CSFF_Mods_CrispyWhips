@@ -60,6 +60,9 @@ internal static class OverlayText
 
     private static bool _lookupFailedOnce;
 
+    // Keys whose translated template has already been reported as malformed (see Format).
+    private static readonly HashSet<string> _malformedTemplateKeys = new HashSet<string>();
+
     /// <summary>The current-language text for <paramref name="key"/>, or <paramref name="englishDefault"/> when it is not loaded.</summary>
     public static string Get(string key, string englishDefault)
     {
@@ -89,7 +92,12 @@ internal static class OverlayText
         }
         catch (FormatException ex)
         {
-            Plugin.Logger?.LogDebug($"[UB] Localized template for '{key}' has malformed placeholders ({ex.Message}); using the English default.");
+            // A warning, since Debug never reaches a default LogOutput.log, and once per key, since the
+            // clock and the readouts format their template again on every refresh.
+            if (_malformedTemplateKeys.Add(key ?? string.Empty))
+            {
+                Plugin.Logger?.LogWarning($"[UB] Localized template for '{key}' has malformed placeholders ({ex.Message}); using the English default.");
+            }
             return string.Format(englishDefault, args);
         }
     }

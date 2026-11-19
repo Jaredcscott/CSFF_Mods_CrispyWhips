@@ -1,6 +1,6 @@
 # Utility Belt
 
-**Version:** 0.1.9
+**Version:** 0.1.10
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.69c)
 **Requires:** BepInEx 5 (Quick Transfer and Skill Speed Boost also need CSFF Mod Framework)
@@ -16,7 +16,7 @@ Those three still ship as separate mods. Install Utility Belt if you would rathe
 | Part | Features |
 |------|----------|
 | Repeat Action 2.2.5 (included) | Repeat last action, adjustable count, travel repeat, safety stops, spare tool, pinned action, pause and resume |
-| Quick Transfer 1.9.4 (included) | Modifier + right-click bulk transfer, adjustable amounts, tag filter, undo, transfer hotkey |
+| Quick Transfer 1.9.5 (included) | Modifier + right-click bulk transfer, adjustable amounts, tag filter, undo, transfer hotkey |
 | Skill Speed Boost 1.11.2 (included) | Area Familiarity (on), XP multipliers, staleness, optional bonuses, difficulty profiles |
 | Utility Belt itself | Hide rain and snow, 12-hour clock, worn-bag hotkeys, item lock, container sorting, capacity and warmth readouts, quickswap, sealed mark, character randomiser, card size and two-row card rows, extra hand slots, extra carry weight, hand and base row sorting, trash hotkey, carry-weight readout, worn tool mark, container filter, blueprint pins, never follow cards, and three Repeat Action helpers (fetch a card, store products, wear a spare tool) |
 
@@ -25,7 +25,7 @@ Those three still ship as separate mods. Install Utility Belt if you would rathe
 | Module | Version | Same as the standalone |
 |--------|---------|------------------------|
 | Repeat Action | 2.2.5 | Repeat Action 2.2.5 (`crispywhips.repeat_action`) |
-| Quick Transfer | 1.9.4 | Quick Transfer 1.9.4 (`crispywhips.quick_transfer`) |
+| Quick Transfer | 1.9.5 | Quick Transfer 1.9.5 (`crispywhips.quick_transfer`) |
 | Skill Speed Boost | 1.11.2 | Skill Speed Boost 1.11.2 (`crispywhips.skill_speed_boost`) |
 
 ### Repeat Action 2.2.5
@@ -43,13 +43,13 @@ Those three still ship as separate mods. Install Utility Belt if you would rathe
 
 Settings are in `BepInEx/config/crispywhips.repeat_action.cfg` and match the standalone Repeat Action 2.2.5, whose page lists every option, including presets, recorded sequences and refuel from a pinned action.
 
-### Quick Transfer 1.9.4
+### Quick Transfer 1.9.5
 
 - **Bulk transfer**: hold a modifier and **right-click** a card in an open container or your Item row. `Shift` moves 5 cards, `Ctrl` moves 10, and `Ctrl+Shift` moves the whole stack (or half, or all but one, by setting). Cards go the game's own way: out of a container into your Item row, or from your Item row into the open container.
 - **Adjustable amounts**: `Ctrl` + `Plus`/`Minus` changes the Ctrl amount, `Alt` + `Plus`/`Minus` the Shift amount, and `Backspace` resets them. A label shows how many cards a click will move.
 - **More ways to pick cards**: Tag Filter (hold `Caps Lock` to take every card sharing the clicked card's tag), Spoiled Only, Drain Matching Stacks, Prioritize Most Spoiled, a hover-and-press Transfer Hotkey (`X`), Undo (`Z`) and per-container settings.
 
-Settings are in `BepInEx/config/crispywhips.quick_transfer.cfg` and match the standalone Quick Transfer 1.9.4, whose page lists every option.
+Settings are in `BepInEx/config/crispywhips.quick_transfer.cfg` and match the standalone Quick Transfer 1.9.5, whose page lists every option.
 
 **Quick Transfer needs CSFF Mod Framework.** Without it, bulk transfer does not work. Repeat Action and Utility Belt itself do not need it.
 
@@ -359,6 +359,7 @@ With it on, `BepInEx/LogOutput.log` gains one line per mod: `<name> <version> fr
 
 Full notes are in `CHANGELOG.md`.
 
+- **0.1.10**: carries Quick Transfer 1.9.5: a broken translation shows in the log as a warning, once for each text, and holding Plus or Minus to change a transfer amount saves the settings once, when you let go.
 - **0.1.9**: carries Quick Transfer 1.9.4 and Repeat Action 2.2.5: Prioritize Most Spoiled moves every card of the older stack first, and a repeat run stops when a wild animal walks onto the board.
 - **0.1.8**: carries Repeat Action 2.2.4 and Quick Transfer 1.9.3: a repeated pour leaves the drink in a locked bottle alone, and a broken translation shows in the log.
 - **0.1.7**: carries Quick Transfer 1.9.2, Repeat Action 2.2.3 and Skill Speed Boost 1.11.2: a locked card you click stays put, and a repeated pour leaves the water in a locked container alone.

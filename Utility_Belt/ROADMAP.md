@@ -1,15 +1,15 @@
 # Roadmap: Utility Belt
 Version at time of writing: 0.1.9
-Date: 2026-11-05
-Audit score: 10/10 (PASS, 0 CRITICAL / 0 DESIGN GAP / 0 release-blocking WARNING; 1 minor, score-neutral code-quality warning open)
+Date: 2026-11-13
+Audit score: 10/10 (PASS, 0 CRITICAL / 0 DESIGN GAP / 0 WARNING / 0 MINOR - release ready)
 
 ## Current State
 
-**Theme**: A quality-of-life mod that gathers small utilities into one download for players who would rather install one thing. It bundles Repeat Action 2.2.5, Quick Transfer 1.9.4 and Skill Speed Boost 1.11.2, and adds its own accessibility, display, inventory, capacity and equipment options. It ships no cards, items, blueprints, structures or perks by design.
+**Theme**: A quality-of-life mod that gathers small utilities into one download for players who would rather install one thing. It bundles Repeat Action 2.2.5, Quick Transfer 1.9.5 and Skill Speed Boost 1.11.2, and adds its own accessibility, display, inventory, capacity and equipment options. It ships no cards, items, blueprints, structures or perks by design.
 
 **Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom images (adds no card content by design). ~33 C# source files; ~32 `Config.Bind` entries in `Plugin.cs` across its config sections (Accessibility, Capacity, Card Size, Character, Diagnostics, Display, Equipment, General, Hotkeys, RepeatAction).
 
-**Stability**: 10/10 by the `/audit-mod` rubric: 0 CRITICAL, 0 open retrospectives, 0 DESIGN GAP, 0 release-blocking WARNING (`.audit/summary.md`, Score Derivation). Code-quality is 10/10 production-ready, with one minor, score-neutral warning open: the fresh modwide code-quality re-run (2026-11-04, `466989710`) flags W1 (`OverlayText.cs:92` logs a broken-localized-template fallback at `LogDebug` instead of a latched `LogWarning`). It is a one-line fix, disputed by the prior pass as acceptable verbose tracing, and below the 5-warning deduction threshold; it does not block release (see Phase 4 log hygiene). Preflight's two V5 warnings are UI-object destroys, not cards. The module-scoped audit (`Modules.json`, 8 feature modules + `modwide`) is clean: the eight feature modules are seeded stubs that inherit the whole-mod verdict, and the live `modwide` run (2026-11-05, v0.1.9) is SOLID (critical-analysis) and 0/0 (mod-report).
+**Stability**: 10/10 by the `/audit-mod` rubric: 0 CRITICAL, 0 open retrospectives, 0 DESIGN GAP, 0 WARNING (`.audit/summary.md`, Score Derivation). Code-quality is 10/10 production-ready with no open warnings. W1 (the prior `OverlayText` broken-template fallback logged at `LogDebug`) was fixed in source commit `2097484cd` (raised to a per-key-latched `LogWarning`, gated by `UtilityBelt-OverlayTextFallbackLog.Tests.ps1`) and closed in the 2026-11-13 consolidation; the 2026-11-13 modwide re-audits re-verified it. Preflight's two V5 warnings are UI-object destroys, not cards (adjudicated DROPPED by critical-analysis). The module-scoped audit (`Modules.json`, 8 feature modules + `modwide`) is clean: the eight feature modules are seeded stubs that inherit the whole-mod verdict, and the live `modwide` run (2026-11-13, v0.1.9, commit `2097484cd` / `45fa565524`) is SOLID (critical-analysis) and 0/0 (mod-report, code-quality).
 
 **Open work**: none in `Documentation/Retrospectives/INDEX.md` (no row names UtilityBelt, UB, `ub-*` or `crispywhips.utility_belt`). Both plans drained and are archived as `Documentation/Design/UtilityBelt_As_Built.md` and `Documentation/Design/UtilityBelt_0_1_4_As_Built.md`; no `Documentation/Plans/UtilityBelt/` folder exists. The one remaining thread is verification debt, not code: a set of pending in-game tracker rows in `.claude/playthrough-test-status.json` (the 0.1.0-0.1.4 feature checks and the 0.1.6 Never Follow Cards row T2.1429) await human confirmation. The mod stays at the repo root until it is fully human tested (owner, 2026-10-12; see the Plan Reconciliation Log), then moves to `Stable/`.
 
@@ -29,10 +29,11 @@ Audit score: 10/10 (PASS, 0 CRITICAL / 0 DESIGN GAP / 0 release-blocking WARNING
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Versions synced across ModInfo (0.1.9) / Plugin.cs (0.1.9) / README (0.1.9); CHANGELOG `## [0.1.9] - 2026-11-04` agrees | Version hygiene | done | Quick |
+| Versions synced across ModInfo (0.1.9) / Plugin.cs (0.1.9) / README (0.1.9); CHANGELOG `## [0.1.9] - 2026-11-11` agrees | Version hygiene | done | Quick |
 | SimpCn.csv parity (30/30 clean) | Localization | done | Quick |
-| Audit freshness: whole-mod `.audit/` trio consolidated 2026-11-05; live `modwide` module run SOLID / 10/10 at 0.1.9 | Audit freshness | done | Quick |
-| Bundled-module versions re-embedded in lockstep (RA 2.2.5, QT 1.9.4, SSB 1.11.2), checked by `UtilityBelt-Bundle.Tests.ps1` | Bundle hygiene | done | Quick |
+| W1 fixed: `OverlayText.Format` broken-template fallback raised to a per-key-latched `LogWarning` (`2097484cd`), gated by `UtilityBelt-OverlayTextFallbackLog.Tests.ps1` | Log hygiene | done | Quick |
+| Audit freshness: whole-mod `.audit/` trio consolidated 2026-11-13; live `modwide` module run SOLID / 10/10 at 0.1.9 (re-run 2026-11-13, commit `2097484cd` / `45fa565524`) | Audit freshness | done | Quick |
+| Bundled-module versions re-embedded in lockstep (RA 2.2.5, QT 1.9.5, SSB 1.11.2), checked by `UtilityBelt-Bundle.Tests.ps1` | Bundle hygiene | done | Quick |
 | Pending `ub_*` tracker rows (person-looks plus `ub_u2_clock`, and the 0.1.6 T2.1429 Never Follow Cards check) | Verification debt | P2 | human, not code |
 
 ---
@@ -48,7 +49,7 @@ Audit score: 10/10 (PASS, 0 CRITICAL / 0 DESIGN GAP / 0 release-blocking WARNING
 > The mod's integration surface is its reason for existing: it bundles and hooks three standalone mods.
 
 ### Keep bundled module versions in lockstep with their standalones
-**What**: Repeat Action 2.2.5, Quick Transfer 1.9.4 and Skill Speed Boost 1.11.2 are embedded from `..\RepeatAction`, `..\QuickTransfer` and `..\SkillSpeedBoost` (`Utility_Belt.csproj`). When a standalone ships a new version, rebuild UB to re-embed it and bump UB. The 0.1.7-0.1.9 bumps were exactly this (0.1.9 carries QT 1.9.4 and RA 2.2.5: Prioritize Most Spoiled ranks every card of each sibling pile first, and a run stops when a wild animal walks onto the board).
+**What**: Repeat Action 2.2.5, Quick Transfer 1.9.5 and Skill Speed Boost 1.11.2 are embedded from `..\RepeatAction`, `..\QuickTransfer` and `..\SkillSpeedBoost` (`Utility_Belt.csproj`). When a standalone ships a new version, rebuild UB to re-embed it and bump UB. The 0.1.7-0.1.10 bumps were exactly this (0.1.10 carries QT 1.9.5; 0.1.9 carries QT 1.9.4 and RA 2.2.5: Prioritize Most Spoiled ranks every card of each sibling pile first, and a run stops when a wild animal walks onto the board).
 **Why**: a bundled module drifting behind its standalone is the one honesty risk unique to this mod's design.
 **Requires**: each module's own release commit and version bump.
 **Complexity**: Quick per bump, checked by `Development_Tools/Tests/UtilityBelt-Bundle.Tests.ps1`.
@@ -62,7 +63,7 @@ Audit score: 10/10 (PASS, 0 CRITICAL / 0 DESIGN GAP / 0 release-blocking WARNING
 | Item | What | Complexity |
 |------|------|------------|
 | Description accuracy pass | Re-read ModInfo Description and README against config defaults after each option added (0.1.7-0.1.9 are fix-only, so the "New in..." notes correctly stop at 0.1.6 with no under-claim) | Quick |
-| Log-level consistency (W1 open) | Raise the `OverlayText.cs:92` broken-template fallback from `LogDebug` to a per-key-latched `LogWarning`, matching the sibling `Get` path, so a shipped broken translation leaves a trace in a standard bug-report log. Confirm intent (diagnostic-to-be-read vs verbose) when touching it, since the prior code-quality pass passed this line | Quick |
+| Log-level consistency | DONE (W1): the `OverlayText.Format` broken-template fallback now logs a per-key-latched `LogWarning`, matching the sibling `Get` path, so a shipped broken translation leaves a trace in a standard bug-report log. Fixed `2097484cd`, gated by `UtilityBelt-OverlayTextFallbackLog.Tests.ps1` | Quick (done) |
 
 ---
 

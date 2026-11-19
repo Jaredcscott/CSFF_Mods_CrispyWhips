@@ -2,6 +2,13 @@
 
 All notable changes to this mod are documented here.
 
+## [0.1.10] - 2026-11-18
+
+### Fixed
+- **A broken translation now shows in the log.** When a translated Utility Belt text (the 12-hour clock, a readout, a Store Products In notice, the carry weight line) has placeholders that do not match the English one, Utility Belt falls back to English as before, and now says so as a warning, once for each text, which the default log keeps. It used to write a debug line the default log hides.
+- Technical: `OverlayText.Format` logs the malformed-placeholder fallback with `LogWarning`, latched per key (`_malformedTemplateKeys`); it was an unlatched `LogDebug`. Audit W1 (modwide code-quality). Gate: `Development_Tools/Tests/UtilityBelt-OverlayTextFallbackLog.Tests.ps1` (source-shape; watched red on the pre-fix file).
+- **Quick Transfer (bundled): a broken translation is reported once, not on every frame,** and holding Plus or Minus to change an amount writes the settings file once, when you let go. Utility Belt now carries Quick Transfer 1.9.5; details are in Quick Transfer's own changelog under 1.9.5.
+
 ## [0.1.9] - 2026-11-11
 
 ### Fixed
